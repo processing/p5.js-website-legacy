@@ -1,6 +1,6 @@
-# p5js
+# p5js website
 
-> The best project ever..
+> Rebuild of the p5.js website using Node.js, Grunt, and Assemble (see below)
 
 ## [Assemble](http://assemble.io/)
 
