@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Start | p5.js</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- Bootstrap theme -->
+    <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    
+<!-- fixed header at the top-->
+<div class="nav" id="family">
+  <div class="container">
+    <div>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="http://processing.org">Processing</a>
+        </li>
+        <li>
+          <a href="http://p5js.org" class="here">p5.js</a>
+        </li>
+        <li>
+          <a href="http://py.processing.org/">Processing.py</a>
+        </li>
+      </ul>
+  <div class="nav navbar-nav right">
+    <!-- <form name="search" method="get" action="http://www.google.com/search">
+    <input type="hidden" name="as_sitesearch" value="p5js.org" />
+    <input id="search_field" type="text" name="as_q" value="" size="20" class="text" />
+    <input id="search_button" type="submit" value=" " />   </form> -->
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="http://foundation.processing.org" class="dropdown-toggle" data-toggle="dropdown">Processing Foundation</a>
+        </li>
+      </ul>
+  </div>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+
+    <div class="container theme-showcase" role="main">
+      
+
+    <script type="text/javascript" src="assets/js/translation.js"></script>
+    <script src="assets/js/i18next-1.9.0.min.js"></script>
+<!-- content sections -->
+
+<div>
+  <div id = "container">
+  
+<!-- p5*js logo -->
+<div id="logo" >
+<a href="http://p5js.org">
+    <img src = "http://p5js.org/img/p5js-beta.svg" id="logo_image" class="logo">
+</a>
+</div>
+<br>
+<br>
+<br>
+<div class="column-span">
+  
+<!-- Scrolling Sidebar -->
+
+<div>
+<ul id="side-menu" class="menu">
+  <li><a href="/index.html">Home</a></li>
+  <li><a href="#">Download</a></li> 
+  <li><a href="/gallery.html">Gallery</a></li>
+  <li><a href="/get-started.html">Get&nbsp;Started</a></li>
+  <li><a href="/translation.html">Reference</a></li>
+  <li><a href="#">Libraries</a></li>
+  <li><a href="#">Tutorials</a></li>
+  <li><a href="#">Examples</a></li>
+  <li><a href="/community.html">Community</a>
+  <li><a href="/contribute.html">Contribute</a></li>
+  <li><a href="http://forum.processing.org/two/" target=_blank class="other-link">Forum</a></li>
+  <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">Github</a></li>
+  <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+</ul>
+<br />
+</div>
+
+<script src="assets/js/scroll.js"></script>
+  <section>
+    <h2>Get Started</h2>
+  <p>This page walks you through setting up a p5.js project and making your first sketch.
+      If you are using the p5 editor, you can skip to the <a href="#your-first-sketch">Your
+      First Sketch</a> section. Processing users may want to check out the 
+      <a href="https://github.com/processing/p5.js/wiki/Processing-transition">Processing
+      transition tutorial</a>.
+      </p>
+      <a class="anchor" href="#file-setup"><h3 class = "start-element" id = "download">Download and File Setup</h3></a>
+    <div class="info" id="download">
+      <p>
+        The easiest way to start is by using the empty example that comes with the
+        <a href="../download/">p5.js complete</a> download. 
+      </p>
+      
+      <p>If you look in index.html, you&#8217;ll notice that it links to the file p5.js. If
+      you would like to use the minified version (compressed for faster page loading),
+      change the link to p5.min.js.</p>
+
+      <pre><code class="language-markup">&lt;script src="../p5.min.js">&lt;/script></code></pre>   
+      
+      <p>Alternatively, you can link to a p5.js file hosted 
+        online. All versions of p5.js are stored in a CDN (&#8220;Content Delivery 
+        Network&#8221;). You can see a history of these versions here: <a target="_blank"
+        href="http://cdnjs.com/libraries/p5.js" >p5.js CDN</a>. In this case you can 
+        change the link to:
+      </p>
+
+      <pre><code class="language-markup">&lt;script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.0.0/p5.js">&lt;/script></code></pre>   
+
+      <p>
+        Where &#8220;0.0.0&#8221; gets replaced by the version you&#8217;d like to use (the highest one is usually best).
+      </p>
+    </div>
+
+      <a name="environment" class="anchor"><h3 class = "start-element" id = "environment">Environment</h3></a>
+      <div class="info" id = "environment">
+      <p>
+        You can use the <a href="http://en.wikipedia.org/wiki/Source_code_editor" 
+        target="_blank">code editor</a> of your choice. Instructions for getting set up 
+        with <a href="http://www.sublimetext.com/2" target="_blank"> Sublime Text 2</a> are  
+        included below. (An official p5 editor is in development, you can test out the
+        alpha version <a href="../download/#editor">here</a>.)
+      </p>
+
+      <p>
+        Open Sublime. Go to the File menu and choose Open... and choose the folder 
+        that your html and js files are located in. On the left sidebar, you should now
+        see the folder name at the top, with a list of the files contained in the 
+        folder directly below.
+      </p>
+      
+      <p>Click on your sketch.js file and it will open on the right 
+        where you can edit it.
+      </p>
+      <img src="assets/img/sublime2.png">
+      
+      <p>Open a web browser. Type:<br> <code>localhost/path/to/your/index.html</code> 
+          <br> in the address bar to view your sketch.
+      </p>
+      </div>
+
+      <a name="your-first-sketch" class="anchor"><h3 class = "start-element" id = "sketch">Your First Sketch</h3></a>
+      <div class = "info" id = "sketch">
+      <p>
+        In your editor, type the following:
+      </p>
+
+      <pre><code class="language-javascript">function setup() {
+
+}
+
+function draw() {
+  ellipse(50, 50, 80, 80);
+}</code></pre>  
+
+      <p>
+        This line of code means &#8220;draw an ellipse, with the center 50 pixels over from the
+        left and 50 pixels down from the top, with a width and height of 80 pixels.&#8221;
+      </p>
+      <p>
+        Refresh your page view in your browser, if you&#8217;ve typed everything correctly, 
+        you&#8217;ll see this appear in the display window: 
+      </p>
+      <img src="assets/img/first-sketch.png">
+
+      <p>
+        If you didn&#8217;t type it correctly, you might not see anything. If this happens, 
+        make sure that you&#8217;ve copied the example code exactly: the numbers should be 
+        contained within parentheses and have commas between each of them, and the line 
+        should end with a semicolon.
+      </p>
+
+      <p>
+        One of the most difficult things about getting started with programming is that 
+        you have to be very specific about the syntax. The browser isn&#8217;t always smart 
+        enough to know what you mean, and can be quite fussy about the placement of 
+        punctuation. You&#8217;ll get used to it with a little practice. Depending on the 
+        browser you are using, you can also see errors by looking at the JavaScript 
+        &#8220;console&#8221;. In chrome, for example, this is under View > Developer > JavaScript 
+        Console.
+      </p>
+
+      <p>
+        Next, we&#8217;ll skip ahead to a sketch that&#8217;s a little more exciting. Delete the text
+         from the last example, and try this:
+      </p>
+
+      <pre><code class="language-javascript">function setup() {
+  createCanvas(640, 480);
+}
+
+function draw() {
+  if (mouseIsPressed) {
+    fill(0);
+  } else {
+    fill(255);
+  }
+  ellipse(mouseX, mouseY, 80, 80);
+}</code></pre>  
+
+      <p>
+        This program creates a window that is 640 pixels wide and 480 pixels high, and 
+        then starts drawing white circles at the position of the mouse. When a mouse 
+        button is pressed, the circle color changes to black. We&#8217;ll explain more about 
+        the elements of this program in detail later. For now, run the code, move the 
+        mouse, and click to experience it.
+      </p>
+
+      <img src="assets/img/first-sketch2.png">
+    </div>
+      <h3 class = "start-element" id = "next">What Next?</h3>
+      <div class = 'info' id = 'next'>
+        <ul>
+          <li>Read the 
+          <a href="https://github.com/processing/p5.js/wiki/Processing-transition">
+          Processing transition tutorial</a> to learn how to convert from Processing
+          to p5.js, and the main differences between them.</li>
+
+        <li>View the <a href="../reference/">reference</a> for full documentation.</li>
+
+        <li>Check out the <a href="../learn/">learn</a> page for tutorials and
+          examples.</li>  
+        </ul>
+      </div>
+
+
+      <p style="font-size: 1em; color:#AFAFAF">Parts of this tutorial were adapted from the book, Getting Started with Processing, by Casey Reas 
+      and Ben Fry, O&#8217;Reilly / Make 2010. Copyright &copy; 2010 Casey Reas and Ben Fry. All rights reserved.</p>
+  
+<!-- Fixed footer -->
+
+<footer class = "footer"> 
+  <div> 
+    <p> p5.js is developed by a community of collaborators, with support from the <a href="http://processing.org/foundation/"> Processing Foundation</a> and <a href="http://itp.nyu.edu/itp/">NYU ITP</a>. Updated June 2, 2015. </p>
+  </div> 
+</footer>
+  </section>
+  </div>
+</div>
+</div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/i18next-1.9.0.min.js"></script>
+    <!--<script src="assets/js/translation.js"></script>-->
+  </body>
+</html>
