@@ -1,55 +1,44 @@
 ---
-title: Home
-heading: 'p5.js'
-language: en
+language: 'en'
+title: index
 ---
-
 <div id = "home-page">
   <div id = "container">
-  <h1>
-      {{#i18n "greeting"}}{{/i18n}}
-  </h1>
-  <button onclick="toEn()"> english </button>
-  <button onclick="toEs()"> spanish </button>
-  {{>logo}}
+    {{>i18n-en}}
+    {{>logo}}
 <br>
 <br>
 <br>
 <div class="column-span">
 <nav class="navbar row">
 <ul class="menu nav nav-pills">
-      <li id="first-li"><a href="/blog.html">Download</a></li>
+      <li id="first-li"><a href="blog.html">{{#i18n "Download"}}{{/i18n}}</a></li>
       <li>*</li>
-      <li><a href="/get-started.html" data-i18n="nav.start">Start</a></li>
+      <li><a href="get-started.html">{{#i18n "Start"}}{{/i18n}}</a></li>
       <li><object>*</object></li>
-      <li><a href="#">Reference</a></li>
+      <li><a href="#">{{#i18n "Reference"}}{{/i18n}}</a></li>
       <li><object>*</object></li>
-      <li><a href="#">Libraries</a></li>
+      <li><a href="#">{{#i18n "Libraries"}}{{/i18n}}</a></li>
       <li><object>*</object></li>
-      <li><a href="#">Learn</a></li>
+      <li><a href="#">{{#i18n "Learn"}}{{/i18n}}</a></li>
       <li><object>*</object></li>
-      <li><a href="/contribute.html">Contribute</a></li>
+      <li><a href="contribute.html">{{#i18n "Contribute"}}{{/i18n}}</a></li>
 </ul>
 </nav>
   <section id="home">
-  <p><a href="http://hello.p5js.org">Hello!</a> p5.js is a JavaScript library that starts with the original goal of 
-      <a href="http://processing.org">Processing</a>, to make coding accessible 
-      for artists, designers, educators, and beginners, and reinterprets this for today&#8217;s web. 
-      </p>
+  <p>
+  <a href="http://hello.p5js.org">{{#i18n "hello"}}{{/i18n}}</a> {{#i18n "p1x1"}}{{/i18n}}<a href="http://processing.org">Processing</a>{{#i18n "p1x2"}}{{/i18n}} 
+  </p>
 
-   <p>Using the original metaphor of a software sketchbook, p5.js has a full set of
-      drawing functionality. However, you&#8217;re not limited
-      to your drawing canvas, you can think of your whole browser page as your sketch!
-      For this, p5.js has addon <a href="libraries/">libraries</a> that make it 
-      <a href="http://hello.p5js.org">
-      easy to interact</a> with other HTML5
-      objects, including text, input, video, webcam, and sound.</p>
-  <p>p5.js is a new interpretation, not an emulation or port, and it is in active development. An official editing environment is coming soon, as well as many more features!</p>
+   <p>
+   {{#i18n "p2x1"}}{{/i18n}} <a href="libraries/">{{#i18n "libraries"}}{{/i18n}} </a>{{#i18n "p2x2"}}{{/i18n}} 
+      <a href="http://hello.p5js.org">{{#i18n "interact"}}{{/i18n}} </a> {{#i18n "p2x3"}}{{/i18n}} </p>
+  <p>
+  {{#i18n "p3"}}{{/i18n}}
+  </p>
   <p>
   {{> footer}}
   </section>
   </div>
 </div>
 </div>
-
-<script src="{{assets}}/js/translation.js"></script>

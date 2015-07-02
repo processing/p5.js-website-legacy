@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>p5.js</title>
+    <title></title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
 
     <!-- Bootstrap theme -->
-    <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../../../../../css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/theme.css" rel="stylesheet">
+    <link href="../../../../../css/theme.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,6 +56,7 @@
 
 
     <div class="container theme-showcase" role="main">
+      <h1>YOOOOOOOOOO</h1>
       
 <!-- content sections -->
 
@@ -63,10 +64,25 @@
   <div id = "container">
   
 <!-- p5*js language buttons -->
-  <div class="i18n-btn">
-      <a href="../" class="no-underline"><button onClick="toEn()" class="btn disabled" id="en-btn"> english</button></a>
-      <a href="es/" class="no-underline"> <button onClick="toEs()" class="btn active" id="es-btn">espanol</button></a>
-  </div>
+      <a href="../"><button onClick="toEn()" class="btn active" id="en-btn"> english</button></a>
+      <a href="es/"> <button onClick="toEs()" class="btn disabled" id="es-btn">espanol</button></a>
+      <script> 
+        function toEs() {
+          $('#es-btn').addClass('disabled');
+          $('#es-btn').removeClass('active');
+
+          $('#en-btn').addClass('active');
+          $('#en-btn').removeClass('disabled');
+        }
+
+        function toEn() {
+          $('#en-btn').addClass('disabled');
+          $('#en-btn').removeClass('active');
+
+          $('#es-btn').addClass('active');
+          $('#es-btn').removeClass('disabled');
+        }
+      </script>
   
 <!-- p5*js logo -->
 <div id="logo" >
@@ -83,16 +99,16 @@
 
 <div>
 <ul id="side-menu" class="menu">
-  <li><a href="index.html">Home</a></li>
+  <li><a href="/index.html">Home</a></li>
   <li><a href="#">Download</a></li> 
-  <li><a href="gallery.html">Gallery</a></li>
-  <li><a href="get-started.html">Get Started</a></li>
-  <li><a href="translation.html">Reference</a></li>
+  <li><a href="/gallery.html">Gallery</a></li>
+  <li><a href="/get-started.html">Get Started</a></li>
+  <li><a href="/translation.html">Reference</a></li>
   <li><a href="#">Libraries</a></li>
   <li><a href="#">Tutorials</a></li>
   <li><a href="#">Examples</a></li>
-  <li><a href="community.html">Community</a>
-  <li><a href="contribute.html">Contribute</a></li>
+  <li><a href="/community.html">Community</a>
+  <li><a href="/contribute.html">Contribute</a></li>
   <li><a href="http://forum.processing.org/two/" target=_blank class="other-link">Forum</a></li>
   <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">Github</a></li>
   <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
@@ -100,7 +116,7 @@
 <br />
 </div>
 
-<script src="assets/js/scroll.js"></script>
+<script src="../../../../../js/scroll.js"></script>
   <section>
     <h2>Get Started</h2>
   <p>This page walks you through setting up a p5.js project and making your first sketch.
@@ -156,7 +172,7 @@
       <p>Click on your sketch.js file and it will open on the right 
         where you can edit it.
       </p>
-      <img src="assets/img/sublime2.png">
+      <img src="../../../../../img/sublime2.png">
       
       <p>Open a web browser. Type:<br> <code>localhost/path/to/your/index.html</code> 
           <br> in the address bar to view your sketch.
@@ -185,7 +201,7 @@ function draw() {
         Refresh your page view in your browser, if you&#8217;ve typed everything correctly, 
         you&#8217;ll see this appear in the display window: 
       </p>
-      <img src="assets/img/first-sketch.png">
+      <img src="../../../../../img/first-sketch.png">
 
       <p>
         If you didn&#8217;t type it correctly, you might not see anything. If this happens, 
@@ -230,7 +246,7 @@ function draw() {
         mouse, and click to experience it.
       </p>
 
-      <img src="assets/img/first-sketch2.png">
+      <img src="../../../../../img/first-sketch2.png">
     </div>
       <h3 class = "start-element" id = "next">What Next?</h3>
       <div class = 'info' id = 'next'>
@@ -268,7 +284,7 @@ function draw() {
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- <script src="assets/js/main.js"></script> -->
+    <script src="../../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../../js/i18next-1.9.0.min.js"></script>
   </body>
 </html>

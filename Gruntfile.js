@@ -73,12 +73,13 @@ module.exports = function(grunt) {
           layout: '<%= config.src %>/templates/layouts/default.hbs',
           data: '<%= config.src %>/data/*.{json,yml}',
           partials: '<%= config.src %>/templates/partials/*.hbs',
-          plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap','assemble-middleware-i18n'],
+          plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap','assemble-middleware-i18n']
         },
         files: {
-          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
+          '<%= config.dist %>/es': ['<%= config.src %>/templates/pages/es/*.hbs'],
+          '<%= config.dist %>': ['<%= config.src %>/templates/pages/*.hbs']
         }
-      }
+      },
     },
 
     copy: {
@@ -111,6 +112,12 @@ module.exports = function(grunt) {
         cwd: 'src/assets/fonts',
         src: '**',
         dest: '<%= config.dist %>/assets/fonts'
+      }, 
+      es: {
+        expand: true,
+        cwd: 'src/templates/pages-es/',
+        src: '**',
+        dest: '<%= config.dist %>/es/' 
       }
     },
 
