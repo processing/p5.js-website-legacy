@@ -67,7 +67,8 @@ module.exports = function(grunt) {
     assemble: {
       pages: {
         options: {
-          flatten: true,
+          //flatten: true,
+          expand: true,
           helpers: ['<%= config.dist %>/assets/js/translation.js'],
           assets: '<%= config.dist %>/assets',
           layout: '<%= config.src %>/templates/layouts/default.hbs',
@@ -75,10 +76,16 @@ module.exports = function(grunt) {
           partials: '<%= config.src %>/templates/partials/*.hbs',
           plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap','assemble-middleware-i18n']
         },
-        files: {
-          '<%= config.dist %>/es': ['<%= config.src %>/templates/pages/es/*.hbs'],
-          '<%= config.dist %>': ['<%= config.src %>/templates/pages/*.hbs']
-        }
+        files: [
+          {expand: true, cwd: '<%= config.src %>/templates/pages/', src: '**/**/**/**/**/*.{hbs, js, html, png, jpg}', dest: 'dist/', ext: '.html'}
+          //'<%= config.dist %>/es': ['<%= config.src %>/templates/pages/es/*.hbs'],
+          //'<%= config.dist %>/examples': ['<%= config.src %>/templates/pages/examples/**'],
+          // '<%= config.dist %>/examples/examples': ['<%= config.src %>/templates/pages/examples/examples/*.hbs'],
+          // '<%= config.dist %>/examples/demos': ['<%= config.src %>/templates/pages/examples/demos/*.hbs'],
+          // '<%= config.dist %>/examples/examples_src': ['<%= config.src %>/templates/pages/examples/examples_src/*.hbs'],
+          // '<%= config.dist %>/examples/demos_src': ['<%= config.src %>/templates/pages/examples/demos_src/*.hbs'],
+          //'<%= config.dist %>': ['<%= config.src %>/templates/pages/*.hbs']
+        ]
       },
     },
 
@@ -112,12 +119,24 @@ module.exports = function(grunt) {
         cwd: 'src/assets/fonts',
         src: '**',
         dest: '<%= config.dist %>/assets/fonts'
-      }, 
-      es: {
+      },
+      examples: {
         expand: true,
-        cwd: 'src/templates/pages-es/',
+        cwd: 'src/templates/pages/examples/examples_src',
         src: '**',
-        dest: '<%= config.dist %>/es/' 
+        dest: '<%= config.dist %>/examples/examples_src'
+      },
+      example: {
+        expand: true,
+        cwd: 'src/templates/pages/examples/examples/',
+        src: ['example.html', 'assets/'],
+        dest: '<%= config.dist %>/examples/examples'
+      },
+      demos: {
+        expand: true,
+        cwd: 'src/templates/pages/examples/demos_src',
+        src: '**',
+        dest: '<%= config.dist %>/examples/demos_src'
       }
     },
 

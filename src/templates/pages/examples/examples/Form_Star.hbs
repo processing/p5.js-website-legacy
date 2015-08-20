@@ -1,0 +1,41 @@
+---
+title: form_star
+heading: 'p5.js'
+language: en
+---
+<!-- content sections -->
+
+<div>
+  <div id = "container">
+  {{>i18n-en}}
+  {{>logo}}
+<div class="column-span">
+  {{>sidebar}}
+      <section>
+          <p id="backlink"><a href="../#examples">< Back to Examples</a></p>
+          <h2>{{#i18n "title"}}{{/i18n}}</h2>
+          <p>{{#i18n "sub"}}{{/i18n}} </p>
+
+          <div id="exampleDisplay">
+            <iframe id="exampleFrame" src="example.html" ></iframe>
+            <div class="edit_space">
+              <button id="runButton" class="edit_button">run</button>
+              <button id="resetButton" class="reset_button">reset</button>
+            </div>
+            <div id="exampleEditor"></div>
+          </div>
+
+          <p><a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px"/></a></p>
+      {{> footer}}
+      </section>
+    </div>
+
+    <script src="../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="../../assets/js/examples.js"></script>
+    <script>
+      $(document).ready( function () {
+          examples.init('../examples_src/01_Form/04_Star.js');
+      });
+    </script>
+  </body>
+</html>

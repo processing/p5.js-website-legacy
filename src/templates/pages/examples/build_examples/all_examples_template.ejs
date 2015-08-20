@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+  <?php include('../header.php'); ?>
+  <body id="learn-page">
+
+    <?php include('../sidebar.php'); ?>
+
+    <!-- content sections -->
+    <div class="column-span">
+
+    <section>
+      <h2>Examples</h2>
+
+      <div class="column_0">
+      <% var t = 0; var col=1; for(var topic in all['examples']) { %>
+        <p>
+        <strong><% var newt = topic.replace('_', ' ')%><%=newt%></strong><br>
+        <% for(var i=0; i<all['examples'][topic].length; i++) { %>
+          <a href="<%=all['examples'][topic][i][1]%>"><%= all['examples'][topic][i][0] %></a><br>
+          <% t++ %>
+        <% } %>
+        </p>
+        <% if (t >= total['examples']/3) { %>
+          </div>
+          <div class="column_<%=col%>">
+        <% col++; t=0; } %>
+      <% } %>
+      </div>
+
+      <div class="spacer"></div>
+
+      <a name="demos" class="anchor"><h3>Demos</h3></a>
+      <div class="column_0">
+      <% var t = 0; var col=1; for(var topic in all['demos']) { %>
+        <p>
+        <strong><% var newt = topic.replace('_', ' ')%><%=newt%></strong><br>
+        <% for(var i=0; i<all['demos'][topic].length; i++) { %>
+          <a href="<%=all['demos'][topic][i][1]%>"><%= all['demos'][topic][i][0] %></a><br>
+          <% t++ %>
+        <% } %>
+        </p>
+        <% if (t >= total['demos']/3) { %>
+          </div>
+          <div class="column_<%=col%>">
+        <% col++; t=0; } %>
+      <% } %>
+      </div>
+      <!--<li><a href="https://github.com/processing/p5.js/tree/master/examples/learningprocessing">Learning Processing examples</a> - port of the first 10 chapters of examples from Dan Shiffman's <a href="http://www.learningprocessing.com/examples/">Learning Processing book</a>.</li>
+
+      <li><a href="http://risd-creative-programming.github.io/fa13-introtocreativeprogramming/examples.html">RISD class examples</a> - examples covering basics of programming with p5.js used in RISD Intro Creative Programming class.</li>-->
+
+
+    </section>
+    <?php include('../footer.php'); ?>
+    <!-- outside of column for footer to go across both -->
+
+    <p class="clearfix"> &nbsp; </p>
+
+    </div><!-- end id="container"  -->
+
+    <object type="image/svg+xml" data="<?php echo getRoot(); ?>img/thick-asterisk-alone.svg" id="asterisk-design-element">
+         *<!-- to do: add fallback image in CSS -->
+    </object>
+
+    <?php include('../end.php'); ?>
+  </body>
+</html>
