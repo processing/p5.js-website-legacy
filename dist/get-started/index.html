@@ -1,60 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>p5.js</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title>start</title>
+
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../assets/css/bootstrap.min.css"> -->
 
     <!-- Bootstrap theme -->
-    <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet"> -->
 
-    <!-- Custom styles for this template -->
-    <link href="../assets/css/theme.css" rel="stylesheet">
+    <!-- CSS (order matters): normalize across browsers -->
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+
+    <!-- CSS (order matters): Site styles -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <!-- CSS (order matters): code highlighting -->
+    <link rel="stylesheet" href="../assets/css/prism.css">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- jquery-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="<?php echo getRoot(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
   </head>
   <body>
 
     
-<!-- fixed header at the top-->
-<div class="nav" id="family">
-  <div class="container">
-    <div>
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="http://processing.org">Processing</a>
-        </li>
-        <li>
-          <a href="http://p5js.org" class="here">p5.js</a>
-        </li>
-        <li>
-          <a href="http://py.processing.org/">Processing.py</a>
-        </li>
-      </ul>
-  <div class="nav navbar-nav right">
-    <!-- <form name="search" method="get" action="http://www.google.com/search">
+
+<div id="family">
+  <p class="left"><a href="http://processing.org">Processing</a>
+     <a class="here" href="/">p5.js</a>
+     <a href="http://py.processing.org/">Processing.py</a>
+     <a href="http://android.processing.org/">Processing for Android</a>
+  </p>
+  <form style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
     <input type="hidden" name="as_sitesearch" value="p5js.org" />
     <input id="search_field" type="text" name="as_q" value="" size="20" class="text" />
-    <input id="search_button" type="submit" value=" " />   </form> -->
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="http://foundation.processing.org" class="dropdown-toggle" data-toggle="dropdown">Processing Foundation</a>
-        </li>
-      </ul>
-  </div>
-    </div><!--/.nav-collapse -->
-  </div>
+    <input id="search_button" type="submit" value=" " />
+  </form>
+  <p class="right">
+    <a href="https://processingfoundation.org/">Processing Foundation</a>
+  </p>
+</div>
+
+<div id="container">
+<!-- identity -->
+<div id="lockup">
+  <a href="/">
+  <img type="image/svg+xml" src="../assets/img/p5js-beta.svg" id="logo_image" class="logo" />
+  <div id="p5_logo"></div>
+  </a>
 </div>
 
 
@@ -70,14 +73,6 @@
       <a href="../" class="no-underline"><button onClick="toEn()" class="btn disabled" id="en-btn"> english</button></a>
       <a href="es/" class="no-underline"> <button onClick="toEs()" class="btn active" id="es-btn">espanol</button></a>
   </div>
-  
-<!-- p5*js logo -->
-
-<div id="lockup" >
-<a href="http://p5js.org">
-    <img src = "http://p5js.org/img/p5js-beta.svg" id="logo_image" class="logo">
-</a>
-</div>
 <div class="column-span">
   
 <!-- Scrolling Sidebar -->
@@ -225,7 +220,7 @@ function draw() {
 
     </div>    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <!-- <script src="../assets/js/bootstrap.min.js"></script> -->
     <!-- <script src="../assets/js/main.js"></script> -->
   </body>
 </html>

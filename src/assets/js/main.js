@@ -1,18 +1,4 @@
-function toEn() {
-  $("#en-btn").removeClass('active');
-  $("#en-btn").addClass('disabled');
-  console.log("en");
-}
-
-function toEs() {
-  $("#es-btn").removeClass('active');
-  $("#es-btn").addClass('disabled');
-  $("#en-btn").removeClass('disabled');
-  $("#en-btn").addClass('active');
-  console.log("es");
- }
-
- $('#family form').hover(
+$('#family form').hover(
   function() {
     $('#search_field').css('visibility', 'visible');
     $('#search_field').animate({width: '9.75em'}, 100);
