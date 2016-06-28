@@ -21,6 +21,3 @@ module.exports.register = function(Handlebars, options) {
           return this[this.language][this.title][context];
     });
 };
-
-
-
