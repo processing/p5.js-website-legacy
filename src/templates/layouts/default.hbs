@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title>{{title}}</title>
+    <title>{{site.title}}</title>
 
     <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
 
@@ -33,13 +33,39 @@
   </head>
   <body>
 
+    {{>i18n}}
+
     {{> header }}
 
-    <div class="container theme-showcase" role="main">
-      {{> body }}
-    </div>    
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="{{assets}}/js/bootstrap.min.js"></script> -->
-    <!-- <script src="{{assets}}/js/main.js"></script> -->
+    {{> body }}
+      <!--scripts before close of body element -->
+
+      <!-- prism for code highlighting -->
+      <script src="{{assets}}/js/vendor/prism.js"></script>
+
+      <!-- boilerplate suggestions
+      <script src="js/plugins.js"></script> -->
+      <script src="{{assets}}/js/p5.min.js"></script>
+      <script src="{{assets}}/js/p5.dom.js"></script>
+      <script src="{{assets}}/js/p5.sound.js"></script>
+      <script src="{{assets}}/js/render.js"></script>
+      <script src="{{assets}}/js/main.js"></script>
+      <script src="{{assets}}/js/logo.js"></script>
+      <script>
+        <!--renderCode('bg_code');-->
+        renderCode();
+      </script>
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53383000-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+
   </body>
 </html>

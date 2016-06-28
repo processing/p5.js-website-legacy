@@ -14,6 +14,16 @@ $('#family form').focusout(function() {
   closeSearch();
 });
 
+$(window).ready(function() {
+  if (window.location.pathname.indexOf('/es/') === -1) {
+    $('#en-btn').attr('disabled', true);
+    $('#es-btn').attr('disabled', false);
+  } else {
+    $('#en-btn').attr('disabled', false);
+    $('#es-btn').attr('disabled', true);
+  }
+});
+
 function closeSearch() {
   $('#search_field').css('width', '0em');
   $('#search_field').css('visibility', 'hidden');

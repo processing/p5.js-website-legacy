@@ -41,7 +41,8 @@ module.exports = function(grunt) {
           '<%= config.dist %>/{,*/}*.html',
           '<%= config.dist %>/assets/css/*.css',
           '<%= config.dist %>/assets/js/*.js',
-          '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= config.dist %>/assets/p5_featured/{,*/}*.*'
         ]
       }
     },
@@ -67,27 +68,51 @@ module.exports = function(grunt) {
     assemble: {
       pages: {
         options: {
-          //flatten: true,
           expand: true,
+          flatten: true,
           helpers: ['<%= config.dist %>/assets/js/translation.js'],
           assets: '<%= config.dist %>/assets',
           layout: '<%= config.src %>/templates/layouts/default.hbs',
-          data: '<%= config.src %>/data/*.{json,yml}',
+          data: '<%= config.src %>/data/**/*.{json,yml}',
           partials: '<%= config.src %>/templates/partials/*.hbs',
-          plugins: ['assemble-contrib-permalinks','assemble-contrib-sitemap','assemble-middleware-i18n']
+          plugins: [
+            'assemble-contrib-permalinks',
+            'assemble-contrib-i18n'
+          ],
+          i18n: {
+            languages: [
+              'en',
+              'es'
+            ],
+            templates: [
+              "src/templates/pages/**/*.hbs",
+            ]
+          },
+          permalinks: {
+            structure: ':lang/:slug/:base:ext',
+            patterns: [
+              {
+                pattern: ':lang',
+                replacement: function () {
+                  return this.language === 'en' ? '' : this.language;
+                }
+              },
+              {
+                pattern: ':base',
+                replacement: function () {
+                  var i = this.basename.indexOf('-');
+                  return this.basename.substring(0, i);
+                }
+              }
+            ]
+          }
         },
-        files: [
-          {expand: true, cwd: '<%= config.src %>/templates/pages/', src: '**/**/**/**/**/*.{hbs, js, html, png, jpg}', dest: 'dist/', ext: '.html'}
-          //'<%= config.dist %>/es': ['<%= config.src %>/templates/pages/es/*.hbs'],
-          //'<%= config.dist %>/examples': ['<%= config.src %>/templates/pages/examples/**'],
-          // '<%= config.dist %>/examples/examples': ['<%= config.src %>/templates/pages/examples/examples/*.hbs'],
-          // '<%= config.dist %>/examples/demos': ['<%= config.src %>/templates/pages/examples/demos/*.hbs'],
-          // '<%= config.dist %>/examples/examples_src': ['<%= config.src %>/templates/pages/examples/examples_src/*.hbs'],
-          // '<%= config.dist %>/examples/demos_src': ['<%= config.src %>/templates/pages/examples/demos_src/*.hbs'],
-          //'<%= config.dist %>': ['<%= config.src %>/templates/pages/*.hbs']
-        ]
-      },
+        dest: '<%= config.dist %>',
+        src: "!*.*"
+      }
     },
+
+
 
     copy: {
       bootstrap: {
@@ -120,6 +145,12 @@ module.exports = function(grunt) {
         src: '**',
         dest: '<%= config.dist %>/assets/fonts'
       },
+      p5_featured: {
+        expand: true,
+        cwd: 'src/assets/p5_featured',
+        src: '**',
+        dest: '<%= config.dist %>/assets/p5_featured'
+      },
       examples: {
         expand: true,
         cwd: 'src/templates/pages/examples/examples_src',
@@ -142,7 +173,7 @@ module.exports = function(grunt) {
 
     // Before generating any new files,
     // remove any previously-created files.
-    clean: ['<%= config.dist %>/**/*.{html,xml}']
+    clean: ['<%= config.dist %>/**/*.*']
 
   });
 
