@@ -14,11 +14,11 @@ This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) usi
 * `src` – 
   * `assets` – All static files (imgs, css, fonts, js, p5_featured homepage sketches)
     * Note: if you make edits here you must restart the server to see your changes. To see changes immediately, you can edit the assets files in the dist directory, but need to copy and paste your updated work here for it to be saved.
-  * `data` - translation files
+  * `data` – translation files
   * `templates`
     * `layouts` – default.hbs is main page template
     * `pages` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
-    * `partials` - These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
+    * `partials` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
 * `dist` – Where the rendered files are stored, this can be placed directly online.
 
 ## Internationalization (i18n)
