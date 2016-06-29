@@ -42,4 +42,8 @@ This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) usi
 * [grunt-assemble-i18n](https://github.com/assemble/grunt-assemble-i18n) renders a set of pages for each language specified in the gruntfile, based on the handlebars templates and yml data. There is not a lot of documentation, but this [example](https://github.com/LaurentGoderre/i18n-demo) demonstrates the functionality well.
 * [assemble-contrib-permalinks](https://github.com/assemble/assemble-permalinks) allows us to customize the permalinks (file structure of the rendered static site).
 
+## Etc
+
+* If you are using sublime text, this plugin is useful for rendering hbs files with syntax highlighting: https://github.com/jonschlinkert/sublime-markdown-extended
+
 
