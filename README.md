@@ -2,6 +2,8 @@
 
 This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) using Grunt, YAML, and Assemble. The goals are to implement internationalization (i18n) and to improve site accessibility.
 
+If you're looking for the current version of the website, it is here: https://github.com/processing/p5.js-website. You can report issues with that [here](https://github.com/processing/p5.js-website/issues]).
+
 ## Setup
 
 1. Download this zip file and navigate to the directory in the terminal.
