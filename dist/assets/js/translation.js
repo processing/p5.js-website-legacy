@@ -1,23 +1,14 @@
-// var language = "es"; 
-
-// function toEn() {
-//   language = "en";
-//   console.log(language);
-// }
-
-// function toEs() {
-//   language = "es";
-//   console.log(language);
-// }
-
-// module.exports.register = function(Handlebars) {
-//     Handlebars.registerHelper('i18n', function(context) {
-//           return this[language][context];
-//     });
-// };
-
 module.exports.register = function(Handlebars, options) {
-    Handlebars.registerHelper('i18n', function(context, options) {
-          return this[this.language][this.title][context];
-    });
+  Handlebars.registerHelper('i18n', function(context, options) {
+
+    // First look in title, if not found, look in global.
+    return this[this.language][this.title][context] || this[this.language][context];
+  });
+  Handlebars.registerHelper('root', function(context, options) {
+    if (this.language === 'en') {
+      return '';
+    } else {
+      return '/'+this.language;
+    }
+  });
 };
