@@ -11,7 +11,7 @@ This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) usi
 
 ## File structure
 
-* `src` – 
+* `src` – All the pieces for generating the built site. Edits should be made here.
   * `assets` – All static files (imgs, css, fonts, js, p5_featured homepage sketches)
     * Note: if you make edits here you must restart the server to see your changes. To see changes immediately, you can edit the assets files in the dist directory, but need to copy and paste your updated work here for it to be saved.
   * `data` – translation files
@@ -20,18 +20,19 @@ This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) usi
     * `pages` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
     * `partials` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
 * `dist` – Where the rendered files are stored, this can be placed directly online.
+* `Gruntfile.js` – This file contains all the tasks for using assemble and YAML to generate the final, static site. It uses the taskrunner [grunt](http://gruntjs.com/).
 
-## Internationalization (i18n)
+## Internationalization (i18n) and structure
 
-* Each page uses handlebars to access the i18n data and render. The .yml files in the `src/data` folder hold the i18n data for each language. Within the pages there are tags that look like this:
-  ```
-  {{#i18n "MyKeyword"}}{{/i18n}}
-  ```
+* Each page uses handlebars to access the i18n data and render. The .yml files in the `src/data` folder hold the i18n data for each language. Within the pages there are tags that look like this: `{{#i18n "MyKeyword"}}{{/i18n}}`
+
 * MyKeyword corresponds to the key-value pair for the translation of that word or phrase. There should be a MyKeyword entry in every language file for things to render correctly.
 
 * Each page contains YAML "front matter" at the top which includes a title and (optional) slug field. The title corresponds to the section in which to place the i18n key-value pairs. (Note: each page has only one title, so for partials within the `partials` folder, place the i18n pairs at the top level.)
 
 * The slug corresponds to the folder in which the page will be placed. This should generally match the folder structure within the `pages` folder.
+
+* For english version, the site will follow the same top-level hierarchy as the original site. When you switch to a different language, the permalink and file structure will include a two letter abbreviation immediately following the root url. (ex: `https://p5js.org/es/get-started/`)
 
 ## Documentation
 
