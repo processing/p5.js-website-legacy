@@ -1,15 +1,14 @@
 #download
 
-#librería completa
+#Biblioteca completa
 
+#Archivos individuales
 
-#archivos individuales
-
-#editor
-El editor de p5.js actualmente sigue en desarrollo, prueba la versión beta ahora. Ayúdanos publicando feedback and bugs. Próximamente estará disponible en Linux, además de nuevas features.
+#Editor
+El editor de p5.js está actualmente en desarrollo, prueba la versión beta ahora. Ayúdanos compartiendo con nosotros tus comentarios y cualquier problema que tengas.
 
 #ETC
 Lanzamientos antiguos / bitácora de cambios
 Github
-Report bugs
-Supported browsers
+Reportar bugs
+Navegadores supported
