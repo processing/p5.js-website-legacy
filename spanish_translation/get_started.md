@@ -45,4 +45,4 @@ Lee el tutorial de transición para aprender cómo convertir de Processing a p5.
 
 Revisa la referencia para la documentación completa.
 
-Revisa la página de tutoriales y la página de ejemplos para más información. 
+Revisa la página de tutoriales y la página de ejemplos para más información.
