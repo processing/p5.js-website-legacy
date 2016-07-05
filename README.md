@@ -16,6 +16,7 @@ This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) usi
 ## Running
 
 Once you've setup the site, to run again in the future:
+
 1. Type `grunt server` to run.
 2. This should open a window in your browser with the site running at http://localhost:9000. 
 
