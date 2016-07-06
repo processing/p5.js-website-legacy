@@ -1,0 +1,49 @@
+---
+title: examples
+slug: examples/
+---
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <section>
+  
+      <p id="backlink"><a href="./#demos">< Back to Demos</a></p>
+      <h2>Interactivity 1</h2>
+      <p>The circle changes color when you click on it.
+ <p><em><span class="small"> To run this example locally, you will need the
+ <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>.
+ </em></p>
+ </p>
+
+      <div id="exampleDisplay">
+        <iframe id="exampleFrame" src="{{assets}}/examples/example.html" ></iframe>
+        <div class="edit_space">
+          <button id="runButton" class="edit_button">run</button>
+          <button id="resetButton" class="reset_button">reset</button>
+        </div>
+        <div id="exampleEditor"></div>
+      </div>
+
+      <p><a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px"/></a></p>
+
+    </section>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+  <script src="{{assets}}/js/vendor/ace-nc/ace.js"></script>
+  <script src="{{assets}}/js/examples.js"></script>
+  <script>
+    $(document).ready( function () {
+        examples.init('{{assets}}/examples/demos_src/01_Hello_P5/02_interactivity.js');
+    });
+  </script>
+
+</div><!-- end id="get-started-page"  -->

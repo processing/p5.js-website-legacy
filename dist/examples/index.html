@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title></title>
+
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link rel="stylesheet" href="../assets/css/bootstrap.min.css"> -->
+
+    <!-- Bootstrap theme -->
+    <!-- <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet"> -->
+
+    <!-- CSS (order matters): normalize across browsers -->
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+
+    <!-- CSS (order matters): Site styles -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <!-- CSS (order matters): code highlighting -->
+    <link rel="stylesheet" href="../assets/css/prism.css">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- jquery-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="<?php echo getRoot(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+  </head>
+  <body>
+
+    
+<!-- p5*js language buttons -->
+<div id="i18n-btn">
+  <button id="en-btn">EN</button>
+  <button id="es-btn">ES</button>
+</div>
+
+    
+
+<div id="family">
+  <p class="left"><a href="http://processing.org">Processing</a>
+     <a class="here" href="/">p5.js</a>
+     <a href="http://py.processing.org/">Processing.py</a>
+     <a href="http://android.processing.org/">Processing for Android</a>
+  </p>
+  <form style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
+    <input type="hidden" name="as_sitesearch" value="p5js.org" />
+    <input id="search_field" type="text" name="as_q" value="" size="20" class="text" />
+    <input id="search_button" type="submit" value=" " />
+  </form>
+  <p class="right">
+    <a href="https://processingfoundation.org/">Processing Foundation</a>
+  </p>
+</div>
+
+<div id="container">
+<!-- identity -->
+<div id="lockup">
+  <a href="/">
+  <img type="image/svg+xml" src="../assets/img/p5js-beta.svg" id="logo_image" class="logo" />
+  <div id="p5_logo"></div>
+  </a>
+</div>
+
+
+    
+
+<div id="learn-page">
+
+  
+<!-- site navigation -->
+<div class="column-span">
+<ul id="menu">
+  <li><a href="/">Home</a></li>
+  <li><a href="/download/">Download</a></li>
+  <li><a href="/gallery/"></a></li>
+  <li><a href="/get-started/">Start</a></li> 
+  <li><a href="/reference/">Reference</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tutorials/">Tutorials</a></li>
+  <li><a href="/examples/">Examples</a></li>
+  <li><a href="/books/">Books</a></li>
+  <li><a href="/community/">Community</a></li>
+  <li><a href="http://forum.processing.org/two/" target=_blank class="other-link">Forum</a></li>
+  <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">Github</a></li>
+  <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+</ul>
+<br>
+</div>
+
+<script src="../assets/js/scroll.js"></script>
+
+  <div class="column-span">
+
+    <section>
+      <h2>Examples</h2>
+
+      <div class="column_0">
+      
+        <p name='structure' class='anchor'>
+        <strong>Structure</strong><br>
+        
+          <a href="structure-coordinates.html">Coordinates</a><br>
+          
+        
+          <a href="structure-width-and-height.html">Width/Height</a><br>
+          
+        
+          <a href="structure-setup-and-draw.html">Setup/Draw</a><br>
+          
+        
+          <a href="structure-no-loop.html">No Loop</a><br>
+          
+        
+          <a href="structure-loop.html">Loop</a><br>
+          
+        
+          <a href="structure-redraw.html">Redraw</a><br>
+          
+        
+          <a href="structure-functions.html">Functions</a><br>
+          
+        
+          <a href="structure-recursion.html">Recursion</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='form' class='anchor'>
+        <strong>Form</strong><br>
+        
+          <a href="form-points-and-lines.html">Points/Lines</a><br>
+          
+        
+          <a href="form-shape-primitives.html">Shape Primitives</a><br>
+          
+        
+          <a href="form-pie-chart.html">Pie Chart</a><br>
+          
+        
+          <a href="form-regular-polygon.html">Regular Polygon</a><br>
+          
+        
+          <a href="form-star.html">Star</a><br>
+          
+        
+          <a href="form-triangle-strip.html">Triangle Strip</a><br>
+          
+        
+          <a href="form-bezier.html">Bezier</a><br>
+          
+        
+          <a href="form-3d-primitives.html">3D Primitives</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='data' class='anchor'>
+        <strong>Data</strong><br>
+        
+          <a href="data-variables.html">Variables</a><br>
+          
+        
+          <a href="data-true-and-false.html">True/False</a><br>
+          
+        
+          <a href="data-variable-scope.html">Variable Scope</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='arrays' class='anchor'>
+        <strong>Arrays</strong><br>
+        
+          <a href="arrays-array.html">Array</a><br>
+          
+        
+          <a href="arrays-array-2d.html">Array 2D</a><br>
+          
+        
+          <a href="arrays-array-objects.html">Array Objects</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='control' class='anchor'>
+        <strong>Control</strong><br>
+        
+          <a href="control-iteration.html">Iteration</a><br>
+          
+        
+          <a href="control-embedded-iteration.html">Embedded Iteration</a><br>
+          
+        
+          <a href="control-conditionals-1.html">Conditionals 1</a><br>
+          
+        
+          <a href="control-conditionals-2.html">Conditionals 2</a><br>
+          
+        
+          <a href="control-logical-operators.html">Logical Operators</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='image' class='anchor'>
+        <strong>Image</strong><br>
+        
+          <a href="image-load-and-display-image.html">Load/Display Image</a><br>
+          
+        
+          <a href="image-background-image.html">Background Image</a><br>
+          
+        
+          <a href="image-transparency.html">Transparency</a><br>
+          
+        
+          <a href="image-alpha-mask.html">Alpha Mask</a><br>
+          
+        
+          <a href="image-create-image.html">Create Image</a><br>
+          
+        
+          <a href="image-pointillism.html">Pointillism</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='color' class='anchor'>
+        <strong>Color</strong><br>
+        
+          <a href="color-hue.html">Hue</a><br>
+          
+        
+          <a href="color-saturation.html">Saturation</a><br>
+          
+        
+          <a href="color-brightness.html">Brightness</a><br>
+          
+        
+          <a href="color-color-variables.html">Color Variables</a><br>
+          
+        
+          <a href="color-relativity.html">Relativity</a><br>
+          
+        
+          <a href="color-linear-gradient.html">Linear Gradient</a><br>
+          
+        
+          <a href="color-radial-gradient.html">Radial Gradient</a><br>
+          
+        
+          <a href="color-lerp-color.html">Lerp Color</a><br>
+          
+        
+        </p>
+        
+          </div>
+          <div class="column_1">
+        
+      
+        <p name='math' class='anchor'>
+        <strong>Math</strong><br>
+        
+          <a href="math-increment-decrement.html">Increment Decrement</a><br>
+          
+        
+          <a href="math-operator-precedence.html">Operator Precedence</a><br>
+          
+        
+          <a href="math-distance-1d.html">Distance 1D</a><br>
+          
+        
+          <a href="math-distance-2d.html">Distance 2D</a><br>
+          
+        
+          <a href="math-sine.html">Sine</a><br>
+          
+        
+          <a href="math-sine-cosine.html">Sine Cosine</a><br>
+          
+        
+          <a href="math-sine-wave.html">Sine Wave</a><br>
+          
+        
+          <a href="math-additive-wave.html">Additive Wave</a><br>
+          
+        
+          <a href="math-polartocartesian.html">PolarToCartesian</a><br>
+          
+        
+          <a href="math-double-random.html">Double Random</a><br>
+          
+        
+          <a href="math-random.html">Random</a><br>
+          
+        
+          <a href="math--noise1d.html"> Noise1D</a><br>
+          
+        
+          <a href="math-noise-wave.html">Noise Wave</a><br>
+          
+        
+          <a href="math-arctangent.html">Arctangent</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='simulate' class='anchor'>
+        <strong>Simulate</strong><br>
+        
+          <a href="simulate-forces.html">Forces</a><br>
+          
+        
+          <a href="simulate-particle-system.html">Particle System</a><br>
+          
+        
+          <a href="simulate-flocking.html">Flocking</a><br>
+          
+        
+          <a href="simulate-wolfram-ca.html">Wolfram CA</a><br>
+          
+        
+          <a href="simulate-game-of-life.html">Game of Life</a><br>
+          
+        
+          <a href="simulate-multiple-particle-systems.html">Multiple Particle Systems</a><br>
+          
+        
+          <a href="simulate-spirograph.html">Spirograph</a><br>
+          
+        
+          <a href="simulate-l-systems.html">L-Systems</a><br>
+          
+        
+          <a href="simulate-spring.html">Spring</a><br>
+          
+        
+          <a href="simulate-soft-body.html">Soft Body</a><br>
+          
+        
+          <a href="simulate-smokeparticles.html">SmokeParticles</a><br>
+          
+        
+          <a href="simulate-brownian-motion.html">Brownian Motion</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='interaction' class='anchor'>
+        <strong>Interaction</strong><br>
+        
+          <a href="interaction-tickle.html">Tickle</a><br>
+          
+        
+          <a href="interaction-follow-1.html">Follow 1</a><br>
+          
+        
+          <a href="interaction-follow-2.html">Follow 2</a><br>
+          
+        
+          <a href="interaction-follow-3.html">Follow 3</a><br>
+          
+        
+          <a href="interaction-reach-1.html">Reach 1</a><br>
+          
+        
+          <a href="interaction-reach-2.html">Reach 2</a><br>
+          
+        
+          <a href="interaction-reach-3.html">Reach 3</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='objects' class='anchor'>
+        <strong>Objects</strong><br>
+        
+          <a href="objects-objects.html">Objects</a><br>
+          
+        
+          <a href="objects-multiple-objects.html">Multiple Objects</a><br>
+          
+        
+          <a href="objects-array-of-objects.html">Array of Objects</a><br>
+          
+        
+          <a href="objects-objects-2.html">Objects 2</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='lights' class='anchor'>
+        <strong>Lights</strong><br>
+        
+          <a href="lights-directional.html">Directional</a><br>
+          
+        
+          <a href="lights-mixture.html">Mixture</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='instance_mode' class='anchor'>
+        <strong>Instance_Mode</strong><br>
+        
+          <a href="instance_mode-instantiation.html">Instantiation</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='dom' class='anchor'>
+        <strong>Dom</strong><br>
+        
+          <a href="dom-input-and-button.html">Input/Button</a><br>
+          
+        
+          <a href="dom-slider.html">Slider</a><br>
+          
+        
+          <a href="dom-modifying-the-dom.html">Modifying the DOM</a><br>
+          
+        
+          <a href="dom-video.html">Video</a><br>
+          
+        
+          <a href="dom-video-canvas.html">Video Canvas</a><br>
+          
+        
+          <a href="dom-video-pixels.html">Video Pixels</a><br>
+          
+        
+          <a href="dom-video-capture.html">Video Capture</a><br>
+          
+        
+          <a href="dom-drop.html">Drop</a><br>
+          
+        
+        </p>
+        
+          </div>
+          <div class="column_2">
+        
+      
+        <p name='3d' class='anchor'>
+        <strong>3D</strong><br>
+        
+          <a href="3d-geometries.html">Geometries</a><br>
+          
+        
+          <a href="3d-sine-cosine-in-3d.html">Sine Cosine in 3D</a><br>
+          
+        
+          <a href="3d-multiple-lights.html">Multiple Lights</a><br>
+          
+        
+          <a href="3d-materials.html">Materials</a><br>
+          
+        
+          <a href="3d-textures.html">Textures</a><br>
+          
+        
+          <a href="3d-orbit-control.html">Orbit Control</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='sound' class='anchor'>
+        <strong>Sound</strong><br>
+        
+          <a href="sound-load-and-play-sound.html">Load/Play Sound</a><br>
+          
+        
+          <a href="sound-preload-soundfile.html">Preload SoundFile</a><br>
+          
+        
+          <a href="sound-soundformats.html">soundFormats</a><br>
+          
+        
+          <a href="sound-play-mode.html">Play Mode</a><br>
+          
+        
+          <a href="sound-pan-sound.html">Pan Sound</a><br>
+          
+        
+          <a href="sound-sound-effect.html">Sound Effect</a><br>
+          
+        
+          <a href="sound-playback-rate.html">Playback Rate</a><br>
+          
+        
+          <a href="sound--measuring-amplitude.html"> Measuring Amplitude</a><br>
+          
+        
+          <a href="sound-noise-drum-envelope.html">Noise Drum Envelope</a><br>
+          
+        
+          <a href="sound--note-envelope.html"> Note Envelope</a><br>
+          
+        
+          <a href="sound-oscillator-frequency.html">Oscillator Frequency</a><br>
+          
+        
+          <a href="sound-mic-input.html">Mic Input</a><br>
+          
+        
+          <a href="sound-frequency-spectrum.html">Frequency Spectrum</a><br>
+          
+        
+          <a href="sound-mic-threshold.html">Mic Threshold</a><br>
+          
+        
+          <a href="sound--filter-lowpass.html"> Filter LowPass</a><br>
+          
+        
+          <a href="sound--filter-bandpass.html"> Filter BandPass</a><br>
+          
+        
+          <a href="sound--delay.html"> Delay</a><br>
+          
+        
+          <a href="sound--reverb.html"> Reverb</a><br>
+          
+        
+          <a href="sound--convolution-reverb.html"> Convolution Reverb</a><br>
+          
+        
+          <a href="sound--record-save-audio.html"> Record Save Audio</a><br>
+          
+        
+          <a href="sound-frequency-modulation.html">Frequency Modulation</a><br>
+          
+        
+          <a href="sound-amplitude-modulation.html">Amplitude Modulation</a><br>
+          
+        
+        </p>
+        
+      
+        <p name='mobile' class='anchor'>
+        <strong>Mobile</strong><br>
+        
+          <a href="mobile-acceleration-ball-bounce.html">Acceleration Ball Bounce</a><br>
+          
+        
+          <a href="mobile-simple-draw.html">Simple Draw</a><br>
+          
+        
+          <a href="mobile-acceleration-color.html">Acceleration Color</a><br>
+          
+        
+          <a href="mobile-shake-ball-bounce.html">Shake Ball Bounce</a><br>
+          
+        
+          <a href="mobile-tilted-3d-box.html">Tilted 3D Box</a><br>
+          
+        
+        </p>
+        
+      
+      </div>
+
+      <div class="spacer"></div>
+
+      <a name="demos" class="anchor"><h3>Demos</h3></a>
+      <div class="column_0">
+      
+        <p>
+        <strong>Hello_P5</strong><br>
+        
+          <a href="hello_p5-simple-shapes.html">Simple Shapes</a><br>
+          
+        
+          <a href="hello_p5-interactivity-1.html">Interactivity 1</a><br>
+          
+        
+          <a href="hello_p5-interactivity-2.html">Interactivity 2</a><br>
+          
+        
+          <a href="hello_p5-animation.html">Animation</a><br>
+          
+        
+          <a href="hello_p5-flocking.html">Flocking</a><br>
+          
+        
+          <a href="hello_p5-weather.html">Weather</a><br>
+          
+        
+          <a href="hello_p5-drawing.html">Drawing</a><br>
+          
+        
+          <a href="hello_p5-song.html">Song</a><br>
+          
+        
+        </p>
+        
+          </div>
+          <div class="column_1">
+        
+      
+      </div>
+    </section>
+
+    
+<footer>
+  <p> p5.js was created by <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> and is developed by a community of collaborators, with support from the <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a>  and 
+  <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>.
+  <a href="http://p5js.org/copyright.php">&copy; Info.</a></p>
+</footer>
+
+
+  </div> <!-- end column-span -->
+
+  
+<!-- outside of column for footer to go across both -->
+
+<p class="clearfix"> &nbsp; </p>
+
+<object type="image/svg+xml" data="../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+     *<!-- to do: add fallback image in CSS -->
+</object>
+
+
+</div><!-- end id="get-started-page"  -->
+
+
+      <!--scripts before close of body element -->
+
+      <!-- prism for code highlighting -->
+      <script src="../assets/js/vendor/prism.js"></script>
+
+      <!-- boilerplate suggestions
+      <script src="js/plugins.js"></script> -->
+      <script src="../assets/js/p5.min.js"></script>
+      <script src="../assets/js/p5.dom.js"></script>
+      <script src="../assets/js/p5.sound.js"></script>
+      <script src="../assets/js/render.js"></script>
+      <script src="../assets/js/main.js"></script>
+      <script src="../assets/js/logo.js"></script>
+      <script>
+        <!--renderCode('bg_code');-->
+        renderCode();
+      </script>
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53383000-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+
+  </body>
+</html>

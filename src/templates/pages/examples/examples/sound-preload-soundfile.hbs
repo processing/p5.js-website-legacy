@@ -1,0 +1,53 @@
+---
+title: examples
+slug: examples/
+---
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <section>
+  
+      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
+      <h2>Preload SoundFile</h2>
+      <p>Call loadSound() during preload() to ensure that the
+ sound is completely loaded before setup() is called. It's best to always
+ call loadSound() in preload(), otherwise sounds won't necessarily be loaded
+ by the time you want to play them in your sketch.
+ *
+ <br><br><em><span class="small"> To run this example locally, you will need the
+ <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
+ a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em>
+ </p>
+
+      <div id="exampleDisplay">
+        <iframe id="exampleFrame" src="{{assets}}/examples/example.html" ></iframe>
+        <div class="edit_space">
+          <button id="runButton" class="edit_button">run</button>
+          <button id="resetButton" class="reset_button">reset</button>
+        </div>
+        <div id="exampleEditor"></div>
+      </div>
+
+      <p><a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px"/></a></p>
+
+    </section>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+  <script src="{{assets}}/js/vendor/ace-nc/ace.js"></script>
+  <script src="{{assets}}/js/examples.js"></script>
+  <script>
+    $(document).ready( function () {
+        examples.init('{{assets}}/examples/examples_src/33_Sound/01_Preload_Sound.js');
+    });
+  </script>
+
+</div><!-- end id="get-started-page"  -->

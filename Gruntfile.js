@@ -13,12 +13,13 @@ module.exports = function(grunt) {
 
   // Project configuration. actual tasks
   grunt.initConfig({
-
     config: {
       src: 'src',
       dist: 'dist'
     },
-
+    exec: {
+      build_examples: 'node <%= config.src %>/data/examples/build_examples/build.js <%= config.src %>/templates/pages/examples'
+    },
     watch: {
       assemble: {
         files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,json}'],
@@ -76,7 +77,7 @@ module.exports = function(grunt) {
               'es'
             ],
             templates: [
-              "src/templates/pages/**/*.hbs",
+              "<%= config.src %>/templates/pages/**/*.hbs",
             ]
           },
           permalinks: {
@@ -91,8 +92,10 @@ module.exports = function(grunt) {
               {
                 pattern: ':base',
                 replacement: function () {
-                  var i = this.basename.indexOf('-');
-                  return this.basename.substring(0, i);
+                  var check = this.basename.substring(this.basename.length-3);
+                  if (check === '-'+this.language) {
+                    return this.basename.substring(0, this.basename.length-3);
+                  } else return this.basename;
                 }
               }
             ]
@@ -106,59 +109,41 @@ module.exports = function(grunt) {
 
 
     copy: {
-      bootstrap: {
-        expand: true,
-        cwd: 'bower_components/bootstrap/dist/',
-        src: '**',
-        dest: '<%= config.dist %>/assets/'
-      },
       theme: {
         expand: true,
-        cwd: 'src/assets/css',
+        cwd: '<%= config.src %>/assets/css',
         src: '**',
         dest: '<%= config.dist %>/assets/css/'
       },
       images: {
         expand: true,
-        cwd: 'src/assets/img',
+        cwd: '<%= config.src %>/assets/img',
         src: '**',
         dest: '<%= config.dist %>/assets/img/'
       },
       js: {
         expand: true,
-        cwd: 'src/assets/js',
+        cwd: '<%= config.src %>/assets/js',
         src: '**',
         dest: '<%= config.dist %>/assets/js/'
       },
       fonts: {
         expand: true,
-        cwd: 'src/assets/fonts',
+        cwd: '<%= config.src %>/assets/fonts',
         src: '**',
         dest: '<%= config.dist %>/assets/fonts'
       },
       p5_featured: {
         expand: true,
-        cwd: 'src/assets/p5_featured',
+        cwd: '<%= config.src %>/assets/p5_featured',
         src: '**',
         dest: '<%= config.dist %>/assets/p5_featured'
       },
       examples: {
         expand: true,
-        cwd: 'src/templates/pages/examples/examples_src',
-        src: '**',
-        dest: '<%= config.dist %>/examples/examples_src'
-      },
-      example: {
-        expand: true,
-        cwd: 'src/templates/pages/examples/examples/',
-        src: ['example.html', 'assets/'],
-        dest: '<%= config.dist %>/examples/examples'
-      },
-      demos: {
-        expand: true,
-        cwd: 'src/templates/pages/examples/demos_src',
-        src: '**',
-        dest: '<%= config.dist %>/examples/demos_src'
+        cwd: '<%= config.src %>/data/examples/',
+        src: ['**', '!build_examples/**' ],
+        dest: '<%= config.dist %>/assets/examples'
       }
     },
 
@@ -168,8 +153,8 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('assemble');
-
 
   // multi-tasks: collections of other tasks
   grunt.registerTask('server', [
@@ -178,8 +163,14 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
+  grunt.registerTask('run', [
+    'connect:livereload',
+    'watch'
+  ])
+
   // runs three tasks in order
   grunt.registerTask('build', [
+    'exec',
     'clean',
     'copy',
     'assemble'
