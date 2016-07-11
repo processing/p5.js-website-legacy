@@ -1,4 +1,4 @@
-# p5js website
+ed# p5js website
 
 This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) using Grunt, YAML, and Assemble. The goals are to implement internationalization (i18n) and to improve site accessibility.
 
@@ -22,7 +22,7 @@ Once you've setup the site, to run again in the future:
 
 ## File structure
 
-* `src` – All the pieces for generating the built site. Edits should be made here.
+* `src` – All the pieces for generating the built site. __Edits should be made here.__
   * `assets` – All static files (imgs, css, fonts, js, p5_featured homepage sketches)
     * Note: if you make edits here you must restart the server to see your changes. To see changes immediately, you can edit the assets files in the dist directory, but need to copy and paste your updated work here for it to be saved.
   * `data` – translation files
