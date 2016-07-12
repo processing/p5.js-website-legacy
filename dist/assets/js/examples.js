@@ -13,32 +13,29 @@ var examples = {
     // Button
 
     $('#runButton').click( function() { 
-    examples.runExample();        
+      examples.runExample();        
     });
     $('#resetButton').click( function() { 
-    examples.resetExample();        
+      examples.resetExample();        
     });
     
 
     // Example Frame
-    if($("#isMobile-displayButton").length == 0) {
-      //it not mobile
+    if($("#isMobile-displayButton").length !== 0) {
+      //it mobile
       
+      $('#isMobile-displayButton').click( function() { 
+          
+         $('#exampleFrame').show();
+         $('#exampleFrame').ready(function() {
+            // alert('exampleFrame load')
+            examples.loadExample(true);
+          });
+      });
+    } else {
       $('#exampleFrame').load(function() {
           examples.loadExample(false);
       });
-    } else {
-      $('#isMobile-displayButton').click( function() { 
-            
-           $('#exampleFrame').show();
-           $('#exampleFrame').ready(function() {
-              // alert('exampleFrame load')
-              examples.loadExample(true);
-            });
-                      
-      });
-      
-      
     }
 
 
@@ -51,17 +48,34 @@ var examples = {
     })
     .done(function (data) {
       $('#exampleSelector').hide();
-      // strip description 
-
-      var frameRe = /@frame (.*),(.*)/g;
-      //var re = /createCanvas\((.*),(.*)\)/g;
-      var arr = data.split(frameRe);
-      //var arr = data.split(re);
+      
+      // parse and set frame size
+      var frameReg = /@frame (.*),(.*)/g;
+      var arr = data.split(frameReg);
       if (arr.length > 2) {
         examples.dims[0] = arr[1];
         examples.dims[1] = arr[2];
       }
 
+      // parse and set name and description
+      var metaReg = new RegExp('\\* ', 'g');
+      var spaceReg = new RegExp(' ', 'g');
+
+      var startName = data.indexOf("@name")+6;
+      var endName = data.indexOf("\n", startName);
+
+      var name = startName !== 5 ? data.substring(startName, endName) : '';
+      
+      var startDesc = data.indexOf("@description")+13;
+      var endDesc = data.indexOf("*/", startDesc);
+
+      var desc = startDesc !== 12 ? data.substring(startDesc, endDesc) : '';
+      desc = desc.replace(metaReg, '');
+
+      $('#example-name').html(name);
+      $('#example-desc').html(desc);
+
+      // strip description and set code
       var ind = data.indexOf('*/');
       data = data.substring(ind+3);
       examples.resetData = data;
@@ -135,8 +149,6 @@ var examples = {
       userScript.text = exampleCode;
       userScript.async = false;
       $('#exampleFrame')[0].contentWindow.document.body.appendChild(userScript);
-
-
 
     } catch (e) {
       console.log(e.message);

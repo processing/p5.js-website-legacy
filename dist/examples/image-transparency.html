@@ -99,18 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2>Transparency</h2>
-      <p>Move the pointer left and right across the image to change its
- position. This program overlays one image over another by modifying the
- alpha value of the image with the tint() function.
- <p><em><span class="small"> To run this example locally, you will need an
- image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
- local server</a>.</span></em></p>
- </p>
+      <p id="backlink"><a href="./">< Back to Examples</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -146,7 +145,22 @@
   <script src="../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../assets/examples/examples_src/05_Image/02_Transparency.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../assets/examples/en/05_Image/02_Transparency.js');
     });
   </script>
 

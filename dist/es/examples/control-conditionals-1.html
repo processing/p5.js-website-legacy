@@ -99,19 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2>Conditionals 1</h2>
-      <p>Conditions are like questions. 
- They allow a program to decide to take one action if 
- the answer to a question is true or to do another action
- if the answer to the question is false. 
- The questions asked within a program are always logical
- or relational statements. For example, if the variable 'i' is 
- equal to zero then draw a line.
- </p>
+      <p id="backlink"><a href="./">< Volver a Ejemplos</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -147,7 +145,22 @@
   <script src="../../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../../assets/examples/examples_src/04_Control/02_Conditionals_1.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../../assets/examples/es/04_Control/02_Conditionals_1.js');
     });
   </script>
 

@@ -99,25 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2> Note Envelope</h2>
-      <p> <p>An Envelope is a series of fades, defined
-  as time / value pairs. In this example, the envelope
-  will be used to "play" a note by controlling the output
-  amplitude of an oscillator.<br/><br/>
-  The p5.Oscillator sends its output through
-  an internal Web Audio GainNode (p5.Oscillator.output).
-  By default, that node has a constant value of 0.5. It can
-  be reset with the osc.amp() method. Or, in this example, an
-  Envelope takes control of that node, turning the amplitude
-  up and down like a volume knob.</p>
- <p><em><span class="small"> To run this example locally, you will need the
- <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a> and a
- sound file.</span></em></p>
- </p>
+      <p id="backlink"><a href="./">< Back to Examples</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -153,7 +145,22 @@
   <script src="../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../assets/examples/examples_src/33_Sound/09_Note_Envelope.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../assets/examples/en/33_Sound/09_Note_Envelope.js');
     });
   </script>
 

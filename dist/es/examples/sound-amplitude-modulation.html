@@ -99,38 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2>Amplitude Modulation</h2>
-      <p><p>Amplitude Modulation involves two oscillators, referred
- to as the carrier and the modulator, where the modulator controls
- the carrier's amplitude.</p>
- 
- <p>The carrier is typically set at an audible frequency (i.e. 440 Hz)
- and connected to master output by default. The carrier.amp is
- set to zero because we will have the modulator control its amplitude.</p>
- 
- <p>The modulator is disconnected from master output. Instead, it is connected
- to the amplitude of the Carrier, like this: carrier.amp(modulator).</p>
- *
- <p>In this example...</p>
- <p>- MouseX controls the amplitude of the modulator
- from 0 to 1. When the modulator's amplitude is set to 0, the
- amplitude modulation has no effect.</p>
- 
- <p>- MouseY controls the frequency of the modulator from 0 to 20hz.
- This range is lower frequencies than humans can hear, and we perceive the
- modulation as a rhythm. This range can simulate effects such as Tremolo.
- Ring Modulation is a type of Amplitude Modulation where the original
- carrier signal is not present, and often involves modulation at a faster
- frequency. </p>
- 
- <p><em><span class="small">You will need to include the 
- <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- for this example to work in your own project.</em></span></p>
- </p>
+      <p id="backlink"><a href="./">< Volver a Ejemplos</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -166,7 +145,22 @@
   <script src="../../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../../assets/examples/examples_src/33_Sound/22_AmplitudeModulation.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../../assets/examples/es/33_Sound/22_AmplitudeModulation.js');
     });
   </script>
 

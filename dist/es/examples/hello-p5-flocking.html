@@ -99,15 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#demos">< Back to Demos</a></p>
-      <h2>Flocking</h2>
-      <p>Demonstration of <a href="http://www.red3d.com/cwr/">Craig Reynolds' "Flocking" behavior</a>.<br>
- (Rules: Cohesion, Separation, Alignment.)<br>
- From <a href="http://natureofcode.com">natureofcode.com</a>.
- </p>
+      <p id="backlink"><a href="./">< Volver a Ejemplos</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -143,7 +145,22 @@
   <script src="../../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../../assets/examples/demos_src/01_Hello_P5/04_flocking.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../../assets/examples/es/90_Hello_P5/04_flocking.js');
     });
   </script>
 

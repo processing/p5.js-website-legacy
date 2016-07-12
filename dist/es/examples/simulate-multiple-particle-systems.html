@@ -99,14 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2>Multiple Particle Systems</h2>
-      <p>Click the mouse to generate a burst of particles at mouse location.<br>Each burst is one instance of a particle system with Particles and CrazyParticles (a subclass of Particle).<br>Note use of Inheritance and Polymorphism here.<br>
- Original by Daniel Shiffman. 
- </p>
+      <p id="backlink"><a href="./">< Volver a Ejemplos</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -142,7 +145,22 @@
   <script src="../../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../../assets/examples/examples_src/09_Simulate/06_MultipleParticleSystems.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../../assets/examples/es/09_Simulate/06_MultipleParticleSystems.js');
     });
   </script>
 

@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       dist: 'dist'
     },
     exec: {
-      build_examples: 'node <%= config.src %>/data/examples/build_examples/build.js <%= config.src %>/templates/pages/examples'
+      build_examples: 'node <%= config.src %>/data/examples/build_examples/build.js <%= config.src %>/templates/pages/examples/'
     },
     watch: {
       assemble: {

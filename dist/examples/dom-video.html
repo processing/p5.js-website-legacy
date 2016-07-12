@@ -99,17 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2>Video</h2>
-      <p><p>Load a video with multiple formats and toggle between playing
- and paused with a button press. 
- <p><em><span class="small"> To run this example locally, you will need at least
- one video file, and the
- <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>.</span></em></p>
- </p>
+      <p id="backlink"><a href="./">< Back to Examples</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -145,7 +145,22 @@
   <script src="../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../assets/examples/examples_src/16_Dom/08_Video.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../assets/examples/en/16_Dom/08_Video.js');
     });
   </script>
 

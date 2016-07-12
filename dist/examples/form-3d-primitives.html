@@ -99,15 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2>3D Primitives</h2>
-      <p>Placing mathematically 3D objects in synthetic space.
- The box() and sphere() functions take at least one parameter to specify their
- size. These shapes are positioned using the translate() function.
- </p>
+      <p id="backlink"><a href="./">< Back to Examples</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -143,7 +145,22 @@
   <script src="../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../assets/examples/examples_src/01_Form/07_3D_Primitives.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../assets/examples/en/01_Form/07_3D_Primitives.js');
     });
   </script>
 

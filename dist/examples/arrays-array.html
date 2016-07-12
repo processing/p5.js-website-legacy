@@ -99,19 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2>Array</h2>
-      <p>An array is a list of data. Each piece of data in an array 
- is identified by an index number representing its position in 
- the array. Arrays are zero based, which means that the first 
- element in the array is [0], the second element is [1], and so on. 
- In this example, an array named "coswav" is created and
- filled with the cosine values. This data is displayed three 
- separate ways on the screen.  
- </p>
+      <p id="backlink"><a href="./">< Back to Examples</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -147,7 +145,22 @@
   <script src="../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../assets/examples/examples_src/03_Arrays/00_Array.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../assets/examples/en/03_Arrays/00_Array.js');
     });
   </script>
 

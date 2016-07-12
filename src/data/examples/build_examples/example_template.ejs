@@ -11,12 +11,21 @@ slug: examples/
 
     <section>
   
-      <p id="backlink"><a href="./#<%=type%>">< Back to <%=formattedType%></a></p>
-      <h2><%=name%></h2>
-      <p><%-desc%></p>
+      <p id="backlink"><a href="./">< {{#i18n "back-examples"}}{{/i18n}}</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      <% if (mobileEx) { %>
+        <button id="isMobile-displayButton" class="display_button">display sketch</button>
+      <%}%>
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="{{assets}}/examples/example.html" ></iframe>
+        
+        <% if (mobileEx) { %>
+          <p id="notMobile-message">Open this page on a mobile device to display the sketch.</p>
+        <%}%>
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -38,7 +47,22 @@ slug: examples/
   <script src="{{assets}}/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('<%=file%>');
+      if (<%=mobileEx%>) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('{{assets}}/examples/{{language}}/<%=file%>');
     });
   </script>
 

@@ -20,10 +20,6 @@ function closeSearch() {
   console.log($('#search_field').attr('width'));
 }
 
-function hi() {
-  console.log('hi')
-}
-
 $(window).ready(function() {
   if (window.location.pathname.indexOf('/es/') === -1) {
     $('#en-btn').attr('disabled', true);
@@ -49,20 +45,3 @@ $(window).ready(function() {
 });
 
 
-// $('.info').css('display', 'none');
-
-// var currentId;
-// var tag;
-
-// $('.start-element').click(function() {
-
-//   var currentId = $(this).attr('id').toString();
-//   tag = '.info#' + currentId;
-
-//   if ($(tag).css('display') =='block') {
-//     $(tag).css('display', 'none');
-//   }
-//   else {
-//     $(tag).css('display', 'block');
-//   }
-// });

@@ -99,17 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2>Coordinates</h2>
-      <p>All shapes drawn to the screen have a position that is 
- specified as a coordinate. All coordinates are measured as the distance from
- the origin in units of pixels. The origin [0, 0] is the coordinate in the
- upper left of the window and the coordinate in the lower right is [width-1, 
- height-1].
- </p>
+      <p id="backlink"><a href="./">< Volver a Ejemplos</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -145,7 +145,22 @@
   <script src="../../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../../assets/examples/examples_src/00_Structure/00_Coordinates.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../../assets/examples/es/00_Structure/00_Coordinates.js');
     });
   </script>
 

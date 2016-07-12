@@ -99,26 +99,17 @@
 
     <section>
   
-      <p id="backlink"><a href="./#examples">< Back to Examples</a></p>
-      <h2>Noise Drum Envelope</h2>
-      <p> <p>White Noise is a random audio signal with equal energy
-  at every part of the frequency spectrum</p>
- *
-  <p>An Envelope is a series of fades, defined
-  as time / value pairs.</p>
- *
-  <p>In this example, the p5.Env
-  will be used to "play" the p5.Noise like a drum by controlling its output
-  amplitude. A p5.Amplitude will get the level of all sound in the sketch, and
-  we'll use this value to draw a green rectangle that shows the envelope
-  in action.</p>
- <p><em><span class="small"> To run this example locally, you will need the
- <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a> and a
- sound file.</span></em></p>
- </p>
+      <p id="backlink"><a href="./">< Back to Examples</a></p>
+      <h2 id='example-name'></h2>
+      <p id='example-desc'></p>
+      
+      
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="../assets/examples/example.html" ></iframe>
+        
+        
+
         <div class="edit_space">
           <button id="runButton" class="edit_button">run</button>
           <button id="resetButton" class="reset_button">reset</button>
@@ -154,7 +145,22 @@
   <script src="../assets/js/examples.js"></script>
   <script>
     $(document).ready( function () {
-        examples.init('../assets/examples/examples_src/33_Sound/08_Noise_Envelope.js');
+      if (false) {
+        console.log('mobile')
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        $('#exampleFrame').hide();
+        if (isMobile.matches) {
+          $('#notMobile-message').hide();
+          $('#isMobile-displayButton').show();           
+        } else {
+          $('#notMobile-message').show();
+          $('#isMobile-displayButton').hide();
+          $('#runButton').hide();
+          $('#resetButton').hide();
+        }
+      }
+
+      examples.init('../assets/examples/en/33_Sound/08_Noise_Envelope.js');
     });
   </script>
 
