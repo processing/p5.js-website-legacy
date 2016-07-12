@@ -54,7 +54,7 @@ The examples are handled a bit differently from other pages.
 * Within the examples folder, there is a folder for each language (ex: `en/`, `es/`, etc).
 * The folder, file, and numbering structure should match exactly between the different languages. Do not change the filenames. The text for the example name, description, and source code are all in the .js files in the folders.
 * Assets for the examples are placed in `src/assets/data/examples/assets`.
-* Translations for the topic headers on the example index page are done in the YAML files (`src/assets/data/*.yml').
+* Translations for the topic headers on the example index page are done in the YAML files (`src/assets/data/*.yml`).
 * When adding a new example, first add an english version of the file to the `en/` folder, then make sure it is duplicated in the same place in all other languages, then translate for whichever languages you can. If you have created a new folder, add entries to the YAML files with the foldername as the key.
 
 
