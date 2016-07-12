@@ -45,6 +45,19 @@ Once you've setup the site, to run again in the future:
 
 * For english version, the site will follow the same top-level hierarchy as the original site. When you switch to a different language, the permalink and file structure will include a two letter abbreviation immediately following the root url. (ex: `https://p5js.org/es/get-started/`)
 
+
+## Notes about Examples
+
+The examples are handled a bit differently from other pages.
+
+* All examples pages are built from `src/assets/data/examples`.
+* Within the examples folder, there is a folder for each language (ex: `en/`, `es/`, etc).
+* The folder, file, and numbering structure should match exactly between the different languages. Do not change the filenames. The text for the example name, description, and source code are all in the .js files in the folders.
+* Only the folder name may be changed for translation. Keep the number prefix the same, but translate the folder name itself.
+* When adding a new example, first add an english version of the file to the `en/` folder, then make sure it is duplicated in the same place in all other languages, then translate for whichever languages you can.
+* Assets for the examples are placed in `src/assets/data/examples/assets`.
+
+
 ## Documentation
 
 * [Assemble](http://assemble.io/) is used to build a static site out of all the layouts and yml data.

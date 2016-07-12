@@ -23,6 +23,7 @@ var all_examples_template = ejs.compile(fs.readFileSync(__dirname+"/all_examples
  
 
 var all = {};
+var topics = {};
 var total = 0;
 var languages = ['en', 'es']; //pend
 
@@ -36,11 +37,11 @@ languages.forEach(function(lang) {
 });
 
 // write main page
-fs.writeFile(outputRoot+'/index.hbs', all_examples_template({'all':all, 'total':total}), 'utf8');
+fs.writeFile(outputRoot+'/index.hbs', all_examples_template({all:all, total:total, topics: topics}), 'utf8');
 
 
 function buildSection(lang) {
-  console.log('BUILD '+lang)
+  console.log('BUILD EXAMPLES'+lang)
   // get examples folders
   var inputRoot = __dirname+'/../'+lang+'/';
   var inputFolder = fs.readdirSync(inputRoot);
@@ -62,11 +63,14 @@ function buildSection(lang) {
 function buildFolder(lang, inputRoot, outputRoot, folder) { 
   if (fs.statSync(inputRoot+folder).isDirectory()) {
 
-    var folderName = folder.substring(3);
-    console.log(all[folderName])
-    if (!(folderName in all)) {
-      all[folderName] = [];
+    var topic = folder.substring(3);
+    var topicNum = folder.substring(0, 3);
+    if (!(topicNum in all)) {
+      all[topicNum] = [];
+      topics[topicNum] = {};
     }
+
+    topics[topicNum][lang] = topic;
 
     var i = 0;
     var inputFiles = fs.readdirSync(inputRoot+folder).filter(function(f) {
@@ -80,22 +84,22 @@ function buildFolder(lang, inputRoot, outputRoot, folder) {
       var name = startName !== 5 ? data.substring(startName, endName) : '';
 
       if (lang === 'en') {
-        var isMobile = folderName.indexOf('Mobile') >= 0;
+        var isMobile = topic.indexOf('Mobile') >= 0;
         var content = example_template({'file':folder+'/'+file, 'mobileEx':isMobile});
 
         var shortName = name.replace(' and ', '/');
         name = name.replace(spaceReg, '-');
-        var outName = (folderName+'-'+name).toLowerCase();
+        var outName = (topic+'-'+name).toLowerCase();
         var outputFile = outputRoot+outName+'.hbs';
         if (verbose) console.log(outputFile);
 
-        all[folderName].push({ en: shortName, link: outName+'.html'});
+        all[topicNum].push({ en: shortName, link: outName+'.html'});
 
         fs.writeFile(outputFile, content, 'utf8');
 
         total++;
       } else {
-        all[folderName][i][lang] = name;
+        all[topicNum][i][lang] = name;
         i++;
       }
 

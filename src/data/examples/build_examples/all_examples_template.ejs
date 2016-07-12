@@ -13,19 +13,31 @@ slug: examples/
       <h2>{{#i18n "Examples"}}{{/i18n}}</h2>
 
       <div class="column_0">
-      <% var t = 0; var col=1; for(var topic in all) { %>
-        <p name='<%=topic.toLowerCase()%>' class='anchor'>
-        <strong><% var newt = topic.replace('-', ' ')%><%=newt%></strong><br>
-        <% for(var i=0; i<all[topic].length; i++) { %>
-          <a class='example-link' href="<%=all[topic][i]['link']%>"
+      <% var t = 0; var col=1; for(var topicNum in all) { 
+        var topic = topics[topicNum]['en'];
+      %>
+        <p>
+
+        <span name='<%=topic.toLowerCase()%>' class='anchor topic-link'
+        <% 
+        var keys = Object.keys(topics[topicNum]);
+        for(var j=0; j < keys.length; j++) { %>
+          data-<%=keys[j]%>='<%=topics[topicNum][keys[j]]%>'
+        <% }
+        var newt = topic.replace('-', ' ')%>
+        >
+        <%=newt%>
+        </span>
+        <br>
+        <% for(var i=0; i<all[topicNum].length; i++) { %>
+          <a class='example-link' href="<%=all[topicNum][i]['link']%>"
             
             <% 
-              var keys = Object.keys(all[topic][i]).filter(function(k) { return k.length === 2 });
+              var keys = Object.keys(all[topicNum][i]).filter(function(k) { return k.length === 2 });
               for(var j=0; j < keys.length; j++) { %>
-                data-<%=keys[j]%>='<%=all[topic][i][keys[j]]%>'
+                data-<%=keys[j]%>='<%=all[topicNum][i][keys[j]]%>'
             <%}%>
-            data-test='hi'
-          ><%= all[topic][i]['en'] %></a><br>
+          ><%= all[topicNum][i]['en'] %></a><br>
           <% t++ %>
         <% } %>
         </p>
@@ -43,6 +55,10 @@ slug: examples/
   </div> <!-- end column-span -->
   <script>
     $(document).ready( function () {
+      $('.topic-link').each(function() {
+        var topic = $(this).data('{{language}}');
+        $(this).text(topic);
+      });
       $('.example-link').each(function() {
         var name = $(this).data('{{language}}');
         $(this).text(name);
