@@ -57,6 +57,9 @@ var examples = {
         examples.dims[1] = arr[2];
       }
 
+      // render?
+      var norender = data.indexOf('@norender') !== -1;
+
       // parse and set name and description
       var metaReg = new RegExp('\\* ', 'g');
       var spaceReg = new RegExp(' ', 'g');
@@ -80,10 +83,10 @@ var examples = {
       data = data.substring(ind+3);
       examples.resetData = data;
 
-      examples.showExample();
+      examples.showExample(norender);
     })
   },
-  showExample: function() {         
+  showExample: function(norender) {         
     examples.editor.getSession().setValue(examples.resetData); 
 
     //resize height of editor
@@ -91,8 +94,18 @@ var examples = {
     var lineH = examples.editor.renderer.lineHeight;
     $('#exampleEditor').height(rows*lineH+'px');
 
-    examples.runExample();
-    $('#exampleDisplay').show();
+    if (examples.resetData.indexOf('<!DOCTYPE html>') !== -1) {
+      examples.editor.getSession().setMode('ace/mode/html');
+    }
+
+    if (norender) {
+      $('iframe').hide();
+      $('#resetButton').hide();
+      $('#runButton').hide();
+    } else {
+      examples.runExample();
+      $('#exampleDisplay').show();
+    }
   },
   // display iframe
   runExample: function() {
@@ -103,6 +116,7 @@ var examples = {
   },
   // load script into iframe
   loadExample: function(isMobile) {
+
     var exampleCode = examples.editor.getSession().getValue();
     
     try {       
