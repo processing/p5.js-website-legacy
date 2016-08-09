@@ -13,6 +13,7 @@ function setup() ({
   stroke(255);     // Hacer que el color de trazado sea blanco
   frameRate(30);
 }
+
 // Las instrucciones en draw() son ejecutadas hasta que
 // el programa es parado. Cada instrucción es ejecutada
 // en orden y luego de que la última línea es leída,

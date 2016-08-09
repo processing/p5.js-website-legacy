@@ -1,8 +1,8 @@
 /*
- *@name Recursion
- *@description A demonstration of recursion, which means functions call themselves.
- * Notice how the drawCircle() function calls itself at the end of its block.
- * It continues to do this until the variable "level" is equal to 1.
+ *@name Recursión
+ *@description Una demonstración de recursión, que significa funciones llamándose a sí mismas.
+ * Fíjate cómo la función drawCircle() se llama a sí misma al final del bloque de código.
+ * Continúa haciéndolo hasta que la variable "level" es igual a 1.
 */
 
 function setup() {
@@ -15,10 +15,10 @@ function draw() {
   drawCircle(width/2, 280, 6);
 }
 
-function drawCircle(x, radius, level) {                    
+function drawCircle(x, radius, level) {
   var tt = 126 * level/4.0;
   fill(tt);
-  ellipse(x, height/2, radius*2, radius*2);      
+  ellipse(x, height/2, radius*2, radius*2);
   if(level > 1) {
     level = level - 1;
     drawCircle(x - radius/2, radius/2, level);

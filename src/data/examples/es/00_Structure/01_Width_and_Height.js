@@ -1,5 +1,5 @@
 /*
- * @name Ancho y altura
+ * @name width y height
  * @description Las variables 'width' (ancho) y 'height' (altura) contienen
  * el ancho y la altura del lienzo, como fue definido en la función createCanvas().
  */
