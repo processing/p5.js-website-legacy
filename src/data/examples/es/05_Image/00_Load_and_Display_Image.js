@@ -1,22 +1,21 @@
 /*
- * @name Load and Display Image
- * @description Images can be loaded and displayed to the screen at their
- * actual size or any other size.
- * <p><em><span class="small"> To run this example locally, you will need an 
- * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
- * local server</a>.</span></em></p>
-
+ * @name Cargar y mostrar imagen
+ * @description Las imágenes pueden ser cargadas y mostradas en la pantalla en su tamaño original o cualquier otro.
+ * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás un archivo de imagen
+ * y un<a href="https://github.com/processing/p5.js/wiki/Local-server">
+ * servidor local</a>.</span></em></p> corriendo.
  */
-var img;  // Declare variable 'img'.
+ 
+var img;  // Declarar variable 'img'.
 
 function setup() {
   createCanvas(720, 400);
-  img = loadImage("assets/moonwalk.jpg");  // Load the image
+  img = loadImage("assets/moonwalk.jpg");  // Cargar la imagen
 }
 
 function draw() {
-  // Displays the image at its actual size at point (0,0)
+  // Muestra la imagen en su tamaño original en la posición (0,0)
   image(img, 0, 0);
-  // Displays the image at point (0, height/2) at half size
+  // Muestra la imagen en la posición (0, height/2) a la mitad del tamaño
   image(img, 0, height/2, img.width/2, img.height/2);
 }

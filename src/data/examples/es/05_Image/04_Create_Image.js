@@ -1,18 +1,18 @@
 /*
- * @name Create Image
- * @description The createImage() function provides a fresh buffer of pixels to
- * play with. This example creates an image gradient.
+ * @name Crear una imagen
+ * @description La función createImage() provee un buffer fresco de pixeles para experimentar.
+ * Este ejemplo crea un gradiente de imagen.
  */
-var img;  // Declare variable 'img'.
+var img;  // Declarar variable 'img'.
 
 function setup() {
-  createCanvas(720, 400); 
+  createCanvas(720, 400);
   img = createImage(230, 230);
   img.loadPixels();
   for(var x = 0; x < img.width; x++) {
     for(var y = 0; y < img.height; y++) {
       var a = map(y, 0, img.height, 255, 0);
-      img.set(x, y, [0, 153, 204, a]); 
+      img.set(x, y, [0, 153, 204, a]);
     }
   }
   img.updatePixels();

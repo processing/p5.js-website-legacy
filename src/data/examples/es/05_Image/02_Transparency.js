@@ -1,11 +1,10 @@
 /*
- * @name Transparency
- * @description Move the pointer left and right across the image to change its
- * position. This program overlays one image over another by modifying the
- * alpha value of the image with the tint() function.
- * <p><em><span class="small"> To run this example locally, you will need an
- * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
- * local server</a>.</span></em></p>
+ * @name Transparencia
+ * @description Mueve el cursor de izquierda a derecha a lo largo de la imagen para cambiar su
+ * posición. Este program superpone una imagen sobre otra, modificando el valor alpha de la imagen con la función tint().
+ * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás un archivo de imagen
+ * y un<a href="https://github.com/processing/p5.js/wiki/Local-server">
+ * servidor local</a>.</span></em></p> corriendo.
  */
 var img;
 var offset = 0;
@@ -13,13 +12,13 @@ var easing = 0.05;
 
 function setup() {
   createCanvas(720, 400);
-  img = loadImage("assets/moonwalk.jpg");  // Load an image into the program
+  img = loadImage("assets/moonwalk.jpg");  // Cargar una imagen al programa
 }
 
 function draw() {
-  image(img, 0, 0);  // Display at full opacity
+  image(img, 0, 0);  // Mostrar al máximo de opacidad
   var dx = (mouseX-img.width/2) - offset;
   offset += dx * easing;
-  tint(255, 127);  // Display at half opacity
+  tint(255, 127);  // Mostrar a media opacidad
   image(img, offset, 0);
 }

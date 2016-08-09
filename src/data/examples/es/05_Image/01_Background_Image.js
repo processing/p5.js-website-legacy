@@ -1,19 +1,19 @@
 /*
- * @name Background Image
- * @description This example presents the fastest way to load a
- * background image into Processing. To load an image as the background,
- * it must be the same width and height as the program.
- * <p><em><span class="small"> To run this example locally, you will need an
- * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
- * local server</a>.</span></em></p>
+ * @name Imagen de fondo
+ * @description Este ejemplo presenta la manera más rápida de cargar una
+ * imagen de fondo. Para cargar una imagen como fondo,
+ * idebe tener el mismo ancho y altura que el programa.
+ * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás un archivo de imagen
+ * y un<a href="https://github.com/processing/p5.js/wiki/Local-server">
+ * servidor local</a>.</span></em></p> corriendo.
  */
+
 var bg;
 var y = 0;
 
 function setup() {
-  // The background image must be the same size as the parameters
-  // into the createCanvas() method. In this program, the size of
-  // the image is 720x400 pixels.
+  // La imagen de fondo debe tener el mismo tamaño que el lienzo, según el método createCanvas().
+  // En este programa, el tamaño de la imagen es de 720x400 pixels.
   bg = loadImage("assets/moonwalk.jpg");
   createCanvas(720, 400);
 }
