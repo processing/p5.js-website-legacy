@@ -1,12 +1,12 @@
 /*
- * @name Embedded Iteration
- * @description Embedding "for" structures allows repetition in two dimensions.
+ * @name Iteración anidada
+ * @description Anidar estructuras "for" permite repetición en dos dimensiones.
  */
 function setup() {
 
-  createCanvas(720, 360); 
-  background(0); 
-  noStroke(); 
+  createCanvas(720, 360);
+  background(0);
+  noStroke();
 
   var gridSize = 35;
 

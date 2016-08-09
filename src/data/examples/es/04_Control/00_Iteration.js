@@ -1,6 +1,6 @@
 /*
- * @name Iteration
- * @description Iteration with a "for" structure to construct repetitive forms.
+ * @name Iteración
+ * @description Iteración con una estructura "for" para construir figuras repetitivas.
  */
 var y;
 var num = 14;
@@ -10,8 +10,8 @@ function setup() {
   createCanvas(720, 360);
   background(102);
   noStroke();
-     
-  // Draw white bars 
+
+  // Dibujar barras blancas
   fill(255);
   y = 60;
   for(var i = 0; i < num/3; i++) {
@@ -19,7 +19,7 @@ function setup() {
     y+=20;
   }
 
-  // Gray bars
+  // Barras grises
   fill(51);
   y = 40;
   for(var i = 0; i < num; i++) {
@@ -31,8 +31,8 @@ function setup() {
     rect(425, y, 30, 10);
     y += 20;
   }
-    
-  // Thin lines
+
+  // Líneas delgadas
   y = 45;
   fill(0);
   for(var i = 0; i < num-1; i++) {
