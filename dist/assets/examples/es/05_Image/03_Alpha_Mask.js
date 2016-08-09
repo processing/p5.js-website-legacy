@@ -3,9 +3,9 @@
  * @description Loads a "mask" for an image to specify the transparency in
  * different parts of the image. The two images are blended together using
  * the mask() method of p5.Image.
- * <p><em><span class="small"> To run this example locally, you will need two
- * image files, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
- * local server</a>.</span></em></p>
+ * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás un archivo de imagen
+ * y un<a href="https://github.com/processing/p5.js/wiki/Local-server">
+ * servidor local</a>.</span></em></p> corriendo.
  */
 var img;
 var imgMask;
