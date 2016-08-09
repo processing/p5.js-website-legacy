@@ -1,9 +1,9 @@
 /*
  * @name Seno y coseno
- * @description Linear movement with sin() and cos().
- * Numbers between 0 and PI*2 (TWO_PI which angles roughly 6.28)
- * are put into these functions and numbers between -1 and 1 are returned.
- * These values are then scaled to produce larger movements.
+ * @description Movimiento lineal con las funciones sin() y cos().
+ * Números entre  0 y PI*2 
+ * son usados como argumento para estas funciones, que retornan números -1 y 1.
+ * Estos valores son luego escalados para producir movimientos de mayor magnitud.
  */
 var angle1=0;
 var angle2=0;

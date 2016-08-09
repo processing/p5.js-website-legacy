@@ -1,6 +1,6 @@
 /*
- * @name Arctangent
- * @description Move the mouse to change the direction of the eyes.<br>The atan2() function computes the angle from each eye to the cursor.
+ * @name Arcotangente
+ * @description Mueve el ratón para cambiar la dirección de los ojos.<br> La función atan2() calcula el ángulo entre cada ojo y el cursor.
  */
 var e1, e2, e3;
 
