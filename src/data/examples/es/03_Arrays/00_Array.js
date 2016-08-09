@@ -1,12 +1,12 @@
 /*
- * @name Array
- * @description An array is a list of data. Each piece of data in an array 
- * is identified by an index number representing its position in 
- * the array. Arrays are zero based, which means that the first 
- * element in the array is [0], the second element is [1], and so on. 
- * In this example, an array named "coswav" is created and
- * filled with the cosine values. This data is displayed three 
- * separate ways on the screen.  
+ * @name Arreglo
+ * @description Un arreglo es una lista de datos. Cada  dato en un arreglo
+ * es idenfiticado por un número de índice, representando su posición en
+ * el arreglo. Los arreglos son indexados en cero, lo que significa que
+ * el primer elemento en el arreglo es [0], el segundo es [1], y así.
+ * En este ejemplo, un arregllo llamado "coswav" es creado y
+ * llenado con valores de la función coseno. Estos datos son mostrados
+ * de tres maneras diferentes en pantalla.
  */
 var coswave = [];
 
@@ -35,7 +35,7 @@ function draw() {
     stroke(coswave[i]*255 / 4);
     line(i, y1, i, y2);
   }
-  
+
   y1 = y2;
   y2 = height;
   for (var i = 0; i < width; i+=3) {

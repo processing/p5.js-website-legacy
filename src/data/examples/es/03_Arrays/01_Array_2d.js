@@ -1,9 +1,10 @@
 /*
- * @name Array 2D
- * @description Demonstrates the syntax for creating a two-dimensional (2D)
- * array. Values in a 2D array are accessed through two index values.  
- * 2D arrays are useful for storing images. In this example, each dot 
- * is colored in relation to its distance from the center of the image. 
+ * @name Arreglo 2D
+ * @description Demuestra la sintaxis para crear un arreglo
+ de dos dimensiones (2D).
+ * Se accede a los valores en un arreglo 2D a través de dos valores de índice.
+ * Los arreglos 2D son útiles para almacenar imágenes. En este ejemplo, cada punto
+ * es coloreado en relación a su distancia del centro de la imagen.
  */
 var distances = [];
 var maxDistance;
@@ -13,22 +14,22 @@ function setup() {
   createCanvas(720, 360);
   maxDistance = dist(width/2, height/2, width, height);
   for (var x = 0; x < width; x++) {
-    distances[x] = []; // create nested array
+    distances[x] = []; // Crear un arreglo anidado
     for (var y = 0; y < height; y++) {
       var distance = dist(width/2, height/2, x, y);
       distances[x][y] = distance/maxDistance * 255;
     }
   }
   spacer = 10;
-  noLoop();  // Run once and stop
+  noLoop();  // Correr draw() una vez y luego parar
 }
 
 function draw() {
   background(0);
-  // This embedded loop skips over values in the arrays based on
-  // the spacer variable, so there are more values in the array
-  // than are drawn here. Change the value of the spacer variable
-  // to change the density of the points
+  // Este loop anidado recorre los valores en los arreglos basado
+  // en la variable spacer, así que hay más valores en el arreglo
+  // que los que dibujamos. Cambia el valor de la variable spacer
+  // para cambiar la densidad de los puntos.
   for (var x = 0; x < width; x += spacer) {
     for (var y = 0; y < height; y += spacer) {
       stroke(distances[x][y]);

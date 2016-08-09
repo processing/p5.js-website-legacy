@@ -2,7 +2,7 @@
  * @name Coordenadas
  * @description Todas las formas dibujadas en la pantalla tienen una posición que es
  * especificada como una coordenada. Todas las coordenadas son medidas como una distancia desde el origen, usando el pixel como unidad de medida.
- * El origen [0, 0] es la coordenada en la esquina superior izquierda de la ventana y la coordenada de la esquina inferior derecha es [ancho-1, ancho-1].
+ * El origen [0, 0] es la coordenada en la esquina superior izquierda de la ventana y la coordenada de la esquina inferior derecha es [ancho-1, altura-1].
  */
 function setup() {
 
