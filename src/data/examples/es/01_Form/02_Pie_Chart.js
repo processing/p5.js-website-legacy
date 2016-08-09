@@ -1,14 +1,13 @@
 /*
- * @name Pie Chart
- * @description Uses the arc() function to generate a pie chart from the data 
- * stored in an array.
+ * @name Gráfico de sectores
+ * @description Usa la función arc() para generar un gráfico de sectores de los datos contenidos en un arreglo
  */
 var angles = [ 30, 10, 45, 35, 60, 38, 75, 67 ];
 
 function setup() {
   createCanvas(720, 400);
   noStroke();
-  noLoop();  // Run once and stop
+  noLoop();  // Corre una vez y luego para.
 }
 
 function draw() {

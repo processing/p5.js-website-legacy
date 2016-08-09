@@ -1,13 +1,13 @@
 /*
- * @name Shape Primitives
- * @description The basic shape primitive functions are triangle(), 
- * rect(), quad(), ellipse(), and arc(). Squares are made with rect() 
- * and circles are made with ellipse(). Each of these functions requires 
- * a number of parameters to determine the shape's position and size.
+ * @name Figuras primitivas
+ * @description Las funciones primitivas de figuras básicas son triangle(),
+ * rect(), quad(), ellipse() y arc(). Rectángulos y cuadrados se construyen con rect()
+ * y círculos y elipses con ellipse(). Cada una de estas funciones requiere
+ * un número de parámetros para determinar la posición y tamaño de la figura.
  */
 function setup() {
 
-  // Sets the screen to be 720 pixels wide and 400 pixels high
+  // Define un lienzo de 720 pixeles de ancho y 400 de alto
   createCanvas(720, 400);
   background(0);
   noStroke();
@@ -25,7 +25,7 @@ function setup() {
   ellipse(252, 144, 72, 72);
 
   fill(204);
-  triangle(288, 18, 351, 360, 288, 360); 
+  triangle(288, 18, 351, 360, 288, 360);
 
   fill(255);
   arc(479, 300, 280, 280, PI, TWO_PI);
