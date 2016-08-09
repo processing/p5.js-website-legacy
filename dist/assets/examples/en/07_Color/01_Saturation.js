@@ -1,16 +1,16 @@
 /*
- * @name Saturation
- * @description Saturation is the strength or purity of the color and 
- * represents the amount of gray in proportion to the hue. A "saturated" 
- * color is pure and an "unsaturated" color has a large percentage of gray. 
- * Move the cursor vertically over each bar to alter its saturation.
+ * @name Saturación
+ * @description La saturación es la fuerza o pureza del color y
+ * representa la cantidad de gris en proporción al tinte.
+ * Un color "saturado" es puro y uno "insaturado" tiene un gran porcentaje de gris.
+* Mueve el cursor verticalmente sobre cada barra para alterar su saturación.
  */
 var barWidth = 20;
 var lastBar = -1;
 
 function setup() {
   createCanvas(720, 400);
-  colorMode(HSB, width, height, 100); 
+  colorMode(HSB, width, height, 100);
   noStroke();
 }
 
