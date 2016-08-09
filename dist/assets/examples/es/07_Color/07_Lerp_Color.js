@@ -1,5 +1,5 @@
 /*
- * @name Color lerp
+ * @name Interpolación de color
  * @description Crea figuras aleatorias,
  * interpola su color de rojo a azul.
  */
