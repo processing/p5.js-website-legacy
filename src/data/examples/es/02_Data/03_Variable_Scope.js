@@ -1,15 +1,14 @@
 /*
- * @name Variable Scope
- * @description Variables have a global or local "scope". For example, 
- * variables declared within either the setup() or draw() functions may be 
- * only used in these functions. Global variables, variables declared outside 
- * of setup() and draw(), may be used anywhere within the program. If a local 
- * variable is declared with the same name as a global variable, the program 
- * will use the local variable to make its calculations within the current 
- * scope. Variables are localized within each block, the space between a { 
- * and }.
+ * @name Alcance de variabless
+ * @description Las variables tienen un alcance global o local. Por ejemplo,
+ * las variables declaradas dentro de las funciones setup() o draw() solamente pueden
+ * ser usadas dentro de esas funciones. Las variables globales, esto es, variables declaradas fuera de setup() y
+ * draw(), pueden ser usadas en cualquier parte del programa. Si una variable local
+ * es declarada con el mismo nombre que una variable global, el programa usará
+ * el valor local para hacer sus cálculos dentro de la función.
+ * Las variables son localizadas dentro de cada bloque, el espacio entre llaves { y }.
  */
-var a = 80;  // Create a global variable "a"
+var a = 80;  // Crea una variable global "a"
 
 function setup() {
   createCanvas(720, 400);
@@ -19,36 +18,36 @@ function setup() {
 }
 
 function draw() {
-  // Draw a line using the global variable "a"
+  // Dibuja una línea usando la variable global "a"
   line(a, 0, a, height);
-  
-  // Create a new variable "a" local to the for() statement 
+
+  // Crea una nueva variable local "a" al for()
   for (var a = 120; a < 200; a += 3) {
     line(a, 0, a, height);
   }
-  
-  // Create a new variable "a" local to the draw() function
+
+  // Crea una nueva  variable local "a" de la  función draw()
   var a = 300;
-  // Draw a line using the new local variable "a"
-  line(a, 0, a, height);  
-  
-  // Make a call to the custom function drawAnotherLine()
+  // Dibuja una línea usando la nueva variable local "a"
+  line(a, 0, a, height);
+
+  // Llamada a la función drawAnotherLine()
   drawAnotherLine();
-  
-  // Make a call to the custom function setYetAnotherLine()
+
+  // Llamada a la función drawYetAnotherLine()
   drawYetAnotherLine();
 }
 
 function drawAnotherLine() {
-  // Create a new variable "a" local to this method
+  // Crea una nueva variable local "a" de este método
   var a = 320;
-  // Draw a line using the local variable "a"
+  // Dibuja una línea usando la variable local "a"
   line(a, 0, a, height);
 }
 
 function drawYetAnotherLine() {
-  // Because no new local variable "a" is set, 
-  // this lines draws using the original global
-  // variable "a" which is set to the value 20.
+  // Como no definimos una nueva variable local "a",
+  // esta línea se dibuja usando la variable global original
+  // "a" que tiene un valor de 20.
   line(a+3, 0, a+3, height);
 }

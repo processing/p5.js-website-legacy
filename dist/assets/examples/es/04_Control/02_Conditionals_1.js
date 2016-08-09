@@ -1,27 +1,27 @@
 /*
- * @name Conditionals 1
- * @description Conditions are like questions. 
- * They allow a program to decide to take one action if 
- * the answer to a question is true or to do another action
- * if the answer to the question is false. 
- * The questions asked within a program are always logical
- * or relational statements. For example, if the variable 'i' is 
- * equal to zero then draw a line.
+ * @name Condicionales 1
+ * @description Las condiciones son como preguntas.
+ * Permiten que un programa decida ejecutar una acción
+ * si la respuesta a una pregunta es afirmativa o hacer otra
+ * acción si la respuesta a la pregunta es negativa.
+ * Las preguntas formuladas dentro de un programa son siempre
+ * instrucciones lógicas o relacionales. Por ejemplo, si la
+ * variable  'i' es igual a cero, entonces dibuja una línea.
  */
 function setup() {
 
-  createCanvas(720, 360); 
+  createCanvas(720, 360);
   background(0);
 
   for(var i = 10; i < width; i += 10) {
-    // If 'i' divides by 20 with no remainder draw the first line
-    // else draw the second line
+    // Si 'i' divide a 20 sin resto, dibuja la primera línea
+    // en caso contrario, dibuja la segunda línea
     if(i%20 == 0) {
       stroke(255);
       line(i, 80, i, height/2);
     } else {
       stroke(153);
-      line(i, 20, i, 180); 
+      line(i, 20, i, 180);
     }
   }
 }

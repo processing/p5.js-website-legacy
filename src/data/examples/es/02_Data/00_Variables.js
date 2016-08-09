@@ -1,7 +1,7 @@
 /*
  * @name Variables
- * @description Variables are used for storing values. In this example, change 
- * the values of variables to affect the composition.
+ * @description Las variables son usadas para almacenar valores. En este ejemplo, cambia
+ * los valores de las variables para cambiar la composición.
  */
 function setup() {
 

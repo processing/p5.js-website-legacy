@@ -1,9 +1,9 @@
 /*
- * @name 3D Primitives
+ * @name Primitivas 3D
  * @frame 720,400 (optional)
- * @description Placing mathematically 3D objects in synthetic space.
- * The box() and sphere() functions take at least one parameter to specify their
- * size. These shapes are positioned using the translate() function.
+ * @description Ubicar matemáticamente objetos 3D en un espacio sintétito.
+ * Las funciones box() y sphere() toman al menos un parámetro para especificar su
+ * tamaño. Estas figuras son posicionadas usando la función translate().
  */
 function setup() {
 	createCanvas(710, 400, WEBGL);
