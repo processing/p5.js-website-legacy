@@ -1,7 +1,7 @@
 /*
- * @name Incremento y decremento
- * @description Escribir "a++" es equivalente a"a = a + 1".
- * Escribir "a--" es equivalente a "a = a - 1".
+ * @name Increment Decrement
+ * @description Writing "a++" is equivalent to "a = a + 1".
+ * Writing "a--" is equivalent to "a = a - 1".
  */
 var a;
 var b;

@@ -1,9 +1,9 @@
 /*
- * @name Brightness
- * @description By Dan Shiffman. This program adjusts the brightness of a part
- * of the image by calculating the distance of each pixel to the mouse.
- * <p><em><span class="small"> To run this example locally, you will need
- * at least an image file and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * @name Brillo
+ * @description Por Dan Shiffman. Este programa ajusta el brillo de una parte de
+ * la imagen, calculando la distancia de cada pixel al ratón.
+ * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás al menos un archivo de imagen
+ * y un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a> corriendo.</span></em></p>
  */
 var img;
 
@@ -21,19 +21,19 @@ function setup() {
 function draw() {
   for (var x = 0; x < img.width; x++) {
     for (var y = 0; y < img.height; y++ ) {
-      // Calculate the 1D location from a 2D grid
+      // Calcular la posición 1D de una matriz 2D
       var loc = (x + y*img.width)*4;
-      // Get the R,G,B values from image
+      // Obtener los valores R,G,B de una imagen
       var r,g,b;
       r = img.pixels[loc];
-      // Calculate an amount to change brightness based on proximity to the mouse
+      // Calcular una cantidad a cambiar de brillo basado en la proximidad al ratón
       var maxdist = 50;
       var d = dist(x, y, mouseX, mouseY);
       var adjustbrightness = 255*(maxdist-d)/maxdist;
       r += adjustbrightness;
-      // Constrain RGB to make sure they are within 0-255 color range
+      // Limitar RGB para asegurarse de estar dentro del rango 0-255 de color
       r = constrain(r, 0, 255);
-      // Make a new color and set pixel in the window
+      // Hacer un nuevo color y definir el pixel en la ventana
       //color c = color(r, g, b);
       var pixloc = (y*width + x)*4;
       pixels[pixloc] = r;

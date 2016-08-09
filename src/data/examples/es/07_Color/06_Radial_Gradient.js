@@ -1,7 +1,7 @@
 /*
- * @name Radial Gradient
- * @description Draws a series of concentric circles to create a gradient 
- * from one color to another.
+ * @name Gradiente radial
+ * @description Dibuja una serie de círculos concéntros para crear un gradiente
+ * de un color a otro.
  */
 var dim;
 
@@ -19,7 +19,7 @@ function draw() {
   background(0);
   for (var x = 0; x <= width; x+=dim) {
     drawGradient(x, height/2);
-  } 
+  }
 }
 
 function drawGradient(x, y) {

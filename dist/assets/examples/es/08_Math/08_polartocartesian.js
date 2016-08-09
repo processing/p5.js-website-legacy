@@ -1,20 +1,20 @@
 /*
- * @name PolarToCartesian
- * @description Convert a polar coordinate (r,theta) 
- * to cartesian (x,y): x = rcos(theta) y = rsin(theta)
- * Original by Daniel Shiffman. 
+ * @name Polar a cartesiano
+ * @description Convierte una coordenada polar (r,theta)
+ * a cartesiana (x,y): x = r*cos(theta), y = r*sin(theta)
+ * Original por Daniel Shiffman.
  */
 var r;
 
-// Angle and angular velocity, accleration
+// Ángulo, velocidad angular, aceleración angular
 var theta;
 var theta_vel;
 var theta_acc;
 
 function setup() {
   createCanvas(710, 400);
-  
-  // Initialize all values
+
+  // Inicializar todos los valores
   r = height * 0.45;
   theta = 0;
   theta_vel = 0;
@@ -22,24 +22,24 @@ function setup() {
 }
 
 function draw() {
-  
+
   background(0);
-  
-  // Translate the origin point to the center of the screen
+
+  // Traslada el punto de origen al centro del lienzo
   translate(width/2, height/2);
-  
-  // Convert polar to cartesian
+
+  // Convierte de polar a cartesiano
   var x = r * cos(theta);
   var y = r * sin(theta);
-  
-  // Draw the ellipse at the cartesian coordinate
+
+  // Dibuja la elipse en la coordenada cartesiana
   ellipseMode(CENTER);
   noStroke();
   fill(200);
   ellipse(x, y, 32, 32);
-  
-  // Apply acceleration and velocity to angle 
-  // (r remains static in this example)
+
+  // Applica aceleración y velocidad al ángulo
+  // (r permance estático en este ejemplo)
   theta_vel += theta_acc;
   theta += theta_vel;
 }

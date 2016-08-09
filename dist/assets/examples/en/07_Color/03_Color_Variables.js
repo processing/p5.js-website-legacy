@@ -1,7 +1,7 @@
 /*
- * @name Variables de color
- * @description (Homenajen a Albers.) Este ejemplo crea variables de colores
- * que pueden ser referenciadas en el programa por un nombre, en vez de un número.
+ * @name Color Variables
+ * @description (Homage to Albers.) This example creates variables for colors 
+ * that may be referred to in the program by a name, rather than a number.
  */
 function setup() {
   createCanvas(710, 400);
@@ -12,8 +12,8 @@ function setup() {
   var middle = color(204, 153, 0);
   var outside = color(153, 51, 0);
 
-  // Estas instrucciones son equivalentes a las de arriba.
-  // Los programadores pueden usar el formato que prefieran.
+  // These statements are equivalent to the statements above.
+  // Programmers may use the format they prefer.
   //color inside = #CC6600;
   //color middle = #CC9900;
   //color outside = #993300;

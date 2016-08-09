@@ -1,9 +1,9 @@
 /*
- * @name  Ruido 1D
- * @description Uso de ruido Perlin 1D para asignar ubicación.
+ * @name  Noise1D
+ * @description Using 1D Perlin Noise to assign location.
  */
 var xoff = 0.0;
-var xincrement = 0.01;
+var xincrement = 0.01; 
 
 function setup() {
   createCanvas(710, 400);
@@ -12,20 +12,20 @@ function setup() {
 }
 
 function draw() {
-  // Crear un fondo traslúcido
+  // Create an alpha blended background
   fill(0, 10);
   rect(0,0,width,height);
-
-  //float n = random(0,width);  // Prueba esta línea en vez del ruido (noise)
-
-  // Obtener un valor de ruido basado en xoff y escalarlo
-  // según el ancho de la ventana
+  
+  //float n = random(0,width);  // Try this line instead of noise
+  
+  // Get a noise value based on xoff and scale 
+  // it according to the window's width
   var n = noise(xoff)*width;
-
-  // Incrementar xoff en cada ciclo
+  
+  // With each cycle, increment xoff
   xoff += xincrement;
-
-  // Dibujar la elipse en la coordenada producida por el ruido Perlin
+  
+  // Draw the ellipse at the value produced by perlin noise
   fill(200);
   ellipse(n,height/2, 64, 64);
 }

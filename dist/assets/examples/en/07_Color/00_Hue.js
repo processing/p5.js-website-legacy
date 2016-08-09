@@ -1,16 +1,15 @@
 /*
- * @name Tinte
- * @description El tinte es el color reflejado o transmitidio
- *  a través de un objecto y es típicamente nombrado como
- * el nombre del color (rojo, azul, amarillo, etc).
- * Mueve el cursor verticalmente sobre cada barra para alterar su tinte.
+ * @name Hue
+ * @description Hue is the color reflected from or transmitted through an 
+ * object and is typically referred to as the name of the color (red, blue, 
+ * yellow, etc.) Move the cursor vertically over each bar to alter its hue.
  */
 var barWidth = 20;
 var lastBar = -1;
 
 function setup() {
   createCanvas(720, 400);
-  colorMode(HSB, height, height, height);
+  colorMode(HSB, height, height, height);  
   noStroke();
   background(0);
 }

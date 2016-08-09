@@ -1,7 +1,8 @@
 /*
- * @name Distancia 2D
- * @description Mueve el ratón a lo largo de la imagen para oscurecer
- * y revelar la matriz. Mide la distancia desde el ratón hasta cada cuadrado y define su tamaño proporcionalmente.
+ * @name Distance 2D
+ * @description Move the mouse across the image to obscure 
+ * and reveal the matrix. Measures the distance from the mouse
+ * to each square and sets the size proportionally.
  */
 var max_distance;
 

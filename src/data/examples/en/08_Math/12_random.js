@@ -1,7 +1,7 @@
 /*
- * @name Aleatorio
- * @description Los números aleatorios son la base de esta imagen.
- * Cada vez que el programa es ejecutado, el resultado es distinto.
+ * @name Random
+ * @description Random numbers create the basis of this image. 
+ * Each time the program is loaded the result is different.
  */
 function setup() {
   createCanvas(710, 400);

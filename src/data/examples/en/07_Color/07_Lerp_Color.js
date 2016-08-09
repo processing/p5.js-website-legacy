@@ -1,7 +1,7 @@
 /*
- * @name Interpolación de color
- * @description Crea figuras aleatorias,
- * interpola su color de rojo a azul.
+ * @name Lerp Color
+ * @description Loop random shapes,
+ * lerp color from red to blue.
  */
 function setup() {
   createCanvas(720, 400);
@@ -24,17 +24,17 @@ function draw() {
     fill(c1);
     quad(random(140, 380), random(height),
          random(140, 380), random(height),
-         random(140, 380), random(height),
+         random(140, 380), random(height), 
          random(140, 380), random(height));
     fill(c2);
-    quad(random(320, 580), random(height),
+    quad(random(320, 580), random(height), 
          random(320, 580), random(height),
-         random(320, 580), random(height),
+         random(320, 580), random(height), 
          random(320, 580), random(height));
     fill(to);
-    quad(random(500, 760), random(height),
+    quad(random(500, 760), random(height), 
          random(500, 760), random(height),
-         random(500, 760), random(height),
+         random(500, 760), random(height), 
          random(500, 760), random(height));
   }
   frameRate(5);

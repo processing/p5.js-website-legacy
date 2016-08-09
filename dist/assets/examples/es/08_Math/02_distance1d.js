@@ -1,7 +1,7 @@
 /*
- * @name Distance 1D
- * @description Move the mouse left and right to control
- * the speed and direction of the moving shapes.
+ * @name Distancia 1D
+ * @description Mueve el ratón hacia la izquierda y derecha para controlar
+ * la velocidad y la dirección de las figuras moviéndose.
  */
 var xpos1;
 var xpos2;
@@ -21,9 +21,9 @@ function setup() {
 
 function draw() {
   background(0);
-  
+
   var mx = mouseX * 0.4 - width/5.0;
-  
+
   fill(102);
   rect(xpos2, 0, thick, height/2);
   fill(204);
@@ -32,12 +32,12 @@ function draw() {
   rect(xpos4, height/2, thick, height/2);
   fill(204);
   rect(xpos3, height/2, thin, height/2);
-	
+
   xpos1 += mx/16;
   xpos2 += mx/64;
   xpos3 -= mx/16;
   xpos4 -= mx/64;
-  
+
   if(xpos1 < -thin)  { xpos1 =  width; }
   if(xpos1 >  width) { xpos1 = -thin; }
   if(xpos2 < -thick) { xpos2 =  width; }

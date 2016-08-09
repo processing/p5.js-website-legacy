@@ -1,8 +1,8 @@
 /*
- * @name Relatividad
- * @description Cada colores es percibido en relación a los otros colores. Las barras superiores e inferiores
- * contienen los mismos componentes de color, pero con un distinto orden causa que
- * los colores individuales aparezcan como distintos.
+ * @name Relativity
+ * @description Each color is perceived in relation to other colors. The top 
+ * and bottom bars each contain the same component colors, but a different 
+ * display order causes individual colors to appear differently.
  */
 var a, b, c, d, e;
 
@@ -14,7 +14,7 @@ function setup() {
   c = color(42, 106, 105);
   d = color(165, 89, 20);
   e = color(146, 150, 127);
-  noLoop();  // Ejecutar draw() solo una vez
+  noLoop();  // Draw only one time
 }
 
 function draw() {

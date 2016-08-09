@@ -1,16 +1,16 @@
 /*
- * @name Sine Wave
- * @description Render a simple sine wave.
- * Original by Danial Shiffman.
+ * @name Onda sinusoidal
+ * @description Dibuja una onda sinusoidal simple.
+ * Original por Daniel Shiffman.
  */
 
-var xspacing = 16;    // Distance between each horizontal location
-var w;                // Width of entire wave
-var theta = 0.0;      // Start angle at 0
-var amplitude = 75.0; // Height of wave
-var period = 500.0;   // How many pixels before the wave repeats
-var dx;               // Value for incrementing x
-var yvalues;  // Using an array to store height values for the wave
+var xspacing = 16;    // Distancia entre posiciones horizontales
+var w;                // Ancho de la onda entera
+var theta = 0.0;      // Ángulo inicial en  0
+var amplitude = 75.0; // Altura de la onda
+var period = 500.0;   // Cantidad de pixeles antes de que la onda se repita
+var dx;               // Valor de incremento en eje x
+var yvalues;  // Uso de un arreglo para guardar los valores de altura de la onda
 
 function setup() {
   createCanvas(710, 400);
@@ -26,11 +26,11 @@ function draw() {
 }
 
 function calcWave() {
-  // Increment theta (try different values for 
-  // 'angular velocity' here
+  // Incrementar theta (prueba valores distintos de
+  // 'velocidad angular' aquí
   theta += 0.02;
 
-  // For every x value, calculate a y value with sine function
+  // Por cada valor de x, calcula un valor de y con la función sin()
   var x = theta;
   for (var i = 0; i < yvalues.length; i++) {
     yvalues[i] = sin(x)*amplitude;
@@ -41,7 +41,7 @@ function calcWave() {
 function renderWave() {
   noStroke();
   fill(255);
-  // A simple way to draw the wave with an ellipse at each location
+  // Una manera simple de dibujar la onda con una elipse en cada punto
   for (var x = 0; x < yvalues.length; x++) {
     ellipse(x*xspacing, height/2+yvalues[x], 16, 16);
   }
