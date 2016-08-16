@@ -1,17 +1,17 @@
 /*
  * @name Wolfram CA
- * @description Simple demonstration of a Wolfram 1-dimensional cellular automata
+ * @description Demostración simple de un autómata celular Wolfram unidimensional
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */
 
 var w = 10;
-// An array of 0s and 1s 
+// Arreglo de 1s y 0s
 var cells;
 
- // We arbitrarily start with just the middle cell having a state of "1"
+ // Arbitrariamente inicializar con solo la célula del medio teniendo un estado de "1"
 var generation = 0;
 
-// An array to store the ruleset, for example {0,1,1,0,1,1,0,1}
+// Arreglo para almacenar el conjunto de reglas, por ejemplo {0,1,1,0,1,1,0,1}
 var ruleset = [0, 1, 0, 1, 1, 0, 1, 0];
 
 function setup() {
@@ -39,26 +39,26 @@ function draw() {
   }
 }
 
-// The process of creating the new generation
+// El proceso de crear una nueva generación
 function generate() {
-  // First we create an empty array for the new values
+  //Primero crear un arreglo vacío para los nuevos valores
   var nextgen = Array(cells.length);
-  // For every spot, determine new state by examing current state, and neighbor states
-  // Ignore edges that only have one neighor
+  // Por cada lugar, determinar el nuevo estado según el examen del estado actual y de los estados vecinos
+  // Ignorar bordes que solo tienen un vecino
   for (var i = 1; i < cells.length-1; i++) {
-    var left   = cells[i-1];   // Left neighbor state
-    var me     = cells[i];     // Current state
-    var right  = cells[i+1];   // Right neighbor state
-    nextgen[i] = rules(left, me, right); // Compute next generation state based on ruleset
+    var left   = cells[i-1];   // Estado del vecino izquierdo
+    var me     = cells[i];     // Estado actual
+    var right  = cells[i+1];   // Estado del vecino derecho
+    nextgen[i] = rules(left, me, right); // Calcular el estado siguiente generación basado en el conjunto de reglas
   }
-  // The current generation is the new generation
+  // La generación actual es la nueva generación
   cells = nextgen;
-  generation++; 
+  generation++;
 }
 
 
-// Implementing the Wolfram rules
-// Could be improved and made more concise, but here we can explicitly see what is going on for each case
+// Implementar las reglas Wolfram
+// Puede ser mejorado y más conciso, pero aquí podemos revisar explicitamente lo que está pasando en cada caso
 function rules(a, b, c) {
   if (a == 1 && b == 1 && c == 1) return ruleset[0];
   if (a == 1 && b == 1 && c == 0) return ruleset[1];
@@ -70,4 +70,3 @@ function rules(a, b, c) {
   if (a == 0 && b == 0 && c == 0) return ruleset[7];
   return 0;
 }
-

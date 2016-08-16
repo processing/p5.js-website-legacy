@@ -1,6 +1,6 @@
 /*
- * @name Particle System
- * @description This is a basic Particle System
+ * @name Sistema de partículas
+ * @description Este es un sistema básico de partículas
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */
 var system;
@@ -16,7 +16,7 @@ function draw() {
   system.run();
 }
 
-// A simple Particle class
+// Una clase simple de partícula (Particle)
 var Particle = function(position) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
@@ -29,14 +29,14 @@ Particle.prototype.run = function() {
   this.display();
 };
 
-// Method to update position
+// Método para refrescar posición
 Particle.prototype.update = function(){
   this.velocity.add(this.acceleration);
   this.position.add(this.velocity);
   this.lifespan -= 2;
 };
 
-// Method to display
+// Método para mostrar en lienzo
 Particle.prototype.display = function() {
   stroke(200, this.lifespan);
   strokeWeight(2);
@@ -44,7 +44,7 @@ Particle.prototype.display = function() {
   ellipse(this.position.x, this.position.y, 12, 12);
 };
 
-// Is the particle still useful?
+// ¿La partícula todavía es útil?
 Particle.prototype.isDead = function(){
   if (this.lifespan < 0) {
     return true;
