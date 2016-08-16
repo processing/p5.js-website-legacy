@@ -1,16 +1,14 @@
 /*
  * @norender
- * @name Instance Container
- * @description Optionally, you can specify a default container for the canvas
- * and any other elements to append to with a second argument. You can give the
- * ID of an element in your html, or an html node itself.
+ * @name Contenedor de instancia
+ * @description Opcionalmente, puedes especificar un contenedor por defecto para el lienzo
+ * y otros elementos que anexes con un segundo argumento. Puedes darle la ID
+ * de un elemento en tu código html, o incluso un nodo html.
  *
- * Here are three different options for selecting a container
- * DOM element. All DOM elements (canvas, buttons, divs, etc) created by p5
- * will be attached to the DOM element specified as the second argument to the
- * p5() call.
- */
-<!-- pass in the ID of the container element -->
+ * Aquí hay tres opciones diferentes Para seleccionar un elemento contenedor de DOM.
+ * Todos los elementos DOM (lienzos, botones, divisiones, etc) creados por p5
+ * serán adjuntados al elemento DOM especificado como el segundo argumento de la llamada a la función p5().
+<!-- entrega la ID del elemento contenedor -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>
@@ -30,7 +28,7 @@
 </html>
 
 
-<!-- pass in a pointer to the container element -->
+<!-- pasa un puntero al elemento contenedor -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>
@@ -50,8 +48,7 @@
 </html>
 
 
-<!-- create an element, attach it to the body,
-and pass in a pointer -->
+<!-- crea un elemento, adjúntalo al cuerpo(body), y pasa un puntero -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>
@@ -72,8 +69,8 @@ and pass in a pointer -->
 </html>
 
 
-<!-- create an element, pass in a pointer,
-and attach it to the body -->
+<!-- crea un elemento, pasa un puntero,
+y adjúntalo al cuerpo (body) -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>
