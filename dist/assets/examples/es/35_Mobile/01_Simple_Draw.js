@@ -1,6 +1,6 @@
 /*
- * @name Simple Draw
- * @description Touch to draw on the screen using touchX, touchY, ptouchX, and ptouchY values. 
+ * @name Dibujo simple
+ * @description Toca para dibujar en la pantalla usando los valores de posición x e y de toque actual y anterior (touchX, touchY, ptouchX, ptouchY).
  */
 
  function setup() {
@@ -13,4 +13,3 @@ function touchMoved() {
 	line(touchX, touchY, ptouchX, ptouchY);
 	return false;
 }
-
