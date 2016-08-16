@@ -1,8 +1,8 @@
 /*
- * @name Reach 3
+ * @name Alcanzar 3
  * @frame 710,400
- * @description The arm follows the position of the ball by calculating the
- * angles with atan2(). Based on code from Keith Peters.
+ * @description El brazo sigue la posición de la pelota mediante el cálculo de los
+ * ángulos con atan2(). Basado en código de Keith Peters.
  */
 var numSegments = 8,
   x = [],
@@ -27,8 +27,8 @@ function setup() {
   stroke(255, 100);
   noFill();
 
-  x[x.length-1] = width/2; // Set base x-coordinate
-  y[x.length-1] = height;  // Set base y-coordinate
+  x[x.length-1] = width/2; // Definir base del eje x
+  y[x.length-1] = height;  // Definir base del eje y
 }
 
 function draw() {

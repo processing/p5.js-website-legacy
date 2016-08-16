@@ -1,9 +1,9 @@
 /*
- * @name Follow 2
+ * @name Seguir 2
  * @frame 710,400
- * @description A two-segmented arm follows the cursor position. The relative
- * angle between the segments is calculated with atan2() and the position
- * calculated with sin() and cos(). Based on code from Keith Peters.
+ * @description Un brazo de dos segmentos sigue la posición del cursor. El ángulo relativo
+ * entre los segmentos es calculado con la función atan2() y la posición es
+ * calculada con sin() y cos(). Basado en código de Keith Peters.
  */
 var x = [0,0],
   y = [0,0],

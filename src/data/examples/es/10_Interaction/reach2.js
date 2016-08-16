@@ -1,8 +1,8 @@
 /*
- * @name Reach 2
+ * @name Alcanzar 2
  * @frame 710,400
- * @description The arm follows the position of the mouse by calculating the
- * angles with atan2(). Based on code from Keith Peters.
+ * @description El brazo sigue la posición del ratón mediante el cálculo de los
+ * ángulos con atan2(). Basado en código de Keith Peters.
  */
 var numSegments = 10,
   x = [],
@@ -22,8 +22,8 @@ function setup() {
   strokeWeight(20);
   stroke(255, 100);
 
-  x[x.length-1] = width/2; // Set base x-coordinate
-  y[x.length-1] = height;  // Set base y-coordinate
+  x[x.length-1] = width/2; // Definir base del eje x
+  y[x.length-1] = height;  // Definir base del eje y
 }
 
 function draw() {
