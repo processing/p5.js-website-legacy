@@ -1,5 +1,5 @@
 /*
- * @name Fuercas
+ * @name Fuerzas
  * @description Demostración de múltiples fuerzas actuando en cuerpos
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */

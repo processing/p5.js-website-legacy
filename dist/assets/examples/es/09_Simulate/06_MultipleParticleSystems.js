@@ -1,7 +1,7 @@
 /*
- * @name Multiple Particle Systems
- * @description Click the mouse to generate a burst of particles at mouse location.<br>Each burst is one instance of a particle system with Particles and CrazyParticles (a subclass of Particle).<br>Note use of Inheritance and Polymorphism here.<br>
- * Original by Daniel Shiffman. 
+ * @name Múltiples sistemas de partículas
+ * @description Hacer click con el ratón para generar una ráfaga de partículas en la posición del ratón.<br>Cada ráfaga es una instancia de un sistema de partículas con objetos Particle y CrazyParticle (una subclase de Particle).<br>Notar el uso de Herencia y Polimorfismo.<br>
+ * Original por Daniel Shiffman.
  */
 var systems;
 
@@ -30,7 +30,7 @@ function mousePressed() {
   systems.push(p);
 }
 
-// A simple Particle class
+// Una clase simple de Particle
 var Particle = function(position) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
@@ -43,14 +43,14 @@ Particle.prototype.run = function() {
   this.display();
 };
 
-// Method to update position
+// Método para actualizar posición
 Particle.prototype.update = function(){
   this.velocity.add(this.acceleration);
   this.position.add(this.velocity);
   this.lifespan -= 2;
 };
 
-// Method to display
+// Método para mostrar en pantalla
 Particle.prototype.display = function () {
   stroke(200, this.lifespan);
   strokeWeight(2);
@@ -58,7 +58,7 @@ Particle.prototype.display = function () {
   ellipse(this.position.x, this.position.y, 12, 12);
 };
 
-// Is the particle still useful?
+// ¿Sigue siendo útil la partícula?
 Particle.prototype.isDead = function () {
   if (this.lifespan < 0) {
     return true;
@@ -73,7 +73,7 @@ var ParticleSystem = function (position) {
 };
 
 ParticleSystem.prototype.addParticle = function () {
-  // Add either a Particle or CrazyParticle to the system
+  // Añadir o una Particle o una CrazyParticle al sistema
   if (int(random(0, 2)) == 0) {
     p = new Particle(this.origin);
   }
@@ -93,24 +93,22 @@ ParticleSystem.prototype.run = function () {
   }
 };
 
-// A subclass of Particle
-
+// Una subclase de Particle
 function CrazyParticle(origin) {
-  // Call the parent constructor, making sure (using Function#call)
-  // that "this" is set correctly during the call
+  // Llamar al constructor padre, asegurándose (usando  Función#llamada)
+  // que "this" está configurado correctamente durante la llamada
   Particle.call(this, origin);
 
-  // Initialize our added properties
+  // Inicializar nustras propiedades añadidas
   this.theta = 0.0;
 };
 
-// Create a Crazy.prototype object that inherits from Particle.prototype.
-// Note: A common error here is to use "new Particle()" to create the
-// Crazy.prototype. That's incorrect for several reasons, not least 
-// that we don't have anything to give Particle for the "origin" 
-// argument. The correct place to call Particle is above, where we call 
-// it from Crazy.
-CrazyParticle.prototype = Object.create(Particle.prototype); // See note below
+// Crear un objeto Crazy.prototype que hereda de Particle.prototype.
+// Nota: un error común aquí es usar "new Particle()" para crear el
+// Crazy.prototype. Es incorrecto por muchas razones,
+// como que no tenemos qué darle a Particle para el argumento de "origin"
+// El lugar correcto para llamar a Particle es arriba, donde lo llamamos desde Crazy.
+CrazyParticle.prototype = Object.create(Particle.prototype); // Ver nota abajo
 
 // Set the "constructor" property to refer to CrazyParticle
 CrazyParticle.prototype.constructor = CrazyParticle;
@@ -120,15 +118,15 @@ CrazyParticle.prototype.constructor = CrazyParticle;
 // This update() method overrides the parent class update() method
 CrazyParticle.prototype.update=function() {
   Particle.prototype.update.call(this);
-  // Increment rotation based on horizontal velocity
+  // Incrementar rotación basado en la velocidad horizontal
   this.theta += (this.velocity.x * this.velocity.mag()) / 10.0;
 }
 
-// This display() method overrides the parent class display() method
+// Este método display() anula el método display() de la clase padre
 CrazyParticle.prototype.display=function() {
-  // Render the ellipse just like in a regular particle
+  // Render de la elipse como una partícula regular
   Particle.prototype.display.call(this);
-  // Then add a rotating line
+  // Añadir línea giratoria
   push();
   translate(this.position.x, this.position.y);
   rotate(this.theta);

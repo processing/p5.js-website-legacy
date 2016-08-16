@@ -1,5 +1,5 @@
 /*
- * @name Sistema de particulas
+ * @name Sistema de partículas
  * @description Este es un sistema básico de partículas
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */

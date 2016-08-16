@@ -1,13 +1,12 @@
 /*
- * @name SmokeParticles
- * @description a port of Dan Shiffman's SmokeParticleSystem example originally
- * for Processing. Creates smokey particles :p
+ * @name Partículas de humo
+ * @description un puerto del ejemplo de sistema de partículas de humo de Dan Shiffman, originalmente para Processing. Crea partículas de humo :p
  */
 
-// texture for the particle
+// textura de la partícula
 var particle_texture = null;
 
-// variable holding our particle system
+// variabla para almacenar el sistema de partículas
 var ps = null;
 
 function preload() {
@@ -16,10 +15,10 @@ function preload() {
 
 function setup() {
 
-    //set the canvas size
+    //definir el tamaño del lienzo
     createCanvas(640,360);
 
-    //initialize our particle system
+    //inicializar nuestro sistema de partículas
     ps = new ParticleSystem(0,createVector(width / 2, height - 60),particle_texture);
 }
 
@@ -35,12 +34,12 @@ function draw() {
         ps.addParticle();
     }
 
-    // Draw an arrow representing the wind force
+    // Dibujar una flecha representando la fuerza del viento
     drawVector(wind, createVector(width/2,50,0),500);
 }
 
 /**
- *  This function draws an arrow showing the direction our "wind" is blowing.
+ *  Esta función dibuja una flecha mostrando la dirección en que nuestro "viento" está soplando.
  */
 function drawVector(v,loc,scale){
     push();
@@ -55,19 +54,19 @@ function drawVector(v,loc,scale){
     line(len,0,len-arrowsize,-arrowsize/2);
     pop();
 }
-//========= PARTICLE SYSTEM ===========
+//========= SÍSTEMA DE PARTICULAS ===========
 
 /**
- * A basic particle system class
- * @param num the number of particles
- * @param v the origin of the particle system
- * @param img_ a texture for each particle in the system
+ * Una clase básica de sistema de partículas
+ * @param num el número de partículas
+ * @param v el origen del sistema de partículas
+ * @param img_ una textura para cada partícual en el sistema
  * @constructor
  */
 var ParticleSystem = function(num,v,img_) {
 
     this.particles = [];
-    this.origin = v.copy(); // we make sure to copy the vector value in case we accidentally mutate the original by accident
+    this.origin = v.copy(); // nos aseguramos de copiar el valor del vector en caso que accidentalmente cambiemos el valor del original por accidente
     this.img = img_
     for(var i = 0; i < num; ++i){
         this.particles.push(new Particle(this.origin,this.img));
@@ -75,23 +74,23 @@ var ParticleSystem = function(num,v,img_) {
 };
 
 /**
- * This function runs the entire particle system.
+ * Esta función corre el ejemplo entero del sistema de partículas
  */
 ParticleSystem.prototype.run = function() {
 
-    // cache length of the array we're going to loop into a variable
-    // You may see <variable>.length in a for loop, from time to time but
-    // we cache it here because otherwise the length is re-calculated for each iteration of a loop
+    // guardar en una variable el largo del arreglo sobre el que vamos a iterar
+    // Puedes encontrar este largo con la sintaxis <variable>.length dentro un bucle for
+    // pero lo guardamos acá porque en caso contrario, estaríamos recalculando el largo en cada iteración del bucle for
     var len = this.particles.length;
 
-    //loop through and run particles
+    // iterar sobre todas las partículas y hacerlas correr con el método run()
     for (var i = len - 1; i >= 0; i--) {
         var particle = this.particles[i];
         particle.run();
 
-        // if the particle is dead, we remove it.
-        // javascript arrays don't have a "remove" function but "splice" works just as well.
-        // we feed it an index to start at, then how many numbers from that point to remove.
+        // si la partícula está muerta, la removemos.
+        // los arreglos en javascript no poseen una función "remover", pero "splice" funciona.
+        // le damos como parámetro un lugar dónde empezar, y luego especificamos cuántas casillas desde aquí son removidas.
         if (particle.isDead()) {
             this.particles.splice(i,1);
         }
@@ -99,8 +98,8 @@ ParticleSystem.prototype.run = function() {
 }
 
 /**
- * Method to add a force vector to all particles currently in the system
- * @param dir a p5.Vector describing the direction of the force.
+ * Método para añadir un vector fuerza a todas las partículas actualmente en el sistema
+ * @param dir un p5.Vector que describe la dirección de la fuerza.
  */
 ParticleSystem.prototype.applyForce = function(dir) {
     var len = this.particles.length;
@@ -110,16 +109,15 @@ ParticleSystem.prototype.applyForce = function(dir) {
 }
 
 /**
- * Adds a new particle to the system at the origin of the system and with
- * the originally set texture.
+ * Agrega una nueva partícula en el origen del sistema y con la textura definida originalmente.
  */
 ParticleSystem.prototype.addParticle = function() {
     this.particles.push(new Particle(this.origin,this.img));
 }
 
-//========= PARTICLE  ===========
+//========= PARTÍCULA  ===========
 /**
- *  A simple Particle class, renders the particle as an image
+ *  Una clase simple de Particle, hace render de la partícula como una imagen
  */
 var Particle = function (pos, img_) {
     this.loc = pos.copy();
@@ -134,7 +132,7 @@ var Particle = function (pos, img_) {
 }
 
 /**
- *  Simulataneously updates and displays a particle.
+ *  Actualiza y muestra simultáneamente una partícula
  */
 Particle.prototype.run = function() {
     this.update();
@@ -142,7 +140,7 @@ Particle.prototype.run = function() {
 }
 
 /**
- *  A function to display a particle
+ *  Una función para mostrar en pantalla una partícula
  */
 Particle.prototype.render = function() {
     imageMode(CENTER);
@@ -151,15 +149,15 @@ Particle.prototype.render = function() {
 }
 
 /**
- *  A method to apply a force vector to a particle.
+ *  Un método para aplicar un vector fuerza a una partícula.
  */
 Particle.prototype.applyForce = function(f) {
     this.acc.add(f);
 }
 
 /**
- *  This method checks to see if the particle has reached the end of it's lifespan,
- *  if it has, return true, otherwise return false.
+ *  Este método revisa si la partícula ha llegado al fin de su vida,
+ *  si lo ha hecho, devuelve true, en otro caso devuelve false.
  */
 Particle.prototype.isDead = function () {
     if (this.lifespan <= 0.0) {
@@ -170,7 +168,7 @@ Particle.prototype.isDead = function () {
 }
 
 /**
- *  This method updates the position of the particle.
+ *  Este método actualiza la posición de la partícula.
  */
 Particle.prototype.update = function() {
     this.vel.add(this.acc);

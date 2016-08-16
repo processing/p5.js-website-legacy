@@ -1,9 +1,9 @@
 /*
- * @name Soft Body
- * @description Original example by Ira Greenberg.
- * <br><br>Softbody dynamics simulation using curveVertex() and curveTightness().
+ * @name Cuerpo blando
+ * @description Ejemplo original por Ira Greenberg.
+ * <br><br>Simulación de dinámica de cuerpo blando usando curveVertex() y curveTightness().
  */
-// center point
+// Punto central
 var centerX = 0.0, centerY = 0.0;
 
 var radius = 45, rotAngle = -90;
@@ -11,10 +11,10 @@ var accelX = 0.0, accelY = 0.0;
 var deltaX = 0.0, deltaY = 0.0;
 var springing = 0.0009, damping = 0.98;
 
-//corner nodes
+// nodos esquina
 var nodes = 5;
 
-//zero fill arrays
+// Arreglos vacíos
 var nodeStartX = [];
 var nodeStartY = [];
 var nodeX = [];
@@ -22,17 +22,17 @@ var nodeY = [];
 var angle = [];
 var frequency = [];
 
-// soft-body dynamics
+// Dinámica de cuerpo blando
 var organicConstant = 1.0;
 
 function setup() {
   createCanvas(710, 400);
 
-  //center shape in window
+  // centrar la figura en la ventana
   centerX = width/2;
   centerY = height/2;
 
-  //initialize arrays to 0
+  //inicializar arreglos a 0
   for (var i=0; i<nodes; i++){
     nodeStartX[i] = 0;
     nodeStartY[i] = 0;
@@ -41,7 +41,7 @@ function setup() {
     angle[i] = 0;
   }
 
-  // iniitalize frequencies for corner nodes
+  // inicializar freuencias de los nodos de esquina
   for (var i=0; i<nodes; i++){
     frequency[i] = random(5, 12);
   }
@@ -51,7 +51,7 @@ function setup() {
 }
 
 function draw() {
-  //fade background
+  //fondo semitransparente
   fill(0, 100);
   rect(0,0,width, height);
   drawShape();
@@ -59,14 +59,14 @@ function draw() {
 }
 
 function drawShape() {
-  //  calculate node  starting locations
+  //  calcular posiciones iniciales de nodos
   for (var i=0; i<nodes; i++){
     nodeStartX[i] = centerX+cos(radians(rotAngle))*radius;
     nodeStartY[i] = centerY+sin(radians(rotAngle))*radius;
     rotAngle += 360.0/nodes;
   }
 
-  // draw polygon
+  // dibujar polígono
   curveTightness(organicConstant);
   fill(255);
   beginShape();
@@ -80,28 +80,28 @@ function drawShape() {
 }
 
 function moveShape() {
-  //move center point
+  // mover punto central
   deltaX = mouseX-centerX;
   deltaY = mouseY-centerY;
 
-  // create springing effect
+  // crear efecto resorte
   deltaX *= springing;
   deltaY *= springing;
   accelX += deltaX;
   accelY += deltaY;
 
-  // move predator's center
+  // mover el centro del depredador
   centerX += accelX;
   centerY += accelY;
 
-  // slow down springing
+  // reducir velocidad del efecto resorte
   accelX *= damping;
   accelY *= damping;
 
-  // change curve tightness
+  // Cambiar tirantez de la curva
   organicConstant = 1-((abs(accelX)+abs(accelY))*0.1);
 
-  //move nodes
+  //mover nodos
   for (var i=0; i<nodes; i++){
     nodeX[i] = nodeStartX[i]+sin(radians(angle[i]))*(accelX*2);
     nodeY[i] = nodeStartY[i]+sin(radians(angle[i]))*(accelY*2);
