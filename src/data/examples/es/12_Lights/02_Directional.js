@@ -3,7 +3,7 @@
  * @frame 710,400
  * @description Mueve el ratón para cambiar la dirección de la luz.
  * La luz direccional proviene de una dirección y es de mayor intensidad cuando incide sobre
- * una superficie cuadrada y más suave sobre un ángulo menor. Después de incidir sobre la
+ * una superficie perpendicularmente y más suave sobre un ángulo menor. Después de incidir sobre la
  * superficie, una luz direccional se dispersa en todas direcciones.
  */
 var radius = 200;
