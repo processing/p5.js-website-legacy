@@ -1,11 +1,11 @@
 /*
- * @name Instantiation
- * @description Create a p5 instance, which keeps all variables
- * out of the global scope of your page.
+ * @name Instaciación
+ * @description Crear una instancia de p5, que mantiene todas las variables
+ * fuera del scope global de tu página.
  */
 var sketch = function( p ) {
 
-  var x = 100; 
+  var x = 100;
   var y = 100;
 
   p.setup = function() {
@@ -21,7 +21,7 @@ var sketch = function( p ) {
 
 var myp5 = new p5(sketch);
 
-// Compare to "global mode"
+// Compara con el "modo global"
 // var x = 100;
 // var y = 100;
 
