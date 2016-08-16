@@ -1,15 +1,15 @@
 /*
-* @name Drawing
-* @description Generative painting program.
+* @name Dibujar
+* @description Programa de pintura generativa.
 */
 
-// All the paths
+// todos los caminos
 var paths = [];
-// Are we painting?
+// si estamos pintando o no
 var painting = false;
-// How long until the next circle
+// cuánto tiempo pasa antes de hacer el siguiente círculo
 var next = 0;
-// Where are we now and where were we?
+// dónde estamos ahora y donde estuvimos antes
 var current;
 var previous;
 
@@ -21,37 +21,37 @@ function setup() {
 
 function draw() {
   background(200);
-  
-  // If it's time for a new point
+
+  // si es tiempo de hacer un nuevo punto
   if (millis() > next && painting) {
 
-    // Grab mouse position      
+    // obtener posición del ratón
     current.x = mouseX;
     current.y = mouseY;
 
-    // New particle's force is based on mouse movement
+    // la fuerza de la nueva partícula depende del movimiento del ratón
     var force = p5.Vector.sub(current, previous);
     force.mult(0.05);
 
-    // Add new particle
+    // añadir nueva partícula
     paths[paths.length - 1].add(current, force);
-    
-    // Schedule next circle
+
+    // programar el siguiente círculo
     next = millis() + random(100);
 
-    // Store mouse values
+    // Guardar las posiciones del ratón
     previous.x = current.x;
     previous.y = current.y;
   }
 
-  // Draw all paths
+  // dibujar todos los caminos
   for( var i = 0; i < paths.length; i++) {
     paths[i].update();
     paths[i].display();
   }
 }
 
-// Start it up
+// empezar
 function mousePressed() {
   next = 0;
   painting = true;
@@ -60,46 +60,46 @@ function mousePressed() {
   paths.push(new Path());
 }
 
-// Stop
+// parar
 function mouseReleased() {
   painting = false;
 }
 
-// A Path is a list of particles
+// un camino Path es una lista de partículas
 function Path() {
   this.particles = [];
   this.hue = random(100);
 }
 
 Path.prototype.add = function(position, force) {
-  // Add a new particle with a position, force, and hue
+  // agregar una nueva partícula con una posición, fuerza y tinte
   this.particles.push(new Particle(position, force, this.hue));
 }
 
-// Display plath
-Path.prototype.update = function() {  
+// mostrar camino
+Path.prototype.update = function() {
   for (var i = 0; i < this.particles.length; i++) {
     this.particles[i].update();
   }
-}  
+}
 
-// Display plath
+// mostrar camino
 Path.prototype.display = function() {
-  
-  // Loop through backwards
+
+  // iterar sobre el camino de atrás hacia adelante
   for (var i = this.particles.length - 1; i >= 0; i--) {
-    // If we shold remove it
+    // si debemos removerlo
     if (this.particles[i].lifespan <= 0) {
       this.particles.splice(i, 1);
-    // Otherwise, display it
+    // si no, mostrarlo en pantalla
     } else {
       this.particles[i].display(this.particles[i+1]);
     }
   }
 
-}  
+}
 
-// Particles along the path
+// partículas en el camino
 function Particle(position, force, hue) {
   this.position = createVector(position.x, position.y);
   this.velocity = createVector(force.x, force.y);
@@ -108,21 +108,21 @@ function Particle(position, force, hue) {
 }
 
 Particle.prototype.update = function() {
-  // Move it
+  // muévela
   this.position.add(this.velocity);
-  // Slow it down
+  // disminuye su velocidad
   this.velocity.mult(this.drag);
-  // Fade it out
+  // hazla más transparente
   this.lifespan--;
 }
 
-// Draw particle and connect it with a line
-// Draw a line to another
+// dibujar una partícula y conectarla con una línea
+// dibuja una línea a otra
 Particle.prototype.display = function(other) {
   stroke(0, this.lifespan);
-  fill(0, this.lifespan/2);    
-  ellipse(this.position.x,this.position.y, 8, 8);    
-  // If we need to draw a line
+  fill(0, this.lifespan/2);
+  ellipse(this.position.x,this.position.y, 8, 8);
+  // si necesitamos dibujar otra línea
   if (other) {
     line(this.position.x, this.position.y, other.position.x, other.position.y);
   }

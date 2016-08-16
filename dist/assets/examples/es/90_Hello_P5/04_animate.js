@@ -1,33 +1,32 @@
 /*
- * @name Animation
- * @description The circle moves.
+ * @name Animación
+ * @description El círculo se mueve
  */
-// Where is the circle
+// posición del círculo
 var x, y;
 
 function setup() {
   createCanvas(720, 400);
-  // Starts in the middle
+  // empieza en el centro
   x = width / 2;
   y = height;
 }
 
 function draw() {
   background(200);
-  
-  // Draw a circle
+
+  // dibujar el círculo
   stroke(50);
   fill(100);
   ellipse(x, y, 24, 24);
-  
-  // Jiggling randomly on the horizontal axis
+
+  // moverse aleatoriamente en el eje x
   x = x + random(-1, 1);
-  // Moving up at a constant speed
+  // mover hacia arriba a velocidad constante
   y = y - 1;
-  
-  // Reset to the bottom
+
+  // reset al fondo
   if (y < 0) {
     y = height;
   }
 }
-

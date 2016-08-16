@@ -2,7 +2,7 @@
  * @name Song
  * @frame 720, 430
  * @description Play a song.
- * You will need to include the 
+ * You will need to include the
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound
  * library</a> for this example to work in your own project.
  */
@@ -11,14 +11,14 @@ var notes = [ 60, 62, 64, 65, 67, 69, 71];
 
 // For automatically playing the song
 var index = 0;
-var song = [ 
-  { note: 4, duration: 400, display: "D" },  
-  { note: 0, duration: 200, display: "G" },  
-  { note: 1, duration: 200, display: "A" },  
-  { note: 2, duration: 200, display: "B" }, 
-  { note: 3, duration: 200, display: "C" },  
-  { note: 4, duration: 400, display: "D" },  
-  { note: 0, duration: 400, display: "G" },  
+var song = [
+  { note: 4, duration: 400, display: "D" },
+  { note: 0, duration: 200, display: "G" },
+  { note: 1, duration: 200, display: "A" },
+  { note: 2, duration: 200, display: "B" },
+  { note: 3, duration: 200, display: "C" },
+  { note: 4, duration: 400, display: "D" },
+  { note: 0, duration: 400, display: "G" },
   { note: 0, duration: 400, display: "G" }
 ];
 var trigger = 0;
@@ -38,7 +38,7 @@ function setup() {
       autoplay = true;
     }
   });
-  
+
   // A triangle oscillator
   osc = new p5.TriOsc();
   // Start silent
@@ -51,7 +51,7 @@ function playNote(note, duration) {
   osc.freq(midiToFreq(note));
   // Fade it in
   osc.fade(0.5,0.2);
-  
+
   // If we sest a duration, fade it out
   if (duration) {
     setTimeout(function() {
@@ -61,7 +61,7 @@ function playNote(note, duration) {
 }
 
 function draw() {
-  
+
   // If we are autoplaying and it's time for the next note
   if (autoplay && millis() > trigger){
     playNote(notes[song[index].note], song[index].duration);
@@ -73,7 +73,7 @@ function draw() {
     autoplay = false;
   }
 
-  
+
   // Draw a keyboard
 
   // The width for each key
@@ -92,14 +92,14 @@ function draw() {
     } else {
       fill(200);
     }
-    
-    // Oh if we're playing teh song, let's highlight it too
+
+    // Or if we're playing the song, let's highlight it too
     if (autoplay && i === song[index-1].note) {
       fill(100,255,200);
     }
-    
+
     // Draw the key
-    rect(x, 0, w-1, height-1); 
+    rect(x, 0, w-1, height-1);
   }
 
 }
@@ -115,4 +115,3 @@ function mousePressed() {
 function mouseReleased() {
   osc.fade(0,0.5);
 }
-

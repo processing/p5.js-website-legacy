@@ -1,15 +1,15 @@
 /*
  * @name Flocking
- * @description Demonstration of <a href="http://www.red3d.com/cwr/">Craig Reynolds' "Flocking" behavior</a>.<br>
- * (Rules: Cohesion, Separation, Alignment.)<br>
- * From <a href="http://natureofcode.com">natureofcode.com</a>.
+ * @description Demostración del <a href="http://www.red3d.com/cwr/">comportamiento "Flocking" según Craig Reynolds</a>.<br>
+ * (Reglas: cohesión, separación, alineamiento.)<br>
+ * Extraído de <a href="http://natureofcode.com">natureofcode.com</a>.
  */
 var boids = [];
 
 function setup() {
   createCanvas(720, 400);
 
-  // Add an initial set of boids into the system
+  // Agregar un conjunto inicial de boids al sistema
   for (var i = 0; i < 100; i++) {
     boids[i] = new Boid(random(width), random(height));
   }
@@ -17,22 +17,22 @@ function setup() {
 
 function draw() {
   background(51);
-  // Run all the boids
+  // Ejecutar todos los boids
   for (var i = 0; i < boids.length; i++) {
     boids[i].run(boids);
   }
 }
 
 
-// Boid class
-// Methods for Separation, Cohesion, Alignment added
+// clase Boid
+// Métodos para separación, cohesión y alineamiento
 function Boid(x, y) {
   this.acceleration = createVector(0, 0);
   this.velocity = p5.Vector.random2D();
   this.position = createVector(x, y);
   this.r = 3.0;
-  this.maxspeed = 3;    // Maximum speed
-  this.maxforce = 0.05; // Maximum steering force
+  this.maxspeed = 3;    // velocidad máxima
+  this.maxforce = 0.05; // fuerza máxima de viraje
 }
 
 Boid.prototype.run = function(boids) {
@@ -42,58 +42,58 @@ Boid.prototype.run = function(boids) {
   this.render();
 }
 
-// Forces go into acceleration
+// las fuerzas son añadidas a la aceleración
 Boid.prototype.applyForce = function(force) {
   this.acceleration.add(force);
 }
 
-// We accumulate a new acceleration each time based on three rules
+// acumulamos una nueva aceleración cada vez que el tiempo pasa, basado en tres reglas
 Boid.prototype.flock = function(boids) {
-  var sep = this.separate(boids); // Separation
-  var ali = this.align(boids);    // Alignment
-  var coh = this.cohesion(boids); // Cohesion
-  // Arbitrarily weight these forces
+  var sep = this.separate(boids); // separación
+  var ali = this.align(boids);    // alineamiento
+  var coh = this.cohesion(boids); // cohesión
+  // darle un peso arbitrario a las fuerzas
   sep.mult(2.5);
   ali.mult(1.0);
   coh.mult(1.0);
-  // Add the force vectors to acceleration
+  // añade los vectores de fuerza a la aceleración
   this.applyForce(sep);
   this.applyForce(ali);
   this.applyForce(coh);
 }
 
-// Method to update location
+// método para actualizar ubicación
 Boid.prototype.update = function() {
-  // Update velocity
+  // actualizar velocidad
   this.velocity.add(this.acceleration);
-  // Limit speed
+  // limitar velocidad
   this.velocity.limit(this.maxspeed);
   this.position.add(this.velocity);
-  // Reset accelertion to 0 each cycle
+  // resetear aceleración a 0 en cada ciclo
   this.acceleration.mult(0);
 }
 
-// A method that calculates and applies a steering force towards a target
-// STEER = DESIRED MINUS VELOCITY
+// un método que aplica y calcula una fuera de viraje a un objetivo
+// viraje = deseado - velocidad
 Boid.prototype.seek = function(target) {
-  var desired = p5.Vector.sub(target, this.position); // A vector pointing from the location to the target
-  // Normalize desired and scale to maximum speed
+  var desired = p5.Vector.sub(target, this.position); // un vector apuntanto desde la ubicación y hacia el objetivo
+  // normalizar deseado y escalar a velocidad máxima
   desired.normalize();
   desired.mult(this.maxspeed);
-  // Steering = Desired minus Velocity
+  // viraje = deseado menos velocidad
   var steer = p5.Vector.sub(desired, this.velocity);
-  steer.limit(this.maxforce); // Limit to maximum steering force
+  steer.limit(this.maxforce); // limitar a la fuerza máxima de viraje
   return steer;
 }
 
-// Draw boid as a circle
+// dibujar el boid como un círculo
 Boid.prototype.render = function() {
   fill(127, 127);
   stroke(200);
   ellipse(this.position.x, this.position.y, 16, 16);
 }
 
-// Wraparound
+// wraparound, si se llega a un borde, aparecer por el borde opuesto
 Boid.prototype.borders = function() {
   if (this.position.x < -this.r) this.position.x = width + this.r;
   if (this.position.y < -this.r) this.position.y = height + this.r;
@@ -101,33 +101,33 @@ Boid.prototype.borders = function() {
   if (this.position.y > height + this.r) this.position.y = -this.r;
 }
 
-// Separation
-// Method checks for nearby boids and steers away
+// separación
+// método que revisa si hay boids cercanos y vira para alejarse de ellos
 Boid.prototype.separate = function(boids) {
   var desiredseparation = 25.0;
   var steer = createVector(0, 0);
   var count = 0;
-  // For every boid in the system, check if it's too close
+  // por cada boid en el sistema, revisar si está muy cerca
   for (var i = 0; i < boids.length; i++) {
     var d = p5.Vector.dist(this.position, boids[i].position);
-    // If the distance is greater than 0 and less than an arbitrary amount (0 when you are yourself)
+    // si la distancia es mayor a 0 y menor que un tamaño arbitrario (0 cuando es sí mismo)
     if ((d > 0) && (d < desiredseparation)) {
-      // Calculate vector pointing away from neighbor
+      // calcular vector apuntando para alejarse del vecino
       var diff = p5.Vector.sub(this.position, boids[i].position);
       diff.normalize();
-      diff.div(d); // Weight by distance
+      diff.div(d); // peso según distancia
       steer.add(diff);
-      count++; // Keep track of how many
+      count++; // contar cuántos
     }
   }
-  // Average -- divide by how many
+  // promedio -- dividir por la cantidad
   if (count > 0) {
     steer.div(count);
   }
 
-  // As long as the vector is greater than 0
+  // mientas el vector sea mayor que 0
   if (steer.mag() > 0) {
-    // Implement Reynolds: Steering = Desired - Velocity
+    // implementar Reynolds: viraje = deseado - velocidad
     steer.normalize();
     steer.mult(this.maxspeed);
     steer.sub(this.velocity);
@@ -136,8 +136,8 @@ Boid.prototype.separate = function(boids) {
   return steer;
 }
 
-// Alignment
-// For every nearby boid in the system, calculate the average velocity
+// alineamiento
+// por cada boid cercano en el sistema, calcular la velocidad promedio
 Boid.prototype.align = function(boids) {
   var neighbordist = 50;
   var sum = createVector(0, 0);
@@ -161,22 +161,22 @@ Boid.prototype.align = function(boids) {
   }
 }
 
-// Cohesion
-// For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location
+// cohesión
+// Para la ubicación promedio (centro) de todos los boids vecinos, calcular el vector de viraje hacia esa ubicación
 Boid.prototype.cohesion = function(boids) {
   var neighbordist = 50;
-  var sum = createVector(0, 0); // Start with empty vector to accumulate all locations
+  var sum = createVector(0, 0); // empezar con un vector vacío para acumular todas las ubicaciones
   var count = 0;
   for (var i = 0; i < boids.length; i++) {
     var d = p5.Vector.dist(this.position, boids[i].position);
     if ((d > 0) && (d < neighbordist)) {
-      sum.add(boids[i].position); // Add location
+      sum.add(boids[i].position); // Agregar ubicación
       count++;
     }
   }
   if (count > 0) {
     sum.div(count);
-    return this.seek(sum); // Steer towards the location
+    return this.seek(sum); // Virar hacia la ubicación
   } else {
     return createVector(0, 0);
   }
