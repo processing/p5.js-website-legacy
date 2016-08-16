@@ -1,24 +1,24 @@
 /*
- * @name Simple Shapes
- * @description This examples includes a circle, square, triangle, and a flower.
+ * @name Figuras simples
+ * @description Este ejemplo incluye una elipse, un rectángulo, un triángulo y una flor.
  */
 function setup() {
-  // Create the canvas
+  // crear el lienzo
   createCanvas(720, 400);
   background(200);
-  
-  // Set colors
+
+  // Definir colores
   fill(204, 101, 192, 127);
   stroke(127, 63, 120);
 
-  // A rectangle
+  // Un rectángulo
   rect(40, 120, 120, 40);
-  // An ellipse
+  // Una elipse
   ellipse(240, 240, 80, 80);
-  // A triangle
+  // Un triángulo
   triangle(300, 100, 320, 100, 310, 80);
-   
-  // A design for a simple flower
+
+  // Un diseño de una flor simple
   translate(580, 200);
   noStroke();
   for (var i = 0; i < 10; i ++) {
