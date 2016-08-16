@@ -1,7 +1,7 @@
 /*
- * @name Mixture
+ * @name Mezcla
  * @frame 710,400 (optional)
- * @description Display a box with three different kinds of lights.
+ * @description Muestra una caja con tres tipos diferentes de luces.
  */
 function setup() {
 	createCanvas(710, 400, WEBGL);
@@ -11,13 +11,13 @@ function setup() {
 function draw() {
 	background(0);
 
-	// Orange point light on the right
+	// Luz puntual naranja a la derecha
 	pointLight(150, 100, 0, 500, 0, 200);
 
-	// Blue directional light from the left
+	// Luz direccional azul desde la izquierda
 	directionalLight(0, 102, 255, -1, 0, 0);
 
-	// Yellow spotlight from the front
+	// Foco amarillo desde el frente
 	pointLight(255, 255, 109, 0, 0, 300);
 
 	rotateY(map(mouseX, 0, width, 0, PI));

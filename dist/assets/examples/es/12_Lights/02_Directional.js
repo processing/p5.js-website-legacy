@@ -1,10 +1,10 @@
 /*
- * @name Directional
+ * @name Direccional
  * @frame 710,400
- * @description Move the mouse the change the direction of the light.
- * Directional light comes from one direction and is stronger when hitting a
- * surface squarely and weaker if it hits at a a gentle angle. After hitting a
- * surface, a directional lights scatters in all directions.
+ * @description Mueve el ratón para cambiar la dirección de la luz.
+ * La luz direccional proviene de una dirección y es de mayor intensidad cuando incide sobre
+ * una superficie perpendicularmente y más suave sobre un ángulo menor. Después de incidir sobre la
+ * superficie, una luz direccional se dispersa en todas direcciones.
  */
 var radius = 200;
 
