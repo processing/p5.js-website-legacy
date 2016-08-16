@@ -1,5 +1,5 @@
 /*
- * @name Tilted Caja 3D
+ * @name Caja 3D
  * @description Usar dispositivo móvil para inclinar una caja
  */
 function setup(){
