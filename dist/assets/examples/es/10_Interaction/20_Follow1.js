@@ -1,8 +1,8 @@
 /*
- * @name Follow 1
+ * @name Seguir 1
  * @frame 710,400
- * @description A line segment is pushed and pulled by the cursor.
- * Based on code from Keith Peters.
+ * @description Un segmento de línea es empujado y tirado por el cursor.
+ * Basado en código de Keith Peters.
  */
 var x = 100,
   y = 100,

@@ -1,9 +1,9 @@
 /*
- * @name Follow 3
+ * @name Seguir 3
  * @frame 710,400
- * @description A segmented line follows the mouse. The relative angle from
- * each segment to the next is calculated with atan2() and the position of
- * the next is calculated with sin() and cos(). Based on code from Keith Peters.
+ * @description Una línea segmentada sigue al ratón. El ángulo relativo de
+ * cada segmento al siguiente es calculado con la función atan2() y la posición
+ * del siguiente es calculado con sin() y cos(). Basado en código de Keith Peters.
  */
 var x = [],
   y = [],
