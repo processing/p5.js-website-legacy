@@ -1,13 +1,12 @@
 /*
- * @name Array of Objects
- * @description Create a Jitter class, instantiate an array of objects
- * and move them around the screen.
+ * @name Arreglo de objetos
+ * @description Crea una clase Jitter, instancia múltiples objetos, y los mueve en la pantalla.
  */
-var bugs = []; // array of Jitter objects
+var bugs = []; //arreglo de objetos Jitter
 
 function setup() {
   createCanvas(710, 400);
-  // Create objects
+  // Crear objetos
   for (var i=0; i<50; i++) {
     bugs.push(new Jitter());
   }
@@ -21,7 +20,7 @@ function draw() {
   }
 }
 
-// Jitter class
+// clase Jitter
 function Jitter() {
   this.x = random(width);
   this.y = random(height);

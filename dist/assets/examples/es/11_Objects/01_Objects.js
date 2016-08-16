@@ -1,14 +1,14 @@
 /*
- * @name Objects
- * @description Create a Jitter class, instantiate an object,
- * and move it around the screen. Adapted from Getting Started with
- * Processing by Casey Reas and Ben Fry.
+ * @name Objetos
+ * @description Crea una clase Jitter, instancia un objeto,
+ * y lo mueve en la pantalla. Adaptado del libro "Getting Started with
+ * Processing" por Casey Reas y Ben Fry.
  */
-var bug;  // Declare object
+var bug;  // declarar objeto
 
 function setup() {
   createCanvas(710, 400);
-  // Create object
+  // crear objeto
   bug = new Jitter();
 }
 
@@ -18,7 +18,7 @@ function draw() {
   bug.display();
 }
 
-// Jitter class
+// clase Jitter
 function Jitter() {
   this.x = random(width);
   this.y = random(height);
