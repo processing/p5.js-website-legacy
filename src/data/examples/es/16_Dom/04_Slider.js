@@ -1,19 +1,19 @@
 /*
- * @name Slider
- * @description You will need to include the 
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.<br><br>
- * Move the sliders to control the R, G, B values of the background.
+ * @name Barra deslizante
+ * @description Necesitarás incluir la
+ * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
+ * para que este ejemplo funcione en tu propio proyecto.<br><br>
+ * Mueve las barras deslizantes para controlar los valores de color RGB del fondo.
  */
 var rSlider, gSlider, bSlider;
 
 function setup() {
-  // create canvas
+  // crear lienzo
   createCanvas(710, 400);
   textSize(15)
   noStroke();
 
-  // create sliders
+  // crear barras deslizantes
   rSlider = createSlider(0, 255, 100);
   rSlider.position(20, 20);
   gSlider = createSlider(0, 255, 0);

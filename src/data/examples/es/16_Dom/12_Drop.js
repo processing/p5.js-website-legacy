@@ -1,16 +1,16 @@
 /*
- * @name Drop
- * @description You will need to include the 
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.<br><br>
- * Drag an image file onto the canvas to see it displayed.
+ * @name Arrojar
+ * @description  Toma un archivo de imagen y arrójalo sobre el lienzo para mostrarlo.
+ * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
+ *, al menos un archivo de imagen.</span></em></p>
  */
 
 function setup() {
-  // create canvas
+  // crear el lienzo
   var c = createCanvas(710, 400);
   background(100);
-  // Add an event for when a file is dropped onto the canvas
+  // añadir un evento para cuando un archivo sea arrojado al lienzo
   c.drop(gotFile);
 }
 
@@ -24,11 +24,11 @@ function draw() {
 }
 
 function gotFile(file) {
-  // If it's an image file
+  // si es un archivo de imagen
   if (file.type === 'image') {
-    // Create an image DOM element but don't show it
+    // crear un elemento de imagen DOM, pero sin mostrarlo
     var img = createImg(file.data).hide();
-    // Draw the image onto the canvas
+    // dibujar la imagen en el lienzo
     image(img, 0, 0, width, height);
   } else {
     println('Not an image file!');
