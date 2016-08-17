@@ -1,17 +1,16 @@
 /**
- * @name  Convolution Reverb
- * @description <p>The p5.Convolver can recreate the sound of actual
- * spaces using convolution. Convolution takes an Impulse Response,
- * (the sound of a room reverberating), and uses that to
- * recreate the sound of that space.</p><p>Click to play a sound through
- * convolution. Every time you click, the sound is convolved with
- * a different Impulse Response. To hear the Impulse Response itself,
- * press any key.</p>
+ * @name  Reverb de convolución
+ * @description <p> El objeto p5.Convolver puede recrear el sonido de un espacio
+ * real usando convolución. La convolución toma una respuesta al impulso,
+ * (el sonido de un espacio reverberando), y usa eso para recrear el sonido en ese espacio
+ *</p><p> Haz click para reproducir el sonido convolucionado
+ * Cada vez que haces click, el sonido es convolucionado con
+ * una respuesta al impulso diferente. Para escuchar la respuesta al impulso, presiona cualquier tecla.</p>
  *
- * <p><em><span class="small">To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.
- * These convolution samples are Creative Commons BY
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
+ * Estos samples de convolución son Creative Commons BY
  * <a href="https://www.freesound.org/people/recordinghopkins/">
  * recordinghopkins</a></em></span></p>
  */
@@ -21,19 +20,19 @@ var rawImpulse;
 
 function preload() {
 
-  // we have included both MP3 and OGG versions of all the impulses/sounds
+  // hemos incluido versiones MP3 y OGG de todos los impulsos y sonidos
   soundFormats('ogg', 'mp3');
 
-  // create a p5.Convolver
+  // crear un objeto p5.Convolver
   cVerb = createConvolver('assets/bx-spring');
 
-  // add Impulse Responses to cVerb.impulses array, in addition to bx-spring
+  // añadir respuestas al impulso al arreglo cVerb.impulses, además del ya agregado bx-spring
   cVerb.addImpulse('assets/small-plate');
   cVerb.addImpulse('assets/drum');
   cVerb.addImpulse('assets/beatbox');
   cVerb.addImpulse('assets/concrete-tunnel');
 
-  // load a sound that will be processed by the p5.ConvultionReverb
+  // cargar un sonido que será procesado por el objeto p5.ConvultionReverb
   sound = loadSound('assets/Damscray_DancingTiger');
 }
 
@@ -41,10 +40,10 @@ function setup() {
   createCanvas(710, 400);
   rawImpulse = loadSound('assets/' + cVerb.impulses[currentIR].name);
 
-  // disconnect from master output...
+  // desconectar de la salida maestra
   sound.disconnect();
-  // ... and process with cVerb
-  // so that we only hear the reverb
+  // y procesarlo con cVerb
+  // para que solo escuchemos el reverb
   cVerb.process(sound);
 
   fft = new p5.FFT();
@@ -56,7 +55,7 @@ function draw() {
 
   var spectrum = fft.analyze();
 
-  // Draw every value in the frequencySpectrum array as a rectangle
+  // dibuja cada valor en el arreglo de espectro de frecuencia como un rectángulo
   noStroke();
   for (var i = 0; i< spectrum.length; i++){
     var x = map(i, 0, spectrum.length, 0, width);
@@ -67,23 +66,23 @@ function draw() {
 
 function mousePressed() {
 
-  // cycle through the array of cVerb.impulses
+  // recorre el arreglo cVerb.impulses
   currentIR++;
   if (currentIR >= cVerb.impulses.length) {
     currentIR = 0;
   }
   cVerb.toggleImpulse(currentIR);
 
-  // play the sound through the impulse
+  // reproduce el sonido a través del impulso
   sound.play();
 
-  // display the current Impulse Response name (the filepath)
+  // muestra en pantalla el nombre de la respuesta al impulso actual (el nombre del archivo)
   println('Convolution Impulse Response: ' + cVerb.impulses[currentIR].name);
 
   rawImpulse.setPath('assets/' + cVerb.impulses[currentIR].name);
 }
 
-// play the impulse (without convolution)
+// reproduce el impulso (sin convolución)
 function keyPressed() {
   rawImpulse.play();
 }

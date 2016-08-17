@@ -1,14 +1,14 @@
 /**
  *  @name  Delay
  *  @description
- *  Click the mouse to hear the p5.Delay process a SoundFile.
- *  MouseX controls the p5.Delay Filter Frequency.
- *  MouseY controls both the p5.Delay Time and Resonance.
- *  Visualize the resulting sound's volume with an Amplitude object.
+ *  Haz click para escuchar cómo el objeto (p5.Delay) procesa un archivo de audio.
+ *  La posición horizontal del ratón (mouseX) controla la frecuencia de filtrado del objeto p5.Delay.
+ *  La posición vertical del ratón (mouseY) controla tanto el tiempo de retraso como la resonancia del objeto p5.Delay.
+ *  Visualiza el volumen resultante del sonido con un objeto Amplitude.
  *
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 
 var soundFile, analyzer, delay;
@@ -21,11 +21,11 @@ function preload() {
 function setup() {
   createCanvas(710, 400);
 
-  soundFile.disconnect(); // so we'll only hear delay
+  soundFile.disconnect(); // para que solo escuchemos el delay
 
   delay = new p5.Delay();
   delay.process(soundFile, .12, .7, 2300);
-  delay.setType('pingPong'); // a stereo effect
+  delay.setType('pingPong'); // un tipo de efecto stereo
 
   analyzer = new p5.Amplitude();
 }
@@ -33,10 +33,10 @@ function setup() {
 function draw() {
   background(0);
 
-  // get volume reading from the p5.Amplitude analyzer
+  // obtener una lectura de volumen del analizador p5.Amplitude
   var level = analyzer.getLevel();
 
-  // use level to draw a green rectangle
+  // usar el nivel para dibujar un rectángulo verde
   var levelHeight = map(level, 0, .1, 0, height);
   fill(100,250,100);
   rect(0, height, width, - levelHeight);
