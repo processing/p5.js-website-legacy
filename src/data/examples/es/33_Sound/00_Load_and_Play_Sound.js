@@ -1,9 +1,9 @@
 /*
- * @name Load and Play Sound
- * @description Load sound during preload(). Play a sound when canvas is clicked.
- * <br><br><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em>
+ * @name Cargar y reproducir sonido
+ * @description Carga de sonido durante preload(). Reproducir un sonido cuando se hace click en el lienzo.
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 var song;
 
@@ -14,7 +14,7 @@ function setup() {
 }
 
 function mousePressed() {
-  if ( song.isPlaying() ) { // .isPlaying() returns a boolean
+  if ( song.isPlaying() ) { // .isPlaying() retorna una variable booleana
     song.stop();
     background(255,0,0);
   } else {

@@ -1,53 +1,52 @@
 /**
- *  @name soundFormats
- *  @description <p>Technically, due to patent issues, there is no single
- *  sound format that is supported by all web browsers. While
- *  <a href="http://caniuse.com/#feat=mp3">mp3 is supported</a> across the
- *  latest versions of major browsers on OS X and Windows, for example,
- *  it may not be available on some less mainstream operating systems and
- *  browsers.</p>
+ *  @name Formatos de sonido
+ *  @description <p>Técnicamente, por problemas de patente, no existe un único
+ *  formato de sonido que sea soportado por todos los navegadores web. Mientras que el
+ *  <a href="http://caniuse.com/#feat=mp3">mp3 es soportado</a> a lo largo de las
+ *  últimas versiones de los más populares navegadores en OS X y Windows, por ejemplo,
+ *  puede no estar disponible en algunos sistemas operativos o navegadmores menos comunes.</p>
  *
- *  <p>To ensure full compatibility, you can include the same sound file
- *  in multiple formats, e.g. 'sound.mp3' and 'sound.ogg'. (Ogg is an
- *  open source alternative to mp3.) You can convert audio files
- *  into web friendly formats for free online at <a href="
- *  http://media.io/">media.io</a></p>.
+ *  <p>Para asegurarse de tener total compatibilidad, puedes incluir el mismo archivo de sonido
+ *  en múltiples formatos, por ejemplo 'sound.mp3' y 'sound.ogg'. (Ogg es  una
+ *  alternativa al mp3 de código abierto.) Puedes convertir archivos de audio
+ *  en formatos amigables con la web de forma gratuita en <a href="http://media.io/">media.io</a></p>.
  *
- *  <p>The soundFormats() method tells loadSound which formats
- *  we have included with our sketch. Then, loadSound will
- *  attempt to load the first format that is supported by the
- *  client's web browser.</p>
+ *  <p>El método soundFormats() le dice a loadSound() cuáles formatos
+ *  hemos incluido en nuestro bosquejo. Entonces, loadSound()
+ *  tratará de cargar el primer formato que sea soportado por
+ *  el navegador web del cliente.</p>
  *
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
+
 var song;
 
 function preload() {
-  // we have included both an .ogg file and an .mp3 file
+  // hemos incluido un archivo .ogg y otro .mp3
   soundFormats('ogg', 'mp3');
 
-  // if mp3 is not supported by this browser,
-  // loadSound will load the ogg file
-  // we have included with our sketch
+  // si mp3 no es soportado por este navegador,
+  // loadSound() cargará el archivo ogg
+  // que hemos incluido con nuestro bosquejo
   song = loadSound('assets/lucky_dragons_-_power_melody.mp3');
 }
 
 function setup() {
   createCanvas(710, 200);
 
-  // song loaded during preload(), ready to play in setup()
+  // canción cargada durante preload(), lista para ser reproducida durante setup()
   song.play();
   background(0,255,0);
 }
 
 function mousePressed() {
-  if ( song.isPlaying() ) { // .isPlaying() returns a boolean
+  if ( song.isPlaying() ) { // .isPlaying() retorna una variable booleana
     song.pause();
     background(255,0,0);
   } else {
-    song.play(); // playback will resume from the pause position
+    song.play(); // la reproducción continuará desde el instante en que fue pausado.
     background(0,255,0);
   }
 }
