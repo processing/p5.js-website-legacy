@@ -1,13 +1,13 @@
 /**
- * @name Mic Input
- * @description <p>Get audio input from your computer's microphone.
- * Make noise to float the ellipse.</p>
- * <p>Note: p5.AudioIn contains its own p5.Amplitude object,
- * so you can call getLevel on p5.AudioIn without
- * creating a p5.Amplitude.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * @name Entrada de micrófono
+ * @description <p>Obtén una entrada de audio desde el micrófono de tu computador.
+ * Haz ruido para hacer que la elipse flote.</p>
+ * <p>Nota: p5.AudioIn contiene su propio objeto p5.Amplitude,
+ * así que puedes llamar a getLevel() en p5.AudioIn() sin
+ * crear un objeto p5.Amplitude().</p>
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 var input;
 var analyzer;
@@ -15,23 +15,23 @@ var analyzer;
 function setup() {
   createCanvas(710, 200);
 
-  // Create an Audio input
+  // crea una entrada de audio
   mic = new p5.AudioIn();
 
-  // start the Audio Input.
-  // By default, it does not .connect() (to the computer speakers)
+  // inicia la entrada de audio
+  // por defecto, no la conecta (.connect()) a los parlantes del computador.
   mic.start();
 }
 
 function draw() {
   background(200);
 
-  // Get the overall volume (between 0 and 1.0)
+  // obtén el volumen general (entre 0.0 y 1.0)
   var vol = mic.getLevel();
   fill(127);
   stroke(0);
 
-  // Draw an ellipse with height based on volume
+  // dibuja una elipse con altura según el volumen
   var h = map(vol, 0, 1, height, 0);
   ellipse(width/2, h - 25, 50, 50);
 }

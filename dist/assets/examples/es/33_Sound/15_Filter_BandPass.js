@@ -1,13 +1,13 @@
 /**
- *  @name  Filter BandPass
- *  @description Apply a p5.BandPass filter to white noise.
- *  Visualize the sound with FFT.
- *  Map mouseX to the bandpass frequency
- *  and mouseY to resonance/width of the a BandPass filter
+ *  @name  Filtro pasabanda
+ *  @description Aplica un filtro pasabanda (p5.BandPass) a ruido blanco.
+ *  Visualiza el sonido con FFT.
+ *  Mapea la posición horizontal del ratón (mouseX) a la frecuencia de pasabanda
+ *  y la vertical (mouseY) a la razón resonancia/ancho del filtro pasabanda
  *
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 var noise;
 var fft;
@@ -21,8 +21,8 @@ function setup() {
 
   noise = new p5.Noise();
 
-  noise.disconnect(); // Disconnect soundfile from master output...
-  filter.process(noise); // ...and connect to filter so we'll only hear BandPass.
+  noise.disconnect(); // desconecta el archivo de sonido de la salida maestra
+  filter.process(noise); // y conéctalo al filtro para solo escuchar el sonido filtrado por el filtro pasabanda
   noise.start();
 
   fft = new p5.FFT();
@@ -31,16 +31,16 @@ function setup() {
 function draw() {
   background(30);
 
-  // Map mouseX to a bandpass freq from the FFT spectrum range: 10Hz - 22050Hz
+  // mapea la posición horizontal del ratón (mouseX) a una frecuencia de pasabanda dentro del rango del espectro FFT: 10Hz - 22050Hz
   filterFreq = map (mouseX, 0, width, 10, 22050);
-  // Map mouseY to resonance/width
+  // mapea la posición vertical del ratón (mouseY) a la razón resonancia/ancho
   filterWidth = map(mouseY, 0, height, 0, 90);
-  // set filter parameters
+  // definir los parámetros del filtor
   filter.set(filterFreq, filterWidth);
 
-  // Draw every value in the FFT spectrum analysis where
-  // x = lowest (10Hz) to highest (22050Hz) frequencies,
-  // h = energy / amplitude at that frequency
+  // Dibuja cada valor en el análisis de espectro FFT donde
+  // x = frecuencia más grave (10Hz) a más aguda (22050Hz),
+  // h = energía / amplitud en esa frecuencia
   var spectrum = fft.analyze();
   noStroke();
   for (var i = 0; i< spectrum.length; i++){
