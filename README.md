@@ -1,4 +1,4 @@
-ed# p5js website
+# p5js website
 
 This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) using Grunt, YAML, and Assemble. The goals are to implement internationalization (i18n) and to improve site accessibility.
 
@@ -10,7 +10,7 @@ This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) usi
 1. Download this zip file or [clone this repository](https://help.github.com/articles/cloning-a-repository/) and navigate to the directory in the terminal.
 2. Type `npm install`.
 2. Type `grunt server` to run.
-3. This should open a window in your browser with the site running at http://localhost:9000. 
+3. This should open a window in your browser with the site running at http://localhost:9000.
 
 
 ## Running
@@ -18,7 +18,7 @@ This is a rebuild of the original p5.js website [p5js.org](https://p5js.org) usi
 Once you've setup the site, to run again in the future:
 
 1. Type `grunt server` to run.
-2. This should open a window in your browser with the site running at http://localhost:9000. 
+2. This should open a window in your browser with the site running at http://localhost:9000.
 
 ## File structure
 
@@ -67,5 +67,3 @@ The examples are handled a bit differently from other pages.
 ## Etc
 
 * If you are using sublime text, this plugin is useful for rendering hbs files with syntax highlighting: https://github.com/jonschlinkert/sublime-markdown-extended
-
-
