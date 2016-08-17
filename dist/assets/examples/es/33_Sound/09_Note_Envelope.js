@@ -1,18 +1,18 @@
 /**
- *  @name  Note Envelope
- *  @description  <p>An Envelope is a series of fades, defined
- *  as time / value pairs. In this example, the envelope
- *  will be used to "play" a note by controlling the output
- *  amplitude of an oscillator.<br/><br/>
- *  The p5.Oscillator sends its output through
- *  an internal Web Audio GainNode (p5.Oscillator.output).
- *  By default, that node has a constant value of 0.5. It can
- *  be reset with the osc.amp() method. Or, in this example, an
- *  Envelope takes control of that node, turning the amplitude
- *  up and down like a volume knob.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a> and a
- * sound file.</span></em></p>
+ *  @name  Envolvente de nota
+ *  @description  <p>Una envolvente es una serie de fundidos, definidos como
+ *  pares tiempo/valor. En este ejemplo, la envolvente
+ *  será usada para "tocar" una nota al controlar la
+ *  amplitud de salida de un oscilador.<br/><br/>
+ *  El objeto p5.Oscillator() envía su señal de salida a través de
+ *  un nodo de ganancia (GainNode) de tipo Web Audio interno (p5.Oscillator.output).
+ *  Por defecto, ese nodo tiene un valor constante de 0.5.
+ *  Puede ser redefinido con el método osc.amp(). O, como en este ejemplo, con una
+ *  envolvente que toma control de ese nodo, subiendo y bajando
+ *   la amplitud como una perilla de volumen.</p>
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * y un archivo de audio.</span></em>
  */
 var osc, envelope, fft;
 
@@ -23,13 +23,13 @@ function setup() {
   createCanvas(710, 200);
   osc = new p5.SinOsc();
 
-  // Instantiate the envelope
+  // instanciar la envolvente
   envelope = new p5.Env();
 
-  // set attackTime, decayTime, sustainRatio, releaseTime
+  // definir el tiempo de ataque, de decaimiento, la razón de "sustain" y el tiempo de "release"
   envelope.setADSR(0.001, 0.5, 0.1, 0.5);
 
-  // set attackLevel, releaseLevel
+  // definir el nivel de ataque y de "release"
   envelope.setRange(1, 0);
 
   osc.start();
@@ -50,7 +50,7 @@ function draw() {
     note = (note + 1) % scaleArray.length;
   }
 
-  // plot FFT.analyze() frequency analysis on the canvas
+  // graficar el análisis de frecuencia de FFT.analyze() en el lienzo
   var spectrum = fft.analyze();
   for (var i = 0; i < spectrum.length/20; i++) {
     fill(spectrum[i], spectrum[i]/10, 0);

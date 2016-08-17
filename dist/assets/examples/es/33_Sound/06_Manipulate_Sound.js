@@ -1,45 +1,46 @@
 /*
- * @name Playback Rate
- * @description <p>Load a SoundFile and map its playback rate to
- * mouseY, volume to mouseX. Playback rate is the speed with
- * which the web audio context processings the sound file information.
- * Slower rates not only increase the duration of the sound, but also
- * decrease the pitch because it is being played back at a slower frequency.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * @name Tasa de reproducción
+ * @description <p>Cargar un archivo de sonido y mapear su tasa de reproducción a la posición y del ratón
+ * y el volumen a la posición x, mouseY y mouseX respectivamente.
+ * La tasa de reproducción es la velocidad con que
+ * el contexto web de audio procesa la información del archivo de sonido.
+ * Tasas más bajas no solo prolongan la duración del sonido, sino que también
+ * disminuyen la altura (pitch) porque la reproducción es realizada a menor frecuencia.</p>
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
-// A sound file object
+// un objeto de archivo de sonido
 var song;
 
 function preload() {
-  // Load a sound file
+  // cargar un archivo de sonido
   song = loadSound('assets/Damscray_DancingTiger.mp3');
 }
 
 function setup() {
   createCanvas(710, 400);
 
-  // Loop the sound forever
-  // (well, at least until stop() is called)
+  // repite el sonido en bucle por siempre
+  // (bueno, al menos hasta que se llame a stop())
   song.loop();
 }
 
 function draw() {
   background(200);
 
-  // Set the volume to a range between 0 and 1.0
+  // definir el volumen a un rango entre 0 y 1.0
   var volume = map(mouseX, 0, width, 0, 1);
   volume = constrain(volume, 0, 1);
   song.amp(volume);
 
-  // Set the rate to a range between 0.1 and 4
-  // Changing the rate alters the pitch
+  // define la tasa a un rango entre 0.1 y 4
+  // cambiar la tasa altera la altura del sonido (pitch)
   var speed = map(mouseY, 0.1, height, 0, 2);
   speed = constrain(speed, 0.01, 4);
   song.rate(speed);
 
-  // Draw some circles to show what is going on
+  // dibuja algunas círculos para mostrar lo que está pasando
   stroke(0);
   fill(51, 100);
   ellipse(mouseX, 100, 48, 48);

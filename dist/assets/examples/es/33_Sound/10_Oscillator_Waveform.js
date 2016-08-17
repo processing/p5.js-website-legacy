@@ -1,5 +1,5 @@
 /*
- * @name Oscillator Frequency
+ * @name Frecuencia de oscilador
  * @description <p>Control an Oscillator and view the waveform using FFT.
  * MouseX is mapped to frequency, mouseY is mapped to amplitude.</p>
  * <p><em><span class="small"> To run this example locally, you will need the

@@ -1,11 +1,10 @@
 /*
- * @name Pan Sound
- * @description <p>Click mouse to play the sound.
- * Ball position follows mouse and correlates to panning of sound.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
- *
+ * @name Paneo
+ * @description <p> Haz click para reproducir el sonido.
+ * La pelota sigue la posición del ratón y se correlaciona con el paneo del sonido.</p>
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 var ball = {};
 var soundFile;
@@ -26,8 +25,8 @@ function draw() {
 }
 
 function mousePressed(){
-  // map the ball's x location to a panning degree
-  // between -1.0 (left) and 1.0 (right)
+  // mapear la posición x de la pelota a un ángulo de paneo
+  // entre -1.0 (izquierda) y 1.0 (derecha)
   var panning = map(ball.x, 0., width,-1.0, 1.0);
   soundFile.pan(panning);
   soundFile.play();

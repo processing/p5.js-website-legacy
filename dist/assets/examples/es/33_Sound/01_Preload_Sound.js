@@ -1,13 +1,13 @@
 /*
- * @name Preload SoundFile
- * @description Call loadSound() during preload() to ensure that the
- * sound is completely loaded before setup() is called. It's best to always
- * call loadSound() in preload(), otherwise sounds won't necessarily be loaded
- * by the time you want to play them in your sketch.
+ * @name Precargar archivo de sonido
+ * @description Llamar a loadSound() durante preload() para asegurar que el
+ * sonido esté completamente cargado antes de llamar a setup(). Es mejor siempre
+ * llamar a loadSound() dentro de preload(), si no podría pasar que los sonidos no estén cargados
+ * al momento de querer reproducirlos en tu bosquejo.
  *
- * <br><br><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em>
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 
 var song;
@@ -18,13 +18,13 @@ function preload() {
 
 function setup() {
   createCanvas(710, 200);
-  song.loop(); // song is ready to play during setup() because it was loaded during preload
+  song.loop(); // la canción está lista para ser reproducida durante setup() porque fue cargada durante preload()
   background(0,255,0);
 }
 
 function mousePressed() {
-  if ( song.isPlaying() ) { // .isPlaying() returns a boolean
-    song.pause(); // .play() will resume from .pause() position
+  if ( song.isPlaying() ) { // .isPlaying() retorna una variable booleana
+    song.pause(); // .play() continuará la reproducción desde la posición definida por .pause()
     background(255,0,0);
   } else {
     song.play();

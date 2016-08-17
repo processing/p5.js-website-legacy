@@ -1,54 +1,54 @@
 /*
- * @name Sound Effect
- * @description <p>Play a sound effect when the mouse is clicked inside the circle.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * @name Efecto de sonido
+ * @description <p>Reproduce un efecto de sonido cuando el ratón hace click dentro del círculo.</p>
+ * <br><br><em><span class="small"> Para correr localmente este ejemplo, necesitarás la
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
+ * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
-// Adapted from Learning Processing by Daniel Shiffman
+// Adaptado de "Learning Processing" de Daniel Shiffman
 // http://www.learningprocessing.com
-// Doorbell sample by Corsica_S via freesound.org,
+// Sample de timbre por Corsica_S via freesound.org,
 // Creative Commons BY 3.0
 
-// A sound file object
+// Un objeto archivo de sonido
 var dingdong;
 
-// A doorbell object (that will trigger the sound)
+// un objeto timbre (doorbell), que gatillará el sonido
 var doorbell;
 
 function setup() {
   createCanvas(200, 200);
 
-  // Load the sound file.
-  // We have included both an MP3 and an OGG version.
+  // cargar el archivo de sonido
+  // hemos incluido versiones MP3 y OGG.
   soundFormats('mp3', 'ogg');
   dingdong = loadSound('assets/doorbell.mp3');
 
-  // Create a new doorbell
+  // crear un nuevo timbre
   doorbell = new Doorbell(width/2, height/2, 64);
 }
 
 function draw() {
   background(255);
-  // Show the doorbell
+  // muestra el timbre
   doorbell.display(mouseX, mouseY);
 }
 
 function mousePressed() {
-  // If the user clicks on the doorbell, play the sound!
+  // si el usuario hace click en el timbre, reproduce el sonido
   if (doorbell.contains(mouseX, mouseY)) {
     dingdong.play();
   }
 }
 
-// A Class to describe a "doorbell" (really a button)
+// una clase para describir un "timbre" (realmente un botón)
 var Doorbell = function(x_, y_, r_) {
-  // Location and size
+  // posición y tamaño
   var x = x_;
   var y = y_;
   var r = r_;
 
-  // Is a point inside the doorbell? (used for mouse rollover, etc.)
+  // ¿hay un punto dentro del timbre?(usado para "rollover" del ratón)
   this.contains = function(mx, my) {
     if (dist(mx, my, x, y) < r) {
       return true;
@@ -57,7 +57,7 @@ var Doorbell = function(x_, y_, r_) {
     }
   };
 
-  // Show the doorbell (hardcoded colors, could be improved)
+  // muestra el timbre (colores arbitrarios, podría ser mejorado)
   this.display = function(mx, my) {
     if (this.contains(mx, my)) {
       fill(100);
