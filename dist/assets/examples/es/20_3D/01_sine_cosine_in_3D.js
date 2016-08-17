@@ -1,6 +1,6 @@
 /*
- * @name Sine Cosine in 3D
- * @description Sine, cosine and push / pop could be applied in 3D as well.
+ * @name Seno Coseno en 3D
+ * @description Seno, coseno, "push" y "pop" pueden ser utilizados también en 3D.
  */
 function setup(){
   createCanvas(710, 400, WEBGL);
@@ -16,7 +16,7 @@ function draw(){
       translate(sin(frameCount * 0.001 + j) * 100, sin(frameCount * 0.001 + j) * 100, i * 0.1);
       rotateZ(frameCount * 0.002);
       push();
-      sphere(8, 6, 4); 
+      sphere(8, 6, 4);
       pop();
     }
     pop();

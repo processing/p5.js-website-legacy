@@ -1,6 +1,6 @@
 /*
- * @name Geometries
- * @description There are six 3D primitives in p5 now.
+ * @name Geometrías
+ * @description Existen seis figuras 3D primitivas en p5 en este momento.
  */
 function setup(){
   createCanvas(710, 400, WEBGL);

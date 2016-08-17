@@ -1,6 +1,6 @@
 /*
- * @name Multiple Lights
- * @description All types of lights could be used in one sketch.
+ * @name Múltiples luces
+ * @description Se pueden usar todos los tipos de luces usados en un mismo bosquejo.
  */
 function setup(){
   createCanvas(710, 400, WEBGL);

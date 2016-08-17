@@ -1,8 +1,8 @@
 /*
- * @name Textures
- * @description Images and videos are supported for texture.
+ * @name Texturas
+ * @description Tanto imágenes como videos pueden ser usados como texturas.
  */
-// video source: https://vimeo.com/90312869
+// fuente del video: https://vimeo.com/90312869
 var img;
 var vid;
 var theta = 0;
@@ -23,7 +23,7 @@ function draw(){
     rotateZ(theta * mouseX * 0.001);
     rotateX(theta * mouseX * 0.001);
     rotateY(theta * mouseX * 0.001);
-    //pass image as texture
+    //pasar una imagen como textura
     texture(vid);
     sphere(150);
   pop();

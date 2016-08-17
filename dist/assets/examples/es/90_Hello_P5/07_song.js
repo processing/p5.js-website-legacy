@@ -1,7 +1,7 @@
 /*
  * @name Canción
  * @frame 720, 430
- * @description Toca una canción
+ * @description Toca una canción.
  * Necesitarás incluir la
  * <a href="http://p5js.org/reference/#/libraries/p5.sound"> biblioteca p5.sound</a>
  * a este ejemplo para que corra en tu máquina.
@@ -28,9 +28,9 @@ var osc;
 
 function setup() {
   createCanvas(720, 400);
-  var div = createDiv("Click to play notes or ")
+  var div = createDiv("Haz click para tocar las notas")
   div.id("instructions");
-  var button = createA("#","play song automatically.");
+  var button = createA("#","toca la canción automáticamente.");
   button.parent("instructions");
   // gatillar la reproducción automática
   button.mousePressed(function() {

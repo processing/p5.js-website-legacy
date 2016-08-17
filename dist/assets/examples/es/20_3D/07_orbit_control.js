@@ -1,6 +1,6 @@
 /*
- * @name Orbit Control
- * @description Orbit control allows you to drag and move around the world.
+ * @name Control de órbita
+ * @description El control de órbita te permite arrastrar y mover alrededor del mundo.
  */
 function setup(){
   createCanvas(710, 400, WEBGL);
@@ -9,8 +9,8 @@ function setup(){
 function draw(){
   background(250);
   var radius = width * 1.5;
-  
-  //drag to move the world.
+
+  //arrastra para mover el mundo.
   orbitControl();
 
   normalMaterial();
@@ -20,7 +20,7 @@ function draw(){
       push();
       var a = j/12 * PI;
       var b = i/12 * PI;
-      translate(sin(2 * a) * radius * sin(b), cos(b) * radius / 2 , cos(2 * a) * radius * sin(b));    
+      translate(sin(2 * a) * radius * sin(b), cos(b) * radius / 2 , cos(2 * a) * radius * sin(b));
       if(j%2 === 0){
         cone(30, 30);
       }else{
