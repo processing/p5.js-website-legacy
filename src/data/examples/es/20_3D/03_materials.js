@@ -1,9 +1,10 @@
 /*
- * @name Materials
- * @description There are five types of materials supported.
- * They respond to light differently.
- * Move your mouse to change the light position.
+ * @name Materiales
+ * @description Existen cinco tipos de materiales soportados.
+ * Reaccionan de distintas formas a la luz.
+ * Mueve tu ratón para cambiar la posición de la luz.
  */
+ 
 var img;
 function setup(){
   createCanvas(710, 400, WEBGL);
@@ -26,7 +27,7 @@ function draw(){
   texture(img);
   box(80);
   pop();
-  
+
   translate(-200, -250, 0);
   push();
   rotateZ(frameCount * 0.02);
