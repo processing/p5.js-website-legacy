@@ -120,13 +120,65 @@ module.exports = function(grunt) {
       }
     },
 
-    copy: {
-      theme: {
-        expand: true,
-        cwd: '<%= config.src %>/assets/css',
-        src: '**',
-        dest: '<%= config.dist %>/assets/css/'
+    concat: {
+      options: {
+        separator: ';',
       },
+      dist: {
+        src: [
+          '<%= config.src %>/assets/css/normalize.css',
+          '<%= config.src %>/assets/css/main.css',
+          '<%= config.src %>/assets/css/prism.css'
+        ],
+        dest: '<%= config.dist %>/assets/css/main.css',
+      }
+    },
+    uncss: {
+      dist: {
+        files: [{
+          nonull: false,
+          src: [
+            '<%= config.dist %>/**/*.html',
+            '!<%= config.dist %>/es/**',
+            '!<%= config.dist %>/assets/**'
+          ],
+          dest: '<%= config.dist %>/assets/css/main.css'
+        }]
+      },
+    },
+    postcss: {
+      options: {
+        map: true,
+        map: {
+          inline: false,
+          annotation: '<%= config.dist %>/assets/css/maps/'
+        },
+        processors: [
+          require('autoprefixer')({browsers: [
+            "Android 2.3",
+            "Android >= 4",
+            "Chrome >= 20",
+            "Firefox >= 24",
+            "Explorer >= 8",
+            "iOS >= 6",
+            "Opera >= 12",
+            "Safari >= 6"
+          ]}),
+          require('cssnano')()
+        ]
+      },
+      dist: {
+        src: '<%= config.dist %>/assets/css/main.css'
+      }
+    },
+
+    copy: {
+      // theme: {
+      //   expand: true,
+      //   cwd: '<%= config.src %>/assets/css',
+      //   src: '**',
+      //   dest: '<%= config.dist %>/assets/css/'
+      // },
       // images: {
       //   expand: true,
       //   cwd: '<%= config.src %>/assets/img',
@@ -141,9 +193,9 @@ module.exports = function(grunt) {
       },
       fonts: {
         expand: true,
-        cwd: '<%= config.src %>/assets/fonts',
+        cwd: '<%= config.src %>/assets/css/fonts',
         src: '**',
-        dest: '<%= config.dist %>/assets/fonts'
+        dest: '<%= config.dist %>/assets/css/fonts'
       },
       p5_featured: {
         expand: true,
@@ -182,7 +234,10 @@ module.exports = function(grunt) {
 
   // optimize assets
   grunt.registerTask('optimize', [
-    'imagemin'
+    'imagemin',
+    'concat',
+    'uncss',
+    'postcss'
   ]);
 
   // runs three tasks in order
