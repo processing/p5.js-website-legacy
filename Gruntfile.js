@@ -106,7 +106,19 @@ module.exports = function(grunt) {
       }
     },
 
-
+    imagemin: {
+      images: {
+        options: {
+          optimizationLevel: 7
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.src %>/assets/img',
+          src: ['**/*.{png,jpg,gif,svg}'],
+          dest: '<%= config.dist %>/assets/img/'
+        }]
+      }
+    },
 
     copy: {
       theme: {
@@ -115,12 +127,12 @@ module.exports = function(grunt) {
         src: '**',
         dest: '<%= config.dist %>/assets/css/'
       },
-      images: {
-        expand: true,
-        cwd: '<%= config.src %>/assets/img',
-        src: '**',
-        dest: '<%= config.dist %>/assets/img/'
-      },
+      // images: {
+      //   expand: true,
+      //   cwd: '<%= config.src %>/assets/img',
+      //   src: '**',
+      //   dest: '<%= config.dist %>/assets/img/'
+      // },
       js: {
         expand: true,
         cwd: '<%= config.src %>/assets/js',
@@ -166,14 +178,20 @@ module.exports = function(grunt) {
   grunt.registerTask('run', [
     'connect:livereload',
     'watch'
-  ])
+  ]);
+
+  // optimize assets
+  grunt.registerTask('optimize', [
+    'imagemin'
+  ]);
 
   // runs three tasks in order
   grunt.registerTask('build', [
     'exec',
     'clean',
     'copy',
-    'assemble'
+    'assemble',
+    'optimize'
   ]);
 
   // runs with just grunt command
