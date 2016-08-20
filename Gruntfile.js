@@ -22,8 +22,20 @@ module.exports = function(grunt) {
     },
     watch: {
       assemble: {
-        files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,json}'],
+        files: '<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,json}',
         tasks: ['assemble']
+      },
+      css: {
+        files: '<%= config.src %>/assets/css/*.css',
+        tasks: [
+          'concat',
+          'uncss',
+          'postcss'
+        ]
+      },
+      imagemin: {
+        files: '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,svg}',
+        tasks: ['newer:imagemin']
       },
       livereload: {
         options: {
@@ -39,7 +51,7 @@ module.exports = function(grunt) {
       }
     },
 
-    // runs the local server
+    // Local server:
     connect: {
       options: {
         port: 9000,
@@ -57,6 +69,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // HTML:
     assemble: {
       pages: {
         options: {
@@ -106,6 +119,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Images:
     imagemin: {
       images: {
         options: {
@@ -120,6 +134,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // CSS:
     concat: {
       options: {
         separator: ';',
@@ -172,19 +187,8 @@ module.exports = function(grunt) {
       }
     },
 
+    // Data handling:
     copy: {
-      // theme: {
-      //   expand: true,
-      //   cwd: '<%= config.src %>/assets/css',
-      //   src: '**',
-      //   dest: '<%= config.dist %>/assets/css/'
-      // },
-      // images: {
-      //   expand: true,
-      //   cwd: '<%= config.src %>/assets/img',
-      //   src: '**',
-      //   dest: '<%= config.dist %>/assets/img/'
-      // },
       js: {
         expand: true,
         cwd: '<%= config.src %>/assets/js',
@@ -234,7 +238,7 @@ module.exports = function(grunt) {
 
   // optimize assets
   grunt.registerTask('optimize', [
-    'imagemin',
+    'newer:imagemin',
     'concat',
     'uncss',
     'postcss'
