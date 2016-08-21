@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
     <title></title>
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/all.css">
     <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
   </head>
   <body>
@@ -22,9 +22,9 @@
 
 <div id="family">
   <p class="left"><a href="http://processing.org">Processing</a>
-     <a class="here" href="/">p5.js</a>
-     <a href="http://py.processing.org/">Processing.py</a>
-     <a href="http://android.processing.org/">Processing for Android</a>
+    <a class="here" href="/">p5.js</a>
+    <a href="http://py.processing.org/">Processing.py</a>
+    <a href="http://android.processing.org/">Processing for Android</a>
   </p>
   <form style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
     <input type="hidden" name="as_sitesearch" value="p5js.org" />
@@ -37,13 +37,13 @@
 </div>
 
 <div id="container">
-<!-- identity -->
-<div id="lockup">
-  <a href="/">
-  <img type="image/svg+xml" src="../assets/img/p5js-beta.svg" id="logo_image" class="logo" />
-  <div id="p5_logo"></div>
-  </a>
-</div>
+  <!-- identity -->
+  <div id="lockup">
+    <a href="/">
+    <img type="image/svg+xml" src="../assets/img/p5js-beta.svg" id="logo_image" class="logo" />
+    <div id="p5_logo"></div>
+    </a>
+  </div>
 
 
     
@@ -120,27 +120,27 @@
 </object>
 
 
-  <script src="../assets/js/vendor/ace-nc/ace.js"></script>
-  <script src="../assets/js/examples.js"></script>
+  <!-- <script src="../assets/js/vendor/ace-nc/ace.js"></script>
+  <script src="../assets/js/examples.js"></script> -->
   <script>
-    // $(document).ready( function () {
+    window._p5jsExample = '../assets/examples/en/12_Lights/05_Mixture.js';
+    window._p5jsLanguage = 'en';
     window.addEventListener('load', function() {
+      // examples.init('../assets/examples/en/12_Lights/05_Mixture.js');
       if (false) {
         var isMobile = window.matchMedia("only screen and (max-width: 480px)");
-        $('#exampleFrame').hide();
+        document.getElementById('exampleFrame').style.display = 'none';
         if (isMobile.matches) {
-          $('#notMobile-message').hide();
-          $('#isMobile-displayButton').show();
+          document.getElementById('notMobile-message').style.display = 'none';
+          document.getElementById('isMobile-displayButton').style.display = 'block';
         } else {
-          $('#notMobile-message').show();
-          $('#isMobile-displayButton').hide();
-          $('#runButton').hide();
-          $('#resetButton').hide();
+          document.getElementById('notMobile-message').style.display = 'block';
+          document.getElementById('isMobile-displayButton').style.display = 'none';
+          document.getElementById('runButton').style.display = 'none';
+          document.getElementById('resetButton').style.display = 'none';
         }
       }
-      examples.init('../assets/examples/en/12_Lights/05_Mixture.js');
     }, true);
-    // });
   </script>
 
 </div><!-- end id="get-started-page"  -->
@@ -148,7 +148,7 @@
 
     <script type="text/javascript">
       // Button click handling:
-      (function(w,d){
+      (function(w, d) {
         if (w.location.pathname.indexOf('/es/') === -1) {
           d.getElementById('en-btn').setAttribute('disabled', 'disabled');
         } else {
@@ -168,30 +168,38 @@
             w.location = loc;
           }, false);
         }
-      })(window,document);
+      })(window, document);
 
       // Load libraries:
-      (function(w,d,ls){
+      (function(w, d, ls, deps, ss) {
         var url_parts = w.location.pathname.split('/').filter(function (v) {
           return v !== '';
         });
-        var inject = function() {
-          var script = d.createElement('script');
-          script.setAttribute('src', '/assets/js/main.js');
-          script.setAttribute('type', 'text/javascript');
-          d.getElementsByTagName('body')[0].appendChild(script);
+        var inject = function(s) {
+          for (var i = 0, l = s.length; i < l; i++) {
+            var script = d.createElement('script');
+            script.setAttribute('src', s[i]);
+            script.setAttribute('type', 'text/javascript');
+            d.getElementsByTagName('body')[0].appendChild(script);
+          }
+        };
+        var load = function() {
+          inject(deps);
+          w.addEventListener('load', function() {
+            inject(ss);
+          }, true);
         };
         if (url_parts.length > 1) {
-          inject();
+          load();
         } else if (url_parts.length == 1) {
           for (var i = 0, l = ls.length; i < l; i++) {
             if (url_parts[0] != ls[i]) {
-              inject();
+              load();
               break;
             }
           }
         }
-      })(window,document,['es']);  // <-- Add more languages here.
+      })(window, document, ['es'], ['/assets/js/p5.all.js'], ['/assets/js/all.js']);
 
       // Google Analytics:
       window.addEventListener('load', function() {  // <-- Last but not least.
