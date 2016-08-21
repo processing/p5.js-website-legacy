@@ -195,7 +195,7 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         options: {
-          banner: '/* p5js.org */'
+          banner: '/* p5js.org */',
           mangle: true,
           sourceMap: true,
           sourceMapName: '<%= config.dist %>/assets/js/maps/main.js.map',
