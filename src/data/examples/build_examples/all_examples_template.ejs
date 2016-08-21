@@ -18,8 +18,8 @@ slug: examples/
         <strong>{{#i18n "<%=topic%>"}}{{/i18n}}</strong><br>
         <% for(var i=0; i<all[topic].length; i++) { %>
           <a class='example-link' href="<%=all[topic][i]['link']%>"
-            
-            <% 
+
+            <%
               var keys = Object.keys(all[topic][i]).filter(function(k) { return k.length === 2 });
               for(var j=0; j < keys.length; j++) { %>
                 data-<%=keys[j]%>='<%=all[topic][i][keys[j]]%>'
@@ -36,18 +36,20 @@ slug: examples/
       <% } %>
       </div>
 
-      
+
     </section>
     {{> footer}}
 
   </div> <!-- end column-span -->
   <script>
-    $(document).ready( function () {
+    // $(document).ready( function () {
+    window.addEventListener('load', function() {
       $('.example-link').each(function() {
         var name = $(this).data('{{language}}');
         $(this).text(name);
       });
-    });
+    }, true);
+    // });
   </script>
 
   {{> asterisk}}

@@ -10,18 +10,18 @@ slug: examples/
   <div class="column-span">
 
     <section>
-  
+
       <p id="backlink"><a href="./">< {{#i18n "back-examples"}}{{/i18n}}</a></p>
       <h2 id='example-name'></h2>
       <p id='example-desc'></p>
-      
+
       <% if (mobileEx) { %>
         <button id="isMobile-displayButton" class="display_button">display sketch</button>
       <%}%>
 
       <div id="exampleDisplay">
         <iframe id="exampleFrame" src="{{assets}}/examples/example.html" ></iframe>
-        
+
         <% if (mobileEx) { %>
           <p id="notMobile-message">Open this page on a mobile device to display the sketch.</p>
         <%}%>
@@ -46,14 +46,14 @@ slug: examples/
   <script src="{{assets}}/js/vendor/ace-nc/ace.js"></script>
   <script src="{{assets}}/js/examples.js"></script>
   <script>
-    $(document).ready( function () {
+    // $(document).ready( function () {
+    window.addEventListener('load', function() {
       if (<%=mobileEx%>) {
-        console.log('mobile')
         var isMobile = window.matchMedia("only screen and (max-width: 480px)");
         $('#exampleFrame').hide();
         if (isMobile.matches) {
           $('#notMobile-message').hide();
-          $('#isMobile-displayButton').show();           
+          $('#isMobile-displayButton').show();
         } else {
           $('#notMobile-message').show();
           $('#isMobile-displayButton').hide();
@@ -61,9 +61,9 @@ slug: examples/
           $('#resetButton').hide();
         }
       }
-
       examples.init('{{assets}}/examples/{{language}}/<%=file%>');
-    });
+    }, true);
+    // });
   </script>
 
 </div><!-- end id="get-started-page"  -->

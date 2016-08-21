@@ -47,11 +47,26 @@
   display: inline;
 }
 
+#home {
+  pointer-events: none;
+}
+
 #home-sketch {
   position: absolute;
   top: 0;
   left: 0;
   z-index: -2;
+}
+
+#home-sketch-frame {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: auto;
 }
 
 #credits {
@@ -1469,12 +1484,6 @@ footer {
       float: right;
       width: 100%;
       text-align: right;
-    }
-
-    #home-sketch-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
     }
 
     #exampleDisplay, #exampleFrame, #exampleEditor {

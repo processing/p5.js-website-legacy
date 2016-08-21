@@ -13,6 +13,7 @@ module.exports = function(grunt) {
 
   // Project configuration. actual tasks
   grunt.initConfig({
+    banner: '/* p5js.org */',
     config: {
       src: 'src',
       dist: 'dist'
@@ -150,6 +151,9 @@ module.exports = function(grunt) {
     },
     uncss: {
       dist: {
+        options: {
+          ignore: ['.ace_editor']
+        },
         files: [{
           nonull: false,
           src: [
@@ -184,6 +188,36 @@ module.exports = function(grunt) {
       },
       dist: {
         src: '<%= config.dist %>/assets/css/main.css'
+      }
+    },
+
+    // JavaScript:
+    uglify: {
+      my_target: {
+        options: {
+          banner: '/* p5js.org */'
+          mangle: true,
+          sourceMap: true,
+          sourceMapName: '<%= config.dist %>/assets/js/maps/main.js.map',
+          compress: {
+            drop_console: true
+          }
+        },
+        files: {
+          '<%= config.dist %>/assets/js/main.js': [
+            '<%= config.src %>/assets/js/vendor/jquery-1.9.1.min.js',
+            '<%= config.src %>/assets/js/vendor/ace/ace.js',
+            '<%= config.src %>/assets/js/vendor/prism.js',
+            '<%= config.src %>/assets/js/p5.min.js',
+            '<%= config.src %>/assets/js/p5.dom.js',
+            '<%= config.src %>/assets/js/p5.sound.js',
+            '<%= config.src %>/assets/js/main.js',
+            '<%= config.src %>/assets/js/logo.js',
+            '<%= config.src %>/assets/js/render.js',
+            '<%= config.src %>/assets/js/scroll.js',
+            '<%= config.src %>/assets/js/examples.js'
+          ]
+        }
       }
     },
 
@@ -241,7 +275,8 @@ module.exports = function(grunt) {
     'newer:imagemin',
     'concat',
     'uncss',
-    'postcss'
+    'postcss',
+    'uglify'
   ]);
 
   // runs three tasks in order
