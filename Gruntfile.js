@@ -146,13 +146,13 @@ module.exports = function(grunt) {
           '<%= config.src %>/assets/css/main.css',
           '<%= config.src %>/assets/css/prism.css'
         ],
-        dest: '<%= config.dist %>/assets/css/main.css',
+        dest: '<%= config.dist %>/assets/css/all.css'
       }
     },
     uncss: {
       dist: {
         options: {
-          ignore: ['.ace_editor']
+          ignore: []
         },
         files: [{
           nonull: false,
@@ -161,7 +161,7 @@ module.exports = function(grunt) {
             '!<%= config.dist %>/es/**',
             '!<%= config.dist %>/assets/**'
           ],
-          dest: '<%= config.dist %>/assets/css/main.css'
+          dest: '<%= config.dist %>/assets/css/all.css'
         }]
       },
     },
@@ -187,35 +187,60 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: '<%= config.dist %>/assets/css/main.css'
+        src: '<%= config.dist %>/assets/css/all.css'
       }
     },
 
     // JavaScript:
     uglify: {
-      my_target: {
+      p5js: {
         options: {
           banner: '/* p5js.org */',
-          mangle: true,
+          mangle: {
+            except: ['p5']
+          },
           sourceMap: true,
-          sourceMapName: '<%= config.dist %>/assets/js/maps/main.js.map',
+          sourceMapName: '<%= config.dist %>/assets/js/maps/p5.all.js.map',
+          compress: {
+            drop_console: true
+          },
+          concat: {
+            options: {
+              separator: ';'
+            }
+          }
+        },
+        files: {
+          '<%= config.dist %>/assets/js/p5.all.js': [
+            '<%= config.src %>/assets/js/p5.min.js',
+            '<%= config.src %>/assets/js/p5.dom.js',
+            '<%= config.src %>/assets/js/p5.sound.js'
+          ]
+        }
+      },
+      main: {
+        options: {
+          banner: '/* p5js.org */',
+          mangle: {
+            except: ['jQuery', '$', 'examples']
+          },
+          sourceMap: true,
+          sourceMapName: '<%= config.dist %>/assets/js/maps/all.js.map',
           compress: {
             drop_console: true
           }
         },
         files: {
-          '<%= config.dist %>/assets/js/main.js': [
+          '<%= config.dist %>/assets/js/all.js': [
             '<%= config.src %>/assets/js/vendor/jquery-1.9.1.min.js',
-            '<%= config.src %>/assets/js/vendor/ace/ace.js',
-            '<%= config.src %>/assets/js/vendor/prism.js',
-            '<%= config.src %>/assets/js/p5.min.js',
-            '<%= config.src %>/assets/js/p5.dom.js',
-            '<%= config.src %>/assets/js/p5.sound.js',
             '<%= config.src %>/assets/js/main.js',
-            '<%= config.src %>/assets/js/logo.js',
-            '<%= config.src %>/assets/js/render.js',
             '<%= config.src %>/assets/js/scroll.js',
-            '<%= config.src %>/assets/js/examples.js'
+            '<%= config.src %>/assets/js/logo.js',
+            '<%= config.src %>/assets/js/vendor/ace-nc/ace.js',
+            '<%= config.src %>/assets/js/vendor/ace-nc/mode-javascript.js',
+            '<%= config.src %>/assets/js/vendor/prism.js',
+            '<%= config.src %>/assets/js/examples.js',
+            '<%= config.src %>/assets/js/render.js'
           ]
         }
       }
@@ -251,7 +276,13 @@ module.exports = function(grunt) {
 
     // Before generating any new files,
     // remove any previously-created files.
-    clean: ['<%= config.dist %>/**/*.*']
+    clean: {
+      assets: [
+        '<%= config.dist %>/**/*.*',
+        '!<%= config.dist %>/assets/img/**.*',
+        '!<%= config.dist %>/assets/img/**/*.*'
+      ]
+    }
 
   });
 

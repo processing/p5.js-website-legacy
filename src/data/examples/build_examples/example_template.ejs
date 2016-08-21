@@ -43,27 +43,27 @@ slug: examples/
 
   {{> asterisk}}
 
-  <script src="{{assets}}/js/vendor/ace-nc/ace.js"></script>
-  <script src="{{assets}}/js/examples.js"></script>
+  <!-- <script src="{{assets}}/js/vendor/ace-nc/ace.js"></script>
+  <script src="{{assets}}/js/examples.js"></script> -->
   <script>
-    // $(document).ready( function () {
+    window._p5jsExample = '{{assets}}/examples/{{language}}/<%=file%>';
+    window._p5jsLanguage = '{{language}}';
     window.addEventListener('load', function() {
+      // examples.init('{{assets}}/examples/{{language}}/<%=file%>');
       if (<%=mobileEx%>) {
         var isMobile = window.matchMedia("only screen and (max-width: 480px)");
-        $('#exampleFrame').hide();
+        document.getElementById('exampleFrame').style.display = 'none';
         if (isMobile.matches) {
-          $('#notMobile-message').hide();
-          $('#isMobile-displayButton').show();
+          document.getElementById('notMobile-message').style.display = 'none';
+          document.getElementById('isMobile-displayButton').style.display = 'block';
         } else {
-          $('#notMobile-message').show();
-          $('#isMobile-displayButton').hide();
-          $('#runButton').hide();
-          $('#resetButton').hide();
+          document.getElementById('notMobile-message').style.display = 'block';
+          document.getElementById('isMobile-displayButton').style.display = 'none';
+          document.getElementById('runButton').style.display = 'none';
+          document.getElementById('resetButton').style.display = 'none';
         }
       }
-      examples.init('{{assets}}/examples/{{language}}/<%=file%>');
     }, true);
-    // });
   </script>
 
 </div><!-- end id="get-started-page"  -->
