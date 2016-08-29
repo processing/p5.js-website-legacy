@@ -13,6 +13,7 @@ module.exports = function(grunt) {
 
   // Project configuration. actual tasks
   grunt.initConfig({
+    banner: '/* p5js.org */',
     config: {
       src: 'src',
       dist: 'dist'
@@ -22,8 +23,20 @@ module.exports = function(grunt) {
     },
     watch: {
       assemble: {
-        files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,json}'],
+        files: '<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,json}',
         tasks: ['assemble']
+      },
+      css: {
+        files: '<%= config.src %>/assets/css/*.css',
+        tasks: [
+          'concat',
+          'uncss',
+          'postcss'
+        ]
+      },
+      imagemin: {
+        files: '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,svg}',
+        tasks: ['newer:imagemin']
       },
       livereload: {
         options: {
@@ -39,7 +52,7 @@ module.exports = function(grunt) {
       }
     },
 
-    // runs the local server
+    // Local server:
     connect: {
       options: {
         port: 9000,
@@ -57,6 +70,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // HTML:
     assemble: {
       pages: {
         options: {
@@ -106,21 +120,134 @@ module.exports = function(grunt) {
       }
     },
 
-
-
-    copy: {
-      theme: {
-        expand: true,
-        cwd: '<%= config.src %>/assets/css',
-        src: '**',
-        dest: '<%= config.dist %>/assets/css/'
-      },
+    // Images:
+    imagemin: {
       images: {
-        expand: true,
-        cwd: '<%= config.src %>/assets/img',
-        src: '**',
-        dest: '<%= config.dist %>/assets/img/'
+        options: {
+          optimizationLevel: 7
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.src %>/assets/img',
+          src: ['**/*.{png,jpg,gif,svg}'],
+          dest: '<%= config.dist %>/assets/img/'
+        }]
+      }
+    },
+
+    // CSS:
+    concat: {
+      options: {
+        separator: ';',
       },
+      dist: {
+        src: [
+          '<%= config.src %>/assets/css/normalize.css',
+          '<%= config.src %>/assets/css/main.css',
+          '<%= config.src %>/assets/css/prism.css'
+        ],
+        dest: '<%= config.dist %>/assets/css/all.css'
+      }
+    },
+    uncss: {
+      dist: {
+        options: {
+          ignore: []
+        },
+        files: [{
+          nonull: false,
+          src: [
+            '<%= config.dist %>/**/*.html',
+            '!<%= config.dist %>/es/**',
+            '!<%= config.dist %>/assets/**'
+          ],
+          dest: '<%= config.dist %>/assets/css/all.css'
+        }]
+      },
+    },
+    postcss: {
+      options: {
+        map: true,
+        map: {
+          inline: false,
+          annotation: '<%= config.dist %>/assets/css/maps/'
+        },
+        processors: [
+          require('autoprefixer')({browsers: [
+            "Android 2.3",
+            "Android >= 4",
+            "Chrome >= 20",
+            "Firefox >= 24",
+            "Explorer >= 8",
+            "iOS >= 6",
+            "Opera >= 12",
+            "Safari >= 6"
+          ]}),
+          require('cssnano')()
+        ]
+      },
+      dist: {
+        src: '<%= config.dist %>/assets/css/all.css'
+      }
+    },
+
+    // JavaScript:
+    uglify: {
+      p5js: {
+        options: {
+          banner: '/* p5js.org */',
+          mangle: {
+            except: ['p5']
+          },
+          sourceMap: true,
+          sourceMapName: '<%= config.dist %>/assets/js/maps/p5.all.js.map',
+          compress: {
+            drop_console: true
+          },
+          concat: {
+            options: {
+              separator: ';'
+            }
+          }
+        },
+        files: {
+          '<%= config.dist %>/assets/js/p5.all.js': [
+            '<%= config.src %>/assets/js/p5.min.js',
+            '<%= config.src %>/assets/js/p5.dom.js',
+            '<%= config.src %>/assets/js/p5.sound.js'
+          ]
+        }
+      },
+      main: {
+        options: {
+          banner: '/* p5js.org */',
+          mangle: {
+            except: ['jQuery', '$', 'examples']
+          },
+          sourceMap: true,
+          sourceMapName: '<%= config.dist %>/assets/js/maps/all.js.map',
+          compress: {
+            drop_console: true
+          }
+        },
+        files: {
+          '<%= config.dist %>/assets/js/all.js': [
+            '<%= config.src %>/assets/js/vendor/jquery-1.9.1.min.js',
+            '<%= config.src %>/assets/js/main.js',
+            '<%= config.src %>/assets/js/scroll.js',
+            '<%= config.src %>/assets/js/logo.js',
+            '<%= config.src %>/assets/js/vendor/ace-nc/ace.js',
+            '<%= config.src %>/assets/js/vendor/ace-nc/mode-javascript.js',
+            '<%= config.src %>/assets/js/vendor/prism.js',
+            '<%= config.src %>/assets/js/examples.js',
+            '<%= config.src %>/assets/js/render.js'
+          ]
+        }
+      }
+    },
+
+    // Data handling:
+    copy: {
       js: {
         expand: true,
         cwd: '<%= config.src %>/assets/js',
@@ -129,9 +256,9 @@ module.exports = function(grunt) {
       },
       fonts: {
         expand: true,
-        cwd: '<%= config.src %>/assets/fonts',
+        cwd: '<%= config.src %>/assets/css/fonts',
         src: '**',
-        dest: '<%= config.dist %>/assets/fonts'
+        dest: '<%= config.dist %>/assets/css/fonts'
       },
       p5_featured: {
         expand: true,
@@ -149,7 +276,13 @@ module.exports = function(grunt) {
 
     // Before generating any new files,
     // remove any previously-created files.
-    clean: ['<%= config.dist %>/**/*.*']
+    clean: {
+      assets: [
+        '<%= config.dist %>/**/*.*',
+        '!<%= config.dist %>/assets/img/**.*',
+        '!<%= config.dist %>/assets/img/**/*.*'
+      ]
+    }
 
   });
 
@@ -166,14 +299,24 @@ module.exports = function(grunt) {
   grunt.registerTask('run', [
     'connect:livereload',
     'watch'
-  ])
+  ]);
+
+  // optimize assets
+  grunt.registerTask('optimize', [
+    'newer:imagemin',
+    'concat',
+    'uncss',
+    'postcss',
+    'uglify'
+  ]);
 
   // runs three tasks in order
   grunt.registerTask('build', [
     'exec',
     'clean',
     'copy',
-    'assemble'
+    'assemble',
+    'optimize'
   ]);
 
   // runs with just grunt command

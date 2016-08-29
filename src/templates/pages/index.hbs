@@ -47,36 +47,23 @@ slug: /
   </div> <!-- end container -->
 
   <object type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" id="asterisk-design-element">*</object>
-
   <iframe frameBorder='0' id='home-sketch-frame' src='{{assets}}/p5_featured/kylemcdonald_magnify/index.html'></iframe>
-  <!-- <div id='home-sketch-frame'></div> -->
-  <!--<script src='{{assets}}/p5_featured/LeslieRuckman_RainbowPixelGrow/sketch.js'></script>-->
-  <script type='text/javascript'>
-    $('#home-sketch-frame').width(window.innerWidth);
-    $('#home-sketch-frame').height(window.innerHeight);
-
-    $('#home-sketch-frame').css('position', 'fixed');
-    $('#home-sketch-frame').css('top', '0px');
-    $('#home-sketch-frame').css('left', '0px');
-    $('#home-sketch-frame').css('z-index', '-2');
-
-    $('body, #home').css('pointer-events', 'none');
-    $('iframe').css('pointer-events', 'auto');
-    $('a').css('pointer-events', 'auto');
-    $('button').css('pointer-events', 'auto');
-
-    // Microsoft Edge and IE appear to have a bug whereby
-    // CSS pointer-events don't do anything on purely inline elements.
-    // This means that almost all our links will be inaccessible, so
-    // we'll force them to be styled as inline-block on affected browsers.
-    // This does result in a few visual artifacts, but it's better than
-    // having completely inaccessible links.
-
-    // http://stackoverflow.com/a/33505753/2422398
-    var EDGE_IE_REGEX = /(?:\b(MS)?IE\s+|\bTrident\/7\.0;.*\s+rv:|\bEdge\/)(\d+)/;
-
-    if (EDGE_IE_REGEX.test(navigator.userAgent)) {
-      $('a').css('display', 'inline-block');
-    }
-  </script>
 </div> <!-- end home-page -->
+
+<script type='text/javascript'>
+  // Microsoft Edge and IE appear to have a bug whereby
+  // CSS pointer-events don't do anything on purely inline elements.
+  // This means that almost all our links will be inaccessible, so
+  // we'll force them to be styled as inline-block on affected browsers.
+  // This does result in a few visual artifacts, but it's better than
+  // having completely inaccessible links.
+
+  // http://stackoverflow.com/a/33505753/2422398
+  var EDGE_IE_REGEX = /(?:\b(MS)?IE\s+|\bTrident\/7\.0;.*\s+rv:|\bEdge\/)(\d+)/;
+  if (EDGE_IE_REGEX.test(navigator.userAgent)) {
+    var links = document.getElementsByTagName('a');
+    for (var i=0, l=btns.length; i < l; i++) {
+      links[i].style.display = 'inline-block';
+    }
+  }
+</script>

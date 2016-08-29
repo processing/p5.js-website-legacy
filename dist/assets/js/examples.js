@@ -2,30 +2,30 @@ var examples = {
   init: function(file) {
 
     // Editor
-    
+
     examples.editor = ace.edit('exampleEditor');
-    //examples.editor.setTheme('ace/theme/monokai'); 
+    //examples.editor.setTheme('ace/theme/monokai');
     examples.editor.getSession().setMode('ace/mode/javascript');
-    examples.editor.getSession().setTabSize(2); 
+    examples.editor.getSession().setTabSize(2);
 
     examples.dims = [];
 
     // Button
 
-    $('#runButton').click( function() { 
-      examples.runExample();        
+    $('#runButton').click( function() {
+      examples.runExample();
     });
-    $('#resetButton').click( function() { 
-      examples.resetExample();        
+    $('#resetButton').click( function() {
+      examples.resetExample();
     });
-    
+
 
     // Example Frame
     if($("#isMobile-displayButton").length !== 0) {
       //it mobile
-      
-      $('#isMobile-displayButton').click( function() { 
-          
+
+      $('#isMobile-displayButton').click( function() {
+
          $('#exampleFrame').show();
          $('#exampleFrame').ready(function() {
             // alert('exampleFrame load')
@@ -48,7 +48,7 @@ var examples = {
     })
     .done(function (data) {
       $('#exampleSelector').hide();
-      
+
       // parse and set frame size
       var frameReg = /@frame (.*),(.*)/g;
       var arr = data.split(frameReg);
@@ -68,7 +68,7 @@ var examples = {
       var endName = data.indexOf("\n", startName);
 
       var name = startName !== 5 ? data.substring(startName, endName) : '';
-      
+
       var startDesc = data.indexOf("@description")+13;
       var endDesc = data.indexOf("*/", startDesc);
 
@@ -86,8 +86,8 @@ var examples = {
       examples.showExample(norender);
     })
   },
-  showExample: function(norender) {         
-    examples.editor.getSession().setValue(examples.resetData); 
+  showExample: function(norender) {
+    examples.editor.getSession().setValue(examples.resetData);
 
     //resize height of editor
     var rows = examples.editor.getSession().$rowLengthCache.length;
@@ -118,8 +118,8 @@ var examples = {
   loadExample: function(isMobile) {
 
     var exampleCode = examples.editor.getSession().getValue();
-    
-    try {       
+
+    try {
 
       if (exampleCode.indexOf('new p5()') === -1) {
         exampleCode += '\nnew p5();';
@@ -157,7 +157,7 @@ var examples = {
         }
 
       }
-      
+
       var userScript = $('#exampleFrame')[0].contentWindow.document.createElement('script');
       userScript.type = 'text/javascript';
       userScript.text = exampleCode;
@@ -170,3 +170,13 @@ var examples = {
   }
 
 }
+if (typeof(window._p5jsExample) !== 'undefined') {
+  examples.init(window._p5jsExample);
+};
+
+if (typeof(window._p5jsLanguage) !== 'undefined') {
+  $('.example-link').each(function() {
+    var name = $(this).data(window._p5jsLanguage);
+    $(this).text(name);
+  });
+};
