@@ -948,7 +948,7 @@ html {
 }
 
 body {
-    margin:0 0.5em; /* this goes away when screens are greater than 600px */
+    margin:0;
     background-color: #fff;
     font-family: times;
     font-weight: 400;
@@ -1237,7 +1237,9 @@ p+img {
 
 
 #lockup {
-    margin: 4.25em 1.25em 1.25em 1.25em;
+    position: absolute;
+    top: -5.75em;
+    left: 1.25em;
     height: 90px;
 }
 
@@ -1423,6 +1425,41 @@ footer {
     }
 
 
+    #i18n-btn {
+      position: absolute;
+      top: 1.5em;
+      right: 0.75em;
+    }
+
+
+    #lockup {
+        position: absolute;
+        top: 2em;
+        left: 1em;
+    }
+
+
+    .column-span {
+        margin:0 1em 0 1em;
+        padding:0;
+        float:left;
+    }
+
+    #menu.top_menu, #menu {
+        margin: 6em 0 0.5em 0;
+        font-size: 1.3em;
+    }
+
+    #menu li {
+        display: inline;
+    }
+
+
+    #contribute-item:first-child {
+      margin-left: 0px;
+    }
+
+
     .download_box {
       width: 96%;
     }
@@ -1431,25 +1468,6 @@ footer {
       width: 46%;
       margin-right: 4%;
       float: left;
-    }
-
-    #menu {
-        list-style: none;
-        font-family: "AvenirNextLTW01-Medium";
-        width:100%;
-        margin: 0 0 1em 0;
-        padding: 0;
-        height: 100%;
-        font-size: 1.3em;
-    }
-
-    #contribute-item:first-child {
-      margin-left: 0px;
-    }
-
-
-    #menu li {
-        display: inline;
     }
 
     #asterisk-design-element, .separator-design-element {
@@ -1465,16 +1483,12 @@ footer {
       word-break: break-all;
     }
 
-    #credits, #home-sketch {
-        /*display: none;*/
-    }
-
 
     #credits {
       position: relative !important;
       z-index: 2;
-      margin-top: -4em;
-      padding: 0 1em 3em 1em;
+      margin-top: -7em;
+      padding: 0 2em 3em 1em;
       font-size: 0.5em;
       float: right;
       width: 100%;
@@ -1506,12 +1520,9 @@ footer {
 }
 
 @media (min-width: 720px) {
-    body {
-        margin:0;
-    }
 
     .container {
-        margin:2em auto;
+        margin:10em auto;
         width:49em;
         padding:0;
         height: auto;
@@ -1519,10 +1530,7 @@ footer {
         background-color: rgba(51,51,51,0.0);
 
     }
-    #lockup p {
-        padding:0;
-        margin:0.5em 0 0 8.5em; /* the 7.5em  */
-    }
+
     section {
         width:36em; /* 36-38 em for about 10-14 words at this size   */
     }
@@ -1535,6 +1543,12 @@ footer {
         clear:both;
         /*margin: 4em 0 2em -.75em;*/
         width:48em;
+    }
+
+    #i18n-btn {
+      position: absolute;
+      top: 2.5em;
+      right: 1em;
     }
 
     #menu {
@@ -1928,11 +1942,6 @@ iframe {
   //////////////////////////////////////////////////
 */
 
-#i18n-btn {
-  position: absolute;
-  top: 2.5em;
-  right: 1em;
-}
 
 #i18n-btn button {
   border: none !important;

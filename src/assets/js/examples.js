@@ -21,7 +21,7 @@ var examples = {
 
 
     // Example Frame
-    if($("#isMobile-displayButton").length !== 0) {
+    if($('#isMobile-displayButton').length !== 0) {
       //it mobile
 
       $('#isMobile-displayButton').click( function() {
@@ -172,11 +172,14 @@ var examples = {
 }
 if (typeof(window._p5jsExample) !== 'undefined') {
   examples.init(window._p5jsExample);
-};
+}
 
 if (typeof(window._p5jsLanguage) !== 'undefined') {
   $('.example-link').each(function() {
     var name = $(this).data(window._p5jsLanguage);
+    console.log(window._p5jsLanguage, name)
     $(this).text(name);
   });
-};
+} else {
+  console.log('no language')
+}
