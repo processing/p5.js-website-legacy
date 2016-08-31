@@ -29,8 +29,8 @@ module.exports = function(grunt) {
       css: {
         files: '<%= config.src %>/assets/css/*.css',
         tasks: [
-          'concat',
-          'uncss',
+          'concat:dist',
+          // 'uncss',
           'postcss'
         ]
       },
@@ -153,22 +153,25 @@ module.exports = function(grunt) {
         dest: '<%= config.dist %>/assets/css/all.css'
       }
     },
-    uncss: {
-      dist: {
-        options: {
-          ignore: []
-        },
-        files: [{
-          nonull: false,
-          src: [
-            '<%= config.dist %>/**/*.html',
-            '!<%= config.dist %>/es/**',
-            '!<%= config.dist %>/assets/**'
-          ],
-          dest: '<%= config.dist %>/assets/css/all.css'
-        }]
-      },
-    },
+    // uncss: {
+    //   dist: {
+    //     options: {
+    //       report: 'gzip',
+    //       timeout: 5000
+    //     },
+    //     files: [{
+    //       nonull: false,
+    //       src: [
+    //         'http://localhost:9000/get-started/index.html',
+    //         'http://localhost:9000/examples/structure-coordinates.html',
+    //         '<%= config.dist %>/**/*.html',
+    //         '!<%= config.dist %>/es/**',
+    //         '!<%= config.dist %>/assets/**'
+    //       ],
+    //       dest: '<%= config.dist %>/assets/css/all.css'
+    //     }]
+    //   },
+    // },
     postcss: {
       options: {
         map: true,
@@ -226,7 +229,7 @@ module.exports = function(grunt) {
         options: {
           banner: '/* p5js.org */',
           mangle: {
-            except: ['jQuery', '$', 'examples']
+            except: ['jQuery', '$', 'examples', 'renderCode', 'Prism']
           },
           sourceMap: true,
           sourceMapName: '<%= config.dist %>/assets/js/maps/all.js.map',
@@ -237,12 +240,13 @@ module.exports = function(grunt) {
         files: {
           '<%= config.dist %>/assets/js/all.js': [
             '<%= config.src %>/assets/js/vendor/jquery-1.9.1.min.js',
-            '<%= config.src %>/assets/js/main.js',
-            '<%= config.src %>/assets/js/scroll.js',
-            '<%= config.src %>/assets/js/logo.js',
             '<%= config.src %>/assets/js/vendor/ace-nc/ace.js',
             '<%= config.src %>/assets/js/vendor/ace-nc/mode-javascript.js',
             '<%= config.src %>/assets/js/vendor/prism.js',
+            '<%= config.src %>/assets/js/vendor/galleria.js',
+            '<%= config.src %>/assets/js/main.js',
+            '<%= config.src %>/assets/js/logo.js',
+            '<%= config.src %>/assets/js/scroll.js',
             '<%= config.src %>/assets/js/examples.js',
             '<%= config.src %>/assets/js/render.js'
           ]
@@ -323,8 +327,8 @@ module.exports = function(grunt) {
   // optimize assets
   grunt.registerTask('optimize', [
     'newer:imagemin',
-    'concat',
-    'uncss',
+    'concat:dist',
+    // 'uncss',
     'postcss',
     'uglify'
   ]);

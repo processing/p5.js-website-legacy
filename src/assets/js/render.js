@@ -1,4 +1,5 @@
-function renderCode(sel) {
+var renderCode = function(sel) {
+
   var _p5 = p5;
   var instances = [];
   var selector = sel || 'example';
@@ -16,10 +17,27 @@ function renderCode(sel) {
     });
   }
 
+  function enableTab(el) {
+    el.onkeydown = function(e) {
+      if (e.keyCode === 9) { // tab was pressed
+        // get caret position/selection
+        var val = this.value,
+            start = this.selectionStart,
+            end = this.selectionEnd;
+        // set textarea value to: text before caret + tab + text after caret
+        this.value = val.substring(0, start) + '  ' + val.substring(end);
+        // put caret at right position again
+        this.selectionStart = this.selectionEnd = start + 2;
+        // prevent the focus lose
+        return false;
+
+      }
+    };
+  }
+
   function setupCode(sketch, rc, i) {
 
     var isRef = sketch.parentNode.tagName !== 'PRE';
-
     var sketchNode =  isRef ? sketch : sketch.parentNode;
     var sketchContainer = sketchNode.parentNode;
 
@@ -30,8 +48,8 @@ function renderCode(sel) {
       sketchContainer.appendChild(pre);
       sketchContainer.className = 'example_container'
       sketch.className = 'language-javascript';
-      if (!rc) {    
-        pre.className += ' norender';    
+      if (!rc) {
+        pre.className += ' norender';
       }
     }
 
@@ -73,7 +91,7 @@ function renderCode(sel) {
         } else { // run
           setMode(sketch, 'run');
         }
-      }
+      };
 
       var reset_button = document.createElement('button');
       reset_button.value = 'reset';
@@ -155,16 +173,16 @@ function renderCode(sel) {
           }
         }
         else {
-   
+
           with (p) {
             eval(runnable);
           }
 
-          var fxns = ['setup', 'draw', 'preload', 'mousePressed', 'mouseReleased', 
-          'mouseMoved', 'mouseDragged', 'mouseClicked', 'mouseWheel', 
-          'touchStarted', 'touchMoved', 'touchEnded', 
+          var fxns = ['setup', 'draw', 'preload', 'mousePressed', 'mouseReleased',
+          'mouseMoved', 'mouseDragged', 'mouseClicked', 'mouseWheel',
+          'touchStarted', 'touchMoved', 'touchEnded',
           'keyPressed', 'keyReleased', 'keyTyped'];
-          fxns.forEach(function(f) { 
+          fxns.forEach(function(f) {
             var ind = runnable.indexOf(f+'(');
             // this is a gross hack within a hacky script that
             // ensures the function names found are not substrings
@@ -187,14 +205,26 @@ function renderCode(sel) {
     }
 
     //if (typeof prettyPrint !== 'undefined') prettyPrint();
-    if (typeof Prism !== 'undefined') Prism.highlightAll();
+    if (typeof Prism !== 'undefined'){
+      Prism.highlightAll()
+    };
+
+    // when a hash is changed, remove all the sounds,
+    // even tho the p5 sketch has been disposed.
+    function registerHashChange() {
+      window.onhashchange = function(e) {
+        for (var i = 0; i < instances.length; i++) {
+          instances[i].remove();
+        }
+      }
+    }
 
     $( document ).ready(function() {
 
       registerHashChange();
 
       setTimeout(function() {
-        var myp5 = new _p5(s, cnv);      
+        var myp5 = new _p5(s, cnv);
         $( ".example-content" ).find('div').each(function() {
           $this = $( this );
           var pre = $this.find('pre')[0];
@@ -203,37 +233,10 @@ function renderCode(sel) {
           }
         });
         instances[i] = myp5;
-      }, 100); 
+      }, 100);
     });
 
   }
 
-  // when a hash is changed, remove all the sounds,
-  // even tho the p5 sketch has been disposed.
-  function registerHashChange() {
-    window.onhashchange = function(e) {
-      for (var i = 0; i < instances.length; i++) {
-        instances[i].remove();
-      }
-    }
-  }
-
-}
-
-function enableTab(el) {
-  el.onkeydown = function(e) {
-    if (e.keyCode === 9) { // tab was pressed
-      // get caret position/selection
-      var val = this.value,
-          start = this.selectionStart,
-          end = this.selectionEnd;
-      // set textarea value to: text before caret + tab + text after caret
-      this.value = val.substring(0, start) + '  ' + val.substring(end);
-      // put caret at right position again
-      this.selectionStart = this.selectionEnd = start + 2;
-      // prevent the focus lose
-      return false;
-
-    }
-  };
-}
+};
+renderCode(undefined);
