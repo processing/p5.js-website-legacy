@@ -20,28 +20,9 @@ function closeSearch() {
   console.log($('#search_field').attr('width'));
 }
 
-$(window).ready(function() {
-  if (window.location.pathname.indexOf('/es/') === -1) {
-    $('#en-btn').attr('disabled', true);
-    $('#es-btn').attr('disabled', false);
-  } else {
-    $('#en-btn').attr('disabled', false);
-    $('#es-btn').attr('disabled', true);
-  }
-
-  $('#i18n-btn button').click(function() {
-    var loc = String(window.location.pathname);
-    loc = loc.replace('\/es\/', '');
-    var id = $(this).attr('id');
-    console.log(id)
-    if (id !== 'en-btn') {
-      loc = '/'+ id.substring(0, 2) + loc;
-    } else {
-      loc = '/' + loc;
-    }
-    console.log(loc)
-    window.location = loc;
-  });
+Prism.plugins.NormalizeWhitespace.setDefaults({
+  'remove-trailing': true,
+  'left-trim': true,
+  'right-trim': true,
+  'remove-indent': true
 });
-
-

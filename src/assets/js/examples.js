@@ -174,12 +174,12 @@ if (typeof(window._p5jsExample) !== 'undefined') {
   examples.init(window._p5jsExample);
 }
 
-if (typeof(window._p5jsLanguage) !== 'undefined') {
-  $('.example-link').each(function() {
-    var name = $(this).data(window._p5jsLanguage);
-    console.log(window._p5jsLanguage, name)
-    $(this).text(name);
-  });
-} else {
-  console.log('no language')
-}
+// if (typeof(window._p5jsLanguage) !== 'undefined') {
+//   $('.example-link').each(function() {
+//     var name = $(this).data(window._p5jsLanguage);
+//     console.log(window._p5jsLanguage, name)
+//     $(this).text(name);
+//   });
+// } else {
+//   console.log('no language')
+// }
