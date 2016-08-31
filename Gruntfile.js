@@ -34,6 +34,10 @@ module.exports = function(grunt) {
           'postcss'
         ]
       },
+      js: {
+        files: '<%= config.src %>/assets/js/*.js',
+        tasks: ['uglify']
+      },
       imagemin: {
         files: '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,svg}',
         tasks: ['newer:imagemin']
@@ -218,7 +222,7 @@ module.exports = function(grunt) {
           ]
         }
       },
-      main: {
+      all: {
         options: {
           banner: '/* p5js.org */',
           mangle: {
@@ -241,6 +245,21 @@ module.exports = function(grunt) {
             '<%= config.src %>/assets/js/vendor/prism.js',
             '<%= config.src %>/assets/js/examples.js',
             '<%= config.src %>/assets/js/render.js'
+          ]
+        }
+      },
+      init: {
+        options: {
+          banner: '/* p5js.org */',
+          sourceMap: true,
+          sourceMapName: '<%= config.dist %>/assets/js/maps/init.js.map',
+          compress: {
+            drop_console: true
+          }
+        },
+        files: {
+          '<%= config.dist %>/assets/js/init.js': [
+            '<%= config.src %>/assets/js/init.js'
           ]
         }
       }

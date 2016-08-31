@@ -17,8 +17,7 @@ slug: examples/
         <p name='<%=topic.toLowerCase()%>' class='anchor'>
         <strong>{{#i18n "<%=topic%>"}}{{/i18n}}</strong><br>
         <% for(var i=0; i<all[topic].length; i++) { %>
-          <a class='example-link' href="<%=all[topic][i]['link']%>"
-
+          <a class='js-lang example-link' href="<%=all[topic][i]['link']%>"
             <%
               var keys = Object.keys(all[topic][i]).filter(function(k) { return k.length === 2 });
               for(var j=0; j < keys.length; j++) { %>
