@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
     <title>p5.js</title>
-    <link rel="stylesheet" href="../assets/css/all.css">
+    <link rel="stylesheet" href="/../assets/css/all.css">
     <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
   </head>
   <body>
@@ -91,7 +91,6 @@
   <script src="../assets/js/examples.js"></script> -->
   <script>
     window._p5jsExample = '../assets/examples/en/08_Math/15_arctangent.js';
-    window._p5jsLanguage = 'en';
     window.addEventListener('load', function() {
       // examples.init('../assets/examples/en/08_Math/15_arctangent.js');
       if (false) {
@@ -121,16 +120,16 @@
           <div id="p5_logo"></div>
         </a>
       </div>
-      
+
     </div> <!-- close class='container'-->
-    
 
     
 <!-- p5*js language buttons -->
 <div id="i18n-btn">
-  <button id="en-btn">EN</button>
-  <button id="es-btn">ES</button>
+  <button data-lang="en">EN</button>
+  <button data-lang="es">ES</button>
 </div>
+
 
     
 
@@ -151,70 +150,6 @@
 </div>
 
 
-    <script type="text/javascript">
-      // Button click handling:
-      (function(w, d) {
-        if (w.location.pathname.indexOf('/es/') === -1) {
-          d.getElementById('en-btn').setAttribute('disabled', 'disabled');
-        } else {
-          d.getElementById('es-btn').setAttribute('disabled', 'disabled');
-        }
-        var btns = d.getElementById('i18n-btn').getElementsByTagName('button');
-        for (var i=0, l=btns.length; i < l; i++) {
-          btns[i].addEventListener('click', function(e) {
-            var loc = String(w.location.pathname);
-            loc = loc.replace('\/es\/', '');
-            var id = this.getAttribute('id');
-            if (id !== 'en-btn') {
-              loc = '/'+ id.substring(0, 2) + loc;
-            } else {
-              loc = '/' + loc;
-            }
-            w.location = loc;
-          }, false);
-        }
-      })(window, document);
-
-      // Load libraries:
-      (function(w, d, ls, deps, ss) {
-        var url_parts = w.location.pathname.split('/').filter(function (v) {
-          return v !== '';
-        });
-        var inject = function(s) {
-          for (var i = 0, l = s.length; i < l; i++) {
-            var script = d.createElement('script');
-            script.setAttribute('src', s[i]);
-            script.setAttribute('type', 'text/javascript');
-            d.getElementsByTagName('body')[0].appendChild(script);
-          }
-        };
-        var load = function() {
-          inject(deps);
-          w.addEventListener('load', function() {
-            inject(ss);
-          }, true);
-        };
-        if (url_parts.length > 1) {
-          load();
-        } else if (url_parts.length == 1) {
-          for (var i = 0, l = ls.length; i < l; i++) {
-            if (url_parts[0] != ls[i]) {
-              load();
-              break;
-            }
-          }
-        }
-      })(window, document, ['es'], ['/assets/js/p5.all.js'], ['/assets/js/all.js']);
-
-      // Google Analytics:
-      window.addEventListener('load', function() {  // <-- Last but not least.
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-53383000-1', 'auto');
-        ga('send', 'pageview');
-      }, true);
-    </script>
+    <script src="/../assets/js/init.js" charset="utf-8"></script>
   </body>
 </html>
