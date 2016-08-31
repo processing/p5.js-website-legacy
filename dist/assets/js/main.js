@@ -19,3 +19,10 @@ function closeSearch() {
   $('#search_field').css('visibility', 'hidden');
   console.log($('#search_field').attr('width'));
 }
+
+Prism.plugins.NormalizeWhitespace.setDefaults({
+  'remove-trailing': true,
+  'left-trim': true,
+  'right-trim': true,
+  'remove-indent': true
+});
