@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title>p5.js</title>
+    <title tabindex="1">p5.js | get started</title>
     <link rel="stylesheet" href="/../../assets/css/all.css">
     <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
   </head>
@@ -21,23 +21,23 @@
   
 <!-- site navigation -->
 <div class="column-span">
-<nav>
-<ul id="menu">
-  <li><a href="/es/">Home</a></li>
-  <li><a href="/es/download/">Descargar</a></li>
-  <li><a href="/es/gallery/"></a></li>
-  <li><a href="/es/get-started/">Empezar</a></li>
-  <li><a href="/es/reference/">Referencia</a></li>
-  <li><a href="/es/libraries/">Bibliotecas</a></li>
-  <li><a href="/es/tutorials/">Tutoriales</a></li>
-  <li><a href="/es/examples/">Ejemplos</a></li>
-  <li><a href="/es/books/">Libros</a></li>
-  <li><a href="/es/community/">Comunidad</a></li>
-  <li><a href="http://forum.processing.org/two/" target=_blank class="other-link">Foro</a></li>
-  <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">Github</a></li>
-  <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
-</ul>
-</nav>
+  <nav>
+    <ul id="menu">
+      <li><a href="/es/">Home</a></li>
+      <li><a href="/es/download/">Descargar</a></li>
+      <li><a href="/es/gallery/"></a></li>
+      <li><a href="/es/get-started/">Empezar</a></li>
+      <li><a href="/es/reference/">Referencia</a></li>
+      <li><a href="/es/libraries/">Bibliotecas</a></li>
+      <li><a href="/es/tutorials/">Tutoriales</a></li>
+      <li><a href="/es/examples/">Ejemplos</a></li>
+      <li><a href="/es/books/">Libros</a></li>
+      <li><a href="/es/community/">Comunidad</a></li>
+      <li><a href="http://forum.processing.org/two/" target=_blank class="other-link">Foro</a></li>
+      <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">Github</a></li>
+      <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+    </ul>
+  </nav>
 </div>
 
 <!-- <script src="../../assets/js/scroll.js"></script> -->
@@ -47,7 +47,7 @@
 
     <section>
 
-      <h2>Empezar</h2>
+      <h1>Empezar</h1>
 
       <p>Esta página te guía a través del proceso de configurar un proyecto con p5.js y hacer tu primer bosquejo. Si estás usando el editor de p5, puedes saltar a la sección
         <a>Tu primer bosquejo</a>
@@ -57,8 +57,8 @@
       </p>
 
       <a class="anchor" href="#file-setup">
-        <h3 class = "start-element tutorial-btn" id = "download">
-            Descargar y configuración de archivos</h3></a>
+        <h2 class = "start-element tutorial-btn" id = "download">
+            Descargar y configuración de archivos</h2></a>
 
       <div class="info" id="download">
         <p>La manera más simple de empezar es usando el ejemplo en blanco incluido en
@@ -79,9 +79,9 @@
       </div>
 
       <a name="environment" class="anchor">
-        <h3 class = "start-element tutorial-btn" id = "environment">
+        <h2 class="start-element tutorial-btn" id="environment">
           Ambiente
-        </h3></a>
+        </h2></a>
 
       <div class="info" id = "environment">
 
@@ -111,7 +111,9 @@
         </p>
       </div>
 
-      <a name="your-first-sketch" class="anchor"><h3 class = "start-element tutorial-btn" id = "sketch">Tu primer bosquejo</h3></a>
+      <a name="your-first-sketch" class="anchor">
+        <h2 class="start-element tutorial-btn" id="sketch">Tu primer bosquejo</h2>
+      </a>
 
       <div class = "info" id = "sketch">
 
@@ -165,7 +167,7 @@ function draw() {
         <img src="../../assets/img/get-started/first-sketch2.png" />
       </div>
 
-      <h3 class = "start-element tutorial-btn" id = "next">¿Qué viene después?</h3>
+      <h2 class="start-element tutorial-btn" id="next">¿Qué viene después?</h2>
 
       <div class = 'info' id = 'next'>
         <ul>
@@ -211,6 +213,7 @@ function draw() {
           <img src="../../assets/img/p5js-beta.svg" alt="link to p5 home page" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
+        <p>Processing intuition times JavaScript power</p>
       </div>
 
     </div> <!-- close class='container'-->
@@ -233,8 +236,10 @@ function draw() {
   </p>
   <form style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
     <input type="hidden" name="as_sitesearch" value="p5js.org" />
-    <input id="search_field" type="text" name="as_q" value="" size="20" class="text" />
-    <input id="search_button" type="submit" value=" " />
+<!--     <input id="search_field" type="text" name="as_q" value="" size="20" class="text" />
+    <input id="search_button" type="submit" value=" " /> -->
+    <input id="search_field" type="text" title="Search" name="as_q" value="" size="20" class="text" aria-label="search text field"  aria-haspopup="false"/>
+    <input id="search_button" type="submit" value=" " aria-label="Search" name="submit search" alt="Search" />
   </form>
   <p class="right">
     <a href="https://processingfoundation.org/">Processing Foundation</a>

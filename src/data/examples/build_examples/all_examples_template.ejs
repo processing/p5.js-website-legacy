@@ -10,12 +10,12 @@ slug: examples/
   <div class="column-span">
 
     <section>
-      <h2>{{#i18n "Examples"}}{{/i18n}}</h2>
+      <h1>{{#i18n "Examples"}}{{/i18n}}</h1>
 
       <div class="column_0">
       <% var t = 0; var col=1; for(var topic in all) { %>
-        <p name='<%=topic.toLowerCase()%>' class='anchor'>
-        <strong>{{#i18n "<%=topic%>"}}{{/i18n}}</strong><br>
+        <h3 name='<%=topic.toLowerCase()%>' class='anchor'>{{#i18n "<%=topic%>"}}{{/i18n}}</h3>
+        <p>
         <% for(var i=0; i<all[topic].length; i++) { %>
           <a class='js-lang example-link' href="<%=all[topic][i]['link']%>"
             <%
