@@ -964,21 +964,51 @@ body {
 
 /* menu links  */
 
-#menu li a:link, #menu li a:visited  {
+#menu li a:link,
+#menu li a:visited,
+/*#menu li a:focus:link,*/
+#menu li a:focus:active,
+#menu li a:focus:hover {
     color: #ED225D;
     /* gray #333;
     og p5 pink #ED225D;
     blue #2D7BB6 (a lighter Processing blue â€” it's our take on it) */
+    outline-style: dotted;
+    outline: 0;
+    background: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#menu li a:focus {
+    outline-style: solid;
+    outline-color: #ed225d;
+    outline-width: 2px;
+    outline-offset: 0;
+    background: #ed225d;
+    color: #fff;
 }
 
 /* body links  */
 
-a:link, a:visited {
+a:link,
+a:visited {
     color: #2D7BB6;
     text-decoration: none;
 }
+a:focus {
+    outline-style: solid;
+    outline-color: #2D7BB6;
+    outline-width: 1px;
+    outline-offset: 1px;
+}
 
-a:active, a:hover, #reference a:hover {
+a:active,
+a:hover,
+#reference a:hover {
     color:#ED225D;
     text-decoration: none;
     padding-bottom: 0.11em;
@@ -999,6 +1029,42 @@ a.anchor:hover {
 a.nounderline:hover {
     border: none;
 }
+
+.skip {
+    position: absolute;
+    top: -1000px;
+    height: 1px;
+    width: 1px;
+    text-align: left;
+    overflow: hidden;
+    font-family: AvenirNextLTW01-Medium;
+    font-size: 0.75em;
+    font-weight: normal;
+    border: 0;
+    padding: 5px 10px 3px;
+    background: #ed225d;
+    color: #fff !important;
+    outline: 0 !important;
+}
+a.skip:active,
+a.skip:focus,
+a.skip:hover {
+    width: auto;
+    height: auto;
+    overflow: visible;
+}
+@media (min-width: 720px) {
+    .skip {
+        left: -1000px;
+    }
+    a.skip:active,
+    a.skip:focus,
+    a.skip:hover {
+        top: 52px;
+        left: 28px;
+    }
+}
+
 
 .here {
     color:#ED225D !important;
@@ -1241,12 +1307,22 @@ p+img {
     top: -5.75em;
     left: 1.25em;
     height: 90px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #lockup object {
     margin:0;
     padding:0;
     border: none;
+}
+
+#lockup a:focus {
+  outline: 0;
 }
 
 
@@ -1448,6 +1524,12 @@ footer {
     #menu.top_menu, #menu {
         margin: 6em 0 0.5em 0;
         font-size: 1.3em;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     #menu li {
