@@ -24,32 +24,49 @@ TO DO:
 
 $(function() {
 
-  var $sidebar   = $("#menu"),
-      $window    = $(window),
-      offset     = $sidebar.offset();
+  var $window           = $(window),
+      $sidebar          = $("#menu"),
+      sidebarOffset     = $sidebar.offset(),
+      $rotationElements = $([
+        '#download-page #asterisk-design-element',
+        '#reference-page #asterisk-design-element'
+      ].join()),
+      rotationDegrees   = 0;
+
+  var isWidescreen = function() {
+    return window.matchMedia("(min-width: 720px)").matches;
+  };
+
+  // Change sidebar position:
+  var setSidebarPosition = function() {
+    if ($window.scrollTop() > sidebarOffset.top) {
+      $sidebar.stop().animate({
+        marginTop: $window.scrollTop() - sidebarOffset.top
+      });
+    } else {
+      $sidebar.stop().animate({
+        marginTop: 0
+      });
+    }
+  };
+  if (isWidescreen() && $window.scrollTop() > sidebarOffset.top) {
+    $sidebar.css('margin-top', $window.scrollTop() - sidebarOffset.top);
+  }
+
+  // Rotate specific elements:
+  var rotateElements = function() {
+    rotationDegrees = ($window.scrollTop() / 40) - 21;
+    $rotationElements.css({
+      '-ms-transform': 'rotate(' + rotationDegrees + 'deg)',
+      '-webkit-transform': 'rotate(' + rotationDegrees + 'deg)',
+      'transform': 'rotate(' + rotationDegrees + 'deg)'
+    });
+  };
 
   $window.scroll(function() {
-    if (window.matchMedia("(min-width: 720px)").matches) { 
-      
-      if ($window.scrollTop() > offset.top) {
-        $sidebar.stop().animate({
-          marginTop: $window.scrollTop() - offset.top + 18
-        });
-      }
-
-      else {
-        $sidebar.stop().animate({
-          marginTop: 0
-        });
-      }
-
-      // rotate
-      var rotation = $(window).scrollTop() / 40 - 21;
-      $('#download-page #asterisk-design-element, #reference-page #asterisk-design-element').css({
-        '-ms-transform': 'rotate(' + rotation + 'deg)',
-        '-webkit-transform': 'rotate(' + rotation + 'deg)',
-        'transform': 'rotate(' + rotation + 'deg)'
-      });
+    if (isWidescreen()) {
+      setSidebarPosition();
+      rotateElements();
     }
   });
 });
