@@ -1,5 +1,38 @@
-(function(w, d, langs) {
+// =================================================
+// Family bar:
 
+(function(w, d) {
+  var search_form = d.getElementById('search_form'),
+      search_field = d.getElementById('search_field');
+  var open_field = function() {
+    search_form.className = 'form__open';
+    search_field.focus();
+  };
+  var close_field = function(e) {
+    if (e.type === 'focusout') {
+      search_form.className = '';
+    } else {
+      if (search_field.value === '') {
+        search_form.className = '';
+      }
+    }
+  };
+  if (search_form.addEventListener) {
+    search_form.addEventListener('mouseover', open_field, false);
+    search_form.addEventListener('mouseout', close_field, false);
+    search_form.addEventListener('focusout', close_field, false);
+  } else { // IE
+    search_form.attachEvent('onmouseover', open_field);
+    search_form.attachEvent('onmouseout', close_field);
+    search_form.attachEvent('onfocusout', close_field);
+  }
+})(window, document);
+
+
+// ===============================================
+// Language handling:
+
+(function(w, d, langs) {
 
   // ===============================================
   // Language detection:
@@ -87,30 +120,35 @@
   // Language buttons:
 
   var btns = d.getElementById('i18n-btn').getElementsByTagName('button');
+  var evt_type = typeof d.addEventListener !== 'undefined' ? 'click' : 'onclick';
+  var click_action = function(e) {
+    var new_lang = this.getAttribute('data-lang');
+    if (new_lang == 'en') {
+      for (var j=0, l=langs.length; j < l; j++) {
+        if (langs[j] != 'en') {
+          loc = '/' + loc.replace('\/' + langs[j] + '\/', '');
+        }
+      }
+    } else {
+      loc = '/' + new_lang + loc;
+    }
+    if (can_store) {
+      w.localStorage.setItem('lang', new_lang);
+    }
+    w.location = loc;
+  };
   for (var i=0, l=btns.length; i < l; i++) {
     var btn_lang = btns[i].getAttribute('data-lang');
     if (loc_lang == btn_lang) {
       btns[i].setAttribute('disabled', 'disabled');
     } else {
-      btns[i].addEventListener('click', function(e) {
-        var new_lang = this.getAttribute('data-lang');
-        if (new_lang == 'en') {
-          for (var j=0, l=langs.length; j < l; j++) {
-            if (langs[j] != 'en') {
-              loc = '/' + loc.replace('\/' + langs[j] + '\/', '');
-            }
-          }
-        } else {
-          loc = '/' + new_lang + loc;
-        }
-        if (can_store) {
-          w.localStorage.setItem('lang', new_lang);
-        }
-        w.location = loc;
-      }, false);
+      if (evt_type === 'click') {
+        btns[i].addEventListener(evt_type, click_action, false);
+      } else { // IE
+        btns[i].attachEvent(evt_type, click_action);
+      }
     }
   }
-
 })(window, document, ['en', 'es']);  // <- Add here all languages.
 
 
