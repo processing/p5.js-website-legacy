@@ -1,10 +1,18 @@
+This translation is being completed in order,
+the current position is signaled by "HERE!!!".
+
 # General
 
 Ejemplo
+
 Descripción
+
 Sintaxis
+
 Parámetros
+
 Clase
+
 Retorno
 
 Si ves cualquier error o tienes sugerencias, por favor escríbenos.
@@ -494,21 +502,74 @@ Objeto: el objeto p5
 
 ## Atributos
 
+HERE!!!
+
+### ellipseMode()
+
+### noSmooth()
+### rectMode()
+### smooth()
+### strokeCap()
+### strokeJoin()
+### strokeWeight()
+
 ## Curvas
+
+### bezier()
+### bezierPoint()
+### bezierTangent()
+### curve()
+### curveTightness()
+### curvePoint()
+### curveTangent()
 
 ## Vértices
 
+### beginContour()
+### beginShape()
+### bezierVertex()
+### curveVertex()
+### endContour()
+### endShape()
+### quadraticVertex()
+### vertex()
+
 ## Modelos 3D
 
+### loadModel()
+### model()
+
 ## Primitvas 3D
+
+### plane()
+### box()
+### sphere()
+### cylinder()
+### cone()
+### ellipsoid()
+### torus()
 
 # Constantes
 
 ### HALF_PI
+
+HALF_PI es una constante matemática de valor 1.57079632679489661923. Es la mitad del perímetro de una circunferencia dividida por su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().
+
 ### PI
+
+PI es una constante matemática de valor 3.14159265358979323846. Es el perímetro de una circunferencia dividida por su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().
+
 ### QUARTER_PI
+
+QUARTER_PI es una constante matemática de valor 0.7853982. Es un cuarto del perímetro de una circunferencia dividida por su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().
+
 ### TAU
+
+TAU es un alias de TWO_PI, una constante matemática de valor 6.28318530717958647693. Es dos veces el perímetro de una circunferencia dividida por su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().
+
 ### TWO_PI
+
+TWO_PI es una constante matemática de valor 6.28318530717958647693. Es dos veces el perímetro de una circunferencia dividida por su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().
 
 # Estructura
 
