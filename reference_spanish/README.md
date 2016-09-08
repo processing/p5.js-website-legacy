@@ -354,6 +354,144 @@ Número: opacidad del fondo
 
 ## Primitivas 2D
 
+### arc()
+
+Dibuja un arco en la pantalla. Si es llamado con solo los primeros seis parámetros (a, b, c, d, inicio, fin), el arco será dibujado como un pastel abierto. Si se define un modo, el arco será dibujado abierto, como cuerda o como torta, según lo especificado. El origen puede ser modificado con la función ellipseMode().
+
+Notar que al dibujar un círculo completo (ejemplo, entre 0 y TWO_PI) no aparecerá nada en la pantalla, porque 0 y TWO_PI son la misma posición. La mejor manera de manejar esto es usando la función ellipse() para crear una elipse cerrada, y usar la función arc() solo para dibujar partes de una elipse.
+
+Número: coordenada x del arco de elipse
+
+Número: coordenada y del arco de elipse
+
+Número: ancho del arco del arco de elipse por defecto
+
+Número: altura del arco del arco de elipse por defecto
+
+Número: ángulo inicial del arco, especificado en radianes
+
+Número: ángulo final del arco, especificado en radianes
+
+Constante: parámetro opcional para determinar el modo de dibujo del arco
+
+Objeto: el objeto p5
+
+### ellipse()
+
+Dibuja una elipse (óvalo) en la pantalla. Una elipse con igual ancho y altura es un círculo. Por defecto, los primeros dos parámetros definen la ubicación y los parámetros tercero y cuarto definen el ancho y la altura de la figura. Si no se especifica una altura, el valor del ancho es usado para tanto el ancho como la altura. El origen puede ser cambiado con la función ellipseMode().
+
+Número: coordenada x de la elipse
+
+Número: coordenada y de la elipse
+
+Número: ancho de la elipse
+
+Número: altura de la elipse
+
+Objeto: el objeto p5
+
+### line()
+
+Dibuja una línea (un camino directo entre dos puntos) en la pantalla. La versión de line() con cuatro parámetros dibuja la línea en 2D. Para asignarle un color a la línea, usa la función stroke(). Una línea no puede ser rellenada, por lo que la función fill() no afectará el color de una línea. Las líneas 2D son dibujadas con un ancho de un pixel por defecto, pero esto puede ser cambiado con la función strokeWeight().
+
+Número: la coordenada x del primer punto
+
+Número: la coordenada y del primer punto
+
+Número: la coordenada x del segundo punto
+
+Número: la coordenada y del segundo punto
+
+Objeto: el objeto p5
+
+### point()
+
+Dibuja un punto, una coordenada en el espacio de dimensión un pixel. El primer parámetro es el valor horizontal del punto, el segundo valor es el valor vertical del punto. El color del punto es determinado por la función stroke().
+
+Número: la coordenada x
+
+Número: la coordenada y
+
+Objeto: el objeto p5
+
+### quad()
+
+Dibuja un cuadrilátero, un polígono de cuatro lados. Es similar a un rectángulo, pero los ángulos entre sus bordes no están limitados a 90 grados. El primer par de parámetros (x1, y1) define el primer vértice y los pares siguientes deben seguir en orden según las manecillas del reloj o en contra, alrededor de la figura definida.
+
+Número: la coordenada x del primer punto
+
+Número: la coordenada y del primer punto
+
+Número: la coordenada x del segundo punto
+
+Número: la coordenada y del segundo punto
+
+Número: la coordenada x del tercer punto
+
+Número: la coordenada y del tercer punto
+
+Número: la coordenada x del cuarto punto
+
+Número: la coordenada y del cuarto punto
+
+Objeto: el objeto p5
+
+### rect()
+
+//Dibuja un rectángulo en la posición (30, 20)
+// con ancho y alto de 55.
+
+//Dibuja un rectángulo en la posición (30, 20)
+// con ancho y alto de 55 y radio de 20.
+
+//Dibuja un rectángulo en la posición (30, 20)
+// con ancho y alto de 55 y los siguientes radios:
+// superior-izquierdo: 20, superior-derecho: 15
+// inferior-derecho: 10, inferior-izquierdo: 5
+// siguen las manecillas del reloj
+
+Dibuja un rectángulo en la pantalla. Un rectángulo es una figura de cuatro lados, con cada ángulo entre bordes de 90 grados. Por defecto, los dos primeros parámetros definen la ubicación de la esquina superior-izquierda, el tercero define el ancho y el cuarto define la altura. La manera en que estos parámetros son interpretados, sin embargo, puede ser modificada con la función rectMode().
+
+Los parámetros quinto, sexto y octavo, si son especificados, determinan los radios de las esquinas superior-izquierda, superior-derecha, inferior-derecha e inferior-derecha, respectivamente. Si se omite un parámetro de radio de esquina, se toma el valor del radio de esquina previo en la lista de parámetros.
+
+Número: coordenada x del rectángulo
+
+Número: coordenada y del rectángulo
+
+Número: ancho del rectángulo
+
+Número: altura del rectángulo
+
+Número: radio opcional de la esquina superior-izquierda
+
+Número: radio opcional de la esquina superior-derecha
+
+Número: radio opcional de la esquina inferior-derecha
+
+Número: radio opcional de la esquina inferior-izquierda
+
+Número:
+
+Número:
+
+### triangle()
+
+Un triángulo es un plano creado por la conexión de tres puntos. Los primeros dos argumentos especifican el primer punto, los siguientes dos argumentos especifican el segundo punto y los últimos dos especifican el tercer punto.
+
+Número: coordenada x del primer punto
+
+Número: coordenada y del primer punto
+
+Número: coordenada x del segundo punto
+
+Número: coordenada y del segundo punto
+
+Número: coordenada x del tercer punto
+
+Número: coordenada y del tercer punto
+
+Objeto: el objeto p5
+
 ## Atributos
 
 ## Curvas
