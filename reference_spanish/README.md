@@ -611,14 +611,88 @@ TWO_PI es una constante matemática de valor 6.28318530717958647693. Es dos vece
 
 # Render
 
+### createCanvas()
+### resizeCanvas()
+### noCanvas()
+### createGraphics()
+### blendMode()
+
 # Transformar
+
+### applyMatrix()
+### resetMatrix()
+### rotate()
+### rotateX()
+### rotateY()
+### rotateZ()
+### scale()
+### shearX()
+### shearY()
+### translate()
 
 # Eventos
 
 ## Aceleración
+
+### deviceOrientation
+### accelerationX
+### accelerationY
+### accelerationZ
+### pAccelerationX
+### pAccelerationY
+### pAccelerationZ
+### rotationX
+### rotationY
+### rotationZ
+### pRotationX
+### pRotationY
+### pRotationZ
+### setMoveThreshold()
+### setShakeThreshold()
+### deviceTurned()
+### deviceMoved()
+### deviceShaken()
+
 ## Teclado
+
+### keyIsPressed
+### key
+### keyCode
+### keyPressed()
+### keyReleased()
+### keyTyped()
+### keyIsDown()
+
 ## Ratón
+
+### mouseX
+### mouseY
+### pmouseX
+### pmouseY
+### winMouseX
+### winMouseY
+### pwinMouseX
+### pwinMouseY
+### mouseButton
+### mouseIsPressed
+### mouseMoved()
+### mouseDragged()
+### mousePressed()
+### mouseReleased()
+### mouseClicked()
+### mouseWheel()
+
 ## Toque
+
+### touchX()
+### touchY()
+### ptouchX
+### ptouchY
+### touches[]
+### touchIsDown
+### touchStarted()
+### touchMoved()
+### touchEnded()
 
 # Imagen
 
@@ -629,19 +703,61 @@ TWO_PI es una constante matemática de valor 6.28318530717958647693. Es dos vece
 
 ## Cargar y mostrar
 
+### loadImage()
+### image()
+### tint()
+### noTint()
+### imageMode()
+
 ## Pixeles
+
+### pixels[]
+### blend()
+### copy()
+### filter()
+### get()
+### loadPixels()
+### set()
+### updatePixels()
 
 ## Entrada y salida
 
 ## Entrada
 
+### loadFont()
+### loadJSON()
+### loadStrings()
+### loadTable()
+### loadXML()
+### httpGet()
+### httpPost()
+### httpDo()
+
 ## Salida
+
+### save()
+### saveJSON()
+### saveStrings()
+### saveTable()
 
 ## Tabla
 
+### p5.Table
+### p5.TableRow
+
 ## Hora y fecha
 
+### day()
+### hour()
+### minute()
+### millis()
+### month()
+### second()
+### year()
+
 ## XML
+
+### p5.XML
 
 # Matemáticas
 
@@ -650,34 +766,126 @@ TWO_PI es una constante matemática de valor 6.28318530717958647693. Es dos vece
 
 ## Cálculos
 
+### abs()
+### ceil()
+### constrain()
+### dist()
+### exp()
+### floor()
+### lerp()
+### log()
+### mag()
+### map()
+### max()
+### min()
+### norm()
+### pow()
+### round()
+### sq()
+### sqrt()
+
 ## Ruido
+
+### noise()
+### noiseDetail()
+### noiseSeed()
 
 ## Trigonometría
 
+### acos()
+### asin()
+### atan()
+### atan2()
+### cos()
+### sin()
+### tan()
+### degrees()
+### radians()
+### angleMode()
+
 ## Aleatoreidad
+
+### randomSeed()
+### random()
+### randomGaussian()
 
 # Tipografía
 
 ## Atributos
 
+### textAlign()
+### textLeading()
+### textSize()
+### textStyle()
+### textWidth()
+
 ## Cargar y mostrar
 
+### text()
+### textFont()
+
 ## Fuente
+
+### p5.Font
 
 # Datos
 
 ## Funciones de arreglos
 
+### append()
+### arrayCopy()
+### concat()
+### reverse()
+### shorten()
+### shuffle()
+### sort()
+### splice()
+### subset()
+
 ## Conversión
 
+### float()
+### int()
+### str()
+### boolean()
+### byte()
+### char()
+### unchar()
+### hex()
+### unhex()
+
 ## Funciones de String
+
+### join()
+### match()
+### matchAll()
+### nf()
+### nfc()
+### nfp()
+### nfs()
+### split()
+### splitTokens()
+### trim()
 
 # Luces, cámara
 
 ## Cámara
 
+### camera()
+### perspective()
+### ortho()
+
 ## Luces
 
+### ambientLight()
+### directionalLight()
+### pointLight()
+
 ## Material
+
+### normalMaterial()
+### texture()
+### ambientMaterial()
+### specularMaterial()
 
 ### p5.RendererGL
