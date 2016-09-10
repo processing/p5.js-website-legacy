@@ -63,7 +63,7 @@
   var browser_lang = get_browser_lang(w);
 
   var get_loc_lang = function(w) {
-    if ((w.location.pathname == "/") === false) {
+    if ((w.location.pathname == '/') === false) {
       for (var i=0, l=langs.length; i < l; i++) {
         if (w.location.pathname.indexOf('/' + langs[i] + '/') !== -1) {
           return langs[i];
@@ -74,7 +74,7 @@
   };
   var loc = String(w.location.pathname);
   var loc_lang = get_loc_lang(w);
-  var is_root = (w.location.pathname == "/");
+  var is_root = (w.location.pathname == '/');
 
   // Default lang:
   var lang = 'en';
@@ -186,14 +186,51 @@
 })(window, document, ['en', 'es'], ['/assets/js/p5.all.js'], ['/assets/js/all.js']);
 
 
-// =================================================
-// Google Analytics
-
 window.addEventListener('load', function() {  // <-- Last but not least.
+
+  // =================================================
+  // Google Analytics
+
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-53383000-1', 'auto');
   ga('send', 'pageview');
-}, true);
+
+  console.log('main');
+
+  // =================================================
+  // set tagline
+  var tagline;
+  var path = window.location.pathname;
+
+  if (path === '/') {
+    tagline = '';
+  } else if (path.indexOf('download') !== -1) {
+    tagline = 'Processing fun times JavaScript quirkiness';
+  } else if (path.indexOf('get') !== -1) {
+    tagline = 'Processing simplicity times JavaScript flexibility';
+  } else if (path.indexOf('reference') !== -1 || path.indexOf('libraries') !== -1) {
+    tagline = 'Processing intuition times JavaScript power';
+  } else if (path.indexOf('learn') !== -1) {
+    tagline = 'Processing creativity times JavaScript dynamism';
+  } else if (path.indexOf('community') !== -1) {
+    tagline = 'Processing community times JavaScript community';
+  } else {
+    tagline = 'the power of Processing times the reach of JavaScript';
+  }
+
+  if (tagline) {
+    var tag = document.getElementById('tagline');
+    tag.innerHTML = tagline;
+  }
+
+  // =================================================
+  // disable i18n for now
+  if (window.location.hostname === 'p5js.org') {
+    var buttons = document.getElementById('i18n-btn');
+    buttons.parentNode.removeChild(buttons);
+  }
+
+});
