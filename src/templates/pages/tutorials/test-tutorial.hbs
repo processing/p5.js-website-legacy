@@ -1,0 +1,50 @@
+---
+title: tutorials
+slug: tutorials/
+---
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <section role="region" label="main content">
+
+      <h1>test tutorial title</h1>
+
+      <p>Blah blah blah. Here is some formatted code:</p>
+
+      <pre><code class="language-javascript">   
+      var note = "this is formatted code!";
+      </code></pre>   
+
+      <p>Blah blah blah. Here is an iframe embedded:</p>
+
+      <iframe src="{{assets}}/tutorials/test-tutorial/embed.html" width="600px" height="400px"></iframe>
+
+      <p>Blah blah blah. Here is p5-widget embedded:</p>
+
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+      <script type="text/p5">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(255, 0, 200);
+}
+</script>
+
+      <p>The end!</p>
+
+    </section>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->
