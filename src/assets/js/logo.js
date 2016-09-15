@@ -1,6 +1,28 @@
 (function() {
 
 
+  // =================================================
+  // set tagline
+  var path = window.location.pathname;
+  var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
+
+  console.log(path, taglines.length)
+  console.log('hi')
+  if (path !== '/' && path.length !== 4) { // index
+    var taglineInd = Math.floor(6*Math.random());
+
+    for(var i = 0; i < taglines.length; i++){
+      if (i === taglineInd) {
+        taglines[i].style.display = 'block';
+      } else {
+        taglines[i].style.display = 'none';
+      }
+    }
+  }
+
+
+  // =================================================
+  // logo
   var url_parts = location.pathname.split('/').filter(function (v) {
     return v !== '';
   });

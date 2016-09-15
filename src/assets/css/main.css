@@ -33,6 +33,10 @@
   position: absolute;
 }*/
 
+.tagline {
+  display: none;
+}
+
 #menu.top_menu, #menu {
   list-style: none;
   font-family: "AvenirNextLTW01-Medium";
@@ -194,6 +198,15 @@
   //////////////////////////////////////////////////
 */
 
+
+#learn-page h3 {
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: times;
+  margin: 0.5em 0 0 0;
+}
+
+
 .topic-link {
   font-weight: bold;
 }
@@ -204,7 +217,7 @@
   //////////////////////////////////////////////////
 */
 
-section#reference h2 {
+section#reference h1 {
   float:left;
 }
 
@@ -1088,28 +1101,17 @@ h1, h2, h3, h4, h5{
   font-family: "AvenirNextLTW01-Medium";
 }
 
-h1 {
-  font-size: 3.157em;
-}
 
-h2 {
+h1 {
     font-size: 2.25em; /* 2.369em  */
     margin: 0.25em 0 0 0;
 }
 
-h3 {
+h2 {
     font-size: 1.5em; /* 1.777em */
     margin: 1em 0 0 0;
 }
 
-h5 {
-    font-size: 1.5em; /* 1.777em */
-    margin: 1em 0 0 0;
-    border-bottom-style: dashed;
-    border-bottom-color: #ED225D;
-    padding-bottom:5px;
-    margin-bottom:20px;
-}
 
 #item h3 {
     margin: 0.777em 0 0 0;
@@ -1200,11 +1202,17 @@ h4 + p {display: inline;}
     visibility: hidden;
     width: 0;
     margin: 0;
-    color:#333;
+    color: #333;
     border: 1px solid #3796D1;
     font-family: times !important;
     font-weight: 400;
     font-size: 1em;
+    transition: width 100ms;
+    outline: none;
+}
+#family form.form__open input[type="text"] {
+    visibility: visible;
+    width: 9.75em;
 }
 
 #family form input[type="submit"] {
@@ -1306,7 +1314,7 @@ p+img {
     position: absolute;
     top: -5.75em;
     left: 1.25em;
-    height: 90px;
+    height: 0px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -1505,6 +1513,7 @@ footer {
       position: absolute;
       top: 1.5em;
       right: 0.75em;
+      display: none;
     }
 
 
@@ -1606,11 +1615,16 @@ footer {
     .container {
         margin:10em auto;
         width:49em;
-        padding:0;
+        padding:0.8em 0 0 0;
         height: auto;
         min-height: 100%;
         background-color: rgba(51,51,51,0.0);
 
+    }
+
+    #home-page #container {
+        padding:0;
+        margin-top: -0.8em;
     }
 
     section {
@@ -1631,6 +1645,7 @@ footer {
       position: absolute;
       top: 2.5em;
       right: 1em;
+      display: none;
     }
 
     #menu {
@@ -1856,6 +1871,11 @@ footer {
         width: 0.33em;
         height: 0.33em;
         margin: 0 0.09em 0.18em 0.09em;
+        display: inline-block;
+        overflow: hidden;
+        text-indent: -100%;
+        background: transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI4IDI4Ij48cGF0aCBkPSJNMTYuOSAxMC4zbDguNS0yLjYgMS43IDUuMiAtOC41IDIuOSA1LjMgNy41IC00LjQgMy4yIC01LjYtNy4zTDguNSAyNi4zbC00LjMtMy4zIDUuMy03LjJMMC45IDEyLjZsMS43LTUuMiA4LjYgMi44VjEuNGg1LjhWMTAuM3oiIHN0eWxlPSJmaWxsOiNFRDIyNUQ7c3Ryb2tlOiNFRDIyNUQiLz48L3N2Zz4=");
+        background-size: 0.33em;
     }
 
 
@@ -1994,12 +2014,14 @@ footer {
     }
 
     p,
+    h1,
     h2,
     h3 {
         orphans: 3;
         widows: 3;
     }
 
+    h1,
     h2,
     h3 {
         page-break-after: avoid;

@@ -1,55 +1,59 @@
 ---
-title: index
+title: home
 slug: /
 ---
 <div id="home-page">
   <div id="container">
 
     <div class="column-span">
-      <nav>
+      <nav role="navigation">
         <ul id="menu" class="top_menu">
           <li><a href="{{root}}/download/">{{#i18n "Download"}}{{/i18n}}</a></li>
-          <li><object width="0" height="0" type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" class="separator-design-element">*</object></li>
+          <li><div class="separator-design-element">*</div></li>
 
           <li><a href="{{root}}/get-started/">{{#i18n "Start"}}{{/i18n}}</a></li>
-          <li><object width="0" height="0" type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" class="separator-design-element">*</object></li>
+          <li><div class="separator-design-element">*</div></li>
 
           <li><a href="{{root}}/reference">{{#i18n "Reference"}}{{/i18n}}</a></li>
-          <li><object width="0" height="0" type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" class="separator-design-element">*</object></li>
+          <li><div class="separator-design-element">*</div></li>
 
           <li><a href="{{root}}/libraries/">{{#i18n "Libraries"}}{{/i18n}}</a></li>
-          <li><object width="0" height="0" type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" class="separator-design-element">*</object></li>
+          <li><div class="separator-design-element">*</div></li>
 
           <li><a href="{{root}}/tutorials/">{{#i18n "Learn"}}{{/i18n}}</a></li>
-          <li><object width="0" height="0" type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" class="separator-design-element">*</object></li>
+          <li><div class="separator-design-element">*</div></li>
 
           <li><a href="{{root}}/community/">{{#i18n "Community"}}{{/i18n}}</a></li>
         </ul>
       </nav>
+
       <div id="content">
-        <section id="home">
+        <section id="home" role="region" label="main content">
           <p>
             <a href="http://hello.p5js.org">{{#i18n "hello"}}{{/i18n}}</a>
             {{#i18n "p1x1"}}{{/i18n}}<a href = "http://processing.org">Processing</a>{{#i18n "p1x2"}}{{/i18n}}
           </p>
+
           <p>
             {{#i18n "p2x1"}}{{/i18n}} <a href="libraries/">{{#i18n "libraries"}}{{/i18n}} </a>{{#i18n "p2x2"}}{{/i18n}}
             <a href="http://hello.p5js.org">{{#i18n "interact"}}{{/i18n}} </a> {{#i18n "p2x3"}}{{/i18n}} </p>
           <p>
+
           <p>{{#i18n "p3"}}{{/i18n}}</p>
+
         </section>
       </div>
       {{> footer}}
     </div> <!-- end column-span -->
 
-    <div id="credits">
+    <div id="credits" tabindex='-1'>
       <em>Magnify</em> by <a target=_blank href='http://kylemcdonald.net'>Kyle McDonald</a>
     </div>
 
   </div> <!-- end container -->
 
   <object type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" id="asterisk-design-element">*</object>
-  <iframe id='home-sketch-frame' src='{{assets}}/p5_featured/kylemcdonald_magnify/index.html'></iframe>
+  <iframe tabindex='-1' id='home-sketch-frame' src='{{assets}}/p5_featured/kylemcdonald_magnify/index.html'></iframe>
 </div> <!-- end home-page -->
 
 <script type='text/javascript'>

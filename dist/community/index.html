@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title>p5.js</title>
+    <title tabindex="1">p5.js | community</title>
     <link rel="stylesheet" href="/../assets/css/all.css">
     <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
   </head>
@@ -13,14 +13,22 @@
     <a href="#content" class="skip">Skip to content</a>
     <!-- .container -->
     <div class="container">
-      <!-- #lockup -->
+
+      <!-- logo -->
       <header id="lockup">
-        <a href="/" tabindex="-1">
+        <a href="/">
           <img src="../assets/img/p5js-beta.svg" alt="link to p5 home page" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
+        <p class='tagline'>Processing fun times JavaScript quirkiness</p>
+        <p class='tagline'>Processing simplicity times JavaScript flexibility</p>
+        <p class='tagline'>Processing intuition times JavaScript power</p>
+        <p class='tagline'>Processing creativity times JavaScript dynamism</p>
+        <p class='tagline'>Processing community times JavaScript community</p>
+        <p class='tagline'>the power of Processing times the reach of JavaScript</p>
       </header>
-      <!-- end #lockup -->
+      <!-- close logo -->
+
       
 
 <div id="community-page">
@@ -28,7 +36,7 @@
   
 <!-- site navigation -->
 <div class="column-span">
-  <nav>
+  <nav role="navigation">
     <ul id="menu">
       <li><a href="/">Home</a></li>
       <li><a href="/download/">Download</a></li>
@@ -52,11 +60,11 @@
 
   <div class="column-span">
 
-    <section id="content">
-      <h2>Community</h2>
+    <section id="content" role="region" label="main content">
+      <h1>Community</h1>
       <br>
       <div class="community-statement">
-        <h3 class="community-title">p5.js Community Statement </h3>
+        <h2 class="community-title">p5.js Community Statement </h2>
         <br>
         <p>p5.js is a community interested in exploring the creation of art and design with technology.
         </p>
@@ -93,7 +101,7 @@
         </ul>
       </div>
 
-      <h3>Contribute</h3>
+      <h2>Contribute</h2>
       <p>Our community is always looking for enthusiasts to help in all different ways.</p>
 
       <p><b>Develop.</b> <a href="https://github.com/processing/p5.js" target="blank_">Github</a> is the main place where code is collected, issues are documented, and discussions about code are had. Check out the  <a href="https://github.com/processing/p5.js/wiki/Development" target="blank_"> development tutorial </a>  to get started, or  <a href="../libraries/#create-your-own"> create your own library. </a></p>
@@ -106,7 +114,7 @@
 
       <p><b>Donate.</b> p5.js is free and open source and made by artists. Help support the development of p5.js through a donation to the <a href="https://processingfoundation.org/support">Processing Foundation</a>.</p>
 
-      <h3>Contributors Conference</h3>
+      <h2>Contributors Conference</h2>
       <p>This year, p5.js held its first-ever <a href="/contributors-conference">contributors conference</a>. Artists, designers, developers, educators, and more joined forces at <a href="http://studioforcreativeinquiry.org/">CMU's Studio for Creative Inquiry</a> to make p5.js awesome.
       </p>
 
@@ -137,15 +145,15 @@
 
 </div><!-- end id="get-started-page"  -->
 
-    </div>
-    <!-- end .container -->
+
+    </div> <!-- close class='container'-->
+
     
 <!-- p5*js language buttons -->
 <div id="i18n-btn">
   <button data-lang="en">EN</button>
   <button data-lang="es">ES</button>
 </div>
-
     
 <div id="family">
   <p class="left"><a href="http://processing.org">Processing</a>
@@ -153,10 +161,12 @@
     <a href="http://py.processing.org/">Processing.py</a>
     <a href="http://android.processing.org/">Processing for Android</a>
   </p>
-  <form style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
+  <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
     <input type="hidden" name="as_sitesearch" value="p5js.org" />
-    <input id="search_field" type="text" name="as_q" value="" size="20" class="text" />
-    <input id="search_button" type="submit" value=" " />
+<!--     <input id="search_field" type="text" name="as_q" value="" size="20" class="text" />
+    <input id="search_button" type="submit" value=" " /> -->
+    <input id="search_field" type="text" title="Search" name="as_q" value="" size="20" class="text" aria-label="search text field"  aria-haspopup="false"/>
+    <input id="search_button" type="submit" value=" " aria-label="Search" name="submit search" alt="Search" />
   </form>
   <p class="right">
     <a href="https://processingfoundation.org/">Processing Foundation</a>

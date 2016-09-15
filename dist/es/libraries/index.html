@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title>p5.js</title>
+    <title tabindex="1">p5.js | libraries</title>
     <link rel="stylesheet" href="/../../assets/css/all.css">
     <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
   </head>
@@ -13,14 +13,22 @@
     <a href="#content" class="skip">Skip to content</a>
     <!-- .container -->
     <div class="container">
-      <!-- #lockup -->
+
+      <!-- logo -->
       <header id="lockup">
-        <a href="/es/" tabindex="-1">
+        <a href="/es/">
           <img src="../../assets/img/p5js-beta.svg" alt="link to p5 home page" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
+        <p class='tagline'>@TODO</p>
+        <p class='tagline'>@TODO</p>
+        <p class='tagline'>@TODO</p>
+        <p class='tagline'>@TODO</p>
+        <p class='tagline'>@TODO</p>
+        <p class='tagline'>@TODO</p>
       </header>
-      <!-- end #lockup -->
+      <!-- close logo -->
+
       
 
 <div id="libraries-page">
@@ -28,7 +36,7 @@
   
 <!-- site navigation -->
 <div class="column-span">
-  <nav>
+  <nav role="navigation">
     <ul id="menu">
       <li><a href="/es/">Home</a></li>
       <li><a href="/es/download/">Descargar</a></li>
@@ -52,11 +60,8 @@
 
   <div class="column-span">
 
-    <section id="content">
-
-      <h2>Bibliotecas</h2>
-
-      <h3></h3>
+    <section id="content" role="region" label="main content">
+      <h1>Bibliotecas</h1>
 
       <div class="left-column">
         <a class="nounderline" href="/es/reference/#/libraries/p5.dom">
@@ -81,7 +86,7 @@
       <div class="spacer"></div>
 
       <a name="contributed" class="anchor">
-        <h3>Bibliotecas contribuidas</h3></a>
+        <h2>Bibliotecas contribuidas</h2></a>
 
       <div class="left-column">
         <a class="nounderline" href="https://github.com/vanevery/p5.serialport">
@@ -201,13 +206,14 @@
         <img src="../../assets/img/libraries/p5.scribble.png"></a>
         <a class="nounderline" href="https://github.com/generative-light/p5.scribble.js"><h4>p5.scribble</h4></a>
         </div>
-        <p>TODO<a href='https://github.com/gicentre/handy'>handy</a>.</p>
+        <p>@TODO<a href='https://github.com/gicentre/handy'>handy</a>.</p>
       </div>
 
       <div class="spacer"></div>
 
       <a name="using-a-library" class="anchor">
-        <h3>Usando una biblioteca</h3></a>
+        <h2>Usando una biblioteca</h2>
+      </a>
 
       <p>Una biblioteca p5.js puede ser cualquier código p5.js que extiende o añade a las funcionalidades centrales de p5.js. Existen dos tipos de bibliotecas. Las bibliotecas centrales (<a href="/es/reference/#/libraries/dom">p5.dom</a>
          y 
@@ -227,7 +233,8 @@
 &lt;/html></code></pre>
 
       <a name="create-your-own" class="anchor">
-        <h3>Crea tu propia biblioteca</h3></a>
+        <h2>Crea tu propia biblioteca</h2>
+      </a>
 
       <p>p5.js acepta las bibliotecas contribuidas por la comunidad p5.js Revisa el
       <a href="https://github.com/processing/p5.js/wiki/Libraries">
@@ -258,15 +265,15 @@
 
 </div><!-- end id="get-started-page"  -->
 
-    </div>
-    <!-- end .container -->
+
+    </div> <!-- close class='container'-->
+
     
 <!-- p5*js language buttons -->
 <div id="i18n-btn">
   <button data-lang="en">EN</button>
   <button data-lang="es">ES</button>
 </div>
-
     
 <div id="family">
   <p class="left"><a href="http://processing.org">Processing</a>
@@ -274,10 +281,12 @@
     <a href="http://py.processing.org/">Processing.py</a>
     <a href="http://android.processing.org/">Processing for Android</a>
   </p>
-  <form style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
+  <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
     <input type="hidden" name="as_sitesearch" value="p5js.org" />
-    <input id="search_field" type="text" name="as_q" value="" size="20" class="text" />
-    <input id="search_button" type="submit" value=" " />
+<!--     <input id="search_field" type="text" name="as_q" value="" size="20" class="text" />
+    <input id="search_button" type="submit" value=" " /> -->
+    <input id="search_field" type="text" title="Search" name="as_q" value="" size="20" class="text" aria-label="search text field"  aria-haspopup="false"/>
+    <input id="search_button" type="submit" value=" " aria-label="Search" name="submit search" alt="Search" />
   </form>
   <p class="right">
     <a href="https://processingfoundation.org/">Processing Foundation</a>
