@@ -4210,13 +4210,13 @@ define('itemView',[
             var examples = $('.example_container');
 
             for (var i=0; i<examples.length; i++) {
-              $(examples[i]).prepend('<span class="ref_accessible">'+cleanItem.name+' example '+(i+1)+'</span>');
+              $(examples[i]).prepend('<span class="visuallyhidden">'+cleanItem.name+' example '+(i+1)+'</span>');
             }
 
             var canvases = $('.cnv_div');
             for (var i=0; i<alts.length; i++) {
               if (i < canvases.length) {
-                $(canvases[i]).append('<span class="ref_accessible">'+alts[i]+'</span>');
+                $(canvases[i]).append('<span class="visuallyhidden">'+alts[i]+'</span>');
               }
             }
           }
