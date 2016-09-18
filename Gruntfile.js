@@ -246,7 +246,7 @@ module.exports = function(grunt) {
             '<%= config.src %>/assets/js/vendor/prism.js',
             // '<%= config.src %>/assets/js/vendor/galleria.js',
             '<%= config.src %>/assets/js/main.js',
-            '<%= config.src %>/assets/js/logo.js',
+            // '<%= config.src %>/assets/js/logo.js',
             '<%= config.src %>/assets/js/scroll.js',
             '<%= config.src %>/assets/js/examples.js',
             '<%= config.src %>/assets/js/render.js'
@@ -309,7 +309,7 @@ module.exports = function(grunt) {
     clean: {
       assets: [
         '<%= config.dist %>/**/*.*',
-        '!<%= config.dist %>/assets/img/**.*',
+        '!<%= config.dist %>/**/reference/**/*.*',
         '!<%= config.dist %>/assets/img/**/*.*'
       ]
     }

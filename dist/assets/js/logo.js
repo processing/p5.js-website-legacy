@@ -6,8 +6,7 @@
   var path = window.location.pathname;
   var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
 
-  console.log(path, taglines.length)
-  console.log('hi')
+  console.log(path, taglines.length);
   if (path !== '/' && path.length !== 4) { // index
     var taglineInd = Math.floor(6*Math.random());
 
