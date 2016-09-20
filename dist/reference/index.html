@@ -110,22 +110,20 @@
       </p>
     </div>
 
-    <script src="/assets/js/init.js" charset="utf-8"></script>
     <script src="./assets/js/require.min.js"></script>
     <script src="./assets/js/reference.js"></script>
+    <script src="/assets/js/init.js"></script>
     <script type='text/javascript'>
 
-    var data;
-    var routes = window.location.hash.split('/');
+    var translations;
 
     function updateLanguage() {
-      if (data) {
-        var obj = routes[1].substring(1);
+      if (translations) {
+        var routes = window.location.hash.split('/');
+        var obj = routes[1];
         var name = routes[2];
-        console.log(obj, name);
-        if (alts[obj] && alts[obj][name]) {
-          console.log('ok')
-          var entry = alts[obj][name];
+        if (translations[obj] && translations[obj][name]) {
+          var entry = translations[obj][name];
           $('.description-text').html('<p>'+entry.description+'</p>');
           $('.returns').html(entry.returns);
           $('.params').find('tr').each(function(i) {
@@ -138,11 +136,11 @@
     }
 
     $(document).ready(function() {
-      var lang = routes[0];
-      if (lang === 2) {
+      var routes = window.location.pathname.split('/');
+      var lang = routes[1];
+      if (lang.length === 2) {
         $.getJSON('/assets/reference/'+lang+'.json', function(data) {
-          data = data;
-          console.log(data);
+          translations = data;
           setTimeout(updateLanguage, 200);
         });
       }
