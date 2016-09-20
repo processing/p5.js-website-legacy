@@ -169,7 +169,7 @@
 // =================================================
 // Loading
 
-(function(w, d, langs, deps, main) {
+(function(w, d, langs, deps, main, check) {
 
   // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -183,6 +183,9 @@
   });
 
   var inject = function(files) {
+    if (typeof jQuery === 'undefined') {
+      files.push('/assets/js/vendor/jquery-1.9.1.min.js');
+    }
     for (var i = 0, l = files.length; i < l; i++) {
       var script = d.createElement('script');
       script.setAttribute('src', files[i]);

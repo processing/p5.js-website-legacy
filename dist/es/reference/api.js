@@ -285,6 +285,7 @@ YUI.add("yuidoc-meta", function(Y) {
             "name": "XML",
             "description": "<p>XML is a representation of an XML object, able to parse XML code. Use\nloadXML() to load external XML files and create XML objects.</p>\n"
         }
-    ]
+    ],
+    "elements": []
 } };
 });

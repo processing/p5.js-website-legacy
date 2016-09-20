@@ -240,7 +240,6 @@ module.exports = function(grunt) {
         },
         files: {
           '<%= config.dist %>/assets/js/all.js': [
-            '<%= config.src %>/assets/js/vendor/jquery-1.9.1.min.js',
             '<%= config.src %>/assets/js/vendor/ace-nc/ace.js',
             '<%= config.src %>/assets/js/vendor/ace-nc/mode-javascript.js',
             '<%= config.src %>/assets/js/vendor/prism.js',
@@ -298,9 +297,15 @@ module.exports = function(grunt) {
       },
       examples: {
         expand: true,
-        cwd: '<%= config.src %>/data/examples/',
+        cwd: '<%= config.src %>/data/examples',
         src: ['**', '!build_examples/**' ],
         dest: '<%= config.dist %>/assets/examples'
+      },
+      reference: {
+        expand: true,
+        cwd: '<%= config.src %>/data/reference',
+        src: ['**'],
+        dest: '<%= config.dist %>/assets/reference'
       }
     },
 
