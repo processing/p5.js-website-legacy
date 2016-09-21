@@ -239,4 +239,3 @@ var renderCode = function(sel) {
   }
 
 };
-renderCode(undefined);

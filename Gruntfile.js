@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         ]
       },
       js: {
-        files: '<%= config.src %>/assets/js/*.js',
+        files: ['<%= config.src %>/assets/js/*.js', '!,<%= config.src %>/assets/js/render.js'],
         tasks: ['uglify']
       },
       imagemin: {
