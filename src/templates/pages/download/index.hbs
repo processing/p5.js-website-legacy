@@ -21,7 +21,7 @@ slug: download/
       <div class="link_group">
         <h2>{{#i18n "complete-library-title"}}{{/i18n}}</h2>
 
-        <a href="https://github.com/processing/p5.js/releases/download/{{version}}/p5.zip">
+        <a href="https://github.com/processing/p5.js/releases/download/{{download.version}}/p5.zip">
           <div class="download_box">
 
             <h4>{{#i18n "p5.js-complete"}}{{/i18n}}</h4>
@@ -132,6 +132,13 @@ slug: download/
       </div>
 
     </section>
+
+    <script type='text/javascript'>
+      $.getJSON('version.json', function(data) {
+        console.log(data);
+      });
+
+    </script>
 
     {{> footer}}
 
