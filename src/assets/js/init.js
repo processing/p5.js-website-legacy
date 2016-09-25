@@ -103,6 +103,8 @@
       lang = get_loc_lang();
     }
     w.lang = lang;
+  } else {
+    w.lang = 'en';
   }
 
 
