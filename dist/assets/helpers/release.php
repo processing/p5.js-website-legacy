@@ -90,7 +90,7 @@ else if ($_GET['f'] == 'update_p5jseditor') {
 else if ($_GET['f'] == 'update_files') {
   updateFiles();
 } else {
-  echo '<a href="http://p5js.org/download/release.php?f=update_lib">update library version</a><br>';
-  echo '<a href="http://p5js.org/download/release.php?f=update_p5jseditor">update editor version</a>';
+  echo '<a href="./release.php?f=update_lib">update library version</a><br>';
+  echo '<a href="./release.php?f=update_p5jseditor">update editor version</a>';
 }
 ?>
