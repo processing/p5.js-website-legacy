@@ -2257,7 +2257,7 @@ define('searchView',[
       });
 
       function select(selectedItem) {
-        var hash = App.router.getHash(selectedItem).replace('#', '');
+        var hash = App.router.getHash(selectedItem);//
         App.router.navigate(hash, {'trigger': true});
         $input.blur();
       }
@@ -4733,9 +4733,14 @@ define('router',[
        if (!item.hash) {
 
          // FIX TO INVISIBLE OBJECTS: DH (see also listView.js)
-         var clsFunc = '#/' + item.class + '.' + item.name;
-         var idx = clsFunc.lastIndexOf('.');
-         item.hash = clsFunc.substring(0,idx) + '/' + clsFunc.substring(idx+1);
+
+         if (item.class) {
+           var clsFunc = '#/' + item.class + '.' + item.name;
+           var idx = clsFunc.lastIndexOf('.');
+           item.hash = clsFunc.substring(0,idx) + '/' + clsFunc.substring(idx+1);
+         } else {
+          item.hash = '#/' + item.name;
+         }
        }
 
        return item.hash;

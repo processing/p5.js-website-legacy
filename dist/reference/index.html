@@ -118,6 +118,7 @@
     <script type='text/javascript'>
 
     var translations;
+    var timeout;
 
     function updateLanguage() {
       if (translations) {
@@ -135,7 +136,9 @@
           });
         }
       }
+      clearTimeout(timeout);
     }
+
 
     $(document).ready(function() {
       var routes = window.location.pathname.split('/');
@@ -143,13 +146,15 @@
       if (lang.length === 2) {
         $.getJSON('/assets/reference/'+lang+'.json', function(data) {
           translations = data;
-          setTimeout(updateLanguage, 200);
+          if (timeout) clearTimeout(timeout);
+          timeout = setTimeout(updateLanguage, 500);
         });
       }
     });
 
-    $('body').change(function() {
-      setTimeout(updateLanguage, 200);
+    $(window).bind('hashchange', function() {
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(updateLanguage, 500);
     });
     </script>
 

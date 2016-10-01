@@ -1089,7 +1089,7 @@
             "module": "IO",
             "namespace": "",
             "file": "src/io/files.js",
-            "line": 916
+            "line": 918
         },
         "Table": {
             "name": "Table",
@@ -1756,7 +1756,7 @@
                 "type": "p5.XML"
             },
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var children = xml.getChildren(\"animal\");\n\n  for (var i = 0; i < children.length; i++) {\n    var id = children[i].getNumber(\"id\");\n    var coloring = children[i].getString(\"species\");\n    var name = children[i].getContent();\n    println(id + \", \" + coloring + \", \" + name);\n  }\n}\n\n// Sketch prints:\n// 0, Capra hircus, Goat\n// 1, Panthera pardus, Leopard\n// 2, Equus zebra, Zebra\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var children = xml.getChildren(\"animal\");\n\n  for (var i = 0; i < children.length; i++) {\n    var id = children[i].getNumber(\"id\");\n    var coloring = children[i].getString(\"species\");\n    var name = children[i].getContent();\n    print(id + \", \" + coloring + \", \" + name);\n  }\n}\n\n// Sketch prints:\n// 0, Capra hircus, Goat\n// 1, Panthera pardus, Leopard\n// 2, Equus zebra, Zebra\n</code></div>"
             ],
             "alt": "no image displayed"
         },
@@ -2579,7 +2579,7 @@
                 }
             ],
             "example": [
-                "\n<div>\n<code>\nc = color(175, 100, 220);  // Define color 'c'\nfill(c);  // Use color variable 'c' as fill color\nrect(15, 20, 35, 60);  // Draw left rectangle\n\nblueValue = blue(c);  // Get blue in 'c'\nprintln(blueValue);  // Prints \"220.0\"\nfill(0, 0, blueValue);  // Use 'blueValue' in new fill\nrect(50, 20, 35, 60);  // Draw right rectangle\n</code>\n</div>"
+                "\n<div>\n<code>\nc = color(175, 100, 220);  // Define color 'c'\nfill(c);  // Use color variable 'c' as fill color\nrect(15, 20, 35, 60);  // Draw left rectangle\n\nblueValue = blue(c);  // Get blue in 'c'\nprint(blueValue);  // Prints \"220.0\"\nfill(0, 0, blueValue);  // Use 'blueValue' in new fill\nrect(50, 20, 35, 60);  // Draw right rectangle\n</code>\n</div>"
             ],
             "alt": "Left half of canvas light purple and right half a royal blue.",
             "class": "p5",
@@ -2683,7 +2683,7 @@
                 }
             ],
             "example": [
-                "\n<div>\n<code>\nc = color(20, 75, 200);  // Define color 'c'\nfill(c);  // Use color variable 'c' as fill color\nrect(15, 20, 35, 60);  // Draw left rectangle\n\ngreenValue = green(c);  // Get green in 'c'\nprintln(greenValue);  // Print \"75.0\"\nfill(0, greenValue, 0);  // Use 'greenValue' in new fill\nrect(50, 20, 35, 60);  // Draw right rectangle\n</code>\n</div>"
+                "\n<div>\n<code>\nc = color(20, 75, 200);  // Define color 'c'\nfill(c);  // Use color variable 'c' as fill color\nrect(15, 20, 35, 60);  // Draw left rectangle\n\ngreenValue = green(c);  // Get green in 'c'\nprint(greenValue);  // Print \"75.0\"\nfill(0, greenValue, 0);  // Use 'greenValue' in new fill\nrect(50, 20, 35, 60);  // Draw right rectangle\n</code>\n</div>"
             ],
             "alt": "blue rect on left and green on right, both with black outlines & 35x60.",
             "class": "p5",
@@ -2781,7 +2781,7 @@
                 }
             ],
             "example": [
-                "\n<div>\n<code>\nc = color(255, 204, 0);  // Define color 'c'\nfill(c);  // Use color variable 'c' as fill color\nrect(15, 20, 35, 60);  // Draw left rectangle\n\nredValue = red(c);  // Get red in 'c'\nprintln(redValue);  // Print \"255.0\"\nfill(redValue, 0, 0);  // Use 'redValue' in new fill\nrect(50, 20, 35, 60);  // Draw right rectangle\n</code>\n</div>\n\n<div>\n<code>\ncolorMode(RGB, 255);\nvar c = color(127, 255, 0);\ncolorMode(RGB, 1);\nvar myColor = red(c);\nprintln(myColor);\n</code>\n</div>"
+                "\n<div>\n<code>\nc = color(255, 204, 0);  // Define color 'c'\nfill(c);  // Use color variable 'c' as fill color\nrect(15, 20, 35, 60);  // Draw left rectangle\n\nredValue = red(c);  // Get red in 'c'\nprint(redValue);  // Print \"255.0\"\nfill(redValue, 0, 0);  // Use 'redValue' in new fill\nrect(50, 20, 35, 60);  // Draw right rectangle\n</code>\n</div>\n\n<div>\n<code>\ncolorMode(RGB, 255);\nvar c = color(127, 255, 0);\ncolorMode(RGB, 1);\nvar myColor = red(c);\nprint(myColor);\n</code>\n</div>"
             ],
             "alt": "yellow rect on left and red rect on right, both with black outlines and 35x60.\ngrey canvas",
             "class": "p5",
@@ -4374,10 +4374,10 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 22,
-            "description": "<p>The println() function writes to the console area of your browser.\nThis function is often helpful for looking at the data a program is\nproducing. This function creates a new line of text for each call to\nthe function. Individual elements can be\nseparated with quotes (&quot;&quot;) and joined with the addition operator (+).\n<br><br>\nWhile println() is similar to console.log(), it does not directly map to\nit in order to simulate easier to understand behavior than\nconsole.log(). Due to this, it is slower. For fastest results, use\nconsole.log().</p>\n",
+            "line": 24,
+            "description": "<p>The print() function writes to the console area of your browser.\nThis function is often helpful for looking at the data a program is\nproducing. This function creates a new line of text for each call to\nthe function. Individual elements can be\nseparated with quotes (&quot;&quot;) and joined with the addition operator (+).\n<br><br>\nWhile print() is similar to console.log(), it does not directly map to\nit in order to simulate easier to understand behavior than\nconsole.log(). Due to this, it is slower. For fastest results, use\nconsole.log().</p>\n",
             "itemtype": "method",
-            "name": "println",
+            "name": "print",
             "params": [
                 {
                     "name": "contents",
@@ -4386,7 +4386,7 @@
                 }
             ],
             "example": [
-                "\n<div><code class='norender'>\nvar x = 10;\nprintln(\"The value of x is \" + x);\n// prints \"The value of x is 10\"\n</code></div>"
+                "\n<div><code class='norender'>\nvar x = 10;\nprint(\"The value of x is \" + x);\n// prints \"The value of x is 10\"\n</code></div>"
             ],
             "alt": "default grey canvas",
             "class": "p5",
@@ -4395,7 +4395,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 67,
+            "line": 72,
             "description": "<p>The system variable frameCount contains the number of frames that have\nbeen displayed since the program started. Inside setup() the value is 0,\nafter the first iteration of draw it is 1, etc.</p>\n",
             "itemtype": "property",
             "name": "frameCount",
@@ -4409,7 +4409,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 94,
+            "line": 99,
             "description": "<p>Confirms if the window a p5.js program is in is &quot;focused,&quot; meaning that\nthe sketch will accept mouse or keyboard input. This variable is\n&quot;true&quot; if the window is focused and &quot;false&quot; if not.</p>\n",
             "itemtype": "property",
             "name": "focused",
@@ -4423,7 +4423,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 124,
+            "line": 129,
             "description": "<p>Sets the cursor to a predefined symbol or an image, or makes it visible\nif already hidden. If you are trying to set an image as the cursor, the\nrecommended size is 16x16 or 32x32 pixels. It is not possible to load an\nimage as the cursor if you are exporting your program for the Web, and not\nall MODES work with all browsers. The values for parameters x and y must\nbe less than the dimensions of the image.</p>\n",
             "itemtype": "method",
             "name": "cursor",
@@ -4456,7 +4456,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 182,
+            "line": 187,
             "description": "<p>Specifies the number of frames to be displayed every second. For example,\nthe function call frameRate(30) will attempt to refresh 30 times a second.\nIf the processor is not fast enough to maintain the specified rate, the\nframe rate will not be achieved. Setting the frame rate within setup() is\nrecommended. The default rate is 60 frames per second. This is the same as\nsetFrameRate(val).\n<br><br>\nCalling frameRate() with no arguments returns the current framerate. This\nis the same as getFrameRate().\n<br><br>\nCalling frameRate() with arguments that are not of the type numbers\nor are non positive also returns current framerate.</p>\n",
             "itemtype": "method",
             "name": "frameRate",
@@ -4482,7 +4482,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 246,
+            "line": 251,
             "description": "<p>Returns the current framerate.</p>\n",
             "return": {
                 "description": "current frameRate",
@@ -4494,7 +4494,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 255,
+            "line": 260,
             "description": "<p>Specifies the number of frames to be displayed every second. For example,\nthe function call frameRate(30) will attempt to refresh 30 times a second.\nIf the processor is not fast enough to maintain the specified rate, the\nframe rate will not be achieved. Setting the frame rate within setup() is\nrecommended. The default rate is 60 frames per second.</p>\n<p>Calling frameRate() with no arguments returns the current framerate.</p>\n",
             "params": [
                 {
@@ -4510,7 +4510,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 270,
+            "line": 275,
             "description": "<p>Hides the cursor from view.</p>\n",
             "itemtype": "method",
             "name": "noCursor",
@@ -4524,7 +4524,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 296,
+            "line": 301,
             "description": "<p>System variable that stores the width of the entire screen display. This\nis used to run a full-screen program on any display size.</p>\n",
             "itemtype": "property",
             "name": "displayWidth",
@@ -4538,7 +4538,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 312,
+            "line": 317,
             "description": "<p>System variable that stores the height of the entire screen display. This\nis used to run a full-screen program on any display size.</p>\n",
             "itemtype": "property",
             "name": "displayHeight",
@@ -4552,7 +4552,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 328,
+            "line": 333,
             "description": "<p>System variable that stores the width of the inner window, it maps to\nwindow.innerWidth.</p>\n",
             "itemtype": "property",
             "name": "windowWidth",
@@ -4566,7 +4566,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 343,
+            "line": 348,
             "description": "<p>System variable that stores the height of the inner window, it maps to\nwindow.innerHeight.</p>\n",
             "itemtype": "property",
             "name": "windowHeight",
@@ -4580,7 +4580,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 358,
+            "line": 363,
             "description": "<p>The windowResized() function is called once every time the browser window\nis resized. This is a good place to resize the canvas or do any other\nadjustements to accomodate the new window size.</p>\n",
             "itemtype": "method",
             "name": "windowResized",
@@ -4594,7 +4594,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 405,
+            "line": 413,
             "description": "<p>System variable that stores the width of the drawing canvas. This value\nis set by the first parameter of the createCanvas() function.\nFor example, the function call createCanvas(320, 240) sets the width\nvariable to the value 320. The value of width defaults to 100 if\ncreateCanvas() is not used in a program.</p>\n",
             "itemtype": "property",
             "name": "width",
@@ -4604,7 +4604,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 416,
+            "line": 424,
             "description": "<p>System variable that stores the height of the drawing canvas. This value\nis set by the second parameter of the createCanvas() function. For\nexample, the function call createCanvas(320, 240) sets the height\nvariable to the value 240. The value of height defaults to 100 if\ncreateCanvas() is not used in a program.</p>\n",
             "itemtype": "property",
             "name": "height",
@@ -4614,7 +4614,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 427,
+            "line": 435,
             "description": "<p>If argument is given, sets the sketch to fullscreen or not based on the\nvalue of the argument. If no argument is given, returns the current\nfullscreen state. Note that due to browser restrictions this can only\nbe called on user input, for example, on mouse press like the example\nbelow.</p>\n",
             "itemtype": "method",
             "name": "fullscreen",
@@ -4640,7 +4640,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 474,
+            "line": 482,
             "description": "<p>Sets the pixel scaling for high pixel density displays. By default\npixel density is set to match display density, call pixelDensity(1)\nto turn this off. Calling pixelDensity() with no arguments returns\nthe current pixel density of the sketch.</p>\n",
             "itemtype": "method",
             "name": "pixelDensity",
@@ -4666,7 +4666,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 519,
+            "line": 527,
             "description": "<p>Returns the pixel density of the current display the sketch is running on.</p>\n",
             "itemtype": "method",
             "name": "displayDensity",
@@ -4684,7 +4684,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 576,
+            "line": 584,
             "description": "<p>Gets the current URL.</p>\n",
             "itemtype": "method",
             "name": "getURL",
@@ -4702,7 +4702,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 607,
+            "line": 615,
             "description": "<p>Gets the current URL path as an array.</p>\n",
             "itemtype": "method",
             "name": "getURLPath",
@@ -4720,7 +4720,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 628,
+            "line": 636,
             "description": "<p>Gets the current URL params as an Object.</p>\n",
             "itemtype": "method",
             "name": "getURLParams",
@@ -4808,7 +4808,7 @@
         },
         {
             "file": "src/core/error_helpers.js",
-            "line": 244,
+            "line": 249,
             "description": "<p>Prints out all the colors in the color pallete with white text.\nFor color blindness testing.</p>\n",
             "class": "p5",
             "module": "Environment"
@@ -6457,7 +6457,7 @@
             "itemtype": "property",
             "name": "pmouseX",
             "example": [
-                "\n<div>\n<code>\n// Move the mouse across the canvas to leave a trail\nfunction setup() {\n  //slow down the frameRate to make it more visible\n  frameRate(10);\n}\n\nfunction draw() {\n  background(244, 248, 252);\n  line(mouseX, mouseY, pmouseX, pmouseY);\n  println(pmouseX + \" -> \" + mouseX);\n}\n\n</code>\n</div>"
+                "\n<div>\n<code>\n// Move the mouse across the canvas to leave a trail\nfunction setup() {\n  //slow down the frameRate to make it more visible\n  frameRate(10);\n}\n\nfunction draw() {\n  background(244, 248, 252);\n  line(mouseX, mouseY, pmouseX, pmouseY);\n  print(pmouseX + \" -> \" + mouseX);\n}\n\n</code>\n</div>"
             ],
             "alt": "line trail is created from cursor movements. faster movement make longer line.",
             "class": "p5",
@@ -6471,7 +6471,7 @@
             "itemtype": "property",
             "name": "pmouseY",
             "example": [
-                "\n<div>\n<code>\nfunction draw() {\n  background(237, 34, 93);\n  fill(0);\n  //draw a square only if the mouse is not moving\n  if(mouseY == pmouseY && mouseX == pmouseX)\n    rect(20,20,60,60);\n\n  println(pmouseY + \" -> \" + mouseY);\n}\n\n</code>\n</div>"
+                "\n<div>\n<code>\nfunction draw() {\n  background(237, 34, 93);\n  fill(0);\n  //draw a square only if the mouse is not moving\n  if(mouseY == pmouseY && mouseX == pmouseX)\n    rect(20,20,60,60);\n\n  print(pmouseY + \" -> \" + mouseY);\n}\n\n</code>\n</div>"
             ],
             "alt": "60x60 black rect center, fuschia background. rect flickers on mouse movement",
             "class": "p5",
@@ -6541,7 +6541,7 @@
             "itemtype": "property",
             "name": "mouseButton",
             "example": [
-                "\n<div>\n<code>\nfunction draw() {\n  background(237, 34, 93);\n  fill(0);\n\n  if (mouseIsPressed) {\n    if (mouseButton == LEFT)\n      ellipse(50, 50, 50, 50);\n    if (mouseButton == RIGHT)\n      rect(25, 25, 50, 50);\n    if (mouseButton == CENTER)\n      triangle(23, 75, 50, 20, 78, 75);\n  }\n\n  println(mouseButton);\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nfunction draw() {\n  background(237, 34, 93);\n  fill(0);\n\n  if (mouseIsPressed) {\n    if (mouseButton == LEFT)\n      ellipse(50, 50, 50, 50);\n    if (mouseButton == RIGHT)\n      rect(25, 25, 50, 50);\n    if (mouseButton == CENTER)\n      triangle(23, 75, 50, 20, 78, 75);\n  }\n\n  print(mouseButton);\n}\n</code>\n</div>"
             ],
             "alt": "50x50 black ellipse appears on center of fuschia canvas on mouse click/press.",
             "class": "p5",
@@ -6555,7 +6555,7 @@
             "itemtype": "property",
             "name": "mouseIsPressed",
             "example": [
-                "\n<div>\n<code>\nfunction draw() {\n  background(237, 34, 93);\n  fill(0);\n\n  if (mouseIsPressed)\n    ellipse(50, 50, 50, 50);\n  else\n    rect(25, 25, 50, 50);\n\n  println(mouseIsPressed);\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nfunction draw() {\n  background(237, 34, 93);\n  fill(0);\n\n  if (mouseIsPressed)\n    ellipse(50, 50, 50, 50);\n  else\n    rect(25, 25, 50, 50);\n\n  print(mouseIsPressed);\n}\n</code>\n</div>"
             ],
             "alt": "black 50x50 rect becomes ellipse with mouse click/press. fuschia background.",
             "class": "p5",
@@ -6639,7 +6639,7 @@
             "itemtype": "method",
             "name": "mouseWheel",
             "example": [
-                "\n<div>\n<code>\nvar pos = 25;\n\nfunction draw() {\n  background(237, 34, 93);\n  fill(0);\n  rect(25, pos, 50, 50);\n}\n\nfunction mouseWheel(event) {\n  println(event.delta);\n  //move the square according to the vertical scroll amount\n  pos += event.delta;\n  //uncomment to block page scrolling\n  //return false;\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nvar pos = 25;\n\nfunction draw() {\n  background(237, 34, 93);\n  fill(0);\n  rect(25, pos, 50, 50);\n}\n\nfunction mouseWheel(event) {\n  print(event.delta);\n  //move the square according to the vertical scroll amount\n  pos += event.delta;\n  //uncomment to block page scrolling\n  //return false;\n}\n</code>\n</div>"
             ],
             "alt": "black 50x50 rect moves up and down with vertical scroll. fuschia background",
             "class": "p5",
@@ -7114,7 +7114,7 @@
                 }
             ],
             "example": [
-                "\n<div><code>\nfunction draw() {\n  background(mouseX);\n}\n\nfunction mousePressed() {\n  saveFrames(\"out\", \"png\", 1, 25, function(data){\n    println(data);\n  });\n}\n</code></div>"
+                "\n<div><code>\nfunction draw() {\n  background(mouseX);\n}\n\nfunction mousePressed() {\n  saveFrames(\"out\", \"png\", 1, 25, function(data){\n    print(data);\n  });\n}\n</code></div>"
             ],
             "alt": "canvas background goes from light to dark with mouse x.",
             "class": "p5",
@@ -8100,7 +8100,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 170,
+            "line": 172,
             "description": "<p>Loads a JSON file from a file or a URL, and returns an Object or Array.\nThis method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed.</p>\n",
             "itemtype": "method",
             "name": "loadJSON",
@@ -8143,7 +8143,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 289,
+            "line": 291,
             "description": "<p>Reads the contents of a file and creates a String array of its individual\nlines. If the name of the file is used as the parameter, as in the above\nexample, the file must be located in the sketch directory/folder.\n<br><br>\nAlternatively, the file maybe be loaded from anywhere on the local\ncomputer using an absolute path (something that starts with / on Unix and\nLinux, or a drive letter on Windows), or the filename parameter can be a\nURL for a file found on a network.\n<br><br>\nThis method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed.</p>\n",
             "itemtype": "method",
             "name": "loadStrings",
@@ -8180,7 +8180,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 390,
+            "line": 392,
             "description": "<p>Reads the contents of a file or URL and creates a p5.Table object with\nits values. If a file is specified, it must be located in the sketch&#39;s\n&quot;data&quot; folder. The filename parameter can also be a URL to a file found\nonline. By default, the file is assumed to be comma-separated (in CSV\nformat). Table only looks for a header row if the &#39;header&#39; option is\nincluded.</p>\n\n<p>Possible options include:\n<ul>\n<li>csv - parse the table as comma-separated values</li>\n<li>tsv - parse the table as tab-separated values</li>\n<li>header - this table has a header (title) row</li>\n</ul>\n</p>\n\n<p>When passing in multiple options, pass them in as separate parameters,\nseperated by commas. For example:\n<br><br>\n<code>\n  loadTable(&quot;my_csv_file.csv&quot;, &quot;csv&quot;, &quot;header&quot;)\n</code>\n</p>\n\n<p> All files loaded and saved use UTF-8 encoding.</p>\n\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling loadTable() inside preload()\nguarantees to complete the operation before setup() and draw() are called.\n<p>Outside of preload(), you may supply a callback function to handle the\nobject:</p>\n</p>",
             "itemtype": "method",
             "name": "loadTable",
@@ -8208,7 +8208,7 @@
                 "type": "Object"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Given the following CSV file called \"mammals.csv\"\n// located in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n  //the file can be remote\n  //table = loadTable(\"http://p5js.org/reference/assets/mammals.csv\",\n  //                  \"csv\", \"header\");\n}\n\nfunction setup() {\n  //count the columns\n  println(table.getRowCount() + \" total rows in table\");\n  println(table.getColumnCount() + \" total columns in table\");\n\n  println(table.getColumn(\"name\"));\n  //[\"Goat\", \"Leopard\", \"Zebra\"]\n\n  //cycle through the table\n  for (var r = 0; r < table.getRowCount(); r++)\n    for (var c = 0; c < table.getColumnCount(); c++) {\n      println(table.getString(r, c));\n    }\n}\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Given the following CSV file called \"mammals.csv\"\n// located in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n  //the file can be remote\n  //table = loadTable(\"http://p5js.org/reference/assets/mammals.csv\",\n  //                  \"csv\", \"header\");\n}\n\nfunction setup() {\n  //count the columns\n  print(table.getRowCount() + \" total rows in table\");\n  print(table.getColumnCount() + \" total columns in table\");\n\n  print(table.getColumn(\"name\"));\n  //[\"Goat\", \"Leopard\", \"Zebra\"]\n\n  //cycle through the table\n  for (var r = 0; r < table.getRowCount(); r++)\n    for (var c = 0; c < table.getColumnCount(); c++) {\n      print(table.getString(r, c));\n    }\n}\n</code>\n</div>"
             ],
             "alt": "randomly generated text from a file, for example \"i smell like butter\"\nrandomly generated text from a file, for example \"i have three feet\"",
             "class": "p5",
@@ -8217,7 +8217,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 703,
+            "line": 705,
             "description": "<p>Reads the contents of a file and creates an XML object with its values.\nIf the name of the file is used as the parameter, as in the above example,\nthe file must be located in the sketch directory/folder.</p>\n<p>Alternatively, the file maybe be loaded from anywhere on the local\ncomputer using an absolute path (something that starts with / on Unix and\nLinux, or a drive letter on Windows), or the filename parameter can be a\nURL for a file found on a network.</p>\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling loadXML() inside preload()\nguarantees to complete the operation before setup() and draw() are called.</p>\n<p>Outside of preload(), you may supply a callback function to handle the\nobject:</p>",
             "itemtype": "method",
             "name": "loadXML",
@@ -8250,7 +8250,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 780,
+            "line": 782,
             "description": "<p>Method for executing an HTTP GET request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text.</p>\n",
             "itemtype": "method",
             "name": "httpGet",
@@ -8291,7 +8291,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 804,
+            "line": 806,
             "description": "<p>Method for executing an HTTP POST request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text.</p>\n",
             "itemtype": "method",
             "name": "httpPost",
@@ -8332,7 +8332,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 828,
+            "line": 830,
             "description": "<p>Method for executing an HTTP request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text.<br><br>\nYou may also pass a single object specifying all parameters for the\nrequest following the examples inside the reqwest() calls here:\n<a href='https://github.com/ded/reqwest#api'>\nhttps://github.com/ded/reqwest#api</a></p>\n",
             "itemtype": "method",
             "name": "httpDo",
@@ -8379,7 +8379,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1014,
+            "line": 1016,
             "description": "<p>Save an image, text, json, csv, wav, or html. Prompts download to\nthe client&#39;s computer. <b>Note that it is not recommended to call save()\nwithin draw if it&#39;s looping, as the save() function will open a new save\ndialog every frame.</b></p>\n<p>The default behavior is to save the canvas as an image. You can\noptionally specify a filename.\nFor example:</p>\n<pre class='language-javascript'><code>\nsave();\nsave(&#39;myCanvas.jpg&#39;); // save a specific canvas with a filename\n</code></pre>\n\n<p>Alternately, the first parameter can be a pointer to a canvas\np5.Element, an Array of Strings,\nan Array of JSON, a JSON object, a p5.Table, a p5.Image, or a\np5.SoundFile (requires p5.sound). The second parameter is a filename\n(including extension). The third parameter is for options specific\nto this type of object. This method will save a file that fits the\ngiven paramaters. For example:</p>\n\n<pre class='language-javascript'><code>\n\nsave('myCanvas.jpg');           // Saves canvas as an image\n\nvar cnv = createCanvas(100, 100);\nsave(cnv, 'myCanvas.jpg');      // Saves canvas as an image\n\nvar gb = createGraphics(100, 100);\nsave(gb, 'myGraphics.jpg');      // Saves p5.Renderer object as an image\n\nsave(myTable, 'myTable.html');  // Saves table as html file\nsave(myTable, 'myTable.csv',);  // Comma Separated Values\nsave(myTable, 'myTable.tsv');   // Tab Separated Values\n\nsave(myJSON, 'my.json');        // Saves pretty JSON\nsave(myJSON, 'my.json', true);  // Optimizes JSON filesize\n\nsave(img, 'my.png');            // Saves pImage as a png image\n\nsave(arrayOfStrings, 'my.txt'); // Saves strings to a text file with line\n                                // breaks after each item in the array\n</code></pre>",
             "itemtype": "method",
             "name": "save",
@@ -8406,7 +8406,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1131,
+            "line": 1133,
             "description": "<p>Writes the contents of an Array or a JSON object to a .json file.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveJSON",
@@ -8438,7 +8438,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1191,
+            "line": 1193,
             "description": "<p>Writes an array of Strings to a text file, one line per String.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveStrings",
@@ -8464,7 +8464,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1260,
+            "line": 1262,
             "description": "<p>Writes the contents of a Table object to a file. Defaults to a\ntext file with comma-separated-values (&#39;csv&#39;) but can also\nuse tab separation (&#39;tsv&#39;), or generate an HTML table (&#39;html&#39;).\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveTable",
@@ -8496,7 +8496,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1379,
+            "line": 1381,
             "description": "<p>Generate a blob of file data as a url to prepare for download.\nAccepts an array of data, a filename, and an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by saveStrings, saveJSON, saveTable etc.</p>\n",
             "params": [
                 {
@@ -8523,7 +8523,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1402,
+            "line": 1404,
             "description": "<p>Forces download. Accepts a url to filedata/blob, a filename,\nand an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by saveStrings, saveJSON, saveTable etc.</p>\n",
             "params": [
                 {
@@ -8548,7 +8548,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1438,
+            "line": 1440,
             "description": "<p>Returns a file extension, or another string\nif the provided parameter has no extension.</p>\n",
             "params": [
                 {
@@ -8569,7 +8569,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1470,
+            "line": 1472,
             "description": "<p>Returns true if the browser is Safari, false if not.\nSafari makes trouble for downloading files.</p>\n",
             "return": {
                 "description": "[description]",
@@ -8583,7 +8583,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1482,
+            "line": 1484,
             "description": "<p>Helper function, a callback for download that deletes\nan invisible anchor element from the DOM once the file\nhas been automatically downloaded.</p>\n",
             "access": "private",
             "tagname": "",
@@ -8634,7 +8634,7 @@
                 }
             ],
             "example": [
-                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n //add a row\n var newRow = table.addRow();\n newRow.setString(\"id\", table.getRowCount() - 1);\n newRow.setString(\"species\", \"Canis Lupus\");\n newRow.setString(\"name\", \"Wolf\");\n\n //print the results\n for (var r = 0; r < table.getRowCount(); r++)\n   for (var c = 0; c < table.getColumnCount(); c++)\n     println(table.getString(r, c));\n }\n </code>\n </div>"
+                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n //add a row\n var newRow = table.addRow();\n newRow.setString(\"id\", table.getRowCount() - 1);\n newRow.setString(\"species\", \"Canis Lupus\");\n newRow.setString(\"name\", \"Wolf\");\n\n //print the results\n for (var r = 0; r < table.getRowCount(); r++)\n   for (var c = 0; c < table.getColumnCount(); c++)\n     print(table.getString(r, c));\n }\n </code>\n </div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8655,7 +8655,7 @@
                 }
             ],
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  //remove the first row\n  var r = table.removeRow(0);\n\n  //print the results\n  for (var r = 0; r < table.getRowCount(); r++)\n    for (var c = 0; c < table.getColumnCount(); c++)\n      println(table.getString(r, c));\n}\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  //remove the first row\n  var r = table.removeRow(0);\n\n  //print the results\n  for (var r = 0; r < table.getRowCount(); r++)\n    for (var c = 0; c < table.getColumnCount(); c++)\n      print(table.getString(r, c));\n}\n</code>\n</div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8680,7 +8680,7 @@
                 "type": "TableRow"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  var row = table.getRow(1);\n  //print it column by column\n  //note: a row is an object, not an array\n  for (var c = 0; c < table.getColumnCount(); c++)\n    println(row.getString(c));\n}\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  var row = table.getRow(1);\n  //print it column by column\n  //note: a row is an object, not an array\n  for (var c = 0; c < table.getColumnCount(); c++)\n    print(row.getString(c));\n}\n</code>\n</div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8698,7 +8698,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n var rows = table.getRows();\n\n //warning: rows is an array of objects\n for (var r = 0; r < rows.length; r++)\n   rows[r].set(\"name\", \"Unicorn\");\n\n //print the results\n for (var r = 0; r < table.getRowCount(); r++)\n   for (var c = 0; c < table.getColumnCount(); c++)\n     println(table.getString(r, c));\n }\n </code>\n </div>"
+                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n var rows = table.getRows();\n\n //warning: rows is an array of objects\n for (var r = 0; r < rows.length; r++)\n   rows[r].set(\"name\", \"Unicorn\");\n\n //print the results\n for (var r = 0; r < table.getRowCount(); r++)\n   for (var c = 0; c < table.getColumnCount(); c++)\n     print(table.getString(r, c));\n }\n </code>\n </div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8728,7 +8728,7 @@
                 "type": "TableRow"
             },
             "example": [
-                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n //find the animal named zebra\n var row = table.findRow(\"Zebra\", \"name\");\n //find the corresponding species\n println(row.getString(\"species\"));\n }\n </code>\n </div>"
+                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n //find the animal named zebra\n var row = table.findRow(\"Zebra\", \"name\");\n //find the corresponding species\n print(row.getString(\"species\"));\n }\n </code>\n </div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8758,7 +8758,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n //add another goat\n var newRow = table.addRow();\n newRow.setString(\"id\", table.getRowCount() - 1);\n newRow.setString(\"species\", \"Scape Goat\");\n newRow.setString(\"name\", \"Goat\");\n\n //find the rows containing animals named Goat\n var rows = table.findRows(\"Goat\", \"name\");\n println(rows.length + \" Goats found\");\n }\n </code>\n </div>"
+                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n //add another goat\n var newRow = table.addRow();\n newRow.setString(\"id\", table.getRowCount() - 1);\n newRow.setString(\"species\", \"Scape Goat\");\n newRow.setString(\"name\", \"Goat\");\n\n //find the rows containing animals named Goat\n var rows = table.findRows(\"Goat\", \"name\");\n print(rows.length + \" Goats found\");\n }\n </code>\n </div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8815,7 +8815,7 @@
                 "type": "Array"
             },
             "example": [
-                "\nvar table;\n\nfunction setup() {\n\n  table = new p5.Table();\n\n  table.addColumn('name');\n  table.addColumn('type');\n\n  var newRow = table.addRow();\n  newRow.setString('name', 'Lion');\n  newRow.setString('type', 'Mammal');\n\n  newRow = table.addRow();\n  newRow.setString('name', 'Snake');\n  newRow.setString('type', 'Reptile');\n\n  newRow = table.addRow();\n  newRow.setString('name', 'Mosquito');\n  newRow.setString('type', 'Insect');\n\n  newRow = table.addRow();\n  newRow.setString('name', 'Lizard');\n  newRow.setString('type', 'Reptile');\n\n  var rows = table.matchRows('R.*', 'type');\n  for (var i = 0; i < rows.length; i++) {\n    println(rows[i].getString('name') + ': ' + rows[i].getString('type'));\n  }\n}\n// Sketch prints:\n// Snake: Reptile\n// Lizard: Reptile"
+                "\nvar table;\n\nfunction setup() {\n\n  table = new p5.Table();\n\n  table.addColumn('name');\n  table.addColumn('type');\n\n  var newRow = table.addRow();\n  newRow.setString('name', 'Lion');\n  newRow.setString('type', 'Mammal');\n\n  newRow = table.addRow();\n  newRow.setString('name', 'Snake');\n  newRow.setString('type', 'Reptile');\n\n  newRow = table.addRow();\n  newRow.setString('name', 'Mosquito');\n  newRow.setString('type', 'Insect');\n\n  newRow = table.addRow();\n  newRow.setString('name', 'Lizard');\n  newRow.setString('type', 'Reptile');\n\n  var rows = table.matchRows('R.*', 'type');\n  for (var i = 0; i < rows.length; i++) {\n    print(rows[i].getString('name') + ': ' + rows[i].getString('type'));\n  }\n}\n// Sketch prints:\n// Snake: Reptile\n// Lizard: Reptile"
             ],
             "class": "p5.Table",
             "module": "IO",
@@ -8839,7 +8839,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n //getColumn returns an array that can be printed directly\n println(table.getColumn(\"species\"));\n //outputs [\"Capra hircus\", \"Panthera pardus\", \"Equus zebra\"]\n }\n </code>\n </div>"
+                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n //getColumn returns an array that can be printed directly\n print(table.getColumn(\"species\"));\n //outputs [\"Capra hircus\", \"Panthera pardus\", \"Equus zebra\"]\n }\n </code>\n </div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8853,7 +8853,7 @@
             "itemtype": "method",
             "name": "clearRows",
             "example": [
-                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n table.clearRows();\n println(table.getRowCount() + \" total rows in table\");\n println(table.getColumnCount() + \" total columns in table\");\n }\n </code>\n </div>"
+                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n table.clearRows();\n print(table.getRowCount() + \" total rows in table\");\n print(table.getColumnCount() + \" total columns in table\");\n }\n </code>\n </div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8875,7 +8875,7 @@
                 }
             ],
             "example": [
-                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n table.addColumn(\"carnivore\");\n table.set(0, \"carnivore\", \"no\");\n table.set(1, \"carnivore\", \"yes\");\n table.set(2, \"carnivore\", \"no\");\n\n //print the results\n for (var r = 0; r < table.getRowCount(); r++)\n   for (var c = 0; c < table.getColumnCount(); c++)\n     println(table.getString(r, c));\n }\n </code>\n </div>"
+                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n table.addColumn(\"carnivore\");\n table.set(0, \"carnivore\", \"no\");\n table.set(1, \"carnivore\", \"yes\");\n table.set(2, \"carnivore\", \"no\");\n\n //print the results\n for (var r = 0; r < table.getRowCount(); r++)\n   for (var c = 0; c < table.getColumnCount(); c++)\n     print(table.getString(r, c));\n }\n </code>\n </div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8962,7 +8962,7 @@
                 }
             ],
             "example": [
-                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n table.removeColumn(\"id\");\n println(table.getColumnCount());\n }\n </code>\n </div>"
+                "\n <div class=\"norender\">\n <code>\n // Given the CSV file \"mammals.csv\"\n // in the project's \"assets\" folder:\n //\n // id,species,name\n // 0,Capra hircus,Goat\n // 1,Panthera pardus,Leopard\n // 2,Equus zebra,Zebra\n\n var table;\n\n function preload() {\n //my table is comma separated value \"csv\"\n //and has a header specifying the columns labels\n table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n }\n\n function setup() {\n table.removeColumn(\"id\");\n print(table.getColumnCount());\n }\n </code>\n </div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -8988,7 +8988,7 @@
                 }
             ],
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  table.set(0, \"species\", \"Canis Lupus\");\n  table.set(0, \"name\", \"Wolf\");\n\n  //print the results\n  for (var r = 0; r < table.getRowCount(); r++)\n    for (var c = 0; c < table.getColumnCount(); c++)\n      println(table.getString(r, c));\n}\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  table.set(0, \"species\", \"Canis Lupus\");\n  table.set(0, \"name\", \"Wolf\");\n\n  //print the results\n  for (var r = 0; r < table.getRowCount(); r++)\n    for (var c = 0; c < table.getColumnCount(); c++)\n      print(table.getString(r, c));\n}\n</code>\n</div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -9019,7 +9019,7 @@
                 }
             ],
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  table.setNum(1, \"id\", 1);\n\n  println(table.getColumn(0));\n  //[\"0\", 1, \"2\"]\n}\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  table.setNum(1, \"id\", 1);\n\n  print(table.getColumn(0));\n  //[\"0\", 1, \"2\"]\n}\n</code>\n</div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -9076,7 +9076,7 @@
                 "type": "String|Number"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  println(table.get(0, 1));\n  //Capra hircus\n  println(table.get(0, \"species\"));\n  //Capra hircus\n}\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  print(table.get(0, 1));\n  //Capra hircus\n  print(table.get(0, \"species\"));\n  //Capra hircus\n}\n</code>\n</div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -9106,7 +9106,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  println(table.getNum(1, 0) + 100);\n  //id 1 + 100 = 101\n}\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  print(table.getNum(1, 0) + 100);\n  //id 1 + 100 = 101\n}\n</code>\n</div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -9136,7 +9136,7 @@
                 "type": "String"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  var tableArray = table.getArray();\n\n  //output each row as array\n  for (var i = 0; i < tableArray.length; i++)\n    println(tableArray[i]);\n}\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  var tableArray = table.getArray();\n\n  //output each row as array\n  for (var i = 0; i < tableArray.length; i++)\n    print(tableArray[i]);\n}\n</code>\n</div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -9161,7 +9161,7 @@
                 "type": "Object"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  var tableObject = table.getObject();\n\n  println(tableObject);\n  //outputs an object\n}\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Given the CSV file \"mammals.csv\"\n// in the project's \"assets\" folder:\n//\n// id,species,name\n// 0,Capra hircus,Goat\n// 1,Panthera pardus,Leopard\n// 2,Equus zebra,Zebra\n\nvar table;\n\nfunction preload() {\n  //my table is comma separated value \"csv\"\n  //and has a header specifying the columns labels\n  table = loadTable(\"assets/mammals.csv\", \"csv\", \"header\");\n}\n\nfunction setup() {\n  var tableObject = table.getObject();\n\n  print(tableObject);\n  //outputs an object\n}\n</code>\n</div>"
             ],
             "alt": "no image displayed",
             "class": "p5.Table",
@@ -9322,7 +9322,7 @@
                 "type": "Object"
             },
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var children = xml.getChildren(\"animal\");\n  var parent = children[1].getParent();\n  println(parent.getName());\n}\n\n// Sketch prints:\n// mammals\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var children = xml.getChildren(\"animal\");\n  var parent = children[1].getParent();\n  print(parent.getName());\n}\n\n// Sketch prints:\n// mammals\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9339,7 +9339,7 @@
                 "type": "String"
             },
             "example": [
-                "&lt;animal\n <div class='norender'><code>\n // The following short XML file called \"mammals.xml\" is parsed\n // in the code below.\n //\n // <?xml version=\"1.0\"?>\n // &lt;mammals&gt;\n //   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n //   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n //   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n // &lt;/mammals&gt;\n\n var xml;\n\n function preload() {\n xml = loadXML(\"assets/mammals.xml\");\n }\n\n function setup() {\n println(xml.getName());\n }\n\n // Sketch prints:\n // mammals\n </code></div>"
+                "&lt;animal\n <div class='norender'><code>\n // The following short XML file called \"mammals.xml\" is parsed\n // in the code below.\n //\n // <?xml version=\"1.0\"?>\n // &lt;mammals&gt;\n //   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n //   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n //   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n // &lt;/mammals&gt;\n\n var xml;\n\n function preload() {\n xml = loadXML(\"assets/mammals.xml\");\n }\n\n function setup() {\n print(xml.getName());\n }\n\n // Sketch prints:\n // mammals\n </code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9359,7 +9359,7 @@
                 }
             ],
             "example": [
-                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  println(xml.getName());\n  xml.setName(\"fish\");\n  println(xml.getName());\n}\n\n// Sketch prints:\n// mammals\n// fish\n</code></div>"
+                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  print(xml.getName());\n  xml.setName(\"fish\");\n  print(xml.getName());\n}\n\n// Sketch prints:\n// mammals\n// fish\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9376,7 +9376,7 @@
                 "type": "Boolean"
             },
             "example": [
-                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  println(xml.hasChildren());\n}\n\n// Sketch prints:\n// true\n</code></div>"
+                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  print(xml.hasChildren());\n}\n\n// Sketch prints:\n// true\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9393,7 +9393,7 @@
                 "type": "Array"
             },
             "example": [
-                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  println(xml.listChildren());\n}\n\n// Sketch prints:\n// [\"animal\", \"animal\", \"animal\"]\n</code></div>"
+                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  print(xml.listChildren());\n}\n\n// Sketch prints:\n// [\"animal\", \"animal\", \"animal\"]\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9418,7 +9418,7 @@
                 "type": "Array"
             },
             "example": [
-                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var animals = xml.getChildren(\"animal\");\n\n  for (var i = 0; i < animals.length; i++) {\n    println(animals[i].getContent());\n  }\n}\n\n// Sketch prints:\n// \"Goat\"\n// \"Leopard\"\n// \"Zebra\"\n</code></div>"
+                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var animals = xml.getChildren(\"animal\");\n\n  for (var i = 0; i < animals.length; i++) {\n    print(animals[i].getContent());\n  }\n}\n\n// Sketch prints:\n// \"Goat\"\n// \"Leopard\"\n// \"Zebra\"\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9442,7 +9442,7 @@
                 "type": "p5.XML"
             },
             "example": [
-                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  println(firstChild.getContent());\n}\n\n// Sketch prints:\n// \"Goat\"\n</code></div>\n<div class='norender'><code>\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var secondChild = xml.getChild(1);\n  println(secondChild.getContent());\n}\n\n// Sketch prints:\n// \"Leopard\"\n</code></div>"
+                "&lt;animal\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  print(firstChild.getContent());\n}\n\n// Sketch prints:\n// \"Goat\"\n</code></div>\n<div class='norender'><code>\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var secondChild = xml.getChild(1);\n  print(secondChild.getContent());\n}\n\n// Sketch prints:\n// \"Leopard\"\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9479,7 +9479,7 @@
                 }
             ],
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  xml.removeChild(\"animal\");\n  var children = xml.getChildren();\n  for (var i=0; i<children.length; i++) {\n    println(children[i].getContent());\n  }\n}\n\n// Sketch prints:\n// \"Leopard\"\n// \"Zebra\"\n</code></div>\n<div class='norender'><code>\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  xml.removeChild(1);\n  var children = xml.getChildren();\n  for (var i=0; i<children.length; i++) {\n    println(children[i].getContent());\n  }\n}\n\n// Sketch prints:\n// \"Goat\"\n// \"Zebra\"\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  xml.removeChild(\"animal\");\n  var children = xml.getChildren();\n  for (var i=0; i<children.length; i++) {\n    print(children[i].getContent());\n  }\n}\n\n// Sketch prints:\n// \"Leopard\"\n// \"Zebra\"\n</code></div>\n<div class='norender'><code>\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  xml.removeChild(1);\n  var children = xml.getChildren();\n  for (var i=0; i<children.length; i++) {\n    print(children[i].getContent());\n  }\n}\n\n// Sketch prints:\n// \"Goat\"\n// \"Zebra\"\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9496,7 +9496,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  println(firstChild.getAttributeCount());\n}\n\n// Sketch prints:\n// 2\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  print(firstChild.getAttributeCount());\n}\n\n// Sketch prints:\n// 2\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9513,7 +9513,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  println(firstChild.listAttributes());\n}\n\n// Sketch prints:\n// [\"id\", \"species\"]\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  print(firstChild.listAttributes());\n}\n\n// Sketch prints:\n// [\"id\", \"species\"]\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9537,7 +9537,7 @@
                 "type": "Boolean"
             },
             "example": [
-                "\n <div class='norender'><code>\n // The following short XML file called \"mammals.xml\" is parsed\n // in the code below.\n //\n // <?xml version=\"1.0\"?>\n // &lt;mammals&gt;\n //   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n //   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n //   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n // &lt;/mammals&gt;\n\n var xml;\n\n function preload() {\n xml = loadXML(\"assets/mammals.xml\");\n }\n\n function setup() {\n var firstChild = xml.getChild(\"animal\");\n println(firstChild.hasAttribute(\"species\"));\n println(firstChild.hasAttribute(\"color\"));\n }\n\n // Sketch prints:\n // true\n // false\n </code></div>"
+                "\n <div class='norender'><code>\n // The following short XML file called \"mammals.xml\" is parsed\n // in the code below.\n //\n // <?xml version=\"1.0\"?>\n // &lt;mammals&gt;\n //   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n //   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n //   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n // &lt;/mammals&gt;\n\n var xml;\n\n function preload() {\n xml = loadXML(\"assets/mammals.xml\");\n }\n\n function setup() {\n var firstChild = xml.getChild(\"animal\");\n print(firstChild.hasAttribute(\"species\"));\n print(firstChild.hasAttribute(\"color\"));\n }\n\n // Sketch prints:\n // true\n // false\n </code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9567,7 +9567,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  println(firstChild.getNumber(\"id\"));\n}\n\n// Sketch prints:\n// 0\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  print(firstChild.getNumber(\"id\"));\n}\n\n// Sketch prints:\n// 0\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9597,7 +9597,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  println(firstChild.getString(\"species\"));\n}\n\n// Sketch prints:\n// \"Capra hircus\"\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  print(firstChild.getString(\"species\"));\n}\n\n// Sketch prints:\n// \"Capra hircus\"\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9622,7 +9622,7 @@
                 }
             ],
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  println(firstChild.getString(\"species\"));\n  firstChild.setAttribute(\"species\", \"Jamides zebra\");\n  println(firstChild.getString(\"species\"));\n}\n\n// Sketch prints:\n// \"Capra hircus\"\n// \"Jamides zebra\"\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  print(firstChild.getString(\"species\"));\n  firstChild.setAttribute(\"species\", \"Jamides zebra\");\n  print(firstChild.getString(\"species\"));\n}\n\n// Sketch prints:\n// \"Capra hircus\"\n// \"Jamides zebra\"\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9647,7 +9647,7 @@
                 "type": "String"
             },
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  println(firstChild.getContent());\n}\n\n// Sketch prints:\n// \"Goat\"\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  print(firstChild.getContent());\n}\n\n// Sketch prints:\n// \"Goat\"\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9667,7 +9667,7 @@
                 }
             ],
             "example": [
-                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  println(firstChild.getContent());\n  firstChild.setContent(\"Mountain Goat\");\n  println(firstChild.getContent());\n}\n\n// Sketch prints:\n// \"Goat\"\n// \"Mountain Goat\"\n</code></div>"
+                "\n<div class='norender'><code>\n// The following short XML file called \"mammals.xml\" is parsed\n// in the code below.\n//\n// <?xml version=\"1.0\"?>\n// &lt;mammals&gt;\n//   &lt;animal id=\"0\" species=\"Capra hircus\">Goat&lt;/animal&gt;\n//   &lt;animal id=\"1\" species=\"Panthera pardus\">Leopard&lt;/animal&gt;\n//   &lt;animal id=\"2\" species=\"Equus zebra\">Zebra&lt;/animal&gt;\n// &lt;/mammals&gt;\n\nvar xml;\n\nfunction preload() {\n  xml = loadXML(\"assets/mammals.xml\");\n}\n\nfunction setup() {\n  var firstChild = xml.getChild(\"animal\");\n  print(firstChild.getContent());\n  firstChild.setContent(\"Mountain Goat\");\n  print(firstChild.getContent());\n}\n\n// Sketch prints:\n// \"Goat\"\n// \"Mountain Goat\"\n</code></div>"
             ],
             "class": "p5.XML",
             "module": "IO",
@@ -9707,7 +9707,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var x = -3;\n  var y = abs(x);\n\n  println(x); // -3\n  println(y); // 3\n}\n</code></div>"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var x = -3;\n  var y = abs(x);\n\n  print(x); // -3\n  print(y); // 3\n}\n</code></div>"
             ],
             "alt": "no image displayed",
             "class": "p5",
@@ -9959,7 +9959,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div><code>\nfunction setup() {\n  var x1 = 20;\n  var x2 = 80;\n  var y1 = 30;\n  var y2 = 70;\n\n  line(0, 0, x1, y1);\n  println(mag(x1, y1));  // Prints \"36.05551\"\n  line(0, 0, x2, y1);\n  println(mag(x2, y1));  // Prints \"85.44004\"\n  line(0, 0, x1, y2);\n  println(mag(x1, y2));  // Prints \"72.8011\"\n  line(0, 0, x2, y2);\n  println(mag(x2, y2));  // Prints \"106.30146\"\n}\n</code></div>"
+                "\n<div><code>\nfunction setup() {\n  var x1 = 20;\n  var x2 = 80;\n  var y1 = 30;\n  var y2 = 70;\n\n  line(0, 0, x1, y1);\n  print(mag(x1, y1));  // Prints \"36.05551\"\n  line(0, 0, x2, y1);\n  print(mag(x2, y1));  // Prints \"85.44004\"\n  line(0, 0, x1, y2);\n  print(mag(x1, y2));  // Prints \"72.8011\"\n  line(0, 0, x2, y2);\n  print(mag(x2, y2));  // Prints \"106.30146\"\n}\n</code></div>"
             ],
             "alt": "4 lines of different length radiate from top left of canvas.",
             "class": "p5",
@@ -10353,7 +10353,7 @@
             "itemtype": "method",
             "name": "toString",
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var v = createVector(20,30);\n  println(String(v)); // prints \"p5.Vector Object : [20, 30, 0]\"\n}\n</div></code>\n"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var v = createVector(20,30);\n  print(String(v)); // prints \"p5.Vector Object : [20, 30, 0]\"\n}\n</div></code>\n"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -10403,7 +10403,7 @@
                 "type": "p5.Vector"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\nvar v1 = createVector(1, 2, 3);\nvar v2 = v1.copy();\nprintln(v1.x == v2.x && v1.y == v2.y && v1.z == v2.z);\n// Prints \"true\"\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\nvar v1 = createVector(1, 2, 3);\nvar v2 = v1.copy();\nprint(v1.x == v2.x && v1.y == v2.y && v1.z == v2.z);\n// Prints \"true\"\n</code>\n</div>"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -10544,7 +10544,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\nvar v = createVector(20.0, 30.0, 40.0);\nvar m = v.mag();\nprintln(m); // Prints \"53.85164807134504\"\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\nvar v = createVector(20.0, 30.0, 40.0);\nvar m = v.mag();\nprint(m); // Prints \"53.85164807134504\"\n</code>\n</div>"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -10561,7 +10561,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\n// Static method\nvar v1 = createVector(6, 4, 2);\nprintln(v1.magSq()); // Prints \"56\"\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\n// Static method\nvar v1 = createVector(6, 4, 2);\nprint(v1.magSq()); // Prints \"56\"\n</code>\n</div>"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -10597,7 +10597,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\nvar v1 = createVector(1, 2, 3);\nvar v2 = createVector(2, 3, 4);\n\nprintln(v1.dot(v2)); // Prints \"20\"\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n//Static method\nvar v1 = createVector(1, 2, 3);\nvar v2 = createVector(3, 2, 1);\nprint (p5.Vector.dot(v1, v2)); // Prints \"10\"\n</code>\n</div>"
+                "\n<div class=\"norender\">\n<code>\nvar v1 = createVector(1, 2, 3);\nvar v2 = createVector(2, 3, 4);\n\nprint(v1.dot(v2)); // Prints \"20\"\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n//Static method\nvar v1 = createVector(1, 2, 3);\nvar v2 = createVector(3, 2, 1);\nprint (p5.Vector.dot(v1, v2)); // Prints \"10\"\n</code>\n</div>"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -10727,7 +10727,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var v1 = createVector(30,50);\n  println(v1.heading()); // 1.0303768265243125\n\n  var v1 = createVector(40,50);\n  println(v1.heading()); // 0.8960553845713439\n\n  var v1 = createVector(30,70);\n  println(v1.heading()); // 1.1659045405098132\n}\n</div></code>"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var v1 = createVector(30,50);\n  print(v1.heading()); // 1.0303768265243125\n\n  var v1 = createVector(40,50);\n  print(v1.heading()); // 0.8960553845713439\n\n  var v1 = createVector(30,70);\n  print(v1.heading()); // 1.1659045405098132\n}\n</div></code>"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -10809,7 +10809,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var v = createVector(20,30);\n  println(v.array()); // Prints : Array [20, 30, 0]\n}\n</div></code>\n<div class=\"norender\">\n<code>\nvar v = createVector(10.0, 20.0, 30.0);\nvar f = v.array();\nprintln(f[0]); // Prints \"10.0\"\nprintln(f[1]); // Prints \"20.0\"\nprintln(f[2]); // Prints \"30.0\"\n</code>\n</div>"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var v = createVector(20,30);\n  print(v.array()); // Prints : Array [20, 30, 0]\n}\n</div></code>\n<div class=\"norender\">\n<code>\nvar v = createVector(10.0, 20.0, 30.0);\nvar f = v.array();\nprint(f[0]); // Prints \"10.0\"\nprint(f[1]); // Prints \"20.0\"\nprint(f[2]); // Prints \"30.0\"\n</code>\n</div>"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -10846,7 +10846,7 @@
                 "type": "Boolean"
             },
             "example": [
-                "\n<div class = \"norender\"><code>\nv1 = createVector(5,10,20);\nv2 = createVector(5,10,20);\nv3 = createVector(13,10,19);\n\nprintln(v1.equals(v2.x,v2.y,v2.z)); // true\nprintln(v1.equals(v3.x,v3.y,v3.z)); // false\n</div></code>\n<div class=\"norender\">\n<code>\nvar v1 = createVector(10.0, 20.0, 30.0);\nvar v2 = createVector(10.0, 20.0, 30.0);\nvar v3 = createVector(0.0, 0.0, 0.0);\nprint (v1.equals(v2)) // true\nprint (v1.equals(v3)) // false\n</code>\n</div>"
+                "\n<div class = \"norender\"><code>\nv1 = createVector(5,10,20);\nv2 = createVector(5,10,20);\nv3 = createVector(13,10,19);\n\nprint(v1.equals(v2.x,v2.y,v2.z)); // true\nprint(v1.equals(v3.x,v3.y,v3.z)); // false\n</div></code>\n<div class=\"norender\">\n<code>\nvar v1 = createVector(10.0, 20.0, 30.0);\nvar v2 = createVector(10.0, 20.0, 30.0);\nvar v3 = createVector(0.0, 0.0, 0.0);\nprint (v1.equals(v2)) // true\nprint (v1.equals(v3)) // false\n</code>\n</div>"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -11288,7 +11288,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class= “norender\">\n<code>\nvar a = PI;\nvar c = cos(a);\nvar ac = acos(c);\n// Prints: \"3.1415927 : -1.0 : 3.1415927\"\nprintln(a + \" : \" + c + \" : \" +  ac);\n</code>\n</div>\n\n<div class= “norender\">\n<code>\nvar a = PI + PI/4.0;\nvar c = cos(a);\nvar ac = acos(c);\n// Prints: \"3.926991 : -0.70710665 : 2.3561943\"\nprintln(a + \" : \" + c + \" : \" +  ac);\n</code>\n</div>"
+                "\n<div class= “norender\">\n<code>\nvar a = PI;\nvar c = cos(a);\nvar ac = acos(c);\n// Prints: \"3.1415927 : -1.0 : 3.1415927\"\nprint(a + \" : \" + c + \" : \" +  ac);\n</code>\n</div>\n\n<div class= “norender\">\n<code>\nvar a = PI + PI/4.0;\nvar c = cos(a);\nvar ac = acos(c);\n// Prints: \"3.926991 : -0.70710665 : 2.3561943\"\nprint(a + \" : \" + c + \" : \" +  ac);\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Math",
@@ -11312,7 +11312,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class= “norender\">\n<code>\nvar a = PI + PI/3;\nvar s = sin(a);\nvar as = asin(s);\n// Prints: \"1.0471976 : 0.86602545 : 1.0471976\"\nprintln(a + \" : \" + s + \" : \" +  as);\n</code>\n</div>\n\n<div class= “norender\">\n<code>\nvar a = PI + PI/3.0;\nvar s = sin(a);\nvar as = asin(s);\n// Prints: \"4.1887903 : -0.86602545 : -1.0471976\"\nprintln(a + \" : \" + s + \" : \" +  as);\n</code>\n</div>\n"
+                "\n<div class= “norender\">\n<code>\nvar a = PI + PI/3;\nvar s = sin(a);\nvar as = asin(s);\n// Prints: \"1.0471976 : 0.86602545 : 1.0471976\"\nprint(a + \" : \" + s + \" : \" +  as);\n</code>\n</div>\n\n<div class= “norender\">\n<code>\nvar a = PI + PI/3.0;\nvar s = sin(a);\nvar as = asin(s);\n// Prints: \"4.1887903 : -0.86602545 : -1.0471976\"\nprint(a + \" : \" + s + \" : \" +  as);\n</code>\n</div>\n"
             ],
             "class": "p5",
             "module": "Math",
@@ -11336,7 +11336,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class= “norender\">\n<code>\nvar a = PI + PI/3;\nvar t = tan(a);\nvar at = atan(t);\n// Prints: \"1.0471976 : 1.7320509 : 1.0471976\"\nprintln(a + \" : \" + t + \" : \" +  at);\n</code>\n</div>\n\n<div class= “norender\">\n<code>\nvar a = PI + PI/3.0;\nvar t = tan(a);\nvar at = atan(t);\n// Prints: \"4.1887903 : 1.7320513 : 1.0471977\"\nprintln(a + \" : \" + t + \" : \" +  at);\n</code>\n</div>\n"
+                "\n<div class= “norender\">\n<code>\nvar a = PI + PI/3;\nvar t = tan(a);\nvar at = atan(t);\n// Prints: \"1.0471976 : 1.7320509 : 1.0471976\"\nprint(a + \" : \" + t + \" : \" +  at);\n</code>\n</div>\n\n<div class= “norender\">\n<code>\nvar a = PI + PI/3.0;\nvar t = tan(a);\nvar at = atan(t);\n// Prints: \"4.1887903 : 1.7320513 : 1.0471977\"\nprint(a + \" : \" + t + \" : \" +  at);\n</code>\n</div>\n"
             ],
             "class": "p5",
             "module": "Math",
@@ -11465,7 +11465,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class= “norender\">\n<code>\nvar rad = PI/4;\nvar deg = degrees(rad);\nprintln(rad + \" radians is \" + deg + \" degrees\");\n// Prints: 0.7853981633974483 radians is 45 degrees\n</code>\n</div>\n"
+                "\n<div class= “norender\">\n<code>\nvar rad = PI/4;\nvar deg = degrees(rad);\nprint(rad + \" radians is \" + deg + \" degrees\");\n// Prints: 0.7853981633974483 radians is 45 degrees\n</code>\n</div>\n"
             ],
             "class": "p5",
             "module": "Math",
@@ -11489,7 +11489,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class= “norender\">\n<code>\nvar deg = 45.0;\nvar rad = radians(deg);\nprintln(deg + \" degrees is \" + rad + \" radians\");\n// Prints: 45 degrees is 0.7853981633974483 radians\n</code>\n</div>"
+                "\n<div class= “norender\">\n<code>\nvar deg = 45.0;\nvar rad = radians(deg);\nprint(deg + \" degrees is \" + rad + \" radians\");\n// Prints: 45 degrees is 0.7853981633974483 radians\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Math",
@@ -11920,7 +11920,7 @@
                 }
             ],
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n\nvar myArray = new Array(\"Mango\", \"Apple\", \"Papaya\")\nprintln(myArray) // [\"Mango\", \"Apple\", \"Papaya\"]\n\nappend(myArray, \"Peach\")\nprintln(myArray) // [\"Mango\", \"Apple\", \"Papaya\", \"Peach\"]\n\n}\n</div></code>"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n\nvar myArray = new Array(\"Mango\", \"Apple\", \"Papaya\")\nprint(myArray) // [\"Mango\", \"Apple\", \"Papaya\"]\n\nappend(myArray, \"Peach\")\nprint(myArray) // [\"Mango\", \"Apple\", \"Papaya\", \"Peach\"]\n\n}\n</div></code>"
             ],
             "class": "p5",
             "module": "Data",
@@ -11963,7 +11963,7 @@
                 }
             ],
             "example": [
-                "\n <div class=\"norender\"><code>\n function setup() {\n\n   var src = new Array(\"A\", \"B\", \"C\");\n   var dst = new Array( 1 ,  2 ,  3 );\n   var srcPosition = 1;\n   var dstPosition = 0;\n   var length = 2;\n\n   println(src); // [\"A\", \"B\", \"C\"]\n   println(dst); // [ 1 ,  2 ,  3 ]\n\n   arrayCopy(src, srcPosition, dst, dstPosition, length);\n   println(dst); // [\"B\", \"C\", 3]\n\n   }\n </div></code>"
+                "\n <div class=\"norender\"><code>\n function setup() {\n\n   var src = new Array(\"A\", \"B\", \"C\");\n   var dst = new Array( 1 ,  2 ,  3 );\n   var srcPosition = 1;\n   var dstPosition = 0;\n   var length = 2;\n\n   print(src); // [\"A\", \"B\", \"C\"]\n   print(dst); // [ 1 ,  2 ,  3 ]\n\n   arrayCopy(src, srcPosition, dst, dstPosition, length);\n   print(dst); // [\"B\", \"C\", 3]\n\n   }\n </div></code>"
             ],
             "class": "p5",
             "module": "Data",
@@ -11992,7 +11992,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var arr1 = new Array(\"A\", \"B\", \"C\");\n  var arr2 = new Array( 1 ,  2 ,  3 );\n\n  println(arr1); // [\"A\",\"B\",\"C\"]\n  println(arr2); // [1,2,3]\n\n  var arr3 = concat(arr1, arr2);\n\n  println(arr1); // [\"A\",\"B\",\"C\"]\n  println(arr2); // [1,2,3]\n  println(arr3); // [\"A\",\"B\",\"C\",1,2,3]\n\n}\n</div></code>"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var arr1 = new Array(\"A\", \"B\", \"C\");\n  var arr2 = new Array( 1 ,  2 ,  3 );\n\n  print(arr1); // [\"A\",\"B\",\"C\"]\n  print(arr2); // [1,2,3]\n\n  var arr3 = concat(arr1, arr2);\n\n  print(arr1); // [\"A\",\"B\",\"C\"]\n  print(arr2); // [1,2,3]\n  print(arr3); // [\"A\",\"B\",\"C\",1,2,3]\n\n}\n</div></code>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12012,7 +12012,7 @@
                 }
             ],
             "example": [
-                "\n<div class=\"norender\"><code>\nfunction setup() {\n  var myArray = new Array(\"A\", \"B\", \"C\");\n  println(myArray); // [\"A\",\"B\",\"C\"]\n\n  reverse(myArray);\n  println(myArray); // [\"C\",\"B\",\"A\"]\n}\n</div></code>"
+                "\n<div class=\"norender\"><code>\nfunction setup() {\n  var myArray = new Array(\"A\", \"B\", \"C\");\n  print(myArray); // [\"A\",\"B\",\"C\"]\n\n  reverse(myArray);\n  print(myArray); // [\"C\",\"B\",\"A\"]\n}\n</div></code>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12036,7 +12036,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var myArray = new Array(\"A\", \"B\", \"C\");\n  println(myArray); // [\"A\",\"B\",\"C\"]\n\n  var newArray = shorten(myArray);\n  println(myArray); // [\"A\",\"B\",\"C\"]\n  println(newArray); // [\"A\",\"B\"]\n}\n</div></code>"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var myArray = new Array(\"A\", \"B\", \"C\");\n  print(myArray); // [\"A\",\"B\",\"C\"]\n\n  var newArray = shorten(myArray);\n  print(myArray); // [\"A\",\"B\",\"C\"]\n  print(newArray); // [\"A\",\"B\"]\n}\n</div></code>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12066,7 +12066,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n<div><code>\nfunction setup() {\n  var regularArr = ['ABC', 'def', createVector(), TAU, Math.E];\n  println(regularArr);\n  shuffle(regularArr, true); // force modifications to passed array\n  println(regularArr);\n\n  // By default shuffle() returns a shuffled cloned array:\n  var newArr = shuffle(regularArr);\n  println(regularArr);\n  println(newArr);\n}\n</code></div>"
+                "\n<div><code>\nfunction setup() {\n  var regularArr = ['ABC', 'def', createVector(), TAU, Math.E];\n  print(regularArr);\n  shuffle(regularArr, true); // force modifications to passed array\n  print(regularArr);\n\n  // By default shuffle() returns a shuffled cloned array:\n  var newArr = shuffle(regularArr);\n  print(regularArr);\n  print(newArr);\n}\n</code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12092,7 +12092,7 @@
                 }
             ],
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var words = new Array(\"banana\", \"apple\", \"pear\",\"lime\");\n  println(words); // [\"banana\", \"apple\", \"pear\", \"lime\"]\n  var count = 4; // length of array\n\n  words = sort(words, count);\n  println(words); // [\"apple\", \"banana\", \"lime\", \"pear\"]\n}\n</div></code>\n<div class = \"norender\"><code>\nfunction setup() {\n  var numbers = new Array(2,6,1,5,14,9,8,12);\n  println(numbers); // [2,6,1,5,14,9,8,12]\n  var count = 5; // Less than the length of the array\n\n  numbers = sort(numbers, count);\n  println(numbers); // [1,2,5,6,14,9,8,12]\n}\n</div></code>"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var words = new Array(\"banana\", \"apple\", \"pear\",\"lime\");\n  print(words); // [\"banana\", \"apple\", \"pear\", \"lime\"]\n  var count = 4; // length of array\n\n  words = sort(words, count);\n  print(words); // [\"apple\", \"banana\", \"lime\", \"pear\"]\n}\n</div></code>\n<div class = \"norender\"><code>\nfunction setup() {\n  var numbers = new Array(2,6,1,5,14,9,8,12);\n  print(numbers); // [2,6,1,5,14,9,8,12]\n  var count = 5; // Less than the length of the array\n\n  numbers = sort(numbers, count);\n  print(numbers); // [1,2,5,6,14,9,8,12]\n}\n</div></code>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12122,7 +12122,7 @@
                 }
             ],
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var myArray = new Array(0,1,2,3,4);\n  var insArray = new Array(\"A\",\"B\",\"C\");\n  println(myArray); // [0,1,2,3,4]\n  println(insArray); // [\"A\",\"B\",\"C\"]\n\n  splice(myArray, insArray, 3);\n  println(myArray); // [0,1,2,\"A\",\"B\",\"C\",3,4]\n}\n</div></code>"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var myArray = new Array(0,1,2,3,4);\n  var insArray = new Array(\"A\",\"B\",\"C\");\n  print(myArray); // [0,1,2,3,4]\n  print(insArray); // [\"A\",\"B\",\"C\"]\n\n  splice(myArray, insArray, 3);\n  print(myArray); // [0,1,2,\"A\",\"B\",\"C\",3,4]\n}\n</div></code>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12157,7 +12157,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var myArray = new Array(1,2,3,4,5);\n  println(myArray); // [1,2,3,4,5]\n\n  var sub1 = subset(myArray, 0, 3);\n  var sub2 = subset(myArray, 2, 2);\n  println(sub1); // [1,2,3]\n  println(sub2); // [3,4]\n}\n</div></code>"
+                "\n<div class = \"norender\"><code>\nfunction setup() {\n  var myArray = new Array(1,2,3,4,5);\n  print(myArray); // [1,2,3,4,5]\n\n  var sub1 = subset(myArray, 0, 3);\n  var sub2 = subset(myArray, 2, 2);\n  print(sub1); // [1,2,3]\n  print(sub2); // [3,4]\n}\n</div></code>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12206,7 +12206,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class='norender'><code>\nprintln(int(\"10\")); // 10\nprintln(int(10.31)); // 10\nprintln(int(-10)); // -10\nprintln(int(true)); // 1\nprintln(int(false)); // 0\nprintln(int([false, true, \"10.3\", 9.8])); // [0, 1, 10, 9]\n</code></div>"
+                "\n<div class='norender'><code>\nprint(int(\"10\")); // 10\nprint(int(10.31)); // 10\nprint(int(-10)); // -10\nprint(int(true)); // 1\nprint(int(false)); // 0\nprint(int([false, true, \"10.3\", 9.8])); // [0, 1, 10, 9]\n</code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12230,7 +12230,7 @@
                 "type": "String"
             },
             "example": [
-                "\n<div class='norender'><code>\nprintln(str(\"10\"));  // \"10\"\nprintln(str(10.31)); // \"10.31\"\nprintln(str(-10));   // \"-10\"\nprintln(str(true));  // \"true\"\nprintln(str(false)); // \"false\"\nprintln(str([true, \"10.3\", 9.8])); // [ \"true\", \"10.3\", \"9.8\" ]\n</code></div>"
+                "\n<div class='norender'><code>\nprint(str(\"10\"));  // \"10\"\nprint(str(10.31)); // \"10.31\"\nprint(str(-10));   // \"-10\"\nprint(str(true));  // \"true\"\nprint(str(false)); // \"false\"\nprint(str([true, \"10.3\", 9.8])); // [ \"true\", \"10.3\", \"9.8\" ]\n</code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12254,7 +12254,7 @@
                 "type": "Boolean"
             },
             "example": [
-                "\n<div class='norender'><code>\nprintln(boolean(0));               // false\nprintln(boolean(1));               // true\nprintln(boolean(\"true\"));          // true\nprintln(boolean(\"abcd\"));          // false\nprintln(boolean([0, 12, \"true\"])); // [false, true, false]\n</code></div>"
+                "\n<div class='norender'><code>\nprint(boolean(0));               // false\nprint(boolean(1));               // true\nprint(boolean(\"true\"));          // true\nprint(boolean(\"abcd\"));          // false\nprint(boolean([0, 12, \"true\"])); // [false, true, false]\n</code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12278,7 +12278,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class='norender'><code>\nprintln(byte(127));               // 127\nprintln(byte(128));               // -128\nprintln(byte(23.4));              // 23\nprintln(byte(\"23.4\"));            // 23\nprintln(byte(true));              // 1\nprintln(byte([0, 255, \"100\"]));   // [0, -1, 100]\n</code></div>"
+                "\n<div class='norender'><code>\nprint(byte(127));               // 127\nprint(byte(128));               // -128\nprint(byte(23.4));              // 23\nprint(byte(\"23.4\"));            // 23\nprint(byte(true));              // 1\nprint(byte([0, 255, \"100\"]));   // [0, -1, 100]\n</code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12302,7 +12302,7 @@
                 "type": "String"
             },
             "example": [
-                "\n<div class='norender'><code>\nprintln(char(65));                     // \"A\"\nprintln(char(\"65\"));                   // \"A\"\nprintln(char([65, 66, 67]));           // [ \"A\", \"B\", \"C\" ]\nprintln(join(char([65, 66, 67]), '')); // \"ABC\"\n</code></div>"
+                "\n<div class='norender'><code>\nprint(char(65));                     // \"A\"\nprint(char(\"65\"));                   // \"A\"\nprint(char([65, 66, 67]));           // [ \"A\", \"B\", \"C\" ]\nprint(join(char([65, 66, 67]), '')); // \"ABC\"\n</code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12326,7 +12326,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class='norender'><code>\nprintln(unchar(\"A\"));               // 65\nprintln(unchar([\"A\", \"B\", \"C\"]));   // [ 65, 66, 67 ]\nprintln(unchar(split(\"ABC\", \"\")));  // [ 65, 66, 67 ]\n</code></div>"
+                "\n<div class='norender'><code>\nprint(unchar(\"A\"));               // 65\nprint(unchar([\"A\", \"B\", \"C\"]));   // [ 65, 66, 67 ]\nprint(unchar(split(\"ABC\", \"\")));  // [ 65, 66, 67 ]\n</code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12350,7 +12350,7 @@
                 "type": "String"
             },
             "example": [
-                "\n<div class='norender'><code>\nprintln(hex(255));               // \"000000FF\"\nprintln(hex(255, 6));            // \"0000FF\"\nprintln(hex([0, 127, 255], 6));  // [ \"000000\", \"00007F\", \"0000FF\" ]\n</code></div>"
+                "\n<div class='norender'><code>\nprint(hex(255));               // \"000000FF\"\nprint(hex(255, 6));            // \"0000FF\"\nprint(hex([0, 127, 255], 6));  // [ \"000000\", \"00007F\", \"0000FF\" ]\n</code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12374,7 +12374,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div class='norender'><code>\nprintln(unhex(\"A\"));                // 10\nprintln(unhex(\"FF\"));               // 255\nprintln(unhex([\"FF\", \"AA\", \"00\"])); // [ 255, 170, 0 ]\n</code></div>"
+                "\n<div class='norender'><code>\nprint(unhex(\"A\"));                // 10\nprint(unhex(\"FF\"));               // 255\nprint(unhex([\"FF\", \"AA\", \"00\"])); // [ 255, 170, 0 ]\n</code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -12665,7 +12665,7 @@
                 "type": "Array"
             },
             "example": [
-                "\n<div class = \"norender\">\n<code>\nfunction setup() {\n  var myStr = \"Mango, Banana, Lime\";\n  var myStrArr = splitTokens(myStr, \",\");\n\n  println(myStrArr); // prints : [\"Mango\",\" Banana\",\" Lime\"]\n}\n</code>\n</div>"
+                "\n<div class = \"norender\">\n<code>\nfunction setup() {\n  var myStr = \"Mango, Banana, Lime\";\n  var myStrArr = splitTokens(myStr, \",\");\n\n  print(myStrArr); // prints : [\"Mango\",\" Banana\",\" Lime\"]\n}\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -19742,79 +19742,79 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:22"
+            "line": " src/core/environment.js:24"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:67"
+            "line": " src/core/environment.js:72"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:94"
+            "line": " src/core/environment.js:99"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:124"
+            "line": " src/core/environment.js:129"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:182"
+            "line": " src/core/environment.js:187"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:270"
+            "line": " src/core/environment.js:275"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:296"
+            "line": " src/core/environment.js:301"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:312"
+            "line": " src/core/environment.js:317"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:328"
+            "line": " src/core/environment.js:333"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:343"
+            "line": " src/core/environment.js:348"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:358"
+            "line": " src/core/environment.js:363"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:427"
+            "line": " src/core/environment.js:435"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/core/environment.js:474"
+            "line": " src/core/environment.js:482"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:474"
+            "line": " src/core/environment.js:482"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/core/environment.js:519"
+            "line": " src/core/environment.js:527"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:519"
+            "line": " src/core/environment.js:527"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:576"
+            "line": " src/core/environment.js:584"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:607"
+            "line": " src/core/environment.js:615"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:628"
+            "line": " src/core/environment.js:636"
         },
         {
             "message": "unknown tag: alt",
@@ -20254,27 +20254,27 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:170"
+            "line": " src/io/files.js:172"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:289"
+            "line": " src/io/files.js:291"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:390"
+            "line": " src/io/files.js:392"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1131"
+            "line": " src/io/files.js:1133"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1191"
+            "line": " src/io/files.js:1193"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1260"
+            "line": " src/io/files.js:1262"
         },
         {
             "message": "unknown tag: alt",
@@ -20706,11 +20706,11 @@
         },
         {
             "message": "Missing item type\nReturns the current framerate.",
-            "line": " src/core/environment.js:246"
+            "line": " src/core/environment.js:251"
         },
         {
             "message": "Missing item type\nSpecifies the number of frames to be displayed every second. For example,\nthe function call frameRate(30) will attempt to refresh 30 times a second.\nIf the processor is not fast enough to maintain the specified rate, the\nframe rate will not be achieved. Setting the frame rate within setup() is\nrecommended. The default rate is 60 frames per second.\n\nCalling frameRate() with no arguments returns the current framerate.",
-            "line": " src/core/environment.js:255"
+            "line": " src/core/environment.js:260"
         },
         {
             "message": "Missing item type",
@@ -20730,7 +20730,7 @@
         },
         {
             "message": "Missing item type\nPrints out all the colors in the color pallete with white text.\nFor color blindness testing.",
-            "line": " src/core/error_helpers.js:244"
+            "line": " src/core/error_helpers.js:249"
         },
         {
             "message": "Missing item type\nHelper fxn for sharing pixel methods",
@@ -20854,23 +20854,23 @@
         },
         {
             "message": "Missing item type\nGenerate a blob of file data as a url to prepare for download.\nAccepts an array of data, a filename, and an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by saveStrings, saveJSON, saveTable etc.",
-            "line": " src/io/files.js:1379"
+            "line": " src/io/files.js:1381"
         },
         {
             "message": "Missing item type\nForces download. Accepts a url to filedata/blob, a filename,\nand an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by saveStrings, saveJSON, saveTable etc.",
-            "line": " src/io/files.js:1402"
+            "line": " src/io/files.js:1404"
         },
         {
             "message": "Missing item type\nReturns a file extension, or another string\nif the provided parameter has no extension.",
-            "line": " src/io/files.js:1438"
+            "line": " src/io/files.js:1440"
         },
         {
             "message": "Missing item type\nReturns true if the browser is Safari, false if not.\nSafari makes trouble for downloading files.",
-            "line": " src/io/files.js:1470"
+            "line": " src/io/files.js:1472"
         },
         {
             "message": "Missing item type\nHelper function, a callback for download that deletes\nan invisible anchor element from the DOM once the file\nhas been automatically downloaded.",
-            "line": " src/io/files.js:1482"
+            "line": " src/io/files.js:1484"
         },
         {
             "message": "Missing item type\nTable Options\n<p>Generic class for handling tabular data, typically from a\nCSV, TSV, or other sort of spreadsheet file.</p>\n<p>CSV files are\n<a href=\"http://en.wikipedia.org/wiki/Comma-separated_values\">\ncomma separated values</a>, often with the data in quotes. TSV\nfiles use tabs as separators, and usually don't bother with the\nquotes.</p>\n<p>File names should end with .csv if they're comma separated.</p>\n<p>A rough \"spec\" for CSV can be found\n<a href=\"http://tools.ietf.org/html/rfc4180\">here</a>.</p>\n<p>To load files, use the loadTable method.</p>\n<p>To save tables to your computer, use the save method\n or the saveTable method.</p>\n\nPossible options include:\n<ul>\n<li>csv - parse the table as comma-separated values\n<li>tsv - parse the table as tab-separated values\n<li>header - this table has a header (title) row\n</ul>",
