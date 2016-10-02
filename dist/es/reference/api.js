@@ -7,6 +7,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "p5.Color",
         "p5.Convolver",
         "p5.Delay",
+        "p5.Distortion",
         "p5.Element",
         "p5.Env",
         "p5.FFT",

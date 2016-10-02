@@ -316,7 +316,8 @@ module.exports = function(grunt) {
         '<%= config.dist %>/**/*.*',
         '!<%= config.dist %>/**/reference/**/*.*',
         '!<%= config.dist %>/**/helpers/**/*.*',
-        '!<%= config.dist %>/assets/img/**/*.*'
+        '!<%= config.dist %>/assets/img/**/*.*',
+        '!<%= config.dist %>/offline-reference/**/*.*'
       ]
     }
 
