@@ -244,19 +244,19 @@ La función background() define el color usado como fondo del lienzo p5.js. El f
 
 p5.Color: cualquier valor creado con la función color()
 
-Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-100).
+Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-100)
 
 String: string de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex 3 dígitos, hex 6 dígitos
 
 Número: especifica un valor entre blanco y negro
 
-Número: valor de rojo o hue (dependiendo del modo de color actual).
+Número: valor de rojo o hue (dependiendo del modo de color actual)
 
-Número: valor de verde o saturación (dependiendo del modo de color actual).
+Número: valor de verde o saturación (dependiendo del modo de color actual)
 
-Número: valor de azul o brillo (dependiendo del modo de color actual).
+Número: valor de azul o brillo (dependiendo del modo de color actual)
 
-p5.Image: imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo).
+p5.Image: imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo)
 
 ### clear()
 
