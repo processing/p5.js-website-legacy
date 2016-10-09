@@ -4295,7 +4295,7 @@ define('itemView',[
 });
 
 
-define('text!tpl/menu.html',[],function () { return '<p>\n  <small>\n    ¿No encuentras lo que buscas? Revisa las secciones \n    <a href="#/libraries/p5.dom">p5.dom</a> o\n    <a href="#/libraries/p5.sound">p5.sound</a>.\n    Puedes descargar una versión de la referencia <a href=\'../offline-reference/p5-reference.zip\' target=_blank>here</a>.\n  </small>\n</p>\n\n<% var i=0; %>\n<% var max=Math.floor(groups.length/4); %>\n<% var rem=groups.length%4; %>\n\n<% _.each(groups, function(group){ %>\n  <% var m = rem > 0 ? 1 : 0 %>\n  <% if (i === 0) { %>\n    <dl>\n  <% } %>\n  <dd><a href="#group-<%=group%>"><%=group%></a></dd>\n  <% if (i === (max+m-1)) { %>\n    </dl>\n  \t<% rem-- %>\n  \t<% i=0 %>\n  <% } else { %>\n  \t<% i++ %>\n  <% } %>\n<% }); %>';});
+define('text!tpl/menu.html',[],function () { return '<p>\n  <small>\n    ¿No encuentras lo que buscas? Revisa las secciones \n    <a href="#/libraries/p5.dom">p5.dom</a> o\n    <a href="#/libraries/p5.sound">p5.sound</a>.\n    Puedes descargar una versión de la referencia <a href=\'../offline-reference/p5-reference.zip\' target=_blank>aquí</a>.\n  </small>\n</p>\n\n<% var i=0; %>\n<% var max=Math.floor(groups.length/4); %>\n<% var rem=groups.length%4; %>\n\n<% _.each(groups, function(group){ %>\n  <% var m = rem > 0 ? 1 : 0 %>\n  <% if (i === 0) { %>\n    <dl>\n  <% } %>\n  <dd><a href="#group-<%=group%>"><%=group%></a></dd>\n  <% if (i === (max+m-1)) { %>\n    </dl>\n  \t<% rem-- %>\n  \t<% i=0 %>\n  <% } else { %>\n  \t<% i++ %>\n  <% } %>\n<% }); %>';});
 
 define('menuView',[
   'App',
