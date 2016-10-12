@@ -120,7 +120,6 @@
     var timeout;
 
     function updateLanguage() {
-      console.log('update lang')
       if (translations) {
         var routes = window.location.hash.split('/');
         var obj = routes[1];
@@ -144,9 +143,7 @@
       var routes = window.location.pathname.split('/');
       var lang = routes[1];
       if (lang.length === 2) {
-        console.log('/assets/reference/'+lang+'.json')
         $.getJSON('/assets/reference/'+lang+'.json', function(data) {
-        console.log('hi2')
           translations = data;
           if (timeout) clearTimeout(timeout);
           timeout = setTimeout(updateLanguage, 500);
