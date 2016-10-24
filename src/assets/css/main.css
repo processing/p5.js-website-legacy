@@ -1486,6 +1486,16 @@ footer {
   display: none;
 }
 
+#asterisk-design-element,
+.separator-design-element {
+    display: none;
+}
+.pointerevents #asterisk-design-element,
+.pointerevents .separator-design-element {
+    pointer-events: none;
+    display: inline-block;
+}
+
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
 }
@@ -1565,7 +1575,10 @@ footer {
 
     #asterisk-design-element, .separator-design-element {
         display: none;
+        pointer-events: none;
     }
+
+
 
     pre[class*="language-"] {
         padding: 0.5em 0.5em;
@@ -1865,6 +1878,7 @@ footer {
         position:fixed;
         z-index: -1 !important;
         opacity: 0.6;
+        pointer-events: none;
     }
 
 /*  variations for asterisks on pages */
