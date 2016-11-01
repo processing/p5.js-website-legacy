@@ -25,16 +25,17 @@ function setup() {
   aSlider= createSlider(0,360,60);
   aSlider.position(tx-5, ty+10);
   //put in the css width for the slider
-  textFont("Georgia");
+  textFont("Helvetica");
   smooth();
 
 }
 
 function draw(){
   background(255);
-  stroke(200);
-  strokeWeight(1);
-  rect(10,105,170,275);
+
+
+
+
   axes();
   circle();
   x1y1();
@@ -50,7 +51,7 @@ function labels(){
   if(angle==90||angle==0||angle==180||angle==270){
 
   }else{
-    stroke(0);
+    stroke(255);
     fill(0);
     text("r",(x1+cx)/2+5,(cy+y1)/2+7);
     text("x",(x1+cx)/2,cy-5);
@@ -60,7 +61,7 @@ function labels(){
 }
 
 function calculations(){
-  stroke(237,34,93);
+  stroke(255);
   fill(237,34,93);
   //axis lables
   text("90",cx-5,85);
@@ -72,25 +73,27 @@ function calculations(){
   text("180",cx-d/2+25,cy-3);
   text("\u03C0",cx-d/2+10,cy-3);
   //cartesian
-  stroke(0);
+  stroke(255);
   fill(0);
   text("(0,1)",cx-10,40);
   text("(1,0)",cx+d/2+10,cy-3);
   text("(-1,0)",cx-d/2-30,cy-3);
   text("(0,-1)",cx-10,cy+d/2+20);
-  stroke(237,34,93);
+  stroke(255);
   fill(237,34,93);
-  textSize(13);
+  textSize(14);
 
   //key
   text("Change the angle:",tx,ty);
   text("angle = "+round(360-angle) + " degrees",tx,ty+50);
   text("angle = "+(radians(360-angle)/PI).toFixed(2) + " \u03C0 radians",tx,ty+70);
-  stroke(0);
+  //lables for trig calculations
+  text("r = 1",tx,ty+90);
+  stroke(255);
   fill(0);
-  textSize(12);
-  text("To calculate the coordinates",tx,ty+105);
-  text("of the point:",tx,ty+120);
+  textSize(14);
+  text("To calculate the coordinates",tx,ty+120);
+  text("of the point:",tx,ty+140);
 
 
 }
@@ -122,8 +125,6 @@ function arcCalc(){
 
 function trigCalcs(){
   var l =18;
-  //lables for trig calculations
-  text("r = 1",tx,ty+140);
 
   text("C = A / H",tx,ty+170);
   text("A / H = C",tx,ty+170+l);
@@ -143,9 +144,10 @@ function trigCalcs(){
 
 function circle(){
   //draw circle and triangle stuff
-  stroke(0);
+  stroke(150);
   angle=(360-aSlider.value());
   //big circle
+  noFill();
   ellipse(cx,cy,d,d);
 
   strokeWeight(3);
@@ -184,9 +186,10 @@ function circle(){
 
   stroke(0,f);
   fill(0,f);
+
   text("("+xx+","+yy+")",x1+5*a,y1+5*b);
   textAlign(LEFT);
-  strokeWeight(1)
+  //strokeWeight(1)
   labels();
   noFill();
 
@@ -194,7 +197,7 @@ function circle(){
 
 function axes(){
   //axis
-  stroke(0);
+  stroke(150);
   //y
   line(cx,cy-d/2-20,cx,cy+d/2+20);
   //x
