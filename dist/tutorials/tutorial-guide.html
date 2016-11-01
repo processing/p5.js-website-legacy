@@ -1,11 +1,85 @@
----
-title: tutorials
-slug: tutorials/
----
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">p5.js | tutorials</title>
+    <link rel="stylesheet" href="/../assets/css/all.css">
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+    <script type="text/javascript">
+    var test_js = function() {
+      // http://stackoverflow.com/a/12410668/1293700
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'') + ' js';
+    }();
+    var test_pointerevents = function() {
+      // https://github.com/ausi/Feature-detection-technique-for-pointer-events/blob/master/modernizr-pointerevents.js
+      var el = document.createElement('x');
+      el.style.cssText = 'pointer-events:auto';
+      return el.style.pointerEvents === 'auto';
+    };
+    if (test_pointerevents()) {
+      document.documentElement.className += ' pointerevents';
+    }
+    </script>
+  </head>
+  <body>
+
+    
+<!-- p5*js language buttons -->
+<div id="i18n-btn">
+  <h1 class='visuallyhidden'>Language Settings</h1>
+  <button data-lang="en">EN</button>
+  <button data-lang="es">ES</button>
+</div>
+    <a href="#content" class="skip">Skip to content</a>
+    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/">
+          <img src="../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+        <p class='tagline'>Processing fun times JavaScript quirkiness</p>
+        <p class='tagline'>Processing simplicity times JavaScript flexibility</p>
+        <p class='tagline'>Processing intuition times JavaScript power</p>
+        <p class='tagline'>Processing creativity times JavaScript dynamism</p>
+        <p class='tagline'>Processing community times JavaScript community</p>
+        <p class='tagline'>the power of Processing times the reach of JavaScript</p>
+      </header>
+      <!-- close logo -->
+
+      
 
 <div id="learn-page">
 
-  {{> sidebar}}
+  
+<!-- site navigation -->
+<div class="column-span">
+  <nav role="navigation">
+    <ul id="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/download/">Download</a></li>
+      <li><a href="/gallery/"></a></li>
+      <li><a href="/get-started/">Start</a></li>
+      <li><a href="/reference/">Reference</a></li>
+      <li><a href="/libraries/">Libraries</a></li>
+      <li><a href="/tutorials/">Tutorials</a></li>
+      <li><a href="/examples/">Examples</a></li>
+      <li><a href="/books/">Books</a></li>
+      <li><a href="/community/">Community</a></li>
+      <li><a href="http://forum.processing.org/two/" target=_blank class="other-link">Forum</a></li>
+      <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">Github</a></li>
+      <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- <script src="../assets/js/scroll.js"></script> -->
+
 
   <div class="column-span">
 
@@ -30,21 +104,19 @@ slug: tutorials/
 <p>When your tutorial is ready for publication, please follow these steps to prepare your content for the p5js website. </p>
 
 <p>Prepare the content of your tutorial as a tutorial-name.hbs file with this <a href="https://github.com/mayaman/p5js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">this basic structure</a>. As is shown in this file, it must contain a header as shown below:</p>
-<img src="{{assets}}/tutorials/tutorial-guide/images/screenshot-1.png" alt="Screenshot">
+<img src="../assets/tutorials/tutorial-guide/images/screenshot-1.png" alt="Screenshot">
 
 <p>The folder containing your tutorial will be placed in the 'tutorials' folder of the p5js site.The file called index.hbs is the <a href=”http://p5js.org/tutorials/ “>p5js tutorials landing page,</a> and the test-tutorial.hbs file is the test tutorial. </p>
 <p>All content should go in the:</br>
   &lt;section role="region" label="main content"&gt; &lt;/section&gt; </br>
   tags on the page, with formatting defined by the &lt;h1&gt; and &lt;h2&gt; tags, the &lt;p&gt; paragraph tags as is done shown on the <a href=”https://github.com/processing/p5.js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs”>test tutorial page.</a></p>
 <p>If your tutorial contains images, they are to be placed in the assets folder of the p5 site, in the location src/assets/tutorials/test-tutorial/images as shown below.</p>
-<img src="{{assets}}/tutorials/tutorial-guide/images/screenshot-2.png" alt="Screenshot">
+<img src="../assets/tutorials/tutorial-guide/images/screenshot-2.png" alt="Screenshot">
 <p>To correctly format code in the html of the page use the tag:</br>
-  </br>
 
 &lt;pre&gt;&lt;code class="language-javascript"&gt;</br>
 Your code here!</br>
 &lt;/code>&lt;/pre&gt;</br>
-</br>
 
 </p>
 <h2>Embedding p5.js sketches </h2>
@@ -61,11 +133,11 @@ Your code here!</br>
 
 <p>Put your p5 sketches in the /src/assets/tutorials folder of the site, in a folder labelled with the name of your sketch as shown in the screenshot. This is where all the images and p5 sketches linked by iframe should be stored.</p>
 
-<img src="{{assets}}/tutorials/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
+<img src="../assets/tutorials/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
 
 
 <p>In the subfolders containing your p5 examples there should be a sketch.js file and the embed.html file for the sketch. </p>
-<img src="{{assets}}/tutorials/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
+<img src="../assets/tutorials/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
 
 <p>Make sure your embed.html file has the correct paths to the p5 libraries of the site. If your file structure is the same as above, the path to the p5.js library should be “../../../js/p5.min.js”.</p>
 <p>You can then embed the p5js index files as iframes in the .hbs file that contains your tutorial content. The embed code for the iframe would then be:  </p>
@@ -94,10 +166,49 @@ Your code here!</br>
 
   </section>
 
-  {{> footer}}
+  
+<footer>
+  <p> p5.js was created by <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> and is developed by a community of collaborators, with support from the <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a>  and 
+  <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>.
+  <a href="/copyright.html">&copy; Info.</a></p>
+</footer>
+
 
 </div> <!-- end column-span -->
 
-{{> asterisk}}
+
+<!-- outside of column for footer to go across both -->
+
+<p class="clearfix"> &nbsp; </p>
+
+<object type="image/svg+xml" data="../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+     *<!-- to do: add fallback image in CSS -->
+</object>
+
 
 </div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+<div id="family">
+  <p class="left"><a href="http://processing.org">Processing</a>
+    <a class="here" href="/">p5.js</a>
+    <a href="http://py.processing.org/">Processing.py</a>
+    <a href="http://android.processing.org/">Processing for Android</a>
+  </p>
+  <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
+    <input type="hidden" name="as_sitesearch" value="p5js.org" />
+    <input id='search_field' type="text" name="q" id="q" size="20" />
+    <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
+  </form>
+
+  <p class="right">
+    <a href="https://processingfoundation.org/">Processing Foundation</a>
+  </p>
+</div>
+
+    <script src="/../assets/js/init.js" charset="utf-8"></script>
+  </body>
+</html>
