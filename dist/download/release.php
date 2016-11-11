@@ -1,4 +1,3 @@
-<?php include('version.php'); ?>
 <?php
 
 $lib_version;
@@ -27,7 +26,7 @@ function download($url, $path) {
   if (filesize($path) > 0) return true;
 }
 
-function getLibVersion($f) {
+function getLibVersionDate($f) {
   $handle = fopen($f, 'r');
   $line = fgets($handle);
   fclose($handle);
@@ -39,7 +38,7 @@ function getLibVersion($f) {
   return array($v, $d);
 }
 
-function getPackageVersion($f) {
+function getEditorVersion($f) {
   $handle = fopen($f, 'r');
   $line = "";
   while(!strpos($line, 'version')) {
@@ -58,49 +57,25 @@ function updateFiles() {
   download($r.'/addons/p5.sound.min.js', '../assets/js/p5.sound.min.js');
 }
 
-function updateLib($editor_version) {
-
-  global $lib_version;
-
-  // $r = 'https://raw.githubusercontent.com/processing/p5.js/master/';
-  // download($r.'package.json', 'package.json');
-  // $lib_version = getPackageVersion('package.json');
-  // unlink('package.json');
+function updateAll() {
 
   updateFiles();
-  $v = getLibVersion('../assets/js/p5.min.js');
+
+  $v = getLibVersionDate('../assets/js/p5.min.js');
   $lib_version = $v[0];
+  $lib_date = $v[1];
 
-  $contents = array('version'=>$lib_version, 'data'=>$v[1], 'editor_version'=>$editor_version);
-  file_put_contents('version.json', json_encode($contents));
-
-  echo 'updated library version to v'.$lib_version.' ('.$v[1].')';
-}
-
-
-function updateEditor($lib_version, $lib_date) {
-
-  $r = 'https://raw.githubusercontent.com/processing/p5.js-editor/master/';
-  download($r.'package.json', 'package.json');
-  $editor_version = getPackageVersion('package.json');
-  unlink('package.json');
+  download('https://raw.githubusercontent.com/processing/p5.js-editor/master/package.json', 'package.json');
+  $editor_version = getEditorVersion('package.json');
 
   $contents = array('version'=>$lib_version, 'data'=>$lib_date, 'editor_version'=>$editor_version);
   file_put_contents('version.json', json_encode($contents));
 
-  echo 'updating p5.js editor version to '.$v;
+  unlink('package.json');
+  echo 'updated library version to v'.$lib_version.' ('.$lib_date.')';
 }
 
-if ($_GET['f'] == 'update_lib') {
-  updateLib($editor_version);
-}
-else if ($_GET['f'] == 'update_editor') {
-  updateEditor($version, $date);
-}
-else if ($_GET['f'] == 'update_files') {
-  updateFiles();
-} else {
-  echo '<a href="http://p5js.org/download/release.php?f=update_lib">update library version</a><br>';
-  echo '<a href="http://p5js.org/download/release.php?f=update_editor">update editor version</a>';
-}
+
+updateAll();
+
 ?>
