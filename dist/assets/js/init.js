@@ -3,6 +3,21 @@ var langs = ['en', 'es'];
 // =================================================
 // Family bar:
 window.onload = function() {
+
+  var test_js = function() {
+    // http://stackoverflow.com/a/12410668/1293700
+    document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'') + ' js';
+  }();
+  var test_pointerevents = function() {
+    // https://github.com/ausi/Feature-detection-technique-for-pointer-events/blob/master/modernizr-pointerevents.js
+    var el = document.createElement('x');
+    el.style.cssText = 'pointer-events:auto';
+    return el.style.pointerEvents === 'auto';
+  };
+  if (test_pointerevents()) {
+    document.documentElement.className += ' pointerevents';
+  }
+  
   var search_form = document.getElementById('search_form'),
       search_field = document.getElementById('search_field');
   var open_field = function() {
@@ -134,9 +149,9 @@ window.onload = function() {
       loc = '/' + new_lang + loc;
     }
     if (can_store) {
-      w.localStorage.setItem('lang', new_lang);
+      window.localStorage.setItem('lang', new_lang);
     }
-    w.location = loc;
+    window.location = loc;
   };
   for (var i=0, l=btns.length; i < l; i++) {
     var btn_lang = btns[i].getAttribute('data-lang');

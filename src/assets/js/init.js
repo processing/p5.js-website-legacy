@@ -149,9 +149,9 @@ window.onload = function() {
       loc = '/' + new_lang + loc;
     }
     if (can_store) {
-      w.localStorage.setItem('lang', new_lang);
+      window.localStorage.setItem('lang', new_lang);
     }
-    w.location = loc;
+    window.location = loc;
   };
   for (var i=0, l=btns.length; i < l; i++) {
     var btn_lang = btns[i].getAttribute('data-lang');
