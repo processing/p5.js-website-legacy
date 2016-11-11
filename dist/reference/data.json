@@ -1369,7 +1369,7 @@
             },
             "namespaces": {},
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 21
+            "line": 20
         },
         "Camera": {
             "name": "Camera",
@@ -1479,7 +1479,7 @@
             "namespaces": {},
             "module": "p5.dom",
             "file": "lib/addons/p5.dom.js",
-            "line": 2098,
+            "line": 2103,
             "description": "<p><p>The web is much more than just canvas and p5.dom makes it easy to interact\nwith other HTML5 objects, including text, hyperlink, image, input, video,\naudio, and webcam.</p></p>\n<p><p>There is a set of creation methods, DOM manipulation methods, and\nan extended p5.Element that supports a range of HTML elements. See the\n<a href=\"https://github.com/processing/p5.js/wiki/Beyond-the-canvas\">\nbeyond the canvas tutorial</a> for a full overview of how this addon works.</p>\n<p><p>Methods and properties shown in black are part of the p5.js core, items in\nblue are part of the p5.dom library. You will need to include an extra file\nin order to access the blue functions. See the\n<a href=\"http://p5js.org/libraries/#using-a-library\">using a library</a>\nsection for information on how to include this library. p5.dom comes with\n<a href=\"http://p5js.org/download\">p5 complete</a> or you can download the single file\n<a href=\"https://raw.githubusercontent.com/lmccart/p5.js/master/lib/addons/p5.dom.js\">\nhere</a>.</p></p>\n<p><p>See <a href=\"https://github.com/processing/p5.js/wiki/Beyond-the-canvas\">tutorial: beyond the canvas</a>\nfor more info on how to use this libary.</a></p>\n",
             "tag": "main",
             "itemtype": "main"
@@ -1836,7 +1836,7 @@
             "extension_for": [],
             "module": "Lights, Camera",
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 21,
+            "line": 20,
             "is_constructor": 1,
             "extends": "p5.Renderer\n3D graphics class.",
             "todo": [
@@ -1867,7 +1867,7 @@
             "submodule": "p5.dom",
             "namespace": "",
             "file": "lib/addons/p5.dom.js",
-            "line": 1600,
+            "line": 1605,
             "description": "<p>Extends p5.Element to handle audio and video. In addition to the methods\nof p5.Element, it also contains methods for controlling media. It is not\ncalled directly, but p5.MediaElements are created by calling createVideo,\ncreateAudio, and createCapture.</p>\n",
             "is_constructor": 1,
             "params": [
@@ -1896,7 +1896,7 @@
             "submodule": "p5.dom",
             "namespace": "",
             "file": "lib/addons/p5.dom.js",
-            "line": 2098,
+            "line": 2103,
             "description": "<p>Base class for a file\nUsing this for createFileInput</p>\n",
             "is_constructor": 1,
             "params": [
@@ -5355,7 +5355,7 @@
         },
         {
             "file": "src/core/p5.Renderer2D.js",
-            "line": 356,
+            "line": 355,
             "description": "<p>Generate a cubic Bezier representing an arc on the unit circle of total\nangle <code>size</code> radians, beginning <code>start</code> radians above the x-axis. Up to\nfour of these curves are combined to make a full arc.</p>\n<p>See www.joecridge.me/bezier.pdf for an explanation of the method.</p>\n",
             "class": "p5",
             "module": "Rendering"
@@ -7276,78 +7276,101 @@
             "description": "<p>Draw an image to the main canvas of the p5js sketch</p>\n",
             "itemtype": "method",
             "name": "image",
-            "params": [
-                {
-                    "name": "img",
-                    "description": "<p>the image to display</p>\n",
-                    "type": "p5.Image"
-                },
-                {
-                    "name": "sx",
-                    "description": "<p>The X coordinate of the top left corner of the\n                            sub-rectangle of the source image to draw into\n                            the destination canvas.</p>\n",
-                    "type": "Number",
-                    "optional": true,
-                    "optdefault": "0"
-                },
-                {
-                    "name": "sy",
-                    "description": "<p>The Y coordinate of the top left corner of the\n                            sub-rectangle of the source image to draw into\n                            the destination canvas.</p>\n",
-                    "type": "Number",
-                    "optional": true,
-                    "optdefault": "0"
-                },
-                {
-                    "name": "sWidth",
-                    "description": "<p>The width of the sub-rectangle of the\n                                   source image to draw into the destination\n                                   canvas.</p>\n",
-                    "type": "Number",
-                    "optional": true,
-                    "optdefault": "img.width"
-                },
-                {
-                    "name": "sHeight",
-                    "description": "<p>The height of the sub-rectangle of the\n                                     source image to draw into the\n                                     destination context.</p>\n",
-                    "type": "Number",
-                    "optional": true,
-                    "optdefault": "img.height"
-                },
-                {
-                    "name": "dx",
-                    "description": "<p>The X coordinate in the destination canvas at\n                             which to place the top-left corner of the\n                             source image.</p>\n",
-                    "type": "Number",
-                    "optional": true,
-                    "optdefault": "0"
-                },
-                {
-                    "name": "dy",
-                    "description": "<p>The Y coordinate in the destination canvas at\n                             which to place the top-left corner of the\n                             source image.</p>\n",
-                    "type": "Number",
-                    "optional": true,
-                    "optdefault": "0"
-                },
-                {
-                    "name": "dWidth",
-                    "description": "<p>The width to draw the image in the destination\n                             canvas. This allows scaling of the drawn image.</p>\n",
-                    "type": "Number",
-                    "optional": true
-                },
-                {
-                    "name": "dHeight",
-                    "description": "<p>The height to draw the image in the destination\n                             canvas. This allows scaling of the drawn image.</p>\n",
-                    "type": "Number",
-                    "optional": true
-                }
-            ],
             "example": [
                 "\n<div>\n<code>\nvar img;\nfunction preload() {\n  img = loadImage(\"assets/laDefense.jpg\");\n}\nfunction setup() {\n  image(img, 0, 0);\n  image(img, 0, 0, 100, 100);\n  image(img, 0, 0, 100, 100, 0, 0, 100, 100);\n}\n</code>\n</div>\n<div>\n<code>\nfunction setup() {\n  // here we use a callback to display the image after loading\n  loadImage(\"assets/laDefense.jpg\", function(img) {\n    image(img, 0, 0);\n  });\n}\n</code>\n</div>"
             ],
             "alt": "image of the underside of a white umbrella and grided ceiling above\nimage of the underside of a white umbrella and grided ceiling above",
             "class": "p5",
             "module": "Image",
-            "submodule": "Loading & Displaying"
+            "submodule": "Loading & Displaying",
+            "overloads": [
+                {
+                    "line": 127,
+                    "params": [
+                        {
+                            "name": "img",
+                            "description": "<p>the image to display</p>\n",
+                            "type": "p5.Image"
+                        },
+                        {
+                            "name": "x",
+                            "description": "<p>the x-coordinate at which to place the top-left\n                          corner of the source image</p>\n",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "y",
+                            "description": "<p>the y-coordinate at which to place the top-left\n                          corner of the source image</p>\n",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "width",
+                            "description": "<p>the width to draw the image</p>\n",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "height",
+                            "description": "<p>the height to draw the image</p>\n",
+                            "type": "Number"
+                        }
+                    ]
+                },
+                {
+                    "line": 168,
+                    "params": [
+                        {
+                            "name": "img",
+                            "description": "",
+                            "type": "p5.Image"
+                        },
+                        {
+                            "name": "dx",
+                            "description": "<p>the -xcoordinate in the destination canvas at\n                          which to place the top-left corner of the\n                          source image</p>\n",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "dy",
+                            "description": "<p>the y-coordinate in the destination canvas at\n                          which to place the top-left corner of the\n                          source image</p>\n",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "dWidth",
+                            "description": "<p>the width to draw the image in the destination\n                          canvas</p>\n",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "dHeight",
+                            "description": "<p>the height to draw the image in the destination\n                           canvas</p>\n",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "sx",
+                            "description": "<p>the x-coordinate of the top left corner of the\n                          sub-rectangle of the source image to draw into\n                          the destination canvas</p>\n",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "sy",
+                            "description": "<p>the y-coordinate of the top left corner of the\n                          sub-rectangle of the source image to draw into\n                          the destination canvas</p>\n",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "sWidth",
+                            "description": "<p>the width of the sub-rectangle of the\n                          source image to draw into the destination\n                          canvas</p>\n",
+                            "type": "Number",
+                            "optional": true
+                        },
+                        {
+                            "name": "sHeight",
+                            "description": "<p>the height of the sub-rectangle of the\n                           source image to draw into the destination context</p>\n",
+                            "type": "Number",
+                            "optional": true
+                        }
+                    ]
+                }
+            ]
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 241,
+            "line": 236,
             "description": "<p>Sets the fill value for displaying images. Images can be tinted to\nspecified colors or made transparent by including an alpha value.\n<br><br>\nTo apply transparency to an image without affecting its color, use\nwhite as the tint color and specify an alpha value. For instance,\ntint(255, 128) will make an image 50% transparent (assuming the default\nalpha range of 0-255, which can be changed with colorMode()).\n<br><br>\nThe value for the gray parameter must be less than or equal to the current\nmaximum value as specified by colorMode(). The default maximum value is\n255.</p>\n",
             "itemtype": "method",
             "name": "tint",
@@ -7386,7 +7409,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 316,
+            "line": 311,
             "description": "<p>Removes the current fill value for displaying images and reverts to\ndisplaying images with their original hues.</p>\n",
             "itemtype": "method",
             "name": "noTint",
@@ -7400,7 +7423,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 345,
+            "line": 340,
             "description": "<p>Apply the current tint color to the input image, return the resulting\ncanvas.</p>\n",
             "params": [
                 {
@@ -7419,7 +7442,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 381,
+            "line": 376,
             "description": "<p>Set image mode. Modifies the location from which images are drawn by\nchanging the way in which parameters given to image() are interpreted.\nThe default mode is imageMode(CORNER), which interprets the second and\nthird parameters of image() as the upper-left corner of the image. If\ntwo additional parameters are specified, they are used to set the image&#39;s\nwidth and height.\n<br><br>\nimageMode(CORNERS) interprets the second and third parameters of image()\nas the location of one corner, and the fourth and fifth parameters as the\nopposite corner.\n<br><br>\nimageMode(CENTER) interprets the second and third parameters of image()\nas the image&#39;s center point. If two additional parameters are specified,\nthey are used to set the image&#39;s width and height.</p>\n",
             "itemtype": "method",
             "name": "imageMode",
@@ -10045,7 +10068,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n<div><code>\nfunction setup() {\n  var x1 = 20;\n  var x2 = 80;\n  var y1 = 30;\n  var y2 = 70;\n\n  line(0, 0, x1, y1);\n  print(mag(x1, y1));  // Prints \"36.05551\"\n  line(0, 0, x2, y1);\n  print(mag(x2, y1));  // Prints \"85.44004\"\n  line(0, 0, x1, y2);\n  print(mag(x1, y2));  // Prints \"72.8011\"\n  line(0, 0, x2, y2);\n  print(mag(x2, y2));  // Prints \"106.30146\"\n}\n</code></div>"
+                "\n<div><code>\nfunction setup() {\n  var x1 = 20;\n  var x2 = 80;\n  var y1 = 30;\n  var y2 = 70;\n\n  line(0, 0, x1, y1);\n  print(mag(x1, y1));  // Prints \"36.05551275463989\"\n  line(0, 0, x2, y1);\n  print(mag(x2, y1));  // Prints \"85.44003745317531\"\n  line(0, 0, x1, y2);\n  print(mag(x1, y2));  // Prints \"72.80109889280519\"\n  line(0, 0, x2, y2);\n  print(mag(x2, y2));  // Prints \"106.3014581273465\"\n}\n</code></div>"
             ],
             "alt": "4 lines of different length radiate from top left of canvas.",
             "class": "p5",
@@ -12252,7 +12275,7 @@
         {
             "file": "src/utilities/conversion.js",
             "line": 12,
-            "description": "<p>Converts a string to its floating point representation. The contents of a\nstring must resemble a number, or NaN (not a number) will be returned.\nFor example, float(&quot;1234.56&quot;) evaluates to 1234.56, but float(&quot;giraffe&quot;)\nwill return NaN.</p>\n",
+            "description": "<p>Converts a string to its floating point representation. The contents of a\nstring must resemble a number, or NaN (not a number) will be returned.\nFor example, float(&quot;1234.56&quot;) evaluates to 1234.56, but float(&quot;giraffe&quot;)\nwill return NaN.</p>\n<p>When an array of values is passed in, then an array of floats of the same\nlength is returned.</p>\n",
             "itemtype": "method",
             "name": "float",
             "params": [
@@ -12276,7 +12299,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 36,
+            "line": 42,
             "description": "<p>Converts a boolean, string, or float to its integer representation.\nWhen an array of values is passed in, then an int array of the same length\nis returned.</p>\n",
             "itemtype": "method",
             "name": "int",
@@ -12300,7 +12323,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 67,
+            "line": 73,
             "description": "<p>Converts a boolean, string or number to its string representation.\nWhen an array of values is passed in, then an array of strings of the same\nlength is returned.</p>\n",
             "itemtype": "method",
             "name": "str",
@@ -12324,7 +12347,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 93,
+            "line": 99,
             "description": "<p>Converts a number or string to its boolean representation.\nFor a number, any non-zero value (positive or negative) evaluates to true,\nwhile zero evaluates to false. For a string, the value &quot;true&quot; evaluates to\ntrue, while any other value evaluates to false. When an array of number or\nstring values is passed in, then a array of booleans of the same length is\nreturned.</p>\n",
             "itemtype": "method",
             "name": "boolean",
@@ -12348,7 +12371,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 125,
+            "line": 131,
             "description": "<p>Converts a number, string or boolean to its byte representation.\nA byte can be only a whole number between -128 and 127, so when a value\noutside of this range is converted, it wraps around to the corresponding\nbyte representation. When an array of number, string or boolean values is\npassed in, then an array of bytes the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "byte",
@@ -12372,7 +12395,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 154,
+            "line": 160,
             "description": "<p>Converts a number or string to its corresponding single-character\nstring representation. If a string parameter is provided, it is first\nparsed as an integer and then translated into a single-character string.\nWhen an array of number or string values is passed in, then an array of\nsingle-character strings of the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "char",
@@ -12396,7 +12419,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 182,
+            "line": 188,
             "description": "<p>Converts a single-character string to its corresponding integer\nrepresentation. When an array of single-character string values is passed\nin, then an array of integers of the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "unchar",
@@ -12420,7 +12443,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 205,
+            "line": 211,
             "description": "<p>Converts a number to a string in its equivalent hexadecimal notation. If a\nsecond parameter is passed, it is used to set the number of characters to\ngenerate in the hexadecimal notation. When an array is passed in, an\narray of strings in hexadecimal notation of the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "hex",
@@ -12444,7 +12467,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 240,
+            "line": 246,
             "description": "<p>Converts a string representation of a hexadecimal number to its equivalent\ninteger value. When an array of strings in hexadecimal notation is passed\nin, an array of integers of the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "unhex",
@@ -12976,7 +12999,7 @@
                 "type": "P5"
             },
             "example": [
-                "\n<div>\n<code>\n//drag mouse to toggle the world!\n//you will see there's a vanish point\nfunction setup(){\n  createCanvas(100, 100, WEBGL);\n  perspective(60 / 180 * PI, width/height, 0.1, 100);\n}\nfunction draw(){\n background(200);\n orbitControl();\n for(var i = -1; i < 2; i++){\n    for(var j = -2; j < 3; j++){\n      push();\n      translate(i*160, 0, j*160);\n      box(40, 40, 40);\n      pop();\n    }\n  }\n}\n</code>\n</div>"
+                "\n<div>\n<code>\n//drag mouse to toggle the world!\n//you will see there's a vanish point\nfunction setup(){\n  createCanvas(100, 100, WEBGL);\n  var fov = 60 / 180 * PI;\n  var cameraZ = (height/2.0) / tan(fov/2.0);\n  perspective(60 / 180 * PI, width/height, cameraZ * 0.1, cameraZ * 10);\n}\nfunction draw(){\n background(200);\n orbitControl();\n for(var i = -1; i < 2; i++){\n    for(var j = -2; j < 3; j++){\n      push();\n      translate(i*160, 0, j*160);\n      box(40, 40, 40);\n      pop();\n    }\n  }\n}\n</code>\n</div>"
             ],
             "alt": "colored 3d boxes toggleable with mouse position",
             "class": "p5",
@@ -12985,7 +13008,7 @@
         },
         {
             "file": "src/webgl/camera.js",
-            "line": 103,
+            "line": 105,
             "description": "<p>Setup ortho camera</p>\n",
             "itemtype": "method",
             "name": "ortho",
@@ -13026,7 +13049,7 @@
                 "type": "P5"
             },
             "example": [
-                "\n<div>\n<code>\n//drag mouse to toggle the world!\n//there's no vanish point\nfunction setup(){\n  createCanvas(100, 100, WEBGL);\n  ortho(-width/2, width/2, height/2, -height/2, 0.1, 100);\n}\nfunction draw(){\n background(200);\n orbitControl();\n for(var i = -1; i < 2; i++){\n    for(var j = -2; j < 3; j++){\n      push();\n      translate(i*160, 0, j*160);\n      box(40, 40, 40);\n      pop();\n    }\n  }\n}\n</code>\n</div>"
+                "\n<div>\n<code>\n//drag mouse to toggle the world!\n//there's no vanish point\nfunction setup(){\n  createCanvas(100, 100, WEBGL);\n  ortho(-width/2, width/2, height/2, -height/2, 0, 500);\n}\nfunction draw(){\n background(200);\n orbitControl();\n for(var i = -1; i < 2; i++){\n    for(var j = -2; j < 3; j++){\n      push();\n      translate(i*160, 0, j*160);\n      box(40, 40, 40);\n      pop();\n    }\n  }\n}\n</code>\n</div>"
             ],
             "alt": "3 3d boxes, reveal several more boxes on 3d plane when mouse used to toggle",
             "class": "p5",
@@ -14060,14 +14083,14 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 43,
+            "line": 42,
             "description": "<p>model view, projection, &amp; normal\nmatrices</p>\n",
             "class": "p5.RendererGL",
             "module": "Lights, Camera"
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 106,
+            "line": 107,
             "description": "<p>[background description]</p>\n",
             "return": {
                 "description": "[description]",
@@ -14078,7 +14101,7 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 130,
+            "line": 131,
             "description": "<p>[_initShaders description]</p>\n",
             "params": [
                 {
@@ -14101,7 +14124,7 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 205,
+            "line": 203,
             "description": "<p>Sets a shader uniform given a shaderProgram and uniform string</p>\n",
             "params": [
                 {
@@ -14128,7 +14151,7 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 280,
+            "line": 278,
             "description": "<p>Basic fill material for geometry with a given color</p>\n",
             "itemtype": "method",
             "name": "fill",
@@ -14170,7 +14193,7 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 357,
+            "line": 355,
             "description": "<p>[strokeWeight description]</p>\n",
             "params": [
                 {
@@ -14191,7 +14214,7 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 380,
+            "line": 378,
             "description": "<p>[resize description]</p>\n",
             "params": [
                 {
@@ -14214,7 +14237,7 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 397,
+            "line": 395,
             "description": "<p>clears color and depth buffers\nwith r,g,b,a</p>\n",
             "params": [
                 {
@@ -14243,7 +14266,7 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 414,
+            "line": 412,
             "description": "<p>[translate description]</p>\n",
             "params": [
                 {
@@ -14274,7 +14297,7 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 431,
+            "line": 425,
             "description": "<p>Scales the Model View Matrix by a vector</p>\n",
             "params": [
                 {
@@ -14304,14 +14327,14 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 463,
+            "line": 457,
             "description": "<p>pushes a copy of the model view matrix onto the\nMV Matrix stack.</p>\n",
             "class": "p5.RendererGL",
             "module": "Lights, Camera"
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 471,
+            "line": 465,
             "description": "<p>[pop description]</p>\n",
             "return": {
                 "description": "[description]",
@@ -14538,7 +14561,7 @@
         {
             "file": "src/webgl/primitives.js",
             "line": 436,
-            "description": "<p>Draw an ellipsoid with given raduis</p>\n",
+            "description": "<p>Draw an ellipsoid with given radius</p>\n",
             "itemtype": "method",
             "name": "ellipsoid",
             "params": [
@@ -15191,7 +15214,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1009,
+            "line": 1014,
             "description": "<p>Creates element with given tag in the DOM with given content.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
             "itemtype": "method",
             "name": "createElement",
@@ -15221,7 +15244,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1035,
+            "line": 1040,
             "description": "<p>Adds specified class to the element.</p>\n",
             "itemtype": "method",
             "name": "addClass",
@@ -15245,7 +15268,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1062,
+            "line": 1067,
             "description": "<p>Removes specified class from the element.</p>\n",
             "itemtype": "method",
             "name": "removeClass",
@@ -15266,7 +15289,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1077,
+            "line": 1082,
             "description": "<p>Attaches the element  as a child to the parent specified.\n Accepts either a string ID, DOM node, or p5.Element.\n If no argument is specified, an array of children DOM nodes is returned.</p>\n",
             "itemtype": "method",
             "name": "child",
@@ -15291,7 +15314,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1121,
+            "line": 1126,
             "description": "<p>Centers a p5 Element either vertically, horizontally,\nor both, relative to its parent or according to\nthe body if the Element has no parent. If no argument is passed\nthe Element is aligned both vertically and horizontally.</p>\n",
             "params": [
                 {
@@ -15313,7 +15336,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1174,
+            "line": 1179,
             "description": "<p>If an argument is given, sets the inner HTML of the element,\n replacing any existing html. If no arguments are given, returns\n the inner HTML of the element.</p>\n",
             "itemtype": "method",
             "name": "html",
@@ -15338,7 +15361,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1200,
+            "line": 1205,
             "description": "<p>Sets the position of the element relative to (0, 0) of the\n window. Essentially, sets position:absolute and left and top\n properties of style. If no arguments given returns the x and y position\n of the element in an object.</p>\n",
             "itemtype": "method",
             "name": "position",
@@ -15369,7 +15392,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1281,
+            "line": 1286,
             "description": "<p>Sets the given style (css) property (1st arg) of the element with the\ngiven value (2nd arg). If a single argument is given, .style()\nreturns the value of the given property; however, if the single argument\nis given in css syntax (&#39;text-align:center&#39;), .style() sets the css\nappropriatly. .style() also handles 2d and 3d css transforms. If\nthe 1st arg is &#39;rotate&#39;, &#39;translate&#39;, or &#39;position&#39;, the following arguments\naccept Numbers as values. (&#39;translate&#39;, 10, 100, 50);</p>\n",
             "itemtype": "method",
             "name": "style",
@@ -15417,7 +15440,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1366,
+            "line": 1371,
             "description": "<p>Adds a new attribute or changes the value of an existing attribute\n on the specified element. If no value is specified, returns the\n value of the given attribute, or null if attribute is not set.</p>\n",
             "itemtype": "method",
             "name": "attribute",
@@ -15447,7 +15470,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1393,
+            "line": 1398,
             "description": "<p>Removes an attribute on the specified element.</p>\n",
             "itemtype": "method",
             "name": "removeAttribute",
@@ -15471,7 +15494,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1430,
+            "line": 1435,
             "description": "<p>Either returns the value of the element if no arguments\ngiven, or sets the value of the element.</p>\n",
             "itemtype": "method",
             "name": "value",
@@ -15496,7 +15519,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1473,
+            "line": 1478,
             "description": "<p>Shows the current element. Essentially, setting display:block for the style.</p>\n",
             "itemtype": "method",
             "name": "show",
@@ -15513,7 +15536,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1491,
+            "line": 1496,
             "description": "<p>Hides the current element. Essentially, setting display:none for the style.</p>\n",
             "itemtype": "method",
             "name": "hide",
@@ -15530,7 +15553,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1507,
+            "line": 1512,
             "description": "<p>Sets the width and height of the element. AUTO can be used to\n only adjust one dimension. If no arguments given returns the width and height\n of the element in an object.</p>\n",
             "itemtype": "method",
             "name": "size",
@@ -15561,7 +15584,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1573,
+            "line": 1578,
             "description": "<p>Removes the element and deregisters all listeners.</p>\n",
             "itemtype": "method",
             "name": "remove",
@@ -15574,7 +15597,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1622,
+            "line": 1627,
             "description": "<p>Path to the media element source.</p>\n",
             "itemtype": "property",
             "name": "src",
@@ -15588,7 +15611,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1657,
+            "line": 1662,
             "description": "<p>Play an HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "play",
@@ -15602,7 +15625,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1678,
+            "line": 1683,
             "description": "<p>Stops an HTML5 media element (sets current time to zero).</p>\n",
             "itemtype": "method",
             "name": "stop",
@@ -15616,7 +15639,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1690,
+            "line": 1695,
             "description": "<p>Pauses an HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "pause",
@@ -15630,7 +15653,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1701,
+            "line": 1706,
             "description": "<p>Set &#39;loop&#39; to true for an HTML5 media element, and starts playing.</p>\n",
             "itemtype": "method",
             "name": "loop",
@@ -15644,7 +15667,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1712,
+            "line": 1717,
             "description": "<p>Set &#39;loop&#39; to false for an HTML5 media element. Element will stop\nwhen it reaches the end.</p>\n",
             "itemtype": "method",
             "name": "noLoop",
@@ -15658,7 +15681,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1725,
+            "line": 1730,
             "description": "<p>Set HTML5 media element to autoplay or not.</p>\n",
             "itemtype": "method",
             "name": "autoplay",
@@ -15679,7 +15702,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1737,
+            "line": 1742,
             "description": "<p>Sets volume for this HTML5 media element. If no argument is given,\nreturns the current volume.</p>\n",
             "params": [
                 {
@@ -15701,7 +15724,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1753,
+            "line": 1758,
             "description": "<p>If no arguments are given, returns the current playback speed of the\nelement. The speed parameter sets the speed where 2.0 will play the\nelement twice as fast, 0.5 will play at half the speed, and -1 will play\nthe element in normal speed in reverse.(Note that not all browsers support\nbackward playback and even if they do, playback might not be smooth.)</p>\n",
             "itemtype": "method",
             "name": "speed",
@@ -15723,7 +15746,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1772,
+            "line": 1777,
             "description": "<p>If no arguments are given, returns the current time of the element.\nIf an argument is given the current time of the element is set to it.</p>\n",
             "itemtype": "method",
             "name": "time",
@@ -15745,7 +15768,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1789,
+            "line": 1794,
             "description": "<p>Returns the duration of the HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "duration",
@@ -15759,7 +15782,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1843,
+            "line": 1848,
             "description": "<p>Schedule an event to be called when the audio or video\nelement reaches the end. If the element is looping,\nthis will not be called. The element is passed in\nas the argument to the onended callback.</p>\n",
             "itemtype": "method",
             "name": "onended",
@@ -15783,14 +15806,14 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1875,
+            "line": 1880,
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1877,
+            "line": 1882,
             "description": "<p>Send the audio output of this element to a specified audioNode or\np5.sound object. If no element is provided, connects to p5&#39;s master\noutput. That connection is established when this method is first called.\nAll connections are removed by the .disconnect() method.</p>\n<p>This method is meant to be used with the p5.sound.js addon library.</p>\n",
             "itemtype": "method",
             "name": "connect",
@@ -15807,7 +15830,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1929,
+            "line": 1934,
             "description": "<p>Disconnect all Web Audio routing, including to master output.\nThis is useful if you want to re-route the output through\naudio effects, for example.</p>\n",
             "itemtype": "method",
             "name": "disconnect",
@@ -15817,14 +15840,14 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1945,
+            "line": 1950,
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1947,
+            "line": 1952,
             "description": "<p>Show the default MediaElement controls, as determined by the web browser.</p>\n",
             "itemtype": "method",
             "name": "showControls",
@@ -15834,7 +15857,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1958,
+            "line": 1963,
             "description": "<p>Hide the default mediaElement controls.</p>\n",
             "itemtype": "method",
             "name": "hideControls",
@@ -15844,14 +15867,14 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1967,
+            "line": 1972,
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1969,
+            "line": 1974,
             "description": "<p>Schedule events to trigger every time a MediaElement\n(audio/video) reaches a playback cue point.</p>\n<p>Accepts a callback function, a time (in seconds) at which to trigger\nthe callback, and an optional parameter for the callback.</p>\n<p>Time will be passed as the first parameter to the callback function,\nand param will be the second parameter.</p>\n",
             "itemtype": "method",
             "name": "addCue",
@@ -15886,7 +15909,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2031,
+            "line": 2036,
             "description": "<p>Remove a callback based on its ID. The ID is returned by the\naddCue method.</p>\n",
             "itemtype": "method",
             "name": "removeCue",
@@ -15903,7 +15926,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2051,
+            "line": 2056,
             "description": "<p>Remove all of the callbacks that had originally been scheduled\nvia the addCue method.</p>\n",
             "itemtype": "method",
             "name": "clearCues",
@@ -15913,7 +15936,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2108,
+            "line": 2113,
             "description": "<p>Underlying File object. All normal File methods can be called on this.</p>\n",
             "itemtype": "property",
             "name": "file",
@@ -15923,7 +15946,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2120,
+            "line": 2125,
             "description": "<p>File type (image, text, etc.)</p>\n",
             "itemtype": "property",
             "name": "type",
@@ -15933,7 +15956,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2126,
+            "line": 2131,
             "description": "<p>File subtype (usually the file extension jpg, png, xml, etc.)</p>\n",
             "itemtype": "property",
             "name": "subtype",
@@ -15943,7 +15966,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2132,
+            "line": 2137,
             "description": "<p>File name</p>\n",
             "itemtype": "property",
             "name": "name",
@@ -15953,7 +15976,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2138,
+            "line": 2143,
             "description": "<p>File size</p>\n",
             "itemtype": "property",
             "name": "size",
@@ -15963,7 +15986,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2145,
+            "line": 2150,
             "description": "<p>URL string containing image data.</p>\n",
             "itemtype": "property",
             "name": "data",
@@ -20338,15 +20361,15 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:241"
+            "line": " src/image/loading_displaying.js:236"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:316"
+            "line": " src/image/loading_displaying.js:311"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:381"
+            "line": " src/image/loading_displaying.js:376"
         },
         {
             "message": "unknown tag: alt",
@@ -20750,7 +20773,7 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/camera.js:103"
+            "line": " src/webgl/camera.js:105"
         },
         {
             "message": "unknown tag: alt",
@@ -20794,7 +20817,7 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/p5.RendererGL.js:280"
+            "line": " src/webgl/p5.RendererGL.js:278"
         },
         {
             "message": "unknown tag: alt",
@@ -20942,7 +20965,7 @@
         },
         {
             "message": "Missing item type\nGenerate a cubic Bezier representing an arc on the unit circle of total\nangle `size` radians, beginning `start` radians above the x-axis. Up to\nfour of these curves are combined to make a full arc.\n\nSee www.joecridge.me/bezier.pdf for an explanation of the method.",
-            "line": " src/core/p5.Renderer2D.js:356"
+            "line": " src/core/p5.Renderer2D.js:355"
         },
         {
             "message": "Missing item type\nshim for Uint8ClampedArray.slice\n(allows arrayCopy to work with pixels[])\nwith thanks to http://halfpapstudios.com/blog/tag/html5-canvas/\nEnumerable set to false to protect for...in from\nUint8ClampedArray.prototype pollution.",
@@ -21026,7 +21049,7 @@
         },
         {
             "message": "Missing item type\nApply the current tint color to the input image, return the resulting\ncanvas.",
-            "line": " src/image/loading_displaying.js:345"
+            "line": " src/image/loading_displaying.js:340"
         },
         {
             "message": "Missing item type\nThis module defines the p5.Image class and P5 methods for\ndrawing images to the main display canvas.",
@@ -21294,47 +21317,47 @@
         },
         {
             "message": "Missing item type\nmodel view, projection, & normal\nmatrices",
-            "line": " src/webgl/p5.RendererGL.js:43"
+            "line": " src/webgl/p5.RendererGL.js:42"
         },
         {
             "message": "Missing item type\n[background description]",
-            "line": " src/webgl/p5.RendererGL.js:106"
+            "line": " src/webgl/p5.RendererGL.js:107"
         },
         {
             "message": "Missing item type\n[_initShaders description]",
-            "line": " src/webgl/p5.RendererGL.js:130"
+            "line": " src/webgl/p5.RendererGL.js:131"
         },
         {
             "message": "Missing item type\nSets a shader uniform given a shaderProgram and uniform string",
-            "line": " src/webgl/p5.RendererGL.js:205"
+            "line": " src/webgl/p5.RendererGL.js:203"
         },
         {
             "message": "Missing item type\n[strokeWeight description]",
-            "line": " src/webgl/p5.RendererGL.js:357"
+            "line": " src/webgl/p5.RendererGL.js:355"
         },
         {
             "message": "Missing item type\n[resize description]",
-            "line": " src/webgl/p5.RendererGL.js:380"
+            "line": " src/webgl/p5.RendererGL.js:378"
         },
         {
             "message": "Missing item type\nclears color and depth buffers\nwith r,g,b,a",
-            "line": " src/webgl/p5.RendererGL.js:397"
+            "line": " src/webgl/p5.RendererGL.js:395"
         },
         {
             "message": "Missing item type\n[translate description]",
-            "line": " src/webgl/p5.RendererGL.js:414"
+            "line": " src/webgl/p5.RendererGL.js:412"
         },
         {
             "message": "Missing item type\nScales the Model View Matrix by a vector",
-            "line": " src/webgl/p5.RendererGL.js:431"
+            "line": " src/webgl/p5.RendererGL.js:425"
         },
         {
             "message": "Missing item type\npushes a copy of the model view matrix onto the\nMV Matrix stack.",
-            "line": " src/webgl/p5.RendererGL.js:463"
+            "line": " src/webgl/p5.RendererGL.js:457"
         },
         {
             "message": "Missing item type\n[pop description]",
-            "line": " src/webgl/p5.RendererGL.js:471"
+            "line": " src/webgl/p5.RendererGL.js:465"
         },
         {
             "message": "Missing item type",
@@ -21374,19 +21397,19 @@
         },
         {
             "message": "Missing item type\nCenters a p5 Element either vertically, horizontally,\nor both, relative to its parent or according to\nthe body if the Element has no parent. If no argument is passed\nthe Element is aligned both vertically and horizontally.",
-            "line": " lib/addons/p5.dom.js:1121"
+            "line": " lib/addons/p5.dom.js:1126"
         },
         {
             "message": "Missing item type",
-            "line": " lib/addons/p5.dom.js:1875"
+            "line": " lib/addons/p5.dom.js:1880"
         },
         {
             "message": "Missing item type",
-            "line": " lib/addons/p5.dom.js:1945"
+            "line": " lib/addons/p5.dom.js:1950"
         },
         {
             "message": "Missing item type",
-            "line": " lib/addons/p5.dom.js:1967"
+            "line": " lib/addons/p5.dom.js:1972"
         },
         {
             "message": "Missing item type\np5.sound developed by Jason Sigal for the Processing Foundation, Google Summer of Code 2014. The MIT License (MIT).\n\nhttp://github.com/therewasaguy/p5.sound\n\nSome of the many audio libraries & resources that inspire p5.sound:\n - TONE.js (c) Yotam Mann, 2014. Licensed under The MIT License (MIT). https://github.com/TONEnoTONE/Tone.js\n - buzz.js (c) Jay Salvat, 2013. Licensed under The MIT License (MIT). http://buzz.jaysalvat.com/\n - Boris Smus Web Audio API book, 2013. Licensed under the Apache License http://www.apache.org/licenses/LICENSE-2.0\n - wavesurfer.js https://github.com/katspaugh/wavesurfer.js\n - Web Audio Components by Jordan Santell https://github.com/web-audio-components\n - Wilm Thoben's Sound library for Processing https://github.com/processing/processing/tree/master/java/libraries/sound\n \n Web Audio API: http://w3.org/TR/webaudio/",

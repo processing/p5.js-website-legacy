@@ -8,6 +8,17 @@
     <title tabindex="1">p5.js | download</title>
     <link rel="stylesheet" href="/../../assets/css/all.css">
     <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/../../assets/js/p5.min.js"></script>
+    <script type="text/javascript" src="/../../assets/js/p5.dom.js"></script>
+    <script type="text/javascript" src="/../../assets/js/p5.sound.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/prism.js"></script>
+    <script type="text/javascript" src="/../../assets/js/scroll.js"></script>
+    <script type="text/javascript" src="/../../assets/js/examples.js"></script>
+    <script type="text/javascript" src="/../../assets/js/render.js"></script>
+    <script type="text/javascript" src="/../../assets/js/init.js"></script>
   </head>
   <body>
   
@@ -80,7 +91,7 @@
       <div class="link_group">
         <h2>Biblioteca completa</h2>
 
-        <a href="https://github.com/processing/p5.js/releases/download/0.5.4/p5.zip">
+        <a  class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
           <div class="download_box">
 
             <h4>p5.js completo</h4>
@@ -92,7 +103,7 @@
 
             <p>Incluye:
               <br>p5.js, p5.dom.js, p5.sound.js y un proyecto ejemplo
-            <br>Versión  0.5.4 (October 1, 2016)
+            <br>Versión  <span id="p5_version"></span> (<span id="p5_date"></span>)
             </p>
 
           </div>
@@ -104,7 +115,7 @@
       <div class="link_group">
 
         <h2>Archivos por separado</h2>
-        <a href="https://github.com/processing/p5.js/releases/download/0.5.4/p5.js">
+        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
           <div class="download_box half_box">
             <h4>p5.js</h4>
             <p>Archivo: 
@@ -112,7 +123,7 @@
           </div>
         </a>
 
-        <a href="https://github.com/processing/p5.js/releases/download/0.5.4/p5.min.js">
+        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.min.js">
           <div class="download_box half_box">
             <h4>p5.min.js</h4>
             <p>Archivo: 
@@ -142,30 +153,30 @@
              retroalimentación y reportando errores</a>.
         </p>
 
-        <a href="https://github.com/processing/p5.js-editor/releases/download/v0.6.1/p5-mac.zip">
+        <a class="editor_link" href="https://github.com/processing/p5.js-editor/releases/download/v[editor_version]/p5-mac.zip">
           <div class="download_box half_box">
             <h4>Mac OS X</h4>
             <p>Editor de p5
               <br>Versión
-              0.6.1</p>
+              <span class="editor_version"></span></p>
           </div>
         </a>
 
-        <a href="https://github.com/processing/p5.js-editor/releases/download/v0.6.1/p5-win.zip">
+        <a class="editor_link" href="https://github.com/processing/p5.js-editor/releases/download/v[editor_version]/p5-win.zip">
           <div class="download_box half_box">
             <h4>Windows</h4>
             <p>Editor de p5
               <br>Versión
-              0.6.1</p>
+              <span class="editor_version"></span></p>
           </div>
         </a>
 
-        <a href="https://github.com/processing/p5.js-editor/releases/download/v0.6.1/p5-linux.zip">
+        <a class="editor_link" href="https://github.com/processing/p5.js-editor/releases/download/v[editor_version]/p5-linux.zip">
           <div class="download_box half_box">
             <h4>Linux</h4>
             <p>Editor de p5
               <br>Versión
-              0.6.1</p>
+              <span class="editor_version"></span></p>
           </div>
         </a>
 
@@ -194,7 +205,17 @@
 
     <script type='text/javascript'>
       $.getJSON('version.json', function(data) {
-        console.log(data);
+        $('#p5_version').text(data.version);
+        $('#p5_date').text(data.date);
+        $('.p5_link').each(function() {
+          var link = $(this).attr('href').replace('[p5_version]', data.version);
+          $(this).attr('href', link);
+        });
+        $('.editor_version').text(data.editor_version);
+        $('.editor_link').each(function() {
+          var link = $(this).attr('href').replace('[editor_version]', data.editor_version);
+          $(this).attr('href', link);
+        });
       });
 
     </script>
@@ -242,6 +263,13 @@
   </p>
 </div>
 
-    <script src="/../../assets/js/init.js" charset="utf-8"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+    </script>
   </body>
 </html>

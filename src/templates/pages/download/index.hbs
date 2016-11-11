@@ -21,7 +21,7 @@ slug: download/
       <div class="link_group">
         <h2>{{#i18n "complete-library-title"}}{{/i18n}}</h2>
 
-        <a href="https://github.com/processing/p5.js/releases/download/{{download.version}}/p5.zip">
+        <a  class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
           <div class="download_box">
 
             <h4>{{#i18n "p5.js-complete"}}{{/i18n}}</h4>
@@ -33,7 +33,7 @@ slug: download/
 
             <p>{{#i18n "includes-1"}}{{/i18n}}
               <br>{{#i18n "includes-2"}}{{/i18n}}
-            <br>{{#i18n "includes-3"}}{{/i18n}} {{download.version}} ({{download.date}})
+            <br>{{#i18n "includes-3"}}{{/i18n}} <span id="p5_version"></span> (<span id="p5_date"></span>)
             </p>
 
           </div>
@@ -45,7 +45,7 @@ slug: download/
       <div class="link_group">
 
         <h2>{{#i18n "single-files-title"}}{{/i18n}}</h2>
-        <a href="https://github.com/processing/p5.js/releases/download/{{download.version}}/p5.js">
+        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
           <div class="download_box half_box">
             <h4>p5.js</h4>
             <p>{{#i18n "single-file"}}{{/i18n}}
@@ -53,7 +53,7 @@ slug: download/
           </div>
         </a>
 
-        <a href="https://github.com/processing/p5.js/releases/download/{{download.version}}/p5.min.js">
+        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.min.js">
           <div class="download_box half_box">
             <h4>p5.min.js</h4>
             <p>{{#i18n "single-file"}}{{/i18n}}
@@ -83,30 +83,30 @@ slug: download/
             {{#i18n "editor2"}}{{/i18n}}</a>.
         </p>
 
-        <a href="https://github.com/processing/p5.js-editor/releases/download/v{{download.editor_version}}/p5-mac.zip">
+        <a class="editor_link" href="https://github.com/processing/p5.js-editor/releases/download/v[editor_version]/p5-mac.zip">
           <div class="download_box half_box">
             <h4>Mac OS X</h4>
             <p>{{#i18n "p5-editor"}}{{/i18n}}
               <br>{{#i18n "version"}}{{/i18n}}
-              {{download.editor_version}}</p>
+              <span class="editor_version"></span></p>
           </div>
         </a>
 
-        <a href="https://github.com/processing/p5.js-editor/releases/download/v{{download.editor_version}}/p5-win.zip">
+        <a class="editor_link" href="https://github.com/processing/p5.js-editor/releases/download/v[editor_version]/p5-win.zip">
           <div class="download_box half_box">
             <h4>Windows</h4>
             <p>{{#i18n "p5-editor"}}{{/i18n}}
               <br>{{#i18n "version"}}{{/i18n}}
-              {{download.editor_version}}</p>
+              <span class="editor_version"></span></p>
           </div>
         </a>
 
-        <a href="https://github.com/processing/p5.js-editor/releases/download/v{{download.editor_version}}/p5-linux.zip">
+        <a class="editor_link" href="https://github.com/processing/p5.js-editor/releases/download/v[editor_version]/p5-linux.zip">
           <div class="download_box half_box">
             <h4>Linux</h4>
             <p>{{#i18n "p5-editor"}}{{/i18n}}
               <br>{{#i18n "version"}}{{/i18n}}
-              {{download.editor_version}}</p>
+              <span class="editor_version"></span></p>
           </div>
         </a>
 
@@ -135,7 +135,17 @@ slug: download/
 
     <script type='text/javascript'>
       $.getJSON('version.json', function(data) {
-        console.log(data);
+        $('#p5_version').text(data.version);
+        $('#p5_date').text(data.date);
+        $('.p5_link').each(function() {
+          var link = $(this).attr('href').replace('[p5_version]', data.version);
+          $(this).attr('href', link);
+        });
+        $('.editor_version').text(data.editor_version);
+        $('.editor_link').each(function() {
+          var link = $(this).attr('href').replace('[editor_version]', data.editor_version);
+          $(this).attr('href', link);
+        });
       });
 
     </script>

@@ -1,9 +1,10 @@
+var langs = ['en', 'es'];
+
 // =================================================
 // Family bar:
-
-(function(w, d) {
-  var search_form = d.getElementById('search_form'),
-      search_field = d.getElementById('search_field');
+window.onload = function() {
+  var search_form = document.getElementById('search_form'),
+      search_field = document.getElementById('search_field');
   var open_field = function() {
     search_form.className = 'form__open';
     search_field.focus();
@@ -26,13 +27,8 @@
     search_form.attachEvent('onmouseout', close_field);
     search_form.attachEvent('onfocusout', close_field);
   }
-})(window, document);
 
-// ===============================================
-// Language handling:
-
-(function(w, d, langs) {
-
+  
   // ===============================================
   // Language detection:
 
@@ -49,7 +45,7 @@
         return false;
       }
     };
-    var can_store = test_local_storage(w);
+    var can_store = test_local_storage(window);
 
     var get_browser_lang = function(w) {
       var tmp = w.navigator.languages && w.navigator.languages[0]
@@ -62,7 +58,7 @@
       }
       return 'en';
     };
-    var browser_lang = get_browser_lang(w);
+    var browser_lang = get_browser_lang(window);
 
     var get_loc_lang = function(w) {
       if ((w.location.pathname == '/') === false) {
@@ -74,15 +70,15 @@
       }
       return 'en';
     };
-    var loc = String(w.location.pathname);
-    var loc_lang = get_loc_lang(w);
-    var is_root = (w.location.pathname == '/');
+    var loc = String(window.location.pathname);
+    var loc_lang = get_loc_lang(window);
+    var is_root = (loc == '/');
 
     // Default lang:
     var lang = 'en';
     if (can_store) {
-      if (w.localStorage.getItem('lang') !== null) {
-        var saved_lang = w.localStorage.getItem('lang');
+      if (window.localStorage.getItem('lang') !== null) {
+        var saved_lang = window.localStorage.getItem('lang');
         if (saved_lang !== loc_lang) {
           if (saved_lang == 'en') {
             loc = '/' + loc.replace('\/' + loc_lang + '\/', '');
@@ -96,27 +92,27 @@
       } else {
         if (is_root && browser_lang != loc_lang) {
           loc = '/' + browser_lang;
-          w.location = loc;
+          window.location = loc;
         }
       }
     } else {
       lang = get_loc_lang();
     }
-    w.lang = lang;
+    window.lang = lang;
   } else {
-    w.lang = 'en';
+    window.lang = 'en';
   }
 
 
   // ===============================================
   // Language change:
 
-  var els = d.getElementsByClassName('js-lang');
+  var els = document.getElementsByClassName('js-lang');
   var el = null;
-  if (w.lang != 'en') {
+  if (window.lang != 'en') {
     for (var i=0, l=els.length; i < l; i++) {
       el = els[i];
-      el.innerHTML = el.getAttribute('data-' + w.lang);
+      el.innerHTML = el.getAttribute('data-' + window.lang);
     }
   }
 
@@ -124,8 +120,8 @@
   // ===============================================
   // Language buttons:
 
-  var btns = d.getElementById('i18n-btn').getElementsByTagName('button');
-  var evt_type = typeof d.addEventListener !== 'undefined' ? 'click' : 'onclick';
+  var btns = document.getElementById('i18n-btn').getElementsByTagName('button');
+  var evt_type = typeof document.addEventListener !== 'undefined' ? 'click' : 'onclick';
   var click_action = function(e) {
     var new_lang = this.getAttribute('data-lang');
     if (new_lang == 'en') {
@@ -165,52 +161,6 @@
     buttons.style.display = 'block';
   }
 
-})(window, document, ['en', 'es']);  // <- Add here all languages.
 
-
-// =================================================
-// Loading
-
-(function(w, d, langs, deps, main, check) {
-
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-53383000-1', 'auto');
-  ga('send', 'pageview');
-  
-  var url_parts = w.location.pathname.split('/').filter(function (v) {
-    return v !== '';
-  });
-
-  var inject = function(files) {
-    if (typeof jQuery === 'undefined') {
-      files.push('/assets/js/vendor/jquery-1.9.1.min.js');
-    }
-    for (var i = 0, l = files.length; i < l; i++) {
-      var script = d.createElement('script');
-      script.setAttribute('src', files[i]);
-      script.setAttribute('type', 'text/javascript');
-      d.getElementsByTagName('body')[0].appendChild(script);
-    }
-  };
-  var load = function() {
-    inject(deps);
-    w.addEventListener('load', function() {
-      inject(main);
-    }, true);
-  };
-  if (url_parts.length > 1) {
-    load();
-  } else if (url_parts.length == 1) {
-    for (var i = 0, l = langs.length; i < l; i++) {
-      if (langs[i] != 'en' && url_parts[0] != langs[i]) {
-        load();
-        break;
-      }
-    }
-  }
-})(window, document, ['en', 'es'], ['/assets/js/p5.all.js'], ['/assets/js/all.js']);
-
+}
 

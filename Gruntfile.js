@@ -34,10 +34,6 @@ module.exports = function(grunt) {
           'postcss'
         ]
       },
-      js: {
-        files: ['<%= config.src %>/assets/js/*.js', '!,<%= config.src %>/assets/js/render.js'],
-        tasks: ['uglify']
-      },
       imagemin: {
         files: '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,svg}',
         tasks: ['newer:imagemin']
@@ -154,25 +150,6 @@ module.exports = function(grunt) {
         dest: '<%= config.dist %>/assets/css/all.css'
       }
     },
-    // uncss: {
-    //   dist: {
-    //     options: {
-    //       report: 'gzip',
-    //       timeout: 5000
-    //     },
-    //     files: [{
-    //       nonull: false,
-    //       src: [
-    //         'http://localhost:9000/get-started/index.html',
-    //         'http://localhost:9000/examples/structure-coordinates.html',
-    //         '<%= config.dist %>/**/*.html',
-    //         '!<%= config.dist %>/es/**',
-    //         '!<%= config.dist %>/assets/**'
-    //       ],
-    //       dest: '<%= config.dist %>/assets/css/all.css'
-    //     }]
-    //   },
-    // },
     postcss: {
       options: {
         map: true,
@@ -196,76 +173,6 @@ module.exports = function(grunt) {
       },
       dist: {
         src: '<%= config.dist %>/assets/css/all.css'
-      }
-    },
-
-    // JavaScript:
-    uglify: {
-      p5js: {
-        options: {
-          banner: '/* p5js.org */',
-          mangle: {
-            except: ['p5']
-          },
-          sourceMap: true,
-          sourceMapName: '<%= config.dist %>/assets/js/maps/p5.all.js.map',
-          compress: {
-            drop_console: true
-          },
-          concat: {
-            options: {
-              separator: ';'
-            }
-          }
-        },
-        files: {
-          '<%= config.dist %>/assets/js/p5.all.js': [
-            '<%= config.src %>/assets/js/p5.min.js',
-            '<%= config.src %>/assets/js/p5.dom.js',
-            '<%= config.src %>/assets/js/p5.sound.js'
-          ]
-        }
-      },
-      all: {
-        options: {
-          banner: '/* p5js.org */',
-          mangle: {
-            except: ['jQuery', '$', 'examples', 'renderCode', 'Prism']
-          },
-          sourceMap: true,
-          sourceMapName: '<%= config.dist %>/assets/js/maps/all.js.map',
-          compress: {
-            drop_console: true
-          }
-        },
-        files: {
-          '<%= config.dist %>/assets/js/all.js': [
-            '<%= config.src %>/assets/js/vendor/ace-nc/ace.js',
-            '<%= config.src %>/assets/js/vendor/ace-nc/mode-javascript.js',
-            '<%= config.src %>/assets/js/vendor/prism.js',
-            // '<%= config.src %>/assets/js/vendor/galleria.js',
-            '<%= config.src %>/assets/js/main.js',
-            // '<%= config.src %>/assets/js/logo.js',
-            '<%= config.src %>/assets/js/scroll.js',
-            '<%= config.src %>/assets/js/examples.js',
-            '<%= config.src %>/assets/js/render.js'
-          ]
-        }
-      },
-      init: {
-        options: {
-          banner: '/* p5js.org */',
-          sourceMap: true,
-          sourceMapName: '<%= config.dist %>/assets/js/maps/init.js.map',
-          compress: {
-            drop_console: true
-          }
-        },
-        files: {
-          '<%= config.dist %>/assets/js/init.js': [
-            '<%= config.src %>/assets/js/init.js'
-          ]
-        }
       }
     },
 
@@ -317,6 +224,8 @@ module.exports = function(grunt) {
         '!<%= config.dist %>/**/reference/**/*.*',
         '!<%= config.dist %>/**/helpers/**/*.*',
         '!<%= config.dist %>/assets/img/**/*.*',
+        '!<%= config.dist %>/download/version.json',
+        '!<%= config.dist %>/download/*.php',
         '!<%= config.dist %>/offline-reference/**/*.*'
       ]
     }
@@ -343,8 +252,7 @@ module.exports = function(grunt) {
     'newer:imagemin',
     'concat:dist',
     // 'uncss',
-    'postcss',
-    'uglify'
+    'postcss'
   ]);
 
   // runs three tasks in order
