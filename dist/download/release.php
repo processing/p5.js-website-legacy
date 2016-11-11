@@ -67,7 +67,7 @@ function updateAll() {
   download('https://raw.githubusercontent.com/processing/p5.js-editor/master/package.json', 'package.json');
   $editor_version = getEditorVersion('package.json');
 
-  $contents = array('version'=>$lib_version, 'data'=>$lib_date, 'editor_version'=>$editor_version);
+  $contents = array('version'=>$lib_version, 'date'=>$lib_date, 'editor_version'=>$editor_version);
   file_put_contents('version.json', json_encode($contents));
 
   unlink('package.json');
