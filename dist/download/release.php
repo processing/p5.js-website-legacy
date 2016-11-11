@@ -71,7 +71,7 @@ function updateAll() {
   file_put_contents('version.json', json_encode($contents));
 
   unlink('package.json');
-  echo 'updated library version to v'.$lib_version.' ('.$lib_date.')';
+  echo 'updated library version to v'.$lib_version.' ('.$lib_date.')<br>';
   echo 'updated editor version to v'.$editor_version;
 }
 
