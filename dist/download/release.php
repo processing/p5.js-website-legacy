@@ -33,7 +33,6 @@ function getLibVersionDate($f) {
   preg_match('/v([^ ]*) /', $line, $matches);
   $v = $matches[1];
   preg_match('/v[^ ]* ([^ ]* [^ ]* [^ ]*) /', $line, $matches);
-  echo "hi".$matches[0];
   $d = $matches[1];
   return array($v, $d);
 }
@@ -73,6 +72,7 @@ function updateAll() {
 
   unlink('package.json');
   echo 'updated library version to v'.$lib_version.' ('.$lib_date.')';
+  echo 'updated editor version to v'.$editor_version;
 }
 
 
