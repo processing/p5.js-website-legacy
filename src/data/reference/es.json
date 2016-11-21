@@ -71,6 +71,15 @@
     "clear": {
       "description": "Borra los pixeles del buffer. Esta función solo funciona en objetos p5.Canvas creados con la función createCanvas(); no funcionará con la ventana principal. A diferencia del contexto principal de gráficas, los pixeles en las áreas gráficas adicionales creadas con createGraphics() pueden ser entera o parcialmente transparentes. Esta función borra todo para hacer los pixeles 100% transparentes.",
       "returns": "the p5 object"
+    },
+    "colorMode": {
+      "description": "colorMode() cambia la manera en que p5.js interpreta los datos de color. Por defecto, los parámetros de fill(), stroke(), background() y color() son definidos por valores entre 0 y 255 en modo RGB. Esto es equivalente a definir el modo de color según colorMode(RGB, 255). Definir el modo de color en colorMode(HSB) permite usar el sistema HSB. Por defecto, este modo de color es colorMode(HSB, 360, 100, 100, 1). También se puede usar HSL. NotaÑ los objetos de color existentes recuerdan el modo en que fueron creados, por lo que puedes cambiar el modo como quieras, sin afectar su apariencia.",
+      "params": ["Constante: RGB o HSB, correspondiente a Rojo/Verde/Azul o tinte/saturación/brillo (o luminosidad)",
+      "Número: rango de rojo o tinte, dependiendo del modo de color actual, o rango para todos los valores",
+      "Número: rango de verde o saturación, dependiendo del modo de color actual.",
+      "Número: rango de azul o brillo/luminosidad, dependiendo del modo de color actual.",
+      "Número: rango de transparencia alpha"],
+      "returns": "the p5 object"
     }
   },
   "p5.Image": {
