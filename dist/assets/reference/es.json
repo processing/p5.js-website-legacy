@@ -17,8 +17,12 @@
     },
     "color": {
       "description": "Crea colores para ser almacenados en variables del tipo color. Los parámetros son interpretados como valores RGB o HSB, dependiendo del modo actual de color según colorMode)(). El modo por defecto es RGB con valores entre 0 y 255 y, por lo tanto, la función color(255, 204, 0) retorna un color amarillo brillante.",
-      "params": ["Número: número especificando el valor entre blanco y negro."],
-      "returns": "the p5 object"
+      "params": ["Número|String: número especificando el valor entre blanco y negro.",
+      "Número: valor de alpha relativo al rango de color actual (por defecto es 0-100)",
+      "Número|String: valor de rojo o tinte relativo al rango de color actual, o un string de color",
+      "Número: valor de verde o saturación relativo al rango de color actual",
+      "Número: valor de azul o brillo relativo al rango de color actual"],
+      "returns": "Arreglo: color resultante"
     },
     "background": {
       "description": "La función background() define el color usado como fondo del lienzo p5.js. El fondo por defecto es gris claro. Esta función es típicamente usada dentro de draw() para despejar o borrar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de setup() para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
