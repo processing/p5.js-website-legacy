@@ -104,7 +104,25 @@
       "Número: valor de azul o brillo (dependiendo del modo de color actual)",
       "Número: opacidad del fondo"],
       "returns": "the p5 object"
-    }
+    },
+    "arc": {
+      "description": "Dibuja un arco en la pantalla. Si se llama con solo a, b, c, d, start y stop, el arco se dibuja como un pastel abierto. Si el modo se provee, el arco será dibujado abierto, o como acorde, o como pastel, según lo especificado. El origen puede ser cambiado con la función ellipseMode(). Nota que si dibujas un círculo completo (ej: 0 a TWO_PI) aparecerá en blanco, porque 0 y TWO_PI son la misma posición en el círculo unitario. La mejor manera de manejar esto es usar la función ellipse() para una elipse cerrada, y la función arc() para generar solo secciones de una elipse.",
+      "params": ["Número: coordenada x del arco de elipse.",
+      "Número: coordenada y del arco de elipse.",
+      "Número: ancho del arco de elipse.",
+      "Número: altura del arco de elipse.",
+      "Número: ángulo inicial del arco de elipse.",
+      "Número: ángulo final del arco de elipse.",
+      "Constante: parámetro opcional para determinar la manera de dibujar el arco."],
+      "returns": "the p5 object"
+    },
+    "ellipse": {
+      "description": "Dibuja una elipse (óvalo)  en la pantalla. Una elipse con igual ancho y altura es un círculo. Por defecto, los primeros dos parámetros definen la ubicación, y el tercero y cuarto definen el ancho y altura de la figura. Si no especifica una altura, el valor del ancho es usado como ancho y altura. El origen puede ser cambiado con la función ellipseMode()",
+      "params": ["Número: coordenada x de la elipse.",
+      "Número: coordenada y de la elipse.",
+      "Número: ancho de la elipse.",
+      "Número: altura de la elipse."],
+      "returns": "the p5 object"
   },
   "p5.Image": {
     "loadPixels": {
