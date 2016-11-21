@@ -1,108 +1,24 @@
- {
+{
   "p5": {
     "alpha": {
-      "description": "Extrae el valor de alpha de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
-    },
-    "blue": {
-      "description": "Extrae el valor de azul de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
-    },
-    "brightness": {
-      "description": "Extrae el valor de brillo HSB de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
-    },
-    "color": {
-      "description": "Crea colores para ser almacenados en variables del tipo color. Los parámetros son interpretados como valores RGB o HSB, dependiendo del modo actual de color según colorMode)(). El modo por defecto es RGB con valores entre 0 y 255 y, por lo tanto, la función color(255, 204, 0) retorna un color amarillo brillante. Nota que si solo se provee un valor a la función color(), será interpretado como un valor en escala de grises. Añade un segundo valor, y será usado como transparencia alpha. Cuando se especifican tres valores, son interpretados como valores RGB o HSB. Al añadir un cuarto valor se aplica transparencia alpha. Si se provee solo un parámetro de tipo string, será interpretado como un string de color compatible con CSS.Los colores son almacenados como números o arreglos.",
-      "params": ["Número|String: número especificando el valor entre blanco y negro.",
-      "Número: valor de alpha relativo al rango de color actual (por defecto es 0-100)",
-      "Número|String: valor de rojo o tinte relativo al rango de color actual, o un string de color",
-      "Número: valor de verde o saturación relativo al rango de color actual",
-      "Número: valor de azul o brillo relativo al rango de color actual"],
-      "returns": "Arreglo: color resultante"
-    },
-    "green": {
-      "description": "Extrae el valor de verde de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
-    },
-    "hue": {
-      "description": "Extrae el valor de tinte de un color o de un arreglo de pixeles. El tinte (hue) existe en HSB y HSL. Esta función retorna el tinte normalizado HSB que cuando se le provee un objeto de color HSB (o cuando se le provee un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará el tinte normalizado según HSB en otro caso. (Estos valores solo son diferentes si la configuración de valor de tinte máximo de cada sistema es diferente.)",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
-    },
-    "lerpColor": {
-      "description": "Mezcla dos colores para encontrar un tercer color según la combinación de ambos. El parámetro amt es la cantidad a interpolar entre los dos valores, donde 0.0 es igual al primer color, 0.1 es muy cercano al primer color, 0.5 está a medio camino entre ambos, etc. Un valor menor que 0 será tratado como 0. Del mismo modo, valores sobre 1 serán tratados como 1. Esto es distinto al comportamiento de lerp(), pero necesario porque de otra manera los números fuera de rango producirían colores no esperados y extraños. La manera en que los colores son interpolados depende del modo de color actual.",
-      "params": ["Arreglo/Número: interpola desde este color",
-      "Arreglo/Número: interpola hacia este color",
-      "Número: número entre 0 y 1"],
-      "returns": "Arreglo/Número: color interpolado"
-    },
-    "lightness": {
-      "description": "Extrae el valor de luminosidad HSL de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
-    },
-    "red": {
-      "description": "Extrae el valor de rojo de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
-    },
-    "saturation": {
-      "description": "Extrae el valor de saturación de un color o de un arreglo de pixeles. La saturación es escalada en HSB y HSL de forma distinta. Esta función retornará la saturación HSB cuando le sea provisto un objeto de color HSB (o cuando le sea provisto un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará saturación HSL.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
+      "description": "description alpha",
+      "params": ["Numero: param 1 alpha",
+               "Numero: param 2 alpha",
+               "Numero: param 3 alpha",
+               "Numero: param 4 alpha",
+               "Numero: param 5 alpha"],
       "returns": "the p5 object"
     },
     "background": {
       "description": "La función background() define el color usado como fondo del lienzo p5.js. El fondo por defecto es gris claro. Esta función es típicamente usada dentro de draw() para despejar o borrar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de setup() para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
       "params": ["Color: cualquier valor creado con la función color()",
-               "Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-100)",
-               "String de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex 3 dígitos, hex 6 dígitos",
-               "especifica un valor entre blanco y negro",
-               "valor de rojo o hue (dependiendo del modo de color actual)",
-               "valor de verde o saturación (dependiendo del modo de color actual)",
-               "valor de azul o brillo (dependiendo del modo de color actual)",
-               "imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo)"],
-      "returns": "the p5 object"
-    },
-    "clear": {
-      "description": "Borra los pixeles del buffer. Esta función solo funciona en objetos p5.Canvas creados con la función createCanvas(); no funcionará con la ventana principal. A diferencia del contexto principal de gráficas, los pixeles en las áreas gráficas adicionales creadas con createGraphics() pueden ser entera o parcialmente transparentes. Esta función borra todo para hacer los pixeles 100% transparentes.",
-      "returns": "the p5 object"
-    },
-    "colorMode": {
-      "description": "colorMode() cambia la manera en que p5.js interpreta los datos de color. Por defecto, los parámetros de fill(), stroke(), background() y color() son definidos por valores entre 0 y 255 en modo RGB. Esto es equivalente a definir el modo de color según colorMode(RGB, 255). Definir el modo de color en colorMode(HSB) permite usar el sistema HSB. Por defecto, este modo de color es colorMode(HSB, 360, 100, 100, 1). También se puede usar HSL. NotaÑ los objetos de color existentes recuerdan el modo en que fueron creados, por lo que puedes cambiar el modo como quieras, sin afectar su apariencia.",
-      "params": ["Constante: RGB o HSB, correspondiente a Rojo/Verde/Azul o tinte/saturación/brillo (o luminosidad)",
-      "Número: rango de rojo o tinte, dependiendo del modo de color actual, o rango para todos los valores",
-      "Número: rango de verde o saturación, dependiendo del modo de color actual.",
-      "Número: rango de azul o brillo/luminosidad, dependiendo del modo de color actual.",
-      "Número: rango de transparencia alpha"],
-      "returns": "the p5 object"
-    },
-    "fill": {
-      "description": "Define el color usado para el relleno de figuras geométricas. Por ejemplo, si ejecutas fill(204, 102, 0), todas las figuras a continuación tendrán relleno naranja. Este color es especificado en términos de color RGB o HSB, dependiendo del modo de color según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del relleno.",
-      "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
-      "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-      "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-      "Número: opacidad del fondo"],
-      "returns": "the p5 object"
-    },
-    "noFill": {
-      "description": "Deshabilita el relleno de figuras geométricas. Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla.",
-      "returns": "the p5 object"
-    },
-    "noStroke": {
-      "description": "Deshabilita el dibujo de los trazos (bordes). Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla.",
-      "returns": "the p5 object"
-    },
-    "stroke": {
-      "description": "Define el color usado para dibujar líneas y bordes de figuras. Este color especificado en términos de color RGB o HSB, dependiendo del modo de color actual según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del trazado.",
-      "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
-      "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-      "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-      "Número: opacidad del fondo"],
+               "[a]: Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-100)",
+               "colostring: string de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex 3 dígitos, hex 6 dígitos",
+               "gray: especifica un valor entre blanco y negro",
+               "v1: valor de rojo o hue (dependiendo del modo de color actual)",
+               "v2: valor de verde o saturación (dependiendo del modo de color actual)",
+               "v3: alor de azul o brillo (dependiendo del modo de color actual)",
+               "image: imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo)"],
       "returns": "the p5 object"
     }
   },
