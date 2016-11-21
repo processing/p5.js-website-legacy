@@ -34,6 +34,28 @@
       "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
       "returns": "the p5 object"
     },
+    "lerpColor": {
+      "description": "Mezcla dos colores para encontrar un tercer color según la combinación de ambos. El parámetro amt es la cantidad a interpolar entre los dos valores, donde 0.0 es igual al primer color, 0.1 es muy cercano al primer color, 0.5 está a medio camino entre ambos, etc. Un valor menor que 0 será tratado como 0. Del mismo modo, valores sobre 1 serán tratados como 1. Esto es distinto al comportamiento de lerp(), pero necesario porque de otra manera los números fuera de rango producirían colores no esperados y extraños. La manera en que los colores son interpolados depende del modo de color actual.",
+      "params": ["Arreglo/Número: interpola desde este color",
+      "Arreglo/Número: interpola hacia este color",
+      "Número: número entre 0 y 1"],
+      "returns": "Arreglo/Número: color interpolado"
+    },
+    "lightness": {
+      "description": "Extrae el valor de luminosidad HSL de un color o de un arreglo de pixeles.",
+      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
+      "returns": "the p5 object"
+    },
+    "red": {
+      "description": "Extrae el valor de rojo de un color o de un arreglo de pixeles.",
+      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
+      "returns": "the p5 object"
+    },
+    "saturation": {
+      "description": "Extrae el valor de saturación de un color o de un arreglo de pixeles. La saturación es escalada en HSB y HSL de forma distinta. Esta función retornará la saturación HSB cuando le sea provisto un objeto de color HSB (o cuando le sea provisto un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará saturación HSL.",
+      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
+      "returns": "the p5 object"
+    },
     "background": {
       "description": "La función background() define el color usado como fondo del lienzo p5.js. El fondo por defecto es gris claro. Esta función es típicamente usada dentro de draw() para despejar o borrar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de setup() para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
       "params": ["Color: cualquier valor creado con la función color()",
