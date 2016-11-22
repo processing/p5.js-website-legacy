@@ -281,76 +281,56 @@
       "returns": "la tangente en la posición t"
     },
     "beginContour": {
-      "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
-      "params": ["Número: coordenada del primer punto de la curva",
-        "Número: coordenada del primer punto de control de la curva",
-        "Número: coordenada del segundo punto de control de la curva",
-        "Número: coordenada del segundo punto de la curva",
-        "Número: valor entre 0 y 1"],
-      "returns": "la tangente en la posición t"
+      "description": "Usa las funciones beginContour() y endContour() para crear figuras negativas dentro de figuras como el centro de la letra 'O'. beginContour() empieza la grabación de los vértices para la figura y endContour() finaliza la grabación. Los vértices que definen una figura negativa deben ser definidos en la dirección opuesta a la figura exterior. Primero dibuja los vértices de la figura exterior en el orden de las manecillas del reloj, y luego para figuras internas, dibuja vértices en el sentido contrario a las manecillas del reloj. Estas funciones solo pueden ser usadas dentro de un par beginShape()/endShape() y transformaciones como translate(), rotate(), y scale() no funcionan dentro de un par beginContour()/endContour(). Tampoco es posible usar otras figuras, como elupse() o rect() dentro.",
+      "returns": "el objeto p5"
     },
     "beginShape": {
-      "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
-      "params": ["Número: coordenada del primer punto de la curva",
-        "Número: coordenada del primer punto de control de la curva",
-        "Número: coordenada del segundo punto de control de la curva",
-        "Número: coordenada del segundo punto de la curva",
-        "Número: valor entre 0 y 1"],
-      "returns": "la tangente en la posición t"
+      "description": "El uso de las funciones beginShape() y endShape() permiten la creación de figuras más complejas. beginShape() empieza la grabación de vértices para una figura, mientras que endShape() termina la grabación. El valor del parámetro kind (tipo) define qué tipo de figuras serán creadas a partir de los vértices. Si no se especifica un modo, la figura puede ser cualquier polígono irregular. Los parámetros disponibles para beginShape() son POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, y QUAD_STRIP. Después de llamar a la función beginShape(), debe ser seguida por una serie de comandos vertex(). Para detener el dibujo de la figura, ejecuta endShape(). Cada figura será dibujada con el color de trazo y el color de relleno actual. Transformaciones como translate(), rotate(), y scale() no funcionan dentro de beginShape(). Tampoco es posible usar otras figuras como ellipse() o rect() dentro de beginShape().",
+      "params": ["Constante: puede ser POINTS, LINES, TRIANGLES, TRIANGLE_FAN TRIANGLE_STRIP, QUADS, o QUAD_STRIP"],
+      "returns": "el objeto p5"
     },
     "bezierVertex": {
-      "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
-      "params": ["Número: coordenada del primer punto de la curva",
-        "Número: coordenada del primer punto de control de la curva",
-        "Número: coordenada del segundo punto de control de la curva",
-        "Número: coordenada del segundo punto de la curva",
-        "Número: valor entre 0 y 1"],
-      "returns": "la tangente en la posición t"
+      "description": "Especifica las coordenadas de un vértice para una curva Bezier. Cada llamada a la función bezierVertex() define la posición de dos puntos de control y un punto ancla de una curva Bezier, añadiendo un nuevo segmento a la línea o figura. La primera vez que bezierVertex() es usada dentro de una llamada a beginShape(), debe ser antecedida por una llamada a la función vertex() para definir el primer punto ancla. Esta función debe ser usada entre beginShape() y endShape() y solo cuando no se ha especificado el parámetro MODE (modo) a beginShape().",
+      "params": ["Número: coordenada x del primer punto de control la curva",
+        "Número: coordenada y del primer punto de control la curva",
+        "Número: coordenada x del segundo punto de control la curva",
+        "Número: coordenada y del segundo punto de control la curva",
+        "Número: coordenada x del primer punto ancla",
+        "Número: coordenada y del primer punto ancla"
+      ],
+      "returns": "el objeto p5"
     },
     "curveVertex": {
-      "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
-      "params": ["Número: coordenada del primer punto de la curva",
-        "Número: coordenada del primer punto de control de la curva",
-        "Número: coordenada del segundo punto de control de la curva",
-        "Número: coordenada del segundo punto de la curva",
-        "Número: valor entre 0 y 1"],
-      "returns": "la tangente en la posición t"
+      "description": "Especifica las coordenadas de un vértice para una curva. Esta función solo puede ser usada entre beginShape() y endShape() y cuando no se ha especificado el parámetro MODE en la función beginShape().
+
+      Los puntos primero y último en una serie de líneas curveVertex() serán usados para guiar el inicio y final de una curva. Un mínimo de cuatro puntos es requerido para dibujar una pequeña curva entre los puntos segundo y tercero, Añadir un quinto punto con curveVertex() dibujará la curva entre los puntos segundo, tercero y cuarto. La función curveVertex() es una implementación de las splines de Catmull-Rom.",
+      "params": ["Número: coordenada x del vértice",
+        "Número: coordenada y del vértice"],
+      "returns": "el objeto p5"
     },
     "endContour": {
-      "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
-      "params": ["Número: coordenada del primer punto de la curva",
-        "Número: coordenada del primer punto de control de la curva",
-        "Número: coordenada del segundo punto de control de la curva",
-        "Número: coordenada del segundo punto de la curva",
-        "Número: valor entre 0 y 1"],
-      "returns": "la tangente en la posición t"
+      "description": "Usa las funciones beginContour() y endContour() para crear figuras negativas dentro de figuras como el centro de la letra 'O'. beginContour() empieza la grabación de los vértices para la figura y endContour() finaliza la grabación. Los vértices que definen una figura negativa deben ser definidos en la dirección opuesta a la figura exterior. Primero dibuja los vértices de la figura exterior en el orden de las manecillas del reloj, y luego para figuras internas, dibuja vértices en el sentido contrario a las manecillas del reloj. Estas funciones solo pueden ser usadas dentro de un par beginShape()/endShape() y transformaciones como translate(), rotate(), y scale() no funcionan dentro de un par beginContour()/endContour(). Tampoco es posible usar otras figuras, como elupse() o rect() dentro.",
+      "returns": "el objeto p5"
     },
     "endShape": {
-      "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
-      "params": ["Número: coordenada del primer punto de la curva",
-        "Número: coordenada del primer punto de control de la curva",
-        "Número: coordenada del segundo punto de control de la curva",
-        "Número: coordenada del segundo punto de la curva",
-        "Número: valor entre 0 y 1"],
-      "returns": "la tangente en la posición t"
+      "description": "La función endShape() es compañera de la función beginShape() y solo puede ser ejecutada tras la ejecución de beginShape(). Cuando endshape() es ejecutada, todos los datos de imagen definidos desde la llamada anterior a beginShape() son escritos en el buffer de imagen. La constante CLOSE se usa como valor para el parámetro MODE para cerrar la figura (para conectar el comienzo con el final).",
+      "params": ["Constante: usa CLOSE para cerrar la figura."],
+      "returns": "el objeto p5"
     },
     "quadraticVertex": {
-      "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
-      "params": ["Número: coordenada del primer punto de la curva",
-        "Número: coordenada del primer punto de control de la curva",
-        "Número: coordenada del segundo punto de control de la curva",
-        "Número: coordenada del segundo punto de la curva",
-        "Número: valor entre 0 y 1"],
-      "returns": "la tangente en la posición t"
+      "description": "Especifica las coordenadas de vértices par curvas Bezier cuadráticas. Cada llamada a quadraticVertex() define la posición de uno de los puntos de control y ancla de una curva Bezier, añadiendo un nuevo segmento a la línea o figura. La primera vez que quadraticVertex() es usada dentro de una llamada a beginShape(), debe ser precedida por una llamada a la función vertex() para definir el primer punto ancla. Esta función debe ser usada entre un par beginShape() y endShape() y solo cuando no se ha especificado el parámetro MODE de beginShape().",
+      "params": ["Número: coordenada x del punto de control",
+        "Número: coordenada y del punto de control",
+        "Número: coordenada x del punto ancla",
+        "Número: coordenada y del punto ancla"
+        ],
+      "returns": "el objeto p5"
     },
     "vertex": {
-      "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
-      "params": ["Número: coordenada del primer punto de la curva",
-        "Número: coordenada del primer punto de control de la curva",
-        "Número: coordenada del segundo punto de control de la curva",
-        "Número: coordenada del segundo punto de la curva",
-        "Número: valor entre 0 y 1"],
-      "returns": "la tangente en la posición t"
+      "description": "Todas las figuras son construidas mediante la conexión de una serie de vértices. vertex() es usado para especificar las coordenadas de los vértices para puntos, líneas, triángulos, cuadriláteros y polígonos. Es usada exclusivamente dentro de un par de funciones beginShape() y endShape().",
+      "params": ["Número: coordenada x del vértice",
+        "Número: coordenada y del vértice"],
+      "returns": "el objeto p5"
     }
   },
   "p5.Image": {
