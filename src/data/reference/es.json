@@ -242,24 +242,43 @@
       "returns": "la tangente en la posición t"
     },
     "curve": {
-      "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
-      "params": ["Número: el peso (en pixeles) del trazado"],
-      "returns": "the p5 object"
+      "description": "Dibuja una línea curva en la pantalla entre dos puntos, dados como los cuatro parámetros centrales. Los dos primeros puntos son un punto de control, como si la curva viniera desde este punto, aunque no sea dibujado. Los dos últimos parámetros de forma similar describen el otro punto de control. SE pueden cerar curvas más largas, por medio del posicionamiento de varias funciones curve() juntas o usando curveVertex(). Una función adicional llamada curveTightness() provee control de la calidad visual de la curva. La función curve() es una implementación de la Catmull-Rom spline.",
+      "params": ["Número: coordenada x del punto de control inicial",
+      "Número: coordenada y del punto de control inicial",
+      "Número: coordenada x del primer punto",
+      "Número: coordenada y del primer punto",
+      "Número: coordenada x del segundo punto",
+      "Número: coordenada y del segundo punto",
+      "Número: coordenada x del punto de control final",
+      "Número: coordenada y del punto de control final",
+      "Número: coordenada z del punto de control inicial",
+      "Número: coordenada z del primer punto",
+      "Número: coordenada z del segundo punto",
+      "Número: coordenada z del punto de control final"],
+      "returns": "Objeto: el objeto p5"
     },
     "curveTightness": {
-      "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
-      "params": ["Número: el peso (en pixeles) del trazado"],
+      "description": "Modifica la calidad de las formas creadas con curve() y curveVertex(). El parámetro tightness (tirantez) determina cómo la curva calza con los vértices. El valor 0.0 es el valor por defecto (este valor define las curvas Spline Catmull-Rom) y el valor 1.0 conecta todos los puntos con líneas rectas. Valores en el rango entre -5.0 y 5.0 deformarán las curvas pero las dejarán reconocibles, y a medida que los valores crecen en magnitud, se continuarán deformando.",
+      "params": ["Número: deformación de los vértices originales"],
       "returns": "the p5 object"
     },
     "curvePoint": {
-      "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
-      "params": ["Número: el peso (en pixeles) del trazado"],
+      "description": "Evalua la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, los puntos a y d son puntos en la cruva, y b y c son los puntos de control. Esto puede ser hecho una vez con las coordenadas x y una segunda vez con las coordenadas y para obtener la ubicación de la curva en t.",
+      "params": ["Número: coordenada del primer punto de la curva",
+        "Número: coordenada del primer punto de control de la curva",
+        "Número: coordenada del segundo punto de control de la curva",
+        "Número: coordenada del segundo punto de la curva",
+        "Número: valor entre 0 y 1"],
       "returns": "the p5 object"
     },
     "curveTangent": {
-      "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
-      "params": ["Número: el peso (en pixeles) del trazado"],
-      "returns": "the p5 object"
+      "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
+      "params": ["Número: coordenada del primer punto de la curva",
+        "Número: coordenada del primer punto de control de la curva",
+        "Número: coordenada del segundo punto de control de la curva",
+        "Número: coordenada del segundo punto de la curva",
+        "Número: valor entre 0 y 1"],
+      "returns": "la tangente en la posición t"
     }
   },
   "p5.Image": {
