@@ -327,6 +327,19 @@
       "params": ["Número: coordenada x del vértice",
         "Número: coordenada y del vértice"],
       "returns": "el objeto p5"
+    },
+    "loadModel": {
+      "description": "Carga un modelo 3d desde un archivo OBJ. Una de las limitaciones del formato OBJ es que no trae incorporado un sentido de escala. Esto significa que los modelos exportados por distintos programas pueden ser de tamaños radicalmente distintos. Si tu modelo no está siendo mostrado en pantalla, trata llamando a la función loadMode() con el parámetro de normalización configurado como verdadero. Esto escalará el tamaño del modelo a una escala apropiada para p5. También puedes hacer cambios adicionales al tamaño final de tu modelo con la función scale().",
+      "params": ["String: ubicación del modelo a cargar",
+        "Boolean:  Si es verdadero (true), escala el modelo a un tamaño estandarizado al momento de cargarlo.",
+        "Función(p5.Geometry3D): función a ser llamada cuando el modelo se cargue. Será pasada al modelo del objeto 3D.",
+        "Función(evento): llamada con el error evento si la imagen no falla al cargar."],
+      "returns": "el objeto p5.Geometry3D"
+    },
+    "model": {
+      "description": "Hace el render de un modelo 3D a la pantalla.",
+      "params": ["p5.Geometry: modelo 3D cargado para hacer render"],
+      "returns": "el objeto p5"
     }
   },
   "p5.Image": {
