@@ -208,19 +208,38 @@
       "returns": "the p5 object"
     },
     "bezier": {
-      "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
-      "params": ["Número: el peso (en pixeles) del trazado"],
+      "description": "Dibuja una curva Bezier cúbica en la pantalla. Estas curvas están definidas por una serie de puntos ancla y de control. Los primeros dos parámetros especifican el primer punto ancla y los dos últimos especifican el otro punto ancla, que se convierten en los puntos primero y último de la curva. Los parámetros en el medio especifican los dos puntos de control que definen la forma de la curva. De forma aproximada, los puntos de control atraen la curva hacia ellos. Las curvas Bezier fueron desarrolladas por el ingeniero automotriz Pierre Bezier, y son comúnmente usadas en gráficas computacionales para definir curvas de pendiente suave. Ver también curve().",
+      "params": ["Número: coordenada x del primer punto ancla",
+      "Número: coordenada y del primer punto ancla",
+      "Número: coordenada x del primer punto de control",
+      "Número: coordenada y del primer punto de control",
+      "Número: coordenada x del segundo punto de control",
+      "Número: coordenada y del segundo punto de control",
+      "Número: coordenada x del segundo punto ancla",
+      "Número: coordenada y del segundo punto ancla",
+      "Número: coordenada z del primer punto ancla",
+      "Número: coordenada z del primer punto de control",
+      "Número: coordenada z del segundo punto ancla",
+      "Número: coordenada z del segundo punto de control"],
       "returns": "the p5 object"
     },
     "bezierPoint": {
-      "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
-      "params": ["Número: el peso (en pixeles) del trazado"],
-      "returns": "the p5 object"
+      "description": "Evalua la curva Bezier en la posición t para los puntos a, b, c, d. Los parámetros a y d son los puntos primero y último de la curva, mientras que b y c son los puntos de control. El parámetro final t varía entre 0 y 1. Esto puede ser realizado una vez con las coordenadas x y una segunda vez con las coordenadas y para obtener la ubicación de la curva Bezier en t.",
+      "params": ["Número: coordenada del primer punto de la curva",
+      "Número: coordenada del primer punto de control de la curva",
+      "Número: coordenada del segundo punto de control de la curva",
+      "Número: coordenada del segundo punto de la curva",
+      "Número: valor entre 0 y 1"],
+      "returns": "el valor de la curva Bezier en la posición t"
     },
     "bezierTangent": {
-      "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
-      "params": ["Número: el peso (en pixeles) del trazado"],
-      "returns": "the p5 object"
+      "description": "Evalua la tangente de la curva Bezier en la posición t para los puntos a, b, c, d. Los parámetros a y d son los puntos primero y último de la curva, mientras que b y c son los puntos de control. El parámetro final t varía entre 0  1.",
+      "params": ["Número: coordenada del primer punto de la curva",
+      "Número: coordenada del primer punto de control de la curva",
+      "Número: coordenada del segundo punto de control de la curva",
+      "Número: coordenada del segundo punto de la curva",
+      "Número: valor entre 0 y 1"],
+      "returns": "la tangente en la posición t"
     },
     "curve": {
       "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
