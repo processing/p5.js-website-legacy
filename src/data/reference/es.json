@@ -567,53 +567,64 @@
       "returns": "el objeto p5"
     },
     "applyMatrix": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
+      "description": "Multiplica la matriz actual por la especificada según los parámetros. Esto es muy lento porque tratará de calcular el inverso de la transformada, así que evítalo cuando sea posible",
+      "params": ["Número: números que definen la matriz 3x2 a multiplicar",
+      "Número: números que definen la matriz 3x2 a multiplicar",
+      "Número: números que definen la matriz 3x2 a multiplicar",
+      "Número: números que definen la matriz 3x2 a multiplicar",
+      "Número: números que definen la matriz 3x2 a multiplicar",
+      "Número: números que definen la matriz 3x2 a multiplicar"],
       "returns": "el objeto p5"
     },
     "resetMatrix": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
+      "description": "Reemplaza la matriz actual con la matriz identidad",
       "returns": "el objeto p5"
     },
     "rotate": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
+      "description": "Rota una figura según el monto especificado por el parámetro ángulo. Esta función toma en cuenta el modo de ángulo definido por angleMode(), así que los ángulos pueden ser ingresados en radianes o grados. Los objetos son siempre rotados según su posición relativa al origen y los números positivos rotan en la dirección de las manecillas del reloj. Las transformaciones se aplican a todo lo que ocurre de forma posterior y las subsecuentes llamadas a la función acumulan el efecto. Por ejemplo, llamar a la función rotate(HALF_PI) y luego rotate(HALF_PI) equivale a una llamada a rotate(PI). Todas las transformaciones son anuladas cuando la función draw() comienza nuevamente. Técnicamente, rotate() multiplica la matriz de transformación actual por una matriz de rotación. Esta función puede ser controlada además con las funciones push() y pop().",
+      "params": ["Ángulo: el ángulo de rotación, especificado en radianes o grados, dependiendo de angleMode()",
+      "Número: ángulo en radianes",
+      "p5.Vector|Arreglo: eje sobre el que se rota"],
       "returns": "el objeto p5"
     },
     "rotateX": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
+      "description": "Rota en torno al eje X",
+      "params": ["Número: ángulo en radianes"],
       "returns": "el objeto p5"
     },
     "rotateY": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
+      "description": "Rota en torno al eje Y",
+      "params": ["Número: ángulo en radianes"],
       "returns": "el objeto p5"
     },
     "rotateZ": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
+      "description": "Rota en torno al eje Z,. Sólo disponible en el modo WEBGL.",
+      "params": ["Número: ángulo en radianes"],
       "returns": "el objeto p5"
     },
     "scale": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
+      "description": "Aumenta o decrementa el tamaño de una figura por medio de expandir o contraer sus vértices. Los objetos siempre escalan desde su origen relativo al sistema de coordenadas. Los valores de escalamiento son porcentajes decimales. Por ejemplo, la llamada a la función scale(2.0) aumenta la dimensión de una figura en un 200%. Las transformaciones se aplican a todo lo que ocurre después y llamadas subsecuentes a la función multiplican el efecto. Por ejemplo, llamar a scale(2.0) y luego a scale(1.5) equivale a llamar a scale(3.0). Si la función scale() es llamad dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. El uso de esta función con el parámetro z está solo disponible en el modo WEBGL. Esta función puede también ser controlada con las funciones push() y pop().",
+      "params": ["Número | p5.Vector| Arreglo: porcentaje a escalar del objeto, o porcentaje a esacalar del objeto en el eje x si se dan múltiples argumentos",
+      "Número: porcentaje a escalar el objeto en el eje y",
+      "Número: porcentaje a escalar el objeto en el eje z (sólo en modo WEBGL)"],
       "returns": "el objeto p5"
     },
     "shearX": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
+      "description": "Corta la figura en torno al eje x según el monto especificado por el parámetro ángulo. Los ángulos deben ser especificados según el modo actual de ángulo angleMode(). Los objetos son siempre cortados según su posición relativa al origen y los números positivos cortan los objetos en la dirección de las manecillas del reloj. Las transformaciones aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a shearX(PI/2) y luego a shearX(PI/2) equivale a llamar a shearX(PI). Si shearX() es llamado dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. Técnicamente, shearX() multiplica la matriz de transformación actual por una matriz de rotación. La función puede ser controlada con las funciones push() y pop().",
+      "params": ["Número: ángulo de corte especificado en radianes o grados, dependiendo del modo de ángulo actual angleMode()"],
       "returns": "el objeto p5"
     },
     "shearY": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
-      "returns": "el objeto p5"
+
+        "description": "Corta la figura en torno al eje y según el monto especificado por el parámetro ángulo. Los ángulos deben ser especificados según el modo actual de ángulo angleMode(). Los objetos son siempre cortados según su posición relativa al origen y los números positivos cortan los objetos en la dirección de las manecillas del reloj. Las transformaciones aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a shearY(PI/2) y luego a shearY(PI/2) equivale a llamar a shearY(PI). Si shearY() es llamado dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. Técnicamente, shearY() multiplica la matriz de transformación actual por una matriz de rotación. La función puede ser controlada con las funciones push() y pop().",
+        "params": ["Número: ángulo de corte especificado en radianes o grados, dependiendo del modo de ángulo actual angleMode()"],
+        "returns": "el objeto p5"
     },
     "translate": {
-      "description": "this",
-      "params": ["Constante: modo de combinar del lienzo"],
+      "description": "Especifica una cantidad a desplazar los objetos dentro de la ventana mostrada. El parámetro x especifica la traslación de izquierda a derecha, el parámetro y especifica la traslación de arriba a abajo. Las transformaciones son acumulativas y aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a translate(50, 0) y luego a translate(20, 0) equivale a llamar a translate(70, 0). Si translate() es llamado dentro de draw(), la transformación es anulada cada vez que el bucle empieza nuevamente. Esta función peude ser controlada con las funciones push() y pop().",
+      "params": ["Número: traslación izquierda-derecha",
+      "Número: traslación arriba-abajo",
+      "Número: traslación adelante-atrás (solo en modo WEBGL)"],
       "returns": "el objeto p5"
     }
 
