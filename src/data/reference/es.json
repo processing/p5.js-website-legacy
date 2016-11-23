@@ -454,6 +454,19 @@
       "description": "Ejecuta una vez el código dentro de la función draw(). Esta función permite al programa actualizar la ventana mostrada solamente cuando es necesario, por ejemplo, cuando un evento registrado por mousePressed() o keyPressed() ocurre. En la estructura de un programa, solo hace sentido llamar a redraw() dentro de eventos como mousePressed(). Esto es porque redraw() no hace que draw() se ejecute de forma inmediata (solo define una indicación de que se necesita un refresco). La función redraw() no funciona de forma correcta cuando se llama dentro de la función draw(). Para habilitar y deshabilitar animaciones, usa las funcioens loop() y noLoop(). Adicionalmente, puedes definir el número de veces que se dibuja por cada llamada a este método. Para esto, añade un entero como parámetro único a la función, que señale cuántas veces se requiere dibujar.",
       "params": ["Entero: redibuja n-veces. Por defecto el valor es 1"],
       "returns": "el objeto p5"
+    },
+    "print": {
+      "description": "La función print() escribe en la consola del navegador. Esta función es a menudo de ayuda para observar los datos que un programa está produciendo. Esta función crea una nueva línea de texto por cada ejecución de la función. Elementos individuales pueden ser separados por comillas ('') y unidos con el operador de adición (+). Aunque print() es similar a console.log(), no llama a console.log() directamente, para simular una manera más simple de entender el comportamiento del programa. Por esto mismo, es más lento. Para resultados más rápidos, usar directamente console.log().",
+      "params": ["Cualquiera: cualquier combinación de número, string, objeto, boolean o arreglo a imprimir"],
+      "returns": "el objeto p5"
+    },
+    "frameCount": {
+      "description": "La variable de sistema frameCount contiene el número de cuadros (frames) que se han mostrado desde que el programa empezó a ejecutarse. Dentro de setup() el valor es 0, después de la primera iteración de draw() es 1, etc.",
+      "returns": "el objeto p5"
+    },
+    "focused": {
+      "description": "Confirma si la ventana de un programa de p5.js está en foco, lo que significa que el bosquejo aceptará entradas desde el ratón o teclado. Esta variable es verdadera (true) si la ventana está en foco y falsa (false) si no.",
+      "returns": "el objeto p5"
     }
   },
   "p5.Image": {
