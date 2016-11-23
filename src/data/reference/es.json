@@ -848,21 +848,27 @@
       "returns": "el objeto p5"
     },
     "createImage": {
-      "description": "Lthis.",
-      "params": ["Número: la tecla a buscar"],
+      "description": "Crea una nueva p5.Image (el tipo de datos para almacenar imágenes). Esto provee un nuevo buffer de pixeles para jugar. Define el tamaño del buffer con los parámetros de ancho y altuar. .pixels da acceso a un arreglo conteniendo los valores de todos los pixeles en la ventana mostrada. Estos valores son números. Este arreglo es del tamaño (incluyendo un factor apropiado de pixelDensity) de la ventana mostrada x4, representando los valroes R, G, B, A en orden para cada pixel., moviendo de izquierda a derecha en cada fila, y luego bajando de columna. Ver .pixels para mayor información. Podría ser más simple usar set() y get(). Antes de acceder a los pixeles de una imagen, los datos deben ser cargados con la función loadPixels(). Después de que el arreglo de datos ha sido modificado, la función updatePixels() debe ejecutarse para actualizar los cambios.",
+      "params": ["Entero: ancho en pixeles",
+      "Entero: altura en pixeles"],
       "returns": "el objeto p5"
     },
     "saveCanvas": {
-      "description": "Lthis.",
-      "params": ["Número: la tecla a buscar"],
+      "description": "Graba el lienzo actual como una imagen. En Safari, esto abrirá la imagen en la ventana y el usuario deberá proveer su propio nombre de archivo. Otros navegadores o grabarán el archivo de inmediato, o abrirán una ventana de diálogo.",
+      "params": ["Canvas seleccionado: una variable representando un canvas HTML5 específico (opcional)",
+      "String",
+      "String: jpg o png"],
       "returns": "el objeto p5"
     },
     "saveFrames": {
-      "description": "Lthis.",
-      "params": ["Número: la tecla a buscar"],
+      "description": "Captura una secuencia de cuadros que pueden ser usados para crear una película. Acepta una función callback. Por ejemplo, puedes querer mandar los cuadros a un servidor donde pueden ser almacenados o convertidos en una película. Si no se provee una función callback, el navegador abrirá varios diálogos tratando de descargar todas las imágenes que han sido creadas. Con una función callback provista, los datos de imagen no son grabados por defecto, sino que son pasados como argumento a la función callback como un arreglo de objetos, con el tamaño del arreglo siendo igual al número total de cuadros.",
+      "params": ["String: ",
+      "String: jpg o png",
+      "Número: duración en segundos para grabar los cuadros",
+      "Número: tasa de cuadros por segundo a grabar",
+      "Función: una función callback que será ejecutada para manejar los datos de imagen. Esta función deberá aceptar un arreglo como argumento. El arreglo contendrá el número especificado de cuadros como objetos. Cada objeto tiene tres propiedades: datos de imagen imageData, nombre del archivo y extensión"],
       "returns": "el objeto p5"
     }
-
 
 
   },
