@@ -702,38 +702,33 @@
       "returns": "el objeto p5"
     },
     "keyIsPressed": {
-      "description": "this",
-      "params": ["Número: el valor umbral"],
+      "description": "La variable boolean de sistema keyIsPressed es verdadera (true) cuando cualquier tecla es presionada y falsa (false) si no hay ninguna tecla presionada",
       "returns": "el objeto p5"
     },
     "key": {
-      "description": "this",
-      "params": ["Número: el valor umbral"],
+      "description": "La variable de sistema key siempre contiene el valor más reciente de la tecla del teclado presionada. Para tener los mejores resultados, es mejor usarla dentro de la función keyTyped(). Para teclas sin valor ASCII, usa la variable keyCode ",
       "returns": "el objeto p5"
     },
     "keyCode": {
-      "description": "this",
-      "params": ["Número: el valor umbral"],
+      "description": "La variable keyCode es usada para detectar teclas especiales, como BACKSPACE, DELETE, ENTER, RETURN, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. También puedes revisar las teclas especiales buscando el código keyCode de cualquier tecla en internet.",
       "returns": "el objeto p5"
     },
     "keyPressed": {
-      "description": "this",
-      "params": ["Número: el valor umbral"],
+      "description": "La función keyPressed() es llamada una vez cada vez que una tecla es presionada. El código keyCode de la tecla presionada es almacenado en la variable keyCode. Para las teclas sin valor ASCII, usa la variable keyCode.  Puedes comprobar si la variable keyCode es igual a BACKSPACE, DELETE, ENTER, RETURN, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. Para las teclas con valor ASCII que son presionadas, el valor es almacenado en la variable key. Sin embargo, no distingue entre letras mayúsculas y minúsculas. Por esta razón, es recomendable usar la función keyTyped() para leer la variable key, que sí distingue entre mayúsculas y minúsculas. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
       "returns": "el objeto p5"
     },
     "keyReleased": {
-      "description": "this",
-      "params": ["Número: el valor umbral"],
+      "description": "La función keyReleased() es llamada una vez cada vez que una tecla es soltada. Ver key y keyCode para más información. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
       "returns": "el objeto p5"
     },
     "keyTyped": {
-      "description": "this",
+      "description": "la función keyTyped es llamada cava vez que una tecla es presionada, excepto cuando son presionadas la steclas de acción como Ctrl, Shift y Alt, que son ignoradas. La tecla presionada más reciente será almacenada en la variable key. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
       "params": ["Número: el valor umbral"],
       "returns": "el objeto p5"
     },
     "keyIsDown": {
-      "description": "this",
-      "params": ["Número: el valor umbral"],
+      "description": "La función keyIsDown() comprueba si la tecla está presionada. Puede ser usada si tienes un objeto que se mueve, y quieres que varias teclas sean capaces de afectar este comportamiento de manera simultánea, como cuando mueves una imagen de forma diagonal. Puedes ingresar cualquier número representando el código de tecla keyCode de la tecla, o usar cualquier de los nombres de la variable keyCode.",
+      "params": ["Número: la tecla a buscar"],
       "returns": "el objeto p5"
     }
 
