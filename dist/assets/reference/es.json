@@ -870,28 +870,44 @@
       "returns": "el objeto p5"
     },
     "loadImage": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Carga una imagen desde una ruta de archivo y crea un objeto p5.Image. La imagen puede no estar inmediatamente disponible para render. Si quieres asegurarte que esté lista antes de hacer algo con ella, ubica la función loadImage() dentro de preload(). También puedes proveer una función callback para manejar la imagen cuando esté lista. La ruta a la imagen debe ser relativa al archivo HTML de tu bosquejo. Cargar desde una URL u otra ubicación remota podría estar bloqueado por las opciones de seguridad del navegador.",
+      "params": ["String: ruta de la imagen a cargar",
+      "Función(p5.Image): función a ser llamada una vez que la imagen sea cargada. Le será pasado el objeto p5.Image",
+      "Función(evento): llamada con el evento error si es que la carga de la imagen falla."],
       "returns": "el objeto p5"
     },
     "image": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Dibuja una imagen en el lienzo principal del bosquejo p5.js.",
+      "params": ["p5.Image: la imagen a mostrar",
+      "Número: la coordenada x donde se ubicará la esquina superior de la imagen",
+      "Número: la coordenada y donde se ubicará la esquina superior de la imagen",
+      "Número: ancho de la imagen a dibujar",
+      "Número: altura de la imagen a dibujar",
+      "Número: la coordenada x en el lienzo de destino donde se ubicará la esquina superior izquierda de la imagen",
+      "Número: la coordenada y en el lienzo de destino donde se ubicará la esquina superior izquierda de la imagen",
+      "Número: ancho de la imagen a dibujar en el lienzo de destino",
+      "Número: altura de la imagen a dibujar en el lienzo de destino",
+      "Número: la coordenada x de la esquina superior izquierda del subrectángulo de la imagen original a dibujar en el lienzo de destino",
+      "Número: la coordenada y de la esquina superior izquierda del subrectángulo de la imagen original a dibujar en el lienzo de destino",
+      "Número: el ancho del subrectángulo de la imagen original a dibujar en el lienzo de destino",
+      "Número: la altura del subrectángulo de la imagen original a dibujar en el lienzo de destino"],
       "returns": "el objeto p5"
     },
     "tint": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Define el valor de relleno para mostrar imágenes. Las imágenes pueden ser teñidas en colores específicos o hacerse transparentes al incluir un valor alpha. Para aplicar transparencia a una imagen sin afectar su color, usa blanco como color de teñido y especifica un valor alpha. Por ejemplo, tint(255, 128) hará una imagen 50% transparente (asumiendo el rango alpha por defecto entre 0 y 255, el que puede ser modificado con la función colorMode()). El valor del parámetro gris debe ser menor o igual al actual valor máximo según lo especificado por colorMode(). El valor máximo por defecto es 255.",
+      "params": ["Número|Arreglo: valor de gris, rojo o tinte (dependiendo del modo de color actual), o un arreglo de colores",
+      "Número|Arreglo: valor de verde o saturación (dependiendo del modo de color actual)",
+      "Número|Arreglo: valor de azul o brillo (dependiendo del modo de color actual)",
+      "Número|Arreglo: opacidad del fondo"],
       "returns": "el objeto p5"
     },
     "noTint": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Remueve el valor actual de relleno para mostrar imágenes y revierte a mostrar las imágenes con sus colores originales.",
       "returns": "el objeto p5"
     },
     "imageMode": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Define el modo de imagen. Modifica la ubicación desde la que las imágenes son dibujadas, por medio de cambiar la manera en que los parámetros dados a image() son interpretados. El modo por defecto es imageMode(CORNER), que interpreta los paráemtros segundo y tercero de image() como la posición de la esquina superior izquierda de la imagen. Si se dan dos parámetros adicionales, son usados para definir el ancho y la altura la imagen. imageMode(CORNERS) interpreta los paráemtros segundo y tercero de image() como la ubicación de una esquina, y los parámetros cuarto y quinto como la ubicación de la esquina opuesta. imageMode(CENTER) interpreta los parámetros segundo y tercero de image() como el punto central de la imagen. Si dos parámetros adicionales son especificados, son usados para definir el ancho y la altura de la imagen.",
+      "params": ["Constante: puede ser CORNER, CORNERS, o CENTER"],
       "returns": "el objeto p5"
     },
     "pixels[]": {
