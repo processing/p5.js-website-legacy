@@ -540,24 +540,31 @@
       "returns": "Objeto: parámetros de la URL"
     },
     "createCanvas": {
-      "description": "Retorna los parámetros de la URL actual como un objeto.",
-      "returns": "Objeto: parámetros de la URL"
+      "description": "Crea un elemento canvas en el documento, y define sus dimensiones medidas en pixeles. Este método debe ser llamado solo una vez al comienzo de la función setup(). Llamar a la función createCanvas() más de una vez en un bosquejo puede resultar en comportamientos impredecibles. Si quieres más de un lienzo donde dibujar, debes usar la función createGraphics() (escondido por defecto, pero puede ser mostrado), Las variables de sistema width (ancho) y height (altura) son definidas por los parámetros pasados a la función. Si createCanvas() no es usado, la ventana tendrá un tamaño por defecto de 100 x 100 pixeles. Para más maneras de posicionar el lienzo, ver la sección de posición del lienzo.",
+      "params": ["Número: ancho del lienzo",
+      "Número: altura del lienzo",
+      "Constante: P2D o WEBGL"],
+      "returns": "Objeto: lienzo generado"
     },
     "resizeCanvas": {
-      "description": "Retorna los parámetros de la URL actual como un objeto.",
-      "returns": "Objeto: parámetros de la URL"
+      "description": "Redimensiona el linezo al ancho y la altura dados. El lienzo será borrado y la función draw() será llamada inmediatamente, permitiendo que el bosquejo se ajuste al nuevo lienzo",
+      "returns": "el objeto p5"
     },
     "noCanvas": {
-      "description": "Retorna los parámetros de la URL actual como un objeto.",
-      "returns": "Objeto: parámetros de la URL"
+      "description": "Remueve el lienzo por defecto para un bosquejo de p5 que no requiere un lienzo.",
+      "returns": "el objeto p5"
     },
     "createGraphics": {
-      "description": "Retorna los parámetros de la URL actual como un objeto.",
-      "returns": "Objeto: parámetros de la URL"
+      "description": "Crea y retorna un nuevo objeto p5.Renderer. Usa esta clase si necesitas dibujar fuera de pantalla en un buffer gráfico. Los dos parámetros definen el ancho y la altura en pixeles.",
+      "params": ["Número: ancho del buffer gráfico fuera de pantalla",
+      "Número: altura del buffer gráfico fuera de pantalla",
+      "Constante: P2D o WEBGL, si no se define es P2D por defecto"],
+      "returns": "buffer gráfico fuera de pantalla"
     },
     "blendMode": {
-      "description": "Retorna los parámetros de la URL actual como un objeto.",
-      "returns": "Objeto: parámetros de la URL"
+      "description": "Combina los pixeles en la ventana según el modo definido. Existen distintas maneras de combinar los pixeles de la fuente (A) con los ya existentes en la pantalla mostrada (B)",
+      "params": ["Constante: modo de combinar del lienzo"],
+      "returns": "el objeto p5"
     }
 
 
