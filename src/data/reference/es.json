@@ -960,13 +960,19 @@
       "returns": "el objeto p5"
     },
     "set": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Cambia el color de cualquier pixel, o pone una imagen directamente en la ventana. Los parámetros x e y especifican el pixel a cambiar y c especifica el valor del color. Puede ser un objeto p5.Color o un arreglo de pixeles RGBA. También puede ser un valor único en escala de grises. Cuando se define una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el modo actual de imagen según imageMode(). Después de usar set(), debes llamar a updatePixels()' para que tus cambios aparezcan. Esta función debería ser llamada una vez que todos los pixeles han sido definidos. Definir el color de un solo pixel con set(x, y) es fácil, pero es tan rápido como poner los datos directamente en el arreglo pixels[]. Definir los valores de pixels[] directamente puede ser complicado cuando se trabaja con un monitor retina, pero tendrá un mejor desempeño cuando muchos pixeles necesiten ser definidos directamente en cada iteración. Ver la referencia de pixels[] para mayor información.",
+      "params": ["Número: coordenada x del pixel",
+      "Número: coordenada x del pixel",
+      "Número: coordenada y del pixel",
+      "Número|Arreglo|Objeto: inserta un valor en escala de grises | un arreglo de pixeles | un objeto p5.Color | un objeto p5.Image a copiar"],
       "returns": "el objeto p5"
     },
     "updatePixels": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Actualiza la ventana mostrada con los datos del arreglo pixels[]. Se usa en conjunto con loadPixels(). Si solo estás leyendo pixeles desde el arreglo, no hay necesidad de llamar a updatePixels() - actualizar es solo necesario para aplicar cambios. updatePixels() debe ser llamada cada vez que el arreglo de pixeles es manipulado o si se llama a la función set().",
+      "params": ["Número: coordenada x de la esquina superior izquierda de la región a actualizar",
+      "Número: coordenada y de la esquina superior izquierda de la región a actualizar",
+      "Número: ancho de la región a actualizar",
+      "Número: altura de la región a actualizar"],
       "returns": "el objeto p5"
     }
 
