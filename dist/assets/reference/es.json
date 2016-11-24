@@ -1314,43 +1314,48 @@
       "returns": "el número aleatorio"
     },
     "textAlign": {
-      "description": "this",
-      "params": ["Número:"],
+      "description": "Define el alineamiento actual para dibujar texto. Acepta dos argumentos: horizAlign(LEFT, CENTER o RIGHT) y vertAlign(TOP, BOTTOM, CENTER, o BASELINE). El parámetro horizAlign se refiere al valor x de la función text(), mientras que vel parámetro vertAlign al valor y. Así que si escribes textAlign(LEFT), estás alineando el borde izquierdo de tu texto al valor x dado en la función text(). Si escribes textAlign(RIGHT, TOP), estás alineando el borde derecho de tu texto con el valor x y el borde superior con el valor y del texto.",
+      "params": ["Constante: alineamiento horizontal, puede ser LEFT, CENTER o RIGHT",
+      "Constante: alineamiento vertical, puede ser TOP, BOTTOM, CENTER o BASELINE"],
       "returns": "el objeto p5"
     },
     "textLeading": {
-      "description": "this",
-      "params": ["Número:"],
+      "description": "Define o retorna el espaciado, en pixeles, entre líneas de texto. Esta configuración será usada en todas las llamadas posteriores a la función text().",
+      "params": ["Número: el tamaño en pixeles de espaciamiento entre líneas"],
       "returns": "el objeto p5"
     },
     "textSize": {
-      "description": "this",
-      "params": ["Número:"],
+      "description": "Define o retorna el tamaño actual de la tipografía. Este tamaño será usado en todas las llamadas posteriores a la función text(). El tamaño de la tipografía es medido en pixeles.",
+      "params": ["Número: el tamaño en pixeles de las letras en pixeles"],
       "returns": "el objeto p5"
     },
     "textStyle": {
-      "description": "this",
-      "params": ["Número:"],
+      "description": "Define o retorna el estilo actual de la tipografía. Puede ser NORMAL (normal), ITALIC (cursivo) o BOLD (destacado). Notar que puede ser anulado por estilo CSS. Para tipografías que no sean de sistema (opentype, truetype, etc.), usa loadFont().",
+      "params": ["Número|Constante: estilo del texto, puede ser NORMAL, ITALIC o BOLD"],
       "returns": "el objeto p5"
     },
     "textWidth": {
-      "description": "this",
-      "params": ["Número:"],
-      "returns": "el objeto p5"
+      "description": "Calcula y retorna el ancho de cualquier caracter o string.",
+      "params": ["String: el String de caracteres a medir"],
+      "returns": "Número"
     },
     "text": {
-      "description": "this",
-      "params": ["Número:"],
-      "returns": "el objeto p5"
+      "description": "Dibuja texto en la pantalla. Muestra la información especificada en el primer parámetro en la pantalla, en la posición especificada por los parámetros adicionales. Una fuente por defecto será usada a menos que una fuente sea definida por la función textFont() y un tamaño por defecto será usado a menos que se use la función textSize(). Cambia el color del texto con la función fill(). Cambia la apariencia del texto con las funciones stroke() y strokeWeight(). El texto se muestra en relación a la función textAlign(), que da la opción de dibujar a la izuiqerda, derecha y centro de las coordenadas. Los parámetros x2 e y2 definen un área rectangular donde mostrar el texto y solo puede ser usado por los datos tipo String. Cuando estos parámetros son especificados, son interpretados según la configuración de rectMode(). El texto que no cabe completamente dentro del rectángulo especificado no será dibujado en pantalla.",
+      "params": ["String: símbolos alfanuméricos a ser mostrados",
+      "Número: coordenada x del texto",
+      "Número: coordenada y del texto",
+      "Número: por defecto, el ancho de la caja contenedora del texto, ver rectMode() para más información",
+      "Número: por defecto, la altura de la caja contenedora del texto, ver rectMode() para más información"],
+      "returns": "Objeto"
     },
     "textfont": {
-      "description": "this",
-      "params": ["Número:"],
-      "returns": "el objeto p5"
+      "description": "Define la función actual con la que se dibujará el contenido de la función text()",
+      "params": ["Objeto|String: una fuente cargada con loadFont(), o un String representando una tipografía segura de la web (una fuente ampliamente disponible a lo largo de todos los sistemas)."],
+      "returns": "Objeto"
     },
     "p5.Font": {
-      "description": "this",
-      "params": ["Número:"],
+      "description": "Clase base para manipulación de tipografía",
+      "params": ["Objeto: puntero a la instancia p5"],
       "returns": "el objeto p5"
     }
 
