@@ -968,6 +968,8 @@
       "returns": "el objeto p5"
     },
     "updatePixels": {
+      "example": "",
+
       "description": "Actualiza la ventana mostrada con los datos del arreglo pixels[]. Se usa en conjunto con loadPixels(). Si solo estás leyendo pixeles desde el arreglo, no hay necesidad de llamar a updatePixels() - actualizar es solo necesario para aplicar cambios. updatePixels() debe ser llamada cada vez que el arreglo de pixeles es manipulado o si se llama a la función set().",
       "params": ["Número: coordenada x de la esquina superior izquierda de la región a actualizar",
       "Número: coordenada y de la esquina superior izquierda de la región a actualizar",
@@ -1004,23 +1006,37 @@
       "returns": "Objeto Table conteniendo los datos"
     },
     "loadXML": {
-      "description": "",
-      "params": ["Número:"],
-      "returns": "el objeto p5"
+      "description": "Lee los contenidos de un archivo y crea un objeto XML con sus valores. Si el nombre del archivo es usado como parámetro, el archivo debe estar ubicado en el directorio del bosquejo. Alternativamente, el archivo puede ser cargado desde cualquier lugar del computador local usando una dirección absoluta (que empieza con / en Unix y Linux, o con una letra que simbolice el disco duro en Windows). También se puede usar como parámetro de nombre de archivo una URL para un archivo en una red. Este método es asíncrono, lo que significa que su ejecución puede no estar completa antes de que se ejecute la siguiente línea de código en el bosquejo. Llamar a loadXML() dentro de preload() garantiza que la operación se complete antes de que setup() y draw() sean llamados. Fuera de preload(), puedes suplir una función callBack para manejar el objeto.",
+      "params": ["String: nombre de archivo o URL a cargar",
+      "Función: función a ser ejecutada después de que loadXML() finalice, el objeto XML es pasado como primer argumento",
+      "Función: la función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
+      "returns": "objeto XML que contiene los datos"
     },
     "httpGet": {
-      "description": "",
-      "params": ["Número:"],
+      "description": "Método para ejecutar una solicitud HTTP GET. Si no se especifica el tipo de datos, p5 tratará de adivinar basándose en la URL, usando texto por defecto.",
+      "params": ["String: nombre del archivo o URL a cargar",
+      "Objeto: parámetro de datos pasados con la solicitud enviada",
+      "String: json, jsonp, xml o text",
+      "Función: función a ser ejecutada después de que httpGet() finalice, los datos son pasados como primer argumento",
+      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
       "returns": "el objeto p5"
     },
     "httpPost": {
-      "description": "",
-      "params": ["Número:"],
+      "description": "Método para ejecutar una solicitud HTTP POST. Si no se especifica el tipo de datos, p5 tratará de adivinar basándose en la URL, usando texto por defecto.",
+      "params": ["String: nombre del archivo o URL a cargar",
+      "Objeto: parámetro de datos pasados con la solicitud enviada",
+      "String: json, jsonp, xml o text",
+      "Función: función a ser ejecutada después de que httpPost() finalice, los datos son pasados como primer argumento",
+      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
       "returns": "el objeto p5"
     },
     "httpDo": {
-      "description": "",
-      "params": ["Número:"],
+      "description": "Método para ejecutar una solicitud HTTP. Si no se especifica el tipo de datos, p5 tratará de adivinar basándose en la URL, usando texto por defecto. También puedes pasar un objeto especificando todos los parámetros de la solicitud siguiendo los ejemplos dentro de las llamadas de reqwest()",
+      "params": ["String: nombre del archivo o URL a cargar",
+      "Objeto: parámetro de datos pasados con la solicitud enviada",
+      "String: json, jsonp, xml o text",
+      "Función: función a ser ejecutada después de que httpDo() finalice, los datos son pasados como primer argumento",
+      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
       "returns": "el objeto p5"
     }
 
