@@ -911,33 +911,52 @@
       "returns": "el objeto p5"
     },
     "pixels[]": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Arreglo tipo Uint8ClampedArray conteniendo los valores de todos los pixeles en la ventana mostrada. Estos valores son números. Este arreglo es del tamaño (incluyendo el factor apropiado de pixelDensity) de la ventana desplegada x4, representando los valores R, G, B, A por cada pixel, moviéndose de izquierda a derecha en cada fila, bajando una columna a la vez. Los monitores Retina y otros de alta densidad tendrán más pixeles en el arreglo (por un factor de pixelDensity al cuadrado). Por ejemplo, si la imagen es de 100 x 100 pixeles, habrán 40.000 valores. En un monitor retina, habrán 160.000. Los primeros cuatro valores (índices 0 a 4) en el arreglo serán los valores R, G, B, A del pixel en la posición (0, 0). Los siguientes cuatro valores (índices 4 a 7) serán los valores R, G, B, A del pixel en la posición (1, 0). De forma más general, para definir los valores de un pixel en (x, y): TODO. Aunque el método descrito es complejo, es lo suficientemente flexible como para trabajar con cualquier densidad de pixeles. Notar que set() inmediatamente se hace cargo de definir los valores apropiados en el arreglo pixels[] para un (x, y) dado a cualquier densidad de pixeles, pero el desempeño puede ser no tan rápido cuando muchas modificaciones son hechas en el arreglo de pixeles. Antes de acceder a este arreglo, los datos deben ser cargados con la función loadPixels(). Después de que el arreglo de datos ha sido modificado, la función updatePixels() debe ser ejecutada para refrescar los cambios. Notar que este no es un arreglo standard de Javascript. Esto significa que las funciones Javascript como slice() o arrayCopy() no funcionan.",
       "returns": "el objeto p5"
     },
     "blend": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Copia una región de pixeles de una imagen a otra, usando un modo específico de mezcla para hacer la operación. Los modos disponibles de mezcla son: BLEND | DARKEST | LIGHTEST | DIFFERENCE | MULTIPLY| EXCLUSION | SCREEN | REPLACE | OVERLAY | HARD_LIGHT | SOFT_LIGHT | DODGE | BURN | ADD | NORMAL",
+      "params": ["p5.Image: imagen fuente",
+      "Entero: coordenada x de la esquina superior izquierda de la fuente",
+      "Entero: coordenada y de la esquina superior izquierda de la fuente",
+      "Entero: ancho de la imagen fuente",
+      "Entero: altura de la imagen fuente",
+      "Entero: coordenada x de la esquina superior izquierda del destino",
+      "Entero: coordenada y de la esquina superior izquierda del destino",
+      "Entero: ancho de la imagen destino",
+      "Entero: altura de la imagen destino",
+      "Constante: el modo de mezcla"],
       "returns": "el objeto p5"
     },
     "copy": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Copia una región del lienzo a otra región del lienzo desde una imagen usada como el parámetro srcImage en el lienzo. Si la fuente y el destino no son del mismo tamaño, automáticamente redimensionará los pixeles de la fuente para calzar con la región especificada como destino.",
+      "params": ["p5.Image: imagen fuente",
+      "Entero: coordenada x de la esquina superior izquierda de la fuente",
+      "Entero: coordenada y de la esquina superior izquierda de la fuente",
+      "Entero: ancho de la imagen fuente",
+      "Entero: altura de la imagen fuente",
+      "Entero: coordenada x de la esquina superior izquierda de destino",
+      "Entero: coordenada y de la esquina superior izquierda de destino",
+      "Entero: ancho de la imagen de destino",
+      "Entero: altura de la imagen de destino"],
       "returns": "el objeto p5"
     },
     "filter": {
-        "description": "this",
-        "params": ["String: "],
+        "description": "Aplica un filtro al lienzo. Las opciones posibles son: THRESHOLD, que convierte la imagen a pixeles blancos y negros dependiendo de si están arriba o abajo del umbral definido por el parámetro. El parámetro debe estar entre 0.0 (negro) y 1.0 (blanco). Si no se especifica ningún valor, el valor por defecto es 0.5. GRAY, convierte cualquier color en la imagen a un equivalente en la escala de grises, no tiene parámetros. OPAQUE, hace que el canal alpha sea totalmente opaco, no tiene parámetros. INVERT, hace que cada pixel tenga su valor inverso, no tiene parámetros. POSTERIZE, limita cada canal de la imagen a un número de colores especificado como parámetro. El parámetro puede definir entre 2 y 255 valores, pero los resultados más notorios se dan con valores bajos. BLUR, hace que la imagen sea borrosa con un proceso Gaussiano, siendo el parámetro el nivel de cuán borroso es el resultado, si no se usa ningún parámetro, el parámetro por defecto es 1, a mayores valores es más borroso el resultado. ERODE, reduce las áreas claras, no tiene parámetros. DILATE, aumenta las áreas claras, no tiene parámetros.",
+        "params": ["Constante: ",
+        "Número: un parámetro opcional único a cada filtro, ver más arriba"],
         "returns": "el objeto p5"
     },
     "get": {
-      "description": "this",
-      "params": ["String: "],
-      "returns": "el objeto p5"
+      "description": "Retorna un arreglo de valores RGBA por cada pixel o toma una sección de una imagen. Si no especifican parámetros, se retorna la imagen entera. Usa los parámetros x e y para obtener el valor de un pixel. Toma una sección de la ventana mostrada si especificas los parámetros adicionales w y h. Cuando se obtiene una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el actual mode imagen definido por imageMode(). Si el pixel solicitado está fuera de la imagen, se retorna el valor [0, 0, 0, 255]. Para obtener los números escalados según los rangoes de color actuales y tomar en cuenta el modo de color según colorMode(), usa getColor() en vez de get(). Tomar el valor de un pixel con get(x, y) es fácil, pero no tan rápido como tomar los datos directamente desde pixels[]. La instrucción equivalente a get(x, y) usando pixels[] con densidad de pixeles d es  var off = (y width + x) d * 4; [pixels[off], pixels[off+1], pixels[off+2], pixels[off+3]]. Ver la referencia de pixels[] para mayor información.",
+      "params": ["Número: coordenada x del pixel",
+      "Número: coordenada y del pixel",
+      "Número: ancho",
+      "Número: altura"],
+      "returns": "Arreglo|p5.Image: valores de pixel en la posición (x, y) en formato arreglo RGBAs o p5.Image"
     },
     "loadPixels": {
-      "description": "this",
-      "params": ["String: "],
+      "description": "Carga los datos de los pixeles en pantalla al arreglo pixels[]. Esta función siempre debe ser llamada antes de leer o escribir en el arreglo pixels[]",
       "returns": "el objeto p5"
     },
     "set": {
