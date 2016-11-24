@@ -1,45 +1,73 @@
-
-"nf": {
-  "description": "Función de utilidad para formatear números a strings. Existen dos veriones: una para formatear floats, y una para formatear enteros. Los valores de los dígitos y los parámetros left y right siempre deben ser enteros positivos",
-  "params": ["Número|Arreglo: el número a formatear",
-  "Número: número de dígitos a la izquierda del punto decimal",
-  "Número: número de dígitos a la derecha del punto decimal"],
-  "returns": "String|Arreglo: String formateada"
+"perspective": {
+  "description": "Define la perspectiva de la cámara",
+  "params": ["Número: frustum del campo de visión vertical de la cámra, de abajo hacia arriba, en grados",
+  "Número: frustum de la relación de aspecto de la cámara ",
+  "Número: frustum del largo del plano cercano",
+  "Número: frustum del largo del plano lejano"],
+  "returns": "p5: el objeto p5"
 },
-"nfc": {
-  "description": "Función de utilidad para formatear números en strings y poner las comas apropiadas para señalar múltiplos de mil. Hay dos versiones: una para números enteros y otra para arreglos de enteros. El valor del parámetro right debe siempre ser un entero positivo.",
-  "params": ["Número|Arreglo: el número a formatear",
-  "Número: número de dígitos a la derecha del punto decimal"],
-  "returns": "String|Arreglo: String formateada"
+"ortho": {
+  "description": "Define la cámara ortogonal",
+  "params": ["Número: define el frustum del plano izquierdo de la cámara",
+  "Número: define el frustum del plano derecho de la cámara",
+  "Número: define el frustum del plano inferior de la cámara"
+  "Número: define el frustum del plano superior de la cámara",
+  "Número: define el frustum del plano cercano de la cámara",
+  "Número: define el frustum del plano lejano de la cámara"],
+  "returns": "el objeto p5"
 },
-"nfp": {
-  "description": "Función de utilidad para formatear números en strings. Similar a nf() pero pone un signo + en frente de los números positivos y un signo - en frente de números negativos. Hay dos versiones, una para formatear floats y otra para formatear enteros. Los valores de los parámetros left y right deben siempre ser enteros positivos.",
-  "params": ["Número|Arreglo: el número a formatear",
-  "Número: número de dígitos a la izquierda del punto decimal",
-  "Número: número de dígitos a la derecha del punto decimal"],
-  "returns": "String|Arreglo: String formateada"
+"ambientLight": {
+  "description": "Crea una luz ambiente con color",
+  "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
+  "Número: opcional, valor de verde o saturación",
+  "Número: opcional, valor de azul o brillo",
+  "Número: opcional, valor de opacidad"],
+  "returns": "el objeto p5"
 },
-"nfs": {
-  "description": "Función de utilidad para formatear números en strings. Similar a nf() pero pone un espacio en frente de los números positivos y un signo - en frente de números negativos. Hay dos versiones, una para formatear floats y otra para formatear enteros. Los valores de los parámetros left y right deben siempre ser enteros positivos.",
-  "params": ["Número|Arreglo: el número a formatear",
-  "Número: número de dígitos a la izquierda del punto decimal",
-  "Número: número de dígitos a la derecha del punto decimal"],
-  "returns": "String|Arreglo: String formateada"
+"directionalLight": {
+  "description": "Crea una luz direccional con color y dirección",
+  "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
+  "Número: opcional, valor de verde o saturación",
+  "Número: opcional, valor de azul o brillo",
+  "Número: opcional, valor de opacidad",
+  "Número|p5.Vector: dirección del eje x o un p5.Vector",
+  "Número: opcional, dirección del eje y",
+  "Número: opcional, dirección del eje z"],
+  "returns": "el objeto p5"
 },
-"split": {
-  "description": "La función split usa String.split(), corta un String en pedazos usando un caracter o String como delimitador. El parámetro delim especifica el caracter o caracteres que marcan los bordes entre cada pieza. Un arreglo String[] es retornado, que contiene cada una de las piezas. La función splitTokens() funciona de forma similar, excepto que divide usango un rango de caracteres en vez de usar un caracter o una secuencia de caracteres específicos.",
-  "params": ["String: el String a ser dividido",
-  "String: el String usado para separar los datos"],
-  "returns": "Arreglo: arreglo de Strings"
+"pointLight": {
+  "description": "Crea una luz puntual con color y posición",
+  "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
+  "Número: opcional, valor de verde o saturación",
+  "Número: opcional, valor de azul o brillo",
+  "Número: opcional, valor de opacidad",
+  "Número|p5.Vector: dirección del eje x o un p5.Vector",
+  "Número: opcional, dirección del eje y",
+  "Número: opcional, dirección del eje z"],
+  "returns": "el objeto p5"
 },
-"splitTokens": {
-  "description": "La función splitTokens() divide un String en uno o varios caracteres delimitadores o tokens. El parámetro delim especifica el o los caracteres a ser usados como borde. Si no se especifican caracteres delim, cualquier caracter tipo whitespace será usado para dividir. Los caracteres whitespace incluyen tabulación (\t), nueva línea (\n), retorno de carro (\r), entrada de formulario (\f), y espacio.",
-  "params": ["String: el String a ser dividido",
-  "String: lista de Strings individuales que serán usados como separadores"],
-  "returns": "Arreglo: arreglo de Strings"
+"normalMaterial": {
+  "description": "this",
+  "params": ["String|Arreglo:"],
+  "returns": "el objeto p5"
 },
-"trim": {
-  "description": "Remueve caracteres tipo whitespace (espacio en blanco) del comienzo y el final de un String. En adición a los caracteres estámdar de whitespace como espacio, retorno de carro y tabulación, esta función también remueve el caracter Unicode nbsp.",
-  "params": ["String|Arreglo: un String o arreglo de Strings a ser recortados."],
-  "returns": "String|Arreglo: un String o arreglo de Strings recortados."
+"texture": {
+  "description": "this",
+  "params": ["String|Arreglo:"],
+  "returns": "el objeto p5"
+},
+"ambientMaterial": {
+  "description": "this",
+  "params": ["String|Arreglo:"],
+  "returns": "el objeto p5"
+},
+"specularMaterial": {
+  "description": "this",
+  "params": ["String|Arreglo:"],
+  "returns": "el objeto p5"
+},
+"p5.RendererGL": {
+  "description": "this",
+  "params": ["String|Arreglo:"],
+  "returns": "el objeto p5"
 }
