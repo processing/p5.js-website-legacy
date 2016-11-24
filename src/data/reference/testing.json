@@ -1,23 +1,4 @@
 
-"join": {
-  "description": "Combina una arreglo de Strings en un String, cada uno separado por los caracteres usados como parámetro separator. Para unir arreglos de enteros o floats, es necesario primero convertirlos a Strings usando las funciones nf() o nfs().",
-  "params": ["Arreglo: arreglo de Strings a ser unidos",
-  "String: String a ser posicionado entre cada item"],
-  "returns": "String: String unificado"
-},
-"match": {
-  "description": "Esta función es usada para aplicar una expresión regular a una porción de texto,  y retorna grupos coincidentes (elementos encontrados entre paréntesis) como un arreglo de Strings. Si no existen coincidencias, se retorna el valor null. Si no se especifican grupos en la expresión regular, pero la secuencia coincide, un arreglo de largo 1 (con el texto coincidente como primer elemento del arreglo) será retornado. Para usar la función, primero comprueba si el resultado es null. Si el resultado es null, entonces la secuencia no tuvo coincidencias. Si la secuencia tuvo coincidencias, retorna un arreglo. Si exsiten grupos (especificados como conjuntos de paréntesis) en la expresión regular, entonces los contenidos de cada uno serán retornados en el arreglo. El elemento[0] de una coincidencia de expresión regular retorna el string coincidente, y el grupo de coincidencia empieza en el elemento[1] (el primer grupo es [1], el segundo es [2], etc).",
-  "params": ["String: el String a ser buscado",
-  "String: la expresión regular a ser usada para buscar coincidencias"],
-  "returns": "Arreglo: arreglo de Strings encontrados"
-},
-"matchAll": {
-  "description": "
-  Esta función es usada para aplicar una expresión regular a una porción de texto,  y retorna una lista de grupos coincidentes (elementos encontrados entre paréntesis) como un arreglo de Strings bidimensional. Si no existen coincidencias, se retorna el valor null. Si no se especifican grupos en la expresión regular, pero la secuencia coincide, un arreglo de dos dimensiones es retornado, pero es de largo 1. Para usar la función, primero comprueba si el resultado es null. Si el resultado es null, entonces la secuencia no tuvo coincidencias. Si la secuencia tuvo coincidencias, retorna un arreglo 2D. Si exsiten grupos (especificados como conjuntos de paréntesis) en la expresión regular, entonces los contenidos de cada uno serán retornados en el arreglo. El elemento[i][0] de una coincidencia de expresión regular retorna el string coincidente completo, y el grupo de coincidencia empieza en el elemento[i][1] (el primer grupo es [i][1], el segundo es [i][2], etc).",
-  "params": ["String: el String a ser buscado",
-  "String: la expresión regular a ser usada para buscar coincidencias"],
-  "returns": "Arreglo: arreglo 2D de Strings encontrados"
-},
 "nf": {
   "description": "Función de utilidad para formatear números a strings. Existen dos veriones: una para formatear floats, y una para formatear enteros. Los valores de los dígitos y los parámetros left y right siempre deben ser enteros positivos",
   "params": ["Número|Arreglo: el número a formatear",
