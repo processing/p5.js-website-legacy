@@ -976,24 +976,32 @@
       "returns": "el objeto p5"
     },
     "loadFont": {
-      "description": "",
-      "params": ["Número:"],
-      "returns": "el objeto p5"
+      "description": "Carga un archivo de fuente de letra (.otf, .ttf) desde un archivo o URL, y retorna un objeto PFont. Este método es asíncrono, lo que significa que puede que no finalice antes de que la siguiente línea en tu bosquejo sea ejecutada. La ubicación del archivo debe ser relativo al archivo HTML que lo vincula con tu bosquejo. Cargar desde una URL u otra ubicación remota puede ser bloqueado por las opciones de seguridad del navegador.",
+      "params": ["String: número del archivo o URL a cargar",
+      "Función: función a ser ejecutada después de que loadFont() es completada"],
+      "returns": "Objeto: objeto p5.Font"
     },
     "loadJSON": {
-      "description": "",
-      "params": ["Número:"],
-      "returns": "el objeto p5"
+      "description": "Carga un archivo JSON desde un archivo o una URL, y retorna un objeto o un arreglo. Este método es asíncrono, lo que significa que puede que no termine antes que se ejecute la siguiente línea en tu bosquejo.",
+      "params": ["String: nombre de archivo o URL a cargar",
+      "Función: función a ser ejecutada después de que loadJSON() finalice, los datos son pasados como primer argumento",
+      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento",
+      "String: json o jsonp"],
+      "returns": "Objeto|Arreglo: datos JSON"
     },
     "loadStrings": {
-      "description": "",
-      "params": ["Número:"],
-      "returns": "el objeto p5"
+      "description": "Lee los contenidos de un archivo y crea un arreglo de Strings de sus líneas individuales. Si el nombre del archivo es usado como parámetro, como en el ejemplo anterior, el archivo debe estar ubicado en el directorio del bosquejo. Alternativamente, el archivo puede ser cargado desde cualquier lugar del computador local usando una dirección absoluta (empieza con / en Unix y Linux, o una letra representando el disco en Windows), o el parámetro de nombre de archivo puede ser una URL donde esté el archivo dentro de una red. Este método es asíncrono, lo que significa que puede ser que su ejecución no termine antes de que se ejecute la siguiente línea del bosquejo.",
+      "params": ["String: nombre de archivo o URL a cargar",
+      "Función: función a ser ejecutada después de que loadStrings() finalice, el arreglo es pasado como primer argumento",
+      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
+      "returns": "Arreglo: un arreglo de Strings"
     },
     "loadTable": {
-      "description": "",
-      "params": ["Número:"],
-      "returns": "el objeto p5"
+      "description": "Lee los contenidos de un archivo o URL y crea un objeto p5.Table con sus valores. Si un archivo es especificado, debe ser ubicado en el directorio data del bosquejo. El parámetro de nombre de archivo puede también ser una URL de un archivo en línea. Por defecto, se asume que el archivo está separado por comas (formato CSV), La tabla sólo busca una fila de encabezado si es que se incluye la opción header. Las opciones posibles incluyen: csv: se procesan los datos como valores separados por comas, tsv: se procesan los datos como separados por tabulación, header: la tabla tiene una fila de encabezados (títulos). Si se incluyenn múltiples opciones, se deben ingresar como parámetros separados por comas. Todos los archivos son cargados y grabados usando codificación UTF-8. Este método es asíncrono, lo que significa que su ejecución puede no haber terminado antes de que se ejecute la siguiente línea del bosquejo. Si se llama a loadTable() dentro de preload() se garantiza que se complete la operación antes de que setup() y draw() sean llamadas. Fuera de preload(), puedes suplir una función callback para manejar el objeto.",
+      "params": ["String: nombre de archivo o URL a cargar",
+      "String|Strings: header, csv, tsv",
+      "Función: función a ser ejecutada después de que loadTable() finalice, el arreglo es pasado como primer argumento. Si es exitosa, el objeto Table es pasado como primer argumento, en caso contrario se pasa el valor boolean false."],
+      "returns": "Objeto Table conteniendo los datos"
     },
     "loadXML": {
       "description": "",
