@@ -1359,94 +1359,106 @@
       "returns": "el objeto p5"
     },
     "append": {
-      "description": "this",
-      "params": ["Objeto:"],
+      "description": "Añade un valor al final de un arreglo. Extiende el largo de un arreglo en una unidad. Usa la función Array.push()",
+      "params": ["Arreglo: Arreglo al que se agregará el dato",
+      "Cualquiera: a ser añadido al arreglo"],
       "returns": "el objeto p5"
     },
     "arrayCopy": {
-      "description": "this",
-      "params": ["Objeto:"],
+      "description": "Copia el arreglo (o una parte del arreglo) a otro arreglo. El arreglo fuente es copiado al arreglo de destino, empezando por la posición especificada por srcPosition y a la posición especificada por dstPosition. El número de elementos a copiar es determinado por el largo. Notar que al copiar valores se sobreescriben los valores existentes en el arreglo de destino. Para anexar valores en vez de sobreescribirlos, usa la función concat(). La versión simplificada con dos argumentos, arrayCopy(src, dest), copia un arreglo entero a otro del mismo tamaño. Es equivaletne a arrayCopy(src, 0, dst, 0, src.length). Usar esta función es mucho más eficiente para copiar datos de un arreglo que iterar con un bucle for() y copiar cada elemento individualmente. ",
+      "params": ["Arreglo: el arreglo fuente",
+      "Número: posición inicial en el arreglo fuente",
+      "Arreglo: el arreglo de destino",
+      "Número: posición inicial del arreglo de destino",
+      "Número: númeor de elementos del arreglo a ser copiados"],
       "returns": "el objeto p5"
     },
     "concat": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Concatena dos arreglos, usa la función Array.concat(). No modifica los arreglos de entrada.",
+      "params": ["Arreglo: primer arreglo a concatenar",
+      "Arreglo: segundo arreglo a concatenar"],
+      "returns": "Arreglo: el arreglo concatenado"
     },
     "reverse": {
-      "description": "this",
-      "params": ["Objeto:"],
+      "description": "Invierte el orden un arreglo, usa Array.reverse().",
+      "params": ["Arreglo: arreglo a ser invertido"],
       "returns": "el objeto p5"
     },
     "shorten": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Disminuye un arreglo en un elemento y retorna el arreglo más corto, usa Array.pop().",
+      "params": ["Lista: arreglo a acortar"],
+      "returns": "Arreglo: el arreglo acortado"
     },
     "shuffle": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Ordena aleatoriamente los elementos de un arreglo. Implementa el algoritmo Fisher Yates.",
+      "params": ["Arreglo: Arreglo a ordenar",
+      "Boolean: modifica el arreglo"],
+      "returns": "Arreglo: retorna el arreglo ordenado"
     },
     "sort": {
-      "description": "this",
-      "params": ["Objeto:"],
+      "description": "Ordena un arreglo de números, desde el más pequeño al más grande, o pone un arreglo de palabras en orden alfabético. El arreglo original no es modificado, un nuevo arreglo ordenado es retornado. El parámetro count define el número de elementos a ordenar. Por ejemplo, si hay 12 elementos en un arreglo y count es 5, los primeros 5 elementos del arreglo serán ordenados.",
+      "params": ["Arreglo: arreglo a ordenar",
+      "Número: número de elementos a ordenar, empezando desde 0"],
       "returns": "el objeto p5"
     },
     "splice": {
-      "description": "this",
-      "params": ["Objeto:"],
+      "description": "Inserta un valor o un arreglo de valores en un arreglo existente El primer parámetro especifica el arreglo inicial a ser modificado, y el segundo parámetro define los datos a insertarse. El tercer parámetro es un índice que especifica la posición del arreglo a partir de la que se insertarán los datos. Recuerda que el índice del arreglo empieza en 0, así que la primera posición es 0, la segunda es 1, etc.",
+      "params": ["Arreglo: arreglo a ser modificado",
+      "Cualquiera: valor a ser introducido",
+      "Número: posición del arreglo donde se inserta el dato"],
       "returns": "el objeto p5"
     },
     "subset": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Extrae un arreglo de elementos de un arreglo existente. El parámetro list define el arreglo desde el cual los elementos serán copiados, y los parámetros start y count especifican cuáles elementos extraer. Si no especifica count, los elementos serán extraidos desde el principio. Esta función no modifica el arreglo original",
+      "params": ["Arreglo: arreglo del cual se extrae",
+      "Número: posición de donde empezar a extraer",
+      "Número: número de valores a extraer"],
+      "returns": "Arreglo: arreglo de elementos extraidos"
     },
     "float": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Convierte un String a su representación de punto flotante. Los contenidos de un String deben parecerse a un número, en otro caso NaN es retornado. Por ejemplo, float('1234.56') evalua a 1234.56, pero float('giraffe') retorna NaN. Cuando un arreglo de valores es pasado, un arreglo de floats del mismo largo es retornado.",
+      "params": ["String: string a ser procesado"],
+      "returns": "Número: representación en punto flotante de un string"
     },
     "int": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Convierte un boolean, string o float a su representación en número entero. Cuando un arreglo de valores es introducido, entonces un arreglo de enteros de la misma longitud es retornado.",
+      "params": ["String|Boolean|Número|Arreglo: valor a procesar"],
+      "returns": "Número: valor representado como entero"
     },
     "str": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Convierte un boolean, string, o número a su representación en string. Cuando un arreglo de valores es introducido, entonces un arreglo de strings de la misma longitud es retornado.",
+      "params": ["String|Boolean|Número|Arreglo: valor a procesar"],
+      "returns": "String: valor representado como string"
     },
     "boolean": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Convierte un número o string a su representación en boolean. Para números, cualquier valor distinto de cero (positivo o ne gativo), evalua a true, mientras que cero evalua a falso. Para un string, el valor true evalua a true, mientras que cualquier otro valor evalua a falso. Cuando un arreglo de números o strings es introducido, entonces un arreglo de booleans de la misma longitud es retornado.",
+      "params": ["String|Boolean|Número|Arreglo: valor a procesar"],
+      "returns": "Boolean: representación en formato boolean del valor"
     },
     "byte": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Convierte un número, string o boolean a su representación en byte. Un byte puede solo ser un número entero entre -128 y 127, así que cuando un valor fuera de este rango es convertido, se hace wrap a la representación correspondiente en byte. Cuando un arreglo de números, string, o booleans es introducido, entonces un arreglo de bytes de la misma longitud es retornado.",
+      "params": ["String|Boolean|Número|Arreglo: valor a procesar"],
+      "returns": "Número: representación en formato byte del valor"
     },
     "char": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Convierte un número o string a su representaciómo como un string de un único caracter. Si se provee un parámetro, es primero pasado como entero y luego evaluado como un string de un único caracter. Cuando un arreglo de números o strings es introducido, entonces un arreglo de strings de un único caracter de la misma longitud es retornado.",
+      "params": ["String|Número|Arreglo: valor a procesar"],
+      "returns": "String: representación en formato string del valor"
     },
     "unchar": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Convierte un string de un único caracter a su correspondiente representación como valor entero. Cuando un arreglo de strings de un caracter es introducido, entonces un arreglo de enteros de la misma longitud es retornado.",
+      "params": ["String|Arreglo: valor a procesar"],
+      "returns": "Número: representación en formato entero del valor"
     },
     "hex": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Convierte un número a su correspondiente representación como hexadecimal. Si se ingersa un segundo parámetro, es usado para definir el número de caracteres a generar en la notación hexadecimal. Cuando un arreglo es introducido, entonces un arreglo de strings en notación hexadecimal de la misma longitud es retornado.",
+      "params": ["Número|Arreglo: valor a procesar"],
+      "returns": "String: representación en formato string hexadecimal del valor"
     },
     "unhex": {
-      "description": "this",
-      "params": ["Objeto:"],
-      "returns": "el objeto p5"
+      "description": "Convierte una representación en string de un número hexadecimal a su correspondiente representación como valor entero. Cuando un arreglo de strings en notación hexadecimal es introducido, entonces un arreglo de enteros de la misma longitud es retornado.",
+      "params": ["String|Arreglo: valor a procesar"],
+      "returns": "Número: representación en formato entero del valor hexadecimal"
     },
     "join": {
       "description": "this",
@@ -1498,8 +1510,6 @@
       "params": ["Objeto:"],
       "returns": "el objeto p5"
     }
-
-
 
   },
   "p5.Image": {
