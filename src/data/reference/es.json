@@ -1125,19 +1125,106 @@
       "returns": "el objeto p5"
     },
     "abs": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "Calcula el valor absoluto (magnitud) de un número. Usa Math.abs(). El valor absoluto de un número es siempre positivo.",
+      "params": ["Número: número a computar"],
+      "returns": "Número: valor absoluto del número dado"
     },
     "ceil": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "Calcula el entero más cercano que es mayor o igual que el valor del paráemtro. Usa Math.ceil(). Por ejemplo, ceil(9.03) retorna el valor 10.",
+      "params": ["Número: número a redondear"],
+      "returns": "Número: número redondeado hacia arriba"
     },
     "constrain": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "Restringe un valor a estar entre un valor mínimo y uno máximo.",
+      "params": ["Número: número a restringir",
+      "Número: límite mínimo",
+      "Número: límite máximo"],
+      "returns": "Número: número restringido"
+    },
+    "dist": {
+      "description": "Calcula la distancia entre dos puntos",
+      "params": ["Número: la coordenada x del primer punto",
+      "Número: la coordenada y del primer punto",
+      "Número: la coordenada z del primer punto",
+      "Número: la coordenada x del segundo punto",
+      "Número: la coordenada y del segundo punto",
+      "Número: la coordenada z del segundo punto"],
+      "returns": "Número: distancia entre los dos puntos"
+    },
+    "exp": {
+      "description": "Retorna el número de Euler (2.71828...) elevado al parámetro n. Usa Math.exp().",
+      "params": ["Número: exponente a elevar"],
+      "returns": "e^n"
+    },
+    "floor": {
+      "description": "Calcula el valor entero más cercano que es menor o giaul al parámetro. Usa Math.floor().",
+      "params": ["Número: número a ser redondeado hacia abajo"],
+      "returns": "Número: número redondeado hacia abajo"
+    },
+    "lerp": {
+      "description": "Calcula un número entre dos números a un incremento específico. El parámetro amt es la cantidad a interpolar entre los dos valores donde 0.0 es igual al primer punto, 0.1 está muy cerca del primer punto, 0.5 está a medio camino entre ambos números, etc. La función lerp es conveniente para crear movimiento a lo largo de un camino recto y para dibujar líneas punteadas.",
+      "params": ["Número: primer valor",
+      "Número: segundo valor",
+      "Número: número entre 0.0 y 1.0"],
+      "returns": "Número: valor interpolado"
+    },
+    "log": {
+      "description": "Calcula el logaritmo natural (logaritmo con base e) de un número. Esta función espera que el parámetro n sea de un valor más grande que 0.0. Usa Math.log().",
+      "params": ["Número: número más grande que 0"],
+      "returns": "Número: logaritmo naturla de n"
+    },
+    "mag": {
+      "description": "Calcula la magnitud (o tamaño) de un vector. Un vector es una dirección en el espacio comúnmente usada en gráfica computacional y álgebra lineal. Como no tiene posición de inicio, la magnitud del vector puede ser pensada como la distancia entre la coordenada 0,0 a su valor x,y. Por lo tanto, mag() es un atajo a escribir dist(0, 0, x, y).",
+      "params": ["Número: primer valor",
+      "Número: segundo valor"],
+      "returns": "Número: magnitud del vector entre (0, 0) y (a, b)"
+    },
+    "map": {
+      "description": "Escala un nombre de un rango a otro rango. En el primer ejemplo anterior, el número 25 es convertido de un valor en el rango entre 0 y 100 a un valor cuyo rango está entre el borde izquierdo de la ventana (0) y el borde derecho (ancho).",
+      "params": ["Número: el valor a ser convertido",
+      "Número: límite inferior del rango actual",
+      "Número: límite superior del rango actual",
+      "Número: límite inferior del rango deseado",
+      "Número: límite superior del rango deseado"],
+      "returns": "Número: número escalado"
+    },
+    "max": {
+      "description": "Determina el valor más grande en una secuencia de números, y luego retorna ese valor. max() acepta cualquier número de parámetros tipo número, o un arreglo de cualquier largo.",
+      "params": ["Número|Arreglo: números a comparar"],
+      "returns": "Número: número máximo"
+    },
+    "min": {
+      "description": "Determina el valor más pequeño en una secuencia de números, y luego retorna ese valor. max() acepta cualquier número de parámetros tipo número, o un arreglo de cualquier largo.",
+      "params": ["Número|Arreglo: números a comparar"],
+    "returns": "Número: número mínimo"
+    },
+    "norm": {
+      "description": "Normaliza un número de un rango a otro rango entre 0 y 1. Es idéntico a map(value, low, high, 0, 1). Los números fuera del rango no son saturados a 0 o 1, porque los números fuera de rango son muchas veces intencionales y útiles (ver el segundo ejemplo más arriba)",
+      "params": ["Número: valor entrante a ser normalizado",
+      "Número: límite inferior del rango actual",
+      "Número: límite superior del rango actual"],
+      "returns": "Número: número normalizado"
+    },
+    "pow": {
+      "description": "Facilita las expresiones exponenciales. La función pow() es una manera eficiente de multiplicar números po sí mismos (o sus recíprocos) en grandes cantidades. Por ejemplo, pow(3, 5) es equivalente a la expresión 3*3*3*3*3 y pow (3, -5) es equivalente a 1/3*3*3*3*3. Usa Math.pow().",
+      "params": ["Número: base de la expresión exponencial",
+      "Número: potencia a la que se eleva la base"],
+      "returns": "n^e"
+    },
+    "round": {
+      "description": "Calcula el entero más cercano al parámetro n. Por ejemplo, round(133.8) retorna el valor 134. Usa la función Math.round().",
+      "params": ["Número: número a redondear"],
+      "returns": "Número: número redondeado"
+    },
+    "sq": {
+      "description": "Eleva al cuadrado un número (lo multiplica por sí mismo), El resultado es siempre un número positivo, porque multiplicar dos números negativos siempre resulta en un número positivo.",
+      "params": ["Número: número a elevar al cuadrado"],
+      "returns": "Número: número elevado al cuadrado"
+    },
+    "sqrt": {
+      "description": "Calcula la raíz cuadrada de un número. La raíz cuadrada de un número es siempre positiva, aunque puede haber una raíz cuadrada válida que sea negativa. La raíz cuadrada s de un número a es tal que s*s = a. Es lo opuesto a elevar al cuadrado. Usa Math.sqrt().",
+      "params": ["Número: número no negativo al que se le calcula la raíz cuadrada"],
+      "returns": "Número: raíz cuadrada del número"
     }
 
 
