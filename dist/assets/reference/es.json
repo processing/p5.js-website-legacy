@@ -1040,74 +1040,75 @@
       "returns": "el objeto p5"
     },
     "save": {
-      "description": "this",
-      "params": ["String:"],
+      "description": "Graba una imagen, text, json, csv, wav o html. Hace que la descarga ocurra en el computador cliente. Notar que no es recomendado llamar a save() dentro de draw() si está en bucle, porque la función save() abrirá una ventana de diálogo en cada cuadro. El comportamiento por defecto es grabar el lienzo como una imagen. Puedes opcionalmente especificar un nombre de archivo. Por ejemplo: TODO. Alternativamente, el primer parámetro puede ser un puntero a un lienzo p5.Element, un arreglo de Strings, un arreglo de JSON, un objeto JSON, un p5.Table, un p5.Image, o un p5.SoundFile (requiere p5.sound). El segundo parámetro es el nombre del archivo (incluyendo la extensión). El tercer parámetro es para opciones específicas a este tipo de objeto. Este método grabará un archivo que se austa a los parámetros dados. Por ejemplo: TODO. ",
+      "params": ["Objeto|String: si se provee un nombre de archivo, se grabará el lienzo como una imagen con la extensión png o jpg, dependiendo del nombre del archivo. Si se provee un objeto, se grabará dependiendo del objeto y el nombre del archivo (ver los ejemplos anteriores)",
+      "String: Si se provee un objeto como el primer parámetro, entonces el segundo parámetro indica el nombre del archivo, y debe incluir la extensión apropiada (ver los ejemplos anteriores).",
+      "Boolean|String: opciones adicionales depndiendo del tipo de archivo. Por ejemplo, cuando se graba un archivo JSON, true indica que la salida será optimizada según el tamaño del archivo, en vez de por legibilidad."],
       "returns": "el objeto p5"
     },
     "saveJSON": {
-      "description": "this",
-      "params": ["String:"],
+      "description": "Escribe los contenidos de un arreglo o un objeto JSON a un archivo .json. El proceso de grabación del archivo y su ubicación pueden variar entre navegadores web.",
+      "params": ["Arreglo|Objeto:",
+      "String: ",
+      "Boolean: si es verdadero (true), remueve los saltos de línea del archivo de salida para optimizar el tamaño del archivo, en desmedro de la legibilidad."],
       "returns": "el objeto p5"
     },
     "saveStrings": {
-      "description": "this",
-      "params": ["String:"],
+      "description": "Escribe un arreglo de Strings a un archivo de texto, una línea por String. El proceso de grabación del archivo y su ubicación pueden variar entre navegadores web.",
+      "params": ["Arreglo: arreglo de Strings a ser escrito",
+      "String: nombre del archivo de salida"],
       "returns": "el objeto p5"
     },
     "saveTable": {
-      "description": "this",
-      "params": ["String:"],
+      "description": "Escribe los contenidos de un objeto Table a un archivo. Por defecto es un archivo de texto con valores separados por coma (csv), pero también puede usar separación por tabulación (tsv), o generar una tabla HTML (html). El proceso de grabación del archivo y su ubicación pueden variar entre navegadores web.",
+      "params": ["Table: el objeto Table a ser grabado en un archivo",
+      "String: el nombre del archivo en el que Table será grabado",
+      "String: puede ser tsv, csv o html."],
       "returns": "el objeto p5"
     },
     "p5.Table": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "Los objetos Table almacenan datos con múltiples filas y columnas, tal como una hoja de cálculo tradicional. Los objetos Table pueden ser generados desde cero, dinámicamente, o usando datos desde un archivo existente.",
+      "params": ["Arreglo: un arreglo de objetos p5.TableRow"],
+      "returns": "p5.Table: el objeto p5.Table generado"
     },
     "p5.TableRow": {
-      "description": "this",
-      "params": ["String:"],
+      "description": "Un objeto TableRow representa una única fila de datos, grabados en columnas, de una tabla. Un objeto TableRow contiene tanto un arreglo ordenado, como un objeto JSON desordenado.",
+      "params": ["String: opcional, puebla la fila con una serie de valores, separados por el separador",
+      "String: por defecto, valores separados por coma (csv)"],
       "returns": "el objeto p5"
     },
     "day": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "p5.js se comunica con el reloj de tu computador. La función day() retorna el día actual como un valor entre 1 y 31.",
+      "returns": "Número: el día actual"
     },
     "hour": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "p5.js se comunica con el reloj de tu computador. La función hour() retorna la hora actual como un valor entre 0 y 23.",
+      "returns": "Número: la hora actual"
     },
     "minute": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "p5.js se comunica con el reloj de tu computador. La función minute() retorna el minuto actual como un valor entre 0 y 59.",
+      "returns": "Número: el minuto actual"
     },
     "millis": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "Retorna el número de milisegundos (milésimas de segundo) desde que el programa empezó a correr. La información es usada a menudo para temporizar eventos y animar secuencias",
+      "returns": "Número: el número de milisegundos desde que empezó el programa"
     },
     "month": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "p5.js se comunica con el reloj de tu computador. La función month() retorna el mes actual como un valor entre 1 y 12.",
+      "returns": "Número: el mes actual"
     },
     "second": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "p5.js se comunica con el reloj de tu computador. La función second() retorna el mes actual como un valor entre 0 y 59.",
+      "returns": "Número: el segundo actual"
     },
     "year": {
-      "description": "this",
-      "params": ["String:"],
-      "returns": "el objeto p5"
+      "description": "p5.js se comunica con el reloj de tu computador. La función year() retorna el año actual como un entero (2014, 2015, 2015, etc).",
+      "returns": "Número: el año actual"
     },
     "p5.XML": {
-      "description": "this",
+      "description": "XML es una representación de un objeto XML, capaz de procesar código XML. Usa loadXML() para cargar archivos externos XML y crear objetos XML",
       "params": ["String:"],
-      "returns": "el objeto p5"
+      "returns": "p5.XML: el objeto p5.XML generado"
     }
 
 
