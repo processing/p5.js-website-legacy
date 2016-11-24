@@ -1227,84 +1227,91 @@
       "returns": "Número: raíz cuadrada del número"
     },
     "noise": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "Retorna el valor del ruido Perlin en las coordenadas específicas. El ruido Perlin es un generador de secuencias aleatorias produciendo una sucesión de números más naturalmente ordenada y armónica, en comparación con la función estándar random(). Fue inventada por Ken Perlin en los 1980s y ha sido usada desde entonces en aplicaciones gráficas para producir texturas procedurales, movimiento natural, figuras, terrenos, etc. La principal diferencia con la función random() es definida en una espacio infinito n-dimensional donde cada par de coordenadas corresponde a un valor fijo semi-aleatorio (fijado solo durante el tiempo de vida del programa; ver la función noiseSeed()). p5.js puede calcular ruido 1D, 2D y 3D, dependiendo del número de coordenadas dado. El valor resultante siempre estará entre 0.0 y 1.0. El valor de ruido puede ser animado moviéndose a través del espacio del ruido como fue demostrado en el ejemplo superior. Las dimensiones segunda y tercera también pueden ser interpretadas como tiempo. El ruido está estructurado de forma similar a una señal de audio, con respecto al uso de la función de las frecuencias. De forma similar al conecpto de armónicas en física, el ruido Perlin es calculado a lo largo de varias octavas que se han sumado para dar forma al resultado final. Otra manera de ajustar el caracter de la secuencia resultante es la escala de las coordenadas de entrada. Como la función trabaja en un espacio infinito, el valor de las coordenadas no importa como tal, solo la distancia entre las coordenadas sucesivas importa (por ejemplo: cuando se usa noise() dentro de un bucle). Como regla general, a menor la diferencia entre coordenadas, más suave es el ruido resultante. Pasos entre 0.005 y 0.03 funcionan mejor para la mayor parte de las aplicaciones, pero esto diferirá dependiendo del uso.",
+      "params": ["Número: coordenada x en el espacio del ruido",
+      "Número: coordenada y en el espacio del ruido",
+      "Número: coordenada z en el espacio del ruido"],
+      "returns": "valor de ruido Perlin (entre 0 y 1) en las coordenadas especificadas"
     },
     "noiseDetail": {
-      "description": "this",
-      "params": ["Número: "],
+      "description": "Ajusta el caracter y nivel de detalle producido por la función de ruido Perlin. Similar al concepto de armónicas en física, el ruido es calculado a lo largo de varias octavas. Las octavas más graves contribuyen de forma más significativa a la señal de salida y como define la intensidad general del ruido, mientras que las octavas más altas crean detalles más finos en la secuencia de ruido. Por defecto, el ruido es calculado a lo largo de 4 octavas, con cada octava contribuyendo exactamente la mitad que su predecesora, partiendo con una intensidad de 50% para la primera octava. Este tamaño de caída puede ser cambiado al añadir un parámetro adicional a la función. Por ejemplo, un factor de caída de 75% significa que cada octava tendrá un 75% de impacto (25% menos) que la octava anterior. Cualquier valor entre 0.0 y 1.0 es válido, sin embargo nota que valores superiores a 0.5 pueden resultar en que noise() retorne valores mayores a 1.0. Al cambiar estos parámetros, la señal creada por noise() puede ser adaptada para calzar con necesidades y características específicas.",
+      "params": ["Número: número de octavas a ser usadas por el ruido",
+      "Número: factor de caída para cada octava"],
       "returns": "el objeto p5"
     },
     "noiseSeed": {
-      "description": "this",
-      "params": ["Número: "],
+      "description": "Define el valor semilla para la función noise(). Por defecto, noise() produce diferentes resultados cada vez que el programa es ejecutado. Defines el parámetro value a una constante para que retorne la misma secuencia de números pseudo-aleatorios cada vez que el programa es ejecutado",
+      "params": ["Número: el valor semilla"],
       "returns": "el objeto p5"
     },
     "acos": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "El inverso de la función cos(), retorna el arcocoseno de un valor. Esta función espera valores entre -1 y 1 y los valores retornados están en el rango entre 0 y PI (3.1415927).",
+      "params": ["Número: el valor al que se aplica arcocoseno"],
+      "returns": "Número: el arcocoseno del valor"
     },
     "asin": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "El inverso de la función sin(), retorna el arcoseno de un valor. Esta función espera valores entre -1 y 1 y los valores retornados están en el rango entre -PI/2  y PI/2 .",
+      "params": ["Número: el valor al que se aplica arcoseno"],
+      "returns": "Número: el arcoseno del valor"
     },
     "atan": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "El inverso de la función tan(), retorna el arcotangente de un valor. Esta función espera valores entre -Infinito e Infinito (exclusivo) y los valores retornados están en el rango entre -PI/2  y PI/2 .",
+      "params": ["Número: el valor al que se aplica arcotangente"],
+      "returns": "Número: el arcotangente del valor"
     },
     "atan2": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "Calcula el ángulo (en radianes) desde un punto específico al origen, medido desde el eje x positivo. Los valores retornados son de tipo float entre  -PI/2  y PI/2. La función atan2() es más frecuentemente usada para orientar figuras figuras geométricas según la posición del cursor. Nota: la coordenada y del punto es el primer parámetro, y la coordenada x es el segundo parámetro, debido a la estructura para calcular la tangente.",
+      "params": ["Número: coordenada y del punto",
+      "Número: coordenada x del punto"],
+      "returns": "Número: el arcotangente del punto dado"
     },
     "cos": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "calcula el coseno de un ángulo. Esta función toma en cuenta el modo actual de ángulo según angleMode(). Los valores son retornados en el rango entre -1 y 1.",
+      "params": ["Número: el ángulo"],
+      "returns": "Número: el coseno del ángulo"
     },
     "sin": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "calcula el seno de un ángulo. Esta función toma en cuenta el modo actual de ángulo según angleMode(). Los valores son retornados en el rango entre -1 y 1.",
+      "params": ["Número: el ángulo"],
+      "returns": "Número: el seno del ángulo"
     },
     "tan": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "calcula la tangente de un ángulo. Esta función toma en cuenta el modo actual de ángulo según angleMode(). Los valores son retornados en el rango entre -1 y 1.",
+      "params": ["Número: el ángulo"],
+      "returns": "Número: la tangente del ángulo"
     },
     "degrees": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "Convierte una medida en radianes a su correspondiente valor en grados. Radianes y grados son dos maneras de calcular lo mismo. Hay 360 grados en un círculo y 2*PI radianes en un círculo. Por ejemplo, 90 grados equivalen a PI/2 radianes.",
+      "params": ["Número: valor en radianes a ser convertido a grados."],
+      "returns": "el ángulo convertido"
     },
     "radians": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "Convierte una medida en grados a su correspondiente valor en radianes. Radianes y grados son dos maneras de calcular lo mismo. Hay 360 grados en un círculo y 2*PI radianes en un círculo. Por ejemplo, 90 grados equivalen a PI/2 radianes.",
+      "params": ["Número: valor en grados a ser convertido a radianes."],
+      "returns": "el ángulo convertido"
     },
     "angleMode": {
-      "description": "this",
-      "params": ["Número: "],
+      "description": "Define el modo actual de p5 para interpretar ángulos. El modo por defecto es en RADIANS (radianes).",
+      "params": ["CONSTANTE: puede ser RADIANS (radianes) o DEGREES (grados)"],
       "returns": "el objeto p5"
     },
     "randomSeed": {
-      "description": "this",
-      "params": ["Número: "],
+      "description": "Define la semilla para la función random(). Por defecto, la función random() produce diferentes resultados cada vez que el programa es ejecutado. Definir el parámetro semilla como una constante hace que retorne la misma secuencia de números pseudo-aleatorios cada vez que el programa es ejecutado.",
+      "params": ["Número: el valor semilla"],
       "returns": "el objeto p5"
     },
     "random": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "Retorna un número aleaotorio de tipo float (punto flotante). Acepta 0, 1 o 2 argumentos. Si no se le da un argumento, retorna un número aleatorio entre 0 y 1 (sin incluir 1). Si se da un argumento y es un número, retorna un número aleatorio entre 0 y hasta (pero sin incluir) el parámetro. Si se da un argumento y es un arreglo, retorna una elemento al azar del arreglo. Si se dan dos argumentos, retorna un número aleatorio entre el primer argumento y hasta (pero sin incluir) el segundo argumento.",
+      "params": ["Número: el límite inferior (inclusivo)",
+      "Número: el límite superio (exclusivo)",
+      "Arreglo: el arreglo del cual se elige"],
+      "returns": "Número: el número aleatorio o un elemento aleatorio de un conjunto de opciones"
     },
     "randomGaussian": {
-      "description": "this",
-      "params": ["Número: "],
-      "returns": "el objeto p5"
+      "description": "Retorna un número aleatorio ajjustado a una distribución Gaussiana o normal. No existe teóricamente un valor mínimo o máximo que la función randomGaussian() pueda retornar. En vez de eso, existe solo una muy baja probabilidad de retornar valores lejos de la media, y una alta probabilidad de retornar números cercanos a la media. Acepta 0, 1 o 2 argumentos. Si no tiene argumentos, retorna una media de 0 y una desviación estándar de 1. Si tiene un argumento, el argumento es la media (y la desviación estándar es 1). Si tiene dos argumentos, el primero es la media y el segundo es la desviación estándar.",
+      "params": ["Número: la media",
+      "Número: la desviación estándar"],
+      "returns": "el número aleatorio"
     }
 
 
