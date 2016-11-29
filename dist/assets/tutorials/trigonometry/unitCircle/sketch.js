@@ -147,7 +147,7 @@ function circle(){
   stroke(150);
   angle=(360-aSlider.value());
   //big circle
-  noFill();
+    noFill();
   ellipse(cx,cy,d,d);
 
   strokeWeight(3);
