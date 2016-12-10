@@ -221,12 +221,14 @@ module.exports = function(grunt) {
     clean: {
       assets: [
         '<%= config.dist %>/**/*.*',
+        '!<%= config.dist %>/git-pull.php',
         '!<%= config.dist %>/**/reference/**/*.*',
         '!<%= config.dist %>/**/helpers/**/*.*',
         '!<%= config.dist %>/assets/img/**/*.*',
         '!<%= config.dist %>/download/version.json',
         '!<%= config.dist %>/download/*.php',
-        '!<%= config.dist %>/offline-reference/**/*.*'
+        '!<%= config.dist %>/offline-reference/**/*.*',
+        '!<%= config.dist %>/learn/**/*.*'
       ]
     }
 

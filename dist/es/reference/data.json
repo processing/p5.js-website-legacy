@@ -7368,7 +7368,7 @@
         {
             "file": "src/image/p5.Image.js",
             "line": 105,
-            "description": "<p>Array containing the values for all the pixels in the display window.\nThese values are numbers. This array is the size (include an appropriate\nfactor for pixelDensity) of the display window x4,\nrepresenting the R, G, B, A values in order for each pixel, moving from\nleft to right across each row, then down each column. Retina and other\nhigh denisty displays may have more pixels[] (by a factor of\npixelDensity^2).\nFor example, if the image is 100x100 pixels, there will be 40,000. With\npixelDensity = 2, there will be 160,000. The first four values\n(indices 0-3) in the array will be the R, G, B, A values of the pixel at\n(0, 0). The second four values (indices 4-7) will contain the R, G, B, A\nvalues of the pixel at (1, 0). More generally, to set values for a pixel\nat (x, y):\n<code><pre>var d = pixelDensity;\nfor (var i = 0; i &lt; d; i++) {\n  for (var j = 0; j &lt; d; j++) {\n    // loop over\n    idx = 4<em>((y </em> d + j) <em> width </em> d + (x * d + i));\n    pixels[idx] = r;\n    pixels[idx+1] = g;\n    pixels[idx+2] = b;\n    pixels[idx+3] = a;\n  }\n}\n</pre></code>\n<br><br>\nBefore accessing this array, the data must loaded with the loadPixels()\nfunction. After the array data has been modified, the updatePixels()\nfunction must be run to update the changes.</p>\n",
+            "description": "<p>Array containing the values for all the pixels in the display window.\nThese values are numbers. This array is the size (include an appropriate\nfactor for pixelDensity) of the display window x4,\nrepresenting the R, G, B, A values in order for each pixel, moving from\nleft to right across each row, then down each column. Retina and other\nhigh denisty displays may have more pixels[] (by a factor of\npixelDensity^2).\nFor example, if the image is 100x100 pixels, there will be 40,000. With\npixelDensity = 2, there will be 160,000. The first four values\n(indices 0-3) in the array will be the R, G, B, A values of the pixel at\n(0, 0). The second four values (indices 4-7) will contain the R, G, B, A\nvalues of the pixel at (1, 0). More generally, to set values for a pixel\nat (x, y):</p>\n<pre><code class=\"lang-javascript\">var d = pixelDensity;\nfor (var i = 0; i &lt; d; i++) {\n  for (var j = 0; j &lt; d; j++) {\n    // loop over\n    idx = 4 * ((y * d + j) * width * d + (x * d + i));\n    pixels[idx] = r;\n    pixels[idx+1] = g;\n    pixels[idx+2] = b;\n    pixels[idx+3] = a;\n  }\n}\n</code></pre>\n<p><br><br>\nBefore accessing this array, the data must loaded with the loadPixels()\nfunction. After the array data has been modified, the updatePixels()\nfunction must be run to update the changes.</p>\n",
             "itemtype": "property",
             "name": "pixels[]",
             "example": [
@@ -7381,7 +7381,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 174,
+            "line": 175,
             "description": "<p>Helper fxn for sharing pixel methods</p>\n",
             "class": "p5.Image",
             "module": "Image",
@@ -7389,7 +7389,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 182,
+            "line": 183,
             "description": "<p>Loads the pixels data for this image into the [pixels] attribute.</p>\n",
             "itemtype": "method",
             "name": "loadPixels",
@@ -7403,7 +7403,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 217,
+            "line": 218,
             "description": "<p>Updates the backing canvas for this image with the contents of\nthe [pixels] array.</p>\n",
             "itemtype": "method",
             "name": "updatePixels",
@@ -7439,7 +7439,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 261,
+            "line": 262,
             "description": "<p>Get a region of pixels from an image.</p>\n<p>If no params are passed, those whole image is returned,\nif x and y are the only params passed a single pixel is extracted\nif all params are passed a rectangle region is extracted and a p5.Image\nis returned.</p>\n<p>Returns undefined if the region is outside the bounds of the image</p>\n",
             "itemtype": "method",
             "name": "get",
@@ -7483,7 +7483,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 306,
+            "line": 307,
             "description": "<p>Set the color of a single pixel or write an image into\nthis p5.Image.</p>\n<p>Note that for a large number of pixels this will\nbe slower than directly manipulating the pixels array\nand then calling updatePixels().</p>\n",
             "itemtype": "method",
             "name": "set",
@@ -7514,7 +7514,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 343,
+            "line": 344,
             "description": "<p>Resize the image to a new width and height. To make the image scale\nproportionally, use 0 as the value for the wide or high parameter.\nFor instance, to make the width of an image 150 pixels, and change\nthe height using the same proportion, use resize(150, 0).</p>\n",
             "itemtype": "method",
             "name": "resize",
@@ -7540,7 +7540,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 423,
+            "line": 424,
             "description": "<p>Copies a region of pixels from one image to another. If no\nsrcImage is specified this is used as the source. If the source\nand destination regions aren&#39;t the same size, it will\nautomatically resize source pixels to fit the specified\ntarget region.</p>\n",
             "itemtype": "method",
             "name": "copy",
@@ -7601,7 +7601,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 468,
+            "line": 469,
             "description": "<p>Masks part of an image from displaying by loading another\nimage and using it&#39;s blue channel as an alpha channel for\nthis image.</p>\n",
             "itemtype": "method",
             "name": "mask",
@@ -7622,7 +7622,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 530,
+            "line": 531,
             "description": "<p>Applies an image filter to a p5.Image</p>\n",
             "itemtype": "method",
             "name": "filter",
@@ -7648,7 +7648,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 563,
+            "line": 564,
             "description": "<p>Copies a region of pixels from one image to another, using a specified\nblend mode to do the operation.</p>\n",
             "itemtype": "method",
             "name": "blend",
@@ -7714,7 +7714,7 @@
         },
         {
             "file": "src/image/p5.Image.js",
-            "line": 643,
+            "line": 644,
             "description": "<p>Saves the image to a file and force the browser to download it.\nAccepts two strings for filename and file extension\nSupports png (default) and jpg.</p>\n",
             "itemtype": "method",
             "name": "save",
@@ -7741,7 +7741,7 @@
         {
             "file": "src/image/pixels.js",
             "line": 14,
-            "description": "<p><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference\n/Global_Objects/Uint8ClampedArray' target='_blank'>Uint8ClampedArray</a>\ncontaining the values for all the pixels in the display window.\nThese values are numbers. This array is the size (include an appropriate\nfactor for pixelDensity) of the display window x4,\nrepresenting the R, G, B, A values in order for each pixel, moving from\nleft to right across each row, then down each column. Retina and other\nhigh denisty displays will have more pixels[] (by a factor of\npixelDensity^2).\nFor example, if the image is 100x100 pixels, there will be 40,000. On a\nretina display, there will be 160,000.\n<br><br>\nThe first four values (indices 0-3) in the array will be the R, G, B, A\nvalues of the pixel at (0, 0). The second four values (indices 4-7) will\ncontain the R, G, B, A values of the pixel at (1, 0). More generally, to\nset values for a pixel at (x, y):\n<code><pre>\nvar d = pixelDensity;\nfor (var i = 0; i &lt; d; i++) {\n  for (var j = 0; j &lt; d; j++) {\n    // loop over\n    idx = 4 <em> ((y </em> d + j) <em> width </em> d + (x * d + i));\n    pixels[idx] = r;\n    pixels[idx+1] = g;\n    pixels[idx+2] = b;\n    pixels[idx+3] = a;\n  }\n}\n</pre></code></p>\n<p>While the above method is complex, it is flexible enough to work with\nany pixelDensity. Note that set() will automatically take care of\nsetting all the appropriate values in pixels[] for a given (x, y) at\nany pixelDensity, but the performance may not be as fast when lots of\nmodifications are made to the pixel array.\n<br><br>\nBefore accessing this array, the data must loaded with the loadPixels()\nfunction. After the array data has been modified, the updatePixels()\nfunction must be run to update the changes.\n<br><br>\nNote that this is not a standard javascript array.  This means that\nstandard javascript functions such as <code>slice()</code> or\n<code>arrayCopy()</code> do not\nwork.</p>",
+            "description": "<p><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference\n/Global_Objects/Uint8ClampedArray' target='_blank'>Uint8ClampedArray</a>\ncontaining the values for all the pixels in the display window.\nThese values are numbers. This array is the size (include an appropriate\nfactor for pixelDensity) of the display window x4,\nrepresenting the R, G, B, A values in order for each pixel, moving from\nleft to right across each row, then down each column. Retina and other\nhigh denisty displays will have more pixels[] (by a factor of\npixelDensity^2).\nFor example, if the image is 100x100 pixels, there will be 40,000. On a\nretina display, there will be 160,000.\n<br><br>\nThe first four values (indices 0-3) in the array will be the R, G, B, A\nvalues of the pixel at (0, 0). The second four values (indices 4-7) will\ncontain the R, G, B, A values of the pixel at (1, 0). More generally, to\nset values for a pixel at (x, y):</p>\n<pre><code class=\"lang-javascript\">var d = pixelDensity;\nfor (var i = 0; i &lt; d; i++) {\n  for (var j = 0; j &lt; d; j++) {\n    // loop over\n    idx = 4 * ((y * d + j) * width * d + (x * d + i));\n    pixels[idx] = r;\n    pixels[idx+1] = g;\n    pixels[idx+2] = b;\n    pixels[idx+3] = a;\n  }\n}\n</code></pre>\n<p>While the above method is complex, it is flexible enough to work with\nany pixelDensity. Note that set() will automatically take care of\nsetting all the appropriate values in pixels[] for a given (x, y) at\nany pixelDensity, but the performance may not be as fast when lots of\nmodifications are made to the pixel array.\n<br><br>\nBefore accessing this array, the data must loaded with the loadPixels()\nfunction. After the array data has been modified, the updatePixels()\nfunction must be run to update the changes.\n<br><br>\nNote that this is not a standard javascript array.  This means that\nstandard javascript functions such as <code>slice()</code> or\n<code>arrayCopy()</code> do not\nwork.</p>",
             "itemtype": "property",
             "name": "pixels[]",
             "example": [
@@ -7754,7 +7754,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 84,
+            "line": 83,
             "description": "<p>Copies a region of pixels from one image to another, using a specified\nblend mode to do the operation.<br><br>\nAvailable blend modes are: BLEND | DARKEST | LIGHTEST | DIFFERENCE |\nMULTIPLY| EXCLUSION | SCREEN | REPLACE | OVERLAY | HARD_LIGHT |\nSOFT_LIGHT | DODGE | BURN | ADD | NORMAL</p>\n",
             "itemtype": "method",
             "name": "blend",
@@ -7820,7 +7820,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 166,
+            "line": 165,
             "description": "<p>Copies a region of the canvas to another region of the canvas\nand copies a region of pixels from an image used as the srcImg parameter\ninto the canvas srcImage is specified this is used as the source. If\nthe source and destination regions aren&#39;t the same size, it will\nautomatically resize source pixels to fit the specified\ntarget region.</p>\n",
             "itemtype": "method",
             "name": "copy",
@@ -7881,7 +7881,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 213,
+            "line": 212,
             "description": "<p>Applies a filter to the canvas.\n<br><br></p>\n<p>The presets options are:\n<br><br></p>\n<p>THRESHOLD\nConverts the image to black and white pixels depending if they are above or\nbelow the threshold defined by the level parameter. The parameter must be\nbetween 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used.\n<br><br></p>\n<p>GRAY\nConverts any colors in the image to grayscale equivalents. No parameter\nis used.\n<br><br></p>\n<p>OPAQUE\nSets the alpha channel to entirely opaque. No parameter is used.\n<br><br></p>\n<p>INVERT\nSets each pixel to its inverse value. No parameter is used.\n<br><br></p>\n<p>POSTERIZE\nLimits each channel of the image to the number of colors specified as the\nparameter. The parameter can be set to values between 2 and 255, but\nresults are most noticeable in the lower ranges.\n<br><br></p>\n<p>BLUR\nExecutes a Guassian blur with the level parameter specifying the extent\nof the blurring. If no parameter is used, the blur is equivalent to\nGuassian blur of radius 1. Larger values increase the blur.\n<br><br></p>\n<p>ERODE\nReduces the light areas. No parameter is used.\n<br><br></p>\n<p>DILATE\nIncreases the light areas. No parameter is used.</p>\n",
             "itemtype": "method",
             "name": "filter",
@@ -7907,7 +7907,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 385,
+            "line": 384,
             "description": "<p>Returns an array of [R,G,B,A] values for any pixel or grabs a section of\nan image. If no parameters are specified, the entire image is returned.\nUse the x and y parameters to get the value of one pixel. Get a section of\nthe display window by specifying additional w and h parameters. When\ngetting an image, the x and y parameters define the coordinates for the\nupper-left corner of the image, regardless of the current imageMode().\n<br><br>\nIf the pixel requested is outside of the image window, [0,0,0,255] is\nreturned. To get the numbers scaled according to the current color ranges\nand taking into account colorMode, use getColor instead of get.\n<br><br>\nGetting the color of a single pixel with get(x, y) is easy, but not as fast\nas grabbing the data directly from pixels[]. The equivalent statement to\nget(x, y) using pixels[] with pixel density d is\n<code>\nvar off = (y <em> width + x) </em> d * 4;\n[pixels[off],\npixels[off+1],\npixels[off+2],\npixels[off+3]]</code>\n<br><br>\nSee the reference for pixels[] for more information.</p>\n",
             "itemtype": "method",
             "name": "get",
@@ -7951,7 +7951,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 456,
+            "line": 455,
             "description": "<p>Loads the pixel data for the display window into the pixels[] array. This\nfunction must always be called before reading from or writing to pixels[].</p>\n",
             "itemtype": "method",
             "name": "loadPixels",
@@ -7965,7 +7965,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 491,
+            "line": 490,
             "description": "<p>Changes the color of any pixel, or writes an image directly to the\ndisplay window.</p>\n<p>The x and y parameters specify the pixel to change and the c parameter\nspecifies the color value. This can be a p5.Color object, or [R, G, B, A]\npixel array. It can also be a single grayscale value.\nWhen setting an image, the x and y parameters define the coordinates for\nthe upper-left corner of the image, regardless of the current imageMode().\n</p>\n<p>\nAfter using set(), you must call updatePixels() for your changes to\nappear.  This should be called once all pixels have been set.\n</p>\n<p>Setting the color of a single pixel with set(x, y) is easy, but not as\nfast as putting the data directly into pixels[]. Setting the pixels[]\nvalues directly may be complicated when working with a retina display,\nbut will perform better when lots of pixels need to be set directly on\nevery loop.</p>\n<p>See the reference for pixels[] for more information.</p>",
             "itemtype": "method",
             "name": "set",
@@ -7996,7 +7996,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 564,
+            "line": 563,
             "description": "<p>Updates the display window with the data in the pixels[] array.\nUse in conjunction with loadPixels(). If you&#39;re only reading pixels from\nthe array, there&#39;s no need to call updatePixels() — updating is only\nnecessary to apply changes. updatePixels() should be called anytime the\npixels array is manipulated or set() is called.</p>\n",
             "itemtype": "method",
             "name": "updatePixels",
@@ -20319,43 +20319,43 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:182"
+            "line": " src/image/p5.Image.js:183"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:217"
+            "line": " src/image/p5.Image.js:218"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:261"
+            "line": " src/image/p5.Image.js:262"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:306"
+            "line": " src/image/p5.Image.js:307"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:343"
+            "line": " src/image/p5.Image.js:344"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:423"
+            "line": " src/image/p5.Image.js:424"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:468"
+            "line": " src/image/p5.Image.js:469"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:530"
+            "line": " src/image/p5.Image.js:531"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:563"
+            "line": " src/image/p5.Image.js:564"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/p5.Image.js:643"
+            "line": " src/image/p5.Image.js:644"
         },
         {
             "message": "unknown tag: alt",
@@ -20363,31 +20363,31 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:84"
+            "line": " src/image/pixels.js:83"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:166"
+            "line": " src/image/pixels.js:165"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:213"
+            "line": " src/image/pixels.js:212"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:385"
+            "line": " src/image/pixels.js:384"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:456"
+            "line": " src/image/pixels.js:455"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:491"
+            "line": " src/image/pixels.js:490"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:564"
+            "line": " src/image/pixels.js:563"
         },
         {
             "message": "unknown tag: alt",
@@ -20983,7 +20983,7 @@
         },
         {
             "message": "Missing item type\nHelper fxn for sharing pixel methods",
-            "line": " src/image/p5.Image.js:174"
+            "line": " src/image/p5.Image.js:175"
         },
         {
             "message": "Missing item type\nChecks if we are in preload and returns the last arg which will be the\n_decrementPreload function if called from a loadX() function.  Should\nonly be used in loadX() functions.",
