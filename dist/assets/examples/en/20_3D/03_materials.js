@@ -32,7 +32,7 @@ function draw(){
   rotateZ(frameCount * 0.02);
   rotateX(frameCount * 0.02);
   rotateY(frameCount * 0.02);
-  basicMaterial(250, 0, 0);
+  fill(250, 0, 0);
   torus(80, 20, 64, 64);
   pop();
 
