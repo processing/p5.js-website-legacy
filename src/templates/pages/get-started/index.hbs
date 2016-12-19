@@ -39,7 +39,19 @@ slug: get-started/
             p5.js CDN</a>{{#i18n "download6"}}{{/i18n}}
         </p>
 
-        <pre><code class="language-markup">&lt;script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.0.0/p5.js">&lt;/script></code></pre>
+        <pre class='p5-replace'><code class="language-markup">&lt;script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/[p5_version]/p5.js">&lt;/script></code></pre>
+
+        <p>{{#i18n "download7"}}{{/i18n}}</p>
+
+        <pre class='p5-replace'><code class="language-markup">&lt;html>
+  &lt;head>
+    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/[p5_version]/p5.js">&lt;/script>
+    &lt;script src="sketch.js">&lt;/script>
+  &lt;/head>
+  &lt;body>
+  &lt;/body>
+&lt;/html></code></pre>
+
       </div>
 
       <a name="environment" class="anchor">
@@ -144,6 +156,18 @@ function draw() {
       </div>
 
       <p style="font-size: 1em; color:#AFAFAF">{{#i18n "book1"}}{{/i18n}} &copy; {{#i18n "book2"}}{{/i18n}}</p>
+
+
+
+      <script type='text/javascript'>
+        $.getJSON('../download/version.json', function(data) {
+          $('.p5-replace').each(function() {
+            var html = $(this).html().replace('[p5_version]', data.version);
+            $(this).html(html);
+          });
+        });
+
+      </script>
 
     </section>
 

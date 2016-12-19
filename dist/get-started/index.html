@@ -106,7 +106,19 @@
             p5.js CDN</a>. In this case you can change the link to:
         </p>
 
-        <pre><code class="language-markup">&lt;script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.0.0/p5.js">&lt;/script></code></pre>
+        <pre class='p5-replace'><code class="language-markup">&lt;script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/[p5_version]/p5.js">&lt;/script></code></pre>
+
+        <p>A sample HTML page might look like this:</p>
+
+        <pre class='p5-replace'><code class="language-markup">&lt;html>
+  &lt;head>
+    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/[p5_version]/p5.js">&lt;/script>
+    &lt;script src="sketch.js">&lt;/script>
+  &lt;/head>
+  &lt;body>
+  &lt;/body>
+&lt;/html></code></pre>
+
       </div>
 
       <a name="environment" class="anchor">
@@ -124,7 +136,7 @@
               are included below, other good editor options include <a href='http://brackets.io/' target=_blank>Brackets</a>, <a href='https://atom.io/' target=_blank>Atom</a>
              , and 
              <a href='http://limetext.org/' target=_blank>Lime Text</a>
-             . (An official p5 editor is in development, you can test out the beta version <a href="../download/#editor">here</a>.)
+             .<a href="../download/#editor">here</a>.)
         </p>
 
         <p>
@@ -211,6 +223,18 @@ function draw() {
       </div>
 
       <p style="font-size: 1em; color:#AFAFAF">Parts of this tutorial were adapted from the book, Getting Started with p5.js, by Lauren McCarthy, Casey Reas, and Ben Fry, O'Reilly / Make 2015. Copyright  &copy; 2015 Lauren McCarthy, Casey Reas, and Ben Fry. All rights reserved.</p>
+
+
+
+      <script type='text/javascript'>
+        $.getJSON('../download/version.json', function(data) {
+          $('.p5-replace').each(function() {
+            var html = $(this).html().replace('[p5_version]', data.version);
+            $(this).html(html);
+          });
+        });
+
+      </script>
 
     </section>
 
