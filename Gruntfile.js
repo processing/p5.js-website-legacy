@@ -213,6 +213,34 @@ module.exports = function(grunt) {
         cwd: '<%= config.src %>/data/reference',
         src: ['**'],
         dest: '<%= config.dist %>/assets/reference'
+      },
+      offlineReference: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.dist %>/reference',
+            src: 'assets/**/*',
+            dest: '<%= config.src %>/offline-reference/'
+          },
+          {
+            expand: true,
+            cwd: '<%= config.src %>/assets',
+            src: 'js/**/*',
+            dest: '<%= config.src %>/offline-reference/'
+          },
+          {
+            expand: true,
+            cwd: '<%= config.src %>/assets',
+            src: 'css/**/*',
+            dest: '<%= config.src %>/offline-reference/'
+          },
+          {
+            expand: true,
+            cwd: 'offline-reference/extra',
+            src: '**',
+            dest: '<%= config.src %>/offline-reference/'
+          }
+        ]
       }
     },
 
@@ -227,15 +255,40 @@ module.exports = function(grunt) {
         '!<%= config.dist %>/assets/img/**/*.*',
         '!<%= config.dist %>/download/version.json',
         '!<%= config.dist %>/download/*.php',
-        '!<%= config.dist %>/offline-reference/**/*.*',
-        '!<%= config.dist %>/learn/**/*.*'
+        '!<%= config.dist %>/learn/**/*.*',
+        '<%= config.src %>/offline-reference/**/*.*'
       ]
-    }
+    },
 
+    file_append: {
+      default_options: {
+        files: [
+          {
+            prepend: "referenceData = ",
+            input: '<%= config.dist %>/reference/data.json',
+            output: '<%= config.src %>/offline-reference/js/data.js'
+          }
+        ]
+      }
+    },
+
+    compress: {
+      main: {
+        options: {
+          archive: '<%= config.dist %>/offline-reference/p5-reference.zip',
+        },
+        expand: true,
+        cwd: '<%= config.src %>/offline-reference',
+        src: ['**/*'],
+        dest: 'p5-reference/'
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-file-append');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
   // multi-tasks: collections of other tasks
   grunt.registerTask('server', [
@@ -263,7 +316,9 @@ module.exports = function(grunt) {
     'clean',
     'copy',
     'assemble',
-    'optimize'
+    'optimize',
+    'file_append',
+    'compress'
   ]);
 
   // runs with just grunt command
