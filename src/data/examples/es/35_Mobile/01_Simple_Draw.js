@@ -1,6 +1,6 @@
 /*
  * @name Dibujo simple
- * @description Toca para dibujar en la pantalla usando los valores de posición x e y de toque actual y anterior (touchX, touchY, ptouchX, ptouchY).
+ * @description Toca para dibujar en la pantalla usando los valores de posición x e y de toque actual y anterior (mouseX, mouseY, pmouseX, pmouseY).
  */
 
  function setup() {
@@ -10,6 +10,6 @@
 }
 
 function touchMoved() {
-	line(touchX, touchY, ptouchX, ptouchY);
+	line(mouseX, mouseY, pmouseX, pmouseY);
 	return false;
 }
