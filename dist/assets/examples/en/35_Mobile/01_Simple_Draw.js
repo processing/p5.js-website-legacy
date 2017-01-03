@@ -1,6 +1,6 @@
 /*
  * @name Simple Draw
- * @description Touch to draw on the screen using touchX, touchY, ptouchX, and ptouchY values. 
+ * @description Touch to draw on the screen using mouseX, mouseY, pmouseX, and pmouseY values. 
  */
 
  function setup() {
@@ -10,7 +10,7 @@
 }
 
 function touchMoved() {
-	line(touchX, touchY, ptouchX, ptouchY);
+	line(mouseX, mouseY, pmouseX, pmouseY);
 	return false;
 }
 
