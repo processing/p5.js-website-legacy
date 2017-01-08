@@ -34,6 +34,7 @@ function draw(){
   background(255);
   stroke(200);
   strokeWeight(1);
+  noFill();
   rect(10,105,170,275);
   axes();
   circle();
@@ -145,6 +146,7 @@ function circle(){
   //draw circle and triangle stuff
   stroke(0);
   angle=(360-aSlider.value());
+  noFill();
   //big circle
   ellipse(cx,cy,d,d);
 
