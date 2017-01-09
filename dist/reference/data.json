@@ -6995,7 +6995,7 @@
                 "type": "p5.Image"
             },
             "example": [
-                "\n<div>\n<code>\nimg = createImage(66, 66);\nimg.loadPixels();\nfor (i = 0; i < img.width; i++) {\n  for (j = 0; j < img.height; j++) {\n    img.set(i, j, color(0, 90, 102));\n  }\n}\nimg.updatePixels();\nimage(img, 17, 17);\n</code>\n</div>\n\n<div>\n<code>\nimg = createImage(66, 66);\nimg.loadPixels();\nfor (i = 0; i < img.width; i++) {\n  for (j = 0; j < img.height; j++) {\n    img.set(i, j, color(0, 90, 102, i % img.width * 2));\n  }\n}\nimg.updatePixels();\nimage(img, 17, 17);\nimage(img, 34, 34);\n</code>\n</div>\n\n<div>\n<code>\nvar pink = color(255, 102, 204);\nimg = createImage(66, 66);\nimg.loadPixels();\nvar d = pixelDensity;\nvar halfImage = 4 * (width * d) * (height/2 * d);\nfor (var i = 0; i < halfImage; i+=4) {\n  img.pixels[i] = red(pink);\n  img.pixels[i+1] = green(pink);\n  img.pixels[i+2] = blue(pink);\n  img.pixels[i+3] = alpha(pink);\n}\nimg.updatePixels();\nimage(img, 17, 17);\n</code>\n</div>"
+                "\n<div>\n<code>\nimg = createImage(66, 66);\nimg.loadPixels();\nfor (i = 0; i < img.width; i++) {\n  for (j = 0; j < img.height; j++) {\n    img.set(i, j, color(0, 90, 102));\n  }\n}\nimg.updatePixels();\nimage(img, 17, 17);\n</code>\n</div>\n\n<div>\n<code>\nimg = createImage(66, 66);\nimg.loadPixels();\nfor (i = 0; i < img.width; i++) {\n  for (j = 0; j < img.height; j++) {\n    img.set(i, j, color(0, 90, 102, i % img.width * 2));\n  }\n}\nimg.updatePixels();\nimage(img, 17, 17);\nimage(img, 34, 34);\n</code>\n</div>\n\n<div>\n<code>\nvar pink = color(255, 102, 204);\nimg = createImage(66, 66);\nimg.loadPixels();\nvar d = pixelDensity();\nvar halfImage = 4 * (width * d) * (height/2 * d);\nfor (var i = 0; i < halfImage; i+=4) {\n  img.pixels[i] = red(pink);\n  img.pixels[i+1] = green(pink);\n  img.pixels[i+2] = blue(pink);\n  img.pixels[i+3] = alpha(pink);\n}\nimg.updatePixels();\nimage(img, 17, 17);\n</code>\n</div>"
             ],
             "alt": "66x66 dark turquoise rect in center of canvas.\n2 gradated dark turquoise rects fade left. 1 center 1 bottom right of canvas\nno image displayed",
             "class": "p5",
@@ -12876,7 +12876,7 @@
         },
         {
             "file": "src/webgl/camera.js",
-            "line": 87,
+            "line": 91,
             "description": "<p>Setup ortho camera</p>\n",
             "itemtype": "method",
             "name": "ortho",
@@ -20716,7 +20716,7 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/camera.js:87"
+            "line": " src/webgl/camera.js:91"
         },
         {
             "message": "unknown tag: alt",
