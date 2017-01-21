@@ -2,7 +2,15 @@ var texts = ['UNITE WITH LOVE, RESIST WITH LOVE',
   'TOGETHER, WE RISE',
   'WOMEN\'S RIGHTS ARE HUMAN RIGHTS',
   'EXPECT US',
-  'LOVE']
+  'LOVE',
+  'RESPECT',
+  'RISE UP',
+  'EQUALITY',
+  'HUMAN RIGHTS',
+  'SOLIDARITY',
+  'WE ARE ALL EQUAL',
+  'LOVE WINS',
+  'TOGETHER']
 
 var i;
 var dir = 0;
@@ -13,7 +21,7 @@ function setup() {
   textAlign(CENTER);
   textFont('Open Sans');
   noStroke();
-  setInterval(startFadeOut, 5000);
+  setInterval(startFadeOut, 7000);
   switchText();
 }
 
