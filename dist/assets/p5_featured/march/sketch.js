@@ -10,7 +10,10 @@ var texts = ['UNITE WITH LOVE, RESIST WITH LOVE',
   'SOLIDARITY',
   'WE ARE ALL EQUAL',
   'LOVE WINS',
-  'TOGETHER']
+  'TOGETHER',
+  'STAY WOKE',
+  'I LOVE YOU',
+  'I AM A NASTY ARTIST WOMAN']
 
 var i;
 var dir = 0;
