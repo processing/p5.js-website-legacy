@@ -29,18 +29,10 @@ function setup() {
   textAlign(CENTER);
   textFont('Open Sans');
   noStroke();
-  setInterval(startFadeOut, 7000);
-  switchText();
+  setInterval(startFadeOut, 10000);
 }
 
 function draw() {
-  background(255);
-  fill(220, a);
-  textSize(1);
-  var w = textWidth(texts[i]);
-  var s = 0.9*windowWidth/w;
-  textSize(s);
-  text(texts[i], width/2, height/2+s*0.33);
   a += dir;
   if (a <= 0) {
     dir = 3;
@@ -48,6 +40,13 @@ function draw() {
   } if (a >= 255) {
     dir = 0;
   }
+  background(255);
+  fill(220, a);
+  textSize(1);
+  var w = textWidth(texts[i]);
+  var s = 0.9*windowWidth/w;
+  textSize(s);
+  text(texts[i], width/2, height/2+s*0.33);
 }
 
 function switchText() {
