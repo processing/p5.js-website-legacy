@@ -18,7 +18,9 @@ var texts = ['UNITE WITH LOVE, RESIST WITH LOVE',
   'STAND TOGETHER',
   'CELEBRATE DIFFERENCES',
   'INDIVISIBLE',
-  'WE GO HIGH'];
+  'WE GO HIGH',
+  'HOPE NOT FEAR',
+  'REACH OUT'];
 
 var i;
 var dir = 0;
