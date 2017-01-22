@@ -20,7 +20,8 @@ var texts = ['UNITE WITH LOVE, RESIST WITH LOVE',
   'INDIVISIBLE',
   'WE GO HIGH',
   'HOPE NOT FEAR',
-  'REACH OUT'];
+  'REACH OUT',
+  'LET\'S LISTEN TO EACH OTHER'];
 
 var i;
 var dir = 0;
