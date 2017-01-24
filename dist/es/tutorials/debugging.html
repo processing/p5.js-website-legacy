@@ -35,6 +35,7 @@
       left: 0;
       width: 100%;
       z-index: 5;
+      display: none;
     }
 
     #top a {
@@ -328,6 +329,14 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-53383000-1', 'auto');
     ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
     </script>
 
 
