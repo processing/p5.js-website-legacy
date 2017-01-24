@@ -87,8 +87,8 @@ function mousePressed() {
   }
   if(mouseX<bs[2].position.x+74&&mouseX>bs[2].position.x-82&&mouseY<bs[2].position.y+11&&mouseY>bs[2].position.y-25){
     console.log("clicked");
-    location.assign("http://www.neafunded.us/");
-
+    //location.assign("http://www.neafunded.us/");
+    top.window.location.href='http://www.neafunded.us/';
 
   }
 };
