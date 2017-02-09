@@ -3935,7 +3935,7 @@
         {
             "file": "src/core/core.js",
             "line": 49,
-            "description": "<p>Called directly before setup(), the preload() function is used to handle\nasynchronous loading of external files. If a preload function is\ndefined, setup() will wait until any load calls within have finished.\nNothing besides load calls should be inside preload (loadImage,\nloadJSON, loadFont, loadStrings, etc).</p>\n",
+            "description": "<p>Called directly before setup(), the preload() function is used to handle\nasynchronous loading of external files. If a preload function is\ndefined, setup() will wait until any load calls within have finished.\nNothing besides load calls should be inside preload (loadImage,\nloadJSON, loadFont, loadStrings, etc).<br><br>\nBy default the text &quot;loading...&quot; will be displayed. To make your own\nloading page, include an HTML element with id &quot;p5_loading&quot; in your\npage. More information <a href=\"http://bit.ly/2kQ6Nio\">here</a>.</p>\n",
             "itemtype": "method",
             "name": "preload",
             "example": [
@@ -3948,7 +3948,7 @@
         },
         {
             "file": "src/core/core.js",
-            "line": 82,
+            "line": 85,
             "description": "<p>The setup() function is called once when the program starts. It&#39;s used to\ndefine initial environment properties such as screen size and background\ncolor and to load media such as images and fonts as the program starts.\nThere can only be one setup() function for each program and it shouldn&#39;t\nbe called again after its initial execution.\n<br><br>\nNote: Variables declared within setup() are not accessible within other\nfunctions, including draw().</p>\n",
             "itemtype": "method",
             "name": "setup",
@@ -3962,7 +3962,7 @@
         },
         {
             "file": "src/core/core.js",
-            "line": 113,
+            "line": 116,
             "description": "<p>Called directly after setup(), the draw() function continuously executes\nthe lines of code contained inside its block until the program is stopped\nor noLoop() is called. Note if noLoop() is called in setup(), draw() will\nstill be executed once before stopping. draw() is called automatically and\nshould never be called explicitly.\n<br><br>\nIt should always be controlled with noLoop(), redraw() and loop(). After\nnoLoop() stops the code in draw() from executing, redraw() causes the\ncode inside draw() to execute once, and loop() will cause the code\ninside draw() to resume executing continuously.\n<br><br>\nThe number of times draw() executes in each second may be controlled with\nthe frameRate() function.\n<br><br>\nThere can only be one draw() function for each sketch, and draw() must\nexist if you want the code to run continuously, or to process events such\nas mousePressed(). Sometimes, you might have an empty call to draw() in\nyour program, as shown in the above example.\n<br><br>\nIt is important to note that the drawing coordinate system will be reset\nat the beginning of each draw() call. If any transformations are performed\nwithin draw() (ex: scale, rotate, translate, their effects will be\nundone at the beginning of draw(), so transformations will not accumulate\nover time. On the other hand, styling applied (ex: fill, stroke, etc) will\nremain in effect.</p>\n",
             "itemtype": "method",
             "name": "draw",
@@ -3976,7 +3976,7 @@
         },
         {
             "file": "src/core/core.js",
-            "line": 382,
+            "line": 385,
             "description": "<p>Removes the entire p5 sketch. This will remove the canvas and any\nelements created by p5.js. It will also stop the draw loop and unbind\nany properties or methods from the window global scope. It will\nleave a variable p5 in case you wanted to create a new p5 sketch.\nIf you like, you can set p5 = null to erase it.</p>\n",
             "itemtype": "method",
             "name": "remove",
@@ -4502,7 +4502,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 187,
+            "line": 188,
             "description": "<p>Specifies the number of frames to be displayed every second. For example,\nthe function call frameRate(30) will attempt to refresh 30 times a second.\nIf the processor is not fast enough to maintain the specified rate, the\nframe rate will not be achieved. Setting the frame rate within setup() is\nrecommended. The default rate is 60 frames per second. This is the same as\nsetFrameRate(val).\n<br><br>\nCalling frameRate() with no arguments returns the current framerate. This\nis the same as getFrameRate().\n<br><br>\nCalling frameRate() with arguments that are not of the type numbers\nor are non positive also returns current framerate.</p>\n",
             "itemtype": "method",
             "name": "frameRate",
@@ -4528,7 +4528,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 251,
+            "line": 252,
             "description": "<p>Returns the current framerate.</p>\n",
             "return": {
                 "description": "current frameRate",
@@ -4540,7 +4540,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 260,
+            "line": 261,
             "description": "<p>Specifies the number of frames to be displayed every second. For example,\nthe function call frameRate(30) will attempt to refresh 30 times a second.\nIf the processor is not fast enough to maintain the specified rate, the\nframe rate will not be achieved. Setting the frame rate within setup() is\nrecommended. The default rate is 60 frames per second.</p>\n<p>Calling frameRate() with no arguments returns the current framerate.</p>\n",
             "params": [
                 {
@@ -4556,7 +4556,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 275,
+            "line": 276,
             "description": "<p>Hides the cursor from view.</p>\n",
             "itemtype": "method",
             "name": "noCursor",
@@ -4570,7 +4570,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 301,
+            "line": 302,
             "description": "<p>System variable that stores the width of the entire screen display. This\nis used to run a full-screen program on any display size.</p>\n",
             "itemtype": "property",
             "name": "displayWidth",
@@ -4584,7 +4584,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 317,
+            "line": 318,
             "description": "<p>System variable that stores the height of the entire screen display. This\nis used to run a full-screen program on any display size.</p>\n",
             "itemtype": "property",
             "name": "displayHeight",
@@ -4598,7 +4598,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 333,
+            "line": 334,
             "description": "<p>System variable that stores the width of the inner window, it maps to\nwindow.innerWidth.</p>\n",
             "itemtype": "property",
             "name": "windowWidth",
@@ -4612,7 +4612,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 348,
+            "line": 349,
             "description": "<p>System variable that stores the height of the inner window, it maps to\nwindow.innerHeight.</p>\n",
             "itemtype": "property",
             "name": "windowHeight",
@@ -4626,7 +4626,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 363,
+            "line": 364,
             "description": "<p>The windowResized() function is called once every time the browser window\nis resized. This is a good place to resize the canvas or do any other\nadjustments to accommodate the new window size.</p>\n",
             "itemtype": "method",
             "name": "windowResized",
@@ -4640,7 +4640,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 413,
+            "line": 414,
             "description": "<p>System variable that stores the width of the drawing canvas. This value\nis set by the first parameter of the createCanvas() function.\nFor example, the function call createCanvas(320, 240) sets the width\nvariable to the value 320. The value of width defaults to 100 if\ncreateCanvas() is not used in a program.</p>\n",
             "itemtype": "property",
             "name": "width",
@@ -4650,7 +4650,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 424,
+            "line": 425,
             "description": "<p>System variable that stores the height of the drawing canvas. This value\nis set by the second parameter of the createCanvas() function. For\nexample, the function call createCanvas(320, 240) sets the height\nvariable to the value 240. The value of height defaults to 100 if\ncreateCanvas() is not used in a program.</p>\n",
             "itemtype": "property",
             "name": "height",
@@ -4660,7 +4660,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 435,
+            "line": 436,
             "description": "<p>If argument is given, sets the sketch to fullscreen or not based on the\nvalue of the argument. If no argument is given, returns the current\nfullscreen state. Note that due to browser restrictions this can only\nbe called on user input, for example, on mouse press like the example\nbelow.</p>\n",
             "itemtype": "method",
             "name": "fullscreen",
@@ -4686,7 +4686,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 482,
+            "line": 483,
             "description": "<p>Sets the pixel scaling for high pixel density displays. By default\npixel density is set to match display density, call pixelDensity(1)\nto turn this off. Calling pixelDensity() with no arguments returns\nthe current pixel density of the sketch.</p>\n",
             "itemtype": "method",
             "name": "pixelDensity",
@@ -4712,7 +4712,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 527,
+            "line": 528,
             "description": "<p>Returns the pixel density of the current display the sketch is running on.</p>\n",
             "itemtype": "method",
             "name": "displayDensity",
@@ -4730,7 +4730,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 584,
+            "line": 585,
             "description": "<p>Gets the current URL.</p>\n",
             "itemtype": "method",
             "name": "getURL",
@@ -4748,7 +4748,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 615,
+            "line": 616,
             "description": "<p>Gets the current URL path as an array.</p>\n",
             "itemtype": "method",
             "name": "getURLPath",
@@ -4766,7 +4766,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 636,
+            "line": 637,
             "description": "<p>Gets the current URL params as an Object.</p>\n",
             "itemtype": "method",
             "name": "getURLParams",
@@ -7192,7 +7192,7 @@
                         },
                         {
                             "name": "dx",
-                            "description": "<p>the -xcoordinate in the destination canvas at\n                          which to place the top-left corner of the\n                          source image</p>\n",
+                            "description": "<p>the x-coordinate in the destination canvas at\n                          which to place the top-left corner of the\n                          source image</p>\n",
                             "type": "Number"
                         },
                         {
@@ -7602,7 +7602,7 @@
         {
             "file": "src/image/p5.Image.js",
             "line": 469,
-            "description": "<p>Masks part of an image from displaying by loading another\nimage and using it&#39;s blue channel as an alpha channel for\nthis image.</p>\n",
+            "description": "<p>Masks part of an image from displaying by loading another\nimage and using it&#39;s alpha channel as an alpha channel for\nthis image.</p>\n",
             "itemtype": "method",
             "name": "mask",
             "params": [
@@ -8525,7 +8525,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1440,
+            "line": 1444,
             "description": "<p>Returns a file extension, or another string\nif the provided parameter has no extension.</p>\n",
             "params": [
                 {
@@ -8546,7 +8546,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1472,
+            "line": 1476,
             "description": "<p>Returns true if the browser is Safari, false if not.\nSafari makes trouble for downloading files.</p>\n",
             "return": {
                 "description": "[description]",
@@ -8560,7 +8560,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1484,
+            "line": 1488,
             "description": "<p>Helper function, a callback for download that deletes\nan invisible anchor element from the DOM once the file\nhas been automatically downloaded.</p>\n",
             "access": "private",
             "tagname": "",
@@ -19852,15 +19852,15 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/core.js:82"
+            "line": " src/core/core.js:85"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/core.js:113"
+            "line": " src/core/core.js:116"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/core.js:382"
+            "line": " src/core/core.js:385"
         },
         {
             "message": "unknown tag: alt",
@@ -19916,63 +19916,63 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:187"
+            "line": " src/core/environment.js:188"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:275"
+            "line": " src/core/environment.js:276"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:301"
+            "line": " src/core/environment.js:302"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:317"
+            "line": " src/core/environment.js:318"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:333"
+            "line": " src/core/environment.js:334"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:348"
+            "line": " src/core/environment.js:349"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:363"
+            "line": " src/core/environment.js:364"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:435"
+            "line": " src/core/environment.js:436"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/core/environment.js:482"
+            "line": " src/core/environment.js:483"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:482"
+            "line": " src/core/environment.js:483"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/core/environment.js:527"
+            "line": " src/core/environment.js:528"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:527"
+            "line": " src/core/environment.js:528"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:584"
+            "line": " src/core/environment.js:585"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:615"
+            "line": " src/core/environment.js:616"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:636"
+            "line": " src/core/environment.js:637"
         },
         {
             "message": "unknown tag: alt",
@@ -20860,11 +20860,11 @@
         },
         {
             "message": "Missing item type\nReturns the current framerate.",
-            "line": " src/core/environment.js:251"
+            "line": " src/core/environment.js:252"
         },
         {
             "message": "Missing item type\nSpecifies the number of frames to be displayed every second. For example,\nthe function call frameRate(30) will attempt to refresh 30 times a second.\nIf the processor is not fast enough to maintain the specified rate, the\nframe rate will not be achieved. Setting the frame rate within setup() is\nrecommended. The default rate is 60 frames per second.\n\nCalling frameRate() with no arguments returns the current framerate.",
-            "line": " src/core/environment.js:260"
+            "line": " src/core/environment.js:261"
         },
         {
             "message": "Missing item type",
@@ -21008,15 +21008,15 @@
         },
         {
             "message": "Missing item type\nReturns a file extension, or another string\nif the provided parameter has no extension.",
-            "line": " src/io/files.js:1440"
+            "line": " src/io/files.js:1444"
         },
         {
             "message": "Missing item type\nReturns true if the browser is Safari, false if not.\nSafari makes trouble for downloading files.",
-            "line": " src/io/files.js:1472"
+            "line": " src/io/files.js:1476"
         },
         {
             "message": "Missing item type\nHelper function, a callback for download that deletes\nan invisible anchor element from the DOM once the file\nhas been automatically downloaded.",
-            "line": " src/io/files.js:1484"
+            "line": " src/io/files.js:1488"
         },
         {
             "message": "Missing item type\nTable Options\n<p>Generic class for handling tabular data, typically from a\nCSV, TSV, or other sort of spreadsheet file.</p>\n<p>CSV files are\n<a href=\"http://en.wikipedia.org/wiki/Comma-separated_values\">\ncomma separated values</a>, often with the data in quotes. TSV\nfiles use tabs as separators, and usually don't bother with the\nquotes.</p>\n<p>File names should end with .csv if they're comma separated.</p>\n<p>A rough \"spec\" for CSV can be found\n<a href=\"http://tools.ietf.org/html/rfc4180\">here</a>.</p>\n<p>To load files, use the loadTable method.</p>\n<p>To save tables to your computer, use the save method\n or the saveTable method.</p>\n\nPossible options include:\n<ul>\n<li>csv - parse the table as comma-separated values\n<li>tsv - parse the table as tab-separated values\n<li>header - this table has a header (title) row\n</ul>",
