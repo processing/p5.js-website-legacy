@@ -7,7 +7,7 @@
  * height-1].
  */
 function setup() {
-  // Sets the screen to be 640 pixels wide and 360 pixels high
+  // Sets the screen to be 720 pixels wide and 400 pixels high
   createCanvas(720, 400);
 }
 
