@@ -19,9 +19,9 @@ function draw() {
 }
 
 function drawTarget(xloc, yloc, size, num) {
-  grayvalues = 255/num;
-  steps = size/num;
-  for (i = 0; i < num; i++) {
+  var grayvalues = 255/num;
+  var steps = size/num;
+  for (var i = 0; i < num; i++) {
     fill(i*grayvalues);
     ellipse(xloc, yloc, size - i*steps, size - i*steps);
   }
