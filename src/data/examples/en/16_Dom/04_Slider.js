@@ -10,7 +10,7 @@ var rSlider, gSlider, bSlider;
 function setup() {
   // create canvas
   createCanvas(710, 400);
-  textSize(15)
+  textSize(15);
   noStroke();
 
   // create sliders
@@ -27,7 +27,7 @@ function draw() {
   var g = gSlider.value();
   var b = bSlider.value();
   background(r, g, b);
-  text("red", 165, 35);
-  text("green", 165, 65);
-  text("blue", 165, 95);
+  text("red", rSlider.x * 2 + rSlider.width, 35);
+  text("green", gSlider.x * 2 + gSlider.width, 65);
+  text("blue", bSlider.x * 2 + bSlider.width, 95);
 }
