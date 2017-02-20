@@ -1,7 +1,7 @@
 /*
  * @name Sine Wave
  * @description Render a simple sine wave.
- * Original by Danial Shiffman.
+ * Original by Daniel Shiffman.
  */
 
 var xspacing = 16;    // Distance between each horizontal location
@@ -27,7 +27,7 @@ function draw() {
 
 function calcWave() {
   // Increment theta (try different values for 
-  // 'angular velocity' here
+  // 'angular velocity' here)
   theta += 0.02;
 
   // For every x value, calculate a y value with sine function
