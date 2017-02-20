@@ -2,9 +2,9 @@
  * @name True and False
  * @description A Boolean variable has only two possible values: true or false. 
  * It is common to use Booleans with control statements to determine the flow 
- * of a program. In this example, when the boolean value "x" is true, vertical 
- * black lines are drawn and when the boolean value "x" is false, horizontal 
- * gray lines are drawn.
+ * of a program. In this example, when the boolean value "b" is true, vertical 
+ * lines are drawn and when the boolean value "b" is false, horizontal 
+ * lines are drawn.
  */
 function setup() {
 
@@ -14,7 +14,7 @@ function setup() {
 
   var b = false;
   var d = 20;
-  var middle = width/2;;
+  var middle = width/2;
 
   for (var i = d; i <= width; i += d) {
     
