@@ -1,5 +1,5 @@
 /*
- * @name  Noise1D
+ * @name Noise1D
  * @description Using 1D Perlin Noise to assign location.
  */
 var xoff = 0.0;
