@@ -7,48 +7,58 @@ function setup(){
 }
 
 function draw(){
+  var t = width / 3;
+  var w = width / 9;
   background(250);
-  translate(-250 * 2.5, 0, 0);
+
+  // "top" row
+  translate(w - width / 2, w - height / 2, 0);
   normalMaterial();
   push();
   rotateZ(frameCount * 0.01);
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
-  plane(80);
+  plane(w);
   pop();
-  translate(250, 0, 0);
+
+  translate(t, 0, 0);
   push();
   rotateZ(frameCount * 0.01);
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
-  box(80, 80, 80);
+  box(w, w, w);
   pop();
-  translate(250, 0, 0);
+
+  translate(t, 0, 0);
   push();
   rotateZ(frameCount * 0.01);
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
-  cylinder(80, 80);
+  cylinder(w, w);
   pop();
-  translate(250, 0, 0);
+
+  // "bottom" row
+  translate(-2 * t, height / 2, 0);
   push();
   rotateZ(frameCount * 0.01);
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
-  cone(80, 80);
+  cone(w, w);
   pop();
-  translate(250, 0, 0);
+
+  translate(t, 0, 0);
   push();
   rotateZ(frameCount * 0.01);
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
-  torus(80, 20);
+  torus(w, 20);
   pop();
-  translate(250, 0, 0);
+
+  translate(t, 0, 0);
   push();
   rotateZ(frameCount * 0.01);
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
-  sphere(80);
+  sphere(w);
   pop();
 }
