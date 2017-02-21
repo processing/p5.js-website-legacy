@@ -16,13 +16,13 @@ function setup() {
   input.position(20, 65);
 
   button = createButton('submit');
-  button.position(150, 65);
+  button.position(input.x + input.width, 65);
   button.mousePressed(greet);
 
   greeting = createElement('h2', 'what is your name?');
   greeting.position(20, 5);
 
-  textAlign(CENTER)
+  textAlign(CENTER);
   textSize(50);
 }
 
