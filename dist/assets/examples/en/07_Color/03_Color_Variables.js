@@ -14,9 +14,9 @@ function setup() {
 
   // These statements are equivalent to the statements above.
   // Programmers may use the format they prefer.
-  //color inside = #CC6600;
-  //color middle = #CC9900;
-  //color outside = #993300;
+  //var inside = color('#CC6600');
+  //var middle = color('#CC9900');
+  //var outside = color('#993300');
 
   push();
   translate(80, 80);

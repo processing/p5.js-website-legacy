@@ -1,13 +1,12 @@
 /*
  * @name Variable Scope
- * @description Variables have a global or local "scope". For example,
+ * @description Variables have a global or function "scope". For example,
  * variables declared within either the setup() or draw() functions may be
  * only used in these functions. Global variables, variables declared outside
- * of setup() and draw(), may be used anywhere within the program. If a local
+ * of setup() and draw(), may be used anywhere within the program. If a function
  * variable is declared with the same name as a global variable, the program
- * will use the local variable to make its calculations within the current
- * scope. Variables are localized within each block, the space between a {
- * and }.
+ * will use the function variable to make its calculations within the current
+ * scope.
  */
 var a = 80;  // Create a global variable "a"
 
@@ -22,12 +21,10 @@ function draw() {
   // Draw a line using the global variable "a"
   line(a, 0, a, height);
 
-  // Create a new variable "a" local to the for() statement
   for (var a = 120; a < 200; a += 3) {
     line(a, 0, a, height);
   }
 
-  // Create a new variable "a" local to the draw() function
   var a = 300;
   // Draw a line using the new local variable "a"
   line(a, 0, a, height);
@@ -40,7 +37,7 @@ function draw() {
 }
 
 function drawAnotherLine() {
-  // Create a new variable "a" local to this method
+  // Create a new variable "a" local to this function
   var a = 320;
   // Draw a line using the local variable "a"
   line(a, 0, a, height);

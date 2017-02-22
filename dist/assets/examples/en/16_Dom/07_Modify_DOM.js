@@ -16,14 +16,14 @@ function DanceSpan(element, x, y) {
     y += random(-6, 6);
     element.position(x, y);
   };
-};
+}
 
 function setup() {
   // This paragraph is created aside of the main block of code.
   // It's to differentiate the creation of an element from its 
-  // selection. Selected elements doesn't need to be created by 
+  // selection. Selected elements don't need to be created by 
   // p5js, they can be just plain HTML.
-  createP('I learne in this Letter, that Don Peter of Arragon, '
+  createP('I learn in this Letter, that Don Peter of Aragon, '
     + ' comes this night to Messina').addClass('text');
 
   // This line grabs the paragraph just created, but it would 
@@ -38,13 +38,13 @@ function setup() {
       var spannedWord = createSpan(words[j]);
       var dw = new DanceSpan(spannedWord, random(600), random(200));
       dancingWords.push(dw);
-    };   
-  };
+    }
+  }
 }
 
 function draw() {
   for (var i=0; i<dancingWords.length; i++) {
     dancingWords[i].brownian();
-  };
+  }
 }
 
