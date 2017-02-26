@@ -65,7 +65,7 @@ $(function() {
 
   $window.scroll(function() {
     if (isWidescreen()) {
-      setSidebarPosition();
+      //setSidebarPosition(); // temp to stop buggy scrolling
       rotateElements();
     }
   });
