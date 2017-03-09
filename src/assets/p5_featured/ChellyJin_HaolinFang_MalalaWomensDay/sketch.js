@@ -53,9 +53,7 @@ function draw() {
     fill(246,144,101);
 
     console.log(window.location.hostname)
-    if (window.location.hostname.indexOf('diversity') == -1) {
-      fill('#68c7b7');
-    }
+    fill('#68c7b7');
     text("Click the screen to change image.", windowWidth*0.5, 100);
   }
   
