@@ -10,6 +10,7 @@ var font;
 function preload() {
   font = loadFont("Avenir-Medium.ttf");
   malala = loadImage("malala.png");
+quote = "Let us remember:   One book, one pen, one child, and one teacher can change the world - Malala Yousafzai";
 
   
   book[0] = loadImage("book1.png");
@@ -92,8 +93,11 @@ function draw() {
         image(teacher[frame], i + 15, j + 50, 50, 50);
     }
   }
-  image(malala, 175, windowHeight * 0.70, 1000, 1000);
-  fill(255,255,153,50);
+    image(malala, 175, windowHeight * 0.70, 1000, 1000);
+    fill(246,144,101);
+    textSize(20);
+    text(quote, windowWidth-200, windowHeight/2-100, 150, 500);
+    fill(255,255,153,50);
   ellipse(mouseX,mouseY,80,80);
 	fill(255,255,153,150);
   ellipse(mouseX,mouseY,50,50);
