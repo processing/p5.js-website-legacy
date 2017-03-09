@@ -50,7 +50,7 @@ function draw() {
   if (scene == 1) {
     textSize(25);
     textFont(font);
-    fill(246,144,101, 100);
+    fill(246,144,101);
     text("Click the screen to change image.", windowWidth*0.5, 100);
   }
   
@@ -96,7 +96,7 @@ function draw() {
     image(malala, 175, windowHeight * 0.70, 1000, 1000);
     fill(246,144,101);
     textSize(20);
-    text(quote, windowWidth-200, windowHeight/2-100, 150, 500);
+    text(quote, windowWidth-200, windowHeight/2-50, 150, 500);
     fill(255,255,153,50);
   ellipse(mouseX,mouseY,80,80);
 	fill(255,255,153,150);
