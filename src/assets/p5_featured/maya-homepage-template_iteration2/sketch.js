@@ -12,6 +12,7 @@ var twinkleNotes = ['C4', 'C4', 'G4', 'G4', 'A4', 'A4', 'G4', 'F4', 'F4', 'E4', 
 var notes = [];
 var staffPath = [];
 var synth;
+var currentNote = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -21,7 +22,7 @@ function setup() {
   synth = new Tone.Synth().toMaster();
 
   // Create and display all of the notes
-  for(var i = 0; i < 500; i++) {
+  for(var i = 0; i < width/6; i++) {
     notes[i] = new Note();
     notes[i].twinkle();
     notes[i].display();
@@ -35,11 +36,10 @@ function draw() {
     staffPath[staffPath.length] = new Staff(pmouseX, pmouseY, mouseX, mouseY);
   }
 
-  for(var j = 0; j < 100; j++) {
+  for(var j = 0; j < notes.length; j++) {
     notes[j].twinkle();
     notes[j].display();
   }
-
 
   // Loop through backwards
   for (var i = 0; i <= this.staffPath.length - 1; i++) {
@@ -51,11 +51,11 @@ function draw() {
   }
 }
 
-var currentNote = 0;
-
 // Note class
 function Note() {
   this.rad = 5;
+  this.currentWidth = width;
+  this.currentHeight = height;
   this.x = random(0, width);
   this.y = random(0, height);
   this.c = color(random(100, 255), random(100, 255), random(100, 255));
@@ -94,6 +94,13 @@ function Note() {
     line(13, 0, 13, -40);
     pop();
   }
+
+  this.updatePosition = function(newWidth, newHeight) {
+    this.x = map(this.x, 0, this.currentWidth, 0, newWidth);
+    this.y = map(this.y, 0, this.currentHeight, 0, newHeight);
+    this.currentWidth = newWidth;
+    this.currentHeight = newHeight;
+  }
 }
 
 // Class for the staff lines drawn following the path of the mouse
@@ -114,5 +121,12 @@ function Staff(prevX, prevY, newX, newY) {
     line(prevX, prevY + 2*this.interval, newX, newY + 2*this.interval);
     line(prevX, prevY + 3*this.interval, newX, newY + 3*this.interval);
     this.shade+=8;
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  for(var j = 0; j < notes.length; j++) {
+    notes[j].updatePosition(windowWidth, windowHeight);
   }
 }
