@@ -8,8 +8,10 @@
 
 module.exports = function(grunt) {
 
+
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
+
 
   // Project configuration. actual tasks
   grunt.initConfig({
@@ -57,7 +59,7 @@ module.exports = function(grunt) {
     connect: {
       options: {
         port: 9000,
-        livereload: 35729,
+        livereload: 35739,
         // change this to '0.0.0.0' to access the server from outside
         hostname: 'localhost'
       },
@@ -309,6 +311,9 @@ module.exports = function(grunt) {
     // 'uncss',
     'postcss'
   ]);
+
+  //test
+  
 
   // runs three tasks in order
   grunt.registerTask('build', [
