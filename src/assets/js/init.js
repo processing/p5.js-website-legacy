@@ -169,13 +169,10 @@ window.onload = function() {
   // =================================================
   // disable i18n for now
   // @TODO remove on i18n launch
-  console.log("testing i18n");
   var buttons = document.getElementById('i18n-btn');
   if (window.location.hostname === 'p5js.org') {
-    console.log("hide i18n");
     buttons.parentNode.removeChild(buttons);
   } else {
-    console.log("show i18n");
     buttons.style.display = 'block';
   }
 
