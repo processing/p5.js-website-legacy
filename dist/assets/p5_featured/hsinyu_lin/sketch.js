@@ -3,12 +3,16 @@
 var f, f1;
 var pos = 0.00003;
 var capture;
+var button;
 
 function setup() {
  createCanvas(windowWidth, windowHeight);
  capture = createCapture(VIDEO);
  capture.hide();
  imageMode(CENTER);
+ button = createButton('hide sketch');
+ button.position(10, 44);
+ button.mousePressed(toggleSketch);
 }
 
 function draw() {
@@ -26,4 +30,15 @@ function mouseWheel(event) {
  print(event.delta);
  pos += event.delta;
  console.log(pos);
+}
+
+function toggleSketch() {
+  console.log(canvas.style.display)
+  if (canvas.style.display === 'none') {
+    canvas.style.display = 'block';
+    button.html('hide sketch');
+  } else {
+    canvas.style.display = 'none';
+    button.html('show sketch');
+  }
 }
