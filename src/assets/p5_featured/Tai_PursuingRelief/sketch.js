@@ -48,11 +48,11 @@ var mozzie9;
 function preload() {
   //can only see 'loadImage' in Firefox 
   img = loadImage("finger01.png");
-  imageMode(CORNER);
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  imageMode(CORNER);
   // MOZZIE #1 :red, green, and blue color values
   r = 255;
   g = 255;
