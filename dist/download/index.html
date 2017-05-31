@@ -110,15 +110,15 @@
 
       <h1>Download</h1>
 
-      <p>p5.js is open source, free software. All donations fund the <a href="http://foundation.processing.org">Processing Foundation</a>, a nonprofit organization devoted to advancing the role of programming within the visual arts through developing p5.js.<br>
+      <!-- <p>p5.js is open source, free software. All donations fund the <a href="http://foundation.processing.org">Processing Foundation</a>, a nonprofit organization devoted to advancing the role of programming within the visual arts through developing p5.js.<br>
       <a href="https://processingfoundation.org/support">Donate here.</a>
-      </p>
+      </p> -->
 
       <!-- COMPLETE LIBRARY -->
       <div class="link_group">
         <h2>Complete Library</h2>
 
-        <a  class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
+        <a  class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
           <div class="download_box">
 
             <h4>p5.js complete</h4>
@@ -142,7 +142,7 @@
       <div class="link_group">
 
         <h2>Single Files</h2>
-        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
+        <a class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
           <div class="download_box half_box">
             <h4>p5.js</h4>
             <p>Single file: 
@@ -150,7 +150,7 @@
           </div>
         </a>
 
-        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.min.js">
+        <a class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.min.js">
           <div class="download_box half_box">
             <h4>p5.min.js</h4>
             <p>Single file: 
@@ -158,7 +158,7 @@
           </div>
         </a>
 
-        <a href="http://cdnjs.com/libraries/p5.js">
+        <a class='support_link' href="http://cdnjs.com/libraries/p5.js">
           <div class="download_box half_box last_box">
             <h4>CDN</h4>
             <p>Link: 
@@ -241,6 +241,17 @@
           var link = $(this).attr('href').replace('[editor_version]', data.editor_version);
           $(this).attr('href', link);
         });
+      });
+      $('.support_link').on('click', function (e) {
+        e.preventDefault();
+        // if ($(this).hasClass('p5_link')) {
+        //   window.open($(this).attr('href'), '_self'); 
+        //   setTimeout( function() { window.location = 'support.html'; }, 2000);
+        // } else {
+          window.location = 'support.html';
+          window.open($(this).attr('href'));
+        // }
+
       });
 
     </script>
