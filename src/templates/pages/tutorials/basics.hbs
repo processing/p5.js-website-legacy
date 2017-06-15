@@ -1,0 +1,220 @@
+---
+title: tutorials
+slug: tutorials/
+---
+
+<div id="learn-page">
+<style>
+img {
+  width: 50%;
+}
+</style>
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <section role="region" label="main content">
+
+      <h1>Basics of Drawing</h1>
+
+      <h2>Introduction</h2>
+      <p>
+      Today we are going to be learning how to write computer code using a tool called <a href='http://p5js.org' target=_blank>p5</a>. Code is a set of instructions for the computer, telling it something to do. In our case, we will tell it to make a scene with shapes and colors.
+      </p>
+
+
+      <h2>First Sketch</h2>
+      <p>
+      When you open p5, your first sketch will look like this. There are two parts: setup and draw. Inside the curly brackets after setup and draw we will add code to create a drawing.
+      </p>
+
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+
+}
+
+function draw() {
+
+}
+      </script>
+
+      <h2>background(red, green, blue)</h2>
+      <p>
+      background() sets the background color of your drawing. You give it three numbers that represent the amount of red, green, and blue you want mixed into the background. The numbers range from 0-255.
+      <span class='try'>Try changing the numbers inside the parentheses to see what happens.</span>
+      </p>
+
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+
+}
+
+function draw() {
+  background(255, 0, 0)
+}
+      </script>
+
+
+      <h2>createCanvas(width, height)</h2>
+      <p>
+      createCanvas() sets the size of the drawing canvas. By default it is 100x100. You give it two numbers that represent the width and the height that you want your canvas to be.
+      <span class='try'>Try making your canvas different sizes by changing the width and height.</span>
+      </p>
+
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+  createCanvas(100, 100)
+}
+
+function draw() {
+  background(255, 0, 0)
+}
+      </script>
+
+      <h2>line(x1, y1, x2, y2)</h2>
+      <p>
+      line() draws a line on your canvas. You give it four numbers – the x and y position of one end, and the x and y position of the other end.<br>
+      <img src='{{assets}}/tutorials/basics/line.svg'>
+      </p>
+
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+  createCanvas(300, 300)
+}
+
+function draw() {
+  background(255, 200, 255)
+  line(10, 10, 200, 200)
+}
+      </script>
+
+      <h2>rect(x, y, width, height)</h2>
+      <p>
+      rect() draws a rectangle on your canvas. You give it four numbers – the x position, the y position, the width, and the height. For a rectangle, you give it the x,y position of the top left corner.<br>
+      <img src='{{assets}}/tutorials/basics/rect.svg'>
+      </p>
+
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+  createCanvas(300, 300)
+}
+
+function draw() {
+  background(55, 100, 255)
+  rect(10, 10, 50, 200)
+}
+      </script>
+
+      <h2>ellipse(x, y, width, height)</h2>
+      <p>
+      To draw a shape, think of your canvas like a piece of graph paper. However, square (0, 0) is in the top left.
+      <br>
+      <img src='{{assets}}/tutorials/basics/graph.svg'>
+      ellipse() draws an ellipse on your canvas. You give it four numbers – the x position, the y position, the width, and the height.<br>
+      <img src='{{assets}}/tutorials/basics/ellipse.svg'>
+      </p>
+
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+  createCanvas(300, 300)
+}
+
+function draw() {
+  background(255, 0, 255)
+  ellipse(150, 150, 100, 200)
+}
+      </script>
+
+      <h2>fill(red, green, blue)</h2>
+      <p>You can set the color of your shapes by using fill(). You give it three numbers – the red, green, and blue mixture you want, just like background.
+      </p>
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+  createCanvas(300, 300)
+}
+
+function draw() {
+  background(0, 255, 255)
+  fill(255, 0, 0)
+  ellipse(150, 150, 50, 50)
+}
+      </script>  
+
+      <h2>stroke(red, green, blue)</h2>
+      <p>You can set the outline color of your shapes by using stroke(). You give it three numbers – the red, green, and blue mixture you want, just like fill() and background().
+      </p>
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+  createCanvas(300, 300)
+}
+
+function draw() {
+  background(0, 255, 255)
+  stroke(0, 150, 0)
+  fill(255, 0, 0)
+  ellipse(150, 150, 50, 50)
+}
+      </script>
+
+      <h2>strokeWeight(weight)</h2>
+      <p>You can set the thickness of the outline for your shapes by using strokeWeight(). The default stroke weight is 1.
+      </p>
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+  createCanvas(300, 300)
+}
+
+function draw() {
+  background(0, 255, 255)
+  strokeWeight(10)
+  ellipse(150, 150, 50, 50)
+}
+      </script>
+
+      <h2>mouseX, mouseY</h2>
+      <p>mouseX and mouseY can be used to get the current position of your mouse. They are called <b>variables</b>. You can replace a number in your code with mouseX or mouseY and that number will change as you move your mouse.
+      </p>
+
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+  createCanvas(300, 300)
+}
+
+function draw() {
+  background(0, 255, 255)
+  ellipse(mouseX, mouseY, 50, 50)
+}
+      </script>
+
+      <h2>random(max)</h2>
+      <p>random() will choose a random number for you, anywhere from 0 - max.</p>
+
+      <script type="text/p5" data-height="400" data-preview-width="300">
+function setup() {
+  createCanvas(300, 300)
+}
+
+function draw() {
+  background(random(255), random(255), random(255))
+  ellipse(mouseX, mouseY, 50, 50)
+}
+      </script>
+
+
+      <h2>Links</h2>
+      <p><a href='http://p5js.org/reference' target=_blank>Reference</a> – available p5.js variables and functions<br>
+      <a href='http://p5js.org/examples' target=_blank>Examples</a> – more complicated code examples</p>
+
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+    </section>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->

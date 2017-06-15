@@ -13,15 +13,15 @@ slug: download/
 
       <h1>{{#i18n "Download"}}{{/i18n}}</h1>
 
-      <p>{{#i18n "Donate-1"}}{{/i18n}}<a href="http://foundation.processing.org">Processing Foundation</a>,{{#i18n "Donate-2"}}{{/i18n}}<br>
+      <!-- <p>{{#i18n "Donate-1"}}{{/i18n}}<a href="http://foundation.processing.org">Processing Foundation</a>,{{#i18n "Donate-2"}}{{/i18n}}<br>
       <a href="https://processingfoundation.org/support">{{#i18n "Donate-3"}}{{/i18n}}</a>
-      </p>
+      </p> -->
 
       <!-- COMPLETE LIBRARY -->
       <div class="link_group">
         <h2>{{#i18n "complete-library-title"}}{{/i18n}}</h2>
 
-        <a  class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
+        <a  class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
           <div class="download_box">
 
             <h4>{{#i18n "p5.js-complete"}}{{/i18n}}</h4>
@@ -45,7 +45,7 @@ slug: download/
       <div class="link_group">
 
         <h2>{{#i18n "single-files-title"}}{{/i18n}}</h2>
-        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
+        <a class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
           <div class="download_box half_box">
             <h4>p5.js</h4>
             <p>{{#i18n "single-file"}}{{/i18n}}
@@ -53,7 +53,7 @@ slug: download/
           </div>
         </a>
 
-        <a class='p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.min.js">
+        <a class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.min.js">
           <div class="download_box half_box">
             <h4>p5.min.js</h4>
             <p>{{#i18n "single-file"}}{{/i18n}}
@@ -61,7 +61,7 @@ slug: download/
           </div>
         </a>
 
-        <a href="http://cdnjs.com/libraries/p5.js">
+        <a class='support_link' href="http://cdnjs.com/libraries/p5.js">
           <div class="download_box half_box last_box">
             <h4>CDN</h4>
             <p>{{#i18n "link"}}{{/i18n}}
@@ -144,6 +144,17 @@ slug: download/
           var link = $(this).attr('href').replace('[editor_version]', data.editor_version);
           $(this).attr('href', link);
         });
+      });
+      $('.support_link').on('click', function (e) {
+        e.preventDefault();
+        // if ($(this).hasClass('p5_link')) {
+        //   window.open($(this).attr('href'), '_self'); 
+        //   setTimeout( function() { window.location = 'support.html'; }, 2000);
+        // } else {
+          window.location = 'support.html';
+          window.open($(this).attr('href'));
+        // }
+
       });
 
     </script>
