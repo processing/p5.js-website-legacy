@@ -10,8 +10,6 @@
 
 var flock;
 
-var text;
-
 function setup() {
   createCanvas(640,360);
   createP("Drag the mouse to generate new boids.");
