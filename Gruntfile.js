@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         ]
       },
       imagemin: {
-        files: '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,svg}',
+        files: '<%= config.src %>/assets/img/*.{png,jpg,jpeg,gif,svg}',
         tasks: ['newer:imagemin']
       },
       livereload: {
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
     imagemin: {
       images: {
         options: {
-          optimizationLevel: 7
+          optimizationLevel: 2
         },
         files: [{
           expand: true,
