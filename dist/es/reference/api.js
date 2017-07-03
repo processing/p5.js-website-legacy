@@ -15,10 +15,12 @@ YUI.add("yuidoc-meta", function(Y) {
         "p5.Filter",
         "p5.Font",
         "p5.Gain",
+        "p5.Geometry",
         "p5.Graphics",
         "p5.Image",
         "p5.MediaElement",
         "p5.Noise",
+        "p5.NumberDict",
         "p5.Oscillator",
         "p5.Part",
         "p5.PeakDetect",
@@ -31,8 +33,10 @@ YUI.add("yuidoc-meta", function(Y) {
         "p5.Signal",
         "p5.SoundFile",
         "p5.SoundRecorder",
+        "p5.StringDict",
         "p5.Table",
         "p5.TableRow",
+        "p5.TypedDict",
         "p5.Vector",
         "p5.XML",
         "p5.dom",
@@ -48,12 +52,14 @@ YUI.add("yuidoc-meta", function(Y) {
         "Calculation",
         "Camera",
         "Color",
+        "Color Conversion",
         "Constants",
         "Conversion",
         "Creating & Reading",
         "Curves",
         "DOM",
         "Data",
+        "Dictionary",
         "Environment",
         "Events",
         "Font",
@@ -125,6 +131,10 @@ YUI.add("yuidoc-meta", function(Y) {
             "name": "Color"
         },
         {
+            "displayName": "Color Conversion",
+            "name": "Color Conversion"
+        },
+        {
             "displayName": "Constants",
             "name": "Constants"
         },
@@ -144,6 +154,11 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Data",
             "name": "Data"
+        },
+        {
+            "displayName": "Dictionary",
+            "name": "Dictionary",
+            "description": "<p>A  Dictionary class for Strings.</p>\n"
         },
         {
             "displayName": "DOM",
