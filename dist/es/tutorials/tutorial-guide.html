@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">p5.js | tutorials</title>
+    <link rel="stylesheet" href="/../../assets/css/all.css">
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+
+
+    <script type="text/javascript" src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/prism.js"></script>
+    <script type="text/javascript" src="/../../assets/js/scroll.js"></script>
+    <script type="text/javascript" src="/../../assets/js/init.js"></script>
+
+    <style>
+    @font-face {
+      font-family: myFirstFont;
+      src: url(assets/p5_featured/nea-p5js/assets/Museo_Slab_500_2.otf);
+    }
+    #top {
+      font-family: myFirstFont !important;
+      color: white;
+      font-size: 12px;
+      padding: 7px;
+      padding-left: 20px;
+      line-height: 20px;
+      background-color: #ED225D;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 5;
+      display: none;
+    }
+
+    #top a {
+      color: white !important;
+      text-decoration: underline;
+    }
+
+
+    footer { padding-bottom: 26px; }
+    </style>
+  </head>
+  <body>
+
+    
+<!-- p5*js language buttons -->
+<div id="i18n-btn">
+  <h1 class='visuallyhidden'>Language Settings</h1>
+  <button data-lang="en">EN</button>
+  <button data-lang="es">ES</button>
+</div>
+    <a href="#content" class="skip">Skip to content</a>
+    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/es/">
+          <img src="../../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+        <p class='tagline'>la diversión de Processing x la excentricidad de JavaScript</p>
+        <p class='tagline'>la simplicidad de Processing x la flexibilidad de JavaScript</p>
+        <p class='tagline'>la intuición de Processing x el poder de JavaScript</p>
+        <p class='tagline'>la creatividad de Processing x el dinamismo de JavaScript</p>
+        <p class='tagline'>la comunidad de Processing x la comunidad de JavaScript</p>
+        <p class='tagline'>el poder de Processing x el alcance de JavaScript</p>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+<!-- site navigation -->
+<div class="column-span">
+  <nav role="navigation">
+    <ul id="menu">
+      <li><a href="/es/">Home</a></li>
+      <li><a href="/es/download/">Descargar</a></li>
+      <li><a href="/es/gallery/"></a></li>
+      <li><a href="/es/get-started/">Empezar</a></li>
+      <li><a href="/es/reference/">Referencia</a></li>
+      <li><a href="/es/libraries/">Bibliotecas</a></li>
+      <li><a href="/es/tutorials/">Tutoriales</a></li>
+      <li><a href="/es/examples/">Ejemplos</a></li>
+      <li><a href="/es/books/">Libros</a></li>
+      <li><a href="/es/community/">Comunidad</a></li>
+      <li><a href="http://forum.processing.org/two/" target=_blank class="other-link">Foro</a></li>
+      <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">Github</a></li>
+      <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- <script src="../../assets/js/scroll.js"></script> -->
+
+
+  <div class="column-span">
+
+    <section role="region" label="main content">
+
+      <h1>Guía para contribuir tutoriales de p5.js</h1>
+      <div class="attribution">Guía para contribuir tutoriales de p5.js
+      </div>
+        <p>We invite educators, contributors and general enthusiasts to contribute p5js tutorials. The p5js project makes creative coding and open source development more accessible to a diverse community and we are excited to publish tutorials on all aspects of the development process. Our learning materials so far include guides on learning p5, programming technique and how to contribute to an open source project.</p>
+        <p>We welcome new written tutorial contributions and this guide outlines the steps of how to propose, prepare and contribute.</p>
+
+<h2>How to get started:</h2>
+<p>
+  <ul>
+<li>Check that your proposed topic has not already been covered. There is <a href="https://docs.google.com/spreadsheets/d/1sh3IwcCUY4Bm8N4fRZw6CwSDdQmmXgY_awjVj-UC8mo/edit#gid=0">a working spreadsheet here</a> that outlines in progress tutorials.</li>
+<li>If your topic is listed as in progress, perhaps you can add to work being done and contribute to preparing existing work for publication so please reach out to us.</li>
+<ul>
+</p>
+<h2>How to prepare a p5js tutorial for publication online:</h2>
+<p>When your tutorial is ready for publication, please follow these steps to prepare your content for the p5js website.</p>
+<p>Prepare the content of your tutorial as a tutorial-name.hbs file with this <a href="https://github.com/mayaman/p5js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">this basic structure</a>. As is shown in this file, it must contain a header as shown below:</p>
+<img src="../../assets/tutorials/tutorial-guide/images/screenshot-1.png" alt="Screenshot">
+
+<p>The folder containing your tutorial will be placed in the 'tutorials' folder of the p5js site. The file called index.hbs is the <a href="http://p5js.org/tutorials/">p5.js tutorials landing page,</a> and the test-tutorial.hbs file is the test tutorial.</p>
+<p>All content should go in the:</br>
+  &lt;section role="region" label="main content"&gt; &lt;/section&gt; </br>
+  tags on the page, with formatting defined by the &lt;h1&gt; and &lt;h2&gt; tags, the &lt;p&gt; paragraph tags as is done shown on the<a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">test tutorial page.</a></p>
+<p>If your tutorial contains images, they are to be placed in the assets folder of the p5 site, in the location src/assets/tutorials/test-tutorial/images as shown below.</p>
+<img src="../../assets/tutorials/tutorial-guide/images/screenshot-2.png" alt="Screenshot">
+<p>To correctly format code in the html of the page use the tag:</br>
+  </br>
+  <pre><code class="language-javascript">
+&lt;pre&gt;&lt;code class="language-javascript"&gt;</br>
+Your code here!</br>
+&lt;/code>&lt;/pre&gt;</br>
+</br>
+</code></pre>
+
+</p>
+<h2>Embedding p5.js sketches</h2>
+<p>Using p5js means you can illustrate your tutorial with animated, interactive or editable code examples to demonstrate programming concepts. Your examples should be prepared as p5.js sketches and can be embedded into the tutorial in two ways.</p>
+
+<p><ol>
+<li>If the example is to be editable like in <a href="http://p5js.org/reference/#/p5/ellipse">the reference pages</a> of the p5js site, the p5 sketch should be embedded into the html page using the p5js widget. Follow <a href="https://toolness.github.io/p5.js-widget/">this guide </a>on how to embed p5js sketches using the widgit written by <a href="https://github.com/toolness">Toolness</a>. You can also see this in action on the <a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs"> test tutorial page..</a></li>
+<li>If the example is to be animated and/or interactive but not editable. The p5.js sketch should be embedded into the page as an iframe as described below.</li>
+</ol>
+
+<h2>Embed a p5 sketch using an iframe</h2>
+
+<p>An iframe is like creating a window through which you can see another page, sandboxed from the rest of your page. In this case it will be a window to the index.html containing your p5.js sketch. </p>
+<img src="https://github.com/tegacodes/p5.js-education/raw/master/images/iframe-2.jpg" alt="tutorialFileStructure" width="600px">
+
+<p>Put your p5 sketches in the /src/assets/tutorials folder of the site, in a folder labelled with the name of your sketch as shown in the screenshot. This is where all the images and p5 sketches linked by iframe should be stored.</p>
+
+<img src="../../assets/tutorials/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
+
+<p>In the subfolders containing your p5 examples there should be a sketch.js file and the embed.html file for the sketch. </p>
+<img src="../../assets/tutorials/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
+
+<p>Make sure your embed.html file has the correct paths to the p5 libraries of the site. If your file structure is the same as above, the path to the p5.js library should be "../../../js/p5.min.js".</p>
+<p>You can then embed the p5js index files as iframes in the .hbs file that contains your tutorial content. The embed code for the iframe would then be: </p>
+  <pre><code class="language-javascript">
+&lt;iframe src="http://p5js.org/assets/tutorials/tes-tutorial/embed.html" width="600px" height="400px"&gt;</br>
+&lt;/iframe&gt;</br>
+</code></pre>
+</br>
+<p>Styling for the iframe (this could directly into the post or in a stylesheet):  </p>
+  <pre><code class="language-javascript">
+&lt;style&gt; iframe{ border: none; } &lt;/style&gt;
+</code></pre>
+</br>
+<p>Here you can see the naked sketch running:  </p>
+<a href="http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html">http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html</a>
+
+<p>And here it is embedded in the p5 site using the code below:  </p>
+<a href="http://staging.p5js.org/tutorials/test-tutorial.html">http://staging.p5js.org/tutorials/test-tutorial.html</a>
+
+<p>One thing to note is that you need to manually set the size of the iframe, so it works best if things are a standard size.</p>
+
+<p>Also note that the links to the p5.js library files do not happen from the .eps page with all the tutorial content. Instead they will be located in the html page that is rendering your sketch (in this case, called embed.html). </p>
+
+<p>More information on embedding p5js sketches can be found <a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">here.</a></p>
+<h2>Finishing Up</h2>
+<p>Once your have finished writing your tutorial and your content has been given the thumbs up. Fork the p5js website repository, prepare your content as described above and then issue a pull request to the p5js website repository so we can publish your contribution!</p>
+
+    <p>Thank you!</p>
+
+  </section>
+
+  
+<footer>
+  <p> p5.js fue creado por <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> y es desarrollado por una comunidad de colaboradores, con apoyo de <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a>  y 
+  <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. Identidad y diseño gráfico por <a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/es/copyright.html">&copy; Info.</a></p>
+</footer>
+
+
+</div> <!-- end column-span -->
+
+
+<!-- outside of column for footer to go across both -->
+
+<p class="clearfix"> &nbsp; </p>
+
+<object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+     *<!-- to do: add fallback image in CSS -->
+</object>
+
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+<div id="family">
+  <p class="left"><a href="http://processing.org">Processing</a>
+    <a class="here" href="/es/">p5.js</a>
+    <a href="http://py.processing.org/">Processing.py</a>
+    <a href="http://android.processing.org/">Processing for Android</a>
+  </p>
+  <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
+    <input type="hidden" name="as_sitesearch" value="p5js.org" />
+    <input id='search_field' type="text" name="q" id="q" size="20" />
+    <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
+  </form>
+
+  <p class="right">
+    <a href="https://processingfoundation.org/">Processing Foundation</a>
+  </p>
+</div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>
