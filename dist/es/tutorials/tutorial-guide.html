@@ -108,85 +108,122 @@
 
     <section role="region" label="main content">
 
-      <h1>Guía para contribuir tutoriales de p5.js</h1>
-      <div class="attribution">Guía para contribuir tutoriales de p5.js
+      <h1>Guide to contributing p5.js tutorials</h1>
+      <div class="attribution">
+        Guide to contributing p5.js tutorials
       </div>
-        <p>We invite educators, contributors and general enthusiasts to contribute p5js tutorials. The p5js project makes creative coding and open source development more accessible to a diverse community and we are excited to publish tutorials on all aspects of the development process. Our learning materials so far include guides on learning p5, programming technique and how to contribute to an open source project.</p>
-        <p>We welcome new written tutorial contributions and this guide outlines the steps of how to propose, prepare and contribute.</p>
+      <p>
+        We invite educators, contributors and general enthusiasts to contribute p5js tutorials. The p5js project makes creative coding and open source development more accessible to a diverse community and we are excited to publish tutorials on all aspects of the development process. Our learning materials so far include guides on learning p5, programming technique and how to contribute to an open source project.
+      </p>
+      <p>
+        We welcome new written tutorial contributions and this guide outlines the steps of how to propose, prepare and contribute.
+      </p>
 
-<h2>How to get started:</h2>
-<p>
-  <ul>
-<li>Check that your proposed topic has not already been covered. There is <a href="https://docs.google.com/spreadsheets/d/1sh3IwcCUY4Bm8N4fRZw6CwSDdQmmXgY_awjVj-UC8mo/edit#gid=0">a working spreadsheet here</a> that outlines in progress tutorials.</li>
-<li>If your topic is listed as in progress, perhaps you can add to work being done and contribute to preparing existing work for publication so please reach out to us.</li>
-<ul>
-</p>
-<h2>How to prepare a p5js tutorial for publication online:</h2>
-<p>When your tutorial is ready for publication, please follow these steps to prepare your content for the p5js website.</p>
-<p>Prepare the content of your tutorial as a tutorial-name.hbs file with this <a href="https://github.com/mayaman/p5js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">this basic structure</a>. As is shown in this file, it must contain a header as shown below:</p>
-<img src="../../assets/tutorials/tutorial-guide/images/screenshot-1.png" alt="Screenshot">
+      <h2>How to get started:</h2>
+      <p>
+        <ul>
+          <li>
+            Check that your proposed topic has not already been covered. There is <a href="https://docs.google.com/spreadsheets/d/1sh3IwcCUY4Bm8N4fRZw6CwSDdQmmXgY_awjVj-UC8mo/edit#gid=0">a working spreadsheet here</a>
+            that outlines in progress tutorials. If your topic is listed as in progress, perhaps you can add to work being done and contribute to preparing existing work for publication so please reach out to us.
+          </li>
+          <li>
+            If your topic is not already covered and is not listed as in progress, please write a few sentences on what you propose to cover and email us this description at education@p5js.org.
+          </li>
+          <ul>
+      </p>
+      <h2>How to prepare a p5js tutorial for publication online:</h2>
+      <p>
+        When your tutorial is ready for publication, please follow these steps to prepare your content for the p5js website.
+      </p>
+      <p>
+        Prepare the content of your tutorial as a tutorial-name.hbs file with <a href="https://github.com/mayaman/p5js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">this basic structure</a>
+        . As is shown in this file, it must contain a header as shown below:
+      </p>
+      <img src="../../assets/tutorials/tutorial-guide/images/screenshot-1.png" alt="Screenshot">
 
-<p>The folder containing your tutorial will be placed in the 'tutorials' folder of the p5js site. The file called index.hbs is the <a href="http://p5js.org/tutorials/">p5.js tutorials landing page,</a> and the test-tutorial.hbs file is the test tutorial.</p>
-<p>All content should go in the:</br>
-  &lt;section role="region" label="main content"&gt; &lt;/section&gt; </br>
-  tags on the page, with formatting defined by the &lt;h1&gt; and &lt;h2&gt; tags, the &lt;p&gt; paragraph tags as is done shown on the<a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">test tutorial page.</a></p>
-<p>If your tutorial contains images, they are to be placed in the assets folder of the p5 site, in the location src/assets/tutorials/test-tutorial/images as shown below.</p>
-<img src="../../assets/tutorials/tutorial-guide/images/screenshot-2.png" alt="Screenshot">
-<p>To correctly format code in the html of the page use the tag:</br>
-  </br>
-  <pre><code class="language-javascript">
+      <p>
+        The folder containing your tutorial will be placed in the 'tutorials' folder of the p5js site. The file called index.hbs is the <a href="http://p5js.org/tutorials/">p5.js tutorials landing page,</a>
+         and the test-tutorial.hbs file is the test tutorial.
+      </p>
+      <p>
+        All content should go in the:
+        </br>
+        &lt;section role="region" label="main content"&gt; &lt;/section&gt; </br>
+        tags on the page, with formatting defined by the &lt;h1&gt; and &lt;h2&gt; tags, the &lt;p&gt; paragraph tags as is done shown on the<a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">test tutorial page.</a></p>
+      <p>
+        If your tutorial contains images, they are to be placed in the assets folder of the p5 site, in the location src/assets/tutorials/test-tutorial/images as shown below.
+      </p>
+      <img src="../../assets/tutorials/tutorial-guide/images/screenshot-2.png" alt="Screenshot">
+      <p>
+        To correctly format code in the html of the page use the tag:
+        </br>
+        </br>
+        <pre><code class="language-javascript">
 &lt;pre&gt;&lt;code class="language-javascript"&gt;</br>
 Your code here!</br>
 &lt;/code>&lt;/pre&gt;</br>
 </br>
 </code></pre>
 
-</p>
-<h2>Embedding p5.js sketches</h2>
-<p>Using p5js means you can illustrate your tutorial with animated, interactive or editable code examples to demonstrate programming concepts. Your examples should be prepared as p5.js sketches and can be embedded into the tutorial in two ways.</p>
+      </p>
+      <h2>Embedding p5.js sketches</h2>
+      <p>
+        Using p5js means you can illustrate your tutorial with animated, interactive or editable code examples to demonstrate programming concepts. Your examples should be prepared as p5.js sketches and can be embedded into the tutorial in two ways.
+      </p>
 
-<p><ol>
-<li>If the example is to be editable like in <a href="http://p5js.org/reference/#/p5/ellipse">the reference pages</a> of the p5js site, the p5 sketch should be embedded into the html page using the p5js widget. Follow <a href="https://toolness.github.io/p5.js-widget/">this guide </a>on how to embed p5js sketches using the widgit written by <a href="https://github.com/toolness">Toolness</a>. You can also see this in action on the <a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs"> test tutorial page..</a></li>
-<li>If the example is to be animated and/or interactive but not editable. The p5.js sketch should be embedded into the page as an iframe as described below.</li>
-</ol>
+      <p>
+        <ol>
+          <li>
+            If the example is to be editable like in <a href="http://p5js.org/reference/#/p5/ellipse">the reference pages</a>
+             of the p5js site, the p5 sketch should be embedded into the html page using the p5js widget. Follow <a href="https://toolness.github.io/p5.js-widget/">this guide </a>
+            on how to embed p5js sketches using the widgit written by <a href="https://github.com/toolness">Toolness</a>
+            . You can also see this in action on the <a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">  test tutorial page..</a></li>
+          <li>
+            If the example is to be animated and/or interactive but not editable. The p5.js sketch should be embedded into the page as an iframe as described below.
+          </li>
+        </ol>
 
-<h2>Embed a p5 sketch using an iframe</h2>
+        <h2>Embed a p5 sketch using an iframe</h2>
 
-<p>An iframe is like creating a window through which you can see another page, sandboxed from the rest of your page. In this case it will be a window to the index.html containing your p5.js sketch. </p>
-<img src="https://github.com/tegacodes/p5.js-education/raw/master/images/iframe-2.jpg" alt="tutorialFileStructure" width="600px">
+        <p>
+          An iframe is like creating a window through which you can see another page, sandboxed from the rest of your page. In this case it will be a window to the index.html containing your p5.js sketch. 
+        </p>
+        <img src="https://github.com/tegacodes/p5.js-education/raw/master/images/iframe-2.jpg" alt="tutorialFileStructure" width="600px">
 
-<p>Put your p5 sketches in the /src/assets/tutorials folder of the site, in a folder labelled with the name of your sketch as shown in the screenshot. This is where all the images and p5 sketches linked by iframe should be stored.</p>
+        <p>
+          Put your p5 sketches in the /src/assets/tutorials folder of the site, in a folder labelled with the name of your sketch as shown in the screenshot. This is where all the images and p5 sketches linked by iframe should be stored.
+        </p>
 
-<img src="../../assets/tutorials/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
+        <img src="../../assets/tutorials/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
 
-<p>In the subfolders containing your p5 examples there should be a sketch.js file and the embed.html file for the sketch. </p>
+<p></p>
 <img src="../../assets/tutorials/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
 
-<p>Make sure your embed.html file has the correct paths to the p5 libraries of the site. If your file structure is the same as above, the path to the p5.js library should be "../../../js/p5.min.js".</p>
-<p>You can then embed the p5js index files as iframes in the .hbs file that contains your tutorial content. The embed code for the iframe would then be: </p>
+<p></p>
+<p></p>
   <pre><code class="language-javascript">
 &lt;iframe src="http://p5js.org/assets/tutorials/tes-tutorial/embed.html" width="600px" height="400px"&gt;</br>
 &lt;/iframe&gt;</br>
 </code></pre>
 </br>
-<p>Styling for the iframe (this could directly into the post or in a stylesheet):  </p>
+<p></p>
   <pre><code class="language-javascript">
 &lt;style&gt; iframe{ border: none; } &lt;/style&gt;
 </code></pre>
 </br>
-<p>Here you can see the naked sketch running:  </p>
+<p></p>
 <a href="http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html">http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html</a>
 
-<p>And here it is embedded in the p5 site using the code below:  </p>
+<p></p>
 <a href="http://staging.p5js.org/tutorials/test-tutorial.html">http://staging.p5js.org/tutorials/test-tutorial.html</a>
 
-<p>One thing to note is that you need to manually set the size of the iframe, so it works best if things are a standard size.</p>
+<p></p>
 
-<p>Also note that the links to the p5.js library files do not happen from the .eps page with all the tutorial content. Instead they will be located in the html page that is rendering your sketch (in this case, called embed.html). </p>
+<p></p>
 
-<p>More information on embedding p5js sketches can be found <a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">here.</a></p>
-<h2>Finishing Up</h2>
-<p>Once your have finished writing your tutorial and your content has been given the thumbs up. Fork the p5js website repository, prepare your content as described above and then issue a pull request to the p5js website repository so we can publish your contribution!</p>
+<p><a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">here.</a></p>
+<h2>Finishing up</h2>
+<p>Once your have finished writing your tutorial and your content has been given the thumbs up. Fork the p5.js website repository, prepare your content as described above and then issue a pull request to the p5.js website repository so we can publish your contribution!</p>
 
     <p>Thank you!</p>
 
