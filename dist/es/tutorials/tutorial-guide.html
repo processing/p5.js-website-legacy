@@ -196,32 +196,32 @@ Your code here!</br>
 
         <img src="../../assets/tutorials/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
 
-<p></p>
+<p>En las subcarpetas que contienen tus ejemplos p5 debe de haber un archivo sketch.js y otro embed.html para tu bosquejo. </p>
 <img src="../../assets/tutorials/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
 
-<p></p>
-<p></p>
+<p>Asegúrate que tu archivo embed.html tenga la ruta correcta hacia las librerías p5 del sitio. Si la estructura de tus archivos es igual a la de arriba, la ruta hacia las librerías p5 debe ser "../../../js/p5.min.js".</p>
+<p>Una vez comprobado esto, ya puedes incorporar los archivos 'index' de p5js como iframes en el archivo .hbs que contiene el contenido de tu tutorial. El código de inserción para el iframe sería entonces:</p>
   <pre><code class="language-javascript">
 &lt;iframe src="http://p5js.org/assets/tutorials/tes-tutorial/embed.html" width="600px" height="400px"&gt;</br>
 &lt;/iframe&gt;</br>
 </code></pre>
 </br>
-<p></p>
+<p>Estilo para el iframe (esto podría directamente en la entrada o en una hoja de estilos):</p>
   <pre><code class="language-javascript">
 &lt;style&gt; iframe{ border: none; } &lt;/style&gt;
 </code></pre>
 </br>
-<p></p>
+<p>Aquí puedes ver el bosquejo puro en ejecución: </p>
 <a href="http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html">http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html</a>
 
 <p></p>
 <a href="http://staging.p5js.org/tutorials/test-tutorial.html">http://staging.p5js.org/tutorials/test-tutorial.html</a>
 
-<p></p>
+<p>Una cosa a recalcar es que necesitas ajustar manualmente el tamaño del iframe para que funcione de la mejor manera posible si las cosas son de tamaño estándar.</p>
 
-<p></p>
+<p>También nota que los enlaces a los archivos de las librerías de p5.js no provienen de la página con extensión .eps con todo el contenido del tutorial. En su lugar, van a estar localizados en la página html que está procesando tu bosquejo (en este caso se llama embed.html).</p>
 
-<p><a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">aquí.</a></p>
+<p>Más información sobre cómo incorporar bosquejos de p5.js se pueden encontrar <a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">aquí.</a></p>
 <h2>Los últimos detalles</h2>
 <p>Una vez que hayas terminado de escribir tu tutorial y tu contenido haya sido aprobado, copia (fork) desde Github el repositorio del sitio de p5.js, prepara tu contenido como lo hemos descrito anteriormente y finalmente crea una solicitud de (pull request) al repositorio del sitio de p5.js para que podamos agregar tu contenido y publicar tu contribución. ¡Felicidades!</p>
 

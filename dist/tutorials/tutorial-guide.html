@@ -196,32 +196,32 @@ Your code here!</br>
 
         <img src="../assets/tutorials/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
 
-<p></p>
+<p>In the subfolders containing your p5 examples there should be a sketch.js file and the embed.html file for the sketch. </p>
 <img src="../assets/tutorials/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
 
-<p></p>
-<p></p>
+<p>Make sure your embed.html file has the correct paths to the p5 libraries of the site. If your file structure is the same as above, the path to the p5.js library should be "../../../js/p5.min.js".</p>
+<p>You can then embed the p5js index files as iframes in the .hbs file that contains your tutorial content. The embed code for the iframe would then be: </p>
   <pre><code class="language-javascript">
 &lt;iframe src="http://p5js.org/assets/tutorials/tes-tutorial/embed.html" width="600px" height="400px"&gt;</br>
 &lt;/iframe&gt;</br>
 </code></pre>
 </br>
-<p></p>
+<p>Styling for the iframe (this could directly into the post or in a stylesheet):  </p>
   <pre><code class="language-javascript">
 &lt;style&gt; iframe{ border: none; } &lt;/style&gt;
 </code></pre>
 </br>
-<p></p>
+<p>Here you can see the naked sketch running: </p>
 <a href="http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html">http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html</a>
 
 <p></p>
 <a href="http://staging.p5js.org/tutorials/test-tutorial.html">http://staging.p5js.org/tutorials/test-tutorial.html</a>
 
-<p></p>
+<p>One thing to note is that you need to manually set the size of the iframe, so it works best if things are a standard size.</p>
 
-<p></p>
+<p>Also note that the links to the p5.js library files do not happen from the .eps page with all the tutorial content. Instead they will be located in the html page that is rendering your sketch (in this case, called embed.html).</p>
 
-<p><a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">here.</a></p>
+<p>More information on embedding p5.js sketches can be found <a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">here.</a></p>
 <h2>Finishing up</h2>
 <p>Once your have finished writing your tutorial and your content has been given the thumbs up. Fork the p5.js website repository, prepare your content as described above and then issue a pull request to the p5.js website repository so we can publish your contribution!</p>
 
