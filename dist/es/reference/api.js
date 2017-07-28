@@ -158,7 +158,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Dictionary",
             "name": "Dictionary",
-            "description": "<p>A  Dictionary class for Strings.</p>\n"
+            "description": "<p>Base class for all p5.Dictionary types. More specifically\n typed Dictionary objects inherit from this</p>\n"
         },
         {
             "displayName": "DOM",

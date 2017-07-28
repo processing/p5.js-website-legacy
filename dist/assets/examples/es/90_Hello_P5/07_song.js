@@ -30,7 +30,7 @@ function setup() {
   createCanvas(720, 400);
   var div = createDiv("Haz click para tocar las notas")
   div.id("instructions");
-  var button = createA("#","toca la canción automáticamente.");
+  var button = createButton("toca la canción automáticamente.");
   button.parent("instructions");
   // gatillar la reproducción automática
   button.mousePressed(function() {

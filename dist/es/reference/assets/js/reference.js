@@ -2171,9 +2171,9 @@ define('typeahead',[], function() {
             return this;
         };
     })();
-
-
-
+    
+    
+    
 //})(window.jQuery);
 
 
@@ -2195,7 +2195,7 @@ define('searchView',[
     init: function() {
       var tpl = _.template(searchTpl);
       var className = 'form-control input-lg';
-      var placeholder = 'Busca en la API';
+      var placeholder = 'Search the API';
       this.searchHtml = tpl({
         'placeholder': placeholder,
         'className': className
@@ -2230,7 +2230,7 @@ define('searchView',[
         //'highlight': true,
         'source': self.substringMatcher(this.items),
         'templates': {
-          'empty': '<p class="empty-message">No fue posible encontrar un elemento que calce con la b&uacute;squeda</p>',
+          'empty': '<p class="empty-message">Unable to find any item that match the current query</p>',
           'suggestion': _.template(suggestionTpl)
         }
       });
@@ -2302,7 +2302,7 @@ define('searchView',[
 });
 
 
-define('text!tpl/list.html',[],function () { return '<% _.each(groups, function(group){ %>\n  <h4 class="group-name" id="group-<%=group.name%>"><%=group.name%></h4>\n  <div class="reference-group clearfix main-ref-page">  \n  <% _.each(group.subgroups, function(subgroup, ind) { %>\n    <dl>\n    <% if (subgroup.name !== \'0\') { %>\n        <dt class="subgroup-<%=subgroup.name%>"><%=subgroup.name%></dt>\n    <% } %>\n    <% _.each(subgroup.items, function(item) { %>\n    <dd><a href="<%=item.hash%>" title="<%- striptags(item.description) %>"><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a></dd>\n    <% }); %>\n    </dl>\n  <% }); %>\n  </div>\n<% }); %>\n';});
+define('text!tpl/list.html',[],function () { return '<% _.each(groups, function(group){ %>\n  <h4 class="group-name" id="group-<%=group.name%>"><%=group.name%></h4>\n  <div class="reference-group clearfix main-ref-page">  \n  <% _.each(group.subgroups, function(subgroup, ind) { %>\n    <dl>\n    <% if (subgroup.name !== \'0\') { %>\n        <dt class="subgroup-name subgroup-<%=subgroup.name%>"><%=subgroup.name%></dt>\n    <% } %>\n    <% _.each(subgroup.items, function(item) { %>\n    <dd><a href="<%=item.hash%>" title="<%- striptags(item.description) %>"><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a></dd>\n    <% }); %>\n    </dl>\n  <% }); %>\n  </div>\n<% }); %>\n';});
 
 define('listView',[
   'App',
@@ -2360,7 +2360,11 @@ define('listView',[
                 name: subgroup.replace('_', '&nbsp;'),
                 items: []
               };
-            }
+			}
+			
+			// hide the un-interesting constants  
+			if (group === 'Constants' && !item.example)
+				return;
 
             if (item.file.indexOf('p5.') === -1) {
 
@@ -2433,13 +2437,13 @@ define('listView',[
 });
 
 
-define('text!tpl/item.html',[],function () { return '<h3><%=item.name%><% if (item.isMethod) { %>()<% } %></h3>\n\n<% if (item.example) { %>\n<div class="example">\n  <h4>Ejemplo</h4>\n  <span class="visuallyhidden">Examples for <%=item.name%></span>\n\n\t<div class="example-content" data-alt="<%= item.alt %>">\n    <%= item.example %>\n  </div>\n</div> \n<% } %>\n\n\n<div class="description">\n  <h4>Descripci&oacute;n</h4>\n\n  <span class=\'description-text\'><%= item.description %></span>\n\n  <% if (item.module === \'p5.dom\') { %>\n    <p>This function requires you include the p5.dom library.  Add the following into the head of your index.html file:\n      <pre><code class="language-javascript">&lt;script language="javascript" type="text/javascript" src="path/to/p5.dom.js"&gt;&lt;/script&gt;</code></pre>\n    </p>\n  <% } %>\n  <% if (item.module === \'p5.sound\') { %>\n    <p>This function requires you include the p5.sound library.  Add the following into the head of your index.html file:\n      <pre><code class="language-javascript">&lt;script language="javascript" type="text/javascript" src="path/to/p5.sound.js"&gt;&lt;/script&gt;</code></pre>\n    </p>\n  <% } %>\n</div>\n\n<div>\n  <h4>Sintaxis</h4>\n  <p>\n    <% syntaxes.forEach(function(syntax) { %>\n    <pre><code class="language-javascript"><%= syntax %></code></pre>\n    <% }) %>\n  </p>\n</div>\n\n\n<% if (item.return) { %>\n<span class="returns-inline">\n  <span class="type"></span>\n</span>\n<% } %>\n\n<% if (item.deprecated) { %>\n<span class="flag deprecated"<% if (item.deprecationMessage) { %> title="<%=item.deprecationMessage%>"<% } %>>deprecated</span>\n<% } %>\n\n<% if (item.access) { %>\n<span class="flag <%=item.access%>"><%= item.access %></span>\n<% } %>\n\n<% if (item.final) { %>\n<span class="flag final">final</span>\n<% } %>\n\n<% if (item.static) { %>\n<span class="flag static">static</span>\n<% } %>\n\n<% if (item.chainable) { %>\n<span class="label label-success chainable">chainable</span>\n<% } %>\n\n<% if (item.async) { %>\n<span class="flag async">async</span>\n<% } %>\n\n<!--  <div class="meta">\n    {{#if overwritten_from}}\n    <p>Inherited from\n      <a href="#">\n        {{overwritten_from/class}}\n      </a>\n      {{#if foundAt}}\n      but overwritten in\n      {{/if}}\n      {{else}}\n      {{#if extended_from}}\n    <p>Inherited from\n      <a href="#">{{extended_from}}</a>:\n      {{else}}\n      {{#providedBy}}\n    <p>Provided by the <a href="../modules/{{.}}.html">{{.}}</a> module.</p>\n    {{/providedBy}}\n    <p>\n      {{#if foundAt}}\n      Defined in\n      {{/if}}\n      {{/if}}\n      {{/if}}\n      {{#if foundAt}}\n      <a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a>\n      {{/if}}\n    </p>\n\n    {{#if deprecationMessage}}\n    <p>Deprecated: {{deprecationMessage}}</p>\n    {{/if}}\n\n    {{#if since}}\n    <p>Available since {{since}}</p>\n    {{/if}}\n  </div>-->\n\n<% if (item.params) { %>\n<div class="params">\n  <h4>Par&aacute;metros</h4>\n  <table>\n  <% for (var i=0; i<item.params.length; i++) { %>\n    <tr>\n    <td>\n    <% var p = item.params[i] %>\n    <% if (p.optional) { %>\n      <code class="language-javascript"><%=p.name%></code>\n    <% } else { %>\n      <code class="language-javascript"><%=p.name%></code>\n    <% } %> \n    <%if (p.optdefault) { %>=<%=p.optdefault%><% } %>\n    </td>\n    <td>\n    <% if (p.type) { %>\n      <span class="param-type label label-info"><%=p.type%></span>: <%=p.description%></span> \n    <% } %>\n    <% if (p.multiple) {%>\n      <span class="flag multiple" title="This argument may occur one or more times.">multiple</span>\n    <% } %>\n    </td>\n    </tr>\n  <% } %>\n  </table>\n</div>\n<% } %>\n\n<% if (item.return) { %>\n<div>\n  <h4>Returns</h4>\n    <% if (item.return.type) { %>\n      <p class=\'returns\'><span class="param-type label label-info"><%=item.return.type%></span>: <%= item.return.description %></p>\n    <% } %>\n</div>\n<% } %>\n\n';});
+define('text!tpl/item.html',[],function () { return '<h3><%=item.name%><% if (item.isMethod) { %>()<% } %></h3>\n\n<% if (item.example) { %>\n<div class="example">\n  <h4>Example</h4>\n  <span class="visuallyhidden">Examples for <%=item.name%></span>\n\n\t<div class="example-content" data-alt="<%= item.alt %>">\n    <%= item.example %>\n  </div>\n</div> \n<% } %>\n\n\n<div class="description">\n  <h4>Description</h4>\n\n  <span class=\'description-text\'><%= item.description %></span>\n\n  <% if (item.module === \'p5.dom\') { %>\n    <p>This function requires you include the p5.dom library.  Add the following into the head of your index.html file:\n      <pre><code class="language-javascript">&lt;script language="javascript" type="text/javascript" src="path/to/p5.dom.js"&gt;&lt;/script&gt;</code></pre>\n    </p>\n  <% } %>\n  <% if (item.module === \'p5.sound\') { %>\n    <p>This function requires you include the p5.sound library.  Add the following into the head of your index.html file:\n      <pre><code class="language-javascript">&lt;script language="javascript" type="text/javascript" src="path/to/p5.sound.js"&gt;&lt;/script&gt;</code></pre>\n    </p>\n  <% } %>\n</div>\n\n<div>\n  <h4>Syntax</h4>\n  <p>\n    <% syntaxes.forEach(function(syntax) { %>\n    <pre><code class="language-javascript"><%= syntax %></code></pre>\n    <% }) %>\n  </p>\n</div>\n\n\n<% if (item.return) { %>\n<span class="returns-inline">\n  <span class="type"></span>\n</span>\n<% } %>\n\n<% if (item.deprecated) { %>\n<span class="flag deprecated"<% if (item.deprecationMessage) { %> title="<%=item.deprecationMessage%>"<% } %>>deprecated</span>\n<% } %>\n\n<% if (item.access) { %>\n<span class="flag <%=item.access%>"><%= item.access %></span>\n<% } %>\n\n<% if (item.final) { %>\n<span class="flag final">final</span>\n<% } %>\n\n<% if (item.static) { %>\n<span class="flag static">static</span>\n<% } %>\n\n<% if (item.chainable) { %>\n<span class="label label-success chainable">chainable</span>\n<% } %>\n\n<% if (item.async) { %>\n<span class="flag async">async</span>\n<% } %>\n\n<!--  <div class="meta">\n    {{#if overwritten_from}}\n    <p>Inherited from\n      <a href="#">\n        {{overwritten_from/class}}\n      </a>\n      {{#if foundAt}}\n      but overwritten in\n      {{/if}}\n      {{else}}\n      {{#if extended_from}}\n    <p>Inherited from\n      <a href="#">{{extended_from}}</a>:\n      {{else}}\n      {{#providedBy}}\n    <p>Provided by the <a href="../modules/{{.}}.html">{{.}}</a> module.</p>\n    {{/providedBy}}\n    <p>\n      {{#if foundAt}}\n      Defined in\n      {{/if}}\n      {{/if}}\n      {{/if}}\n      {{#if foundAt}}\n      <a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a>\n      {{/if}}\n    </p>\n\n    {{#if deprecationMessage}}\n    <p>Deprecated: {{deprecationMessage}}</p>\n    {{/if}}\n\n    {{#if since}}\n    <p>Available since {{since}}</p>\n    {{/if}}\n  </div>-->\n\n<% if (item.params) { %>\n<div class="params">\n  <h4>Parameters</h4>\n  <table>\n  <% for (var i=0; i<item.params.length; i++) { %>\n    <tr>\n    <td>\n    <% var p = item.params[i] %>\n    <% if (p.optional) { %>\n      <code class="language-javascript"><%=p.name%></code>\n    <% } else { %>\n      <code class="language-javascript"><%=p.name%></code>\n    <% } %> \n    <%if (p.optdefault) { %>=<%=p.optdefault%><% } %>\n    </td>\n    <td>\n    <% if (p.type) { %>\n      <span class="param-type label label-info"><%=p.type%></span>: <%=p.description%></span> \n    <% } %>\n    <% if (p.multiple) {%>\n      <span class="flag multiple" title="This argument may occur one or more times.">multiple</span>\n    <% } %>\n    </td>\n    </tr>\n  <% } %>\n  </table>\n</div>\n<% } %>\n\n<% if (item.constructor || item.return) { %>\n<div>\n\t<h4>Returns</h4>\n\t  <% if (item.constructor) { %>\n      <p class=\'returns\'><span class="param-type label label-info"><%=item.name%></span>: a new object</p>\n    <% } else if (item.return.type) { %>\n      <p class=\'returns\'><span class="param-type label label-info"><%=item.return.type%></span>: <%= item.return.description %></p>\n    <% } %>\n</div>\n<% } %>';});
 
 
 define('text!tpl/class.html',[],function () { return '\n<% if (is_constructor) { %>\n<div class="constructor">\n  <!--<h2>Constructor</h2>--> \n  <%=constructor%>\n</div>\n<% } %>\n\n<% var fields = _.filter(things, function(item) { return item.itemtype === \'property\' }); %>\n<% if (fields.length > 0) { %>\n  <h4>Fields</h4>\n  <p>\n    <% _.each(fields, function(item) { %>\n      <a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %> ><%=item.name%></a>: <%= item.description %>\n      <br>\n    <% }); %>\n  </p>\n<% } %>\n\n<% var methods = _.filter(things, function(item) { return item.itemtype === \'method\' }); %>\n<% if (methods.length > 0) { %>\n  <h4>Methods</h4>\n  <p>\n    <table>\n    <% _.each(methods, function(item) { %>\n      <tr>\n      <td><a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %>><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a></td><td><%= item.description %></td>\n      </tr>\n    <% }); %>\n    </table>\n  </p>\n<% } %>';});
 
 
-define('text!tpl/itemEnd.html',[],function () { return '<p>\n\n<!--   <div class="meta">\n    <% if (item.class) { %>\n    <p>Class: \n    <strong><a href=\'#/<%=item.class%>\'><%=item.class%></a></strong></p>\n    <% } %>\n\n  </div> -->\n\n\n  <p class="ref-notice"> Si ves alg&uacute;n error o tienes alguna sugerencia, <a href="https://github.com/processing/p5.js/issues">por favor av&iacute;sanos</a>.<p>\n\n  <a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px"/></a>\n\n  <% if (item.file && item.line) { %>\n  <p style="font-size: 0.75em">¿Encontraste alg&uacute;n error? <code><%=item.name%><% if (item.isMethod) { %>()<% } %></code> est&aacute; documentado y definido en <a href="https://github.com/processing/p5.js/blob/master/<%= item.file %>#L<%= item.line %>" target="_blank" ><code><%= item.file %></code></a>. Por favor si&eacute;ntete libre de <a href="https://github.com/processing/p5.js/edit/master/<%= item.file %>#L<%= item.line %>" target="_blank" style="font-family: inherit">editar el archivo</a> y realizar un pull request</p>\n  <% } %>\n\n</p>\n';});
+define('text!tpl/itemEnd.html',[],function () { return '<p>\n\n<!--   <div class="meta">\n    <% if (item.class) { %>\n    <p>Class: \n    <strong><a href=\'#/<%=item.class%>\'><%=item.class%></a></strong></p>\n    <% } %>\n\n  </div> -->\n\n\n  <p class="ref-notice"> If you see any errors or have suggestions, <a href="https://github.com/processing/p5.js/issues">please let us know</a>.<p>\n\n  <a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px"/></a>\n\n  <% if (item.file && item.line) { %>\n  <p style="font-size: 0.75em">Find any typos or bugs? <code><%=item.name%><% if (item.isMethod) { %>()<% } %></code> is documented and defined in <a href="https://github.com/processing/p5.js/blob/master/<%= item.file %>#L<%= item.line %>" target="_blank" ><code><%= item.file %></code></a>. Please feel free to <a href="https://github.com/processing/p5.js/edit/master/<%= item.file %>#L<%= item.line %>" target="_blank" style="font-family: inherit">edit the file</a> and issue a pull request!</p>\n  <% } %>\n\n</p>\n';});
 
 // Copyright (C) 2006 Google Inc.
 //
@@ -2536,7 +2540,7 @@ var prettyPrint;
   // We use things that coerce to strings to make them compact when minified
   // and to defeat aggressive optimizers that fold large string constants.
   var FLOW_CONTROL_KEYWORDS = ["break,continue,do,else,for,if,return,while"];
-  var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS,"auto,case,char,const,default," +
+  var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS,"auto,case,char,const,default," + 
       "double,enum,extern,float,goto,inline,int,long,register,short,signed," +
       "sizeof,static,struct,switch,typedef,union,unsigned,void,volatile"];
   var COMMON_KEYWORDS = [C_KEYWORDS,"catch,class,delete,false,import," +
@@ -2653,8 +2657,8 @@ var prettyPrint;
    */
   var PR_NOCODE = 'nocode';
 
-
-
+  
+  
   /**
    * A set of tokens that can precede a regular expression literal in
    * javascript
@@ -2675,7 +2679,7 @@ var prettyPrint;
    * @const
    */
   var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*';
-
+  
   // CAVEAT: this does not properly handle the case where a regular
   // expression immediately follows another since a regular expression may
   // have flags for case-sensitivity and the like.  Having regexp tokens
@@ -2692,7 +2696,7 @@ var prettyPrint;
    */
   function combinePrefixPatterns(regexs) {
     var capturedGroupIndex = 0;
-
+  
     var needToFoldCase = false;
     var ignoreCase = false;
     for (var i = 0, n = regexs.length; i < n; ++i) {
@@ -2706,7 +2710,7 @@ var prettyPrint;
         break;
       }
     }
-
+  
     var escapeCharToCodeUnit = {
       'b': 8,
       't': 9,
@@ -2715,7 +2719,7 @@ var prettyPrint;
       'f': 0xc,
       'r': 0xd
     };
-
+  
     function decodeEscape(charsetPart) {
       var cc0 = charsetPart.charCodeAt(0);
       if (cc0 !== 92 /* \\ */) {
@@ -2733,7 +2737,7 @@ var prettyPrint;
         return charsetPart.charCodeAt(1);
       }
     }
-
+  
     function encodeEscape(charCode) {
       if (charCode < 0x20) {
         return (charCode < 0x10 ? '\\x0' : '\\x') + charCode.toString(16);
@@ -2742,7 +2746,7 @@ var prettyPrint;
       return (ch === '\\' || ch === '-' || ch === ']' || ch === '^')
           ? "\\" + ch : ch;
     }
-
+  
     function caseFoldCharset(charSet) {
       var charsetParts = charSet.substring(1, charSet.length - 1).match(
           new RegExp(
@@ -2756,10 +2760,10 @@ var prettyPrint;
               'g'));
       var ranges = [];
       var inverse = charsetParts[0] === '^';
-
+  
       var out = ['['];
       if (inverse) { out.push('^'); }
-
+  
       for (var i = inverse ? 1 : 0, n = charsetParts.length; i < n; ++i) {
         var p = charsetParts[i];
         if (/\\[bdsw]/i.test(p)) {  // Don't muck with named groups.
@@ -2788,7 +2792,7 @@ var prettyPrint;
           }
         }
       }
-
+  
       // [[1, 10], [3, 4], [8, 12], [14, 14], [16, 16], [17, 17]]
       // -> [[1, 12], [14, 14], [16, 17]]
       ranges.sort(function (a, b) { return (a[0] - b[0]) || (b[1]  - a[1]); });
@@ -2802,7 +2806,7 @@ var prettyPrint;
           consolidatedRanges.push(lastRange = range);
         }
       }
-
+  
       for (var i = 0; i < consolidatedRanges.length; ++i) {
         var range = consolidatedRanges[i];
         out.push(encodeEscape(range[0]));
@@ -2814,7 +2818,7 @@ var prettyPrint;
       out.push(']');
       return out.join('');
     }
-
+  
     function allowAnywhereFoldCaseAndRenumberGroups(regex) {
       // Split into character sets, escape sequences, punctuation strings
       // like ('(', '(?:', ')', '^'), and runs of characters that do not
@@ -2833,12 +2837,12 @@ var prettyPrint;
               + ')',
               'g'));
       var n = parts.length;
-
+  
       // Maps captured group numbers to the number they will occupy in
       // the output or to -1 if that has not been determined, or to
       // undefined if they need not be capturing in the output.
       var capturedGroups = [];
-
+  
       // Walk over and identify back references to build the capturedGroups
       // mapping.
       for (var i = 0, groupIndex = 0; i < n; ++i) {
@@ -2860,7 +2864,7 @@ var prettyPrint;
           }
         }
       }
-
+  
       // Renumber groups and reduce capturing groups to non-capturing groups
       // where possible.
       for (var i = 1; i < capturedGroups.length; ++i) {
@@ -2882,13 +2886,13 @@ var prettyPrint;
           }
         }
       }
-
+  
       // Remove any prefix anchors so that the output will match anywhere.
       // ^^ really does mean an anchored match though.
       for (var i = 0; i < n; ++i) {
         if ('^' === parts[i] && '^' !== parts[i + 1]) { parts[i] = ''; }
       }
-
+  
       // Expand letters to groups to handle mixing of case-sensitive and
       // case-insensitive patterns if necessary.
       if (regex.ignoreCase && needToFoldCase) {
@@ -2908,10 +2912,10 @@ var prettyPrint;
           }
         }
       }
-
+  
       return parts.join('');
     }
-
+  
     var rewritten = [];
     for (var i = 0, n = regexs.length; i < n; ++i) {
       var regex = regexs[i];
@@ -2919,7 +2923,7 @@ var prettyPrint;
       rewritten.push(
           '(?:' + allowAnywhereFoldCaseAndRenumberGroups(regex) + ')');
     }
-
+  
     return new RegExp(rewritten.join('|'), ignoreCase ? 'gi' : 'g');
   }
 
@@ -2970,12 +2974,12 @@ var prettyPrint;
    */
   function extractSourceSpans(node, isPreformatted) {
     var nocode = /(?:^|\s)nocode(?:\s|$)/;
-
+  
     var chunks = [];
     var length = 0;
     var spans = [];
     var k = 0;
-
+  
     function walk(node) {
       var type = node.nodeType;
       if (type == 1) {  // Element
@@ -3005,9 +3009,9 @@ var prettyPrint;
         }
       }
     }
-
+  
     walk(node);
-
+  
     return {
       sourceCode: chunks.join('').replace(/\n$/, ''),
       spans: spans
@@ -3353,7 +3357,7 @@ var prettyPrint;
       // which are the following plus space, tab, and newline: { }
       // | & $ ; < >
       // ...
-
+      
       // A word beginning with # causes that word and all remaining
       // characters on that line to be ignored.
 
@@ -3434,9 +3438,9 @@ var prettyPrint;
   function numberLines(node, opt_startLineNum, isPreformatted) {
     var nocode = /(?:^|\s)nocode(?:\s|$)/;
     var lineBreak = /\r\n?|\n/;
-
+  
     var document = node.ownerDocument;
-
+  
     var li = document.createElement('li');
     while (node.firstChild) {
       li.appendChild(node.firstChild);
@@ -3444,7 +3448,7 @@ var prettyPrint;
     // An array of lines.  We split below, so this is initialized to one
     // un-split line.
     var listItems = [li];
-
+  
     function walk(node) {
       var type = node.nodeType;
       if (type == 1 && !nocode.test(node.className)) {  // Element
@@ -3479,7 +3483,7 @@ var prettyPrint;
         }
       }
     }
-
+  
     // Split a line after the given node.
     function breakAfter(lineEndNode) {
       // If there's nothing to the right, then we can skip ending the line
@@ -3489,7 +3493,7 @@ var prettyPrint;
         lineEndNode = lineEndNode.parentNode;
         if (!lineEndNode) { return; }
       }
-
+  
       function breakLeftOf(limit, copy) {
         // Clone shallowly if this node needs to be on both sides of the break.
         var rightSide = copy ? limit.cloneNode(false) : limit;
@@ -3511,9 +3515,9 @@ var prettyPrint;
         }
         return rightSide;
       }
-
+  
       var copiedListItem = breakLeftOf(lineEndNode.nextSibling, 0);
-
+  
       // Walk the parent chain until we reach an unattached LI.
       for (var parent;
            // Check nodeType since IE invents document fragments.
@@ -3523,19 +3527,19 @@ var prettyPrint;
       // Put it on the list of lines for later processing.
       listItems.push(copiedListItem);
     }
-
+  
     // Split lines while there are lines left to split.
     for (var i = 0;  // Number of lines that have been split so far.
          i < listItems.length;  // length updated by breakAfter calls.
          ++i) {
       walk(listItems[i]);
     }
-
+  
     // Make sure numeric indices show correctly.
     if (opt_startLineNum === (opt_startLineNum|0)) {
       listItems[0].setAttribute('value', opt_startLineNum);
     }
-
+  
     var ol = document.createElement('ol');
     ol.className = 'linenums';
     var offset = Math.max(0, ((opt_startLineNum - 1 /* zero index */)) | 0) || 0;
@@ -3550,7 +3554,7 @@ var prettyPrint;
       }
       ol.appendChild(li);
     }
-
+  
     node.appendChild(ol);
   }
   /**
@@ -3571,23 +3575,23 @@ var prettyPrint;
     var isIE8OrEarlier = /\bMSIE\s(\d+)/.exec(navigator.userAgent);
     isIE8OrEarlier = isIE8OrEarlier && +isIE8OrEarlier[1] <= 8;
     var newlineRe = /\n/g;
-
+  
     var source = job.sourceCode;
     var sourceLength = source.length;
     // Index into source after the last code-unit recombined.
     var sourceIndex = 0;
-
+  
     var spans = job.spans;
     var nSpans = spans.length;
     // Index into spans after the last span which ends at or before sourceIndex.
     var spanIndex = 0;
-
+  
     var decorations = job.decorations;
     var nDecorations = decorations.length;
     // Index into decorations after the last decoration which ends at or before
     // sourceIndex.
     var decorationIndex = 0;
-
+  
     // Remove all zero-length decorations.
     decorations[nDecorations] = sourceLength;
     var decPos, i;
@@ -3600,7 +3604,7 @@ var prettyPrint;
       }
     }
     nDecorations = decPos;
-
+  
     // Simplify decorations.
     for (i = decPos = 0; i < nDecorations;) {
       var startPos = decorations[i];
@@ -3614,9 +3618,9 @@ var prettyPrint;
       decorations[decPos++] = startDec;
       i = end;
     }
-
+  
     nDecorations = decorations.length = decPos;
-
+  
     var sourceNode = job.sourceNode;
     var oldDisplay;
     if (sourceNode) {
@@ -3628,11 +3632,11 @@ var prettyPrint;
       while (spanIndex < nSpans) {
         var spanStart = spans[spanIndex];
         var spanEnd = spans[spanIndex + 2] || sourceLength;
-
+  
         var decEnd = decorations[decorationIndex + 2] || sourceLength;
-
+  
         var end = Math.min(spanEnd, decEnd);
-
+  
         var textNode = spans[spanIndex + 1];
         var styledText;
         if (textNode.nodeType !== 1  // Don't muck with <BR>s or <LI>s
@@ -3660,9 +3664,9 @@ var prettyPrint;
             parentNode.insertBefore(textNode, span.nextSibling);
           }
         }
-
+  
         sourceIndex = end;
-
+  
         if (sourceIndex >= spanEnd) {
           spanIndex += 2;
         }
@@ -4092,7 +4096,7 @@ var prettyPrint;
   // function that does not conform to the AMD API.
   if (typeof define === "function" && define['amd']) {
     define("google-code-prettify", [], function () {
-      return PR;
+      return PR; 
     });
   }
 })();
@@ -4128,6 +4132,7 @@ define('itemView',[
       var isConstructor = cleanItem.is_constructor;
       var syntax = '';
       if (isConstructor) syntax += 'new ';
+      else if (cleanItem.static && cleanItem.class) syntax += cleanItem.class + '.';
       syntax += cleanItem.name;
 
       if (isMethod || isConstructor) {
@@ -4295,7 +4300,7 @@ define('itemView',[
 });
 
 
-define('text!tpl/menu.html',[],function () { return '<p>\n  <small>\n    ¿No encuentras lo que buscas? Quizás debas revisar la referencia de\n    <a href="#/libraries/p5.dom">p5.dom</a> o \n    <a href="#/libraries/p5.sound">p5.sound</a>.\n    Puedes descargar una versión de la referencia <a href=\'../offline-reference/p5-reference.zip\' target=_blank>aquí</a>.\n  </small>\n</p>\n\n<% var i=0; %>\n<% var max=Math.floor(groups.length/4); %>\n<% var rem=groups.length%4; %>\n\n<% _.each(groups, function(group){ %>\n  <% var m = rem > 0 ? 1 : 0 %>\n  <% if (i === 0) { %>\n    <dl>\n  <% } %>\n  <dd><a href="#group-<%=group%>"><%=group%></a></dd>\n  <% if (i === (max+m-1)) { %>\n    </dl>\n  \t<% rem-- %>\n  \t<% i=0 %>\n  <% } else { %>\n  \t<% i++ %>\n  <% } %>\n<% }); %>';});
+define('text!tpl/menu.html',[],function () { return '<p>\n  <small>\n    Can\'t find what you\'re looking for? You may want to check out\n    <a href="#/libraries/p5.dom">p5.dom</a> or\n    <a href="#/libraries/p5.sound">p5.sound</a>.\n    You can download an offline version of the reference <a href=\'../offline-reference/p5-reference.zip\' target=_blank>here</a>.\n  </small>\n</p>\n\n<% var i=0; %>\n<% var max=Math.floor(groups.length/4); %>\n<% var rem=groups.length%4; %>\n\n<% _.each(groups, function(group){ %>\n  <% var m = rem > 0 ? 1 : 0 %>\n  <% if (i === 0) { %>\n    <dl>\n  <% } %>\n  <dd><a href="#group-<%=group%>"><%=group%></a></dd>\n  <% if (i === (max+m-1)) { %>\n    </dl>\n  \t<% rem-- %>\n  \t<% i=0 %>\n  <% } else { %>\n  \t<% i++ %>\n  <% } %>\n<% }); %>';});
 
 define('menuView',[
   'App',

@@ -29,7 +29,7 @@ function setup() {
   createCanvas(720, 400);
   var div = createDiv("Click to play notes or ")
   div.id("instructions");
-  var button = createA("#","play song automatically.");
+  var button = createButton("play song automatically.");
   button.parent("instructions");
   // Trigger automatically playing
   button.mousePressed(function() {
