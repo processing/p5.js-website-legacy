@@ -8,27 +8,27 @@ Don't let the snake hit itself or the wall!
 */
 
 // the snake is divided into small segments, which are drawn and edited on each 'draw' call
-let numSegments = 10;
-let direction = 'right';
-let playing = true;
+var numSegments = 10;
+var direction = 'right';
+var playing = true;
 
-let xStart = 0; //starting x coordinate for snake
-let yStart = 250; //starting y coordinate for snake
-let diff = 10;
+var xStart = 0; //starting x coordinate for snake
+var yStart = 250; //starting y coordinate for snake
+var diff = 10;
 
-let xCor = [];
-let yCor = [];
+var xCor = [];
+var yCor = [];
 
-let xFruit = 0;
-let yFruit = 0;
-//let score = $('#score');
+var xFruit = 0;
+var yFruit = 0;
+//var score = $('#score');
 
 function setup () {
   initialize();
 }
 
 function initialize() {
-  let canvas = createCanvas(500, 500);
+  var canvas = createCanvas(500, 500);
   //canvas.parent('snakeCanvas');
   frameRate(15);
   stroke(255);
@@ -36,7 +36,7 @@ function initialize() {
   //score.html(0);
   updateFruitCoordinates();
 
-  for (let i = 0; i < numSegments; i++) {
+  for (var i = 0; i < numSegments; i++) {
     xCor.push(xStart + (i * diff));
     yCor.push(yStart);
   }
@@ -45,7 +45,7 @@ function initialize() {
 function draw() {
   if (playing) {
     background(0);
-    for (let i = 0; i < numSegments - 1; i++) {
+    for (var i = 0; i < numSegments - 1; i++) {
       line(xCor[i], yCor[i], xCor[i + 1], yCor[i + 1]);
     }
     updateSnakeCoordinates();
@@ -67,7 +67,7 @@ function draw() {
 */
 function updateSnakeCoordinates() {
 
-  for (let i = 0; i < numSegments - 1; i++) {
+  for (var i = 0; i < numSegments - 1; i++) {
     xCor[i] = xCor[i + 1];
     yCor[i] = yCor[i + 1];
   }
@@ -103,7 +103,7 @@ function checkGameStatus() {
       yCor[yCor.length - 1] < 0 ||
       checkSnakeCollision()) {
     playing = false;
-    //let scoreVal = score.html();
+    //var scoreVal = score.html();
     //score.html('Game ended! Your score was : ' + scoreVal);
   }
 }
@@ -113,9 +113,9 @@ function checkGameStatus() {
  has to be the same as one of its own segment's (x,y) coordinate.
 */
 function checkSnakeCollision () {
-  let snakeHeadX = xCor[xCor.length - 1];
-  let snakeHeadY = yCor[yCor.length - 1];
-  for(let i=0;i<xCor.length-1;i++){
+  var snakeHeadX = xCor[xCor.length - 1];
+  var snakeHeadY = yCor[yCor.length - 1];
+  for(var i=0;i<xCor.length-1;i++){
     if(xCor[i] === snakeHeadX) {
       if(yCor[i] === snakeHeadY) {
         return true;
@@ -132,7 +132,7 @@ function checkSnakeCollision () {
 function checkForFruit() {
   point(xFruit, yFruit);
   if (xCor[xCor.length - 1] === xFruit && yCor[yCor.length - 1] === yFruit) {
-    //let prevScore = parseInt(score.html());
+    //var prevScore = parseInt(score.html());
     //score.html((prevScore + 1));
     xCor.unshift(xCor[0]);
     yCor.unshift(yCor[0]);
