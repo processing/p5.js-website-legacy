@@ -10,7 +10,6 @@ Don't let the snake hit itself or the wall!
 // the snake is divided into small segments, which are drawn and edited on each 'draw' call
 var numSegments = 10;
 var direction = 'right';
-var playing = true;
 
 var xStart = 0; //starting x coordinate for snake
 var yStart = 250; //starting y coordinate for snake
@@ -24,11 +23,7 @@ var yFruit = 0;
 //var score = $('#score');
 
 function setup () {
-  initialize();
-}
-
-function initialize() {
-  var canvas = createCanvas(500, 500);
+  createCanvas(500, 500);
   //canvas.parent('snakeCanvas');
   frameRate(15);
   stroke(255);
@@ -43,15 +38,13 @@ function initialize() {
 }
 
 function draw() {
-  if (playing) {
-    background(0);
-    for (var i = 0; i < numSegments - 1; i++) {
-      line(xCor[i], yCor[i], xCor[i + 1], yCor[i + 1]);
-    }
-    updateSnakeCoordinates();
-    checkGameStatus();
-    checkForFruit();
+  background(0);
+  for (var i = 0; i < numSegments - 1; i++) {
+    line(xCor[i], yCor[i], xCor[i + 1], yCor[i + 1]);
   }
+  updateSnakeCoordinates();
+  checkGameStatus();
+  checkForFruit();
 }
 
 /*
@@ -72,23 +65,23 @@ function updateSnakeCoordinates() {
     yCor[i] = yCor[i + 1];
   }
   switch (direction) {
-  case 'right':
-    xCor[numSegments - 1] = xCor[numSegments - 2] + diff;
-    yCor[numSegments - 1] = yCor[numSegments - 2];
-    break;
-  case 'up':
-    xCor[numSegments - 1] = xCor[numSegments - 2];
-    yCor[numSegments - 1] = yCor[numSegments - 2] - diff;
-    break;
-  case 'left':
-    xCor[numSegments - 1] = xCor[numSegments - 2] - diff;
-    yCor[numSegments - 1] = yCor[numSegments - 2];
-    break;
-  case 'down':
-    xCor[numSegments - 1] = xCor[numSegments - 2];
-    yCor[numSegments - 1] = yCor[numSegments - 2] + diff;
-    break;
-  }
+    case 'right':
+      xCor[numSegments - 1] = xCor[numSegments - 2] + diff;
+      yCor[numSegments - 1] = yCor[numSegments - 2];
+      break;
+    case 'up':
+      xCor[numSegments - 1] = xCor[numSegments - 2];
+      yCor[numSegments - 1] = yCor[numSegments - 2] - diff;
+      break;
+    case 'left':
+      xCor[numSegments - 1] = xCor[numSegments - 2] - diff;
+      yCor[numSegments - 1] = yCor[numSegments - 2];
+      break;
+    case 'down':
+      xCor[numSegments - 1] = xCor[numSegments - 2];
+      yCor[numSegments - 1] = yCor[numSegments - 2] + diff;
+      break;
+    }
 }
 
 /*
@@ -102,7 +95,7 @@ function checkGameStatus() {
       yCor[yCor.length - 1] > height ||
       yCor[yCor.length - 1] < 0 ||
       checkSnakeCollision()) {
-    playing = false;
+    noLoop();
     //var scoreVal = score.html();
     //score.html('Game ended! Your score was : ' + scoreVal);
   }
@@ -116,10 +109,8 @@ function checkSnakeCollision () {
   var snakeHeadX = xCor[xCor.length - 1];
   var snakeHeadY = yCor[yCor.length - 1];
   for(var i=0;i<xCor.length-1;i++){
-    if(xCor[i] === snakeHeadX) {
-      if(yCor[i] === snakeHeadY) {
-        return true;
-      }
+    if(xCor[i] === snakeHeadX && yCor[i] === snakeHeadY) {
+      return true;
     }
   }
 }
@@ -147,8 +138,9 @@ function updateFruitCoordinates() {
     in between 100 and width-100, and be rounded off to the nearest
     number divisible by 10, since I move the snake in multiples of 10.
   */
-  xFruit = (Math.floor((Math.random() * ((width - 200) / 10)) + 10) * 10);
-  yFruit = (Math.floor((Math.random() * ((height - 200) / 10)) + 10) * 10);
+
+  xFruit = floor(random(10,(width-100)/10))*10;
+  yFruit = floor(random(10,(height-100)/10))*10;
 }
 
 function keyPressed() {
