@@ -1,10 +1,8 @@
 /*
- *@name Snake game
- *@description The famous snake game! (Once you click run, click anywhere
-inside the black area, and control the snake using i j k and l. (The arrow keys keep
-scrolling the page)
-
-Don't let the snake hit itself or the wall!
+ * @name Snake game
+ * @description The famous snake game! Once you click run, click anywhere 
+ * inside the black area, and control the snake using i j k and l. Don't let
+ * the snake hit itself or the wall!
 */
 
 // the snake is divided into small segments, which are drawn and edited on each 'draw' call
