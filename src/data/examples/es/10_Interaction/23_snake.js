@@ -1,6 +1,6 @@
 /*
  * @name Snake game
- * @description The famous snake game! Once you click run, click anywhere 
+ * @description Created by Prashant Gupta. <br><br>The famous snake game! Once you click run, click anywhere 
  * inside the black area, and control the snake using i j k and l. Don't let
  * the snake hit itself or the wall!
 */
