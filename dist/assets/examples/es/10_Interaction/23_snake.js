@@ -1,8 +1,9 @@
 /*
  * @name Snake game
- * @description The famous snake game! Once you click run, click anywhere 
+ * @description The famous snake game! Once you click run, click anywhere
  * inside the black area, and control the snake using i j k and l. Don't let
- * the snake hit itself or the wall!
+ * the snake hit itself or the wall!<br>
+ * Example created by <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta
 */
 
 // the snake is divided into small segments, which are drawn and edited on each 'draw' call
@@ -18,15 +19,18 @@ var yCor = [];
 
 var xFruit = 0;
 var yFruit = 0;
-//var score = $('#score');
+var scoreElem;
 
-function setup () {
+function setup() {
+  scoreElem = createDiv('Score = 0');
+  scoreElem.position(20, 20);
+  scoreElem.id = 'score';
+  scoreElem.style('color', 'white');
+  
   createCanvas(500, 500);
-  //canvas.parent('snakeCanvas');
   frameRate(15);
   stroke(255);
   strokeWeight(10);
-  //score.html(0);
   updateFruitCoordinates();
 
   for (var i = 0; i < numSegments; i++) {
@@ -79,7 +83,7 @@ function updateSnakeCoordinates() {
       xCor[numSegments - 1] = xCor[numSegments - 2];
       yCor[numSegments - 1] = yCor[numSegments - 2] + diff;
       break;
-    }
+  }
 }
 
 /*
@@ -94,8 +98,8 @@ function checkGameStatus() {
       yCor[yCor.length - 1] < 0 ||
       checkSnakeCollision()) {
     noLoop();
-    //var scoreVal = score.html();
-    //score.html('Game ended! Your score was : ' + scoreVal);
+    var scoreVal = parseInt(scoreElem.html().substring(8));
+    scoreElem.html('Game ended! Your score was : ' + scoreVal);
   }
 }
 
@@ -103,11 +107,11 @@ function checkGameStatus() {
  If the snake hits itself, that means the snake head's (x,y) coordinate
  has to be the same as one of its own segment's (x,y) coordinate.
 */
-function checkSnakeCollision () {
+function checkSnakeCollision() {
   var snakeHeadX = xCor[xCor.length - 1];
   var snakeHeadY = yCor[yCor.length - 1];
-  for(var i=0;i<xCor.length-1;i++){
-    if(xCor[i] === snakeHeadX && yCor[i] === snakeHeadY) {
+  for (var i = 0; i < xCor.length - 1; i++) {
+    if (xCor[i] === snakeHeadX && yCor[i] === snakeHeadY) {
       return true;
     }
   }
@@ -121,8 +125,8 @@ function checkSnakeCollision () {
 function checkForFruit() {
   point(xFruit, yFruit);
   if (xCor[xCor.length - 1] === xFruit && yCor[yCor.length - 1] === yFruit) {
-    //var prevScore = parseInt(score.html());
-    //score.html((prevScore + 1));
+    var prevScore = parseInt(scoreElem.html().substring(8));
+    scoreElem.html('Score = ' + (prevScore + 1));
     xCor.unshift(xCor[0]);
     yCor.unshift(yCor[0]);
     numSegments++;
@@ -137,8 +141,8 @@ function updateFruitCoordinates() {
     number divisible by 10, since I move the snake in multiples of 10.
   */
 
-  xFruit = floor(random(10,(width-100)/10))*10;
-  yFruit = floor(random(10,(height-100)/10))*10;
+  xFruit = floor(random(10, (width - 100) / 10)) * 10;
+  yFruit = floor(random(10, (height - 100) / 10)) * 10;
 }
 
 function keyPressed() {
