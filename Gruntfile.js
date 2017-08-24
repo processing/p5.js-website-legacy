@@ -48,7 +48,7 @@ module.exports = function(grunt) {
           '<%= config.dist %>/assets/js/*.js',
           '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= config.dist %>/assets/p5_featured/{,*/}*.*',
-          '<%= config.dist %>/assets/tutorials/{,*/}*.*'
+          '<%= config.dist %>/assets/learn/{,*/}*.*'
         ]
       }
     },
@@ -196,11 +196,11 @@ module.exports = function(grunt) {
         src: '**',
         dest: '<%= config.dist %>/assets/p5_featured'
       },
-      tutorials: {
+      learn: {
         expand: true,
-        cwd: '<%= config.src %>/assets/tutorials',
+        cwd: '<%= config.src %>/assets/learn',
         src: '**',
-        dest: '<%= config.dist %>/assets/tutorials'
+        dest: '<%= config.dist %>/assets/learn'
       },
       examples: {
         expand: true,
@@ -213,6 +213,12 @@ module.exports = function(grunt) {
         cwd: '<%= config.src %>/data/reference',
         src: ['**'],
         dest: '<%= config.dist %>/assets/reference'
+      },
+      reference_es: {
+        expand: true,
+        cwd: '<%= config.dist %>/reference',
+        src: ['**'],
+        dest: '<%= config.dist %>/es/reference'
       },
       offlineReference: {
         files: [
@@ -255,7 +261,7 @@ module.exports = function(grunt) {
         '!<%= config.dist %>/assets/img/**/*.*',
         '!<%= config.dist %>/download/version*.json',
         '!<%= config.dist %>/download/*.php',
-        '!<%= config.dist %>/learn/**/*.*',
+        '!<%= config.dist %>/learn/books/**/*.*',
         '<%= config.src %>/offline-reference/**/*.*'
       ]
     },

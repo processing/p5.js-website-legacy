@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title tabindex="1">p5.js | tutorials</title>
+    <title tabindex="1">p5.js | learn</title>
     <link rel="stylesheet" href="/../assets/css/all.css">
     <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
 
@@ -90,7 +90,7 @@
       <li><a href="/get-started/">Start</a></li>
       <li><a href="/reference/">Reference</a></li>
       <li><a href="/libraries/">Libraries</a></li>
-      <li><a href="/tutorials/">Tutorials</a></li>
+      <li><a href="/learn/">Learn</a></li>
       <li><a href="/examples/">Examples</a></li>
       <li><a href="/books/">Books</a></li>
       <li><a href="/community/">Community</a></li>
@@ -136,24 +136,24 @@
         When your tutorial is ready for publication, please follow these steps to prepare your content for the p5js website.
       </p>
       <p>
-        Prepare the content of your tutorial as a tutorial-name.hbs file with <a href="https://github.com/mayaman/p5js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">this basic structure</a>
+        Prepare the content of your tutorial as a tutorial-name.hbs file with <a href="https://github.com/mayaman/p5js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">this basic structure</a>
         . As is shown in this file, it must contain a header as shown below:
       </p>
-      <img src="../assets/tutorials/tutorial-guide/images/screenshot-1.png" alt="Screenshot">
+      <img src="../assets/learn/tutorial-guide/images/screenshot-1.png" alt="Screenshot">
 
       <p>
-        The folder containing your tutorial will be placed in the 'tutorials' folder of the p5js site. The file called index.hbs is the <a href="http://p5js.org/tutorials/">p5.js tutorials landing page,</a>
+        The folder containing your tutorial will be placed in the 'tutorials' folder of the p5js site. The file called index.hbs is the <a href="http://p5js.org/learn/">p5.js tutorials landing page,</a>
          and the test-tutorial.hbs file is the test tutorial.
       </p>
       <p>
         All content should go in the:
         </br>
         &lt;section role="region" label="main content"&gt; &lt;/section&gt; </br>
-        tags on the page, with formatting defined by the &lt;h1&gt; and &lt;h2&gt; tags, the &lt;p&gt; paragraph tags as is done shown on the<a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">test tutorial page.</a></p>
+        tags on the page, with formatting defined by the &lt;h1&gt; and &lt;h2&gt; tags, the &lt;p&gt; paragraph tags as is done shown on the<a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">test tutorial page.</a></p>
       <p>
-        If your tutorial contains images, they are to be placed in the assets folder of the p5 site, in the location src/assets/tutorials/test-tutorial/images as shown below.
+        If your tutorial contains images, they are to be placed in the assets folder of the p5 site, in the location src/assets/learn/test-tutorial/images as shown below.
       </p>
-      <img src="../assets/tutorials/tutorial-guide/images/screenshot-2.png" alt="Screenshot">
+      <img src="../assets/learn/tutorial-guide/images/screenshot-2.png" alt="Screenshot">
       <p>
         To correctly format code in the html of the page use the tag:
         </br>
@@ -177,7 +177,7 @@ Your code here!</br>
             If the example is to be editable like in <a href="http://p5js.org/reference/#/p5/ellipse">the reference pages</a>
              of the p5js site, the p5 sketch should be embedded into the html page using the p5js widget. Follow <a href="https://toolness.github.io/p5.js-widget/">this guide </a>
             on how to embed p5js sketches using the widget written by <a href="https://github.com/toolness">Toolness</a>
-            . You can also see this in action on the <a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/tutorials/test-tutorial.hbs">  test tutorial page..</a></li>
+            . You can also see this in action on the <a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">  test tutorial page..</a></li>
           <li>
             If the example is to be animated and/or interactive but not editable. The p5.js sketch should be embedded into the page as an iframe as described below.
           </li>
@@ -191,18 +191,18 @@ Your code here!</br>
         <img src="https://github.com/tegacodes/p5.js-education/raw/master/images/iframe-2.jpg" alt="tutorialFileStructure" width="600px">
 
         <p>
-          Put your p5 sketches in the /src/assets/tutorials folder of the site, in a folder labelled with the name of your sketch as shown in the screenshot. This is where all the images and p5 sketches linked by iframe should be stored.
+          Put your p5 sketches in the /src/assets/learn folder of the site, in a folder labelled with the name of your sketch as shown in the screenshot. This is where all the images and p5 sketches linked by iframe should be stored.
         </p>
 
-        <img src="../assets/tutorials/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
+        <img src="../assets/learn/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
 
 <p>In the subfolders containing your p5 examples there should be a sketch.js file and the embed.html file for the sketch. </p>
-<img src="../assets/tutorials/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
+<img src="../assets/learn/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
 
 <p>Make sure your embed.html file has the correct paths to the p5 libraries of the site. If your file structure is the same as above, the path to the p5.js library should be "../../../js/p5.min.js".</p>
 <p>You can then embed the p5js index files as iframes in the .hbs file that contains your tutorial content. The embed code for the iframe would then be: </p>
   <pre><code class="language-javascript">
-&lt;iframe src="http://p5js.org/assets/tutorials/tes-tutorial/embed.html" width="600px" height="400px"&gt;</br>
+&lt;iframe src="http://p5js.org/assets/learn/tes-tutorial/embed.html" width="600px" height="400px"&gt;</br>
 &lt;/iframe&gt;</br>
 </code></pre>
 </br>
@@ -212,10 +212,10 @@ Your code here!</br>
 </code></pre>
 </br>
 <p>Here you can see the naked sketch running: </p>
-<a href="http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html">http://staging.p5js.org/assets/tutorials/test-tutorial/embed.html</a>
+<a href="http://staging.p5js.org/assets/learn/test-tutorial/embed.html">http://staging.p5js.org/assets/learn/test-tutorial/embed.html</a>
 
 <p></p>
-<a href="http://staging.p5js.org/tutorials/test-tutorial.html">http://staging.p5js.org/tutorials/test-tutorial.html</a>
+<a href="http://staging.p5js.org/learn/test-tutorial.html">http://staging.p5js.org/learn/test-tutorial.html</a>
 
 <p>One thing to note is that you need to manually set the size of the iframe, so it works best if things are a standard size.</p>
 
