@@ -190,12 +190,6 @@ module.exports = function(grunt) {
         src: '**',
         dest: '<%= config.dist %>/assets/css/fonts'
       },
-      p5_featured: {
-        expand: true,
-        cwd: '<%= config.src %>/assets/p5_featured',
-        src: '**',
-        dest: '<%= config.dist %>/assets/p5_featured'
-      },
       learn: {
         expand: true,
         cwd: '<%= config.src %>/assets/learn',
@@ -259,6 +253,7 @@ module.exports = function(grunt) {
         '!<%= config.dist %>/**/reference/**/*.*',
         '!<%= config.dist %>/**/helpers/**/*.*',
         '!<%= config.dist %>/assets/img/**/*.*',
+        '!<%= config.dist %>/assets/p5_featured/**/*.*',
         '!<%= config.dist %>/download/version*.json',
         '!<%= config.dist %>/download/*.php',
         '!<%= config.dist %>/learn/books/**/*.*',
