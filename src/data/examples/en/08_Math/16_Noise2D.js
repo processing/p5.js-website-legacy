@@ -29,7 +29,7 @@ function draw() {
    // Draw the right half of image
   for (var y = 0; y < height-30; y++) {
      for (var x = width/2; x < width; x++) {
-       // noiceDetail of the pixels octave count anf falloff value       
+       // noiceDetail of the pixels octave count and falloff value       
        noiseDetail(5,0.5);
        noiseVal = noise((mouseX+x) * noiseScale,
                         (mouseY+y) * noiseScale);
@@ -37,7 +37,7 @@ function draw() {
        point(x,y);
      }
    }
-
+  //Show the details of two partitions 
   textSize(18);
   fill(255,255,255);
   text("Noice2D with 2 octaves and 0.2 falloff", 10,350);
