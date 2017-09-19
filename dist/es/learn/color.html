@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">p5.js | learn</title>
+    <link rel="stylesheet" href="/../../assets/css/all.css">
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+
+
+    <script type="text/javascript" src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/prism.js"></script>
+    <script type="text/javascript" src="/../../assets/js/scroll.js"></script>
+    <script type="text/javascript" src="/../../assets/js/init.js"></script>
+
+    <style>
+    @font-face {
+      font-family: myFirstFont;
+      src: url(assets/p5_featured/nea-p5js/assets/Museo_Slab_500_2.otf);
+    }
+    #top {
+      font-family: myFirstFont !important;
+      color: white;
+      font-size: 12px;
+      padding: 7px;
+      padding-left: 20px;
+      line-height: 20px;
+      background-color: #ED225D;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 5;
+      display: none;
+    }
+
+    #top a {
+      color: white !important;
+      text-decoration: underline;
+    }
+
+
+    footer { padding-bottom: 26px; }
+    </style>
+  </head>
+  <body>
+
+    
+<!-- p5*js language buttons -->
+<div id="i18n-btn">
+  <h1 class='visuallyhidden'>Language Settings</h1>
+  <button data-lang="en">EN</button>
+  <button data-lang="es">ES</button>
+</div>
+    <a href="#content" class="skip">Skip to content</a>
+    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/es/">
+          <img src="../../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+        <p class='tagline'>la diversión de Processing x la excentricidad de JavaScript</p>
+        <p class='tagline'>la simplicidad de Processing x la flexibilidad de JavaScript</p>
+        <p class='tagline'>la intuición de Processing x el poder de JavaScript</p>
+        <p class='tagline'>la creatividad de Processing x el dinamismo de JavaScript</p>
+        <p class='tagline'>la comunidad de Processing x la comunidad de JavaScript</p>
+        <p class='tagline'>el poder de Processing x el alcance de JavaScript</p>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+<!-- site navigation -->
+<div class="column-span">
+  <nav role="navigation">
+    <ul id="menu">
+      <li><a href="/es/">Home</a></li>
+      <li><a href="/es/download/">Descargar</a></li>
+      <li><a href="/es/gallery/"></a></li>
+      <li><a href="/es/get-started/">Empezar</a></li>
+      <li><a href="/es/reference/">Referencia</a></li>
+      <li><a href="/es/libraries/">Bibliotecas</a></li>
+      <li><a href="/es/learn/">Aprender</a></li>
+      <li><a href="/es/examples/">Ejemplos</a></li>
+      <li><a href="/es/books/">Libros</a></li>
+      <li><a href="/es/community/">Comunidad</a></li>
+      <li><a href="http://forum.processing.org/two/" target=_blank class="other-link">Foro</a></li>
+      <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+      <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- <script src="../../assets/js/scroll.js"></script> -->
+
+
+  <div class="column-span">
+
+    <section role="region" label="main content">
+
+      <h1>Color</h1>
+
+      <p>
+      In the digital world, when we want to talk about a color, precision is required. Saying "Hey, can you make that circle bluish-green?" will not do. Color, rather, is defined as a range of numbers. Let's start with the simplest case: black & white or grayscale. 0 means black, 255 means white. In between, every other number—50, 87, 162, 209, and so on—is a shade of gray ranging from black to white.
+      </p>
+
+      <img src="../../assets/learn/color/grayscale.svg">
+
+      <p>
+      By adding the <a href="/es/reference/#/p5/stroke"> stroke()</a> and <a href="/es/reference/#/p5/fill">fill()</a> functions before something is drawn, we can set the color of any given shape. 
+      There is also the function <a href="/es/reference/#/p5/background">background()</a>, which sets a background color for the window. Here's an example.
+      </p>
+
+      <pre><code class="language-javascript">   
+        background(255);    // Setting the background to white
+        stroke(0);          // Setting the outline (stroke) to black
+        fill(150);          // Setting the interior of a shape (fill) to grey 
+        rect(50,50,75,100); // Drawing the rectangle
+      </code></pre>   
+
+      <p>
+      Stroke or fill can be eliminated with the functions: <a href="/es/reference/#/p5/noStroke">noStroke()</a> and <a href="/es/reference/#/p5/noFill">noFill()</a>. 
+      Our instinct might be to say "stroke(0)" for no outline, however, it is important to remember that 0 is not "nothing", but rather denotes the color black. 
+      Also, remember not to eliminate both—with <b>noStroke()</b> and <b>noFill()</b>, nothing will appear!
+      </p>
+
+      <p>In addition, if we draw two shapes, p5.js will always use the most recently specified stroke and fill, reading the code from top to bottom.</p>
+
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+      <script type="text/p5" data-autoplay>
+        function draw() {
+  background(150);
+  stroke(0);
+  line(0, 0, 100, 100);
+  stroke(255);
+  noFill();
+  rect(25, 25, 50, 50);
+}
+      </script>
+
+      <h2>RGB Color</h2>
+
+      <p>
+      Remember finger painting? By mixing three "primary" colors, any color could be generated. 
+      Swirling all colors together resulted in a muddy brown. The more paint you added, the darker it got. 
+      Digital colors are also constructed by mixing three primary colors, but it works differently from paint. First, the primaries are diff erent: red, green, and blue (i.e., "RGB" color). And with color on the screen, you are mixing light, not paint, so the mixing rules are different as well.
+      </p>
+
+      <img src="../../assets/learn/color/rgb.jpg">
+      <p>
+        <ul>
+          <li>Red + Green = Yellow</li>
+          <li>Red + Blue = Purple</li>
+          <li>Green + Blue = Cyan (blue-green)</li>
+          <li>Red + Green + Blue = White</li>
+          <li>No colors = Black</li>
+        </ul>
+      </p>
+      
+      <p>This assumes that the colors are all as bright as possible, but of course, you have a range of color available, so some red plus some green plus some blue equals gray, and a bit of red plus a bit of blue equals dark purple. 
+      While this may take some getting used to, the more you program and experiment with RGB color, the more it will become instinctive, much like swirling colors with your fingers. 
+      And of course you can't say "Mix some red with a bit of blue," you have to provide an exact amount. As with grayscale, the individual color elements are expressed as ranges from 0 (none of that color) to 255 (as much as possible), and they are listed in the order R, G, and B. You will get the hang of RGB color mixing through experimentation, but next we will cover some code using some common colors.</p>
+
+      <script type="text/p5"  data-autoplay>
+function draw() {
+  background(255);  
+  noStroke(); 
+
+  // Bright red
+  fill(255,0,0);
+  ellipse(20,20,16,16);
+
+  // Dark red
+  fill(127,0,0);
+  ellipse(40,20,16,16);
+
+  // Pink (pale red)
+  fill(255,200,200);
+  ellipse(60,20,16,16);
+}
+      </script>
+
+      
+
+      <h2>Color Transparency</h2>
+
+      <p>In addition to the red, green, and blue components of each color, there is an additional optional fourth component, referred to as the color's "alpha." Alpha means transparency and is particularly useful when you want to draw elements that appear partially see-through on top of one another. The alpha values for an image are sometimes referred to collectively as the "alpha channel" of an image.</p>
+      <p>It is important to realize that pixels are not literally transparent, this is simply a convenient illusion that is accomplished by blending colors. Behind the scenes, p5.js takes the color numbers and adds a percentage of one to a percentage of another, creating the optical perception of blending. (If you are interested in programming "rose-colored" glasses, this is where you would begin.)</p>
+
+      <p>Alpha values also range from 0 to 255, with 0 being completely transparent (i.e., 0% opaque) and 255 completely opaque (i.e., 100% opaque).</p>
+
+      <script type="text/p5"  data-autoplay>
+  createCanvas(100, 100);
+  fill(0,0,255);
+  rect(0,0,50,100);
+
+  // 255 means 100% opacity.
+  fill(255,0,0,255);
+  rect(0,0,100,20);
+
+  // 75% opacity.
+  fill(255,0,0,191);
+  rect(0,25,100,20);
+
+  // 55% opacity.
+  fill(255,0,0,127);
+  rect(0,50,100,20);
+
+  // 25% opacity.
+  fill(255,0,0,63);
+  rect(0,75,100,20); 
+      
+      </script>
+     
+      <h2>Custom Color Ranges</h2>
+
+      <p>
+      RGB color with ranges of 0 to 255 is not the only way you can handle color in p5.js, in fact, it allows us to think about color any way we like. For example, you might prefer to think of color as ranging from 0 to 100 (like a percentage). You can do this by specifying a custom <a href="/es/reference/#/p5/colorMode">colorMode()</a>colorMode()</a>. 
+      </p> 
+      
+      <pre><code>
+      colorMode(RGB,100);
+      </code></pre>
+
+      <p>The above function says: "OK, we want to think about color in terms of red, green, and blue. The range of RGB values will be from 0 to 100."</p>
+
+      <p>Although it is rarely convenient to do so, you can also have different ranges for each color component:</p>
+
+      <pre><code>
+      colorMode(RGB,100,500,10,255);
+      </code></pre>
+
+      <p>Now we are saying "Red values go from 0 to 100, green from 0 to 500, blue from 0 to 10, and alpha from 0 to 255."</p>
+
+      <p>Finally, while you will likely only need RGB color for all of your programming needs, you can also specify colors in the HSB (hue, saturation, and brightness) mode. Without getting into too much detail, HSB color works as follows:</p>
+
+      <img src="../../assets/learn/color/hsb.png">
+      <ul>
+        <li><b>Hue</b>—The color type, ranges from 0 to 255 by default.</li>
+        <li><b>Saturation</b>—The vibrancy of the color, 0 to 255 by default.</li>
+        <li><b>Brightness</b>—The, well, brightness of the color, 0 to 255 by default.</li>
+      </ul>
+
+      <p>With <a href="/es/reference/#/p5/colorMode">colorMode()</a> you can set your own ranges for these values. Some prefer a range of 0-360 for hue (think of 360 degrees on a color wheel) and 0-100 for saturation and brightness (think of 0-100%).</p>
+
+    </section>
+
+    
+<footer>
+  <p> p5.js fue creado por <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> y es desarrollado por una comunidad de colaboradores, con apoyo de <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a>  y 
+  <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. Identidad y diseño gráfico por <a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/es/copyright.html">&copy; Info.</a></p>
+</footer>
+
+
+  </div> <!-- end column-span -->
+
+  
+<!-- outside of column for footer to go across both -->
+
+<p class="clearfix"> &nbsp; </p>
+
+<object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+     *<!-- to do: add fallback image in CSS -->
+</object>
+
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+<div id="family">
+  <p class="left"><a href="http://processing.org">Processing</a>
+    <a class="here" href="/es/">p5.js</a>
+    <a href="http://py.processing.org/">Processing.py</a>
+    <a href="http://android.processing.org/">Processing for Android</a>
+  </p>
+  <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
+    <input type="hidden" name="as_sitesearch" value="p5js.org" />
+    <input id='search_field' type="text" name="q" id="q" size="20" />
+    <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
+  </form>
+
+  <p class="right">
+    <a href="https://processingfoundation.org/">Processing Foundation</a>
+  </p>
+</div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>
