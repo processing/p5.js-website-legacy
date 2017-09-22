@@ -36,6 +36,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "p5.Reverb",
         "p5.SawOsc",
         "p5.Score",
+        "p5.Shader",
         "p5.Signal",
         "p5.SinOsc",
         "p5.SoundFile",
@@ -44,6 +45,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "p5.StringDict",
         "p5.Table",
         "p5.TableRow",
+        "p5.Texture",
         "p5.TriOsc",
         "p5.TypedDict",
         "p5.Vector",
@@ -88,6 +90,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Random",
         "Rendering",
         "Setting",
+        "Shaders",
         "Shape",
         "String Functions",
         "Structure",
@@ -154,7 +157,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Creating & Reading",
             "name": "Creating & Reading",
-            "description": "<p>We define colors to be immutable objects. Each color stores the color mode\nand level maxes that applied at the time of its construction. These are\nused to interpret the input arguments and to format the output e.g. when\nsaturation() is requested.</p>\n<p>Internally we store an array representing the ideal RGBA values in floating\npoint form, normalized from 0 to 1. From this we calculate the closest\nscreen color (RGBA levels from 0 to 255) and expose this to the renderer.</p>\n<p>We also cache normalized, floating point components of the color in various\nrepresentations as they are calculated. This is done to prevent repeating a\nconversion that has already been performed.</p>\n"
+            "description": "<p>Each color stores the color mode and level maxes that applied at the\ntime of its construction. These are used to interpret the input arguments\n(at construction and later for that instance of color) and to format the\noutput e.g. when saturation() is requested.</p>\n<p>Internally we store an array representing the ideal RGBA values in floating\npoint form, normalized from 0 to 1. From this we calculate the closest\nscreen color (RGBA levels from 0 to 255) and expose this to the renderer.</p>\n<p>We also cache normalized, floating point components of the color in various\nrepresentations as they are calculated. This is done to prevent repeating a\nconversion that has already been performed.</p>\n"
         },
         {
             "displayName": "Curves",
@@ -218,7 +221,8 @@ YUI.add("yuidoc-meta", function(Y) {
         },
         {
             "displayName": "Material",
-            "name": "Material"
+            "name": "Material",
+            "description": "<p>This module defines the p5.Texture class</p>\n"
         },
         {
             "displayName": "Math",
@@ -263,6 +267,11 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Setting",
             "name": "Setting"
+        },
+        {
+            "displayName": "Shaders",
+            "name": "Shaders",
+            "description": "<p>This module defines the p5.Shader class</p>\n"
         },
         {
             "displayName": "Shape",
