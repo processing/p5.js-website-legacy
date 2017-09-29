@@ -5293,7 +5293,7 @@
         },
         {
             "file": "src/core/core.js",
-            "line": 394,
+            "line": 393,
             "description": "<p>Removes the entire p5 sketch. This will remove the canvas and any\nelements created by p5.js. It will also stop the draw loop and unbind\nany properties or methods from the window global scope. It will\nleave a variable p5 in case you wanted to create a new p5 sketch.\nIf you like, you can set p5 = null to erase it.</p>\n",
             "itemtype": "method",
             "name": "remove",
@@ -6752,7 +6752,8 @@
                 {
                     "name": "noRedraw",
                     "description": "<p>don&#39;t redraw the canvas immediately</p>\n",
-                    "type": "Boolean"
+                    "type": "Boolean",
+                    "optional": true
                 }
             ],
             "example": [
@@ -8904,7 +8905,7 @@
         {
             "file": "src/image/image.js",
             "line": 233,
-            "description": "<p>Capture a sequence of frames that can be used to create a movie.\nAccepts a callback. For example, you may wish to send the frames\nto a server where they can be stored or converted into a movie.\nIf no callback is provided, the browser will pop up save dialogues in an\nattempt to download all of the images that have just been created. With the\ncallback provided the image data isn&#39;t saved by default but instead passed\nas an argument to the callback function as an array of objects, with the\nsize of array equal to the total number of frames.</p>\n",
+            "description": "<p>Capture a sequence of frames that can be used to create a movie.\nAccepts a callback. For example, you may wish to send the frames\nto a server where they can be stored or converted into a movie.\nIf no callback is provided, the browser will pop up save dialogues in an\nattempt to download all of the images that have just been created. With the\ncallback provided the image data isn&#39;t saved by default but instead passed\nas an argument to the callback function as an array of objects, with the\nsize of array equal to the total number of frames.</p>\n<p>Note that saveFrames() will only save the first 15 frames of an animation.\nTo export longer animations, you might look into a library like\n<a href=\"https://github.com/spite/ccapture.js/\">ccapture.js</a>.</p>\n",
             "itemtype": "method",
             "name": "saveFrames",
             "params": [
@@ -11813,7 +11814,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 183,
+            "line": 184,
             "description": "<p>Returns Euler&#39;s number e (2.71828...) raised to the power of the n\nparameter. Maps to Math.exp().</p>\n",
             "itemtype": "method",
             "name": "exp",
@@ -11838,7 +11839,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 233,
+            "line": 234,
             "description": "<p>Calculates the closest int value that is less than or equal to the\nvalue of the parameter. Maps to Math.floor().</p>\n",
             "itemtype": "method",
             "name": "floor",
@@ -11863,7 +11864,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 272,
+            "line": 273,
             "description": "<p>Calculates a number between two numbers at a specific increment. The amt\nparameter is the amount to interpolate between the two values where 0.0\nequal to the first point, 0.1 is very near the first point, 0.5 is\nhalf-way in between, etc. The lerp function is convenient for creating\nmotion along a straight path and for drawing dotted lines.</p>\n",
             "itemtype": "method",
             "name": "lerp",
@@ -11898,7 +11899,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 316,
+            "line": 317,
             "description": "<p>Calculates the natural logarithm (the base-e logarithm) of a number. This\nfunction expects the n parameter to be a value greater than 0.0. Maps to\nMath.log().</p>\n",
             "itemtype": "method",
             "name": "log",
@@ -11923,7 +11924,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 370,
+            "line": 371,
             "description": "<p>Calculates the magnitude (or length) of a vector. A vector is a direction\nin space commonly used in computer graphics and linear algebra. Because it\nhas no &quot;start&quot; position, the magnitude of a vector can be thought of as\nthe distance from the coordinate 0,0 to its x,y value. Therefore, mag() is\na shortcut for writing dist(0, 0, x, y).</p>\n",
             "itemtype": "method",
             "name": "mag",
@@ -11953,7 +11954,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 408,
+            "line": 409,
             "description": "<p>Re-maps a number from one range to another.\n<br><br>\nIn the first example above, the number 25 is converted from a value in the\nrange of 0 to 100 into a value that ranges from the left edge of the\nwindow (0) to the right edge (width).</p>\n",
             "itemtype": "method",
             "name": "map",
@@ -11982,6 +11983,12 @@
                     "name": "stop2",
                     "description": "<p>upper bound of the value&#39;s target range</p>\n",
                     "type": "Number"
+                },
+                {
+                    "name": "withinBounds",
+                    "description": "<p>constrain the value to the newly mapped range</p>\n",
+                    "type": "Boolean",
+                    "optional": true
                 }
             ],
             "return": {
@@ -11989,7 +11996,7 @@
                 "type": "Number"
             },
             "example": [
-                "\n  <div><code>\n    var value = 25;\n    var m = map(value, 0, 100, 0, width);\n    ellipse(m, 50, 10, 10);\n  </code></div>\n\n  <div><code>\n    function setup() {\n      noStroke();\n    }\n\n    function draw() {\n      background(204);\n      var x1 = map(mouseX, 0, width, 25, 75);\n      ellipse(x1, 25, 25, 25);\n      var x2 = map(mouseX, 0, width, 0, 100);\n      ellipse(x2, 75, 25, 25);\n    }\n  </code></div>"
+                "\n  <div><code>\n    var value = 25;\n    var m = map(value, 0, 100, 0, width);\n    ellipse(m, 50, 10, 10);\n  </code></div>\n\n  <div><code>\n    function setup() {\n      noStroke();\n    }\n\n    function draw() {\n      background(204);\n      var x1 = map(mouseX, 0, width, 25, 75);\n      ellipse(x1, 25, 25, 25);\n      //This ellipse is constrained to the 0-100 range\n      //after setting withinBounds to true\n      var x2 = map(mouseX, 0, width, 0, 100, true);\n      ellipse(x2, 75, 25, 25);\n    }\n  </code></div>"
             ],
             "alt": "10 by 10 white ellipse with in mid left canvas\n2 25 by 25 white ellipses move with mouse x. Bottom has more range from X",
             "class": "p5",
@@ -11998,7 +12005,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 452,
+            "line": 464,
             "description": "<p>Determines the largest value in a sequence of numbers, and then returns\nthat value. max() accepts any number of Number parameters, or an Array\nof any length.</p>\n",
             "itemtype": "method",
             "name": "max",
@@ -12023,7 +12030,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 495,
+            "line": 507,
             "description": "<p>Determines the smallest value in a sequence of numbers, and then returns\nthat value. min() accepts any number of Number parameters, or an Array\nof any length.</p>\n",
             "itemtype": "method",
             "name": "min",
@@ -12048,7 +12055,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 538,
+            "line": 550,
             "description": "<p>Normalizes a number from another range into a value between 0 and 1.\nIdentical to map(value, low, high, 0, 1).\nNumbers outside of the range are not clamped to 0 and 1, because\nout-of-range values are often intentional and useful. (See the second\nexample above.)</p>\n",
             "itemtype": "method",
             "name": "norm",
@@ -12083,7 +12090,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 590,
+            "line": 602,
             "description": "<p>Facilitates exponential expressions. The pow() function is an efficient\nway of multiplying numbers by themselves (or their reciprocals) in large\nquantities. For example, pow(3, 5) is equivalent to the expression\n3<em>3</em>3<em>3</em>3 and pow(3, -5) is equivalent to 1 / 3<em>3</em>3<em>3</em>3. Maps to\nMath.pow().</p>\n",
             "itemtype": "method",
             "name": "pow",
@@ -12113,7 +12120,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 624,
+            "line": 636,
             "description": "<p>Calculates the integer closest to the n parameter. For example,\nround(133.8) returns the value 134. Maps to Math.round().</p>\n",
             "itemtype": "method",
             "name": "round",
@@ -12138,7 +12145,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 663,
+            "line": 675,
             "description": "<p>Squares a number (multiplies a number by itself). The result is always a\npositive number, as multiplying two negative numbers always yields a\npositive result. For example, -1 * -1 = 1.</p>\n",
             "itemtype": "method",
             "name": "sq",
@@ -12163,7 +12170,7 @@
         },
         {
             "file": "src/math/calculation.js",
-            "line": 708,
+            "line": 720,
             "description": "<p>Calculates the square root of a number. The square root of a number is\nalways positive, even though there may be a valid negative root. The\nsquare root s of number a is such that s*s = a. It is the opposite of\nsquaring. Maps to Math.sqrt().</p>\n",
             "itemtype": "method",
             "name": "sqrt",
@@ -15880,7 +15887,7 @@
                 {
                     "name": "tex",
                     "description": "<p>2-dimensional graphics\n                   to render as texture</p>\n",
-                    "type": "p5.Image | p5.MediaElement | p5.Graphics"
+                    "type": "p5.Image|p5.MediaElement|p5.Graphics"
                 }
             ],
             "chainable": 1,
@@ -23028,7 +23035,7 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/core.js:394"
+            "line": " src/core/core.js:393"
         },
         {
             "message": "unknown tag: alt",
@@ -23692,55 +23699,55 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:183"
+            "line": " src/math/calculation.js:184"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:233"
+            "line": " src/math/calculation.js:234"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:272"
+            "line": " src/math/calculation.js:273"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:316"
+            "line": " src/math/calculation.js:317"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:370"
+            "line": " src/math/calculation.js:371"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:408"
+            "line": " src/math/calculation.js:409"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:452"
+            "line": " src/math/calculation.js:464"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:495"
+            "line": " src/math/calculation.js:507"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:538"
+            "line": " src/math/calculation.js:550"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:590"
+            "line": " src/math/calculation.js:602"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:624"
+            "line": " src/math/calculation.js:636"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:663"
+            "line": " src/math/calculation.js:675"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/math/calculation.js:708"
+            "line": " src/math/calculation.js:720"
         },
         {
             "message": "unknown tag: alt",
