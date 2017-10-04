@@ -1219,7 +1219,7 @@
             "module": "IO",
             "namespace": "",
             "file": "src/io/files.js",
-            "line": 1007
+            "line": 1009
         },
         "Table": {
             "name": "Table",
@@ -1604,7 +1604,7 @@
             "namespaces": {},
             "module": "p5.dom",
             "file": "lib/addons/p5.dom.js",
-            "line": 2259,
+            "line": 2435,
             "description": "<p><p>The web is much more than just canvas and p5.dom makes it easy to interact\nwith other HTML5 objects, including text, hyperlink, image, input, video,\naudio, and webcam.</p></p>\n<p><p>There is a set of creation methods, DOM manipulation methods, and\nan extended p5.Element that supports a range of HTML elements. See the\n<a href=\"https://github.com/processing/p5.js/wiki/Beyond-the-canvas\">\nbeyond the canvas tutorial</a> for a full overview of how this addon works.</p>\n<p><p>Methods and properties shown in black are part of the p5.js core, items in\nblue are part of the p5.dom library. You will need to include an extra file\nin order to access the blue functions. See the\n<a href=\"http://p5js.org/libraries/#using-a-library\">using a library</a>\nsection for information on how to include this library. p5.dom comes with\n<a href=\"http://p5js.org/download\">p5 complete</a> or you can download the single file\n<a href=\"https://raw.githubusercontent.com/lmccart/p5.js/master/lib/addons/p5.dom.js\">\nhere</a>.</p></p>\n<p><p>See <a href=\"https://github.com/processing/p5.js/wiki/Beyond-the-canvas\">tutorial: beyond the canvas</a>\nfor more info on how to use this libary.</a></p>\n",
             "tag": "main",
             "itemtype": "main"
@@ -2182,7 +2182,7 @@
             "submodule": "p5.dom",
             "namespace": "",
             "file": "lib/addons/p5.dom.js",
-            "line": 2259,
+            "line": 2435,
             "description": "<p>Base class for a file\nUsing this for createFileInput</p>\n",
             "is_constructor": 1,
             "params": [
@@ -6299,8 +6299,8 @@
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse is\n                   pressed over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when mouse is\n                               pressed over the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6314,15 +6314,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 211,
+            "line": 213,
             "description": "<p>The .doubleClicked() function is called once after every time a\nmouse button is pressed twice over the element. This can be used to\nattach element and action specific event listeners.</p>\n",
             "itemtype": "method",
             "name": "doubleClicked",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse is\n                   pressed over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when mouse is\n                               double clicked over the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "return": {
@@ -6339,15 +6339,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 259,
+            "line": 263,
             "description": "<p>The .mouseWheel() function is called once after every time a\nmouse wheel is scrolled over the element. This can be used to\nattach element specific event listeners.\n<br><br>\nThe function accepts a callback function as argument which will be executed\nwhen the <code>wheel</code> event is triggered on the element, the callback function is\npassed one argument <code>event</code>. The <code>event.deltaY</code> property returns negative\nvalues if the mouse wheel is rotated up or away from the user and positive\nin the other direction. The <code>event.deltaX</code> does the same as <code>event.deltaY</code>\nexcept it reads the horizontal wheel scroll of the mouse wheel.\n<br><br>\nOn OS X with &quot;natural&quot; scrolling enabled, the <code>event.deltaY</code> values are\nreversed.</p>\n",
             "itemtype": "method",
             "name": "mouseWheel",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse wheel is\n                   scrolled over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when mouse is\n                               scrolled over the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6361,15 +6361,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 323,
+            "line": 329,
             "description": "<p>The .mouseReleased() function is called once after every time a\nmouse button is released over the element. This can be used to\nattach element specific event listeners.</p>\n",
             "itemtype": "method",
             "name": "mouseReleased",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse is\n                   released over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when mouse is\n                               released over the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6383,15 +6383,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 375,
+            "line": 383,
             "description": "<p>The .mouseClicked() function is called once after a mouse button is\npressed and released over the element. This can be used to\nattach element specific event listeners.</p>\n",
             "itemtype": "method",
             "name": "mouseClicked",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse is\n                   clicked over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when mouse is\n                               clicked over the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6405,15 +6405,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 427,
+            "line": 437,
             "description": "<p>The .mouseMoved() function is called once every time a\nmouse moves over the element. This can be used to attach an\nelement specific event listener.</p>\n",
             "itemtype": "method",
             "name": "mouseMoved",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse is\n                   moved over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when a mouse moves\n                               over the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6427,15 +6427,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 484,
+            "line": 496,
             "description": "<p>The .mouseOver() function is called once after every time a\nmouse moves onto the element. This can be used to attach an\nelement specific event listener.</p>\n",
             "itemtype": "method",
             "name": "mouseOver",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse is\n                   moved over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when a mouse moves\n                               onto the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6449,15 +6449,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 527,
-            "description": "<p>The .changed() function is called when the value of an\nelement is changed.\nThis can be used to attach an element specific event listener.</p>\n",
+            "line": 541,
+            "description": "<p>The .changed() function is called when the value of an\nelement changes.\nThis can be used to attach an element specific event listener.</p>\n",
             "itemtype": "method",
             "name": "changed",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when the value of an\nelement changes.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when the value of\n                               an element changes.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6471,15 +6471,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 592,
+            "line": 608,
             "description": "<p>The .input() function is called when any user input is\ndetected with an element. The input event is often used\nto detect keystrokes in a input element, or changes on a\nslider element. This can be used to attach an element specific\nevent listener.</p>\n",
             "itemtype": "method",
             "name": "input",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired on user input.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when any user input is\n                               detected within the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6493,15 +6493,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 624,
+            "line": 643,
             "description": "<p>The .mouseOut() function is called once after every time a\nmouse moves off the element. This can be used to attach an\nelement specific event listener.</p>\n",
             "itemtype": "method",
             "name": "mouseOut",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse is\n                   moved off the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when a mouse\n                               moves off of an element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6515,15 +6515,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 665,
+            "line": 686,
             "description": "<p>The .touchStarted() function is called once after every time a touch is\nregistered. This can be used to attach element specific event listeners.</p>\n",
             "itemtype": "method",
             "name": "touchStarted",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when touch is\n                   started over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when a touch\n                               starts over the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6537,15 +6537,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 712,
+            "line": 735,
             "description": "<p>The .touchMoved() function is called once after every time a touch move is\nregistered. This can be used to attach element specific event listeners.</p>\n",
             "itemtype": "method",
             "name": "touchMoved",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when touch is moved\n                   over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when a touch moves over\n                               the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6559,15 +6559,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 751,
+            "line": 776,
             "description": "<p>The .touchEnded() function is called once after every time a touch is\nregistered. This can be used to attach element specific event listeners.</p>\n",
             "itemtype": "method",
             "name": "touchEnded",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when touch is\n                   ended over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when a touch ends\n                               over the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6581,15 +6581,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 801,
+            "line": 828,
             "description": "<p>The .dragOver() function is called once after every time a\nfile is dragged over the element. This can be used to attach an\nelement specific event listener.</p>\n",
             "itemtype": "method",
             "name": "dragOver",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse is\n                   dragged over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when a file is\n                               dragged over the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6603,15 +6603,15 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 837,
+            "line": 866,
             "description": "<p>The .dragLeave() function is called once after every time a\ndragged file leaves the element area. This can be used to attach an\nelement specific event listener.</p>\n",
             "itemtype": "method",
             "name": "dragLeave",
             "params": [
                 {
                     "name": "fxn",
-                    "description": "<p>function to be fired when mouse is\n                   dragged over the element.</p>\n",
-                    "type": "Function"
+                    "description": "<p>function to be fired when a file is\n                               dragged off the element.\n                               if <code>false</code> is passed instead, the previously\n                               firing function will no longer fire.</p>\n",
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6625,7 +6625,7 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 873,
+            "line": 904,
             "description": "<p>The .drop() function is called for each file dropped on the element.\nIt requires a callback that is passed a p5.File object.  You can\noptionally pass two callbacks, the first one (required) is triggered\nfor each file dropped when the file is loaded.  The second (optional)\nis triggered just once when a file (or files) are dropped.</p>\n",
             "itemtype": "method",
             "name": "drop",
@@ -6633,12 +6633,12 @@
                 {
                     "name": "callback",
                     "description": "<p>callback triggered when files are dropped.</p>\n",
-                    "type": "Function"
+                    "type": "Function|Boolean"
                 },
                 {
                     "name": "fxn",
                     "description": "<p>callback to receive loaded file.</p>\n",
-                    "type": "Function"
+                    "type": "Function|Boolean"
                 }
             ],
             "chainable": 1,
@@ -6652,7 +6652,7 @@
         },
         {
             "file": "src/core/p5.Element.js",
-            "line": 981,
+            "line": 1031,
             "description": "<p>Helper fxn for sharing pixel methods</p>\n",
             "class": "p5.Element",
             "module": "DOM",
@@ -8173,9 +8173,9 @@
             "itemtype": "method",
             "name": "keyPressed",
             "example": [
-                "\n<div>\n<code>\nvar value = 0;\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction keyPressed() {\n  if (value === 0) {\n    value = 255;\n  } else {\n    value = 0;\n  }\n}\n</code>\n</div>\n<div>\n<code>\nvar value = 0;\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction keyPressed() {\n  if (keyCode === LEFT_ARROW) {\n    value = 255;\n  } else if (keyCode === RIGHT_ARROW) {\n    value = 0;\n  }\n}\n</code>\n</div>\n<div class=\"norender\">\n<code>\nfunction keyPressed(){\n  // Do something\n  return false; // prevent any default behaviour\n}\n</code>"
+                "\n<div>\n<code>\nvar value = 0;\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction keyPressed() {\n  if (value === 0) {\n    value = 255;\n  } else {\n    value = 0;\n  }\n}\n</code>\n</div>\n<div>\n<code>\nvar value = 0;\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction keyPressed() {\n  if (keyCode === LEFT_ARROW) {\n    value = 255;\n  } else if (keyCode === RIGHT_ARROW) {\n    value = 0;\n  }\n}\n</code>\n</div>\n<div class=\"norender\">\n<code>\nfunction keyPressed(){\n  // Do something\n  return false; // prevent any default behaviour\n}\n</code>\n</div>"
             ],
-            "alt": "black rect center. turns white when key pressed and black when released\nblack rect center. turns white when left arrow pressed and black when right.\n\n</div>",
+            "alt": "black rect center. turns white when key pressed and black when released\nblack rect center. turns white when left arrow pressed and black when right.",
             "class": "p5",
             "module": "Events",
             "submodule": "Keyboard"
@@ -9010,13 +9010,13 @@
         {
             "file": "src/image/loading_displaying.js",
             "line": 125,
-            "description": "<p>Draw an image to the main canvas of the p5js sketch</p>\n",
+            "description": "<p>Draw an image to the p5.js canvas.</p>\n<p>This function can be used with different numbers of parameters. The\nsimplest use requires only three parameters: img, x, and y—where (x, y) is\nthe position of the image. Two more parameters can optionally be added to\nspecify the width and height of the image.</p>\n<p>This function can also be used with all eight Number parameters. To\ndifferentiate between all these parameters, p5.js uses the language of\n&quot;destination rectangle&quot; (which corresponds to &quot;dx&quot;, &quot;dy&quot;, etc.) and &quot;source\nimage&quot; (which corresponds to &quot;sx&quot;, &quot;sy&quot;, etc.) below. Specifying the\n&quot;source image&quot; dimensions can be useful when you want to display a\nsubsection of the source image instead of the whole thing. Here&#39;s a diagram\nto explain further:\n<img src=\"assets/drawImage.png\"></img></p>\n",
             "itemtype": "method",
             "name": "image",
             "example": [
-                "\n<div>\n<code>\nvar img;\nfunction preload() {\n  img = loadImage(\"assets/laDefense.jpg\");\n}\nfunction setup() {\n  image(img, 0, 0);\n  image(img, 0, 0, 100, 100);\n  image(img, 0, 0, 100, 100, 0, 0, 100, 100);\n}\n</code>\n</div>\n<div>\n<code>\nfunction setup() {\n  // here we use a callback to display the image after loading\n  loadImage(\"assets/laDefense.jpg\", function(img) {\n    image(img, 0, 0);\n  });\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nvar img;\nfunction preload() {\n  img = loadImage(\"assets/laDefense.jpg\");\n}\nfunction setup() {\n  // Top-left corner of the img is at (0, 0)\n  // Width and height are the img's original width and height\n  image(img, 0, 0);\n}\n</code>\n</div>\n<div>\n<code>\nvar img;\nfunction preload() {\n  img = loadImage(\"assets/laDefense.jpg\");\n}\nfunction setup() {\n  background(50);\n  // Top-left corner of the img is at (10, 10)\n  // Width and height are 50 x 50\n  image(img, 10, 10, 50, 50);\n}\n</code>\n</div>\n<div>\n<code>\nfunction setup() {\n  // Here, we use a callback to display the image after loading\n  loadImage(\"assets/laDefense.jpg\", function(img) {\n    image(img, 0, 0);\n  });\n}\n</code>\n</div>\n<div>\n<code>\nvar img;\nfunction preload() {\n img = loadImage(\"assets/gradient.png\");\n}\nfunction setup() {\n // 1. Background image\n // Top-left corner of the img is at (0, 0)\n // Width and height are the img's original width and height, 100 x 100\n image(img, 0, 0);\n // 2. Top right image\n // Top-left corner of destination rectangle is at (50, 0)\n // Destination rectangle width and height are 40 x 20\n // The next parameters are relative to the source image:\n // - Starting at position (50, 50) on the source image, capture a 50 x 50\n // subsection\n // - Draw this subsection to fill the dimensions of the destination rectangle\n image(img, 50, 0, 40, 20, 50, 50, 50, 50);\n}\n</code>\n</div>"
             ],
-            "alt": "image of the underside of a white umbrella and grided ceiling above\nimage of the underside of a white umbrella and grided ceiling above",
+            "alt": "image of the underside of a white umbrella and gridded ceiling above\nimage of the underside of a white umbrella and gridded ceiling above",
             "class": "p5",
             "module": "Image",
             "submodule": "Loading & Displaying",
@@ -9031,12 +9031,12 @@
                         },
                         {
                             "name": "x",
-                            "description": "<p>the x-coordinate at which to place the top-left\n                          corner of the source image</p>\n",
+                            "description": "<p>the x-coordinate of the top-left corner of the image</p>\n",
                             "type": "Number"
                         },
                         {
                             "name": "y",
-                            "description": "<p>the y-coordinate at which to place the top-left\n                          corner of the source image</p>\n",
+                            "description": "<p>the y-coordinate of the top-left corner of the image</p>\n",
                             "type": "Number"
                         },
                         {
@@ -9054,7 +9054,7 @@
                     ]
                 },
                 {
-                    "line": 166,
+                    "line": 213,
                     "params": [
                         {
                             "name": "img",
@@ -9062,44 +9062,44 @@
                             "type": "p5.Image"
                         },
                         {
-                            "name": "x",
-                            "description": "",
+                            "name": "dx",
+                            "description": "<p>the x-coordinate of the destination\n                          rectangle in which to draw the source image</p>\n",
                             "type": "Number"
                         },
                         {
-                            "name": "y",
-                            "description": "",
+                            "name": "dy",
+                            "description": "<p>the y-coordinate of the destination\n                          rectangle in which to draw the source image</p>\n",
                             "type": "Number"
                         },
                         {
-                            "name": "width",
-                            "description": "",
+                            "name": "dWidth",
+                            "description": "<p>the width of the destination rectangle</p>\n",
                             "type": "Number"
                         },
                         {
-                            "name": "height",
-                            "description": "",
+                            "name": "dHeight",
+                            "description": "<p>the height of the destination rectangle</p>\n",
                             "type": "Number"
                         },
                         {
                             "name": "sx",
-                            "description": "<p>the x-coordinate of the top left corner of the\n                          sub-rectangle of the source image to draw into\n                          the destination canvas</p>\n",
+                            "description": "<p>the x-coordinate of the subsection of the source\nimage to draw into the destination rectangle</p>\n",
                             "type": "Number"
                         },
                         {
                             "name": "sy",
-                            "description": "<p>the y-coordinate of the top left corner of the\n                          sub-rectangle of the source image to draw into\n                          the destination canvas</p>\n",
+                            "description": "<p>the y-coordinate of the subsection of the source\nimage to draw into the destination rectangle</p>\n",
                             "type": "Number"
                         },
                         {
                             "name": "sWidth",
-                            "description": "<p>the width of the sub-rectangle of the\n                          source image to draw into the destination\n                          canvas</p>\n",
+                            "description": "<p>the width of the subsection of the\n                          source image to draw into the destination\n                          rectangle</p>\n",
                             "type": "Number",
                             "optional": true
                         },
                         {
                             "name": "sHeight",
-                            "description": "<p>the height of the sub-rectangle of the\n                           source image to draw into the destination context</p>\n",
+                            "description": "<p>the height of the subsection of the\n                           source image to draw into the destination rectangle</p>\n",
                             "type": "Number",
                             "optional": true
                         }
@@ -9109,7 +9109,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 242,
+            "line": 289,
             "description": "<p>Sets the fill value for displaying images. Images can be tinted to\nspecified colors or made transparent by including an alpha value.\n<br><br>\nTo apply transparency to an image without affecting its color, use\nwhite as the tint color and specify an alpha value. For instance,\ntint(255, 128) will make an image 50% transparent (assuming the default\nalpha range of 0-255, which can be changed with colorMode()).\n<br><br>\nThe value for the gray parameter must be less than or equal to the current\nmaximum value as specified by colorMode(). The default maximum value is\n255.</p>\n",
             "itemtype": "method",
             "name": "tint",
@@ -9118,7 +9118,7 @@
             "submodule": "Loading & Displaying",
             "overloads": [
                 {
-                    "line": 242,
+                    "line": 289,
                     "params": [
                         {
                             "name": "v1",
@@ -9144,7 +9144,7 @@
                     ]
                 },
                 {
-                    "line": 266,
+                    "line": 313,
                     "params": [
                         {
                             "name": "value",
@@ -9160,7 +9160,7 @@
                     ]
                 },
                 {
-                    "line": 272,
+                    "line": 319,
                     "params": [
                         {
                             "name": "values",
@@ -9170,7 +9170,7 @@
                     ]
                 },
                 {
-                    "line": 278,
+                    "line": 325,
                     "params": [
                         {
                             "name": "color",
@@ -9189,7 +9189,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 337,
+            "line": 384,
             "description": "<p>Removes the current fill value for displaying images and reverts to\ndisplaying images with their original hues.</p>\n",
             "itemtype": "method",
             "name": "noTint",
@@ -9203,7 +9203,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 366,
+            "line": 413,
             "description": "<p>Apply the current tint color to the input image, return the resulting\ncanvas.</p>\n",
             "params": [
                 {
@@ -9222,7 +9222,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 402,
+            "line": 449,
             "description": "<p>Set image mode. Modifies the location from which images are drawn by\nchanging the way in which parameters given to image() are interpreted.\nThe default mode is imageMode(CORNER), which interprets the second and\nthird parameters of image() as the upper-left corner of the image. If\ntwo additional parameters are specified, they are used to set the image&#39;s\nwidth and height.\n<br><br>\nimageMode(CORNERS) interprets the second and third parameters of image()\nas the location of one corner, and the fourth and fifth parameters as the\nopposite corner.\n<br><br>\nimageMode(CENTER) interprets the second and third parameters of image()\nas the image&#39;s center point. If two additional parameters are specified,\nthey are used to set the image&#39;s width and height.</p>\n",
             "itemtype": "method",
             "name": "imageMode",
@@ -10123,7 +10123,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 553,
+            "line": 555,
             "description": "<p>Reads the contents of a file and creates an XML object with its values.\nIf the name of the file is used as the parameter, as in the above example,\nthe file must be located in the sketch directory/folder.</p>\n<p>Alternatively, the file maybe be loaded from anywhere on the local\ncomputer using an absolute path (something that starts with / on Unix and\nLinux, or a drive letter on Windows), or the filename parameter can be a\nURL for a file found on a network.</p>\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling loadXML() inside preload()\nguarantees to complete the operation before setup() and draw() are called.</p>\n<p>Outside of preload(), you may supply a callback function to handle the\nobject.</p>\n",
             "itemtype": "method",
             "name": "loadXML",
@@ -10160,7 +10160,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 649,
+            "line": 651,
             "description": "<p>Method for executing an HTTP GET request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text. This is equivalent to\ncalling <code>httpDo(path, &#39;GET&#39;)</code>.</p>\n",
             "itemtype": "method",
             "name": "httpGet",
@@ -10204,7 +10204,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 702,
+            "line": 704,
             "description": "<p>Method for executing an HTTP POST request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text. This is equivalent to\ncalling <code>httpDo(path, &#39;POST&#39;)</code>.</p>\n",
             "itemtype": "method",
             "name": "httpPost",
@@ -10248,7 +10248,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 789,
+            "line": 791,
             "description": "<p>Method for executing an HTTP request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text.<br><br>\nFor more advanced use, you may also pass in the path as the first argument\nand a object as the second argument, the signature follows the one specified\nin the Fetch API specification.</p>\n",
             "itemtype": "method",
             "name": "httpDo",
@@ -10260,7 +10260,7 @@
             "submodule": "Input",
             "overloads": [
                 {
-                    "line": 789,
+                    "line": 791,
                     "params": [
                         {
                             "name": "path",
@@ -10300,7 +10300,7 @@
                     ]
                 },
                 {
-                    "line": 860,
+                    "line": 862,
                     "params": [
                         {
                             "name": "path",
@@ -10330,7 +10330,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1072,
+            "line": 1074,
             "description": "<p>Save an image, text, json, csv, wav, or html. Prompts download to\nthe client&#39;s computer. <b>Note that it is not recommended to call save()\nwithin draw if it&#39;s looping, as the save() function will open a new save\ndialog every frame.</b></p>\n<p>The default behavior is to save the canvas as an image. You can\noptionally specify a filename.\nFor example:</p>\n<pre class='language-javascript'><code>\nsave();\nsave(&#39;myCanvas.jpg&#39;); // save a specific canvas with a filename\n</code></pre>\n\n<p>Alternately, the first parameter can be a pointer to a canvas\np5.Element, an Array of Strings,\nan Array of JSON, a JSON object, a p5.Table, a p5.Image, or a\np5.SoundFile (requires p5.sound). The second parameter is a filename\n(including extension). The third parameter is for options specific\nto this type of object. This method will save a file that fits the\ngiven paramaters. For example:</p>\n\n<pre class='language-javascript'><code>\n\nsave('myCanvas.jpg');           // Saves canvas as an image\n\nvar cnv = createCanvas(100, 100);\nsave(cnv, 'myCanvas.jpg');      // Saves canvas as an image\n\nvar gb = createGraphics(100, 100);\nsave(gb, 'myGraphics.jpg');      // Saves p5.Renderer object as an image\n\nsave(myTable, 'myTable.html');  // Saves table as html file\nsave(myTable, 'myTable.csv',);  // Comma Separated Values\nsave(myTable, 'myTable.tsv');   // Tab Separated Values\n\nsave(myJSON, 'my.json');        // Saves pretty JSON\nsave(myJSON, 'my.json', true);  // Optimizes JSON filesize\n\nsave(img, 'my.png');            // Saves pImage as a png image\n\nsave(arrayOfStrings, 'my.txt'); // Saves strings to a text file with line\n                                // breaks after each item in the array\n</code></pre>",
             "itemtype": "method",
             "name": "save",
@@ -10360,7 +10360,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1189,
+            "line": 1191,
             "description": "<p>Writes the contents of an Array or a JSON object to a .json file.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveJSON",
@@ -10392,7 +10392,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1243,
+            "line": 1245,
             "description": "<p>Writes an array of Strings to a text file, one line per String.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveStrings",
@@ -10418,7 +10418,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1301,
+            "line": 1303,
             "description": "<p>Writes the contents of a Table object to a file. Defaults to a\ntext file with comma-separated-values (&#39;csv&#39;) but can also\nuse tab separation (&#39;tsv&#39;), or generate an HTML table (&#39;html&#39;).\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveTable",
@@ -10450,7 +10450,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1428,
+            "line": 1430,
             "description": "<p>Generate a blob of file data as a url to prepare for download.\nAccepts an array of data, a filename, and an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by saveStrings, saveJSON, saveTable etc.</p>\n",
             "params": [
                 {
@@ -10477,7 +10477,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1451,
+            "line": 1453,
             "description": "<p>Forces download. Accepts a url to filedata/blob, a filename,\nand an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by saveStrings, saveJSON, saveTable etc.</p>\n",
             "params": [
                 {
@@ -10502,7 +10502,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1491,
+            "line": 1493,
             "description": "<p>Returns a file extension, or another string\nif the provided parameter has no extension.</p>\n",
             "params": [
                 {
@@ -10523,7 +10523,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1523,
+            "line": 1525,
             "description": "<p>Returns true if the browser is Safari, false if not.\nSafari makes trouble for downloading files.</p>\n",
             "return": {
                 "description": "[description]",
@@ -10537,7 +10537,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1535,
+            "line": 1537,
             "description": "<p>Helper function, a callback for download that deletes\nan invisible anchor element from the DOM once the file\nhas been automatically downloaded.</p>\n",
             "access": "private",
             "tagname": "",
@@ -13086,7 +13086,7 @@
                         },
                         {
                             "name": "amt",
-                            "description": "<p>the amount of interpolation; some value between 0.0\n                        (old vector) and 1.0 (new vector). 0.1 is very near\n                        the new vector. 0.5 is halfway in between.</p>\n",
+                            "description": "<p>the amount of interpolation; some value between 0.0\n                        (old vector) and 1.0 (new vector). 0.9 is very near\n                        the new vector. 0.5 is halfway in between.</p>\n",
                             "type": "Number"
                         }
                     ],
@@ -18321,13 +18321,16 @@
                 "description": "src",
                 "type": "String"
             },
+            "example": [
+                "\n<div><code>\nvar ele;\n\nfunction setup() {\n  background(250);\n\n  //p5.MediaElement objects are usually created\n  //by calling the createAudio(), createVideo(),\n  //and createCapture() functions.\n\n  //In this example we create\n  //a new p5.MediaElement via createAudio().\n  ele = createAudio('assets/beat.mp3');\n\n  //We'll set up our example so that\n  //when you click on the text,\n  //an alert box displays the MediaElement's\n  //src field.\n  textAlign(CENTER);\n  text(\"Click Me!\", width/2, height/2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if(mouseX >= 0 && mouseX <= width &&\n    mouseY >= 0 && mouseY <= height) {\n    //Show our p5.MediaElement's src field\n    alert(ele.src);\n  }\n}\n\n</code></div>"
+            ],
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1786,
+            "line": 1820,
             "description": "<p>Play an HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "play",
@@ -18335,13 +18338,16 @@
                 "description": "",
                 "type": "Object|p5.Element"
             },
+            "example": [
+                "\n<div><code>\nvar ele;\n\nfunction setup() {\n  //p5.MediaElement objects are usually created\n  //by calling the createAudio(), createVideo(),\n  //and createCapture() functions.\n\n  //In this example we create\n  //a new p5.MediaElement via createAudio().\n  ele = createAudio('assets/beat.mp3');\n\n  background(250);\n  textAlign(CENTER);\n  text(\"Click to Play!\", width/2, height/2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if(mouseX >= 0 && mouseX <= width &&\n    mouseY >= 0 && mouseY <= height) {\n\n    //Here we call the play() function on\n    //the p5.MediaElement we created above.\n    //This will start the audio sample.\n    ele.play();\n\n    background(200);\n    text(\"You clicked Play!\", width/2, height/2);\n  }\n}\n</code></div>"
+            ],
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1807,
+            "line": 1875,
             "description": "<p>Stops an HTML5 media element (sets current time to zero).</p>\n",
             "itemtype": "method",
             "name": "stop",
@@ -18349,13 +18355,16 @@
                 "description": "",
                 "type": "Object|p5.Element"
             },
+            "example": [
+                "\n<div><code>\n\n//This example both starts \n//and stops a sound sample\n//when the user clicks the canvas\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n\n//while our audio is playing,\n//this will be set to true\nvar sampleIsPlaying = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/beat.mp3');\n  background(200);\n  textAlign(CENTER);\n  text(\"Click to play!\", width/2, height/2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if(mouseX >= 0 && mouseX <= width &&\n    mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if(sampleIsPlaying) {\n      //if the sample is currently playing\n      //calling the stop() function on\n      //our p5.MediaElement will stop\n      //it and reset its current\n      //time to 0 (i.e. it will start\n      //at the beginning the next time\n      //you play it)\n      ele.stop();\n\n      sampleIsPlaying = false;\n      text(\"Click to play!\", width/2, height/2);\n    } else {\n      //loop our sound element until we\n      //call ele.stop() on it.\n      ele.loop(); \n\n      sampleIsPlaying = true;\n      text(\"Click to stop!\", width/2, height/2);\n    }\n  }\n}\n\n</code></div>"
+            ],
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1819,
+            "line": 1942,
             "description": "<p>Pauses an HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "pause",
@@ -18363,13 +18372,16 @@
                 "description": "",
                 "type": "Object|p5.Element"
             },
+            "example": [
+                "\n<div><code>\n//This example both starts\n//and pauses a sound sample\n//when the user clicks the canvas\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n\n//while our audio is playing,\n//this will be set to true\nvar sampleIsPlaying = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/lucky_dragons_-_power_melody.mp3');\n  background(200);\n  textAlign(CENTER);\n  text(\"Click to play!\", width/2, height/2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if(mouseX >= 0 && mouseX <= width &&\n    mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if(sampleIsPlaying) {\n      //Calling pause() on our\n      //p5.MediaElement will stop it\n      //playing, but when we call the\n      //loop() or play() functions\n      //the sample will start from\n      //where we paused it.\n      ele.pause();\n\n      sampleIsPlaying = false;\n      text(\"Click to resume!\", width/2, height/2);\n    } else {\n      //loop our sound element until we\n      //call ele.pause() on it.\n      ele.loop(); \n\n      sampleIsPlaying = true;\n      text(\"Click to pause!\", width/2, height/2);\n    }\n  }\n}\n\n</code></div>"
+            ],
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1830,
+            "line": 2006,
             "description": "<p>Set &#39;loop&#39; to true for an HTML5 media element, and starts playing.</p>\n",
             "itemtype": "method",
             "name": "loop",
@@ -18383,7 +18395,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1841,
+            "line": 2017,
             "description": "<p>Set &#39;loop&#39; to false for an HTML5 media element. Element will stop\nwhen it reaches the end.</p>\n",
             "itemtype": "method",
             "name": "noLoop",
@@ -18397,7 +18409,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1854,
+            "line": 2030,
             "description": "<p>Set HTML5 media element to autoplay or not.</p>\n",
             "itemtype": "method",
             "name": "autoplay",
@@ -18418,7 +18430,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1866,
+            "line": 2042,
             "description": "<p>Sets volume for this HTML5 media element. If no argument is given,\nreturns the current volume.</p>\n",
             "params": [
                 {
@@ -18440,7 +18452,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1882,
+            "line": 2058,
             "description": "<p>If no arguments are given, returns the current playback speed of the\nelement. The speed parameter sets the speed where 2.0 will play the\nelement twice as fast, 0.5 will play at half the speed, and -1 will play\nthe element in normal speed in reverse.(Note that not all browsers support\nbackward playback and even if they do, playback might not be smooth.)</p>\n",
             "itemtype": "method",
             "name": "speed",
@@ -18462,7 +18474,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1901,
+            "line": 2077,
             "description": "<p>If no arguments are given, returns the current time of the element.\nIf an argument is given the current time of the element is set to it.</p>\n",
             "itemtype": "method",
             "name": "time",
@@ -18484,7 +18496,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1918,
+            "line": 2094,
             "description": "<p>Returns the duration of the HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "duration",
@@ -18498,7 +18510,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1978,
+            "line": 2154,
             "description": "<p>helper method for web GL mode to figure out if the element\nhas been modified and might need to be re-uploaded to texture\nmemory between frames.</p>\n",
             "itemtype": "method",
             "name": "isModified",
@@ -18514,7 +18526,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 1990,
+            "line": 2166,
             "description": "<p>helper method for web GL mode to indicate that an element has been\nchanged or unchanged since last upload. gl texture upload will\nset this value to false after uploading the texture; or might set\nit to true if metadata has become available but there is no actual\ntexture data available yet..</p>\n",
             "itemtype": "method",
             "name": "setModified",
@@ -18533,7 +18545,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2004,
+            "line": 2180,
             "description": "<p>Schedule an event to be called when the audio or video\nelement reaches the end. If the element is looping,\nthis will not be called. The element is passed in\nas the argument to the onended callback.</p>\n",
             "itemtype": "method",
             "name": "onended",
@@ -18557,14 +18569,14 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2036,
+            "line": 2212,
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2038,
+            "line": 2214,
             "description": "<p>Send the audio output of this element to a specified audioNode or\np5.sound object. If no element is provided, connects to p5&#39;s master\noutput. That connection is established when this method is first called.\nAll connections are removed by the .disconnect() method.</p>\n<p>This method is meant to be used with the p5.sound.js addon library.</p>\n",
             "itemtype": "method",
             "name": "connect",
@@ -18581,7 +18593,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2090,
+            "line": 2266,
             "description": "<p>Disconnect all Web Audio routing, including to master output.\nThis is useful if you want to re-route the output through\naudio effects, for example.</p>\n",
             "itemtype": "method",
             "name": "disconnect",
@@ -18591,14 +18603,14 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2106,
+            "line": 2282,
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2108,
+            "line": 2284,
             "description": "<p>Show the default MediaElement controls, as determined by the web browser.</p>\n",
             "itemtype": "method",
             "name": "showControls",
@@ -18608,7 +18620,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2119,
+            "line": 2295,
             "description": "<p>Hide the default mediaElement controls.</p>\n",
             "itemtype": "method",
             "name": "hideControls",
@@ -18618,14 +18630,14 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2128,
+            "line": 2304,
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2130,
+            "line": 2306,
             "description": "<p>Schedule events to trigger every time a MediaElement\n(audio/video) reaches a playback cue point.</p>\n<p>Accepts a callback function, a time (in seconds) at which to trigger\nthe callback, and an optional parameter for the callback.</p>\n<p>Time will be passed as the first parameter to the callback function,\nand param will be the second parameter.</p>\n",
             "itemtype": "method",
             "name": "addCue",
@@ -18660,7 +18672,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2192,
+            "line": 2368,
             "description": "<p>Remove a callback based on its ID. The ID is returned by the\naddCue method.</p>\n",
             "itemtype": "method",
             "name": "removeCue",
@@ -18677,7 +18689,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2212,
+            "line": 2388,
             "description": "<p>Remove all of the callbacks that had originally been scheduled\nvia the addCue method.</p>\n",
             "itemtype": "method",
             "name": "clearCues",
@@ -18687,7 +18699,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2268,
+            "line": 2444,
             "description": "<p>Underlying File object. All normal File methods can be called on this.</p>\n",
             "itemtype": "property",
             "name": "file",
@@ -18697,7 +18709,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2280,
+            "line": 2456,
             "description": "<p>File type (image, text, etc.)</p>\n",
             "itemtype": "property",
             "name": "type",
@@ -18707,7 +18719,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2286,
+            "line": 2462,
             "description": "<p>File subtype (usually the file extension jpg, png, xml, etc.)</p>\n",
             "itemtype": "property",
             "name": "subtype",
@@ -18717,7 +18729,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2292,
+            "line": 2468,
             "description": "<p>File name</p>\n",
             "itemtype": "property",
             "name": "name",
@@ -18727,7 +18739,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2298,
+            "line": 2474,
             "description": "<p>File size</p>\n",
             "itemtype": "property",
             "name": "size",
@@ -18737,7 +18749,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2305,
+            "line": 2481,
             "description": "<p>URL string containing image data.</p>\n",
             "itemtype": "property",
             "name": "data",
@@ -23163,63 +23175,63 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:211"
+            "line": " src/core/p5.Element.js:213"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:259"
+            "line": " src/core/p5.Element.js:263"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:323"
+            "line": " src/core/p5.Element.js:329"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:375"
+            "line": " src/core/p5.Element.js:383"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:427"
+            "line": " src/core/p5.Element.js:437"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:484"
+            "line": " src/core/p5.Element.js:496"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:527"
+            "line": " src/core/p5.Element.js:541"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:592"
+            "line": " src/core/p5.Element.js:608"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:624"
+            "line": " src/core/p5.Element.js:643"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:665"
+            "line": " src/core/p5.Element.js:686"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:712"
+            "line": " src/core/p5.Element.js:735"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:751"
+            "line": " src/core/p5.Element.js:776"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:801"
+            "line": " src/core/p5.Element.js:828"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:837"
+            "line": " src/core/p5.Element.js:866"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/p5.Element.js:873"
+            "line": " src/core/p5.Element.js:904"
         },
         {
             "message": "unknown tag: alt",
@@ -23491,15 +23503,15 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:278"
+            "line": " src/image/loading_displaying.js:325"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:337"
+            "line": " src/image/loading_displaying.js:384"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:402"
+            "line": " src/image/loading_displaying.js:449"
         },
         {
             "message": "unknown tag: alt",
@@ -23599,19 +23611,19 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:553"
+            "line": " src/io/files.js:555"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1189"
+            "line": " src/io/files.js:1191"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1243"
+            "line": " src/io/files.js:1245"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1301"
+            "line": " src/io/files.js:1303"
         },
         {
             "message": "unknown tag: alt",
@@ -24083,7 +24095,7 @@
         },
         {
             "message": "Missing item type\nHelper fxn for sharing pixel methods",
-            "line": " src/core/p5.Element.js:981"
+            "line": " src/core/p5.Element.js:1031"
         },
         {
             "message": "Missing item type\nResize our canvas element.",
@@ -24211,7 +24223,7 @@
         },
         {
             "message": "Missing item type\nApply the current tint color to the input image, return the resulting\ncanvas.",
-            "line": " src/image/loading_displaying.js:366"
+            "line": " src/image/loading_displaying.js:413"
         },
         {
             "message": "Missing item type\nThis module defines the p5.Image class and P5 methods for\ndrawing images to the main display canvas.",
@@ -24223,23 +24235,23 @@
         },
         {
             "message": "Missing item type\nGenerate a blob of file data as a url to prepare for download.\nAccepts an array of data, a filename, and an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by saveStrings, saveJSON, saveTable etc.",
-            "line": " src/io/files.js:1428"
+            "line": " src/io/files.js:1430"
         },
         {
             "message": "Missing item type\nForces download. Accepts a url to filedata/blob, a filename,\nand an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by saveStrings, saveJSON, saveTable etc.",
-            "line": " src/io/files.js:1451"
+            "line": " src/io/files.js:1453"
         },
         {
             "message": "Missing item type\nReturns a file extension, or another string\nif the provided parameter has no extension.",
-            "line": " src/io/files.js:1491"
+            "line": " src/io/files.js:1493"
         },
         {
             "message": "Missing item type\nReturns true if the browser is Safari, false if not.\nSafari makes trouble for downloading files.",
-            "line": " src/io/files.js:1523"
+            "line": " src/io/files.js:1525"
         },
         {
             "message": "Missing item type\nHelper function, a callback for download that deletes\nan invisible anchor element from the DOM once the file\nhas been automatically downloaded.",
-            "line": " src/io/files.js:1535"
+            "line": " src/io/files.js:1537"
         },
         {
             "message": "Missing item type\nTable Options\n<p>Generic class for handling tabular data, typically from a\nCSV, TSV, or other sort of spreadsheet file.</p>\n<p>CSV files are\n<a href=\"http://en.wikipedia.org/wiki/Comma-separated_values\">\ncomma separated values</a>, often with the data in quotes. TSV\nfiles use tabs as separators, and usually don't bother with the\nquotes.</p>\n<p>File names should end with .csv if they're comma separated.</p>\n<p>A rough \"spec\" for CSV can be found\n<a href=\"http://tools.ietf.org/html/rfc4180\">here</a>.</p>\n<p>To load files, use the loadTable method.</p>\n<p>To save tables to your computer, use the save method\n or the saveTable method.</p>\n\nPossible options include:\n<ul>\n<li>csv - parse the table as comma-separated values\n<li>tsv - parse the table as tab-separated values\n<li>header - this table has a header (title) row\n</ul>",
@@ -24515,15 +24527,15 @@
         },
         {
             "message": "Missing item type",
-            "line": " lib/addons/p5.dom.js:2036"
+            "line": " lib/addons/p5.dom.js:2212"
         },
         {
             "message": "Missing item type",
-            "line": " lib/addons/p5.dom.js:2106"
+            "line": " lib/addons/p5.dom.js:2282"
         },
         {
             "message": "Missing item type",
-            "line": " lib/addons/p5.dom.js:2128"
+            "line": " lib/addons/p5.dom.js:2304"
         },
         {
             "message": "Missing item type\np5.sound \nhttps://p5js.org/reference/#/libraries/p5.sound\n\nFrom the Processing Foundation and contributors\nhttps://github.com/processing/p5.js-sound/graphs/contributors\n\nMIT License (MIT)\nhttps://github.com/processing/p5.js-sound/blob/master/LICENSE\n\nSome of the many audio libraries & resources that inspire p5.sound:\n - TONE.js (c) Yotam Mann. Licensed under The MIT License (MIT). https://github.com/TONEnoTONE/Tone.js\n - buzz.js (c) Jay Salvat. Licensed under The MIT License (MIT). http://buzz.jaysalvat.com/\n - Boris Smus Web Audio API book, 2013. Licensed under the Apache License http://www.apache.org/licenses/LICENSE-2.0\n - wavesurfer.js https://github.com/katspaugh/wavesurfer.js\n - Web Audio Components by Jordan Santell https://github.com/web-audio-components\n - Wilm Thoben's Sound library for Processing https://github.com/processing/processing/tree/master/java/libraries/sound\n\n Web Audio API: http://w3.org/TR/webaudio/",
