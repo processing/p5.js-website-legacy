@@ -162,8 +162,40 @@ var renderCode = function(sel) {
       cnv.innerHTML = '';
 
       var s = function( p ) {
-
-        if (runnable.indexOf('setup()') === -1 && runnable.indexOf('draw()') === -1){
+        var fxns = ['setup', 'draw', 'preload', 'mousePressed', 'mouseReleased',
+          'mouseMoved', 'mouseDragged', 'mouseClicked', 'mouseWheel',
+          'touchStarted', 'touchMoved', 'touchEnded',
+          'keyPressed', 'keyReleased', 'keyTyped'];
+        var _found = [];
+        with (p) {
+          // Builds a function to detect declared functions via
+          // them being hoisted past the return statement. Does
+          // not execute runnable. Two returns with different
+          // conditions guarantee a return but suppress unreachable
+          // code warnings.
+          eval([
+            '(function() {',
+              fxns.map(function (_name) {
+                return [
+                  'try {',
+                  '  eval(' + _name + ');',
+                  '  _found.push(\'' + _name + '\');',
+                  '} catch(e) {',
+                  '  if(!(e instanceof ReferenceError)) {',
+                  '    throw e;',
+                  '  }',
+                  '}'
+                ].join('');
+              }).join(''),
+              'if(_found.length) return;',
+              'if(!_found.length) return;',
+              runnable,
+            '})();'
+          ].join('\n'));
+        }
+        // If we haven't found any functions we'll assume it's
+        // just a setup body.
+        if (!_found.length) {
           p.setup = function() {
             p.createCanvas(100, 100);
             p.background(200);
@@ -171,34 +203,17 @@ var renderCode = function(sel) {
               eval(runnable);
             }
           }
-        }
-        else {
-
+        } else {
+          // Actually runs the code to get functions into scope.
           with (p) {
             eval(runnable);
           }
-
-          var fxns = ['setup', 'draw', 'preload', 'mousePressed', 'mouseReleased',
-          'mouseMoved', 'mouseDragged', 'mouseClicked', 'mouseWheel',
-          'touchStarted', 'touchMoved', 'touchEnded',
-          'keyPressed', 'keyReleased', 'keyTyped'];
-          fxns.forEach(function(f) {
-            var ind = runnable.indexOf(f+'(');
-            // this is a gross hack within a hacky script that
-            // ensures the function names found are not substrings
-            // proper use of regex would be preferable...
-            if (ind !== -1 && runnable[ind+f.length] === '(' &&
-              eval('typeof ' + f) !== 'undefined') {
-              with (p) {
-                p[f] = eval(f);
-              }
-            }
+          _found.forEach(function(name) {
+            p[name] = eval(name);
           });
-          if (typeof p.setup === 'undefined') {
-            p.setup = function() {
-              p.createCanvas(100, 100);
-              p.background(200);
-            }
+          p.setup = p.setup || function() {
+            p.createCanvas(100, 100);
+            p.background(200);
           }
         }
       };
