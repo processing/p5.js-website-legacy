@@ -4662,7 +4662,7 @@ define('router',[
               classesCount = classes.length,
               itemsCount = items.length,
               className = searchClass ? searchClass.toLowerCase() : undefined,
-              itemName = searchItem ? searchItem.toLowerCase() : undefined,
+              itemName = searchItem ? searchItem : undefined,
               found;
 
       // Only search for a class, if itemName is undefined
@@ -4678,11 +4678,23 @@ define('router',[
         }
         // Search for a class item
       } else if (className && itemName) {
+        // Search case sensitively
         for (var i = 0; i < itemsCount; i++) {
           if (items[i].class.toLowerCase() === className &&
-            items[i].name.toLowerCase() === itemName) {
+            items[i].name === itemName) {
             found = items[i];
             break;
+          }
+        }
+
+        // If no match was found, fallback to search case insensitively
+        if(!found){
+          for (var i = 0; i < itemsCount; i++) {
+            if(items[i].class.toLowerCase() === className &&
+              items[i].name.toLowerCase() === itemName.toLowerCase()){
+              found = items[i];
+              break;
+            }
           }
         }
       }
