@@ -10,7 +10,7 @@ var message = "tickle",
   x, y; // coordenadas x e y del texto
 
 function preload() {
-  font = loadFont('assets/LeagueGothic-Regular.otf');
+  font = loadFont('assets/SourceSansPro-Regular.otf');
 }
 
 function setup() {
@@ -27,10 +27,7 @@ function setup() {
 }
 
 function draw() {
-  // en vez de borrar el fondo, desvacenerlo dibujando
-  // un rectángulo semitransparente encima
-  fill(204, 120);
-  rect(0, 0, width, height);
+  background(204, 120);
 
   // escribir el texto con negro y obtener su caja contenedora
   fill(0);

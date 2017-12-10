@@ -10,7 +10,7 @@ var message = "tickle",
   x, y; // x and y coordinates of the text
 
 function preload() {
-  font = loadFont('assets/LeagueGothic-Regular.otf');
+  font = loadFont('assets/SourceSansPro-Regular.otf');
 }
 
 function setup() {
@@ -27,10 +27,7 @@ function setup() {
 }
 
 function draw() {
-  // instead of clearing the background, fade it by drawing
-  // a semi-transparent rectangle on top
-  fill(204, 120);
-  rect(0, 0, width, height);
+  background(204, 120);
 
   // write the text in black and get its bounding box
   fill(0);
