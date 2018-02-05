@@ -121,17 +121,26 @@ function draw() {
         </p>
 
 <pre><code class="language-javascript">
-function setup() {
-  createCanvas(640, 480);
-}
+const circles = []
 
-function draw() {
+function setup() { 
+  createCanvas(640, 480)
+} 
+
+function draw() { 
+  let color = 255
   if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
+    color = 0
   }
-  ellipse(mouseX, mouseY, 80, 80);
+  circles.push({
+    x: mouseX,
+    y: mouseY,
+    color
+  })
+  circles.forEach(circle => {
+    fill(circle.color)
+    ellipse(circle.x, circle.y, 80, 80)
+  })
 }
 </code></pre>
 
