@@ -1,7 +1,6 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
-        "fill",
         "p5",
         "p5.Amplitude",
         "p5.AudioIn",
@@ -52,7 +51,6 @@ YUI.add("yuidoc-meta", function(Y) {
         "p5.StringDict",
         "p5.Table",
         "p5.TableRow",
-        "p5.Texture",
         "p5.TriOsc",
         "p5.TypedDict",
         "p5.Vector",
