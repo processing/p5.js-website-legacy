@@ -11,10 +11,11 @@ function setup() {
 
 function draw() {
 	background(100);
+	
 	noStroke();
-
+	fill(50);
 	push();
-	translate(-300, 200);
+	translate(-275, 175);
 	rotateY(1.25);
 	rotateX(-0.9);
 	box(100);
@@ -27,3 +28,4 @@ function draw() {
 	sphere(300);
 	pop();
 }
+
