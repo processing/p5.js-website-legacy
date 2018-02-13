@@ -47,7 +47,11 @@ Once you've setup the site, to run again in the future:
 
 * For english version, the site will follow the same top-level hierarchy as the original site. When you switch to a different language, the permalink and file structure will include a two letter abbreviation immediately following the root url. (ex: `https://p5js.org/es/get-started/`)
 
+## Updating the reference
 
+The documentation for p5.js is handled inline in the source code. 
+
+See [Inline documentation](https://github.com/processing/p5.js/wiki/Inline-documentation) in the p5.js repo for information on how to contribute.
 ## Notes about Examples
 
 The examples are handled a bit differently from other pages.
