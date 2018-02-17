@@ -1,7 +1,7 @@
 /*
- * @name Chain
- * @description One mass is attached to the mouse position and the other is attached the position of the other mass. The gravity in the environment pulls down on both.
- * Ported from the Processing Examples page.
+ * @name Cadena
+ * @description Una masa está unida a la posición del ratón y la otra está unida a la posición de la otra masa. La gravedad en el ambiente tira de ambas hacia abajo.
+ * Puerto de un ejemplo original para Processing.
  */
 var s1, s2;
 var gravity = 9.0;
