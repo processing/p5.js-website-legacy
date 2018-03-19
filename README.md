@@ -51,7 +51,7 @@ Once you've setup the site, to run again in the future:
 * The slug corresponds to the folder in which the page will be placed. This should generally match the folder structure within the `pages` folder.
 * For english version, the site will follow the same top-level hierarchy as the original site. When you switch to a different language, the permalink and file structure will include a two letter abbreviation immediately following the root url. (ex: `https://p5js.org/es/get-started/`)
  
- #JSON (reference)
+ ### JSON (reference)
  * The reference works a bit differently. The pages are built in English based on the inline documentation in the source code. They are then swapped out using [JS on the front-end](https://github.com/processing/p5.js-website/blob/master/dist/reference/index.html#L130).
  * The top level keys in the JSON object correspond to the page headings, menu, footer, etc. You can see all the swaps in [this file](https://github.com/processing/p5.js-website/blob/master/dist/reference/index.html#L130).
  * The "p5" key in the JSON object contains individual keys for each reference entry, indexed by variable/function/object name.
