@@ -89,7 +89,8 @@ module.exports = function(grunt) {
           i18n: {
             languages: [
               'en',
-              'es'
+              'es',
+              'zh-Hans'
             ],
             templates: [
               "<%= config.src %>/templates/pages/**/*.hbs",
@@ -101,15 +102,15 @@ module.exports = function(grunt) {
               {
                 pattern: ':lang',
                 replacement: function () {
-                  return this.language === 'en' ? '' : this.language;
+                  return this.language.toLowerCase() === 'en' ? '' : this.language.toLowerCase();
                 }
               },
               {
                 pattern: ':base',
                 replacement: function () {
-                  var check = this.basename.substring(this.basename.length-3);
-                  if (check === '-'+this.language) {
-                    return this.basename.substring(0, this.basename.length-3);
+                  var check = this.basename.lastIndexOf(this.language.toLowerCase());
+                  if (check > -1){
+                    return this.basename.substring(0, check-1);
                   } else return this.basename;
                 }
               }
