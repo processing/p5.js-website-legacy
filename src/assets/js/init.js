@@ -1,4 +1,4 @@
-var langs = ['en', 'es'];
+var langs = ['en', 'es', 'zh-Hans'];
 
 // =================================================
 // Family bar:
@@ -100,7 +100,7 @@ window.onload = function() {
           } else {
             loc = '/' + saved_lang + loc;
           }
-          w.location = loc;
+          window.location = loc;
         } else {
           lang = saved_lang;
         }
@@ -176,5 +176,9 @@ window.onload = function() {
     buttons.style.display = 'block';
   }
 
-
+  // =================================================
+  // Chinese spacing
+  if(window.pangu){
+    pangu.spacingPage();
+  }
 }
