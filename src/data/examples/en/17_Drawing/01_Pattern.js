@@ -15,7 +15,6 @@ function draw() {
   variableEllipse(mouseX, mouseY, pmouseX, pmouseY);
 }
 
-
 // The simple method variableEllipse() was created specifically 
 // for this program. It calculates the speed of the mouse
 // and draws a small ellipse if the mouse is moving slowly
