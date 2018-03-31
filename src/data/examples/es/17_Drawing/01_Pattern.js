@@ -10,8 +10,8 @@ function setup() {
 
 function draw() {
   
-	// Llame al método variableEllipse () y envíele los parámetros 
-	// para la posición actual del mouse y la posición anterior del mouse
+  // Llame al método variableEllipse () y envíele los parámetros 
+  // para la posición actual del mouse y la posición anterior del mouse
   variableEllipse(mouseX, mouseY, pmouseX, pmouseY);
 }
 
