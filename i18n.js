@@ -72,7 +72,7 @@ function writeTracker(path, changes) {
 
       changes.forEach(change => {
         var i = `line ${change[0]}`;
-        newObj[path][i] = change[1];
+        newObj[path][i] = change[1].split(':')[0];
       });
 
       var intersect = _.intersection(
@@ -96,7 +96,7 @@ function writeTracker(path, changes) {
       styles: {
         '!!null': 'canonical'
       },
-      sortKeys: true
+      sortKeys: false
     });
 
     fs.writeFile('./i18n-tracking.yml', dump, (err, res) => {
