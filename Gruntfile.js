@@ -312,6 +312,12 @@ module.exports = function(grunt) {
     'postcss'
   ]);
 
+  // i18n tracking task
+  grunt.registerTask('i18n', function(){
+    var done = this.async();
+    require("./i18n.js")(done);
+  });
+
   // runs three tasks in order
   grunt.registerTask('build', [
     'exec',
@@ -320,7 +326,8 @@ module.exports = function(grunt) {
     'assemble',
     'optimize',
     'file_append',
-    'compress'
+    'compress',
+    'i18n'
   ]);
 
   // runs with just grunt command
