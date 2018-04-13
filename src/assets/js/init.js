@@ -97,7 +97,7 @@ window.onload = function() {
         } else {
           loc = '/' + saved_lang + loc;
         }
-        w.location = loc;
+        window.location = loc;
       } else {
         lang = saved_lang;
       }
@@ -158,16 +158,6 @@ window.onload = function() {
       }
     }
   }
-
-  // =================================================
-  // disable i18n for now
-  // @TODO remove on i18n launch
-  // var buttons = document.getElementById('i18n-btn');
-  // if (window.location.hostname === 'p5js.org') {
-  //   buttons.parentNode.removeChild(buttons);
-  // } else {
-  //   buttons.style.display = 'block';
-  // }
 
 
 }
