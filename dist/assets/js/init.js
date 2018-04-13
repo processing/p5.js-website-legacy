@@ -47,77 +47,70 @@ window.onload = function() {
   // ===============================================
   // Language detection:
 
-  // @TODO remove if on i18n launch
-  if (window.location.hostname !== 'p5js.org') {
+  var test_local_storage = function(w) {
+    var tmp = 'p5js';
+    try {
+      w.localStorage.setItem(tmp, tmp);
+      w.localStorage.removeItem(tmp);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+  var can_store = test_local_storage(window);
 
-    var test_local_storage = function(w) {
-      var tmp = 'p5js';
-      try {
-        w.localStorage.setItem(tmp, tmp);
-        w.localStorage.removeItem(tmp);
-        return true;
-      } catch (e) {
-        return false;
+  var get_browser_lang = function(w) {
+    var tmp = w.navigator.languages && w.navigator.languages[0]
+      || w.navigator.language || w.navigator.userLanguage;
+    tmp = tmp.split('-')[0];
+    for (var i=0, l=langs; i < l; i++) {
+      if (tmp == langs[i]) {
+        return langs[i];
       }
-    };
-    var can_store = test_local_storage(window);
+    }
+    return 'en';
+  };
+  var browser_lang = get_browser_lang(window);
 
-    var get_browser_lang = function(w) {
-      var tmp = w.navigator.languages && w.navigator.languages[0]
-        || w.navigator.language || w.navigator.userLanguage;
-      tmp = tmp.split('-')[0];
-      for (var i=0, l=langs; i < l; i++) {
-        if (tmp == langs[i]) {
+  var get_loc_lang = function(w) {
+    if ((w.location.pathname == '/') === false) {
+      for (var i=0, l=langs.length; i < l; i++) {
+        if (w.location.pathname.indexOf('/' + langs[i] + '/') !== -1) {
           return langs[i];
         }
       }
-      return 'en';
-    };
-    var browser_lang = get_browser_lang(window);
+    }
+    return 'en';
+  };
+  var loc = String(window.location.pathname);
+  var loc_lang = get_loc_lang(window);
+  var is_root = (loc == '/');
 
-    var get_loc_lang = function(w) {
-      if ((w.location.pathname == '/') === false) {
-        for (var i=0, l=langs.length; i < l; i++) {
-          if (w.location.pathname.indexOf('/' + langs[i] + '/') !== -1) {
-            return langs[i];
-          }
-        }
-      }
-      return 'en';
-    };
-    var loc = String(window.location.pathname);
-    var loc_lang = get_loc_lang(window);
-    var is_root = (loc == '/');
-
-    // Default lang:
-    var lang = 'en';
-    if (can_store) {
-      if (window.localStorage.getItem('lang') !== null) {
-        var saved_lang = window.localStorage.getItem('lang');
-        if (saved_lang !== loc_lang) {
-          if (saved_lang == 'en') {
-            loc = '/' + loc.replace('\/' + loc_lang + '\/', '');
-          } else {
-            loc = '/' + saved_lang + loc;
-          }
-          w.location = loc;
+  // Default lang:
+  var lang = 'en';
+  if (can_store) {
+    if (window.localStorage.getItem('lang') !== null) {
+      var saved_lang = window.localStorage.getItem('lang');
+      if (saved_lang !== loc_lang) {
+        if (saved_lang == 'en') {
+          loc = '/' + loc.replace('\/' + loc_lang + '\/', '');
         } else {
-          lang = saved_lang;
+          loc = '/' + saved_lang + loc;
         }
+        w.location = loc;
       } else {
-        if (is_root && browser_lang != loc_lang) {
-          loc = '/' + browser_lang;
-          window.location = loc;
-        }
+        lang = saved_lang;
       }
     } else {
-      lang = get_loc_lang();
+      if (is_root && browser_lang != loc_lang) {
+        loc = '/' + browser_lang;
+        window.location = loc;
+      }
     }
-    window.lang = lang;
   } else {
-    window.lang = 'en';
+    lang = get_loc_lang();
   }
-
+  window.lang = lang;
 
   // ===============================================
   // Language change:
