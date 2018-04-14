@@ -4212,6 +4212,9 @@ define('itemView',[
 
         renderCode();
 
+        // Set the document title
+        App.pageView.appendToDocumentTitle(item.name);
+
         // Hook up alt-text for examples
         setTimeout(function() {
           var alts = $('.example-content')[0];
@@ -4498,6 +4501,9 @@ define('pageView',[
   'libraryView'
 ], function(App, searchView, listView, itemView, menuView, libraryView) {
 
+  // Store the original title so we can append different names later on.
+  var _originalDocumentTitle = window.document.title;
+
   var pageView = Backbone.View.extend({
     el: 'body',
     /**
@@ -4561,6 +4567,17 @@ define('pageView',[
       });
 
       return this;
+    },
+    /**
+     * Append the supplied name to the original document title.
+     * If no name is supplied, the title will reset to the original one.
+     */
+    appendToDocumentTitle: function(name){
+      if(name){
+        window.document.title = _originalDocumentTitle + " | " + name;
+      } else {
+        window.document.title = _originalDocumentTitle;
+      }
     }
   });
 
