@@ -4212,8 +4212,14 @@ define('itemView',[
 
         renderCode();
 
-        // Set the document title
-        App.pageView.appendToDocumentTitle(item.name);
+        // Set the document title.
+        // If it is a method, add parentheses to the name
+        if (item.itemtype === "method"){
+            App.pageView.appendToDocumentTitle(item.name + "()");
+        }
+        else {
+            App.pageView.appendToDocumentTitle(item.name);
+        }
 
         // Hook up alt-text for examples
         setTimeout(function() {
@@ -4501,7 +4507,7 @@ define('pageView',[
   'libraryView'
 ], function(App, searchView, listView, itemView, menuView, libraryView) {
 
-  // Store the original title so we can append different names later on.
+  // Store the original title parts so we can substitue different endings.
   var _originalDocumentTitle = window.document.title;
 
   var pageView = Backbone.View.extend({
@@ -4569,12 +4575,13 @@ define('pageView',[
       return this;
     },
     /**
-     * Append the supplied name to the original document title.
+     * Append the supplied name to the first part of original document title.
      * If no name is supplied, the title will reset to the original one.
      */
     appendToDocumentTitle: function(name){
       if(name){
-        window.document.title = _originalDocumentTitle + " | " + name;
+        let firstTitlePart = _originalDocumentTitle.split(" | ")[0];
+        window.document.title = [firstTitlePart, name].join(" | ");
       } else {
         window.document.title = _originalDocumentTitle;
       }
