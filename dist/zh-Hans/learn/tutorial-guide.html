@@ -114,52 +114,52 @@
 
       <h1>p5.js 回馈指南</h1>
       <div class="attribution">
-        p5.js 回馈指南
+        教程作者为 Tega Brain。
       </div>
       <p>
-        We invite educators, contributors and general enthusiasts to contribute p5js tutorials. The p5js project makes creative coding and open source development more accessible to a diverse community and we are excited to publish tutorials on all aspects of the development process. Our learning materials so far include guides on learning p5, programming technique and how to contribute to an open source project.
+        我们欢迎教育家、合作者和一般爱好者开发更多 p5.js 教程。p5.js 旨在让创意编程及开源软件开发更易接近及吸引更多元化的社群，同时我们也很高兴能够公开的发布 p5.js 开发的完整过程及教程。我们现有的教程含括了各种课题如：学习使用 p5.js、编程技巧及如何帮助开发开源项目。
       </p>
       <p>
-        We welcome new written tutorial contributions and this guide outlines the steps of how to propose, prepare and contribute.
+        我们欢迎任何人提交全新教程，这份指南将包括新教程的提议、准备和提交的所需步骤。
       </p>
 
-      <h2>How to get started:</h2>
+      <h2>如何开始：</h2>
       <p>
         <ul>
           <li>
-            Check that your proposed topic has not already been covered. There is <a href="https://docs.google.com/spreadsheets/d/1sh3IwcCUY4Bm8N4fRZw6CwSDdQmmXgY_awjVj-UC8mo/edit#gid=0">a working spreadsheet here</a>
-            that outlines in progress tutorials. If your topic is listed as in progress, perhaps you can add to work being done and contribute to preparing existing work for publication so please reach out to us.
+            先确定您所建议的课题尚未被涵盖，在此链接有<a href="https://docs.google.com/spreadsheets/d/1sh3IwcCUY4Bm8N4fRZw6CwSDdQmmXgY_awjVj-UC8mo/edit#gid=0">一个列表</a>
+            列出了正在进行中的教程。如果您想开发的课题被列为正在进行中 (in progress)，您或许能帮助完成该项目或为现有的项目做预备发布的工作，您只需联络我们。
           </li>
           <li>
-            If your topic is not already covered and is not listed as in progress, please write a few sentences on what you propose to cover and email us this description at education@p5js.org.
+            如果您的课题尚未被涵盖及尚未被列为正在进行中，请寄份电子邮件去 education@p5js.org 并简略的讲述您所建议的教程。
           </li>
           <ul>
       </p>
-      <h2>How to prepare a p5js tutorial for publication online:</h2>
+      <h2>如何准备网上 p5.js 教程：</h2>
       <p>
-        When your tutorial is ready for publication, please follow these steps to prepare your content for the p5js website.
+        当您以准备发布您的教程，请按着以下步骤准备您的教程给 p5.js 的网页。
       </p>
       <p>
-        Prepare the content of your tutorial as a tutorial-name.hbs file with <a href="https://github.com/mayaman/p5js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">this basic structure</a>
-        . As is shown in this file, it must contain a header as shown below:
+        将您的教程写在一个命名为 tutorial-name.hbs 的文件并跟从<a href="https://github.com/mayaman/p5js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">这基本结构</a>
+        。如该文件所示，它必须有以下开端：
       </p>
       <img src="../../assets/learn/tutorial-guide/images/screenshot-1.png" alt="Screenshot">
 
       <p>
-        The folder containing your tutorial will be placed in the 'tutorials' folder of the p5js site. The file called index.hbs is the <a href="http://p5js.org/learn/">p5.js tutorials landing page,</a>
-         and the test-tutorial.hbs file is the test tutorial.
+        您的教程文件夹将被置放在 p5.js 网站一个命名为“tutorials”的文件夹内。index.hbs 是<a href="http://p5js.org/learn/">p5.js 教程的主页</a>
+        而 test-tutorial.hbs 为空白范例教程。
       </p>
       <p>
-        All content should go in the:
+        所有内容必须被包含在以下标签内：
         </br>
         &lt;section role="region" label="main content"&gt; &lt;/section&gt; </br>
-        tags on the page, with formatting defined by the &lt;h1&gt; and &lt;h2&gt; tags, the &lt;p&gt; paragraph tags as is done shown on the<a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">test tutorial page.</a></p>
+        内容格式可以使用 &lt;h1&gt;、&lt;h2&gt; 及 &lt;p&gt; 段落标签定义，如<a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">空白范例教程所示。</a></p>
       <p>
-        If your tutorial contains images, they are to be placed in the assets folder of the p5 site, in the location src/assets/learn/test-tutorial/images as shown below.
+        如果您的教程包含图像，它们必须被置放在 p5 网站的 asset 文件夹，该文件夹位于 src/assets/learn/test-tutorial/images 如以下所示。
       </p>
       <img src="../../assets/learn/tutorial-guide/images/screenshot-2.png" alt="Screenshot">
       <p>
-        To correctly format code in the html of the page use the tag:
+        以在 HTML 页面内格式化您的源代码，请使用以下标签：
         </br>
         </br>
         <pre><code class="language-javascript">
@@ -170,66 +170,66 @@ Your code here!</br>
 </code></pre>
 
       </p>
-      <h2>Embedding p5.js sketches</h2>
+      <h2>嵌入 p5.js 绘图</h2>
       <p>
-        Using p5js means you can illustrate your tutorial with animated, interactive or editable code examples to demonstrate programming concepts. Your examples should be prepared as p5.js sketches and can be embedded into the tutorial in two ways.
+        使用 p5.js 的一个好处是您可以制作动画驱动、互动性或可编辑的教程，方便更简易的演示程式设计概念。您的范例必须是 p5.js 绘图而它能用以下两种方式嵌入在您的教程中。
       </p>
 
       <p>
         <ol>
           <li>
-            If the example is to be editable like in <a href="http://p5js.org/reference/#/p5/ellipse">the reference pages</a>
-             of the p5js site, the p5 sketch should be embedded into the html page using the p5js widget. Follow <a href="https://toolness.github.io/p5.js-widget/">this guide </a>
-            on how to embed p5js sketches using the widget written by <a href="https://github.com/toolness">Toolness</a>
-            . You can also see this in action on the <a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">  test tutorial page..</a></li>
+            如果该范例需保持可编辑性，如在 p5.js 网站的<a href="http://p5js.org/reference/#/p5/ellipse">参考文献</a>
+            内，该 p5 绘图必须使用 p5.js 部件以嵌入在 HTML 页面内，请使用<a href="https://toolness.github.io/p5.js-widget/">这指南</a>
+            以了解如何使用该部件嵌入 p5.js 绘图，部件作者为<a href="https://github.com/toolness">Toolness</a>
+            。You can also see this in action on the <a href="https://github.com/processing/p5.js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">  test tutorial page..</a></li>
           <li>
-            If the example is to be animated and/or interactive but not editable. The p5.js sketch should be embedded into the page as an iframe as described below.
+            如果该范例必须是动画驱动或互动性的但并不需要是可编辑的，该 p5.js 绘图需使用 iframe 以嵌入在页面内，如以下所示。
           </li>
         </ol>
 
-        <h2>Embed a p5 sketch using an iframe</h2>
+        <h2>使用 iframe 嵌入 p5 绘图</h2>
 
         <p>
-          An iframe is like creating a window through which you can see another page, sandboxed from the rest of your page. In this case it will be a window to the index.html containing your p5.js sketch. 
+          iframe 让您能在原有的页面上开启一个通往另一个页面的窗口，同时该页面并不能直接和原有页面互动。在此例， 原有页面内会被嵌入一个含有您 p5.js 绘图的 index.html 窗口。
         </p>
         <img src="https://github.com/tegacodes/p5.js-education/raw/master/images/iframe-2.jpg" alt="tutorialFileStructure" width="600px">
 
         <p>
-          Put your p5 sketches in the /src/assets/learn folder of the site, in a folder labelled with the name of your sketch as shown in the screenshot. This is where all the images and p5 sketches linked by iframe should be stored.
+          在 /src/assets/learn 文件夹内，将您的 p5 绘图置放在一个命名为您的绘图名的文件夹内如以下截图所示。这文件夹是您置放所有 iframe 内将使用的图像及 p5 绘图的地方。
         </p>
 
         <img src="../../assets/learn/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
 
-<p>In the subfolders containing your p5 examples there should be a sketch.js file and the embed.html file for the sketch. </p>
+<p>在含有您的 p5 范例的子文件夹内应该含有一个 sketch.js 文件及一个 embed.html 文件。</p>
 <img src="../../assets/learn/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
 
-<p>Make sure your embed.html file has the correct paths to the p5 libraries of the site. If your file structure is the same as above, the path to the p5.js library should be "../../../js/p5.min.js".</p>
-<p>You can then embed the p5js index files as iframes in the .hbs file that contains your tutorial content. The embed code for the iframe would then be: </p>
+<p>请确保 embed.html 内的 p5 编程库有正确的链接。如果您的文件结构和以上相同，p5.js 编程库的链接将会是 "../../../js/p5.min.js"。</p>
+<p>这时你可以将 p5.js 绘图文件以 iframe 的方式嵌入在您的教程的 .hbs 文件中。iframe 嵌入代码如下：</p>
   <pre><code class="language-javascript">
 &lt;iframe src="http://p5js.org/assets/learn/tes-tutorial/embed.html" width="600px" height="400px"&gt;</br>
 &lt;/iframe&gt;</br>
 </code></pre>
 </br>
-<p>Styling for the iframe (this could directly into the post or in a stylesheet):  </p>
+<p>以格式化 iframe，您可以将以下包括在文件内或使用样式表：</p>
   <pre><code class="language-javascript">
 &lt;style&gt; iframe{ border: none; } &lt;/style&gt;
 </code></pre>
 </br>
-<p>Here you can see the naked sketch running: </p>
+<p>在以下链接您可以直接查看绘图：</p>
 <a href="http://staging.p5js.org/assets/learn/test-tutorial/embed.html">http://staging.p5js.org/assets/learn/test-tutorial/embed.html</a>
 
-<p></p>
+<p>而在以下您可以查看绘图被嵌入在 p5 网页中：</p>
 <a href="http://staging.p5js.org/learn/test-tutorial.html">http://staging.p5js.org/learn/test-tutorial.html</a>
 
-<p>One thing to note is that you need to manually set the size of the iframe, so it works best if things are a standard size.</p>
+<p>还有一项您需要注意的是您必须设置 iframe 的大小，以确保其大小不会随着窗口大小而改变。</p>
 
-<p>Also note that the links to the p5.js library files do not happen from the .eps page with all the tutorial content. Instead they will be located in the html page that is rendering your sketch (in this case, called embed.html).</p>
+<p>另外，p5.js 编程库的文件链接并不是在 .eps 文件内（如其他教程），而是在您的 HTML 页面内（通常是 embed.html）。</p>
 
-<p>More information on embedding p5.js sketches can be found <a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">here.</a></p>
-<h2>Finishing up</h2>
-<p>Once your have finished writing your tutorial and your content has been given the thumbs up. Fork the p5.js website repository, prepare your content as described above and then issue a pull request to the p5.js website repository so we can publish your contribution!</p>
+<p>更多关于嵌入 p5.js 绘图的信息可在<a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">以下链接查找。</a></p>
+<h2>结束</h2>
+<p>一旦您完成编辑您的教程并且您的教程已经被许可，分叉 p5.js 网站的代码库，如以上所示的步骤准备您的教程然后开启一个 pull request 给 p5.js 网站的代码库以便我们能发布您的教程！</p>
 
-    <p>Thank you!</p>
+    <p>谢谢！</p>
 
   </section>
 
