@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         ]
       },
       imagemin: {
-        files: '<%= config.src %>/assets/img/*.{png,jpg,jpeg,gif,svg}',
+        files: '<%= config.src %>/assets/img/*.{png,jpg,jpeg,gif,svg,ico}',
         tasks: ['newer:imagemin']
       },
       livereload: {
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
           '<%= config.dist %>/{,*/}*.html',
           '<%= config.dist %>/assets/css/*.css',
           '<%= config.dist %>/assets/js/*.js',
-          '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,webp,svg,ico}',
           '<%= config.dist %>/assets/p5_featured/{,*/}*.*',
           '<%= config.dist %>/assets/learn/{,*/}*.*'
         ]
@@ -130,7 +130,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.src %>/assets/img',
-          src: ['**/*.{png,jpg,gif,svg}'],
+          src: ['**/*.{png,jpg,gif,svg,ico}'],
           dest: '<%= config.dist %>/assets/img/'
         }]
       }
