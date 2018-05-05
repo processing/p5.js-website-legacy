@@ -135,10 +135,13 @@ window.onload = function() {
     if (new_lang == 'en') {
       for (var j=0, l=langs.length; j < l; j++) {
         if (langs[j] != 'en') {
-          loc = '/' + loc.replace('\/' + langs[j] + '\/', '');
+          loc = loc.replace('\/' + langs[j] + '\/', '/');
         }
       }
     } else {
+      for (var j=0, l=langs.length; j < l; j++) {
+        loc = loc.replace('\/' + langs[j] + '\/', '/');
+      }
       loc = '/' + new_lang + loc;
     }
     if (can_store) {
