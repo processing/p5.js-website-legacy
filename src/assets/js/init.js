@@ -43,6 +43,18 @@ window.onload = function() {
     search_form.attachEvent('onfocusout', close_field);
   }
 
+  // =================================================
+  // set tagline
+  var path = window.location.pathname;
+  var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
+
+  console.log(path, taglines.length)
+  console.log('hi')
+  if (path !== '/' && path.length === 4) { // index
+    var taglineInd = Math.floor(Math.random(6));
+    taglines[taglineInd].style.display = 'block';
+  }
+
 
   // ===============================================
   // Language detection:
