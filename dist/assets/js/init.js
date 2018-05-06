@@ -46,12 +46,25 @@ window.onload = function() {
   // =================================================
   // set tagline
   var path = window.location.pathname;
-  var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
-
-  console.log(path, taglines.length)
-  console.log('hi')
-  if (path !== '/' && path.length > 4) { // index
-    var taglineInd = Math.floor(Math.random(6));
+  var parts = path.split('/');
+  var tagInd = -1;
+  for (var i=0; i<parts.length; i++) {
+    if (parts[i].length) {
+      var langMatch = 0;
+      for (var j=0; j<langs.length; j++) {
+        if (parts[i] === langs[j]) {
+          langMatch = true;
+        }
+      }
+      if (!langMatch) {
+        tagInd = i;
+        break;
+      }
+    }
+  }
+  if (tagInd !== -1) {
+    var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
+    var taglineInd = Math.floor(6 * Math.random());
     taglines[taglineInd].style.display = 'block';
   }
 
