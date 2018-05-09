@@ -4,7 +4,7 @@
   "Start": "入门",
   "Reference": "参考文献",
   "reference-tagline": "Processing 的直觉乘以 JavaScript 的力量",
-  "reference-search": "Busca en la API",
+  "reference-search": "搜寻 API",
   "reference-menu-home": "主页",
   "reference-menu-download": "下载",
   "reference-menu-get-started": "入门",
@@ -15,23 +15,23 @@
   "reference-menu-books": "书籍",
   "reference-menu-community": "社群",
   "reference-menu-forum": "论坛",
-  "reference-description1": "¿No encuentras lo que buscas? Quizás debas revisar en",
-  "reference-description2": "o",
-  "reference-description3": "Puedes descargar una versión de la referencia",
-  "reference-description4": "aquí",
-  "reference-contribute1": "Si ves algún error o tienes alguna sugerencia",
-  "reference-contribute2": "por favor dinos",
-  "reference-error1": "¿Encontraste algún error?",
-  "reference-error2": "está documentado y definido en",
-  "reference-error3": "Por favor siéntete libre de ",
-  "reference-error4": "editar el archivo",
-  "reference-error5": "y de indicar un pull request.",
-  "reference-example": "Ejemplo",
-  "reference-description": "Descripción",
-  "reference-extends": "Extiende",
-  "reference-parameters": "Parámetros",
-  "reference-syntax": "Sintaxis",
-  "reference-returns": "Retorna",
+  "reference-description1": "找不到您要的条目吗？您或许要查看",
+  "reference-description2": "或",
+  "reference-description3": "You can download an offline version of the reference",
+  "reference-description4": "here",
+  "reference-contribute1": "发现任何错误或有任何建议吗",
+  "reference-contribute2": "请让我们知道",
+  "reference-error1": "发现错字或错误吗？",
+  "reference-error2": "的文献被记录在",
+  "reference-error3": "非常欢迎您",
+  "reference-error4": "更改该文件",
+  "reference-error5": "并开启一个 pull request。",
+  "reference-example": "范例",
+  "reference-description": "说明",
+  "reference-extends": "继承",
+  "reference-parameters": "参数",
+  "reference-syntax": "语法",
+  "reference-returns": "返回",
   "footer1": "p5.js 的原作者为",
   "footer2": "并在",
   "footer3": "和",
@@ -91,110 +91,124 @@
   "Material": "材料",
   "p5": {
     "alpha": {
-      "description": "Extrae el valor de alpha de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "el objeto p5"
+      "description": "从颜色或像素数组中提取透明度（alpha）值。",
+      "params": ["p5.Color | 数字数组 | 字符串：p5.Color 物件、颜色部件或 CSS 颜色值"],
+      "returns": "数字：该透明度值"
     },
     "blue": {
-      "description": "Extrae el valor de azul de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "el objeto p5"
+      "description": "从颜色或像素数组中提取蓝色彩值。",
+      "params": ["p5.Color | 数字数组 | 字符串：p5.Color 物件、颜色部件或 CSS 颜色值"],
+      "returns": "数字：该蓝色彩值"
     },
     "brightness": {
-      "description": "Extrae el valor de brillo HSB de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "el objeto p5"
+      "description": "从颜色或像素数组中提取 HSB 的亮度值。",
+      "params": ["p5.Color | 数字数组 | 字符串：p5.Color 物件、颜色部件或 CSS 颜色值"],
+      "returns": "数字：该亮度值"
     },
     "color": {
-      "description": "Crea colores para ser almacenados en variables del tipo color. Los parámetros son interpretados como valores RGB o HSB, dependiendo del modo actual de color según colorMode)(). El modo por defecto es RGB con valores entre 0 y 255 y, por lo tanto, la función color(255, 204, 0) retorna un color amarillo brillante. Nota que si solo se provee un valor a la función color(), será interpretado como un valor en escala de grises. Añade un segundo valor, y será usado como transparencia alpha. Cuando se especifican tres valores, son interpretados como valores RGB o HSB. Al añadir un cuarto valor se aplica transparencia alpha. Si se provee solo un parámetro de tipo string, será interpretado como un string de color compatible con CSS.Los colores son almacenados como números o arreglos.",
-      "params": ["Número|String: número especificando el valor entre blanco y negro.",
-      "Número: valor de alpha relativo al rango de color actual (por defecto es 0-100)",
-      "Número|String: valor de rojo o tinte relativo al rango de color actual, o un string de color",
-      "Número: valor de verde o saturación relativo al rango de color actual",
-      "Número: valor de azul o brillo relativo al rango de color actual"],
-      "returns": "Arreglo: color resultante"
+      "description": "创造颜色物件并将其存放在颜色变量内。依当时的颜色模式而定，参数可被解读成 RGB 或 HSB 值。默认模式为 RGB 值从 0 至 255，因此调用函数 color(255, 204, 0) 将返回亮黄色。<br><br>请注意如果 color() 值被提供一个参数，它将被解读成灰阶值；增加多一个参数，它将被用来定义透明度。当被提供三个参数时，它们将被解读成 RGB 或 HSB 值；增加第四个参数将定义透明度。<br><br>如果只提供单一字符串参数，RGB、RGBA 和 十六进制 CSS 颜色字符串都为受支持的模式。在这情况下，提供第二个参数以定义透明度值并不被支持，而需使用 RGBA 字符串。",
+      "params": ["数字：一个定义白与黑之间的数值",
+                 "数字：透明度值，需在被定义的范围内（默认为 0 至 255）",
+                 "数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值，需在被定义的范围内",
+                 "数字：蓝彩值或亮度值，需在被定义的范围内",
+                 "字符串：颜色字符串",
+                 "数字[]：一个有红、绿、蓝及透明度值的数组",
+                 "p5.Color："],
+      "returns": "p5.Color：返回的颜色"
     },
     "green": {
-      "description": "Extrae el valor de verde de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "description": "从颜色或像素数组中提取绿色彩值。",
+      "params": ["p5.Color | 数字数组 | 字符串：p5.Color 物件、颜色部件或 CSS 颜色值"],
+      "returns": "数字：该绿色彩值"
     },
     "hue": {
-      "description": "Extrae el valor de tinte de un color o de un arreglo de pixeles. El tinte (hue) existe en HSB y HSL. Esta función retorna el tinte normalizado HSB que cuando se le provee un objeto de color HSB (o cuando se le provee un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará el tinte normalizado según HSB en otro caso. (Estos valores solo son diferentes si la configuración de valor de tinte máximo de cada sistema es diferente.)",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "description": "从颜色或像素数组中提取色调值。<br><br>色调值可在 HSB 及 HSL 颜色中找到。此函数会返回标准化 HSB 值的色调值只要被提供的参数是 HSB 颜色物件（或如果被提供的参数是像素数组，颜色模式是 HSB），不然默认将会返回标准化 HSL 值的色调值。（两者的值只有在这两个不同的系统有不同的最高色调值时才会有差别）",
+      "params": ["p5.Color | 数字数组 | 字符串：p5.Color 物件、颜色部件或 CSS 颜色值"],
+      "returns": "数字：该色调值"
     },
     "lerpColor": {
-      "description": "Mezcla dos colores para encontrar un tercer color según la combinación de ambos. El parámetro amt es la cantidad a interpolar entre los dos valores, donde 0.0 es igual al primer color, 0.1 es muy cercano al primer color, 0.5 está a medio camino entre ambos, etc. Un valor menor que 0 será tratado como 0. Del mismo modo, valores sobre 1 serán tratados como 1. Esto es distinto al comportamiento de lerp(), pero necesario porque de otra manera los números fuera de rango producirían colores no esperados y extraños. La manera en que los colores son interpolados depende del modo de color actual.",
-      "params": ["Arreglo/Número: interpola desde este color",
-      "Arreglo/Número: interpola hacia este color",
-      "Número: número entre 0 y 1"],
-      "returns": "Arreglo/Número: color interpolado"
+      "description": "混合两个颜色以找到一个介于它们之间的颜色。<br><br>amt 参数代表两个值之间插入的量，0.0 代表第一个颜色、0.1 代表非常接近第一个颜色、0.5 代表两个颜色之间的一半等等。低于 0 的值将被当作 0 看待。这和 lerp() 的行为不一样不过这是因为在范围外的值可能产生奇怪和意料之外的颜色。",
+      "params": ["p5.Color：从这颜色开始插入",
+                 "p5.Color：在这颜色结束插入",
+                 "数字：一个介于 0 和 1 的数字"],
+      "returns": "p5.Color：插值颜色"
     },
     "lightness": {
-      "description": "Extrae el valor de luminosidad HSL de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "description": "从颜色或像素数组中提取 HSL 的光度值。",
+      "params": ["p5.Color | 数字数组 | 字符串：p5.Color 物件、颜色部件或 CSS 颜色值"],
+      "returns": "数字：该光度值"
     },
     "red": {
-      "description": "Extrae el valor de rojo de un color o de un arreglo de pixeles.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "description": "从颜色或像素数组中提取红色彩值。",
+      "params": ["p5.Color | 数字数组 | 字符串：p5.Color 物件、颜色部件或 CSS 颜色值"],
+      "returns": "数字：该红色彩值"
     },
     "saturation": {
-      "description": "Extrae el valor de saturación de un color o de un arreglo de pixeles. La saturación es escalada en HSB y HSL de forma distinta. Esta función retornará la saturación HSB cuando le sea provisto un objeto de color HSB (o cuando le sea provisto un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará saturación HSL.",
-      "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "description": "从颜色或像素数组中提取饱和度值。<br><br>饱和度在 HSB 和 HSL 模式中的缩放比例不同。此函数将会返回 HSB 值的饱和度值只要被提供的参数是 HSB 颜色物件（或如果被提供的参数是像素数组，颜色模式是 HSB），不然默认将会返回 HSL 值的饱和度值。",
+      "params": ["p5.Color | 数字数组 | 字符串：p5.Color 物件、颜色部件或 CSS 颜色值"],
+      "returns": "数字：该饱和度值"
     },
     "background": {
-      "description": "La función background() define el color usado como fondo del lienzo p5.js. El fondo por defecto es gris claro. Esta función es típicamente usada dentro de draw() para despejar o borrar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de setup() para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
-      "params": ["Color: cualquier valor creado con la función color()",
-               "Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-100)",
-               "colorstring: string de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex 3 dígitos, hex 6 dígitos",
-               "Número: especifica un valor entre blanco y negro",
-               "Número: valor de rojo o hue (dependiendo del modo de color actual)",
-               "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-               "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-               "p5.Image: imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo)"],
-      "returns": "the p5 object"
+      "description": "background() 函数设定 p5.js 画布的背景颜色。默认背景颜色为浅灰色。这函数通常用在 draw() 函数内以在各画面开始时清空画布，不过它也能在 setup() 内使用以定义第一个画面的背景颜色或当背景颜色只需要被定义一次时。<br><br>背景颜色可用 RGB、HSB 或 HSL 颜色定义，取决于当时的颜色模式（默认色彩空间是 RGB，而每个数值都介于 0 至 255 之间）。默认透明度值也介于 0 至 255 之间。<br><br>如果所提供的参数是单一字符串，RGB、RGBA 和十六进制 CSS 颜色字符串及所有命名颜色都可以使用。在这情况下，提供第二个参数以定义透明度值并不被支持，而需使用 RGBA 字符串。<br><br>p5.Color 物件也能被用来定义背景颜色。<br><br>p5.Image 也能被用来提供背景图像。",
+      "params": ["p5.Color：任何使用 color() 函数创造的颜色",
+               "字符串：颜色字符串，可接受的格式包括：整数 rgb() 或 rgba()、百分率 rgb() 或 rgba()、3 位十六进制、6 位十六进制",
+               "数字：透明度值，需在被定义的范围内（默认为 0 至 255）",
+               "数字：一个定义白与黑之间的数值",
+               "数字：红彩值或色调值（取决于当时的颜色模式）",
+               "数字：绿彩值或饱和度值（取决于当时的颜色模式）",
+               "数字：蓝彩值或亮度值（取决于当时的颜色模式）",
+               "数字[]：一个有红、绿、蓝及透明度值的数组",
+               "p5.Image：一个使用 loadImage() 或 createImage() 创造的图像，用以设定背景图像（必须和画布有相同的大小）"],
+      "returns": ""
     },
     "clear": {
-      "description": "Borra los pixeles del buffer. Esta función solo funciona en objetos p5.Canvas creados con la función createCanvas(); no funcionará con la ventana principal. A diferencia del contexto principal de gráficas, los pixeles en las áreas gráficas adicionales creadas con createGraphics() pueden ser entera o parcialmente transparentes. Esta función borra todo para hacer los pixeles 100% transparentes.",
-      "returns": "the p5 object"
+      "description": "清除图形缓冲区内的像素。这函数只能用于使用 createCanvas() 函数创造的 p5.Canvas 物件，而不能用于主要的显示窗口。使用 createGraphics() 创造的图形缓冲并不像主要的图形缓冲，它们能是完全透明或半透明的。这函数将清空所有东西使每个像素都是 100% 透明。",
+      "returns": ""
     },
     "colorMode": {
-      "description": "colorMode() cambia la manera en que p5.js interpreta los datos de color. Por defecto, los parámetros de fill(), stroke(), background() y color() son definidos por valores entre 0 y 255 en modo RGB. Esto es equivalente a definir el modo de color según colorMode(RGB, 255). Definir el modo de color en colorMode(HSB) permite usar el sistema HSB. Por defecto, este modo de color es colorMode(HSB, 360, 100, 100, 1). También se puede usar HSL. Nota: los objetos de color existentes recuerdan el modo en que fueron creados, por lo que puedes cambiar el modo como quieras, sin afectar su apariencia.",
-      "params": ["Constante: RGB o HSB, correspondiente a Rojo/Verde/Azul o tinte/saturación/brillo (o luminosidad)",
-      "Número: rango de rojo o tinte, dependiendo del modo de color actual, o rango para todos los valores",
-      "Número: rango de verde o saturación, dependiendo del modo de color actual.",
-      "Número: rango de azul o brillo/luminosidad, dependiendo del modo de color actual.",
-      "Número: rango de transparencia alpha"],
-      "returns": "the p5 object"
+      "description": "colorMode() 改变 p5.js 解读颜色资料的方式。默认情况下，fill()、stroke()、background() 及 color() 的参数都是介于 0 至 255 的 RGB 颜色值。这和设置 colorMode(RGB, 255) 的效果一样。设置 colorMode(HSB) 让您使用 HSB 模式，默认情况下，这代表 colorMode(HSB, 360, 100, 100, 1)。您也可以使用 HSL。",
+      "params": ["常量: RGB、HSB 或 HSL，分别代表红绿蓝及色调/饱和度/亮度（或光度）",
+                 "数字：所有数值的最大值",
+                 "数字：红色值或色调值的最大值，取决于当时的颜色模式",
+                 "数字：绿色值或饱和度值的最大值，取决于当时的颜色模式",
+                 "数字：蓝色值或亮度/光度值的最大值，取决于当时的颜色模式",
+                 "数字：透明度值的最大值"],
+                 "returns": ""
     },
     "fill": {
-      "description": "Define el color usado para el relleno de figuras geométricas. Por ejemplo, si ejecutas fill(204, 102, 0), todas las figuras a continuación tendrán relleno naranja. Este color es especificado en términos de color RGB o HSB, dependiendo del modo de color según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del relleno.",
-      "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
-      "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-      "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-      "Número: opacidad del fondo"],
-      "returns": "the p5 object"
+      "description": "设置形状的填充色。比如说，如果您调用 fill(204, 102, 0)，所有接下来的形状都会被填上橙色。这颜色可用 RGB 或 HSB 颜色定义，取决于当时的颜色模式（默认色彩空间是 RGB，而每个数值都介于 0 至 255 之间）。默认透明度值也介于 0 至 255 之间。<br><br>如果所提供的参数是单一字符串，RGB、RGBA 和十六进制 CSS 颜色字符串及所有命名颜色都可以使用。在这情况下，提供第二个参数以定义透明度值并不被支持，而需使用 RGBA 字符串。<br><br>p5.Color 物件也能被用来定义填充颜色。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值，需在被定义的范围内",
+                 "数字：蓝彩值或亮度值，需在被定义的范围内",
+                 "数字：",
+                 "字符串：颜色字符串",
+                 "数字：灰阶值",
+                 "数字[]：一个有红、绿、蓝及透明度值的数组",
+                 "p5.Color：填充色"],
+      "returns": ""
     },
     "noFill": {
-      "description": "Deshabilita el relleno de figuras geométricas. Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla.",
-      "returns": "the p5 object"
+      "description": "禁用形状填充。如果 noStroke() 和 noFill() 都被调用的话，没有形状会被画在荧幕上。",
+      "returns": ""
     },
     "noStroke": {
-      "description": "Deshabilita el dibujo de los trazos (bordes). Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla.",
-      "returns": "the p5 object"
+      "description": "禁用形状外线。如果 noStroke() 和 noFill() 都被调用的话，没有形状会被画在荧幕上。",
+      "returns": ""
     },
     "stroke": {
-      "description": "Define el color usado para dibujar líneas y bordes de figuras. Este color especificado en términos de color RGB o HSB, dependiendo del modo de color actual según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del trazado.",
-      "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
-      "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-      "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-      "Número: opacidad del fondo"],
-      "returns": "el objeto p5"
+      "description": "设置形状的外形线色。这颜色可用 RGB 或 HSB 颜色定义，取决于当时的颜色模式（默认色彩空间是 RGB，而每个数值都介于 0 至 255 之间）。默认透明度值也介于 0 至 255 之间。<br><br>如果所提供的参数是单一字符串，RGB、RGBA 和十六进制 CSS 颜色字符串及所有命名颜色都可以使用。在这情况下，提供第二个参数以定义透明度值并不被支持，而需使用 RGBA 字符串。<br><br>p5.Color 物件也能被用来定义外形线颜色。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值，需在被定义的范围内",
+                 "数字：蓝彩值或亮度值，需在被定义的范围内",
+                 "数字：",
+                 "字符串：颜色字符串",
+                 "数字：灰阶值",
+                 "数字[]：一个有红、绿、蓝及透明度值的数组",
+                 "p5.Color：外形线色"],
+      "returns": ""
     },
+
     "arc": {
       "description": "Dibuja un arco en la pantalla. Si se llama con solo a, b, c, d, start y stop, el arco se dibuja como un pastel abierto. Si el modo se provee, el arco será dibujado abierto, o como acorde, o como pastel, según lo especificado. El origen puede ser cambiado con la función ellipseMode(). Nota que si dibujas un círculo completo (ej: 0 a TWO_PI) aparecerá en blanco, porque 0 y TWO_PI son la misma posición en el círculo unitario. La mejor manera de manejar esto es usar la función ellipse() para una elipse cerrada, y la función arc() para generar solo secciones de una elipse.",
       "params": ["Número: coordenada x del arco de elipse.",
@@ -204,7 +218,7 @@
       "Número: ángulo inicial del arco de elipse.",
       "Número: ángulo final del arco de elipse.",
       "Constante: parámetro opcional para determinar la manera de dibujar el arco."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "ellipse": {
       "description": "Dibuja una elipse (óvalo)  en la pantalla. Una elipse con igual ancho y altura es un círculo. Por defecto, los primeros dos parámetros definen la ubicación, y el tercero y cuarto definen el ancho y altura de la figura. Si no especifica una altura, el valor del ancho es usado como ancho y altura. El origen puede ser cambiado con la función ellipseMode().",
@@ -212,7 +226,7 @@
       "Número: coordenada y de la elipse.",
       "Número: ancho de la elipse.",
       "Número: altura de la elipse."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "line": {
       "description": "Dibuja una línea (un camino directo entre dos puntos) en la pantalla. La versión de line() con cuatro parámetros dibuja la línea en 2D. Para darle color a una línea, usa la función stroke(). Una línea no puede ser rellenada, por lo que la función fill() no afectará el color de una línea. Las líneas 2D son dibujadas con una ancho de un pixel por defecto, pero esto puede ser cambiado con la función strokeWeight().",
@@ -220,13 +234,13 @@
       "Número: coordenada y del primer punto.",
       "Número: coordenada x del segundo punto.",
       "Número: coordenada y del segundo punto."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "point": {
       "description": "Dibuja un punto, una coordenada en el espacio de un pixel de dimensión. El primer parámetro es la coordenada horizontal del punto, el segundo valor es la coordenada vertical del punto. El color del punto es determinado por el trazado actual con la función stroke().",
       "params": ["Número: coordenada x.",
       "Número: coordenada y ."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "quad": {
       "description": "Dibuja un cuadrilátero, un polígono de cuatro lados. Es similar a un rectángulo, pero los ángulos entre sus bordes no están limitados a noventa grados. El primer par de parámetros (x1, y1) corresponde a las coordenadas del primer vértice y los pares siguientes deben seguir en el mismo orden, según las manecillas del reloj o en contra, alrededor de la figura a definir.",
@@ -238,7 +252,7 @@
       "Número: coordenada y del tercer punto.",
       "Número: coordenada x del cuarto punto.",
       "Número: coordenada y del cuarto punto."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "rect": {
       "description": "Dibuja un rectángulo en la pantalla. Un rectángulo es una figura de cuatro lados con cada ángulo interior de noventa grados. Por defecto, los dos primeros parámetros definen la ubicación de la esquina superior izquierda, el tercero el ancho y el cuarto la altura. La manera en que estos parámetros son interpretados, sin embargo, puede ser cambiado con la función rectMode(). Los parámetros quinto, sexto, séptimo y octavo, si son especificados, determinan el radio de la esquina superior derecha, superior izquierda, inferior derecha e inferior izquierda, respectivamente. Si se omite un parámetro de radio de esquina, se usa el radio especificado por el valor anterior en la lista.",
@@ -252,7 +266,7 @@
       "Número: radio opcional de la esquina inferior izquierda.",
       "Número:",
       "Número:"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "triangle": {
       "description": "Un triángulo es un plano creado por la conexión de tres puntos. Los primeros dos argumentos especifican el primer punto, los parámetros centrales especifican el segundo punto, y los dos últimos parámetros especifican el tercer punto.",
@@ -262,40 +276,40 @@
       "Número: coordenada y del segundo punto.",
       "Número: coordenada x del tercer punto.",
       "Número: coordenada y del tercer punto."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "ellipseMode": {
       "description": "Modifica la ubicación de donde las elipses son dibujadas, cambiando la manera en que los parámetros dados a ellipse() son interpretados. El modo por defecto es ellipseMode(CENTER), que interpreta los dos primeros parámetros de ellipse() como el centro de la figura, mientras que los parámetros tercero y cuarto son el ancho y la altura. ellipseMode(RADIUS) también usa los dos primeros parámetros de ellipse() como el punto central de la figura, pero usa los parámetros tercero y cuarto para especificar la mitad del ancho y la altura de la figura. ellipseMode(CORNER) interpreta los dos primeros parámetros de ellipse() como la esquina superior izquierda de la figura, mientras que los parámetros tercero y cuarto son el ancho y la altura. ellipseMode(CORNERS) interpreta los dos primeros parámetros de ellipse() como la ubicación de una esquina del rectángulo contenedor de la elipse, y los parámetros tercero y cuarto como la ubicación de la esquina opuesta. El parámetro debe ser escrito en MAYÚSCULAS porque Javascript es una lenguaje de programación que distingue entre mayúsculas y minúsculas.",
       "params": ["Constante: puede ser CENTER, RADIUS, CORNER, o CORNERS."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "noSmooth": {
       "description": "Dibuja las figuras geométricas con bordes no suaves (aliasing). Notar que smooth() está activo por defecto, así que es necesario ejectuar noSmooth() para deshabilitar el suavizado de las figuras geométricas, imágenes y tipografías.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "rectMode": {
       "description": "Modifica la ubicación en que los rectángulos son dibujados, cambiando la manera en que los parámetros dados a rect() son interpretados. El modo por defecto es rectMode(CORNER), que interpreta los primeros dos parámetros de rect() como la esquina superior izquierda de la figura, mientras que los parámetros tercero y cuarto son su ancho y altura. rectMode(CORNERS) interpreta los dos primeros parámetros de rect() como la ubicación de una esquina, y los parámetros tercero y cuarto como la ubicación de la esquina opuesta. rectMode(CENTER) interpreta los dos primeros parámetros de rect() como el punto central de la figura, mientas que los parámetros tercero y cuarto son su ancho y altura. rectMode(RADIUS) también usa los dos primeros parámetros de rect()= como el punto central de la figura, pero usa los parámetros tercero y cuarto para especificar la mitad del ancho y la altura de la figura. Los parámetros deben ser escritos en MAYÚSCULAS porque Javascript es un lenguaje que distingue entre mayúsculas y minúsculas.",
       "params": ["Constante: puede ser CORNER, CORNERS, CENTER, o RADIUS."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "smooth": {
       "description": "Dibuja todas las figuras geométricas con bordes suaves (sin aliasing). smooth() también mejorará la calidad de las imágenes cuyo tamaño ha sido modificado. Notar que smooth() está activo por defecto; noSmooth() puede ser usado para deshabilitar el suavizado de las figuras geométricas, imágenes y tipografía.",
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "strokeCap": {
       "description": "Define el estilo de rendering de los extremos de las líneas. Estos extremos pueden ser cuadrados, extendidos o redondeados, cada uno de estos especifados con los parámetros correspondientes: SQUARE, PROJECT, y ROUND. El extremo por defecto es redonedeado (ROUND).",
       "params": ["Constante: puede ser SQUARE, PROJECT, o ROUND."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "strokeJoin": {
       "description": "Define el estilo de las uniones que conectan segmentos de líneas. Estas uniones pueden ser tipo inglete, biseladas o redondeadas, y especificadas con los parámetros correspondientes: MITER, BEVEL, y ROUND. La unión por defecto es MITER.",
       "params": ["Constante: puede ser MITER, BEVEL, o ROUND."],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "strokeWeight": {
       "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
       "params": ["Número: el peso (en pixeles) del trazado"],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "bezier": {
       "description": "Dibuja una curva Bezier cúbica en la pantalla. Estas curvas están definidas por una serie de puntos ancla y de control. Los primeros dos parámetros especifican el primer punto ancla y los dos últimos especifican el otro punto ancla, que se convierten en los puntos primero y último de la curva. Los parámetros en el medio especifican los dos puntos de control que definen la forma de la curva. De forma aproximada, los puntos de control atraen la curva hacia ellos. Las curvas Bezier fueron desarrolladas por el ingeniero automotriz Pierre Bezier, y son comúnmente usadas en gráficas computacionales para definir curvas de pendiente suave. Ver también curve().",
@@ -311,7 +325,7 @@
       "Número: coordenada z del primer punto de control",
       "Número: coordenada z del segundo punto ancla",
       "Número: coordenada z del segundo punto de control"],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "bezierPoint": {
       "description": "Evalua la curva Bezier en la posición t para los puntos a, b, c, d. Los parámetros a y d son los puntos primero y último de la curva, mientras que b y c son los puntos de control. El parámetro final t varía entre 0 y 1. Esto puede ser realizado una vez con las coordenadas x y una segunda vez con las coordenadas y para obtener la ubicación de la curva Bezier en t.",
@@ -345,12 +359,12 @@
       "Número: coordenada z del primer punto",
       "Número: coordenada z del segundo punto",
       "Número: coordenada z del punto de control final"],
-      "returns": "Objeto: el objeto p5"
+      "returns": "物件：该 p5 物件"
     },
     "curveTightness": {
       "description": "Modifica la calidad de las formas creadas con curve() y curveVertex(). El parámetro tightness (tirantez) determina cómo la curva calza con los vértices. El valor 0.0 es el valor por defecto (este valor define las curvas Spline Catmull-Rom) y el valor 1.0 conecta todos los puntos con líneas rectas. Valores en el rango entre -5.0 y 5.0 deformarán las curvas pero las dejarán reconocibles, y a medida que los valores crecen en magnitud, se continuarán deformando.",
       "params": ["Número: deformación de los vértices originales"],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "curvePoint": {
       "description": "Evalua la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, los puntos a y d son puntos en la cruva, y b y c son los puntos de control. Esto puede ser hecho una vez con las coordenadas x y una segunda vez con las coordenadas y para obtener la ubicación de la curva en t.",
@@ -359,7 +373,7 @@
         "Número: coordenada del segundo punto de control de la curva",
         "Número: coordenada del segundo punto de la curva",
         "Número: valor entre 0 y 1"],
-      "returns": "the p5 object"
+      "returns": "该 p5 物件"
     },
     "curveTangent": {
       "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
@@ -372,12 +386,12 @@
     },
     "beginContour": {
       "description": "Usa las funciones beginContour() y endContour() para crear figuras negativas dentro de figuras como el centro de la letra 'O'. beginContour() empieza la grabación de los vértices para la figura y endContour() finaliza la grabación. Los vértices que definen una figura negativa deben ser definidos en la dirección opuesta a la figura exterior. Primero dibuja los vértices de la figura exterior en el orden de las manecillas del reloj, y luego para figuras internas, dibuja vértices en el sentido contrario a las manecillas del reloj. Estas funciones solo pueden ser usadas dentro de un par beginShape()/endShape() y transformaciones como translate(), rotate(), y scale() no funcionan dentro de un par beginContour()/endContour(). Tampoco es posible usar otras figuras, como elupse() o rect() dentro.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "beginShape": {
       "description": "El uso de las funciones beginShape() y endShape() permiten la creación de figuras más complejas. beginShape() empieza la grabación de vértices para una figura, mientras que endShape() termina la grabación. El valor del parámetro kind (tipo) define qué tipo de figuras serán creadas a partir de los vértices. Si no se especifica un modo, la figura puede ser cualquier polígono irregular. Los parámetros disponibles para beginShape() son POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, y QUAD_STRIP. Después de llamar a la función beginShape(), debe ser seguida por una serie de comandos vertex(). Para detener el dibujo de la figura, ejecuta endShape(). Cada figura será dibujada con el color de trazo y el color de relleno actual. Transformaciones como translate(), rotate(), y scale() no funcionan dentro de beginShape(). Tampoco es posible usar otras figuras como ellipse() o rect() dentro de beginShape().",
       "params": ["Constante: puede ser POINTS, LINES, TRIANGLES, TRIANGLE_FAN TRIANGLE_STRIP, QUADS, o QUAD_STRIP"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "bezierVertex": {
       "description": "Especifica las coordenadas de un vértice para una curva Bezier. Cada llamada a la función bezierVertex() define la posición de dos puntos de control y un punto ancla de una curva Bezier, añadiendo un nuevo segmento a la línea o figura. La primera vez que bezierVertex() es usada dentro de una llamada a beginShape(), debe ser antecedida por una llamada a la función vertex() para definir el primer punto ancla. Esta función debe ser usada entre beginShape() y endShape() y solo cuando no se ha especificado el parámetro MODE (modo) a beginShape().",
@@ -387,22 +401,22 @@
         "Número: coordenada y del segundo punto de control la curva",
         "Número: coordenada x del primer punto ancla",
         "Número: coordenada y del primer punto ancla"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "curveVertex": {
       "description": "Especifica las coordenadas de un vértice para una curva. Esta función solo puede ser usada entre beginShape() y endShape() y cuando no se ha especificado el parámetro MODE en la función beginShape(). Los puntos primero y último en una serie de líneas curveVertex() serán usados para guiar el inicio y final de una curva. Un mínimo de cuatro puntos es requerido para dibujar una pequeña curva entre los puntos segundo y tercero, Añadir un quinto punto con curveVertex() dibujará la curva entre los puntos segundo, tercero y cuarto. La función curveVertex() es una implementación de las splines de Catmull-Rom.",
       "params": ["Número: coordenada x del vértice",
         "Número: coordenada y del vértice"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "endContour": {
       "description": "Usa las funciones beginContour() y endContour() para crear figuras negativas dentro de figuras como el centro de la letra 'O'. beginContour() empieza la grabación de los vértices para la figura y endContour() finaliza la grabación. Los vértices que definen una figura negativa deben ser definidos en la dirección opuesta a la figura exterior. Primero dibuja los vértices de la figura exterior en el orden de las manecillas del reloj, y luego para figuras internas, dibuja vértices en el sentido contrario a las manecillas del reloj. Estas funciones solo pueden ser usadas dentro de un par beginShape()/endShape() y transformaciones como translate(), rotate(), y scale() no funcionan dentro de un par beginContour()/endContour(). Tampoco es posible usar otras figuras, como elupse() o rect() dentro.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "endShape": {
       "description": "La función endShape() es compañera de la función beginShape() y solo puede ser ejecutada tras la ejecución de beginShape(). Cuando endshape() es ejecutada, todos los datos de imagen definidos desde la llamada anterior a beginShape() son escritos en el buffer de imagen. La constante CLOSE se usa como valor para el parámetro MODE para cerrar la figura (para conectar el comienzo con el final).",
       "params": ["Constante: usa CLOSE para cerrar la figura."],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "quadraticVertex": {
       "description": "Especifica las coordenadas de vértices par curvas Bezier cuadráticas. Cada llamada a quadraticVertex() define la posición de uno de los puntos de control y ancla de una curva Bezier, añadiendo un nuevo segmento a la línea o figura. La primera vez que quadraticVertex() es usada dentro de una llamada a beginShape(), debe ser precedida por una llamada a la función vertex() para definir el primer punto ancla. Esta función debe ser usada entre un par beginShape() y endShape() y solo cuando no se ha especificado el parámetro MODE de beginShape().",
@@ -410,13 +424,13 @@
         "Número: coordenada y del punto de control",
         "Número: coordenada x del punto ancla",
         "Número: coordenada y del punto ancla"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "vertex": {
       "description": "Todas las figuras son construidas mediante la conexión de una serie de vértices. vertex() es usado para especificar las coordenadas de los vértices para puntos, líneas, triángulos, cuadriláteros y polígonos. Es usada exclusivamente dentro de un par de funciones beginShape() y endShape().",
       "params": ["Número: coordenada x del vértice",
         "Número: coordenada y del vértice"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "loadModel": {
       "description": "Carga un modelo 3d desde un archivo OBJ. Una de las limitaciones del formato OBJ es que no trae incorporado un sentido de escala. Esto significa que los modelos exportados por distintos programas pueden ser de tamaños radicalmente distintos. Si tu modelo no está siendo mostrado en pantalla, trata llamando a la función loadMode() con el parámetro de normalización configurado como verdadero. Esto escalará el tamaño del modelo a una escala apropiada para p5. También puedes hacer cambios adicionales al tamaño final de tu modelo con la función scale().",
@@ -424,12 +438,12 @@
         "Boolean:  Si es verdadero (true), escala el modelo a un tamaño estandarizado al momento de cargarlo.",
         "Función(p5.Geometry3D): función a ser llamada cuando el modelo se cargue. Será pasada al modelo del objeto 3D.",
         "Función(evento): llamada con el error evento si la imagen no falla al cargar."],
-      "returns": "el objeto p5.Geometry3D"
+      "returns": "该 p5 物件.Geometry3D"
     },
     "model": {
       "description": "Hace el render de un modelo 3D en la pantalla.",
       "params": ["p5.Geometry: modelo 3D cargado para realizar render"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "plane": {
       "description": "Dibuja un plano con ancho y altura dados.",
@@ -437,7 +451,7 @@
       "Número: altura del plano",
       "Número: número opcional de subdivisiones triangulares en la dimensión x",
       "Número: número opcional de subdivisiones triangulares en la dimensión y"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "box": {
       "description": "Dibuja una caja con ancho, altura y profundidad dados.",
@@ -446,14 +460,14 @@
       "Número: profundidad de la caja",
       "Número: número opcional de subdivisiones triangulares en la dimensión x",
       "Número: número opcional de subdivisiones triangulares en la dimensión y"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "sphere": {
       "description": "Dibuja una esfera de radio dado.",
       "params": ["Número: radio del círculo",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "cylinder": {
       "description": "Dibuja un cilindro de radio y altura dados.",
@@ -461,7 +475,7 @@
       "Número: altura del cilindro",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "cone": {
       "description": "Dibuja un cono de radio y altura dados.",
@@ -469,7 +483,7 @@
       "Número: altura del cono",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "ellipsoid": {
       "description": "Dibuja un elipsoide de radio dado.",
@@ -478,7 +492,7 @@
       "Número: radio z del círculo",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24. Evita números mayores a 150 que podrían colapsar el navegador.",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16. Evita números mayores a 150 que podrían colapsar el navegador."],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "torus": {
       "description": "Dibuja un toroide con radio y tubo dado.",
@@ -487,55 +501,55 @@
       "Número: radio z del círculo",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24.",
       "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16."],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "HALF_PI": {
       "description": "HALF_PI es una constante matemática de valor 1.57079632679489661923. Es la mitad de la razón entre la circunferencia de un círculo y su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "PI": {
       "description": "PI es una constante matemática de valor 3.14159265358979323846. Es la razón entre la circunferencia de un círculo y su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "QUARTER_PI": {
       "description": "QUARTER_PI es una constante matemática de valor 0.7853982. Es un cuarto de la razón entre la circunferencia de un círculo y su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "TAU": {
       "description": "TAU es un alias de TWO_PI, una constante matemática de valor 6.28318530717958647693. Es el doble de la razón entre la circunferencia de un círculo y su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "TWO_PI": {
       "description": "TWO_PI es una constante matemática de valor 6.28318530717958647693. Es el doble de la razón entre la circunferencia de un círculo y su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "preload": {
       "description": "La función preload() es ejecutada antes de setup(), es usada para manejar la carga asíncrona de archivos externos. Si se define una función preload(), setup() esperará hasta que las llamadas a funciones load hayan terminado. Solo se deben incluir instrucciones de carga dentro de preload() (loadImage, loadJSON, loadFont, loadStrings, etc).",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "setup": {
       "description": "La función setup() es ejecutada una vez, cuando el programa empieza. Es usada para definir propiedades iniciales como amaño de la pantalla y color de fondo y para cargar medios como imágenes y tipografías cuando el programa empieza. Solo puede haber una función setup() en cada programa y no debe ser llamada después de su ejecución inicial. Nota: las variables declaradas dentro de setup() no son accesibles dentro de otras funciones, como draw().",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "draw": {
       "description": "La función draw() es ejecutada después de setup(), y ejecuta contínuamente las líneas de código dentro de su bloque hasta que el programa es detenido o se ejecuta la función noLoop(). Notar que si noLoop() es ejecutada dentro de setup(), draw() igualmente será ejecutado una vez antes de parar. La función draw() es ejecutada automáticamente y nunca debiera ser ejecutada explícitamente. Siempre debería ser controlada con noLoop(), redraw() y loop(). Después de que noLoop() detiene la ejecución del código dentro de draw(), redraw() causa que el código dentro de draw() se ejecute una vez, y loop() causa que el código dentro de draw() siga ejecutándose de forma continua. El número de veces que draw() se ejecuta por segundo puede ser controlado con la función frameRate(). Solo puede haber una función draw() en cada bosquejo, y draw() solo debe existir si quieres que el código corra de forma continua, o para procesar eventos como mousePressed(). Algunas veces, podrías querer ejecutar una función draw() vacía, como se mostró en el ejemplo más arriba. Es importante notar que el sistema de coordenadas de dibujo será reiniciado al principio de cada ejecución de la función draw(). Si cualquier transformación es hecha dentro de draw() (por ejemplo: escalar, rotar, trasladar), sus efectos serán anulados al principio de cada ejecución de draw(), así que las transformaciones no se acumulan en el tiempo. Por el otro lado, el estilo aplicado (color de relleno, color de trazado) sí se mantendrá en efecto. ",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "remove": {
       "description": "Remueve el bosquejo de p5 completamente. Esto removerá el lienzo y cualquier otro elemento creado por p5.js. También detendrá el bucle de dibujo y desvinculará cualquier propiedad o método global de la ventana. Dejará una variable p5 en caso que quieras crear un nuevo bosquejo p5. Si quieres, puedes definir p5 = null para borrar esta variable.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "noLoop": {
       "description": "Detiene la ejecución continua del código de draw() de p5.js. Si se llama a la función loop(), el código dentro de draw() empieza a correr de forma continua nuevamente. Si se usa noLoop() dentro de setup(), debe ser la última línea de código dentro del bloque. Cuando se usa noLoop(), no es posible manipular o acceder a la pantalla dentro de las funciones que manejan eventos como mousePressed() o keyPressed(). En vez de eso, usa estas funciones para llamar a redraw() o loop(), que permitirán la ejecución de draw(), lo que permite el refresco correcto de la pantalla. Esto significa que cuando noLoop() ha sido ejecutado, no se sigue dibujando, y funciones como saveFrame() o loadPixels() no se pueden usar. Notar que si el bosquejo es escalado, redraw() será llamado para actualizar el bosquejo, incluso si noLoop() ha sido ejecutada. Por otro lado, el bosquejo entrará a un estado singular, hasta que loop() sea ejecutado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "loop": {
       "description": "Por defecto, p5.js repite de forma continua la función draw(), ejecutado el código dentro de su bloque. Sin embargo, el bucle de dibujo puede ser detenido llamando a la función noLoop(). En ese caso, el bucle de draw() puede ser retomado con loop().",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "push": {
       "description": "La función push() graba la configuración actual de estilo de dibujo, y pop() restaura esta configuración. Notar que estas funciones siempre son usadas en conjunto. Permiten cambiar las configuraciones de estilo y transformaciones y luego volver a lo que tenías. Cuando un nuevo estado es iniciado con push(), construye encima de la información actual de estilo y transformación. Las funciones push() y pop() pueden ser embebidas para proveer más control (ver el segundo ejemplo para una demostración). push() almacena información relacionada a la configuración de estado de transformación y de estulo actual, controlada por las siguientes funciones: fill(), stroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(), imageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(), textFont(), textMode(), textSize(), textLeading().",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pop": {
       "description": "La función push() graba la configuración actual de estilo de dibujo, y pop() restaura esta configuración. Notar que estas funciones siempre son usadas en conjunto. Permiten cambiar las configuraciones de estilo y transformaciones y luego volver a lo que tenías. Cuando un nuevo estado es iniciado con push(), construye encima de la información actual de estilo y transformación. Las funciones push() y pop() pueden ser embebidas para proveer más control (ver el segundo ejemplo para una demostración). push() almacena información relacionada a la configuración de estado de transformación y de estulo actual, controlada por las siguientes funciones: fill(), stroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(), imageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(), textFont(), textMode(), textSize(), textLeading()."
@@ -543,27 +557,27 @@
     "redraw": {
       "description": "Ejecuta una vez el código dentro de la función draw(). Esta función permite al programa actualizar la ventana mostrada solamente cuando es necesario, por ejemplo, cuando un evento registrado por mousePressed() o keyPressed() ocurre. En la estructura de un programa, solo hace sentido llamar a redraw() dentro de eventos como mousePressed(). Esto es porque redraw() no hace que draw() se ejecute de forma inmediata (solo define una indicación de que se necesita un refresco). La función redraw() no funciona de forma correcta cuando se llama dentro de la función draw(). Para habilitar y deshabilitar animaciones, usa las funcioens loop() y noLoop(). Adicionalmente, puedes definir el número de veces que se dibuja por cada llamada a este método. Para esto, añade un entero como parámetro único a la función, que señale cuántas veces se requiere dibujar.",
       "params": ["Entero: redibuja n-veces. Por defecto el valor es 1"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "print": {
       "description": "La función print() escribe en la consola del navegador. Esta función es a menudo de ayuda para observar los datos que un programa está produciendo. Esta función crea una nueva línea de texto por cada ejecución de la función. Elementos individuales pueden ser separados por comillas ('') y unidos con el operador de adición (+). Aunque print() es similar a console.log(), no llama a console.log() directamente, para simular una manera más simple de entender el comportamiento del programa. Por esto mismo, es más lento. Para resultados más rápidos, usar directamente console.log().",
       "params": ["Cualquiera: cualquier combinación de número, string, objeto, boolean o arreglo a imprimir"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "frameCount": {
       "description": "La variable de sistema frameCount contiene el número de cuadros (frames) que se han mostrado desde que el programa empezó a ejecutarse. Dentro de setup() el valor es 0, después de la primera iteración de draw() es 1, etc.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "focused": {
       "description": "Confirma si la ventana de un programa de p5.js está en foco, lo que significa que el bosquejo aceptará entradas desde el ratón o teclado. Esta variable es verdadera (true) si la ventana está en foco y falsa (false) si no.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "cursor": {
       "description" : "Define el cursor como un símbolo predeterminado o una imagen, o hace el cursor visible si es que estaba escondido. Si estás tratando de asignar una imagen al cursor, el tamaño recomendado es 16x16 o 32x32 pixeles. No es posible cargar una imagen al cursor si estás exportando tu programa a la Web, y no todos los modos funcionan con todos los navegadores. Los valores de los parámetros x e y deben ser menores a la dimensión de la imagen.",
       "params": ["Número|Constante: puede ser ARROW, CROSS, HAND, MOVE, TEXT, o WAIT, o la dirección de una imagen",
       "Número: el punto activo horizontal del cursor",
       "Número: el punto activo vertical del cursor"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "frameRate": {
       "description": "Especifica el número de cuadros mostrados por segundo. Por ejemplo, la llamada a la función frameRate(30), tratará de refrescar 30 veces por segundo. Si el procesador no es lo suficientemente rápido para mantener la tasa especificada, la tasa de cuadros por segundo no será lograda. Definir la tasa de cuadros por segundo dentro de setup() es lo recomendable. La tasa por defecto es de 60 veces por segundo. Esto es lo mismo que setFrameRate(val). Llamar a la función frameRate() sin argumentos retorna la tasa actual. Esto es lo mismo que getFrameRate(). Llamar a la función frameRate() con arugmentos que no son de tipo número o no son positivos también retornarán la tasa actual.",
@@ -572,36 +586,36 @@
     },
     "noCursor": {
       "description": "Esconde el cursor.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
 
     "displayWidth": {
       "description": "Variable de sistema que almacena el ancho de la pantalla mostrada. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "displayHeight": {
       "description": "Variable de sistema que almacena la altura de la pantalla mostrada. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "windowWidth": {
       "description": "Variable de sistema que almacena el ancho interior de la ventana del navegador, equivale a window.innerWidth.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "windowHeight": {
       "description": "Variable de sistema que almacena la altura interior de la ventana del navegador, equivale a window.innerHeight.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "windowResized": {
       "description": "La función windowResized() es llamada cada vez que la ventana del navegador cambia de tamaño. Es un buen lugar para cambiar las dimensiones del lienzo o hacer cualquier otro ajuste necesario para acomodar las nuevas dimensiones de la ventana.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "width": {
       "description": "Variable de sistema que almacena el ancho del lienzo dibujado. Este valor es definido por el primer parámetro de la función createCanvas(). Por ejemplo, la llamada a la función (320, 240) define la variable width al valor 320. El valor por defecto de ancho es de 100 si es que createCanvas() no ha sido usado en el programa.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "height": {
       "description": "ariable de sistema que almacena la altura del lienzo dibujado. Este valor es definido por el primer parámetro de la función createCanvas(). Por ejemplo, la llamada a la función (320, 240) define la variable width al valor 240. El valor por defecto de ancho es de 100 si es que createCanvas() no ha sido usado en el programa.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "fullscreen": {
       "description": "Si se da un argumento, define que el bosquejo esté a pantalla completa basado en el valor del argumento. Si no se da un argumento, retorna el estado actual de pantalla completa. Notar que debido a restricciones del navegador esto solo puede ser llamado con una entrada de parte del usuario, por ejemplo, cuando se presiona el ratón como en el ejemplo.",
@@ -627,22 +641,22 @@
     },
     "getURLParams": {
       "description": "Retorna los parámetros de la URL actual como un objeto.",
-      "returns": "Objeto: parámetros de la URL"
+      "returns": "物件：parámetros de la URL"
     },
     "createCanvas": {
       "description": "Crea un elemento canvas en el documento, y define sus dimensiones medidas en pixeles. Este método debe ser llamado solo una vez al comienzo de la función setup(). Llamar a la función createCanvas() más de una vez en un bosquejo puede resultar en comportamientos impredecibles. Si quieres más de un lienzo donde dibujar, debes usar la función createGraphics() (escondido por defecto, pero puede ser mostrado), Las variables de sistema width (ancho) y height (altura) son definidas por los parámetros pasados a la función. Si createCanvas() no es usado, la ventana tendrá un tamaño por defecto de 100 x 100 pixeles. Para más maneras de posicionar el lienzo, ver la sección de posición del lienzo.",
       "params": ["Número: ancho del lienzo",
       "Número: altura del lienzo",
       "Constante: P2D o WEBGL"],
-      "returns": "Objeto: lienzo generado"
+      "returns": "物件：lienzo generado"
     },
     "resizeCanvas": {
       "description": "Redimensiona el linezo al ancho y la altura dados. El lienzo será borrado y la función draw() será llamada inmediatamente, permitiendo que el bosquejo se ajuste al nuevo lienzo",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "noCanvas": {
       "description": "Remueve el lienzo por defecto para un bosquejo de p5 que no requiere un lienzo.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "createGraphics": {
       "description": "Crea y retorna un nuevo objeto p5.Renderer. Usa esta clase si necesitas dibujar fuera de pantalla en un buffer gráfico. Los dos parámetros definen el ancho y la altura en pixeles.",
@@ -654,7 +668,7 @@
     "blendMode": {
       "description": "Combina los pixeles en la ventana según el modo definido. Existen distintas maneras de combinar los pixeles de la fuente (A) con los ya existentes en la pantalla mostrada (B). TODO",
       "params": ["Constante: modo de combinar del lienzo"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "applyMatrix": {
       "description": "Multiplica la matriz actual por la especificada según los parámetros. Esto es muy lento porque tratará de calcular el inverso de la transformada, así que evítalo cuando sea posible",
@@ -664,291 +678,291 @@
       "Número: números que definen la matriz 3x2 a multiplicar",
       "Número: números que definen la matriz 3x2 a multiplicar",
       "Número: números que definen la matriz 3x2 a multiplicar"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "resetMatrix": {
       "description": "Reemplaza la matriz actual con la matriz identidad",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "rotate": {
       "description": "Rota una figura según el monto especificado por el parámetro ángulo. Esta función toma en cuenta el modo de ángulo definido por angleMode(), así que los ángulos pueden ser ingresados en radianes o grados. Los objetos son siempre rotados según su posición relativa al origen y los números positivos rotan en la dirección de las manecillas del reloj. Las transformaciones se aplican a todo lo que ocurre de forma posterior y las subsecuentes llamadas a la función acumulan el efecto. Por ejemplo, llamar a la función rotate(HALF_PI) y luego rotate(HALF_PI) equivale a una llamada a rotate(PI). Todas las transformaciones son anuladas cuando la función draw() comienza nuevamente. Técnicamente, rotate() multiplica la matriz de transformación actual por una matriz de rotación. Esta función puede ser controlada además con las funciones push() y pop().",
       "params": ["Ángulo: el ángulo de rotación, especificado en radianes o grados, dependiendo de angleMode()",
       "Número: ángulo en radianes",
       "p5.Vector|Arreglo: eje sobre el que se rota"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "rotateX": {
       "description": "Rota en torno al eje X",
       "params": ["Número: ángulo en radianes"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "rotateY": {
       "description": "Rota en torno al eje Y",
       "params": ["Número: ángulo en radianes"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "rotateZ": {
       "description": "Rota en torno al eje Z,. Sólo disponible en el modo WEBGL.",
       "params": ["Número: ángulo en radianes"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "scale": {
       "description": "Aumenta o decrementa el tamaño de una figura por medio de expandir o contraer sus vértices. Los objetos siempre escalan desde su origen relativo al sistema de coordenadas. Los valores de escalamiento son porcentajes decimales. Por ejemplo, la llamada a la función scale(2.0) aumenta la dimensión de una figura en un 200%. Las transformaciones se aplican a todo lo que ocurre después y llamadas subsecuentes a la función multiplican el efecto. Por ejemplo, llamar a scale(2.0) y luego a scale(1.5) equivale a llamar a scale(3.0). Si la función scale() es llamad dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. El uso de esta función con el parámetro z está solo disponible en el modo WEBGL. Esta función puede también ser controlada con las funciones push() y pop().",
       "params": ["Número | p5.Vector| Arreglo: porcentaje a escalar del objeto, o porcentaje a esacalar del objeto en el eje x si se dan múltiples argumentos",
       "Número: porcentaje a escalar el objeto en el eje y",
       "Número: porcentaje a escalar el objeto en el eje z (sólo en modo WEBGL)"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "shearX": {
       "description": "Corta la figura en torno al eje x según el monto especificado por el parámetro ángulo. Los ángulos deben ser especificados según el modo actual de ángulo angleMode(). Los objetos son siempre cortados según su posición relativa al origen y los números positivos cortan los objetos en la dirección de las manecillas del reloj. Las transformaciones aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a shearX(PI/2) y luego a shearX(PI/2) equivale a llamar a shearX(PI). Si shearX() es llamado dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. Técnicamente, shearX() multiplica la matriz de transformación actual por una matriz de rotación. La función puede ser controlada con las funciones push() y pop().",
       "params": ["Número: ángulo de corte especificado en radianes o grados, dependiendo del modo de ángulo actual angleMode()"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "shearY": {
 
         "description": "Corta la figura en torno al eje y según el monto especificado por el parámetro ángulo. Los ángulos deben ser especificados según el modo actual de ángulo angleMode(). Los objetos son siempre cortados según su posición relativa al origen y los números positivos cortan los objetos en la dirección de las manecillas del reloj. Las transformaciones aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a shearY(PI/2) y luego a shearY(PI/2) equivale a llamar a shearY(PI). Si shearY() es llamado dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. Técnicamente, shearY() multiplica la matriz de transformación actual por una matriz de rotación. La función puede ser controlada con las funciones push() y pop().",
         "params": ["Número: ángulo de corte especificado en radianes o grados, dependiendo del modo de ángulo actual angleMode()"],
-        "returns": "el objeto p5"
+        "returns": "该 p5 物件"
     },
     "translate": {
       "description": "Especifica una cantidad a desplazar los objetos dentro de la ventana mostrada. El parámetro x especifica la traslación de izquierda a derecha, el parámetro y especifica la traslación de arriba a abajo. Las transformaciones son acumulativas y aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a translate(50, 0) y luego a translate(20, 0) equivale a llamar a translate(70, 0). Si translate() es llamado dentro de draw(), la transformación es anulada cada vez que el bucle empieza nuevamente. Esta función peude ser controlada con las funciones push() y pop().",
       "params": ["Número: traslación izquierda-derecha",
       "Número: traslación arriba-abajo",
       "Número: traslación adelante-atrás (solo en modo WEBGL)"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "deviceOrientation": {
       "description": "La variable de sistema deviceOrientation siempre contiene la orientación del dispositivo. El valor de esta variable será o landscape (paisaje) o portrait (retrato). Si la información no está disponible, su valor será undefined.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "accelerationX": {
       "description": "La variable de sistema accelerationX siempré contiene la aceleración del dispositivo en el eje X. El valor es representado en unidades de metros por segundo al cuadrado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "accelerationY": {
       "description": "La variable de sistema accelerationX siempré contiene la aceleración del dispositivo en el eje Y. El valor es representado en unidades de metros por segundo al cuadrado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "accelerationZ": {
       "description": "La variable de sistema accelerationX siempré contiene la aceleración del dispositivo en el eje Z. El valor es representado en unidades de metros por segundo al cuadrado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pAccelerationX": {
       "description": "La variable de sistema pAccelerationX siempré contiene la aceleración del dispositivo en el eje X, del cuadro anterior al cuadro actual. El valor es representado en unidades de metros por segundo al cuadrado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pAccelerationY": {
       "description": "La variable de sistema pAccelerationY siempré contiene la aceleración del dispositivo en el eje Y, del cuadro anterior al cuadro actual. El valor es representado en unidades de metros por segundo al cuadrado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pAccelerationZ": {
       "description": "La variable de sistema pAccelerationZ siempré contiene la aceleración del dispositivo en el eje Z, del cuadro anterior al cuadro actual. El valor es representado en unidades de metros por segundo al cuadrado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "rotationX": {
       "description": "La variable de sistema rotationX siempre contiene la rotación del dispositivo en el eje x. El valor está representado entre 0 y  +/-180 grados. Nota: el orden en que las rotaciones son llamadas es importante, por ejemplo, si se usan juntas, deben ser llamadas en el orden Z-X-Y, en caso contrario podría haber un comportamiento errado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "rotationY": {
       "description": "La variable de sistema rotationX siempre contiene la rotación del dispositivo en el eje x. El valor está representado entre 0 y  +/-180 grados. Nota: el orden en que las rotaciones son llamadas es importante, por ejemplo, si se usan juntas, deben ser llamadas en el orden Z-X-Y, en caso contrario podría haber un comportamiento errado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "rotationZ": {
       "description": "La variable de sistema rotationX siempre contiene la rotación del dispositivo en el eje y. El valor está representado entre 0 y  360 grados. A diferencia de rotationX y rotationY, esta variable está solo disponible en dispositivos equipados con una brújula interna. Nota: el orden en que las rotaciones son llamadas es importante, por ejemplo, si se usan juntas, deben ser llamadas en el orden Z-X-Y, en caso contrario podría haber un comportamiento errado.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pRotationX": {
       "description": "La variable de sistema pRotationX siempre contiene la rotación del dispositivo en el eje x, en el cuadro anterior al actual. El valor está representado entre 0 y  +/-180 grados. pRotationX puede ser usado en conjunto con rotationX para determinar la dirección de rotación del dispositivo a lo largo del eje x.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pRotationY": {
       "description": "La variable de sistema pRotationY siempre contiene la rotación del dispositivo en el eje x, en el cuadro anterior al actual. El valor está representado entre 0 y  +/-90 grados. pRotationY puede ser usado en conjunto con rotationY para determinar la dirección de rotación del dispositivo a lo largo del eje y.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pRotationZ": {
       "description": "La variable de sistema pRotationZ siempre contiene la rotación del dispositivo en el eje z, en el cuadro anterior al actual. El valor está representado entre 0 y 359 grados. pRotationZ puede ser usado en conjunto con rotationZ para determinar la dirección de rotación del dispositivo a lo largo del eje z.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "setMoveThreshold": {
       "description": "La función setMoveThreshold() es usada para definir el umbral para detectar movimiento de la función deviceMoved(). El valor umbral por defecto es 0.5",
       "params": ["Número: el valor umbral"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "setShakeThreshold": {
       "description": "La función setShakeThreshold() es usada para definir el umbral para detectar agitamiento de la función deviceShaken(). El valor umbral por defecto es 30.",
       "params": ["Número: el valor umbral"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "deviceMoved": {
       "description": "La función deviceMoved() es llamada cuando el dispositivo es movido en una cantidad mayor al valor umbral en el eje X, Y o Z. El valor umbral por defecto es 0.5",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "deviceTurned": {
       "description": "La función deviceTurned() es llamada cuando el dispositivo es girado en más de 90 grados de modo continuo. El eje que gatilla la función deviceTurned() es almacenado en la variable turnAxis. El método deviceTurned() puede ser restringido para gatillar en cualquier eje: X, Y o Z, comparando la variable turnAxis con X, Y o Z.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "deviceShaken": {
       "description": "La función deviceShaken() es llamada cuando la aceleración total de los cambios de accelerationX y accelerationY son mayores al valor umbral. El valor umbral por defecto es 30",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "keyIsPressed": {
       "description": "La variable boolean de sistema keyIsPressed es verdadera (true) cuando cualquier tecla es presionada y falsa (false) si no hay ninguna tecla presionada",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "key": {
       "description": "La variable de sistema key siempre contiene el valor más reciente de la tecla del teclado presionada. Para tener los mejores resultados, es mejor usarla dentro de la función keyTyped(). Para teclas sin valor ASCII, usa la variable keyCode ",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "keyCode": {
       "description": "La variable keyCode es usada para detectar teclas especiales, como BACKSPACE, DELETE, ENTER, RETURN, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. También puedes revisar las teclas especiales buscando el código keyCode de cualquier tecla en internet.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "keyPressed": {
       "description": "La función keyPressed() es llamada una vez cada vez que una tecla es presionada. El código keyCode de la tecla presionada es almacenado en la variable keyCode. Para las teclas sin valor ASCII, usa la variable keyCode.  Puedes comprobar si la variable keyCode es igual a BACKSPACE, DELETE, ENTER, RETURN, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. Para las teclas con valor ASCII que son presionadas, el valor es almacenado en la variable key. Sin embargo, no distingue entre letras mayúsculas y minúsculas. Por esta razón, es recomendable usar la función keyTyped() para leer la variable key, que sí distingue entre mayúsculas y minúsculas. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "keyReleased": {
       "description": "La función keyReleased() es llamada una vez cada vez que una tecla es soltada. Ver key y keyCode para más información. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "keyTyped": {
       "description": "la función keyTyped es llamada cava vez que una tecla es presionada, excepto cuando son presionadas la steclas de acción como Ctrl, Shift y Alt, que son ignoradas. La tecla presionada más reciente será almacenada en la variable key. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
       "params": ["Número: el valor umbral"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "keyIsDown": {
       "description": "La función keyIsDown() comprueba si la tecla está presionada. Puede ser usada si tienes un objeto que se mueve, y quieres que varias teclas sean capaces de afectar este comportamiento de manera simultánea, como cuando mueves una imagen de forma diagonal. Puedes ingresar cualquier número representando el código de tecla keyCode de la tecla, o usar cualquier de los nombres de la variable keyCode.",
       "params": ["Número: la tecla a buscar"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mouseX": {
       "description": "La variable de sistema mouseX siempre contiene la posición horizontal actual del ratón, relativa al origen (0, 0) del lienzo.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mouseY": {
       "description": "La variable de sistema mouseY siempre contiene la posición vertical actual del ratón, relativa al origen (0, 0) del lienzo.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pmouseX": {
         "description": "La variable de sistema pmouseX siempre contiene la posición horizontal actual del ratón, en el cuadro anterior al actual, relativa al origen (0, 0) del lienzo.",
-        "returns": "el objeto p5"
+        "returns": "该 p5 物件"
     },
     "pmouseY": {
       "description": "La variable de sistema pmouseY siempre contiene la posición vertical actual del ratón, en el cuadro anterior al actual, relativa al origen (0, 0) del lienzo.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "winMouseX": {
       "description": "La variable de sistema winMouseX siempre contiene la posición horizontal actual del ratón, relativa al origen (0, 0) de la ventana del navegador.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "winMouseY": {
       "description": "La variable de sistema winMouseY siempre contiene la posición vertical actual del ratón, relativa al origen (0, 0) de la ventana del navegador.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pwinMouseX": {
       "description": "La variable de sistema pwinMouseX siempre contiene la posición horizontal actual del ratón, en el cuadro anterior al actual, relativa al origen (0, 0) de la ventana del navegador.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pwinMouseY": {
       "description": "La variable de sistema pwinMouseY siempre contiene la posición vertical actual del ratón, en el cuadro anterior al actual, relativa al origen (0, 0) de la ventana del navegador.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mouseButton": {
       "description": "P5.js automáticamente rastrea si el botón del ratón está presionado y cuál botón está presionado. El valor de la variable de sistema mouseButton es o LEFT, RIGHT o CENTER dependiendo de cual fue el último botón presionado. Advertencia: diferentes navegadores pueden diferir.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mouseIsPressed": {
       "description": "La variable boolean de sistema mouseIsPressed es verdadera (true) si el ratón está siendo presionado, y falsa (false) en caso contrario.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mouseMoved": {
       "description": "La función mouseMoved() es llamada cada vez que el ratón se mueve y un botón del ratón no está siendo presionado. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mouseDragged": {
       "description": "La función mouseDragged() es llamada cada vez que el ratón se mueve y un botón del ratón está siendo presionado. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mousePressed": {
       "description": "La función mousePressed() es llamada cada vez que un botón del ratón está siendo presionado. La variable mouseButton (ver la referencia) puede ser usada para determinar cual botón está siendo presionado. Si no se define una función mousePressed(), la función touchStarted() será llamada en su reemplazo, si es que está definida. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mouseReleased": {
       "description": "La función mouseReleased() es llamada cada vez que un botón del ratón es soltado. Si no se define una función mouseReleased(), la función touchEnded() será llamada en su reemplazo, si es que está definida. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mouseClicked": {
       "description": "La función mouseClicked() es llamada cada vez que un botón del ratón es presionado y luego soltado. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "mouseWheel": {
       "description": "La función mouseWheel() es llamada cada vez que se detecta un evento de rueda de ratón vertical, ya sea gatillado por un ratón o por un touchpad. La propiedad event.delta retorna el monto que el ratón ha avanzado. Estos valores pueden ser positivos o negativos, dependiendo de la dirección de navegación (en OS X con natural scrolling, los signos son invertidos).  Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método. Debido al soporte actual del evento wheel en Safari, la función podría solo funcionar si return false es incluido cuando se usa Safari.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "touchX": {
       "description": "La variable de sistema touchX siempre contiene la posición horizontal de un dedo, relativo al origen (0, 0) del lienzo. Esto funciona mejor con interacciones de un dedo a la vez. Para interacciones multi-dedo, usar el arreglo touches[]",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "touchY": {
       "description": "La variable de sistema touchY siempre contiene la posición vertical de un dedo, relativo al origen (0, 0) del lienzo. Esto funciona mejor con interacciones de un dedo a la vez. Para interacciones multi-dedo, usar el arreglo touches[]",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "ptouchX": {
       "description": "La variable de sistema ptouchX siempre contiene la posición horizontal de un dedo, relativo al origen (0, 0) del lienzo, en el cuadro anterior al actual. Esto funciona mejor con interacciones de un dedo a la vez. Para interacciones multi-dedo, usar el arreglo touches[]",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "ptouchY": {
       "description": "La variable de sistema ptouchY siempre contiene la posición vertical de un dedo, relativo al origen (0, 0) del lienzo, en el cuadro anterior al actual. Esto funciona mejor con interacciones de un dedo a la vez. Para interacciones multi-dedo, usar el arreglo touches[]",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "winTouchX": {
       "description": "La variable de sistema winTouchX siempre contiene la posición horizontal de un dedo, relativo al origen (0, 0) de la ventana.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "winTouchY": {
       "description": "La variable de sistema winTouchY siempre contiene la posición vertical de un dedo, relativo al origen (0, 0) de la ventana.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pwinTouchX": {
       "description": "La variable de sistema pwinTouchX siempre contiene la posición horizontal de un dedo, relativo al origen (0, 0) de la ventana, en el cuadro anterior al actual.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pwinTouchY": {
       "description": "La variable de sistema pwinTouchY siempre contiene la posición verticañ de un dedo, relativo al origen (0, 0) de la ventana, en el cuadro anterior al actual.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "touches[]": {
       "description": "La variable de sistema touches[] contiene un arreglo de las posiciones de todos los puntos de toque actuales, relativos al origen (0, 0) del lienzo, y también identificadores para cada toque mientras se mueve. Cada elemento en el arreglo es un objeto con las propiedas x, y e identidad.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "touchIsDown": {
       "description": "La variable boolean de sistema touchIsDown es verdadera (true) si en la pantalla hay un toque y falsa (false) si no.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "touchStarted": {
       "description": "La función touchStarted() es llamada una vez, cada vez que un toque nuevo es registrado. Si la función touchStarted() no ha sido definida, la función mouseIsPressed() será llamada en su lugar, si es que está definida. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por toque. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "touchMoved": {
       "description": "La función touchStarted() es llamada una vez, cada vez que es registrado el movimiento de un toque. Si la función touchMoved() no ha sido definida, la función mouseDragged() será llamada en su lugar, si es que está definida. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por toque. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "touchEnded": {
       "description": "La función touchEnded() es llamada una vez, cada vez que un toque finaliza. Si la función touchEnded() no ha sido definida, la función mouseReleased() será llamada en su lugar, si es que está definida. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por toque. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "createImage": {
       "description": "Crea una nueva p5.Image (el tipo de datos para almacenar imágenes). Esto provee un nuevo buffer de pixeles para jugar. Define el tamaño del buffer con los parámetros de ancho y altuar. .pixels da acceso a un arreglo conteniendo los valores de todos los pixeles en la ventana mostrada. Estos valores son números. Este arreglo es del tamaño (incluyendo un factor apropiado de pixelDensity) de la ventana mostrada x4, representando los valroes R, G, B, A en orden para cada pixel., moviendo de izquierda a derecha en cada fila, y luego bajando de columna. Ver .pixels para mayor información. Podría ser más simple usar set() y get(). Antes de acceder a los pixeles de una imagen, los datos deben ser cargados con la función loadPixels(). Después de que el arreglo de datos ha sido modificado, la función updatePixels() debe ejecutarse para actualizar los cambios.",
       "params": ["Entero: ancho en pixeles",
       "Entero: altura en pixeles"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "saveCanvas": {
       "description": "Graba el lienzo actual como una imagen. En Safari, esto abrirá la imagen en la ventana y el usuario deberá proveer su propio nombre de archivo. Otros navegadores o grabarán el archivo de inmediato, o abrirán una ventana de diálogo.",
       "params": ["Canvas seleccionado: una variable representando un canvas HTML5 específico (opcional)",
       "String",
       "String: jpg o png"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "saveFrames": {
       "description": "Captura una secuencia de cuadros que pueden ser usados para crear una película. Acepta una función callback. Por ejemplo, puedes querer mandar los cuadros a un servidor donde pueden ser almacenados o convertidos en una película. Si no se provee una función callback, el navegador abrirá varios diálogos tratando de descargar todas las imágenes que han sido creadas. Con una función callback provista, los datos de imagen no son grabados por defecto, sino que son pasados como argumento a la función callback como un arreglo de objetos, con el tamaño del arreglo siendo igual al número total de cuadros.",
@@ -957,14 +971,14 @@
       "Número: duración en segundos para grabar los cuadros",
       "Número: tasa de cuadros por segundo a grabar",
       "Función: una función callback que será ejecutada para manejar los datos de imagen. Esta función deberá aceptar un arreglo como argumento. El arreglo contendrá el número especificado de cuadros como objetos. Cada objeto tiene tres propiedades: datos de imagen imageData, nombre del archivo y extensión"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "loadImage": {
       "description": "Carga una imagen desde una ruta de archivo y crea un objeto p5.Image. La imagen puede no estar inmediatamente disponible para render. Si quieres asegurarte que esté lista antes de hacer algo con ella, ubica la función loadImage() dentro de preload(). También puedes proveer una función callback para manejar la imagen cuando esté lista. La ruta a la imagen debe ser relativa al archivo HTML de tu bosquejo. Cargar desde una URL u otra ubicación remota podría estar bloqueado por las opciones de seguridad del navegador.",
       "params": ["String: ruta de la imagen a cargar",
-      "Función(p5.Image): función a ser llamada una vez que la imagen sea cargada. Le será pasado el objeto p5.Image",
+      "Función(p5.Image): función a ser llamada una vez que la imagen sea cargada. Le será pasado 该 p5 物件.Image",
       "Función(evento): llamada con el evento error si es que la carga de la imagen falla."],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "image": {
       "description": "Dibuja una imagen en el lienzo principal del bosquejo p5.js.",
@@ -981,7 +995,7 @@
       "Número: la coordenada y de la esquina superior izquierda del subrectángulo de la imagen original a dibujar en el lienzo de destino",
       "Número: el ancho del subrectángulo de la imagen original a dibujar en el lienzo de destino",
       "Número: la altura del subrectángulo de la imagen original a dibujar en el lienzo de destino"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "tint": {
       "description": "Define el valor de relleno para mostrar imágenes. Las imágenes pueden ser teñidas en colores específicos o hacerse transparentes al incluir un valor alpha. Para aplicar transparencia a una imagen sin afectar su color, usa blanco como color de teñido y especifica un valor alpha. Por ejemplo, tint(255, 128) hará una imagen 50% transparente (asumiendo el rango alpha por defecto entre 0 y 255, el que puede ser modificado con la función colorMode()). El valor del parámetro gris debe ser menor o igual al actual valor máximo según lo especificado por colorMode(). El valor máximo por defecto es 255.",
@@ -989,20 +1003,20 @@
       "Número|Arreglo: valor de verde o saturación (dependiendo del modo de color actual)",
       "Número|Arreglo: valor de azul o brillo (dependiendo del modo de color actual)",
       "Número|Arreglo: opacidad del fondo"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "noTint": {
       "description": "Remueve el valor actual de relleno para mostrar imágenes y revierte a mostrar las imágenes con sus colores originales.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "imageMode": {
       "description": "Define el modo de imagen. Modifica la ubicación desde la que las imágenes son dibujadas, por medio de cambiar la manera en que los parámetros dados a image() son interpretados. El modo por defecto es imageMode(CORNER), que interpreta los paráemtros segundo y tercero de image() como la posición de la esquina superior izquierda de la imagen. Si se dan dos parámetros adicionales, son usados para definir el ancho y la altura la imagen. imageMode(CORNERS) interpreta los paráemtros segundo y tercero de image() como la ubicación de una esquina, y los parámetros cuarto y quinto como la ubicación de la esquina opuesta. imageMode(CENTER) interpreta los parámetros segundo y tercero de image() como el punto central de la imagen. Si dos parámetros adicionales son especificados, son usados para definir el ancho y la altura de la imagen.",
       "params": ["Constante: puede ser CORNER, CORNERS, o CENTER"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pixels[]": {
       "description": "Arreglo tipo Uint8ClampedArray conteniendo los valores de todos los pixeles en la ventana mostrada. Estos valores son números. Este arreglo es del tamaño (incluyendo el factor apropiado de pixelDensity) de la ventana desplegada x4, representando los valores R, G, B, A por cada pixel, moviéndose de izquierda a derecha en cada fila, bajando una columna a la vez. Los monitores Retina y otros de alta densidad tendrán más pixeles en el arreglo (por un factor de pixelDensity al cuadrado). Por ejemplo, si la imagen es de 100 x 100 pixeles, habrán 40.000 valores. En un monitor retina, habrán 160.000. Los primeros cuatro valores (índices 0 a 4) en el arreglo serán los valores R, G, B, A del pixel en la posición (0, 0). Los siguientes cuatro valores (índices 4 a 7) serán los valores R, G, B, A del pixel en la posición (1, 0). De forma más general, para definir los valores de un pixel en (x, y): TODO. Aunque el método descrito es complejo, es lo suficientemente flexible como para trabajar con cualquier densidad de pixeles. Notar que set() inmediatamente se hace cargo de definir los valores apropiados en el arreglo pixels[] para un (x, y) dado a cualquier densidad de pixeles, pero el desempeño puede ser no tan rápido cuando muchas modificaciones son hechas en el arreglo de pixeles. Antes de acceder a este arreglo, los datos deben ser cargados con la función loadPixels(). Después de que el arreglo de datos ha sido modificado, la función updatePixels() debe ser ejecutada para refrescar los cambios. Notar que este no es un arreglo standard de Javascript. Esto significa que las funciones Javascript como slice() o arrayCopy() no funcionan.",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "blend": {
       "description": "Copia una región de pixeles de una imagen a otra, usando un modo específico de mezcla para hacer la operación. Los modos disponibles de mezcla son: BLEND | DARKEST | LIGHTEST | DIFFERENCE | MULTIPLY| EXCLUSION | SCREEN | REPLACE | OVERLAY | HARD_LIGHT | SOFT_LIGHT | DODGE | BURN | ADD | NORMAL",
@@ -1016,7 +1030,7 @@
       "Entero: ancho de la imagen destino",
       "Entero: altura de la imagen destino",
       "Constante: el modo de mezcla"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "copy": {
       "description": "Copia una región del lienzo a otra región del lienzo desde una imagen usada como el parámetro srcImage en el lienzo. Si la fuente y el destino no son del mismo tamaño, automáticamente redimensionará los pixeles de la fuente para calzar con la región especificada como destino.",
@@ -1029,13 +1043,13 @@
       "Entero: coordenada y de la esquina superior izquierda de destino",
       "Entero: ancho de la imagen de destino",
       "Entero: altura de la imagen de destino"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "filter": {
         "description": "Aplica un filtro al lienzo. Las opciones posibles son: THRESHOLD, que convierte la imagen a pixeles blancos y negros dependiendo de si están arriba o abajo del umbral definido por el parámetro. El parámetro debe estar entre 0.0 (negro) y 1.0 (blanco). Si no se especifica ningún valor, el valor por defecto es 0.5. GRAY, convierte cualquier color en la imagen a un equivalente en la escala de grises, no tiene parámetros. OPAQUE, hace que el canal alpha sea totalmente opaco, no tiene parámetros. INVERT, hace que cada pixel tenga su valor inverso, no tiene parámetros. POSTERIZE, limita cada canal de la imagen a un número de colores especificado como parámetro. El parámetro puede definir entre 2 y 255 valores, pero los resultados más notorios se dan con valores bajos. BLUR, hace que la imagen sea borrosa con un proceso Gaussiano, siendo el parámetro el nivel de cuán borroso es el resultado, si no se usa ningún parámetro, el parámetro por defecto es 1, a mayores valores es más borroso el resultado. ERODE, reduce las áreas claras, no tiene parámetros. DILATE, aumenta las áreas claras, no tiene parámetros.",
         "params": ["Constante: ",
         "Número: un parámetro opcional único a cada filtro, ver más arriba"],
-        "returns": "el objeto p5"
+        "returns": "该 p5 物件"
     },
     "get": {
       "description": "Retorna un arreglo de valores RGBA por cada pixel o toma una sección de una imagen. Si no especifican parámetros, se retorna la imagen entera. Usa los parámetros x e y para obtener el valor de un pixel. Toma una sección de la ventana mostrada si especificas los parámetros adicionales w y h. Cuando se obtiene una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el actual mode imagen definido por imageMode(). Si el pixel solicitado está fuera de la imagen, se retorna el valor [0, 0, 0, 255]. Para obtener los números escalados según los rangoes de color actuales y tomar en cuenta el modo de color según colorMode(), usa getColor() en vez de get(). Tomar el valor de un pixel con get(x, y) es fácil, pero no tan rápido como tomar los datos directamente desde pixels[]. La instrucción equivalente a get(x, y) usando pixels[] con densidad de pixeles d es  var off = (y width + x) d * 4; [pixels[off], pixels[off+1], pixels[off+2], pixels[off+3]]. Ver la referencia de pixels[] para mayor información.",
@@ -1047,15 +1061,15 @@
     },
     "loadPixels": {
       "description": "Carga los datos de los pixeles en pantalla al arreglo pixels[]. Esta función siempre debe ser llamada antes de leer o escribir en el arreglo pixels[]",
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "set": {
       "description": "Cambia el color de cualquier pixel, o pone una imagen directamente en la ventana. Los parámetros x e y especifican el pixel a cambiar y c especifica el valor del color. Puede ser un objeto p5.Color o un arreglo de pixeles RGBA. También puede ser un valor único en escala de grises. Cuando se define una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el modo actual de imagen según imageMode(). Después de usar set(), debes llamar a updatePixels()' para que tus cambios aparezcan. Esta función debería ser llamada una vez que todos los pixeles han sido definidos. Definir el color de un solo pixel con set(x, y) es fácil, pero es tan rápido como poner los datos directamente en el arreglo pixels[]. Definir los valores de pixels[] directamente puede ser complicado cuando se trabaja con un monitor retina, pero tendrá un mejor desempeño cuando muchos pixeles necesiten ser definidos directamente en cada iteración. Ver la referencia de pixels[] para mayor información.",
       "params": ["Número: coordenada x del pixel",
       "Número: coordenada x del pixel",
       "Número: coordenada y del pixel",
-      "Número|Arreglo|Objeto: inserta un valor en escala de grises | un arreglo de pixeles | un objeto p5.Color | un objeto p5.Image a copiar"],
-      "returns": "el objeto p5"
+      "Número|Arreglo|物件：inserta un valor en escala de grises | un arreglo de pixeles | un objeto p5.Color | un objeto p5.Image a copiar"],
+      "returns": "该 p5 物件"
     },
     "updatePixels": {
       "example": "",
@@ -1065,13 +1079,13 @@
       "Número: coordenada y de la esquina superior izquierda de la región a actualizar",
       "Número: ancho de la región a actualizar",
       "Número: altura de la región a actualizar"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "loadFont": {
       "description": "Carga un archivo de fuente de letra (.otf, .ttf) desde un archivo o URL, y retorna un objeto PFont. Este método es asíncrono, lo que significa que puede que no finalice antes de que la siguiente línea en tu bosquejo sea ejecutada. La ubicación del archivo debe ser relativo al archivo HTML que lo vincula con tu bosquejo. Cargar desde una URL u otra ubicación remota puede ser bloqueado por las opciones de seguridad del navegador.",
       "params": ["String: número del archivo o URL a cargar",
       "Función: función a ser ejecutada después de que loadFont() es completada"],
-      "returns": "Objeto: objeto p5.Font"
+      "returns": "物件：objeto p5.Font"
     },
     "loadJSON": {
       "description": "Carga un archivo JSON desde un archivo o una URL, y retorna un objeto o un arreglo. Este método es asíncrono, lo que significa que puede que no termine antes que se ejecute la siguiente línea en tu bosquejo.",
@@ -1105,67 +1119,67 @@
     "httpGet": {
       "description": "Método para ejecutar una solicitud HTTP GET. Si no se especifica el tipo de datos, p5 tratará de adivinar basándose en la URL, usando texto por defecto.",
       "params": ["String: nombre del archivo o URL a cargar",
-      "Objeto: parámetro de datos pasados con la solicitud enviada",
+      "物件：parámetro de datos pasados con la solicitud enviada",
       "String: json, jsonp, xml o text",
       "Función: función a ser ejecutada después de que httpGet() finalice, los datos son pasados como primer argumento",
       "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "httpPost": {
       "description": "Método para ejecutar una solicitud HTTP POST. Si no se especifica el tipo de datos, p5 tratará de adivinar basándose en la URL, usando texto por defecto.",
       "params": ["String: nombre del archivo o URL a cargar",
-      "Objeto: parámetro de datos pasados con la solicitud enviada",
+      "物件：parámetro de datos pasados con la solicitud enviada",
       "String: json, jsonp, xml o text",
       "Función: función a ser ejecutada después de que httpPost() finalice, los datos son pasados como primer argumento",
       "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "httpDo": {
       "description": "Método para ejecutar una solicitud HTTP. Si no se especifica el tipo de datos, p5 tratará de adivinar basándose en la URL, usando texto por defecto. También puedes pasar un objeto especificando todos los parámetros de la solicitud siguiendo los ejemplos dentro de las llamadas de reqwest()",
       "params": ["String: nombre del archivo o URL a cargar",
-      "Objeto: parámetro de datos pasados con la solicitud enviada",
+      "物件：parámetro de datos pasados con la solicitud enviada",
       "String: json, jsonp, xml o text",
       "Función: función a ser ejecutada después de que httpDo() finalice, los datos son pasados como primer argumento",
       "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "save": {
       "description": "Graba una imagen, text, json, csv, wav o html. Hace que la descarga ocurra en el computador cliente. Notar que no es recomendado llamar a save() dentro de draw() si está en bucle, porque la función save() abrirá una ventana de diálogo en cada cuadro. El comportamiento por defecto es grabar el lienzo como una imagen. Puedes opcionalmente especificar un nombre de archivo. Por ejemplo: TODO. Alternativamente, el primer parámetro puede ser un puntero a un lienzo p5.Element, un arreglo de Strings, un arreglo de JSON, un objeto JSON, un p5.Table, un p5.Image, o un p5.SoundFile (requiere p5.sound). El segundo parámetro es el nombre del archivo (incluyendo la extensión). El tercer parámetro es para opciones específicas a este tipo de objeto. Este método grabará un archivo que se austa a los parámetros dados. Por ejemplo: TODO. ",
       "params": ["Objeto|String: si se provee un nombre de archivo, se grabará el lienzo como una imagen con la extensión png o jpg, dependiendo del nombre del archivo. Si se provee un objeto, se grabará dependiendo del objeto y el nombre del archivo (ver los ejemplos anteriores)",
       "String: Si se provee un objeto como el primer parámetro, entonces el segundo parámetro indica el nombre del archivo, y debe incluir la extensión apropiada (ver los ejemplos anteriores).",
       "Boolean|String: opciones adicionales depndiendo del tipo de archivo. Por ejemplo, cuando se graba un archivo JSON, true indica que la salida será optimizada según el tamaño del archivo, en vez de por legibilidad."],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "saveJSON": {
       "description": "Escribe los contenidos de un arreglo o un objeto JSON a un archivo .json. El proceso de grabación del archivo y su ubicación pueden variar entre navegadores web.",
       "params": ["Arreglo|Objeto:",
       "String: ",
       "Boolean: si es verdadero (true), remueve los saltos de línea del archivo de salida para optimizar el tamaño del archivo, en desmedro de la legibilidad."],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "saveStrings": {
       "description": "Escribe un arreglo de Strings a un archivo de texto, una línea por String. El proceso de grabación del archivo y su ubicación pueden variar entre navegadores web.",
       "params": ["Arreglo: arreglo de Strings a ser escrito",
       "String: nombre del archivo de salida"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "saveTable": {
       "description": "Escribe los contenidos de un objeto Table a un archivo. Por defecto es un archivo de texto con valores separados por coma (csv), pero también puede usar separación por tabulación (tsv), o generar una tabla HTML (html). El proceso de grabación del archivo y su ubicación pueden variar entre navegadores web.",
       "params": ["Table: el objeto Table a ser grabado en un archivo",
       "String: el nombre del archivo en el que Table será grabado",
       "String: puede ser tsv, csv o html."],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "p5.Table": {
       "description": "Los objetos Table almacenan datos con múltiples filas y columnas, tal como una hoja de cálculo tradicional. Los objetos Table pueden ser generados desde cero, dinámicamente, o usando datos desde un archivo existente.",
       "params": ["Arreglo: un arreglo de objetos p5.TableRow"],
-      "returns": "p5.Table: el objeto p5.Table generado"
+      "returns": "p5.Table: 该 p5 物件.Table generado"
     },
     "p5.TableRow": {
       "description": "Un objeto TableRow representa una única fila de datos, grabados en columnas, de una tabla. Un objeto TableRow contiene tanto un arreglo ordenado, como un objeto JSON desordenado.",
       "params": ["String: opcional, puebla la fila con una serie de valores, separados por el separador",
       "String: por defecto, valores separados por coma (csv)"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "day": {
       "description": "p5.js se comunica con el reloj de tu computador. La función day() retorna el día actual como un valor entre 1 y 31.",
@@ -1198,21 +1212,21 @@
     "p5.XML": {
       "description": "XML es una representación de un objeto XML, capaz de procesar código XML. Usa loadXML() para cargar archivos externos XML y crear objetos XML",
       "params": ["String:"],
-      "returns": "p5.XML: el objeto p5.XML generado"
+      "returns": "p5.XML: 该 p5 物件.XML generado"
     },
     "createVector": {
       "description": "Crea un nuevo objeto p5.Vector (el tipo de datos para almacenar vectores). Esto provee un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección.",
       "params": ["Número: componente x del vector",
       "Número: componente y del vector",
       "Número: componente z del vector"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "p5.Vector": {
       "description": "Una clase para describir un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección. El tipo de datos, sin embargo, graba los componentes del vector (x, y para 2D y x,y,z para 3D). La magnitud y la dirección pueden ser calculados con los métodos mag() y heading(). En muchos de los ejemplos de p5.js, verás que p5.Vector es usado para describir una posición, velocidad o aceleración. Por ejemplo, si consideras un rectángulo moviéndose a lo largo de la pantalla, en cada instante tiene una posición (un vector que apunta desde el origen hasta su ubicación), una velocidad(la tasa a la que la posición del objeto cambia por unidad de tiempo, expresada como vector), y aceleración (la tasa a la que la velocidad del objeto cambia por unidad de tiempo, expresada como vector). Como los vectores representan grupos de valores, no podemos simplemente usar las operaciones tradicionales de adición, multiplicación, etc. En vez de eso, necesitaremos hacer matemática de vectores, lo que es simplificado con los métodos dentro de la clase p5.Vector.",
       "params": ["Número: componente x del vector",
       "Número: componente y del vector",
       "Número: componente z del vector"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "abs": {
       "description": "Calcula el valor absoluto (magnitud) de un número. Usa Math.abs(). El valor absoluto de un número es siempre positivo.",
@@ -1327,12 +1341,12 @@
       "description": "Ajusta el caracter y nivel de detalle producido por la función de ruido Perlin. Similar al concepto de armónicas en física, el ruido es calculado a lo largo de varias octavas. Las octavas más graves contribuyen de forma más significativa a la señal de salida y como define la intensidad general del ruido, mientras que las octavas más altas crean detalles más finos en la secuencia de ruido. Por defecto, el ruido es calculado a lo largo de 4 octavas, con cada octava contribuyendo exactamente la mitad que su predecesora, partiendo con una intensidad de 50% para la primera octava. Este tamaño de caída puede ser cambiado al añadir un parámetro adicional a la función. Por ejemplo, un factor de caída de 75% significa que cada octava tendrá un 75% de impacto (25% menos) que la octava anterior. Cualquier valor entre 0.0 y 1.0 es válido, sin embargo nota que valores superiores a 0.5 pueden resultar en que noise() retorne valores mayores a 1.0. Al cambiar estos parámetros, la señal creada por noise() puede ser adaptada para calzar con necesidades y características específicas.",
       "params": ["Número: número de octavas a ser usadas por el ruido",
       "Número: factor de caída para cada octava"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "noiseSeed": {
       "description": "Define el valor semilla para la función noise(). Por defecto, noise() produce diferentes resultados cada vez que el programa es ejecutado. Defines el parámetro value a una constante para que retorne la misma secuencia de números pseudo-aleatorios cada vez que el programa es ejecutado",
       "params": ["Número: el valor semilla"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "acos": {
       "description": "El inverso de la función cos(), retorna el arcocoseno de un valor. Esta función espera valores entre -1 y 1 y los valores retornados están en el rango entre 0 y PI (3.1415927).",
@@ -1383,12 +1397,12 @@
     "angleMode": {
       "description": "Define el modo actual de p5 para interpretar ángulos. El modo por defecto es en RADIANS (radianes).",
       "params": ["CONSTANTE: puede ser RADIANS (radianes) o DEGREES (grados)"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "randomSeed": {
       "description": "Define la semilla para la función random(). Por defecto, la función random() produce diferentes resultados cada vez que el programa es ejecutado. Definir el parámetro semilla como una constante hace que retorne la misma secuencia de números pseudo-aleatorios cada vez que el programa es ejecutado.",
       "params": ["Número: el valor semilla"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "random": {
       "description": "Retorna un número aleaotorio de tipo float (punto flotante). Acepta 0, 1 o 2 argumentos. Si no se le da un argumento, retorna un número aleatorio entre 0 y 1 (sin incluir 1). Si se da un argumento y es un número, retorna un número aleatorio entre 0 y hasta (pero sin incluir) el parámetro. Si se da un argumento y es un arreglo, retorna una elemento al azar del arreglo. Si se dan dos argumentos, retorna un número aleatorio entre el primer argumento y hasta (pero sin incluir) el segundo argumento.",
@@ -1407,22 +1421,22 @@
       "description": "Define el alineamiento actual para dibujar texto. Acepta dos argumentos: horizAlign(LEFT, CENTER o RIGHT) y vertAlign(TOP, BOTTOM, CENTER, o BASELINE). El parámetro horizAlign se refiere al valor x de la función text(), mientras que vel parámetro vertAlign al valor y. Así que si escribes textAlign(LEFT), estás alineando el borde izquierdo de tu texto al valor x dado en la función text(). Si escribes textAlign(RIGHT, TOP), estás alineando el borde derecho de tu texto con el valor x y el borde superior con el valor y del texto.",
       "params": ["Constante: alineamiento horizontal, puede ser LEFT, CENTER o RIGHT",
       "Constante: alineamiento vertical, puede ser TOP, BOTTOM, CENTER o BASELINE"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "textLeading": {
       "description": "Define o retorna el espaciado, en pixeles, entre líneas de texto. Esta configuración será usada en todas las llamadas posteriores a la función text().",
       "params": ["Número: el tamaño en pixeles de espaciamiento entre líneas"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "textSize": {
       "description": "Define o retorna el tamaño actual de la tipografía. Este tamaño será usado en todas las llamadas posteriores a la función text(). El tamaño de la tipografía es medido en pixeles.",
       "params": ["Número: el tamaño en pixeles de las letras en pixeles"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "textStyle": {
       "description": "Define o retorna el estilo actual de la tipografía. Puede ser NORMAL (normal), ITALIC (cursivo) o BOLD (destacado). Notar que puede ser anulado por estilo CSS. Para tipografías que no sean de sistema (opentype, truetype, etc.), usa loadFont().",
       "params": ["Número|Constante: estilo del texto, puede ser NORMAL, ITALIC o BOLD"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "textWidth": {
       "description": "Calcula y retorna el ancho de cualquier caracter o string.",
@@ -1445,14 +1459,14 @@
     },
     "p5.Font": {
       "description": "Clase base para manipulación de tipografía",
-      "params": ["Objeto: puntero a la instancia p5"],
-      "returns": "el objeto p5"
+      "params": ["物件：puntero a la instancia p5"],
+      "returns": "该 p5 物件"
     },
     "append": {
       "description": "Añade un valor al final de un arreglo. Extiende el largo de un arreglo en una unidad. Usa la función Array.push()",
       "params": ["Arreglo: Arreglo al que se agregará el dato",
       "Cualquiera: a ser añadido al arreglo"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "arrayCopy": {
       "description": "Copia el arreglo (o una parte del arreglo) a otro arreglo. El arreglo fuente es copiado al arreglo de destino, empezando por la posición especificada por srcPosition y a la posición especificada por dstPosition. El número de elementos a copiar es determinado por el largo. Notar que al copiar valores se sobreescriben los valores existentes en el arreglo de destino. Para anexar valores en vez de sobreescribirlos, usa la función concat(). La versión simplificada con dos argumentos, arrayCopy(src, dest), copia un arreglo entero a otro del mismo tamaño. Es equivaletne a arrayCopy(src, 0, dst, 0, src.length). Usar esta función es mucho más eficiente para copiar datos de un arreglo que iterar con un bucle for() y copiar cada elemento individualmente. ",
@@ -1461,7 +1475,7 @@
       "Arreglo: el arreglo de destino",
       "Número: posición inicial del arreglo de destino",
       "Número: númeor de elementos del arreglo a ser copiados"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "concat": {
       "description": "Concatena dos arreglos, usa la función Array.concat(). No modifica los arreglos de entrada.",
@@ -1472,7 +1486,7 @@
     "reverse": {
       "description": "Invierte el orden un arreglo, usa Array.reverse().",
       "params": ["Arreglo: arreglo a ser invertido"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "shorten": {
       "description": "Disminuye un arreglo en un elemento y retorna el arreglo más corto, usa Array.pop().",
@@ -1489,14 +1503,14 @@
       "description": "Ordena un arreglo de números, desde el más pequeño al más grande, o pone un arreglo de palabras en orden alfabético. El arreglo original no es modificado, un nuevo arreglo ordenado es retornado. El parámetro count define el número de elementos a ordenar. Por ejemplo, si hay 12 elementos en un arreglo y count es 5, los primeros 5 elementos del arreglo serán ordenados.",
       "params": ["Arreglo: arreglo a ordenar",
       "Número: número de elementos a ordenar, empezando desde 0"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "splice": {
       "description": "Inserta un valor o un arreglo de valores en un arreglo existente El primer parámetro especifica el arreglo inicial a ser modificado, y el segundo parámetro define los datos a insertarse. El tercer parámetro es un índice que especifica la posición del arreglo a partir de la que se insertarán los datos. Recuerda que el índice del arreglo empieza en 0, así que la primera posición es 0, la segunda es 1, etc.",
       "params": ["Arreglo: arreglo a ser modificado",
       "Cualquiera: valor a ser introducido",
       "Número: posición del arreglo donde se inserta el dato"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "subset": {
       "description": "Extrae un arreglo de elementos de un arreglo existente. El parámetro list define el arreglo desde el cual los elementos serán copiados, y los parámetros start y count especifican cuáles elementos extraer. Si no especifica count, los elementos serán extraidos desde el principio. Esta función no modifica el arreglo original",
@@ -1617,7 +1631,7 @@
       "params": ["Número: valor de la posición de la cámara en el eje x",
       "Número: valor de la posición de la cámara en el eje y",
       "Número: valor de la posición de la cámara en el eje z"],
-      "returns": "p5: el objeto p5"
+      "returns": "p5: 该 p5 物件"
     },
     "perspective": {
       "description": "Define la perspectiva de la cámara",
@@ -1625,7 +1639,7 @@
       "Número: frustum de la relación de aspecto de la cámara",
       "Número: frustum del largo del plano cercano",
       "Número: frustum del largo del plano lejano"],
-      "returns": "p5: el objeto p5"
+      "returns": "p5: 该 p5 物件"
     },
     "ortho": {
       "description": "Define la cámara ortogonal",
@@ -1635,7 +1649,7 @@
       "Número: define el frustum del plano superior de la cámara",
       "Número: define el frustum del plano cercano de la cámara",
       "Número: define el frustum del plano lejano de la cámara"],
-      "returns": "p5: el objeto p5"
+      "returns": "p5: 该 p5 物件"
     },
     "ambientLight": {
       "description": "Crea una luz ambiente con color",
@@ -1643,7 +1657,7 @@
       "Número: opcional, valor de verde o saturación",
       "Número: opcional, valor de azul o brillo",
       "Número: opcional, valor de opacidad"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
 
     "directionalLight": {
@@ -1655,7 +1669,7 @@
       "Número|p5.Vector: dirección del eje x o un p5.Vector",
       "Número: opcional, dirección del eje y",
       "Número: opcional, dirección del eje z"],
-      "returns": "el objeto p5"
+      "returns": "该 p5 物件"
     },
     "pointLight": {
       "description": "Crea una luz puntual con color y posición",
@@ -1666,16 +1680,16 @@
       "Número|p5.Vector: dirección del eje x o un p5.Vector",
       "Número: opcional, dirección del eje y",
       "Número: opcional, dirección del eje z"],
-      "returns": "p5: el objeto p5"
+      "returns": "p5: 该 p5 物件"
     },
     "normalMaterial": {
       "description": "Material normal para geometría. Puedes ver todos los posibles materiales en este ejemplo (TODO).",
-      "returns": "p5: el objeto p5"
+      "returns": "p5: 该 p5 物件"
     },
     "texture": {
       "description": "Textura para geometría. Puedes ver todos los posibles materiales en este ejemplo (TODO).",
       "params": ["p5.Image|p5.MediaElement|p5.Graphics: gráfica bidimensional para hacer render como textura."],
-      "returns": "p5: el objeto p5"
+      "returns": "p5: 该 p5 物件"
     },
     "ambientMaterial": {
       "description": "Material ambiente para geometría con un color dado. Puedes ver todos los posibles materiales en este ejemplo (TODO).",
@@ -1683,7 +1697,7 @@
       "Número: opcional, valor de verde o saturación",
       "Número: opcional, valor de azul o brillo",
       "Número: opcional, valor de opacidad"],
-      "returns": "p5: el objeto p5"
+      "returns": "p5: 该 p5 物件"
     },
     "specularMaterial": {
       "description": "Material espejo para geometría con un color dado. Puedes ver todos los posibles materiales en este ejemplo (TODO).",
@@ -1691,11 +1705,11 @@
       "Número: opcional, valor de verde o saturación",
       "Número: opcional, valor de azul o brillo",
       "Número: opcional, valor de opacidad"],
-      "returns": "p5: el objeto p5"
+      "returns": "p5: 该 p5 物件"
     },
     "p5.RendererGL": {
       "description": "TODO",
-      "returns": "p5: el objeto p5"
+      "returns": "p5: 该 p5 物件"
     },
     "p5.Shader": {
       "description": "Clase Shader para el modo WEBGL",
@@ -1715,8 +1729,7 @@
   },
   "p5.Element": {
     "description": "Clase base para todos los elementos añadidos al bosuqejo, incluyendo lienzo, buffers de gráficas, y otros elementos HTML. Los métodos en azul están incluidos en la funcionalidad base, los métodos en marrón son añadidos con la biblioteca p5.dom. No se ejecutan directamente, pero los objetos p5.Element son creados llamando a las funciones createCanvas(), createGraphics(), o en la biblioteca p5.dom, createDiv, createImg, createInput, etc.",
-    "params": ["String: node DOM envolvente.",
-    "Objeto: puntero a instancia p5."],
+    "params": ["String: node DOM envolvente.", "物件：puntero a instancia p5."],
     "returns": "TODO"
   }
 }
