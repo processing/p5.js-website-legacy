@@ -64,8 +64,10 @@ window.onload = function() {
   }
   if (tagInd !== -1) {
     var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
-    var taglineInd = Math.floor(6 * Math.random());
-    taglines[taglineInd].style.display = 'block';
+    if (taglines.length) {
+      var taglineInd = Math.floor(taglines.length * Math.random());
+      taglines[taglineInd].style.display = 'block';
+    }
   }
 
 
