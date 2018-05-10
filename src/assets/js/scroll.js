@@ -27,7 +27,6 @@ $(function() {
   var $window           = $(window),
       $sidebar          = $("#menu"),
       sidebarOffset     = $sidebar.offset(),
-      finalTop          = 0;
       $rotationElements = $([
         '#download-page #asterisk-design-element',
         '#reference-page #asterisk-design-element'
@@ -45,21 +44,21 @@ $(function() {
 
   // Change sidebar position:
   var setSidebarPosition = function(newTop) {
-    // Calculate new top if none passed in.
-    newTop = newTop || getNewTop();
-
     // If it is already animating, return. This makes the animation less choppy.
     // It will pick up the final top when the current animation ends.
-    finalTop = newTop;
     if ($sidebar.is(':animated')){
       return;
     }
+
+    // Calculate new top if none passed in.
+    newTop = newTop || getNewTop();
 
     $sidebar.animate({top: newTop}, { 
       easing: 'linear',
       duration: 100,
       complete: function(){
-        // Go again if a new final top has been set since animation started.
+        // Go again if a subsequent scroll has changed the final top.
+        var finalTop = getNewTop();
         if (newTop != finalTop){
           setSidebarPosition(finalTop);
         }
