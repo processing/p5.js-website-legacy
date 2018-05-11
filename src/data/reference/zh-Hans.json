@@ -210,106 +210,114 @@
     },
 
     "arc": {
-      "description": "Dibuja un arco en la pantalla. Si se llama con solo a, b, c, d, start y stop, el arco se dibuja como un pastel abierto. Si el modo se provee, el arco será dibujado abierto, o como acorde, o como pastel, según lo especificado. El origen puede ser cambiado con la función ellipseMode(). Nota que si dibujas un círculo completo (ej: 0 a TWO_PI) aparecerá en blanco, porque 0 y TWO_PI son la misma posición en el círculo unitario. La mejor manera de manejar esto es usar la función ellipse() para una elipse cerrada, y la función arc() para generar solo secciones de una elipse.",
-      "params": ["Número: coordenada x del arco de elipse.",
-      "Número: coordenada y del arco de elipse.",
-      "Número: ancho del arco de elipse.",
-      "Número: altura del arco de elipse.",
-      "Número: ángulo inicial del arco de elipse.",
-      "Número: ángulo final del arco de elipse.",
-      "Constante: parámetro opcional para determinar la manera de dibujar el arco."],
-      "returns": "该 p5 物件"
+      "description": "在荧幕上画个弧形。如果函数调用只提供 x、y、w、h、start 及 stop 参数，弧形将会被画成开放的饼形段。如果提供 mode 参数，弧形可是开放式半圆形（OPEN）、封闭式半圆形（CHORD）或封闭式饼形段（PIE）。原点可使用 ellipseMode() 函数设定。",
+      "params": ["数字：弧形的椭圆形的 x 坐标",
+                 "数字：弧形的椭圆形的 y 坐标",
+                 "数字：弧形的椭圆形的宽度",
+                 "数字：弧形的椭圆形的高度",
+                 "数字：弧形开始的角度，用弧度定义",
+                 "数字：弧形结束的角度，用弧度定义",
+                 "常数：可选参数用以定义弧形的画法，可用 CHORD、PIE 或 OPEN"],
+      "returns": ""
     },
     "ellipse": {
-      "description": "Dibuja una elipse (óvalo)  en la pantalla. Una elipse con igual ancho y altura es un círculo. Por defecto, los primeros dos parámetros definen la ubicación, y el tercero y cuarto definen el ancho y altura de la figura. Si no especifica una altura, el valor del ancho es usado como ancho y altura. El origen puede ser cambiado con la función ellipseMode().",
-      "params": ["Número: coordenada x de la elipse.",
-      "Número: coordenada y de la elipse.",
-      "Número: ancho de la elipse.",
-      "Número: altura de la elipse."],
-      "returns": "该 p5 物件"
+      "description": "在荧幕上画个椭圆形。宽度和高度相同的椭圆形为正圆形。在默认上，前两个参数将定义位置而第三和第四个参数将定义形状的宽度和高度。如果高度参数没有被提供的话，宽度参数值将为用来定义高度和宽度。如果高度或宽度为负数，函数将会取绝对值。原点可使用 ellipseMode() 函数设定。",
+      "params": ["数字：椭圆形的 x 坐标",
+                 "数字：椭圆形的 y 坐标",
+                 "数字：椭圆形的宽度",
+                 "数字：椭圆形的高度",
+                 "整数：椭圆形的径向扇区数"],
+      "returns": ""
     },
     "line": {
-      "description": "Dibuja una línea (un camino directo entre dos puntos) en la pantalla. La versión de line() con cuatro parámetros dibuja la línea en 2D. Para darle color a una línea, usa la función stroke(). Una línea no puede ser rellenada, por lo que la función fill() no afectará el color de una línea. Las líneas 2D son dibujadas con una ancho de un pixel por defecto, pero esto puede ser cambiado con la función strokeWeight().",
-      "params": ["Número: coordenada x del primer punto.",
-      "Número: coordenada y del primer punto.",
-      "Número: coordenada x del segundo punto.",
-      "Número: coordenada y del segundo punto."],
-      "returns": "该 p5 物件"
+      "description": "在荧幕上画个直线（两点之间的直接路径）。有四个参数的 line() 函数将画个二维直线。如果要将直线上色，可使用 stroke() 函数。直线并不能有填充色，因此 fill() 函数将不会影响直线的颜色。二维直线在默认情况下有一像素的宽度，不过您可以使用 strokeWeight() 函数更改宽度。",
+      "params": ["数字：第一个点的 x 坐标",
+                 "数字：第一个点的 y 坐标",
+                 "数字：第二个点的 x 坐标",
+                 "数字：第二个点的 y 坐标",
+                 "数字：第一个点的 z 坐标",
+                 "数字：第二个点的 z 坐标"],
+      "returns": ""
     },
     "point": {
-      "description": "Dibuja un punto, una coordenada en el espacio de un pixel de dimensión. El primer parámetro es la coordenada horizontal del punto, el segundo valor es la coordenada vertical del punto. El color del punto es determinado por el trazado actual con la función stroke().",
-      "params": ["Número: coordenada x.",
-      "Número: coordenada y ."],
-      "returns": "该 p5 物件"
+      "description": "画一个点，一个在空间内一像素的坐标。第一个参数是点的横向值，第二个参数是点的垂直值。点的颜色是由当时的外线色决定。",
+      "params": ["数字：x 坐标",
+                 "数字：y 坐标",
+                 "数字：z 坐标（用于 WEBGL 模式"],
+      "returns": ""
     },
     "quad": {
-      "description": "Dibuja un cuadrilátero, un polígono de cuatro lados. Es similar a un rectángulo, pero los ángulos entre sus bordes no están limitados a noventa grados. El primer par de parámetros (x1, y1) corresponde a las coordenadas del primer vértice y los pares siguientes deben seguir en el mismo orden, según las manecillas del reloj o en contra, alrededor de la figura a definir.",
-      "params": ["Número: coordenada x del primer punto.",
-      "Número: coordenada y del primer punto.",
-      "Número: coordenada x del segundo punto.",
-      "Número: coordenada y del segundo punto.",
-      "Número: coordenada x del tercer punto.",
-      "Número: coordenada y del tercer punto.",
-      "Número: coordenada x del cuarto punto.",
-      "Número: coordenada y del cuarto punto."],
-      "returns": "该 p5 物件"
+      "description": "画一个四角形。四角形或四边形是个有四个边的多边形。他和方形相似不过四个角并不需要是九十度。前两个参数 （x1、x2）定义第一个点而随后的配对参数应该以顺时钟或逆时钟的方向定义。",
+      "params": ["数字：第一个点的 x 坐标",
+                 "数字：第一个点的 y 坐标",
+                 "数字：第二个点的 x 坐标",
+                 "数字：第二个点的 y 坐标",
+                 "数字：第三个点的 x 坐标",
+                 "数字：第三个点的 y 坐标",
+                 "数字：第四个点的 x 坐标",
+                 "数字：第四个点的 y 坐标",
+                 "数字：",
+                 "数字：",
+                 "数字：",
+                 "数字："],
+      "returns": ""
     },
     "rect": {
-      "description": "Dibuja un rectángulo en la pantalla. Un rectángulo es una figura de cuatro lados con cada ángulo interior de noventa grados. Por defecto, los dos primeros parámetros definen la ubicación de la esquina superior izquierda, el tercero el ancho y el cuarto la altura. La manera en que estos parámetros son interpretados, sin embargo, puede ser cambiado con la función rectMode(). Los parámetros quinto, sexto, séptimo y octavo, si son especificados, determinan el radio de la esquina superior derecha, superior izquierda, inferior derecha e inferior izquierda, respectivamente. Si se omite un parámetro de radio de esquina, se usa el radio especificado por el valor anterior en la lista.",
-      "params": ["Número: coordenada x del rectángulo.",
-      "Número: coordenada y del rectángulo.",
-      "Número: ancho del rectángulo.",
-      "Número: altura del rectángulo.",
-      "Número: radio opcional de la esquina superior izquierda.",
-      "Número: radio opcional de la esquina superior derecha.",
-      "Número: radio opcional de la esquina inferior derecha.",
-      "Número: radio opcional de la esquina inferior izquierda.",
-      "Número:",
-      "Número:"],
-      "returns": "该 p5 物件"
+      "description": "在荧幕上画个方形。方形是每个角都为九十度的四边形。在默认上，前两个参数将定义位置而第三和第四个参数将定义形状的宽度和高度。这些参数被解读的方式可用 rectMode() 函数改变。<br><br>如果提供第五、六、七及八个参数，将定义左上角、右上角、右下角及左下角的拐角半径。没被定义的拐角半径参数将被定义为参数列内上一个定义的拐角半径值。",
+      "params": ["数字：方形的 x 坐标",
+                 "数字：方形的 y 坐标",
+                 "数字：方形的宽度",
+                 "数字：方形的高度",
+                 "数字：可选性左上角拐角半径值",
+                 "数字：可选性右上角拐角半径值",
+                 "数字：可选性右下角拐角半径值",
+                 "数字：可选性左下角拐角半径值",
+                 "整数：x 方向段数",
+                 "整数：y 方向段数"],
+      "returns": ""
     },
     "triangle": {
-      "description": "Un triángulo es un plano creado por la conexión de tres puntos. Los primeros dos argumentos especifican el primer punto, los parámetros centrales especifican el segundo punto, y los dos últimos parámetros especifican el tercer punto.",
-      "params": ["Número: coordenada x del primer punto.",
-      "Número: coordenada y del primer punto.",
-      "Número: coordenada x del segundo punto.",
-      "Número: coordenada y del segundo punto.",
-      "Número: coordenada x del tercer punto.",
-      "Número: coordenada y del tercer punto."],
-      "returns": "该 p5 物件"
+      "description": "三角形是个由连接三个点所形成的平面形。前两个参数定义第一个点，中间两个参数定义第二个点而最后两个参数定义第三个点。",
+      "params": ["数字：第一个点的 x 坐标",
+                 "数字：第一个点的 y 坐标",
+                 "数字：第二个点的 x 坐标",
+                 "数字：第二个点的 y 坐标",
+                 "数字：第三个点的 x 坐标",
+                 "数字：第三个点的 y 坐标"],
+      "returns": ""
     },
     "ellipseMode": {
-      "description": "Modifica la ubicación de donde las elipses son dibujadas, cambiando la manera en que los parámetros dados a ellipse() son interpretados. El modo por defecto es ellipseMode(CENTER), que interpreta los dos primeros parámetros de ellipse() como el centro de la figura, mientras que los parámetros tercero y cuarto son el ancho y la altura. ellipseMode(RADIUS) también usa los dos primeros parámetros de ellipse() como el punto central de la figura, pero usa los parámetros tercero y cuarto para especificar la mitad del ancho y la altura de la figura. ellipseMode(CORNER) interpreta los dos primeros parámetros de ellipse() como la esquina superior izquierda de la figura, mientras que los parámetros tercero y cuarto son el ancho y la altura. ellipseMode(CORNERS) interpreta los dos primeros parámetros de ellipse() como la ubicación de una esquina del rectángulo contenedor de la elipse, y los parámetros tercero y cuarto como la ubicación de la esquina opuesta. El parámetro debe ser escrito en MAYÚSCULAS porque Javascript es una lenguaje de programación que distingue entre mayúsculas y minúsculas.",
-      "params": ["Constante: puede ser CENTER, RADIUS, CORNER, o CORNERS."],
-      "returns": "该 p5 物件"
+      "description": "更改 ellipse() 参数被解读的方式，用以更改椭圆形被画在画布上的位置。<br><br>默认模式为 ellipseMode(CENTER)，ellipse() 前两个参数将被解读成椭圆形的中心点，而第三和第四个参数为宽度和高度。<br><br>ellipseMode(RADIUS) 将 ellipse() 的前两个参数解读成形状的中心点，但是第三和第四个参数被用于定义形状的半径宽度和半径高度<br><br>ellipseMode(CORNER) 将 ellipse() 的前两个参数解读成形状左上角的位置，而第三和第四个参数为宽度和高度<br><br>ellipseMode(CORNERS) 将 ellipse() 的前两个参数解读成形状其中一个角落的位置，而第三和第四个参数则被解读成对面角落的位置。<br><br>参数必须全是大写因为 Javascript 是个区分大小写的编程语言。",
+      "params": ["常量：CENTER、RADIUS、CORNER 或 CORNERS"],
+      "returns": ""
     },
     "noSmooth": {
-      "description": "Dibuja las figuras geométricas con bordes no suaves (aliasing). Notar que smooth() está activo por defecto, así que es necesario ejectuar noSmooth() para deshabilitar el suavizado de las figuras geométricas, imágenes y tipografías.",
-      "returns": "该 p5 物件"
+      "description": "所有形状的边缘都为锯齿状。注意 smooth() 为默认模式所以您必须调用 noSmooth() 以禁用平滑形状、图像及字体。",
+      "returns": ""
     },
     "rectMode": {
-      "description": "Modifica la ubicación en que los rectángulos son dibujados, cambiando la manera en que los parámetros dados a rect() son interpretados. El modo por defecto es rectMode(CORNER), que interpreta los primeros dos parámetros de rect() como la esquina superior izquierda de la figura, mientras que los parámetros tercero y cuarto son su ancho y altura. rectMode(CORNERS) interpreta los dos primeros parámetros de rect() como la ubicación de una esquina, y los parámetros tercero y cuarto como la ubicación de la esquina opuesta. rectMode(CENTER) interpreta los dos primeros parámetros de rect() como el punto central de la figura, mientas que los parámetros tercero y cuarto son su ancho y altura. rectMode(RADIUS) también usa los dos primeros parámetros de rect()= como el punto central de la figura, pero usa los parámetros tercero y cuarto para especificar la mitad del ancho y la altura de la figura. Los parámetros deben ser escritos en MAYÚSCULAS porque Javascript es un lenguaje que distingue entre mayúsculas y minúsculas.",
-      "params": ["Constante: puede ser CORNER, CORNERS, CENTER, o RADIUS."],
-      "returns": "该 p5 物件"
+      "description": "更改 rect() 参数被解读的方式，用以更改方形被画在画布上的位置。<br><br>默认模式为 rectMode(CORNER), rect() 前两个参数将被解读成形状的左上角的位置，而第三和第四个参数为宽度和高度。<br><br>rectMode(CORNERS) 将 rect() 的前两个参数解读成形状其中一个角落的位置，而第三和第四个参数则被解读成对面角落的位置。<br><br>rectMode(CENTER) 将 rect() 的前两个参数解读成形状的中心点，而第三和第四个参数为宽度和高度。<br><br>rectMode(RADIUS) 也将的前两个参数解读成形状的中心点，但第三和第四个参数被用来定义形状一半的宽度和一半的高度。<br><br>参数必须全是大写因为 Javascript 是个区分大小写的编程语言。",
+      "params": ["常量：CORNER、CORNERS、CENTER 或 RADIUS"],
+      "returns": ""
     },
     "smooth": {
-      "description": "Dibuja todas las figuras geométricas con bordes suaves (sin aliasing). smooth() también mejorará la calidad de las imágenes cuyo tamaño ha sido modificado. Notar que smooth() está activo por defecto; noSmooth() puede ser usado para deshabilitar el suavizado de las figuras geométricas, imágenes y tipografía.",
-      "returns": "该 p5 物件"
+      "description": "所有形状的边缘都为非锯齿（平滑）状。smooth() 也将提高调整过大小的图像的素质。注意 smooth() 为默认模式；noSmooth() 也能用来禁用平滑形状、图像及字体。",
+      "returns": ""
     },
     "strokeCap": {
-      "description": "Define el estilo de rendering de los extremos de las líneas. Estos extremos pueden ser cuadrados, extendidos o redondeados, cada uno de estos especifados con los parámetros correspondientes: SQUARE, PROJECT, y ROUND. El extremo por defecto es redonedeado (ROUND).",
-      "params": ["Constante: puede ser SQUARE, PROJECT, o ROUND."],
-      "returns": "该 p5 物件"
+      "description": "定义线条顶点的风格。顶点风格可以是方形、扩展式或圆形，它们个别参数为：SQUARE、PROJECT 及 ROUND。默认模式为 ROUND。",
+      "params": ["常量：SQUARE、PROJECT 或 ROUND"],
+      "returns": ""
     },
     "strokeJoin": {
-      "description": "Define el estilo de las uniones que conectan segmentos de líneas. Estas uniones pueden ser tipo inglete, biseladas o redondeadas, y especificadas con los parámetros correspondientes: MITER, BEVEL, y ROUND. La unión por defecto es MITER.",
-      "params": ["Constante: puede ser MITER, BEVEL, o ROUND."],
-      "returns": "该 p5 物件"
+      "description": "定义线条连接的风格。这些链接可以是尖角、斜角或圆角，它们个别参数为：MITER、BEVEL 及 ROUND。默认模式为 MITER。",
+      "params": ["常量：MITER、BEVEL 或 ROUND"],
+      "returns": ""
     },
     "strokeWeight": {
-      "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
-      "params": ["Número: el peso (en pixeles) del trazado"],
-      "returns": "该 p5 物件"
+      "description": "定义线条、点及形状边线的宽度（粗度）。所有宽度单位都是像素。",
+      "params": ["数字：线条的粗度（像素单位）"],
+      "returns": ""
     },
     "bezier": {
       "description": "Dibuja una curva Bezier cúbica en la pantalla. Estas curvas están definidas por una serie de puntos ancla y de control. Los primeros dos parámetros especifican el primer punto ancla y los dos últimos especifican el otro punto ancla, que se convierten en los puntos primero y último de la curva. Los parámetros en el medio especifican los dos puntos de control que definen la forma de la curva. De forma aproximada, los puntos de control atraen la curva hacia ellos. Las curvas Bezier fueron desarrolladas por el ingeniero automotriz Pierre Bezier, y son comúnmente usadas en gráficas computacionales para definir curvas de pendiente suave. Ver también curve().",
