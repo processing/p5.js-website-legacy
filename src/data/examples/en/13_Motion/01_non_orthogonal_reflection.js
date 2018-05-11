@@ -1,6 +1,6 @@
 /*
  * @name Non Orthogonal Reflection
- * @frame 710,400 (optional)
+ * @frame 710,400
  * @description This is a port by David Blitz of the "Reflection 1" example from processing.org/examples
  */
 
