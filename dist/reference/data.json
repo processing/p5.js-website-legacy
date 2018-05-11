@@ -1029,7 +1029,7 @@
             },
             "namespaces": {},
             "file": "src/data/p5.TypedDict.js",
-            "line": 407
+            "line": 410
         },
         "Dictionary": {
             "name": "Dictionary",
@@ -1049,12 +1049,11 @@
             "module": "Data",
             "namespace": "",
             "file": "src/data/p5.TypedDict.js",
-            "line": 407,
+            "line": 410,
             "requires": [
-                "core\n\nThis module defines the p5 methods for the p5 Dictionary classes\nthese classes StringDict and NumberDict are for storing and working\nwith key",
-                "value pairs"
+                "core\n\nThis module defines the p5 methods for the p5 Dictionary classes.\nThe classes StringDict and NumberDict are for storing and working\nwith key-value pairs."
             ],
-            "description": "<p>Base class for all p5.Dictionary types. More specifically\n typed Dictionary objects inherit from this</p>\n"
+            "description": "<p>Base class for all p5.Dictionary types. Specifically\n typed Dictionary classes inherit from this class.</p>\n"
         },
         "Events": {
             "name": "Events",
@@ -1260,7 +1259,7 @@
             "module": "IO",
             "namespace": "",
             "file": "src/io/files.js",
-            "line": 1169,
+            "line": 1170,
             "description": "<p>This is the p5 instance constructor.</p>\n<p>A p5 instance holds all the properties and methods related to\na p5 sketch.  It expects an incoming sketch closure and it can also\ntake an optional node parameter for attaching the generated p5 canvas\nto a node.  The sketch closure takes the newly created p5 instance as\nits sole argument and may optionally set preload(), setup(), and/or\ndraw() properties on it for running a sketch.</p>\n<p>A p5 sketch can run in &quot;global&quot; or &quot;instance&quot; mode:\n&quot;global&quot;   - all properties and methods are attached to the window\n&quot;instance&quot; - all properties and methods are bound to this p5 object</p>\n"
         },
         "Table": {
@@ -1875,8 +1874,8 @@
             "submodule": "Dictionary",
             "namespace": "",
             "file": "src/data/p5.TypedDict.js",
-            "line": 78,
-            "description": "<p>Base class for all p5.Dictionary types. More specifically\n typed Dictionary objects inherit from this</p>\n"
+            "line": 84,
+            "description": "<p>Base class for all p5.Dictionary types. Specifically\n typed Dictionary classes inherit from this class.</p>\n"
         },
         "p5.StringDict": {
             "name": "p5.StringDict",
@@ -1890,8 +1889,8 @@
             "submodule": "Dictionary",
             "namespace": "",
             "file": "src/data/p5.TypedDict.js",
-            "line": 387,
-            "description": "<p>A  Dictionary class for Strings.</p>\n",
+            "line": 391,
+            "description": "<p>A simple Dictionary class for Strings.</p>\n",
             "extends": "p5.TypedDict"
         },
         "p5.NumberDict": {
@@ -1906,7 +1905,7 @@
             "submodule": "Dictionary",
             "namespace": "",
             "file": "src/data/p5.TypedDict.js",
-            "line": 407,
+            "line": 410,
             "description": "<p>A simple Dictionary class for Numbers.</p>\n",
             "extends": "p5.TypedDict"
         },
@@ -1952,7 +1951,7 @@
             "submodule": "Output",
             "namespace": "",
             "file": "src/io/files.js",
-            "line": 1169,
+            "line": 1170,
             "params": [
                 {
                     "name": "filename",
@@ -2118,11 +2117,6 @@
             "description": "<p>p5 Geometry class</p>\n",
             "is_constructor": 1,
             "params": [
-                {
-                    "name": "vertData",
-                    "description": "<p>callback function or Object\n                    containing routine(s) for vertex data generation</p>\n",
-                    "type": "Function | Object"
-                },
                 {
                     "name": "detailX",
                     "description": "<p>number of vertices on horizontal surface</p>\n",
@@ -7093,7 +7087,7 @@
         },
         {
             "file": "src/core/p5.Renderer2D.js",
-            "line": 395,
+            "line": 391,
             "description": "<p>Generate a cubic Bezier representing an arc on the unit circle of total\nangle <code>size</code> radians, beginning <code>start</code> radians above the x-axis. Up to\nfour of these curves are combined to make a full arc.</p>\n<p>See www.joecridge.me/bezier.pdf for an explanation of the method.</p>\n",
             "class": "p5",
             "module": "Rendering"
@@ -7879,7 +7873,7 @@
         {
             "file": "src/data/p5.TypedDict.js",
             "line": 16,
-            "description": "<p>Creates a new instance of p5.StringDict using the key, value pair\n or object you provide.</p>\n",
+            "description": "<p>Creates a new instance of p5.StringDict using the key-value pair\n or the object you provide.</p>\n",
             "itemtype": "method",
             "name": "createStringDict",
             "return": {
@@ -7887,7 +7881,7 @@
                 "type": "p5.StringDict"
             },
             "example": [
-                "\n <div class=\"norender\">\n <code>\n function setup() {\n   var myDictionary = createStringDict('p5', 'js');\n   print(myDictionary.hasKey('p5')); // logs true to console\n }\n </code></div>"
+                "\n <div class=\"norender\">\n <code>\n function setup() {\n   var myDictionary = createStringDict('p5', 'js');\n   print(myDictionary.hasKey('p5')); // logs true to console\n  var anotherDictionary = createStringDict({ happy: 'coding' });\n   print(anotherDictionary.hasKey('happy')); // logs true to console\n }\n </code></div>"
             ],
             "class": "p5",
             "module": "Data",
@@ -7913,7 +7907,7 @@
                     }
                 },
                 {
-                    "line": 36,
+                    "line": 39,
                     "params": [
                         {
                             "name": "object",
@@ -7930,8 +7924,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 47,
-            "description": "<p>Creates a new instance of p5.NumberDict using the key, value pair\n or object you provide.</p>\n",
+            "line": 50,
+            "description": "<p>Creates a new instance of p5.NumberDict using the key-value pair\n or object you provide.</p>\n",
             "itemtype": "method",
             "name": "createNumberDict",
             "return": {
@@ -7939,14 +7933,14 @@
                 "type": "p5.NumberDict"
             },
             "example": [
-                "\n <div class=\"norender\">\n <code>\n function setup() {\n   var myDictionary = createNumberDict(100, 42);\n   print(myDictionary.hasKey(100)); // logs true to console\n }\n </code></div>"
+                "\n <div class=\"norender\">\n <code>\n function setup() {\n   var myDictionary = createNumberDict(100, 42);\n   print(myDictionary.hasKey(100)); // logs true to console\n  var anotherDictionary = createNumberDict({ 200: 84 });\n   print(anotherDictionary.hasKey(200)); // logs true to console\n }\n </code></div>"
             ],
             "class": "p5",
             "module": "Data",
             "submodule": "Dictionary",
             "overloads": [
                 {
-                    "line": 47,
+                    "line": 50,
                     "params": [
                         {
                             "name": "key",
@@ -7965,7 +7959,7 @@
                     }
                 },
                 {
-                    "line": 67,
+                    "line": 73,
                     "params": [
                         {
                             "name": "object",
@@ -7982,16 +7976,16 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 97,
-            "description": "<p>Returns the number of key-value pairs currently in Dictionary object</p>\n",
+            "line": 103,
+            "description": "<p>Returns the number of key-value pairs currently stored in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "size",
             "return": {
-                "description": "the number of key-value pairs in Dictionary object",
+                "description": "the number of key-value pairs in the Dictionary",
                 "type": "Integer"
             },
             "example": [
-                "\n<div class=\"norender\">\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(1, 10);\n  myDictionary.create(2, 20);\n  myDictionary.create(3, 30);\n  print(myDictionary.size()); // value of amt is 3\n}\n</code></div>\n"
+                "\n<div class=\"norender\">\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(1, 10);\n  myDictionary.create(2, 20);\n  myDictionary.create(3, 30);\n  print(myDictionary.size()); // logs 3 to the console\n}\n</code></div>\n"
             ],
             "class": "p5.TypedDict",
             "module": "Data",
@@ -7999,14 +7993,14 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 119,
-            "description": "<p>Returns true if key exists in Dictionary\notherwise returns false</p>\n",
+            "line": 125,
+            "description": "<p>Returns true if the given key exists in the Dictionary,\notherwise returns false.</p>\n",
             "itemtype": "method",
             "name": "hasKey",
             "params": [
                 {
                     "name": "key",
-                    "description": "<p>that you want to access</p>\n",
+                    "description": "<p>that you want to look up</p>\n",
                     "type": "Number|String"
                 }
             ],
@@ -8023,14 +8017,14 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 142,
-            "description": "<p>Returns value stored at supplied key.</p>\n",
+            "line": 148,
+            "description": "<p>Returns the value stored at the given key.</p>\n",
             "itemtype": "method",
             "name": "get",
             "params": [
                 {
-                    "name": "key",
-                    "description": "<p>that you want to access</p>\n",
+                    "name": "the",
+                    "description": "<p>key you want to access</p>\n",
                     "type": "Number|String"
                 }
             ],
@@ -8047,8 +8041,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 169,
-            "description": "<p>Changes the value of key if in it already exists in\nin the Dictionary otherwise makes a new key-value pair</p>\n",
+            "line": 175,
+            "description": "<p>Updates the value associated with the given key in case it already exists\nin the Dictionary. Otherwise a new key-value pair is added.</p>\n",
             "itemtype": "method",
             "name": "set",
             "params": [
@@ -8064,7 +8058,7 @@
                 }
             ],
             "example": [
-                "\n<div class=\"norender\">\n<code>\nfunction setup() {\n  var myDictionary = createStringDict('p5', 'js');\n  myDictionary.set('p5', 'JS');\n  myDictionary.print();\n  // above logs \"key: p5 - value: JS\" to console\n}\n</code></div>\n"
+                "\n<div class=\"norender\">\n<code>\nfunction setup() {\n  var myDictionary = createStringDict('p5', 'js');\n  myDictionary.set('p5', 'JS');\n  myDictionary.print(); // logs \"key: p5 - value: JS\" to console\n}\n</code></div>\n"
             ],
             "class": "p5.TypedDict",
             "module": "Data",
@@ -8072,16 +8066,16 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 198,
-            "description": "<p>private helper function to handle the user passing objects in\nduring construction or calls to create()</p>\n",
+            "line": 203,
+            "description": "<p>private helper function to handle the user passing in objects\nduring construction or calls to create()</p>\n",
             "class": "p5.TypedDict",
             "module": "Data",
             "submodule": "Dictionary"
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 209,
-            "description": "<p>Creates a key-value pair in the Dictionary</p>\n",
+            "line": 214,
+            "description": "<p>Creates a new key-value pair in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "create",
             "example": [
@@ -8092,7 +8086,7 @@
             "submodule": "Dictionary",
             "overloads": [
                 {
-                    "line": 209,
+                    "line": 214,
                     "params": [
                         {
                             "name": "key",
@@ -8107,7 +8101,7 @@
                     ]
                 },
                 {
-                    "line": 227,
+                    "line": 232,
                     "params": [
                         {
                             "name": "obj",
@@ -8120,8 +8114,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 245,
-            "description": "<p>Empties Dictionary of all key-value pairs</p>\n",
+            "line": 250,
+            "description": "<p>Removes all previously stored key-value pairs from the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "clear",
             "example": [
@@ -8133,8 +8127,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 265,
-            "description": "<p>Removes a key-value pair in the Dictionary</p>\n",
+            "line": 271,
+            "description": "<p>Removes the key-value pair stored at the given key from the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "remove",
             "params": [
@@ -8153,8 +8147,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 295,
-            "description": "<p>Logs the list of items currently in the Dictionary to the console</p>\n",
+            "line": 301,
+            "description": "<p>Logs the set of items currently stored in the Dictionary to the console.</p>\n",
             "itemtype": "method",
             "name": "print",
             "example": [
@@ -8166,12 +8160,12 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 319,
-            "description": "<p>Converts the Dictionary into a CSV file for local\nstorage.</p>\n",
+            "line": 325,
+            "description": "<p>Converts the Dictionary into a CSV file for local download.</p>\n",
             "itemtype": "method",
             "name": "saveTable",
             "example": [
-                "\n<div>\n<code>\ncreateButton('save')\n  .position(10, 10)\n  .mousePressed(function() {\n    createStringDict({\n      john: 1940,\n     paul: 1942,\n     george: 1943,\n     ringo: 1940\n    }).saveTable('beatles');\n  });\n</code>\n</div>"
+                "\n<div>\n<code>\ncreateButton('save')\n  .position(10, 10)\n  .mousePressed(function() {\n    createStringDict({\n      john: 1940,\n      paul: 1942,\n      george: 1943,\n      ringo: 1940\n    }).saveTable('beatles');\n  });\n</code>\n</div>"
             ],
             "class": "p5.TypedDict",
             "module": "Data",
@@ -8179,12 +8173,12 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 352,
-            "description": "<p>Converts the Dictionary into a JSON file for local\nstorage.</p>\n",
+            "line": 357,
+            "description": "<p>Converts the Dictionary into a JSON file for local download.</p>\n",
             "itemtype": "method",
             "name": "saveJSON",
             "example": [
-                "\n<div>\n<code>\ncreateButton('save')\n  .position(10, 10)\n  .mousePressed(function() {\n    createStringDict({\n      john: 1940,\n     paul: 1942,\n     george: 1943,\n     ringo: 1940\n    }).saveJSON('beatles');\n  });\n</code>\n</div>"
+                "\n<div>\n<code>\ncreateButton('save')\n  .position(10, 10)\n  .mousePressed(function() {\n    createStringDict({\n      john: 1940,\n      paul: 1942,\n      george: 1943,\n      ringo: 1940\n    }).saveJSON('beatles');\n  });\n</code>\n</div>"
             ],
             "class": "p5.TypedDict",
             "module": "Data",
@@ -8192,7 +8186,7 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 378,
+            "line": 382,
             "description": "<p>private helper function to ensure that the user passed in valid\nvalues for the Dictionary type</p>\n",
             "class": "p5.TypedDict",
             "module": "Data",
@@ -8200,7 +8194,7 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 423,
+            "line": 425,
             "description": "<p>private helper function to ensure that the user passed in valid\nvalues for the Dictionary type</p>\n",
             "class": "p5.NumberDict",
             "module": "Data",
@@ -8208,24 +8202,24 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 432,
-            "description": "<p>Add to a value stored at a certain key\nThe sum is stored in that location in the Dictionary.</p>\n",
+            "line": 434,
+            "description": "<p>Add the given number to the value currently stored at the given key.\nThe sum then replaces the value previously stored in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "add",
             "params": [
                 {
                     "name": "Key",
-                    "description": "<p>for value you wish to add to</p>\n",
+                    "description": "<p>for the value you wish to add to</p>\n",
                     "type": "Number"
                 },
                 {
-                    "name": "Amount",
+                    "name": "Number",
                     "description": "<p>to add to the value</p>\n",
                     "type": "Number"
                 }
             ],
             "example": [
-                "\n<div class='norender'>\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(2, 5);\n  myDictionary.add(2, 2);\n  console.log(myDictionary.get(2)); // logs 7 to console.\n}\n</code></div>\n\n"
+                "\n<div class='norender'>\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(2, 5);\n  myDictionary.add(2, 2);\n  print(myDictionary.get(2)); // logs 7 to console.\n}\n</code></div>\n\n"
             ],
             "class": "p5.NumberDict",
             "module": "Data",
@@ -8233,24 +8227,24 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 460,
-            "description": "<p>Subtract from a value stored at a certain key\nThe difference is stored in that location in the Dictionary.</p>\n",
+            "line": 462,
+            "description": "<p>Subtract the given number from the value currently stored at the given key.\nThe difference then replaces the value previously stored in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "sub",
             "params": [
                 {
                     "name": "Key",
-                    "description": "<p>for value you wish to subtract from</p>\n",
+                    "description": "<p>for the value you wish to subtract from</p>\n",
                     "type": "Number"
                 },
                 {
-                    "name": "Amount",
+                    "name": "Number",
                     "description": "<p>to subtract from the value</p>\n",
                     "type": "Number"
                 }
             ],
             "example": [
-                "\n<div class='norender'>\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(2, 5);\n  myDictionary.sub(2, 2);\n  console.log(myDictionary.get(2)); // logs 3 to console.\n}\n</code></div>\n\n"
+                "\n<div class='norender'>\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(2, 5);\n  myDictionary.sub(2, 2);\n  print(myDictionary.get(2)); // logs 3 to console.\n}\n</code></div>\n\n"
             ],
             "class": "p5.NumberDict",
             "module": "Data",
@@ -8258,8 +8252,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 484,
-            "description": "<p>Multiply a value stored at a certain key\nThe product is stored in that location in the Dictionary.</p>\n",
+            "line": 486,
+            "description": "<p>Multiply the given number with the value currently stored at the given key.\nThe product then replaces the value previously stored in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "mult",
             "params": [
@@ -8275,7 +8269,7 @@
                 }
             ],
             "example": [
-                "\n<div class='norender'>\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(2, 4);\n  myDictionary.mult(2, 2);\n  console.log(myDictionary.get(2)); // logs 8 to console.\n}\n</code></div>\n\n"
+                "\n<div class='norender'>\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(2, 4);\n  myDictionary.mult(2, 2);\n  print(myDictionary.get(2)); // logs 8 to console.\n}\n</code></div>\n\n"
             ],
             "class": "p5.NumberDict",
             "module": "Data",
@@ -8283,8 +8277,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 512,
-            "description": "<p>Divide a value stored at a certain key\nThe quotient is stored in that location in the Dictionary.</p>\n",
+            "line": 514,
+            "description": "<p>Divide the given number with the value currently stored at the given key.\nThe quotient then replaces the value previously stored in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "div",
             "params": [
@@ -8300,7 +8294,7 @@
                 }
             ],
             "example": [
-                "\n<div class='norender'>\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(2, 8);\n  myDictionary.div(2, 2);\n  console.log(myDictionary.get(2)); // logs 4 to console.\n}\n</code></div>\n\n"
+                "\n<div class='norender'>\n<code>\nfunction setup() {\n  var myDictionary = createNumberDict(2, 8);\n  myDictionary.div(2, 2);\n  print(myDictionary.get(2)); // logs 4 to console.\n}\n</code></div>\n\n"
             ],
             "class": "p5.NumberDict",
             "module": "Data",
@@ -8308,7 +8302,7 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 540,
+            "line": 542,
             "description": "<p>private helper function for finding lowest or highest value\nthe argument &#39;flip&#39; is used to flip the comparison arrow\nfrom &#39;less than&#39; to &#39;greater than&#39;</p>\n",
             "class": "p5.NumberDict",
             "module": "Data",
@@ -8316,8 +8310,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 563,
-            "description": "<p>Return the lowest value.</p>\n",
+            "line": 565,
+            "description": "<p>Return the lowest number currently stored in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "minValue",
             "return": {
@@ -8333,8 +8327,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 584,
-            "description": "<p>Return the highest value.</p>\n",
+            "line": 586,
+            "description": "<p>Return the highest number currently stored in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "maxValue",
             "return": {
@@ -8350,7 +8344,7 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 605,
+            "line": 607,
             "description": "<p>private helper function for finding lowest or highest key\nthe argument &#39;flip&#39; is used to flip the comparison arrow\nfrom &#39;less than&#39; to &#39;greater than&#39;</p>\n",
             "class": "p5.NumberDict",
             "module": "Data",
@@ -8358,8 +8352,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 628,
-            "description": "<p>Return the lowest key.</p>\n",
+            "line": 630,
+            "description": "<p>Return the lowest key currently used in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "minKey",
             "return": {
@@ -8375,8 +8369,8 @@
         },
         {
             "file": "src/data/p5.TypedDict.js",
-            "line": 649,
-            "description": "<p>Return the highest key.</p>\n",
+            "line": 651,
+            "description": "<p>Return the highest key currently used in the Dictionary.</p>\n",
             "itemtype": "method",
             "name": "maxKey",
             "return": {
@@ -8594,13 +8588,17 @@
                     "type": "Number"
                 }
             ],
+            "example": [
+                "\n<div class=\"norender\">\n<code>\n// Run this example on a mobile device\n// You will need to move the device incrementally further\n// the closer the square's color gets to white in order to change the value.\n\nvar value = 0;\nvar threshold = 0.5;\nfunction setup() {\n  setMoveThreshold(threshold);\n}\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction deviceMoved() {\n  value = value + 5;\n  threshold = threshold + 0.1;\n  if (value > 255) {\n    value = 0;\n    threshold = 30;\n  }\n  setMoveThreshold(threshold);\n}\n</code>\n</div>"
+            ],
+            "alt": "50x50 black rect in center of canvas. turns white on mobile when device moves",
             "class": "p5",
             "module": "Events",
             "submodule": "Acceleration"
         },
         {
             "file": "src/events/acceleration.js",
-            "line": 362,
+            "line": 393,
             "description": "<p>The setShakeThreshold() function is used to set the movement threshold for\nthe deviceShaken() function. The default threshold is set to 30.</p>\n",
             "itemtype": "method",
             "name": "setShakeThreshold",
@@ -8611,13 +8609,17 @@
                     "type": "Number"
                 }
             ],
+            "example": [
+                "\n<div class=\"norender\">\n<code>\n// Run this example on a mobile device\n// You will need to shake the device more firmly\n// the closer the box's fill gets to white in order to change the value.\n\nvar value = 0;\nvar threshold = 30;\nfunction setup() {\n  setShakeThreshold(threshold);\n}\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction deviceMoved() {\n  value = value + 5;\n  threshold = threshold + 5;\n  if (value > 255) {\n    value = 0;\n    threshold = 30;\n  }\n  setShakeThreshold(threshold);\n}\n</code>\n</div>"
+            ],
+            "alt": "50x50 black rect in center of canvas. turns white on mobile when device\nis being shaked",
             "class": "p5",
             "module": "Events",
             "submodule": "Acceleration"
         },
         {
             "file": "src/events/acceleration.js",
-            "line": 374,
+            "line": 437,
             "description": "<p>The deviceMoved() function is called when the device is moved by more than\nthe threshold value along X, Y or Z axis. The default threshold is set to\n0.5.</p>\n",
             "itemtype": "method",
             "name": "deviceMoved",
@@ -8631,7 +8633,7 @@
         },
         {
             "file": "src/events/acceleration.js",
-            "line": 405,
+            "line": 468,
             "description": "<p>The deviceTurned() function is called when the device rotates by\nmore than 90 degrees continuously.\n<br><br>\nThe axis that triggers the deviceTurned() method is stored in the turnAxis\nvariable. The deviceTurned() method can be locked to trigger on any axis:\nX, Y or Z by comparing the turnAxis variable to &#39;X&#39;, &#39;Y&#39; or &#39;Z&#39;.</p>\n",
             "itemtype": "method",
             "name": "deviceTurned",
@@ -8645,7 +8647,7 @@
         },
         {
             "file": "src/events/acceleration.js",
-            "line": 464,
+            "line": 527,
             "description": "<p>The deviceShaken() function is called when the device total acceleration\nchanges of accelerationX and accelerationY values is more than\nthe threshold value. The default threshold is set to 30.</p>\n",
             "itemtype": "method",
             "name": "deviceShaken",
@@ -11005,7 +11007,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1130,
+            "line": 1131,
             "itemtype": "method",
             "name": "createWriter",
             "params": [
@@ -11034,7 +11036,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1179,
+            "line": 1180,
             "description": "<p>Writes data to the PrintWriter stream</p>\n",
             "itemtype": "method",
             "name": "write",
@@ -11054,7 +11056,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1219,
+            "line": 1220,
             "description": "<p>Writes data to the PrintWriter stream, and adds a new line at the end</p>\n",
             "itemtype": "method",
             "name": "print",
@@ -11074,7 +11076,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1262,
+            "line": 1263,
             "description": "<p>Clears the data already written to the PrintWriter object</p>\n",
             "itemtype": "method",
             "name": "clear",
@@ -11087,7 +11089,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1280,
+            "line": 1281,
             "description": "<p>Closes the PrintWriter</p>\n",
             "itemtype": "method",
             "name": "close",
@@ -11100,7 +11102,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1329,
+            "line": 1330,
             "description": "<p>Save an image, text, json, csv, wav, or html. Prompts download to\nthe client&#39;s computer. <b>Note that it is not recommended to call save()\nwithin draw if it&#39;s looping, as the save() function will open a new save\ndialog every frame.</b></p>\n<p>The default behavior is to save the canvas as an image. You can\noptionally specify a filename.\nFor example:</p>\n <pre class='language-javascript'><code>\n save();\n save(&#39;myCanvas.jpg&#39;); // save a specific canvas with a filename\n </code></pre>\n\n<p>Alternately, the first parameter can be a pointer to a canvas\np5.Element, an Array of Strings,\nan Array of JSON, a JSON object, a p5.Table, a p5.Image, or a\np5.SoundFile (requires p5.sound). The second parameter is a filename\n(including extension). The third parameter is for options specific\nto this type of object. This method will save a file that fits the\ngiven paramaters. For example:</p>\n\n <pre class='language-javascript'><code>\n // Saves canvas as an image\n save('myCanvas.jpg');\n\n // Saves pImage as a png image\n var img = createImage(10, 10);\n save(img, 'my.png');\n\n // Saves canvas as an image\n var cnv = createCanvas(100, 100);\n save(cnv, 'myCanvas.jpg');\n\n // Saves p5.Renderer object as an image\n var gb = createGraphics(100, 100);\n save(gb, 'myGraphics.jpg');\n\n var myTable = new p5.Table();\n\n // Saves table as html file\n save(myTable, 'myTable.html');\n\n // Comma Separated Values\n save(myTable, 'myTable.csv');\n\n // Tab Separated Values\n save(myTable, 'myTable.tsv');\n\n var myJSON = { a: 1, b: true };\n\n // Saves pretty JSON\n save(myJSON, 'my.json');\n\n // Optimizes JSON filesize\n save(myJSON, 'my.json', true);\n\n // Saves array of strings to a text file with line breaks after each item\n var arrayOfStrings = ['a', 'b'];\n save(arrayOfStrings, 'my.txt');\n </code></pre>",
             "itemtype": "method",
             "name": "save",
@@ -11130,7 +11132,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1457,
+            "line": 1458,
             "description": "<p>Writes the contents of an Array or a JSON object to a .json file.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveJSON",
@@ -11162,7 +11164,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1509,
+            "line": 1510,
             "description": "<p>Writes an array of Strings to a text file, one line per String.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveStrings",
@@ -11194,7 +11196,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1571,
+            "line": 1572,
             "description": "<p>Writes the contents of a Table object to a file. Defaults to a\ntext file with comma-separated-values (&#39;csv&#39;) but can also\nuse tab separation (&#39;tsv&#39;), or generate an HTML table (&#39;html&#39;).\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveTable",
@@ -17171,7 +17173,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 52,
+            "line": 50,
             "itemtype": "method",
             "name": "computeFaces",
             "chainable": 1,
@@ -17180,7 +17182,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 94,
+            "line": 92,
             "description": "<p>computes smooth normals per vertex as an average of each\nface.</p>\n",
             "itemtype": "method",
             "name": "computeNormals",
@@ -17190,7 +17192,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 133,
+            "line": 131,
             "description": "<p>Averages the vertex normals. Used in curved\nsurfaces</p>\n",
             "itemtype": "method",
             "name": "averageNormals",
@@ -17200,7 +17202,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 154,
+            "line": 152,
             "description": "<p>Averages pole normals.  Used in spherical primitives</p>\n",
             "itemtype": "method",
             "name": "averagePoleNormals",
@@ -17210,7 +17212,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 247,
+            "line": 245,
             "description": "<p>Modifies all vertices to be centered within the range -100 to 100.</p>\n",
             "itemtype": "method",
             "name": "normalize",
@@ -24512,15 +24514,23 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/acceleration.js:374"
+            "line": " src/events/acceleration.js:350"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/acceleration.js:405"
+            "line": " src/events/acceleration.js:393"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/acceleration.js:464"
+            "line": " src/events/acceleration.js:437"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/events/acceleration.js:468"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/events/acceleration.js:527"
         },
         {
             "message": "unknown tag: alt",
@@ -24776,15 +24786,15 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1457"
+            "line": " src/io/files.js:1458"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1509"
+            "line": " src/io/files.js:1510"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1571"
+            "line": " src/io/files.js:1572"
         },
         {
             "message": "unknown tag: alt",
@@ -25324,31 +25334,31 @@
         },
         {
             "message": "Missing item type\nGenerate a cubic Bezier representing an arc on the unit circle of total\nangle `size` radians, beginning `start` radians above the x-axis. Up to\nfour of these curves are combined to make a full arc.\n\nSee www.joecridge.me/bezier.pdf for an explanation of the method.",
-            "line": " src/core/p5.Renderer2D.js:395"
+            "line": " src/core/p5.Renderer2D.js:391"
         },
         {
             "message": "Missing item type\nshim for Uint8ClampedArray.slice\n(allows arrayCopy to work with pixels[])\nwith thanks to http://halfpapstudios.com/blog/tag/html5-canvas/\nEnumerable set to false to protect for...in from\nUint8ClampedArray.prototype pollution.",
             "line": " src/core/shim.js:70"
         },
         {
-            "message": "Missing item type\nprivate helper function to handle the user passing objects in\nduring construction or calls to create()",
-            "line": " src/data/p5.TypedDict.js:198"
+            "message": "Missing item type\nprivate helper function to handle the user passing in objects\nduring construction or calls to create()",
+            "line": " src/data/p5.TypedDict.js:203"
         },
         {
             "message": "Missing item type\nprivate helper function to ensure that the user passed in valid\nvalues for the Dictionary type",
-            "line": " src/data/p5.TypedDict.js:378"
+            "line": " src/data/p5.TypedDict.js:382"
         },
         {
             "message": "Missing item type\nprivate helper function to ensure that the user passed in valid\nvalues for the Dictionary type",
-            "line": " src/data/p5.TypedDict.js:423"
+            "line": " src/data/p5.TypedDict.js:425"
         },
         {
             "message": "Missing item type\nprivate helper function for finding lowest or highest value\nthe argument 'flip' is used to flip the comparison arrow\nfrom 'less than' to 'greater than'",
-            "line": " src/data/p5.TypedDict.js:540"
+            "line": " src/data/p5.TypedDict.js:542"
         },
         {
             "message": "Missing item type\nprivate helper function for finding lowest or highest key\nthe argument 'flip' is used to flip the comparison arrow\nfrom 'less than' to 'greater than'",
-            "line": " src/data/p5.TypedDict.js:605"
+            "line": " src/data/p5.TypedDict.js:607"
         },
         {
             "message": "Missing item type\n_updatePAccelerations updates the pAcceleration values",
@@ -25444,19 +25454,19 @@
         },
         {
             "message": "Missing item type\nGenerate a blob of file data as a url to prepare for download.\nAccepts an array of data, a filename, and an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by saveStrings, saveJSON, saveTable etc.",
-            "line": " src/io/files.js:1697"
+            "line": " src/io/files.js:1698"
         },
         {
             "message": "Missing item type\nReturns a file extension, or another string\nif the provided parameter has no extension.",
-            "line": " src/io/files.js:1766"
+            "line": " src/io/files.js:1767"
         },
         {
             "message": "Missing item type\nReturns true if the browser is Safari, false if not.\nSafari makes trouble for downloading files.",
-            "line": " src/io/files.js:1799"
+            "line": " src/io/files.js:1800"
         },
         {
             "message": "Missing item type\nHelper function, a callback for download that deletes\nan invisible anchor element from the DOM once the file\nhas been automatically downloaded.",
-            "line": " src/io/files.js:1811"
+            "line": " src/io/files.js:1812"
         },
         {
             "message": "Missing item type\nTable Options\n<p>Generic class for handling tabular data, typically from a\nCSV, TSV, or other sort of spreadsheet file.</p>\n<p>CSV files are\n<a href=\"http://en.wikipedia.org/wiki/Comma-separated_values\">\ncomma separated values</a>, often with the data in quotes. TSV\nfiles use tabs as separators, and usually don't bother with the\nquotes.</p>\n<p>File names should end with .csv if they're comma separated.</p>\n<p>A rough \"spec\" for CSV can be found\n<a href=\"http://tools.ietf.org/html/rfc4180\">here</a>.</p>\n<p>To load files, use the loadTable method.</p>\n<p>To save tables to your computer, use the save method\n or the saveTable method.</p>\n\nPossible options include:\n<ul>\n<li>csv - parse the table as comma-separated values\n<li>tsv - parse the table as tab-separated values\n<li>header - this table has a header (title) row\n</ul>",
@@ -25516,11 +25526,11 @@
         },
         {
             "message": "Missing item type\nCreate a 2D array for establishing stroke connections",
-            "line": " src/webgl/p5.Geometry.js:192"
+            "line": " src/webgl/p5.Geometry.js:190"
         },
         {
             "message": "Missing item type\nCreate 4 vertices for each stroke line, two at the beginning position\nand two at the end position. These vertices are displaced relative to\nthat line's normal on the GPU",
-            "line": " src/webgl/p5.Geometry.js:213"
+            "line": " src/webgl/p5.Geometry.js:211"
         },
         {
             "message": "Missing item type",

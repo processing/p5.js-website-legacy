@@ -6,6 +6,7 @@
 1. Download this zip file or [clone this repository](https://help.github.com/articles/cloning-a-repository/) and navigate to the directory in the terminal.
 2. Type `npm install`.
 2. Rename `dist\download\version-sample.json` to `dist\download\version.json`.
+2. Type `npm install -g grunt-cli` to enable grunt.
 2. Type `grunt server` to run.
 3. This should open a window in your browser with the site running at http://localhost:9000.
 
