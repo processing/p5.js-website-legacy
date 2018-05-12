@@ -247,7 +247,7 @@
       "returns": ""
     },
     "quad": {
-      "description": "画一个四角形。四角形或四边形是个有四个边的多边形。他和方形相似不过四个角并不需要是九十度。前两个参数 （x1、x2）定义第一个点而随后的配对参数应该以顺时钟或逆时钟的方向定义。",
+      "description": "画一个四角形。四角形或四边形是个有四个边的多边形。他和方形相似不过四个角并不需要是九十度。前两个参数 （x1、x2）定义第一个点而随后的配对参数应该以顺时或逆时针的方向定义。",
       "params": ["数字：第一个点的 x 坐标",
                  "数字：第一个点的 y 坐标",
                  "数字：第二个点的 x 坐标",
@@ -403,52 +403,55 @@
       "returns": "数字：贝塞尔曲线上 t 位置的切线值"
     },
     "beginContour": {
-      "description": "Usa las funciones beginContour() y endContour() para crear figuras negativas dentro de figuras como el centro de la letra 'O'. beginContour() empieza la grabación de los vértices para la figura y endContour() finaliza la grabación. Los vértices que definen una figura negativa deben ser definidos en la dirección opuesta a la figura exterior. Primero dibuja los vértices de la figura exterior en el orden de las manecillas del reloj, y luego para figuras internas, dibuja vértices en el sentido contrario a las manecillas del reloj. Estas funciones solo pueden ser usadas dentro de un par beginShape()/endShape() y transformaciones como translate(), rotate(), y scale() no funcionan dentro de un par beginContour()/endContour(). Tampoco es posible usar otras figuras, como elupse() o rect() dentro.",
-      "returns": "该 p5 物件"
+      "description": "使用 beginContour() 及 endContour() 函数以在其他形状内创造剪影形状，比如说 “O” 字母内的空间。beginContour() 将开始记录形状的顶点而 endContour() 则停止记录。定义剪影形状的顶点定义的方向（顺时或逆时针）必须和包含它的形状不同。如果外形的顶点是顺时针方向定义的，那么它里面的形状的顶点需是逆时针方向定义。<br><br>这些函数只能在一对 beginShape()/endShape() 函数之间使用而变形函数如 translate()、rotate() 及 scale() 在一对 beginContour()/endContour() 内并不会有任何效果。其他形状如 ellipse() 或 rect() 也不能在里面使用。",
+      "returns": ""
     },
     "beginShape": {
-      "description": "El uso de las funciones beginShape() y endShape() permiten la creación de figuras más complejas. beginShape() empieza la grabación de vértices para una figura, mientras que endShape() termina la grabación. El valor del parámetro kind (tipo) define qué tipo de figuras serán creadas a partir de los vértices. Si no se especifica un modo, la figura puede ser cualquier polígono irregular. Los parámetros disponibles para beginShape() son POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, y QUAD_STRIP. Después de llamar a la función beginShape(), debe ser seguida por una serie de comandos vertex(). Para detener el dibujo de la figura, ejecuta endShape(). Cada figura será dibujada con el color de trazo y el color de relleno actual. Transformaciones como translate(), rotate(), y scale() no funcionan dentro de beginShape(). Tampoco es posible usar otras figuras como ellipse() o rect() dentro de beginShape().",
-      "params": ["Constante: puede ser POINTS, LINES, TRIANGLES, TRIANGLE_FAN TRIANGLE_STRIP, QUADS, o QUAD_STRIP"],
-      "returns": "该 p5 物件"
+      "description": "使用 beginShape() 及 endShape() 函数可让您创造更复杂的形状。beginShape() 将开始记录形状的顶点而 endShape() 则停止记录。所提供的参数将决定由所提供的顶点该画出怎样的形状。如果模式没有被提供，所定义的形状可以是任何不规则的多边形。<br><br>可提供给 beginShape() 的参数包括 POINTS、LINES、TRIANGLES、TRIANGLE_FAN、TRIANGLE_STRIP、QUADS 及 QUAD_STRIP。在调用 beginShape() 函数之后，一系列 vertex() 函数必须接着调用。调用 endShape() 以停止绘制形状。每个形状都将会有由当时外线色所定义的外线色及当时的填充色。<br><br>变形函数如 translate()、rotate() 及 scale() 在 beginShape() 内不会有任何效果。其他形状如 ellipse() 或 rect() 也不能在beginShape()里面使用。",
+      "params": ["常量：POINTS、LINES、TRIANGLES、TRIANGLE_FAN、TRIANGLE_STRIP、QUADS 或 QUAD_STRIP"],
+      "returns": ""
     },
     "bezierVertex": {
-      "description": "Especifica las coordenadas de un vértice para una curva Bezier. Cada llamada a la función bezierVertex() define la posición de dos puntos de control y un punto ancla de una curva Bezier, añadiendo un nuevo segmento a la línea o figura. La primera vez que bezierVertex() es usada dentro de una llamada a beginShape(), debe ser antecedida por una llamada a la función vertex() para definir el primer punto ancla. Esta función debe ser usada entre beginShape() y endShape() y solo cuando no se ha especificado el parámetro MODE (modo) a beginShape().",
-      "params": ["Número: coordenada x del primer punto de control la curva",
-        "Número: coordenada y del primer punto de control la curva",
-        "Número: coordenada x del segundo punto de control la curva",
-        "Número: coordenada y del segundo punto de control la curva",
-        "Número: coordenada x del primer punto ancla",
-        "Número: coordenada y del primer punto ancla"],
-      "returns": "该 p5 物件"
+      "description": "定义贝塞尔曲线的顶点坐标。每次调用 bezierVertex() 将定义贝塞尔曲线的两个控制点和一个锚点，以在线或形状上增加一个新部分。<br><br>在 beginShape() 内第一次调用 bezierVertex() 之前必须先调用一次 vertex() 以定义第一个锚点。这函数只能在 beginShape() 和 endShape() 之间使用并且也只能在 beginShape() 没有任何 MODE（模式）参数的情况下使用。",
+      "params": ["数字：第一个控制点的 x 坐标",
+                 "数字：第一个控制点的 y 坐标",
+                 "数字：第二个控制点的 x 坐标",
+                 "数字：第二个控制点的 y 坐标",
+                 "数字：第一个锚点的 x 坐标",
+                 "数字：第二个锚点的 x 坐标"],
+      "returns": ""
     },
     "curveVertex": {
-      "description": "Especifica las coordenadas de un vértice para una curva. Esta función solo puede ser usada entre beginShape() y endShape() y cuando no se ha especificado el parámetro MODE en la función beginShape(). Los puntos primero y último en una serie de líneas curveVertex() serán usados para guiar el inicio y final de una curva. Un mínimo de cuatro puntos es requerido para dibujar una pequeña curva entre los puntos segundo y tercero, Añadir un quinto punto con curveVertex() dibujará la curva entre los puntos segundo, tercero y cuarto. La función curveVertex() es una implementación de las splines de Catmull-Rom.",
-      "params": ["Número: coordenada x del vértice",
-        "Número: coordenada y del vértice"],
-      "returns": "该 p5 物件"
+      "description": "定义曲线顶点的坐标。这函数只能在 beginShape() 和 endShape() 之间使用并且也只能在 beginShape() 没有任何 MODE（模式）参数的情况下使用。<br><br>在一系列 curveVertex() 线条中第一个和最后一个点将被用来引导曲线的起点和终点。至少必须提供四个点以画一个介于第二和第三个点的小曲线。增加第五个点将会在第二、第三及第四个点之间画个曲线。curveVertex() 函数使用的是 Catmull-Rom 样条函数。",
+      "params": ["数字：顶点的 x 坐标",
+                 "数字：顶点的 y 坐标"],
+      "returns": ""
     },
     "endContour": {
-      "description": "Usa las funciones beginContour() y endContour() para crear figuras negativas dentro de figuras como el centro de la letra 'O'. beginContour() empieza la grabación de los vértices para la figura y endContour() finaliza la grabación. Los vértices que definen una figura negativa deben ser definidos en la dirección opuesta a la figura exterior. Primero dibuja los vértices de la figura exterior en el orden de las manecillas del reloj, y luego para figuras internas, dibuja vértices en el sentido contrario a las manecillas del reloj. Estas funciones solo pueden ser usadas dentro de un par beginShape()/endShape() y transformaciones como translate(), rotate(), y scale() no funcionan dentro de un par beginContour()/endContour(). Tampoco es posible usar otras figuras, como elupse() o rect() dentro.",
-      "returns": "该 p5 物件"
+      "description": "使用 beginContour() 及 endContour() 函数以在其他形状内创造剪影形状，比如说 “O” 字母内的空间。beginContour() 将开始记录形状的顶点而 endContour() 则停止记录。定义剪影形状的顶点定义的方向（顺时或逆时针）必须和包含它的形状不同。如果外形的顶点是顺时针方向定义的，那么它里面的形状的顶点需是逆时针方向定义。<br><br>这些函数只能在一对 beginShape()/endShape() 函数之间使用而变形函数如 translate()、rotate() 及 scale() 在一对 beginContour()/endContour() 内并不会有任何效果。其他形状如 ellipse() 或 rect() 也不能在里面使用。",
+      "returns": ""
     },
     "endShape": {
-      "description": "La función endShape() es compañera de la función beginShape() y solo puede ser ejecutada tras la ejecución de beginShape(). Cuando endshape() es ejecutada, todos los datos de imagen definidos desde la llamada anterior a beginShape() son escritos en el buffer de imagen. La constante CLOSE se usa como valor para el parámetro MODE para cerrar la figura (para conectar el comienzo con el final).",
-      "params": ["Constante: usa CLOSE para cerrar la figura."],
-      "returns": "该 p5 物件"
+      "description": "endShape() 函数和 beginShape() 是一对的而且它只能在 beginShape() 后使用。当 endshape() 被调用时，自上一次 beginShape() 调用后的所有被定义的图像资料将被写进图像缓冲区。定义常量 CLOSE 给 MODE 参数将会关闭该形状（连接起点和终点）。",
+      "params": ["常量：使用 CLOSE 以关闭形状"],
+      "returns": ""
     },
     "quadraticVertex": {
-      "description": "Especifica las coordenadas de vértices par curvas Bezier cuadráticas. Cada llamada a quadraticVertex() define la posición de uno de los puntos de control y ancla de una curva Bezier, añadiendo un nuevo segmento a la línea o figura. La primera vez que quadraticVertex() es usada dentro de una llamada a beginShape(), debe ser precedida por una llamada a la función vertex() para definir el primer punto ancla. Esta función debe ser usada entre un par beginShape() y endShape() y solo cuando no se ha especificado el parámetro MODE de beginShape().",
-      "params": ["Número: coordenada x del punto de control",
-        "Número: coordenada y del punto de control",
-        "Número: coordenada x del punto ancla",
-        "Número: coordenada y del punto ancla"],
-      "returns": "该 p5 物件"
+      "description": "定义二次贝塞尔曲线顶点的坐标。每次调用 quadraticVertex() 将定义贝塞尔曲线的一个控制点和一个锚点，以在线或形状上增加一个新部分。在 beginShape() 内第一次调用 quadraticVertex() 之前必须先调用一次 vertex() 以定义第一个锚点。这函数只能在 beginShape() 和 endShape() 之间使用并且也只能在 beginShape() 没有任何 MODE（模式）参数的情况下使用。",
+      "params": ["数字：控制点的 x 坐标",
+                 "数字：控制点的 y 坐标",
+                 "数字：锚点的 x 坐标",
+                 "数字：锚点的 y 坐标"],
+      "returns": ""
     },
     "vertex": {
-      "description": "Todas las figuras son construidas mediante la conexión de una serie de vértices. vertex() es usado para especificar las coordenadas de los vértices para puntos, líneas, triángulos, cuadriláteros y polígonos. Es usada exclusivamente dentro de un par de funciones beginShape() y endShape().",
-      "params": ["Número: coordenada x del vértice",
-        "Número: coordenada y del vértice"],
-      "returns": "该 p5 物件"
+      "description": "所有形状都是由连接一系列顶点形成的。vertex() 可用于定义点、线、三角形、四角形及多边形的顶点坐标。它只能在 beginShape() 和 endShape() 函数之间使用。",
+      "params": ["数字：顶点的 x 坐标",
+                 "数字：顶点的 y 坐标",
+                 "数字：顶点的 z 坐标",
+                 "数字：顶点的纹理 u 坐标",
+                 "数字：顶点的纹理 v 坐标"],
+      "returns": ""
     },
     "loadModel": {
       "description": "Carga un modelo 3d desde un archivo OBJ. Una de las limitaciones del formato OBJ es que no trae incorporado un sentido de escala. Esto significa que los modelos exportados por distintos programas pueden ser de tamaños radicalmente distintos. Si tu modelo no está siendo mostrado en pantalla, trata llamando a la función loadMode() con el parámetro de normalización configurado como verdadero. Esto escalará el tamaño del modelo a una escala apropiada para p5. También puedes hacer cambios adicionales al tamaño final de tu modelo con la función scale().",
