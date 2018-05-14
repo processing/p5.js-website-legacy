@@ -454,75 +454,77 @@
       "returns": ""
     },
     "loadModel": {
-      "description": "Carga un modelo 3d desde un archivo OBJ. Una de las limitaciones del formato OBJ es que no trae incorporado un sentido de escala. Esto significa que los modelos exportados por distintos programas pueden ser de tamaños radicalmente distintos. Si tu modelo no está siendo mostrado en pantalla, trata llamando a la función loadMode() con el parámetro de normalización configurado como verdadero. Esto escalará el tamaño del modelo a una escala apropiada para p5. También puedes hacer cambios adicionales al tamaño final de tu modelo con la función scale().",
-      "params": ["String: ubicación del modelo a cargar",
-        "Boolean:  Si es verdadero (true), escala el modelo a un tamaño estandarizado al momento de cargarlo.",
-        "Función(p5.Geometry3D): función a ser llamada cuando el modelo se cargue. Será pasada al modelo del objeto 3D.",
-        "Función(evento): llamada con el error evento si la imagen no falla al cargar."],
-      "returns": "该 p5 物件.Geometry3D"
+      "description": "从一个 OBJ 档案加载一个三维模型。<br><br>OBJ 格式的其中一个限制是它没有内建的大小值。这表示不同程式输出的模型可能有非常不同的大小。如果您的模型没被展示的话，请试着调用 loadModel() 并给予 normalized 参数“真”（true）值。这会将模型缩放成适合 p5 的大小。您也可以使用 scale() 函数对您的模型最后大小做与更多的调整。",
+      "params": ["字符串：要加载的模型的路径",
+                 "布尔值：如果为真，在加载时将模型缩放成标准大小。",
+                 "函数(p5.Geometry)：此函数将在模型完成加载后被调用，将被给予该三维模型为参数。",
+                 "函数(Event)：如果模型加载失败，此函数将被调用并给予错误事件（event）为参数。"],
+      "returns": "p5.Geometry：p5.Geometry 物件"
     },
     "model": {
-      "description": "Hace el render de un modelo 3D en la pantalla.",
-      "params": ["p5.Geometry: modelo 3D cargado para realizar render"],
-      "returns": "该 p5 物件"
+      "description": "将一个三维模型渲染在荧幕上。",
+      "params": ["p5.Geometry：要渲染的已加载的模型"],
+      "returns": ""
     },
     "plane": {
-      "description": "Dibuja un plano con ancho y altura dados.",
-      "params": ["Número: ancho del plano",
-      "Número: altura del plano",
-      "Número: número opcional de subdivisiones triangulares en la dimensión x",
-      "Número: número opcional de subdivisiones triangulares en la dimensión y"],
-      "returns": "该 p5 物件"
+      "description": "用给予的宽度和高度画一个平面。",
+      "params": ["数字：平面的宽度",
+                 "数字：平面的高度",
+                 "整数：（可选）在 x 轴的三角形细分数",
+                 "整数：（可选）在 y 轴的三角形细分数"],
+      "returns": ""
     },
     "box": {
-      "description": "Dibuja una caja con ancho, altura y profundidad dados.",
-      "params": ["Número: ancho de la caja",
-      "Número: altura de la caja",
-      "Número: profundidad de la caja",
-      "Número: número opcional de subdivisiones triangulares en la dimensión x",
-      "Número: número opcional de subdivisiones triangulares en la dimensión y"],
-      "returns": "该 p5 物件"
+      "description": "用给予的宽度、高度及深度画一个立方体。",
+      "params": ["数字：立方体的宽度",
+                 "数字：立方体的高度",
+                 "数字：立方体的深度",
+                 "整数：（可选）在 x 轴的三角形细分数",
+                 "整数：（可选）在 y 轴的三角形细分数"],
+      "returns": ""
     },
     "sphere": {
-      "description": "Dibuja una esfera de radio dado.",
-      "params": ["Número: radio del círculo",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16"],
-      "returns": "该 p5 物件"
+      "description": "用给予的半径画一个球形。",
+      "params": ["数字：球形的半径",
+                 "整数：分割的数量，越多分割几何形越平滑，默认值为 24",
+                 "整数：分割的数量，越多分割几何形越平滑，默认值为 16"],
+      "returns": ""
     },
     "cylinder": {
-      "description": "Dibuja un cilindro de radio y altura dados.",
-      "params": ["Número: radio de la superficie",
-      "Número: altura del cilindro",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16"],
-      "returns": "该 p5 物件"
+      "description": "用给予的半径和高度画一个圆筒形。",
+      "params": ["数字：表面的半径",
+                 "数字：圆筒形的高度",
+                 "整数：分割的数量，越多分割几何形越平滑，默认值为 24",
+                 "整数：y 轴分割的数量，越多分割几何形越平滑，默认值为 1",
+                 "布尔值：是否该画圆筒形的底部",
+                 "布尔值：是否该画圆筒形的顶部"],
+      "returns": ""
     },
     "cone": {
-      "description": "Dibuja un cono de radio y altura dados.",
-      "params": ["Número: radio de la superficie inferior",
-      "Número: altura del cono",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16"],
-      "returns": "该 p5 物件"
+      "description": "用给予的半径和高度画一个锥体形。",
+      "params": ["数字：底部表面的半径",
+                 "数字：锥体形的高度",
+                 "整数：分割的数量，越多分割几何形越平滑，默认值为 24",
+                 "整数：分割的数量，越多分割几何形越平滑，默认值为 1",
+                 "布尔值：是否该画锥体形的底部"],
+      "returns": ""
     },
     "ellipsoid": {
-      "description": "Dibuja un elipsoide de radio dado.",
-      "params": ["Número: radio x del círculo",
-      "Número: radio y del círculo",
-      "Número: radio z del círculo",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24. Evita números mayores a 150 que podrían colapsar el navegador.",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16. Evita números mayores a 150 que podrían colapsar el navegador."],
-      "returns": "该 p5 物件"
+      "description": "用给予的半径画一个椭球形。",
+      "params": ["数字：椭球形 x 轴的半径",
+                 "数字：椭球形 y 轴的半径",
+                 "数字：椭球形 z 轴的半径",
+                 "整数：分割的数量，越多分割几何形越平滑，默认值为 24。避免多于 150 的细节数量，因为它可能是浏览器停止运作。",
+                 "整数：分割的数量，越多分割几何形越平滑，默认值为 16。避免多于 150 的细节数量，因为它可能是浏览器停止运作。"],
+      "returns": ""
     },
     "torus": {
-      "description": "Dibuja un toroide con radio y tubo dado.",
-      "params": ["Número: radio del anillo completo",
-      "Número: radio del tubo",
-      "Número: radio z del círculo",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24.",
-      "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16."],
-      "returns": "该 p5 物件"
+      "description": "用给予的半径和管半径画一个圆环形。",
+      "params": ["数字：整个圆环形的半径",
+                 "数字：圆管的半径",
+                 "整数：x 轴分割的数量，越多分割几何形越平滑，默认值为 24。",
+                 "整数：y 轴分割的数量，越多分割几何形越平滑，默认值为 16。"],
+      "returns": ""
     },
     "HALF_PI": {
       "description": "HALF_PI es una constante matemática de valor 1.57079632679489661923. Es la mitad de la razón entre la circunferencia de un círculo y su diámetro. Es útil en combinación con las funciones trigonométricas sin() y cos().",
