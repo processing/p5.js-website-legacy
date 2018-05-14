@@ -591,89 +591,90 @@
       "returns": ""
     },
     "print": {
-      "description": "La función print() escribe en la consola del navegador. Esta función es a menudo de ayuda para observar los datos que un programa está produciendo. Esta función crea una nueva línea de texto por cada ejecución de la función. Elementos individuales pueden ser separados por comillas ('') y unidos con el operador de adición (+). Aunque print() es similar a console.log(), no llama a console.log() directamente, para simular una manera más simple de entender el comportamiento del programa. Por esto mismo, es más lento. Para resultados más rápidos, usar directamente console.log().",
-      "params": ["Cualquiera: cualquier combinación de número, string, objeto, boolean o arreglo a imprimir"],
-      "returns": "该 p5 物件"
+      "description": "print() 函数将写入浏览器的控制台区。这函数适用于查看程式生成的资料。这函数每一次被调用将创造新的一行字串。个别元素可使用引号（\"\"）分隔并使用加号（+）连接在一起。",
+      "params": ["任何：任何要写进控制台的数字、字符串、物件、布尔值或数组的组合"],
+      "returns": ""
     },
     "frameCount": {
-      "description": "La variable de sistema frameCount contiene el número de cuadros (frames) que se han mostrado desde que el programa empezó a ejecutarse. Dentro de setup() el valor es 0, después de la primera iteración de draw() es 1, etc.",
-      "returns": "该 p5 物件"
+      "description": "系统变量 frameCount 存着自程序开始已被展示的影格数量。在 setup() 这值为 0，在第一次执行 draw() 后为 1 等等。",
+      "returns": ""
     },
     "focused": {
-      "description": "Confirma si la ventana de un programa de p5.js está en foco, lo que significa que el bosquejo aceptará entradas desde el ratón o teclado. Esta variable es verdadera (true) si la ventana está en foco y falsa (false) si no.",
-      "returns": "该 p5 物件"
+      "description": "确定 p5.js 程式正在运行的窗口是否获得“焦点”，这表示绘图可接受滑鼠或键盘输入。如果窗口获得焦点，次变量为 “true” 否则为 “false”。",
+      "returns": ""
     },
     "cursor": {
-      "description" : "Define el cursor como un símbolo predeterminado o una imagen, o hace el cursor visible si es que estaba escondido. Si estás tratando de asignar una imagen al cursor, el tamaño recomendado es 16x16 o 32x32 pixeles. No es posible cargar una imagen al cursor si estás exportando tu programa a la Web, y no todos los modos funcionan con todos los navegadores. Los valores de los parámetros x e y deben ser menores a la dimensión de la imagen.",
-      "params": ["Número|Constante: puede ser ARROW, CROSS, HAND, MOVE, TEXT, o WAIT, o la dirección de una imagen",
-      "Número: el punto activo horizontal del cursor",
-      "Número: el punto activo vertical del cursor"],
-      "returns": "该 p5 物件"
+      "description" : "设置鼠标成预定的符号或一个图像，或者如果鼠标被隐藏显示鼠标。如果你想要设置一个图像为鼠标，建议的图像大小为 16x16 或 32x32 像素。 It is not possible to load an image as the cursor if you are exporting your program for the Web, and not all MODES work with all browsers. 参数 x 及 y 必须低于图像的大小。",
+      "params": ["字符串|常量：ARROW、CROSS、HAND、MOVE、TEXT 或图像的路径",
+                 "数字：鼠标的横向活跃点",
+                 "数字：鼠标的直向活跃点"],
+      "returns": ""
     },
     "frameRate": {
-      "description": "Especifica el número de cuadros mostrados por segundo. Por ejemplo, la llamada a la función frameRate(30), tratará de refrescar 30 veces por segundo. Si el procesador no es lo suficientemente rápido para mantener la tasa especificada, la tasa de cuadros por segundo no será lograda. Definir la tasa de cuadros por segundo dentro de setup() es lo recomendable. La tasa por defecto es de 60 veces por segundo. Esto es lo mismo que setFrameRate(val). Llamar a la función frameRate() sin argumentos retorna la tasa actual. Esto es lo mismo que getFrameRate(). Llamar a la función frameRate() con arugmentos que no son de tipo número o no son positivos también retornarán la tasa actual.",
-      "params": ["Número: número de cuadros a ser mostrados cada segundo."],
-      "returns": "la tasa de cuadros por segundo (frameRate) actual"
+      "description": "定义每一秒应该显示的影格数。比如说，调用 frameRate(30) 将使绘图每秒刷新 30 次。如果处理器没法跟上所定义的速率，该帧率将不会被达到。建议在 setup() 内设置帧率。默认的帧率值为每秒 60 影格。这和调用 setFrameRate(val) 的效果一样。<br><br>调用 frameRate() 但不给予任何参数将会返回当时的帧率。draw() 函数必须至少执行一次它才会返回帧率。这和调用 getFrameRate() 的效果一样。<br><br>调用 frameRate() 并给予任何不是数字或正数的参数也将会返回当时的帧率。",
+      "params": ["数字：每一秒该显示的影格数"],
+      "returns": ""
     },
     "noCursor": {
-      "description": "Esconde el cursor.",
-      "returns": "该 p5 物件"
+      "description": "隐藏鼠标。",
+      "returns": ""
     },
 
     "displayWidth": {
-      "description": "Variable de sistema que almacena el ancho de la pantalla mostrada. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla.",
-      "returns": "该 p5 物件"
+      "description": "储存整个荧幕宽度的系统变量。这可用来在任何大小的荧幕制作任何大小的全屏程序。",
+      "returns": ""
     },
     "displayHeight": {
-      "description": "Variable de sistema que almacena la altura de la pantalla mostrada. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla.",
-      "returns": "该 p5 物件"
+      "description": "储存整个荧幕高度的系统变量。这可用来在任何大小的荧幕制作任何大小的全屏程序。",
+      "returns": ""
     },
     "windowWidth": {
-      "description": "Variable de sistema que almacena el ancho interior de la ventana del navegador, equivale a window.innerWidth.",
-      "returns": "该 p5 物件"
+      "description": "储存窗口内部宽度的系统变量， 此函数映射 window.innerWidth。",
+      "returns": ""
     },
     "windowHeight": {
-      "description": "Variable de sistema que almacena la altura interior de la ventana del navegador, equivale a window.innerHeight.",
-      "returns": "该 p5 物件"
+      "description": "储存窗口内部高度的系统变量， 此函数映射 window.innerHeight。",
+      "returns": ""
     },
     "windowResized": {
-      "description": "La función windowResized() es llamada cada vez que la ventana del navegador cambia de tamaño. Es un buen lugar para cambiar las dimensiones del lienzo o hacer cualquier otro ajuste necesario para acomodar las nuevas dimensiones de la ventana.",
-      "returns": "该 p5 物件"
+      "description": "windowResized() 函数将在每次浏览器窗口缩放时被调用。这是个适合缩放画布及或任何其他调整以符合新的窗口大小的地方。",
+      "returns": ""
     },
     "width": {
-      "description": "Variable de sistema que almacena el ancho del lienzo dibujado. Este valor es definido por el primer parámetro de la función createCanvas(). Por ejemplo, la llamada a la función (320, 240) define la variable width al valor 320. El valor por defecto de ancho es de 100 si es que createCanvas() no ha sido usado en el programa.",
-      "returns": "该 p5 物件"
+      "description": "储存画布宽度的系统变量。这值是由 createCanvas() 函数的第一个参数所定义。比如说，调用函数 createCanvas(320, 240) 将定义此宽度变量为 320。如果一个程式没有使用 createCanvas() 宽度值将默认为 100。",
+      "returns": ""
     },
     "height": {
-      "description": "ariable de sistema que almacena la altura del lienzo dibujado. Este valor es definido por el primer parámetro de la función createCanvas(). Por ejemplo, la llamada a la función (320, 240) define la variable width al valor 240. El valor por defecto de ancho es de 100 si es que createCanvas() no ha sido usado en el programa.",
-      "returns": "该 p5 物件"
+      "description": "储存画布高度的系统变量。这值是由 createCanvas() 函数的第二个参数所定义。比如说，调用函数 createCanvas(320, 240) 将定义此高度变量为 240。如果一个程式没有使用 createCanvas() 高度值将默认为 100。",
+      "returns": ""
     },
     "fullscreen": {
-      "description": "Si se da un argumento, define que el bosquejo esté a pantalla completa basado en el valor del argumento. Si no se da un argumento, retorna el estado actual de pantalla completa. Notar que debido a restricciones del navegador esto solo puede ser llamado con una entrada de parte del usuario, por ejemplo, cuando se presiona el ratón como en el ejemplo.",
-      "params": ["Boolean: define si el bosquejo debe estar a pantalla completa o no."],
-      "returns": "Boolean: estado de pantalla completa actual"
+      "description": "如果提供一个参数，依该参数而定该绘图是否是全屏。如果没有给予任何参数，将返回当时的全屏状态。注意因为浏览器限制，此函数只能在使用者输入时调用，比如说在滑鼠点击时如以上范例。",
+      "params": ["布尔值：该绘图是否应该是全屏"],
+      "returns": "布尔值：当时的全屏状态"
     },
     "pixelDensity": {
-      "description": "Define el escalamiento de pixeles para monitores de alta densidad de pixeles. Por defecto, la densidad de pixeles es definida para calzar con la densidad del monitor, ejecuta pixelDensity() para que no sea así. Llamar a pixelDensity() sin argumentos retorna la densidad de pixeles actual del bosquejo.",
-      "params": ["Número: si es que el bosquejo debe ser escalado y cuánto."],
-      "returns": "Número: densidad de pixeles actual del bosquejo"
+      "description": "定义像素缩放值，用于高像素密度显示器。默认像素密度为显示器的像素密度，可调用 pixelDensity(1) 以关闭此功能。调用 pixelDensity() 并不给予任何参数将返回该绘图的像素密度。",
+      "params": ["数字：绘图是否应该缩放及缩放多少"],
+      "returns": "数字：该绘图的像素密度"
     },
     "displayDensity": {
-      "description": "Retorna la densidad de pixeles del monitor actual en que el bosquejo está corriendo.",
-      "returns": "Número: la densidad de pixeles actual del monitor"
+      "description": "返回正在运行该绘图的显示器的像素密度。",
+      "returns": "数字：该显示器的像素密度"
     },
     "getURL": {
-      "description": "Retorna la URL actual.",
-      "returns": "String: URL"
+      "description": "返回当下的网址。",
+      "returns": "字符串：网址"
     },
     "getURLPath": {
-      "description": "Retorna la dirección URL como un arreglo",
-      "returns": "Arreglo: los componentes de la dirección"
+      "description": "返回当下的网址的路径数组",
+      "returns": "字符串[]：路径组"
     },
     "getURLParams": {
-      "description": "Retorna los parámetros de la URL actual como un objeto.",
-      "returns": "物件：parámetros de la URL"
+      "description": "返回当下网址的参数物件",
+      "returns": "物件：网址参数"
     },
+
     "createCanvas": {
       "description": "Crea un elemento canvas en el documento, y define sus dimensiones medidas en pixeles. Este método debe ser llamado solo una vez al comienzo de la función setup(). Llamar a la función createCanvas() más de una vez en un bosquejo puede resultar en comportamientos impredecibles. Si quieres más de un lienzo donde dibujar, debes usar la función createGraphics() (escondido por defecto, pero puede ser mostrado), Las variables de sistema width (ancho) y height (altura) son definidas por los parámetros pasados a la función. Si createCanvas() no es usado, la ventana tendrá un tamaño por defecto de 100 x 100 pixeles. Para más maneras de posicionar el lienzo, ver la sección de posición del lienzo.",
       "params": ["Número: ancho del lienzo",
