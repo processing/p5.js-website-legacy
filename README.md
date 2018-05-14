@@ -10,7 +10,6 @@
 2. Type `grunt server` to run.
 3. This should open a window in your browser with the site running at http://localhost:9000.
 
-
 ## Running
 
 Once you've setup the site, to run again in the future:
@@ -48,17 +47,17 @@ Once you've setup the site, to run again in the future:
 * The slug corresponds to the folder in which the page will be placed. This should generally match the folder structure within the `pages` folder.
 * For english version, the site will follow the same top-level hierarchy as the original site. When you switch to a different language, the permalink and file structure will include a two letter abbreviation immediately following the root url. (ex: `https://p5js.org/es/get-started/`)
  
- ### JSON (reference)
+### JSON (reference)
+
  * The reference works a bit differently. The pages are built in English based on the inline documentation in the source code. They are then swapped out using [JS on the front-end](https://github.com/processing/p5.js-website/blob/master/dist/reference/index.html#L130).
  * The top level keys in the JSON object correspond to the page headings, menu, footer, etc. You can see all the swaps in [this file](https://github.com/processing/p5.js-website/blob/master/dist/reference/index.html#L130).
  * The "p5" key in the JSON object contains individual keys for each reference entry, indexed by variable/function/object name.
  * Any entries in the JSON object which are not filled in will be left in English when the page is loaded.
  * This is a somewhat hacky solution and not ideal. However, it comes from balancing the desire to have documentation directly in the source code, with the unwieldiness of having multiple languages of documentation inline. It will be our working solution until a better one is found.
 
-
 ## Updating the reference
 
-The documentation for p5.js is handled inline in the source code. See [Inline documentation](https://github.com/processing/p5.js/wiki/Inline-documentation) in the p5.js repo for information on how to contribute.
+The documentation for p5.js is handled inline in the source code. See [Inline documentation](https://github.com/processing/p5.js/blob/master/developer_docs/inline_documentation.md) in the p5.js repo for information on how to contribute.
 
 ## Notes about Examples
 
@@ -70,7 +69,6 @@ The examples are handled a bit differently from other pages.
 * Assets for the examples are placed in `src/data/examples/assets`.
 * Translations for the topic headers on the example index page are done in the YAML files (`src/data/*.yml`).
 * When adding a new example, first add an english version of the file to the `en/` folder, then make sure it is duplicated in the same place in all other languages, then translate for whichever languages you can. If you have created a new folder, add entries to the YAML files with the foldername as the key.
-
 
 ## Documentation
 
