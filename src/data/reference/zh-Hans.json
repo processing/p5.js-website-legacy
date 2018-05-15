@@ -712,65 +712,65 @@
                  "物件：有键值对的物件"]
     },
     "applyMatrix": {
-      "description": "Multiplica la matriz actual por la especificada según los parámetros. Esto es muy lento porque tratará de calcular el inverso de la transformada, así que evítalo cuando sea posible",
-      "params": ["Número: números que definen la matriz 3x2 a multiplicar",
-                 "Número: números que definen la matriz 3x2 a multiplicar",
-                 "Número: números que definen la matriz 3x2 a multiplicar",
-                 "Número: números que definen la matriz 3x2 a multiplicar",
-                 "Número: números que definen la matriz 3x2 a multiplicar",
-                 "Número: números que definen la matriz 3x2 a multiplicar"],
-      "returns": "该 p5 物件"
+      "description": "将现有的矩阵乘于由参数所定义的矩阵。这是个强大的功能并能够同时执行平移、缩放、切变及旋转。您能在<a href='https://zh.wikipedia.org/wiki/%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5'>维基百科</a>了解更多关于变形矩阵的资讯。<br><br>这里的参数命名跟着 <a href='https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-transform'>WHATWG 规范</a>（英文页面）的命名方式并代表着一个如下的变形矩阵：<blockquote><p><img style='max-width: 150px' src='assets/transformation-matrix.png' alt='当 applyMatrix 被调用时所使用的变形矩阵'></p></blockquote>",
+      "params": ["数字：定义该乘于的 2x3 矩阵",
+                 "数字：定义该乘于的 2x3 矩阵",
+                 "数字：定义该乘于的 2x3 矩阵",
+                 "数字：定义该乘于的 2x3 矩阵",
+                 "数字：定义该乘于的 2x3 矩阵",
+                 "数字：定义该乘于的 2x3 矩阵"],
+      "returns": ""
     },
     "resetMatrix": {
-      "description": "Reemplaza la matriz actual con la matriz identidad",
-      "returns": "该 p5 物件"
+      "description": "将现有的矩阵替换成单位矩阵。",
+      "returns": ""
     },
     "rotate": {
-      "description": "Rota una figura según el monto especificado por el parámetro ángulo. Esta función toma en cuenta el modo de ángulo definido por angleMode(), así que los ángulos pueden ser ingresados en radianes o grados. Los objetos son siempre rotados según su posición relativa al origen y los números positivos rotan en la dirección de las manecillas del reloj. Las transformaciones se aplican a todo lo que ocurre de forma posterior y las subsecuentes llamadas a la función acumulan el efecto. Por ejemplo, llamar a la función rotate(HALF_PI) y luego rotate(HALF_PI) equivale a una llamada a rotate(PI). Todas las transformaciones son anuladas cuando la función draw() comienza nuevamente. Técnicamente, rotate() multiplica la matriz de transformación actual por una matriz de rotación. Esta función puede ser controlada además con las funciones push() y pop().",
-      "params": ["Ángulo: el ángulo de rotación, especificado en radianes o grados, dependiendo de angleMode()",
-                 "Número: ángulo en radianes",
-                 "p5.Vector|Arreglo: eje sobre el que se rota"],
-      "returns": "该 p5 物件"
+      "description": "将一个形状根据参数所定义的角度旋转。这函数将考虑角度模式，所以角度可以是弧度或角度定义。<br><br>所有物件都会绕着原点旋转而正数将使物件在顺时针方向旋转。此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积。比如说，调用 rotate(HALF_PI) 然后 rotate(HALF_PI) 效果会与 rotate(PI) 相同。所有变形将会在 draw() 重新开始时恢复。",
+      "params": ["数字：旋转的角度，根据当时的角度模式，以弧度或角度定义",
+                 "p5.Vector|数字[]：（3D 模式下）旋转轴"],
+      "returns": ""
     },
     "rotateX": {
-      "description": "Rota en torno al eje X",
-      "params": ["Número: ángulo en radianes"],
-      "returns": "该 p5 物件"
+      "description": "绕着 x 轴旋转。",
+      "params": ["数字：旋转角度，根据当时的角度模式，以弧度或角度定义"],
+      "returns": ""
     },
     "rotateY": {
-      "description": "Rota en torno al eje Y",
-      "params": ["Número: ángulo en radianes"],
-      "returns": "该 p5 物件"
+      "description": "绕着 y 轴旋转。",
+      "params": ["数字：旋转角度，根据当时的角度模式，以弧度或角度定义"],
+      "returns": ""
     },
     "rotateZ": {
-      "description": "Rota en torno al eje Z,. Sólo disponible en el modo WEBGL.",
-      "params": ["Número: ángulo en radianes"],
-      "returns": "该 p5 物件"
+      "description": "绕着 x 轴旋转。只适用于 WEBGL 模式。",
+      "params": ["数字：旋转角度，根据当时的角度模式，以弧度或角度定义"],
+      "returns": ""
     },
     "scale": {
-      "description": "Aumenta o decrementa el tamaño de una figura por medio de expandir o contraer sus vértices. Los objetos siempre escalan desde su origen relativo al sistema de coordenadas. Los valores de escalamiento son porcentajes decimales. Por ejemplo, la llamada a la función scale(2.0) aumenta la dimensión de una figura en un 200%. Las transformaciones se aplican a todo lo que ocurre después y llamadas subsecuentes a la función multiplican el efecto. Por ejemplo, llamar a scale(2.0) y luego a scale(1.5) equivale a llamar a scale(3.0). Si la función scale() es llamad dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. El uso de esta función con el parámetro z está solo disponible en el modo WEBGL. Esta función puede también ser controlada con las funciones push() y pop().",
-      "params": ["Número | p5.Vector| Arreglo: porcentaje a escalar del objeto, o porcentaje a esacalar del objeto en el eje x si se dan múltiples argumentos",
-      "Número: porcentaje a escalar el objeto en el eje y",
-      "Número: porcentaje a escalar el objeto en el eje z (sólo en modo WEBGL)"],
-      "returns": "该 p5 物件"
+      "description": "通过扩大和收缩顶点，放大或缩小形状。形状物件将会从坐标系统的原点开始缩放。缩放值为十进制百分比。比如说，调用函数 scale(2.0) 将使该形状放大 200%。<br><br>此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积相乘。比如说，调用 scale(2.0) 然后 scale(1.5) 效果会与 scale(3.0) 相同。如果 scale() 在 draw() 内被调用，变形将会在下一次循环开始时恢复。<br><br>给予此函数一个 z 参数只在 WEBGL 模式下受支持。这函数能使用 push() 及 pop() 控制。",
+      "params": ["数字|p5.Vector|数字[]：缩放物件的百分比，或如果给予多个参数 x 轴的缩放百分比",
+                 "数字：y 轴的缩放百分比",
+                 "数字：z 轴的缩放百分比（只适用于 WEBGL 模式）",
+                 "p5.Vector|数字[]：各轴缩放百分比"],
+      "returns": ""
     },
     "shearX": {
-      "description": "Corta la figura en torno al eje x según el monto especificado por el parámetro ángulo. Los ángulos deben ser especificados según el modo actual de ángulo angleMode(). Los objetos son siempre cortados según su posición relativa al origen y los números positivos cortan los objetos en la dirección de las manecillas del reloj. Las transformaciones aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a shearX(PI/2) y luego a shearX(PI/2) equivale a llamar a shearX(PI). Si shearX() es llamado dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. Técnicamente, shearX() multiplica la matriz de transformación actual por una matriz de rotación. La función puede ser controlada con las funciones push() y pop().",
-      "params": ["Número: ángulo de corte especificado en radianes o grados, dependiendo del modo de ángulo actual angleMode()"],
-      "returns": "该 p5 物件"
+      "description": "有角度参数所定义的形状 x 轴切变量。角度必须符合当时的角度模式。形状物件将会从坐标系统的原点开始切变而正数表示切变方向为顺时针方向。<br><br>此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积。比如说，调用 shearX(PI/2) 然后 shearX(PI/2) 效果会与 shearX(PI) 相同。如果 shearX() 在 draw() 内被调用，变形将会在下一次循环开始时恢复。<br><br>技术上，shearX() 将现有的变形矩阵乘以一个旋转矩阵。这函数能使用 push() 及 pop() 控制。",
+      "params": ["数字：根据当时的角度模式，以弧度或角度定义和切变角度"],
+      "returns": ""
     },
     "shearY": {
-
-        "description": "Corta la figura en torno al eje y según el monto especificado por el parámetro ángulo. Los ángulos deben ser especificados según el modo actual de ángulo angleMode(). Los objetos son siempre cortados según su posición relativa al origen y los números positivos cortan los objetos en la dirección de las manecillas del reloj. Las transformaciones aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a shearY(PI/2) y luego a shearY(PI/2) equivale a llamar a shearY(PI). Si shearY() es llamado dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. Técnicamente, shearY() multiplica la matriz de transformación actual por una matriz de rotación. La función puede ser controlada con las funciones push() y pop().",
-        "params": ["Número: ángulo de corte especificado en radianes o grados, dependiendo del modo de ángulo actual angleMode()"],
-        "returns": "该 p5 物件"
+        "description": "有角度参数所定义的形状 y 轴切变量。角度必须符合当时的角度模式。形状物件将会从坐标系统的原点开始切变而正数表示切变方向为顺时针方向。<br><br>此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积。比如说，调用 shearY(PI/2) 然后 shearY(PI/2) 效果会与 shearY(PI) 相同。如果 shearY() 在 draw() 内被调用，变形将会在下一次循环开始时恢复。<br><br>技术上，shearY() 将现有的变形矩阵乘以一个旋转矩阵。这函数能使用 push() 及 pop() 控制。",
+        "params": ["数字：根据当时的角度模式，以弧度或角度定义和切变角度"],
+        "returns": ""
     },
     "translate": {
-      "description": "Especifica una cantidad a desplazar los objetos dentro de la ventana mostrada. El parámetro x especifica la traslación de izquierda a derecha, el parámetro y especifica la traslación de arriba a abajo. Las transformaciones son acumulativas y aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a translate(50, 0) y luego a translate(20, 0) equivale a llamar a translate(70, 0). Si translate() es llamado dentro de draw(), la transformación es anulada cada vez que el bucle empieza nuevamente. Esta función peude ser controlada con las funciones push() y pop().",
-      "params": ["Número: traslación izquierda-derecha",
-      "Número: traslación arriba-abajo",
-      "Número: traslación adelante-atrás (solo en modo WEBGL)"],
-      "returns": "该 p5 物件"
+      "description": "定义在显示窗口内平移物件的量。x 参数将定义左/右平移，y 参数将定义上/下平移。<br><br>此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积。比如说，调用 translate(50, 0) 然后 translate(20, 0) 效果会与 translate(70, 0) 相同。如果 translate() 在 draw() 内被调用，变形将会在下一次循环开始时恢复。这函数能使用 push() 及 pop() 控制。",
+      "params": ["数字：左/右平移",
+                 "数字：上/下平移",
+                 "数字：前/后平移（只适用于 WEBGL 模式）",
+                 "p5.Vector：平移向量"],
+      "returns": ""
     },
     "deviceOrientation": {
       "description": "La variable de sistema deviceOrientation siempre contiene la orientación del dispositivo. El valor de esta variable será o landscape (paisaje) o portrait (retrato). Si la información no está disponible, su valor será undefined.",
