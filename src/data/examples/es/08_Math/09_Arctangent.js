@@ -28,24 +28,24 @@ function draw() {
 }
 
 function Eye(tx, ty, ts) {
-  let { angle, x, y, size } = this;
-  angle = 0.0;
-  x = tx;
-  y = ty;
-  size = ts;
+  this.angle = 0.0;
+  this.x = tx;
+  this.y = ty;
+  this.size = ts;
 
+  console.log(this);
   this.update = function(mx, my) {
-    angle = atan2(my - y, mx - x);
+    this.angle = atan2(my - this.y, mx - this.x);
   };
 
   this.display = function() {
     push();
-    translate(x, y);
+    translate(this.x, this.y);
     fill(255);
-    ellipse(0, 0, size, size);
-    rotate(angle);
+    ellipse(0, 0, this.size, this.size);
+    rotate(this.angle);
     fill(153, 204, 0);
-    ellipse(size / 4, 0, size / 2, size / 2);
+    ellipse(this.size / 4, 0, this.size / 2, this.size / 2);
     pop();
   };
 }
