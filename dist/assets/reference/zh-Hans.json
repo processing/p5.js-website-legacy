@@ -676,40 +676,49 @@
     },
 
     "createCanvas": {
-      "description": "Crea un elemento canvas en el documento, y define sus dimensiones medidas en pixeles. Este método debe ser llamado solo una vez al comienzo de la función setup(). Llamar a la función createCanvas() más de una vez en un bosquejo puede resultar en comportamientos impredecibles. Si quieres más de un lienzo donde dibujar, debes usar la función createGraphics() (escondido por defecto, pero puede ser mostrado), Las variables de sistema width (ancho) y height (altura) son definidas por los parámetros pasados a la función. Si createCanvas() no es usado, la ventana tendrá un tamaño por defecto de 100 x 100 pixeles. Para más maneras de posicionar el lienzo, ver la sección de posición del lienzo.",
-      "params": ["Número: ancho del lienzo",
-      "Número: altura del lienzo",
-      "Constante: P2D o WEBGL"],
-      "returns": "物件：lienzo generado"
+      "description": "在文件内创造一个画布元素，并以像素定义其大小。这函数只应该在 setup() 开始时被调用一次。在同一个绘图里调用 createCanvas 多过一次将造成难以预料的行为。如果你想要使用多过一个绘图画布您可以使用 createGraphics（默认上会被隐藏可是可以被显示）。<br><br>给予这函数的宽度和高度参数将被用来定义 width 和 height 系统变量。如果 createCanvas() 没有被使用，画布将会被给予默认大小 100x100。<br><br>以知更多放置画布的方法，请参考<a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'>画布放置维基</a>（英文页面）。",
+      "params": ["数字：画布的宽度",
+                 "数字：画布的高度",
+                 "常量：P2D 或 WEBGL"],
+      "returns": "p5.Renderer："
     },
     "resizeCanvas": {
-      "description": "Redimensiona el linezo al ancho y la altura dados. El lienzo será borrado y la función draw() será llamada inmediatamente, permitiendo que el bosquejo se ajuste al nuevo lienzo",
-      "returns": "该 p5 物件"
+      "description": "缩放画布至给予的宽度和高度。该画布将会马上被清空及调用 draw()，使得画布能在缩放后重新渲染。",
+      "params": ["数字：画布的宽度",
+                 "数字：画布的高度",
+                 "布尔值：不要马上更新画布"],
+      "returns": ""
     },
     "noCanvas": {
-      "description": "Remueve el lienzo por defecto para un bosquejo de p5 que no requiere un lienzo.",
-      "returns": "该 p5 物件"
+      "description": "如果该 p5 绘图不需要画布，此函数将移除默认画布。",
+      "returns": ""
     },
     "createGraphics": {
-      "description": "Crea y retorna un nuevo objeto p5.Renderer. Usa esta clase si necesitas dibujar fuera de pantalla en un buffer gráfico. Los dos parámetros definen el ancho y la altura en pixeles.",
-      "params": ["Número: ancho del buffer gráfico fuera de pantalla",
-      "Número: altura del buffer gráfico fuera de pantalla",
-      "Constante: P2D o WEBGL, si no se define es P2D por defecto"],
+      "description": "创造及返回一个新的 p5.Renderer 物件。如果您需要在一个画面外的图形缓冲区作画，您可以使用这个函数。前两个参数将定义宽度和高度像素。",
+      "params": ["数字：画面外图形缓冲区的宽度",
+                 "数字：画面外图形缓冲区的高度",
+                 "常量：P2D 或 WEBGL，默认为 P2D"],
       "returns": "buffer gráfico fuera de pantalla"
     },
     "blendMode": {
-      "description": "Combina los pixeles en la ventana según el modo definido. Existen distintas maneras de combinar los pixeles de la fuente (A) con los ya existentes en la pantalla mostrada (B). TODO",
-      "params": ["Constante: modo de combinar del lienzo"],
-      "returns": "该 p5 物件"
+      "description": "根据所设定的模式在显示窗口内混合像素。以下模式选择可用来混合源像素（A）与已经在显示窗口的像素（B）：<ul><li><code>BLEND</code> - 颜色线性插值：C = A*系数 + B。这是默认混合模式。</li><li><code>ADD</code> - A 与 B 的总和</li><li><code>DARKEST</code> - 将显示当中最深的颜色：C = min(A*系数, B)。</li><li><code>LIGHTEST </code> - 将显示当中最浅的颜色：C = max(A*系数, B)。</li><li><code>DIFFERENCE</code> - 从底下的图像中减去颜色。</li><li><code>EXCLUSION</code> - 与 DIFFERENCE 相似但不那么强烈。</li><li><code>MULTIPLY</code> - 将颜色相乘，效果一定会更暗。</li><li><code>SCREEN</code> - 与 MULTIPLY 相反，使用颜色的反值。</li><li><code>REPLACE</code> - 像素将完全盖过其他像素并将不会使用透明度值。</li><li><code>OVERLAY</code> - MULTIPLY 及 SCREEN 和混合。暗值将相乘，亮值将相乘反值。</li><li><code>HARD_LIGHT</code> - 当高于 50% 灰时 SCREEN，低于时 MULTIPLY。</li><li><code>SOFT_LIGHT</code> - DARKEST 及 LIGHTEST 的混合。与 OVERLAY 的效果相似，但不那么强烈。</li><li><code>DODGE</code> - 使浅色更浅及增加对比度，忽略暗色。</li><li><code>BURN</code> - 是深色更深及增加对比度，忽略浅色。</li></ul>",
+      "params": ["常量：画布的混合模式。BLEND、DARKEST、LIGHTEST、DIFFERENCE、MULTIPLY、EXCLUSION、SCREEN、REPLACE、OVERLAY、HARD_LIGHT、SOFT_LIGHT、DODGE、BURN、ADD 或 NORMAL"],
+      "returns": ""
+    },
+    "setAttributes": {
+      "description": "设置 WebGL 绘图环境的属性。这是调整 WebGL 渲染器的一个方法，可用于微调显示及性能。这函数应该在 setup() 内使用。可使用的属性为：<br>alpha - 表示画布是否有透明度缓冲，默认为 true<br><br>depth - 表示绘图缓冲是否有至少 16 bits 的深度缓冲 - 默认为 true<br><br>stencil - 表示绘图缓冲是否有至少 8 bits 的模版缓冲<br><br>antialias - 表示是否应该执行抗锯齿，默认为 false<br><br>premultipliedAlpha - 表示页面合成器将假设绘图缓冲存在着预乘透明值的颜色，默认为 false<br><br>preserveDrawingBuffer - 如果为真缓冲区将不会被清空并将会保留现有的值直到它们被清空或被作者覆盖（注意 p5 在绘图循环将自动清空），默认为 true<br><br>perPixelLighting - 如果为真，照明着色器将使用个别像素照明。默认为 false",
+      "params": ["字符串：属性名",
+                 "布尔值：属性的新值",
+                 "物件：有键值对的物件"]
     },
     "applyMatrix": {
       "description": "Multiplica la matriz actual por la especificada según los parámetros. Esto es muy lento porque tratará de calcular el inverso de la transformada, así que evítalo cuando sea posible",
       "params": ["Número: números que definen la matriz 3x2 a multiplicar",
-      "Número: números que definen la matriz 3x2 a multiplicar",
-      "Número: números que definen la matriz 3x2 a multiplicar",
-      "Número: números que definen la matriz 3x2 a multiplicar",
-      "Número: números que definen la matriz 3x2 a multiplicar",
-      "Número: números que definen la matriz 3x2 a multiplicar"],
+                 "Número: números que definen la matriz 3x2 a multiplicar",
+                 "Número: números que definen la matriz 3x2 a multiplicar",
+                 "Número: números que definen la matriz 3x2 a multiplicar",
+                 "Número: números que definen la matriz 3x2 a multiplicar",
+                 "Número: números que definen la matriz 3x2 a multiplicar"],
       "returns": "该 p5 物件"
     },
     "resetMatrix": {
@@ -719,8 +728,8 @@
     "rotate": {
       "description": "Rota una figura según el monto especificado por el parámetro ángulo. Esta función toma en cuenta el modo de ángulo definido por angleMode(), así que los ángulos pueden ser ingresados en radianes o grados. Los objetos son siempre rotados según su posición relativa al origen y los números positivos rotan en la dirección de las manecillas del reloj. Las transformaciones se aplican a todo lo que ocurre de forma posterior y las subsecuentes llamadas a la función acumulan el efecto. Por ejemplo, llamar a la función rotate(HALF_PI) y luego rotate(HALF_PI) equivale a una llamada a rotate(PI). Todas las transformaciones son anuladas cuando la función draw() comienza nuevamente. Técnicamente, rotate() multiplica la matriz de transformación actual por una matriz de rotación. Esta función puede ser controlada además con las funciones push() y pop().",
       "params": ["Ángulo: el ángulo de rotación, especificado en radianes o grados, dependiendo de angleMode()",
-      "Número: ángulo en radianes",
-      "p5.Vector|Arreglo: eje sobre el que se rota"],
+                 "Número: ángulo en radianes",
+                 "p5.Vector|Arreglo: eje sobre el que se rota"],
       "returns": "该 p5 物件"
     },
     "rotateX": {
