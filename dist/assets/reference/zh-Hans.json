@@ -848,34 +848,33 @@
       "returns": ""
     },
     "keyIsPressed": {
-      "description": "La variable boolean de sistema keyIsPressed es verdadera (true) cuando cualquier tecla es presionada y falsa (false) si no hay ninguna tecla presionada",
-      "returns": "该 p5 物件"
+      "description": "keyIsPressed 布尔系统变量将会在任何键被按下时为真（true）而没键被按下时为假（false）。",
+      "returns": ""
     },
     "key": {
-      "description": "La variable de sistema key siempre contiene el valor más reciente de la tecla del teclado presionada. Para tener los mejores resultados, es mejor usarla dentro de la función keyTyped(). Para teclas sin valor ASCII, usa la variable keyCode ",
-      "returns": "该 p5 物件"
+      "description": "key 系统变量将会储存上一个被键入的键盘键值。以获得正确的大小写，最好在 keyTyped() 内使用。至于非 ASCII 值的键，请使用 keyCode 变量。",
+      "returns": ""
     },
     "keyCode": {
-      "description": "La variable keyCode es usada para detectar teclas especiales, como BACKSPACE, DELETE, ENTER, RETURN, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. También puedes revisar las teclas especiales buscando el código keyCode de cualquier tecla en internet.",
-      "returns": "该 p5 物件"
+      "description": "keyCode 变量可用来探测特别键如 BACKSPACE、DELETE、ENTER、RETURN、TAB、ESCAPE、SHIFT、CONTROL、OPTION、ALT、UP_ARROW、DOWN_ARROW、LEFT_ARROW、RIGHT_ARROW 是否被按下。您也可以使用特别网站如 <a href='http://keycode.info/'>keycode.info</a> 以找出自定义键的 keyCode。",
+      "returns": ""
     },
     "keyPressed": {
-      "description": "La función keyPressed() es llamada una vez cada vez que una tecla es presionada. El código keyCode de la tecla presionada es almacenado en la variable keyCode. Para las teclas sin valor ASCII, usa la variable keyCode.  Puedes comprobar si la variable keyCode es igual a BACKSPACE, DELETE, ENTER, RETURN, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. Para las teclas con valor ASCII que son presionadas, el valor es almacenado en la variable key. Sin embargo, no distingue entre letras mayúsculas y minúsculas. Por esta razón, es recomendable usar la función keyTyped() para leer la variable key, que sí distingue entre mayúsculas y minúsculas. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-      "returns": "该 p5 物件"
+      "description": "keyPressed() 函数将会在每一次任何键被按下时被调用。被按下的键的 keyCode 将被储存在 keyCode 变量内。<br><br>对于非 ASCII 值的键，请使用 keyCode 变量。您能查看 keyCode 是否等于 BACKSPACE、DELETE、ENTER、RETURN、TAB、ESCAPE、SHIFT、CONTROL、OPTION、ALT、UP_ARROW、DOWN_ARROW、LEFT_ARROW、RIGHT_ARROW。<br><br>至于 ASCII 键值它们的值会被储存在 key 变量内。不过，它并不会分辨大小写。因此，建议使用 keyTyped() 以读取 key 变量，因为其大小写在这里会被分辨出来。<br><br>取决于操作系统如何处理按键重复，按住一个键可能使 keyTyped() （及 keyReleased()）被调用多过一次。重复的速度应操作系统及该电脑的设置而定。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "returns": ""
     },
     "keyReleased": {
-      "description": "La función keyReleased() es llamada una vez cada vez que una tecla es soltada. Ver key y keyCode para más información. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-      "returns": "该 p5 物件"
+      "description": "keyReleased() 函数将会在每一次任何键被释放时被调用。请查看 key 及 keyCode 以知更多详情。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "returns": ""
     },
     "keyTyped": {
-      "description": "la función keyTyped es llamada cava vez que una tecla es presionada, excepto cuando son presionadas la steclas de acción como Ctrl, Shift y Alt, que son ignoradas. La tecla presionada más reciente será almacenada en la variable key. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-      "params": ["Número: el valor umbral"],
-      "returns": "该 p5 物件"
+      "description": "keyTyped() 函数将会在每一次任何键被按下时被调用，可是会忽略操作键如 Ctrl、Shift 及 Alt。被按下的键的 keyCode 将被储存在 keyCode 变量内。<br><br>取决于操作系统如何处理按键重复，按住一个键可能使 keyTyped() （及 keyReleased()）被调用多过一次。重复的速度应操作系统及该电脑的设置而定。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "returns": ""
     },
     "keyIsDown": {
-      "description": "La función keyIsDown() comprueba si la tecla está presionada. Puede ser usada si tienes un objeto que se mueve, y quieres que varias teclas sean capaces de afectar este comportamiento de manera simultánea, como cuando mueves una imagen de forma diagonal. Puedes ingresar cualquier número representando el código de tecla keyCode de la tecla, o usar cualquier de los nombres de la variable keyCode.",
-      "params": ["Número: la tecla a buscar"],
-      "returns": "该 p5 物件"
+      "description": "keyIsDown() 函数将查看被提供的键是否正被按下。它能在当您需要使用多个不同的键同时用来移动一个物件时使用（如将一个图像往斜移动）。您能给予任何代表该键的 keyCode 会任何<a href='http://p5js.org/zh-Hans/reference/#p5/keyCode'>此页</a>的 keyCode 变量名为参数。",
+      "params": ["数字：该查看的键"],
+      "returns": ""
     },
     "mouseX": {
       "description": "La variable de sistema mouseX siempre contiene la posición horizontal actual del ratón, relativa al origen (0, 0) del lienzo.",
