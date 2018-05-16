@@ -877,119 +877,86 @@
       "returns": ""
     },
     "mouseX": {
-      "description": "La variable de sistema mouseX siempre contiene la posición horizontal actual del ratón, relativa al origen (0, 0) del lienzo.",
-      "returns": "该 p5 物件"
+      "description": "mouseX 系统变量将会储存当时的鼠标相对于画布 (0, 0) 位置的的横向位置。如果使用的是触动而不是滑鼠的话，mouseX 将会储存上一个触动点的 x 值。",
+      "returns": ""
     },
     "mouseY": {
-      "description": "La variable de sistema mouseY siempre contiene la posición vertical actual del ratón, relativa al origen (0, 0) del lienzo.",
-      "returns": "该 p5 物件"
+      "description": "mouseY 系统变量将会储存当时的鼠标相对于画布 (0, 0) 位置的的直向位置。如果使用的是触动而不是滑鼠的话，mouseY 将会储存上一个触动点的 y 值。",
+      "returns": ""
     },
     "pmouseX": {
-        "description": "La variable de sistema pmouseX siempre contiene la posición horizontal actual del ratón, en el cuadro anterior al actual, relativa al origen (0, 0) del lienzo.",
-        "returns": "该 p5 物件"
+        "description": "pmouseX 系统变量将会储存上一个影格鼠标或触动点相对于画布 (0, 0) 位置的的横向位置。",
+        "returns": ""
     },
     "pmouseY": {
-      "description": "La variable de sistema pmouseY siempre contiene la posición vertical actual del ratón, en el cuadro anterior al actual, relativa al origen (0, 0) del lienzo.",
-      "returns": "该 p5 物件"
+      "description": "pmouseY 系统变量将会储存上一个影格鼠标或触动点相对于画布 (0, 0) 位置的的直向位置。",
+      "returns": ""
     },
     "winMouseX": {
-      "description": "La variable de sistema winMouseX siempre contiene la posición horizontal actual del ratón, relativa al origen (0, 0) de la ventana del navegador.",
-      "returns": "该 p5 物件"
+      "description": "winMouseX 系统变量将会储存当时鼠标相对于窗口 (0, 0) 位置的横向位置。",
+      "returns": ""
     },
     "winMouseY": {
-      "description": "La variable de sistema winMouseY siempre contiene la posición vertical actual del ratón, relativa al origen (0, 0) de la ventana del navegador.",
-      "returns": "该 p5 物件"
+      "description": "winMouseY 系统变量将会储存当时鼠标相对于窗口 (0, 0) 位置的直向位置。",
+      "returns": ""
     },
     "pwinMouseX": {
-      "description": "La variable de sistema pwinMouseX siempre contiene la posición horizontal actual del ratón, en el cuadro anterior al actual, relativa al origen (0, 0) de la ventana del navegador.",
-      "returns": "该 p5 物件"
+      "description": "pwinMouseX 系统变量将会储存上一个影格鼠标相对于窗口 (0, 0) 位置的横向位置。",
+      "returns": ""
     },
     "pwinMouseY": {
-      "description": "La variable de sistema pwinMouseY siempre contiene la posición vertical actual del ratón, en el cuadro anterior al actual, relativa al origen (0, 0) de la ventana del navegador.",
-      "returns": "该 p5 物件"
+      "description": "pwinMouseY 系统变量将会储存上一个影格鼠标相对于窗口 (0, 0) 位置的直向位置。",
+      "returns": ""
     },
     "mouseButton": {
-      "description": "P5.js automáticamente rastrea si el botón del ratón está presionado y cuál botón está presionado. El valor de la variable de sistema mouseButton es o LEFT, RIGHT o CENTER dependiendo de cual fue el último botón presionado. Advertencia: diferentes navegadores pueden diferir.",
-      "returns": "该 p5 物件"
+      "description": "p5 将自动记录滑鼠键是否被按下及哪个键被按下。mouseButton 系统变量的值可能是 LEFT、RIGHT 或 CENTER，取决于上一个被按下的滑鼠键。请注意：不同的浏览器可能记录不同的 mouseButton 值。",
+      "returns": ""
     },
     "mouseIsPressed": {
-      "description": "La variable boolean de sistema mouseIsPressed es verdadera (true) si el ratón está siendo presionado, y falsa (false) en caso contrario.",
-      "returns": "该 p5 物件"
+      "description": "mouseIsPressed 系统变量将会在滑鼠键被按下时为真（true），而没按下时为假（false）。",
+      "returns": ""
     },
     "mouseMoved": {
-      "description": "La función mouseMoved() es llamada cada vez que el ratón se mueve y un botón del ratón no está siendo presionado. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "该 p5 物件"
+      "description": "mouseMoved() 函数将在每次鼠标移动而滑鼠键没有被按下的时候被调用。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "returns": ""
     },
     "mouseDragged": {
-      "description": "La función mouseDragged() es llamada cada vez que el ratón se mueve y un botón del ratón está siendo presionado. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "该 p5 物件"
+      "description": "mouseDragged() 函数将在每次鼠标移动及滑鼠键正被按下的时候被调用。如果 mouseDragged() 函数并未有被定义，touchMoved() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "returns": ""
     },
     "mousePressed": {
-      "description": "La función mousePressed() es llamada cada vez que un botón del ratón está siendo presionado. La variable mouseButton (ver la referencia) puede ser usada para determinar cual botón está siendo presionado. Si no se define una función mousePressed(), la función touchStarted() será llamada en su reemplazo, si es que está definida. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "该 p5 物件"
+      "description": "mousePressed() 函数将在每次滑鼠键被按下时被调用。mouseButton 函数（请参考其文献）可以被用来探测哪一个滑鼠键刚被按下。如果 mousePressed() 函数并未有被定义，touchStarted() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "returns": ""
     },
     "mouseReleased": {
-      "description": "La función mouseReleased() es llamada cada vez que un botón del ratón es soltado. Si no se define una función mouseReleased(), la función touchEnded() será llamada en su reemplazo, si es que está definida. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "该 p5 物件"
+      "description": "mouseReleased() 函数将在每次滑鼠键被释放时被调用。如果 mouseReleased() 函数并未有被定义，touchEnded() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "returns": ""
     },
     "mouseClicked": {
-      "description": "La función mouseClicked() es llamada cada vez que un botón del ratón es presionado y luego soltado. Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método.",
-      "returns": "该 p5 物件"
+      "description": "mouseClicked() 函数将在滑鼠键被按下然后被释放后被调用。<br><br>不同浏览器处理滑鼠点击的方式不大一样，所以这函数只有在滑鼠左键被点击时才保证会被触发。如果想要处理其他滑鼠键的点击或释放事件，请参考 mousePressed() 或 mouseReleased()。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "returns": ""
+    },
+    "doubleClicked": {
+      "description": "doubleClicked() 函数将在 dblclick 事件被触发式被调用，dblclick 时间是 DOM L3 规范的一部分。doubleClicked 将在滑鼠键（通常为左键）连续两次在同样一个元素上点击时被触发。以知更多详情请参考 Mozilla 的参考文献：<a href='https://developer.mozilla.org/en-US/docs/Web/Events/dblclick'>https://developer.mozilla.org/en-US/docs/Web/Events/dblclick</a>。"
     },
     "mouseWheel": {
-      "description": "La función mouseWheel() es llamada cada vez que se detecta un evento de rueda de ratón vertical, ya sea gatillado por un ratón o por un touchpad. La propiedad event.delta retorna el monto que el ratón ha avanzado. Estos valores pueden ser positivos o negativos, dependiendo de la dirección de navegación (en OS X con natural scrolling, los signos son invertidos).  Los navegadores pueden tener comportamientos por defecto asociados a distintos eventos del ratón. Para prevenir cualquier comportamiento por defecto, añade return false como última línea de este método. Debido al soporte actual del evento wheel en Safari, la función podría solo funcionar si return false es incluido cuando se usa Safari.",
-      "returns": "该 p5 物件"
+      "description": "mouseWheel() 函数将在每次直向滑鼠滚轮事件被触发式被调用，可以由实际的滑鼠滚轮或摸板触发。<br><br>event.delta 属性将返回滑鼠滚轮所滚动的量。这值可以是正数或负数，取决于滚动的方向（在 OS X 如果启用“自然”滚屏方向，正反方向将相反）。",
+      "returns": ""
     },
-    "touchX": {
-      "description": "La variable de sistema touchX siempre contiene la posición horizontal de un dedo, relativo al origen (0, 0) del lienzo. Esto funciona mejor con interacciones de un dedo a la vez. Para interacciones multi-dedo, usar el arreglo touches[]",
-      "returns": "该 p5 物件"
-    },
-    "touchY": {
-      "description": "La variable de sistema touchY siempre contiene la posición vertical de un dedo, relativo al origen (0, 0) del lienzo. Esto funciona mejor con interacciones de un dedo a la vez. Para interacciones multi-dedo, usar el arreglo touches[]",
-      "returns": "该 p5 物件"
-    },
-    "ptouchX": {
-      "description": "La variable de sistema ptouchX siempre contiene la posición horizontal de un dedo, relativo al origen (0, 0) del lienzo, en el cuadro anterior al actual. Esto funciona mejor con interacciones de un dedo a la vez. Para interacciones multi-dedo, usar el arreglo touches[]",
-      "returns": "该 p5 物件"
-    },
-    "ptouchY": {
-      "description": "La variable de sistema ptouchY siempre contiene la posición vertical de un dedo, relativo al origen (0, 0) del lienzo, en el cuadro anterior al actual. Esto funciona mejor con interacciones de un dedo a la vez. Para interacciones multi-dedo, usar el arreglo touches[]",
-      "returns": "该 p5 物件"
-    },
-    "winTouchX": {
-      "description": "La variable de sistema winTouchX siempre contiene la posición horizontal de un dedo, relativo al origen (0, 0) de la ventana.",
-      "returns": "该 p5 物件"
-    },
-    "winTouchY": {
-      "description": "La variable de sistema winTouchY siempre contiene la posición vertical de un dedo, relativo al origen (0, 0) de la ventana.",
-      "returns": "该 p5 物件"
-    },
-    "pwinTouchX": {
-      "description": "La variable de sistema pwinTouchX siempre contiene la posición horizontal de un dedo, relativo al origen (0, 0) de la ventana, en el cuadro anterior al actual.",
-      "returns": "该 p5 物件"
-    },
-    "pwinTouchY": {
-      "description": "La variable de sistema pwinTouchY siempre contiene la posición verticañ de un dedo, relativo al origen (0, 0) de la ventana, en el cuadro anterior al actual.",
-      "returns": "该 p5 物件"
-    },
-    "touches[]": {
-      "description": "La variable de sistema touches[] contiene un arreglo de las posiciones de todos los puntos de toque actuales, relativos al origen (0, 0) del lienzo, y también identificadores para cada toque mientras se mueve. Cada elemento en el arreglo es un objeto con las propiedas x, y e identidad.",
-      "returns": "该 p5 物件"
-    },
-    "touchIsDown": {
-      "description": "La variable boolean de sistema touchIsDown es verdadera (true) si en la pantalla hay un toque y falsa (false) si no.",
-      "returns": "该 p5 物件"
+    "touches": {
+      "description": "touches[] 系统变量将储存一个含有现在所有触动点相对于画布 (0, 0) 位置的位置数组，及分辨个别触动点移动时的 ID。数组内的每个元素都会有 x、y 及 id 属性。<br><br>touches[] 数组并不受 Safari 及 IE 移动设备（包括手提电脑）所支持。",
+      "returns": ""
     },
     "touchStarted": {
-      "description": "La función touchStarted() es llamada una vez, cada vez que un toque nuevo es registrado. Si la función touchStarted() no ha sido definida, la función mouseIsPressed() será llamada en su lugar, si es que está definida. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por toque. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-      "returns": "该 p5 物件"
+      "description": "touchStarted() 函数将在每次触动事件被触发时被调用。如果 touchStarted() 函数并未有被定义，mousePressed() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别触动事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "returns": ""
     },
     "touchMoved": {
-      "description": "La función touchStarted() es llamada una vez, cada vez que es registrado el movimiento de un toque. Si la función touchMoved() no ha sido definida, la función mouseDragged() será llamada en su lugar, si es que está definida. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por toque. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
+      "description": "touchMoved() 函数将在每次触点移动事件被触发时被调用。如果 touchMoved() 函数并未有被定义，mouseDragged() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别触动事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
       "returns": "该 p5 物件"
     },
     "touchEnded": {
-      "description": "La función touchEnded() es llamada una vez, cada vez que un toque finaliza. Si la función touchEnded() no ha sido definida, la función mouseReleased() será llamada en su lugar, si es que está definida. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por toque. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
+      "description": "touchEnded() 函数将在每次触动结束时被调用。如果 touchEnded() 函数并未有被定义，mouseReleased() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别触动事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
       "returns": "该 p5 物件"
     },
     "createImage": {
