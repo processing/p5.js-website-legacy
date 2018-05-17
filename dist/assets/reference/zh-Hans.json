@@ -953,74 +953,78 @@
     },
     "touchMoved": {
       "description": "touchMoved() 函数将在每次触点移动事件被触发时被调用。如果 touchMoved() 函数并未有被定义，mouseDragged() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别触动事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
-      "returns": "该 p5 物件"
+      "returns": ""
     },
     "touchEnded": {
       "description": "touchEnded() 函数将在每次触动结束时被调用。如果 touchEnded() 函数并未有被定义，mouseReleased() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别触动事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
-      "returns": "该 p5 物件"
+      "returns": ""
     },
     "createImage": {
-      "description": "Crea una nueva p5.Image (el tipo de datos para almacenar imágenes). Esto provee un nuevo buffer de pixeles para jugar. Define el tamaño del buffer con los parámetros de ancho y altuar. .pixels da acceso a un arreglo conteniendo los valores de todos los pixeles en la ventana mostrada. Estos valores son números. Este arreglo es del tamaño (incluyendo un factor apropiado de pixelDensity) de la ventana mostrada x4, representando los valroes R, G, B, A en orden para cada pixel., moviendo de izquierda a derecha en cada fila, y luego bajando de columna. Ver .pixels para mayor información. Podría ser más simple usar set() y get(). Antes de acceder a los pixeles de una imagen, los datos deben ser cargados con la función loadPixels(). Después de que el arreglo de datos ha sido modificado, la función updatePixels() debe ejecutarse para actualizar los cambios.",
-      "params": ["Entero: ancho en pixeles",
-      "Entero: altura en pixeles"],
-      "returns": "该 p5 物件"
+      "description": "创造一个新的 p5.Image 物件（储存图像的数据类型）。这将提供一个全新的像素缓冲供您使用。缓冲区的大小将由所提供的宽度和高度参数决定。<br><br>.pixels 将提供一个含有所有像素资料的数组。这些值都为数字。这数组的大小为（同时考虑像素密度）显示窗口的大小 x4，分别代表每个像素由左到右，上到下的 R、G、B、A 值。请参考 .pixels 文献。您也能使用更简单的 set() 或 get()。<br><br>在获取一个图像的像素之前，像素资料必须先使用 loadPixels() 函数加载。在数组资料被修改后，updatePixels() 函数必须被调用以更新图像资料。",
+      "params": ["整数：像素宽度",
+                 "整数：像素宽度"],
+      "returns": "p5.Image：p5.Image 物件"
     },
     "saveCanvas": {
-      "description": "Graba el lienzo actual como una imagen. En Safari, esto abrirá la imagen en la ventana y el usuario deberá proveer su propio nombre de archivo. Otros navegadores o grabarán el archivo de inmediato, o abrirán una ventana de diálogo.",
-      "params": ["Canvas seleccionado: una variable representando un canvas HTML5 específico (opcional)",
-      "String",
-      "String: jpg o png"],
-      "returns": "该 p5 物件"
+      "description": "将现有的画布储存成图像。In Safari, this will open the image in the window and the user must provide their own filename on save-as. Other browsers will either save the file immediately, or prompt the user with a dialogue window.",
+      "params": ["p5.Element|HTMLCanvasElement：una variable representando un canvas HTML5 específico (opcional)",
+                 "字符串",
+                 "字符串：'jpg' 或 'png'"],
+      "returns": ""
     },
     "saveFrames": {
-      "description": "Captura una secuencia de cuadros que pueden ser usados para crear una película. Acepta una función callback. Por ejemplo, puedes querer mandar los cuadros a un servidor donde pueden ser almacenados o convertidos en una película. Si no se provee una función callback, el navegador abrirá varios diálogos tratando de descargar todas las imágenes que han sido creadas. Con una función callback provista, los datos de imagen no son grabados por defecto, sino que son pasados como argumento a la función callback como un arreglo de objetos, con el tamaño del arreglo siendo igual al número total de cuadros.",
-      "params": ["String: ",
-      "String: jpg o png",
-      "Número: duración en segundos para grabar los cuadros",
-      "Número: tasa de cuadros por segundo a grabar",
-      "Función: una función callback que será ejecutada para manejar los datos de imagen. Esta función deberá aceptar un arreglo como argumento. El arreglo contendrá el número especificado de cuadros como objetos. Cada objeto tiene tres propiedades: datos de imagen imageData, nombre del archivo y extensión"],
-      "returns": "该 p5 物件"
+      "description": "捕捉一系列可用于制作影响的影格图像。接受回调函数。比如说，您可能想要将影格传送至伺服器以方便储存或转变成影像。如果回调函数没有被提供，浏览器将弹出储存文件对话框以尝试下载所有刚被创造的图像。如果提供回调函数，图像资料默认上并不会被储存而是以物件数组的形式被转送至回调函数做参数，数组大小为储存影格的总数。",
+      "params": ["字符串",
+                 "字符串：'jpg' 或 'png'",
+                 "数字：该捕捉的影格的秒数",
+                 "数字：捕捉影格的帧率",
+                 "函数(数组)：一个用来处理图像资料的回调函数。此函数将会被给予一个数组为参数。此数组将会储存所定义的捕捉影格物件。每一个物件都会有三个属性：imageData - 为 image/octet-stream 类型、filename 及 extension。"],
+      "returns": ""
     },
     "loadImage": {
-      "description": "Carga una imagen desde una ruta de archivo y crea un objeto p5.Image. La imagen puede no estar inmediatamente disponible para render. Si quieres asegurarte que esté lista antes de hacer algo con ella, ubica la función loadImage() dentro de preload(). También puedes proveer una función callback para manejar la imagen cuando esté lista. La ruta a la imagen debe ser relativa al archivo HTML de tu bosquejo. Cargar desde una URL u otra ubicación remota podría estar bloqueado por las opciones de seguridad del navegador.",
-      "params": ["String: ruta de la imagen a cargar",
-      "Función(p5.Image): función a ser llamada una vez que la imagen sea cargada. Le será pasado 该 p5 物件.Image",
-      "Función(evento): llamada con el evento error si es que la carga de la imagen falla."],
-      "returns": "该 p5 物件"
+      "description": "从被给予的路径加载一个图像并使用其图像创造一个  p5.Image 物件。<br><br>该图像或许不能立刻被渲染，如果您想要保证您在图像加载完毕后才开始做任何事情，您可以将 loadImage() 函数调用在 preload() 里。您也能提供回调函数以在图像加载完毕时处理图像资料。<br><br>图像的路径应该相对于链接您的绘图的 HTML 文件。从其他 URL 或远程位置加载图像可能会被浏览器的内建安全模式阻止。",
+      "params": ["字符串：欲加载的图像的路径",
+                 "函数(p5.Image)：图像加载结束调用的函数。会被给予 p5.Image 做参数。",
+                 "函数(错误物件)：如果图像加载失败此函数将被调用并给予错误物件做参数。"],
+      "returns": "p5.Image：p5.Image 物件"
     },
     "image": {
-      "description": "Dibuja una imagen en el lienzo principal del bosquejo p5.js.",
-      "params": ["p5.Image: la imagen a mostrar",
-      "Número: la coordenada x donde se ubicará la esquina superior de la imagen",
-      "Número: la coordenada y donde se ubicará la esquina superior de la imagen",
-      "Número: ancho de la imagen a dibujar",
-      "Número: altura de la imagen a dibujar",
-      "Número: la coordenada x en el lienzo de destino donde se ubicará la esquina superior izquierda de la imagen",
-      "Número: la coordenada y en el lienzo de destino donde se ubicará la esquina superior izquierda de la imagen",
-      "Número: ancho de la imagen a dibujar en el lienzo de destino",
-      "Número: altura de la imagen a dibujar en el lienzo de destino",
-      "Número: la coordenada x de la esquina superior izquierda del subrectángulo de la imagen original a dibujar en el lienzo de destino",
-      "Número: la coordenada y de la esquina superior izquierda del subrectángulo de la imagen original a dibujar en el lienzo de destino",
-      "Número: el ancho del subrectángulo de la imagen original a dibujar en el lienzo de destino",
-      "Número: la altura del subrectángulo de la imagen original a dibujar en el lienzo de destino"],
-      "returns": "该 p5 物件"
+      "description": "在 p5 画布上画一个图像。<br><br>此函数能使用几个不同数量的参数。最简单的用法只需要三个参数：img（图像）、x 及 y - (x, y) 为图像的位置。多两个可选参数能用来定义绘制图像的宽度及高度。<br><br>此函数也能使用所有八个数字参数。以分辨所有的参数，p5.js 在以下将使用“终点方形”（应对于 “dx”、“dy” 等）及“原图像”（应对于 “sx”、“sy”等）的名词。提供“原图像”大小可用来显示原图像的一个子部分而不需要显示整个图像。以下图表能解释得更清楚：<img src'assets/drawImage.png'>",
+      "params": ["p5.Image|p5.Element：该显示的图像",
+                 "数字：图像左上角的 x 坐标",
+                 "数字：图像左上角的 y 坐标",
+                 "数字：绘制图像的宽度",
+                 "数字：绘制图像的高度",
+                 "数字：绘制图像的终点方形的 x 坐标位置",
+                 "数字：绘制图像的终点方形的 y 坐标位置",
+                 "数字：终点方形的宽度",
+                 "数字：终点方形的高度",
+                 "数字：该画进终点方形的原图像子部分的 x 坐标",
+                 "数字：该画进终点方形的原图像子部分的 y 坐标",
+                 "数字：该画进终点方形的原图像子部分的宽度",
+                 "数字：该画进终点方形的原图像子部分的高度"],
+      "returns": ""
     },
     "tint": {
-      "description": "Define el valor de relleno para mostrar imágenes. Las imágenes pueden ser teñidas en colores específicos o hacerse transparentes al incluir un valor alpha. Para aplicar transparencia a una imagen sin afectar su color, usa blanco como color de teñido y especifica un valor alpha. Por ejemplo, tint(255, 128) hará una imagen 50% transparente (asumiendo el rango alpha por defecto entre 0 y 255, el que puede ser modificado con la función colorMode()). El valor del parámetro gris debe ser menor o igual al actual valor máximo según lo especificado por colorMode(). El valor máximo por defecto es 255.",
-      "params": ["Número|Arreglo: valor de gris, rojo o tinte (dependiendo del modo de color actual), o un arreglo de colores",
-      "Número|Arreglo: valor de verde o saturación (dependiendo del modo de color actual)",
-      "Número|Arreglo: valor de azul o brillo (dependiendo del modo de color actual)",
-      "Número|Arreglo: opacidad del fondo"],
-      "returns": "该 p5 物件"
+      "description": "定义显示图像的填色值。图像能着色成所定义的颜色或提供透明度值以使其透明化。<br><br>如想是图像透明化但不想影响其颜色，可使用白色为着色值并定义透明度值。比如说，tint(255, 128) 将会使一个图像成为 50% 透明（假设为默认透明度范围 0-255，可使用 colorMode() 调整）。<br><br>灰阶值参数必须低于或等于当时 colorMode() 所定义的最高值。默认最高值为 255。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值，需在被定义的范围内",
+                 "数字：蓝彩值或亮度值，需在被定义的范围内",
+                 "数字：",
+                 "字符串：颜色字符串",
+                 "数字：灰阶值",
+                 "数字[]：一个有红、绿、蓝及透明度值的数组",
+                 "p5.Color：着色色值"],
+      "returns": ""
     },
     "noTint": {
-      "description": "Remueve el valor actual de relleno para mostrar imágenes y revierte a mostrar las imágenes con sus colores originales.",
-      "returns": "该 p5 物件"
+      "description": "移除当时显示图像的填色值并将其恢复成显示图形的原色调。",
+      "returns": ""
     },
     "imageMode": {
-      "description": "Define el modo de imagen. Modifica la ubicación desde la que las imágenes son dibujadas, por medio de cambiar la manera en que los parámetros dados a image() son interpretados. El modo por defecto es imageMode(CORNER), que interpreta los paráemtros segundo y tercero de image() como la posición de la esquina superior izquierda de la imagen. Si se dan dos parámetros adicionales, son usados para definir el ancho y la altura la imagen. imageMode(CORNERS) interpreta los paráemtros segundo y tercero de image() como la ubicación de una esquina, y los parámetros cuarto y quinto como la ubicación de la esquina opuesta. imageMode(CENTER) interpreta los parámetros segundo y tercero de image() como el punto central de la imagen. Si dos parámetros adicionales son especificados, son usados para definir el ancho y la altura de la imagen.",
-      "params": ["Constante: puede ser CORNER, CORNERS, o CENTER"],
-      "returns": "该 p5 物件"
+      "description": "定义图像模式。更改 image() 解读参数的方式以更改图像开始绘制的位置。默认模式为 imageMode(CORNER)，此模式将解读第二及第三个参数为图像的左上角位置。如果加多两个参数，它们则被用来定义图像的宽度和高度。<br><br>imageMode(CORNERS) 将使 image() 函数解读第二及第三个参数为一个角落的位置，而第四个第五个参数为对面角落的位置。<br><br>imageMode(CENTER) 将使 image() 函数解读第二及第三个参数为图像的中心点。如果提供多两个参数，它们将被用来定义图像的宽度和高度。",
+      "params": ["常量：CORNER、CORNERS 或 CENTER"],
+      "returns": ""
     },
     "pixels[]": {
       "description": "Arreglo tipo Uint8ClampedArray conteniendo los valores de todos los pixeles en la ventana mostrada. Estos valores son números. Este arreglo es del tamaño (incluyendo el factor apropiado de pixelDensity) de la ventana desplegada x4, representando los valores R, G, B, A por cada pixel, moviéndose de izquierda a derecha en cada fila, bajando una columna a la vez. Los monitores Retina y otros de alta densidad tendrán más pixeles en el arreglo (por un factor de pixelDensity al cuadrado). Por ejemplo, si la imagen es de 100 x 100 pixeles, habrán 40.000 valores. En un monitor retina, habrán 160.000. Los primeros cuatro valores (índices 0 a 4) en el arreglo serán los valores R, G, B, A del pixel en la posición (0, 0). Los siguientes cuatro valores (índices 4 a 7) serán los valores R, G, B, A del pixel en la posición (1, 0). De forma más general, para definir los valores de un pixel en (x, y): TODO. Aunque el método descrito es complejo, es lo suficientemente flexible como para trabajar con cualquier densidad de pixeles. Notar que set() inmediatamente se hace cargo de definir los valores apropiados en el arreglo pixels[] para un (x, y) dado a cualquier densidad de pixeles, pero el desempeño puede ser no tan rápido cuando muchas modificaciones son hechas en el arreglo de pixeles. Antes de acceder a este arreglo, los datos deben ser cargados con la función loadPixels(). Después de que el arreglo de datos ha sido modificado, la función updatePixels() debe ser ejecutada para refrescar los cambios. Notar que este no es un arreglo standard de Javascript. Esto significa que las funciones Javascript como slice() o arrayCopy() no funcionan.",
@@ -1054,10 +1058,10 @@
       "returns": "该 p5 物件"
     },
     "filter": {
-        "description": "Aplica un filtro al lienzo. Las opciones posibles son: THRESHOLD, que convierte la imagen a pixeles blancos y negros dependiendo de si están arriba o abajo del umbral definido por el parámetro. El parámetro debe estar entre 0.0 (negro) y 1.0 (blanco). Si no se especifica ningún valor, el valor por defecto es 0.5. GRAY, convierte cualquier color en la imagen a un equivalente en la escala de grises, no tiene parámetros. OPAQUE, hace que el canal alpha sea totalmente opaco, no tiene parámetros. INVERT, hace que cada pixel tenga su valor inverso, no tiene parámetros. POSTERIZE, limita cada canal de la imagen a un número de colores especificado como parámetro. El parámetro puede definir entre 2 y 255 valores, pero los resultados más notorios se dan con valores bajos. BLUR, hace que la imagen sea borrosa con un proceso Gaussiano, siendo el parámetro el nivel de cuán borroso es el resultado, si no se usa ningún parámetro, el parámetro por defecto es 1, a mayores valores es más borroso el resultado. ERODE, reduce las áreas claras, no tiene parámetros. DILATE, aumenta las áreas claras, no tiene parámetros.",
-        "params": ["Constante: ",
-        "Número: un parámetro opcional único a cada filtro, ver más arriba"],
-        "returns": "该 p5 物件"
+      "description": "Aplica un filtro al lienzo. Las opciones posibles son: THRESHOLD, que convierte la imagen a pixeles blancos y negros dependiendo de si están arriba o abajo del umbral definido por el parámetro. El parámetro debe estar entre 0.0 (negro) y 1.0 (blanco). Si no se especifica ningún valor, el valor por defecto es 0.5. GRAY, convierte cualquier color en la imagen a un equivalente en la escala de grises, no tiene parámetros. OPAQUE, hace que el canal alpha sea totalmente opaco, no tiene parámetros. INVERT, hace que cada pixel tenga su valor inverso, no tiene parámetros. POSTERIZE, limita cada canal de la imagen a un número de colores especificado como parámetro. El parámetro puede definir entre 2 y 255 valores, pero los resultados más notorios se dan con valores bajos. BLUR, hace que la imagen sea borrosa con un proceso Gaussiano, siendo el parámetro el nivel de cuán borroso es el resultado, si no se usa ningún parámetro, el parámetro por defecto es 1, a mayores valores es más borroso el resultado. ERODE, reduce las áreas claras, no tiene parámetros. DILATE, aumenta las áreas claras, no tiene parámetros.",
+      "params": ["Constante: ",
+      "Número: un parámetro opcional único a cada filtro, ver más arriba"],
+      "returns": "该 p5 物件"
     },
     "get": {
       "description": "Retorna un arreglo de valores RGBA por cada pixel o toma una sección de una imagen. Si no especifican parámetros, se retorna la imagen entera. Usa los parámetros x e y para obtener el valor de un pixel. Toma una sección de la ventana mostrada si especificas los parámetros adicionales w y h. Cuando se obtiene una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el actual mode imagen definido por imageMode(). Si el pixel solicitado está fuera de la imagen, se retorna el valor [0, 0, 0, 255]. Para obtener los números escalados según los rangoes de color actuales y tomar en cuenta el modo de color según colorMode(), usa getColor() en vez de get(). Tomar el valor de un pixel con get(x, y) es fácil, pero no tan rápido como tomar los datos directamente desde pixels[]. La instrucción equivalente a get(x, y) usando pixels[] con densidad de pixeles d es  var off = (y width + x) d * 4; [pixels[off], pixels[off+1], pixels[off+2], pixels[off+3]]. Ver la referencia de pixels[] para mayor información.",
@@ -1080,8 +1084,6 @@
       "returns": "该 p5 物件"
     },
     "updatePixels": {
-      "example": "",
-
       "description": "Actualiza la ventana mostrada con los datos del arreglo pixels[]. Se usa en conjunto con loadPixels(). Si solo estás leyendo pixeles desde el arreglo, no hay necesidad de llamar a updatePixels() - actualizar es solo necesario para aplicar cambios. updatePixels() debe ser llamada cada vez que el arreglo de pixeles es manipulado o si se llama a la función set().",
       "params": ["Número: coordenada x de la esquina superior izquierda de la región a actualizar",
       "Número: coordenada y de la esquina superior izquierda de la región a actualizar",
