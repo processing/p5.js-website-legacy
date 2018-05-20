@@ -989,7 +989,7 @@
       "returns": "p5.Image：p5.Image 物件"
     },
     "image": {
-      "description": "在 p5 画布上画一个图像。<br><br>此函数能使用几个不同数量的参数。最简单的用法只需要三个参数：img（图像）、x 及 y - (x, y) 为图像的位置。多两个可选参数能用来定义绘制图像的宽度及高度。<br><br>此函数也能使用所有八个数字参数。以分辨所有的参数，p5.js 在以下将使用“终点方形”（应对于 “dx”、“dy” 等）及“原图像”（应对于 “sx”、“sy”等）的名词。提供“原图像”大小可用来显示原图像的一个子部分而不需要显示整个图像。以下图表能解释得更清楚：<img src'assets/drawImage.png'>",
+      "description": "在 p5 画布上画一个图像。<br><br>此函数能使用几个不同数量的参数。最简单的用法只需要三个参数：img（图像）、x 及 y - (x, y) 为图像的位置。多两个可选参数能用来定义绘制图像的宽度及高度。<br><br>此函数也能使用所有八个数字参数。以分辨所有的参数，p5.js 在以下将使用“终点方形”（应对于 “dx”、“dy” 等）及“原图像”（应对于 “sx”、“sy”等）的名词。提供“原图像”大小可用来显示原图像的一个子部分而不需要显示整个图像。以下图表能解释得更清楚：<img src='assets/drawImage.png'>",
       "params": ["p5.Image|p5.Element：该显示的图像",
                  "数字：图像左上角的 x 坐标",
                  "数字：图像左上角的 y 坐标",
@@ -1026,70 +1026,69 @@
       "params": ["常量：CORNER、CORNERS 或 CENTER"],
       "returns": ""
     },
-    "pixels[]": {
-      "description": "Arreglo tipo Uint8ClampedArray conteniendo los valores de todos los pixeles en la ventana mostrada. Estos valores son números. Este arreglo es del tamaño (incluyendo el factor apropiado de pixelDensity) de la ventana desplegada x4, representando los valores R, G, B, A por cada pixel, moviéndose de izquierda a derecha en cada fila, bajando una columna a la vez. Los monitores Retina y otros de alta densidad tendrán más pixeles en el arreglo (por un factor de pixelDensity al cuadrado). Por ejemplo, si la imagen es de 100 x 100 pixeles, habrán 40.000 valores. En un monitor retina, habrán 160.000. Los primeros cuatro valores (índices 0 a 4) en el arreglo serán los valores R, G, B, A del pixel en la posición (0, 0). Los siguientes cuatro valores (índices 4 a 7) serán los valores R, G, B, A del pixel en la posición (1, 0). De forma más general, para definir los valores de un pixel en (x, y): TODO. Aunque el método descrito es complejo, es lo suficientemente flexible como para trabajar con cualquier densidad de pixeles. Notar que set() inmediatamente se hace cargo de definir los valores apropiados en el arreglo pixels[] para un (x, y) dado a cualquier densidad de pixeles, pero el desempeño puede ser no tan rápido cuando muchas modificaciones son hechas en el arreglo de pixeles. Antes de acceder a este arreglo, los datos deben ser cargados con la función loadPixels(). Después de que el arreglo de datos ha sido modificado, la función updatePixels() debe ser ejecutada para refrescar los cambios. Notar que este no es un arreglo standard de Javascript. Esto significa que las funciones Javascript como slice() o arrayCopy() no funcionan.",
-      "returns": "该 p5 物件"
+    "pixels": {
+      "description": "此数组为一个储存显示窗口内所有像素值的 Uint8ClampedArray。这些值都为数字。这数组的大小为（同时考虑像素密度）显示窗口的大小 x4，分别代表每个像素由左到右，上到下的 R、G、B、A 值。视网膜显示及其他高密度显示器将会有更多像素（pixelDensity^2 倍）。比如说，如果图像为 100x100 像素，总共会有 40,000 个元素在 pixels[] 数组内。而在一个视网膜显示，将会有 160,000 个元素。<br><br>数组内最初四个值（指数 0-3）将会是在坐标 (0, 0) 的像素的 R、G、B、A 值。下四个值（指数 4-7）将会是在坐标 (1, 0) 的像素的 R、G、B、A 值。一般上，如果要设置像素 (x, y) 的值： <pre>CODE BLOCK PENDING</pre> 虽然以上的方式有点复杂，它能提供足够的弹性以应对任何像素密度的显示。注意 set() 将会自动处理设定所有在任何像素密度下 (x, y) 坐标在 pixels[] 内的值，不过程序性能可能在像素数组被更改很多次时时不佳。<br><br>在使用这个数组之前，像素资料必须先使用 loadPixels() 函数加载。在数组资料被修改后，updatePixels() 函数必须被调用以更新图像资料。<br><br>注意这不是个普通的 Javascript 数组。这表示 Javascript 数组函数如 <code>slice()</code> 或 <code>arrayCopy()</code> 将不会有效果。",
+      "returns": ""
     },
     "blend": {
-      "description": "Copia una región de pixeles de una imagen a otra, usando un modo específico de mezcla para hacer la operación. Los modos disponibles de mezcla son: BLEND | DARKEST | LIGHTEST | DIFFERENCE | MULTIPLY| EXCLUSION | SCREEN | REPLACE | OVERLAY | HARD_LIGHT | SOFT_LIGHT | DODGE | BURN | ADD | NORMAL",
-      "params": ["p5.Image: imagen fuente",
-      "Entero: coordenada x de la esquina superior izquierda de la fuente",
-      "Entero: coordenada y de la esquina superior izquierda de la fuente",
-      "Entero: ancho de la imagen fuente",
-      "Entero: altura de la imagen fuente",
-      "Entero: coordenada x de la esquina superior izquierda del destino",
-      "Entero: coordenada y de la esquina superior izquierda del destino",
-      "Entero: ancho de la imagen destino",
-      "Entero: altura de la imagen destino",
-      "Constante: el modo de mezcla"],
-      "returns": "该 p5 物件"
+      "description": "将一个图像内一个区域的像素复制去另一个图像，同时使用所定义的混合模式执行复制。",
+      "params": ["p5.Image：原图像",
+                 "整数：原图像的左上角 x 坐标",
+                 "整数：原图像的左上角 y 坐标",
+                 "整数：原图像的宽度",
+                 "整数：原图像的高度",
+                 "整数：终点图像左上角的 x 坐标",
+                 "整数：终点图像左上角的 y 坐标",
+                 "整数：终点图像的宽度",
+                 "整数：终点图像的高度",
+                 "常量：混合模式。BLEND、DARKEST、LIGHTEST、DIFFERENCE、MULTIPLY、EXCLUSION、SCREEN、REPLACE、OVERLAY、HARD_LIGHT、SOFT_LIGHT、DODGE、BURN、ADD 或 NORMAL。"],
+      "returns": ""
     },
     "copy": {
-      "description": "Copia una región del lienzo a otra región del lienzo desde una imagen usada como el parámetro srcImage en el lienzo. Si la fuente y el destino no son del mismo tamaño, automáticamente redimensionará los pixeles de la fuente para calzar con la región especificada como destino.",
-      "params": ["p5.Image: imagen fuente",
-      "Entero: coordenada x de la esquina superior izquierda de la fuente",
-      "Entero: coordenada y de la esquina superior izquierda de la fuente",
-      "Entero: ancho de la imagen fuente",
-      "Entero: altura de la imagen fuente",
-      "Entero: coordenada x de la esquina superior izquierda de destino",
-      "Entero: coordenada y de la esquina superior izquierda de destino",
-      "Entero: ancho de la imagen de destino",
-      "Entero: altura de la imagen de destino"],
-      "returns": "该 p5 物件"
+      "description": "将画布内一个区域的像素复制去画布内另外一个区域同时也复制一个由 srcImg 参数所定义的图像内一个区域的像素去定义 srcImage 的画布上，这将是原图像。如果原图像与重点区域的大小不同，它将会自动缩放原图像的像素以符合所定义的终点区域。",
+      "params": ["p5.Image：原图像",
+                 "整数：原图像的左上角 x 坐标",
+                 "整数：原图像的左上角 y 坐标",
+                 "整数：原图像的宽度",
+                 "整数：原图像的高度",
+                 "整数：终点图像左上角的 x 坐标",
+                 "整数：终点图像左上角的 y 坐标",
+                 "整数：终点图像的宽度",
+                 "整数：终点图像的高度"],
+      "returns": ""
     },
     "filter": {
-      "description": "Aplica un filtro al lienzo. Las opciones posibles son: THRESHOLD, que convierte la imagen a pixeles blancos y negros dependiendo de si están arriba o abajo del umbral definido por el parámetro. El parámetro debe estar entre 0.0 (negro) y 1.0 (blanco). Si no se especifica ningún valor, el valor por defecto es 0.5. GRAY, convierte cualquier color en la imagen a un equivalente en la escala de grises, no tiene parámetros. OPAQUE, hace que el canal alpha sea totalmente opaco, no tiene parámetros. INVERT, hace que cada pixel tenga su valor inverso, no tiene parámetros. POSTERIZE, limita cada canal de la imagen a un número de colores especificado como parámetro. El parámetro puede definir entre 2 y 255 valores, pero los resultados más notorios se dan con valores bajos. BLUR, hace que la imagen sea borrosa con un proceso Gaussiano, siendo el parámetro el nivel de cuán borroso es el resultado, si no se usa ningún parámetro, el parámetro por defecto es 1, a mayores valores es más borroso el resultado. ERODE, reduce las áreas claras, no tiene parámetros. DILATE, aumenta las áreas claras, no tiene parámetros.",
-      "params": ["Constante: ",
-      "Número: un parámetro opcional único a cada filtro, ver más arriba"],
-      "returns": "该 p5 物件"
+      "description": "在画布上使用过滤器。<br><br>预设选择为：<br><br>THRESHOLD 将图像转换成黑与白像素，取决于它们是否高于或低于所定义的 level 参数值。参数值必须在 0.0（黑色）与 1.0（白色）之间。如果并没有提供参数的话，默认将设为 0.5。<br><br>GRAY 将图像内的颜色转换成灰阶色。不使用任何参数。<br><br>OPAQUE 设置所有透明度值成完全不透明。不使用任何参数。<br><br>INVERT 设置每个像素成其反值。不使用任何参数。<br><br>POSTERIZE 将限制每个图像的彩色通道至参数所定义的颜色数。参数值可以介于 2 至 255 之间，但是效果会在较低值是比较明显。<br><br>BLUR 将使用 level 参数所定义的模糊度执行高斯模糊。如果没有提供参数，模糊度为高斯模糊半径为 1。越大的值越模糊。<br><br>ERODE 减少亮区。不使用任何参数。<br><br>DILATE 增加亮区。不使用任何参数。",
+      "params": ["常量：THRESHOLD、GRAY、OPAQUE、INVERT、POSTERIZE、BLUR、ERODE、DILATE 或 BLUR。",
+                 "数字：每个过滤器独有的可选性参数，请看以上"],
+      "returns": ""
     },
     "get": {
-      "description": "Retorna un arreglo de valores RGBA por cada pixel o toma una sección de una imagen. Si no especifican parámetros, se retorna la imagen entera. Usa los parámetros x e y para obtener el valor de un pixel. Toma una sección de la ventana mostrada si especificas los parámetros adicionales w y h. Cuando se obtiene una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el actual mode imagen definido por imageMode(). Si el pixel solicitado está fuera de la imagen, se retorna el valor [0, 0, 0, 255]. Para obtener los números escalados según los rangoes de color actuales y tomar en cuenta el modo de color según colorMode(), usa getColor() en vez de get(). Tomar el valor de un pixel con get(x, y) es fácil, pero no tan rápido como tomar los datos directamente desde pixels[]. La instrucción equivalente a get(x, y) usando pixels[] con densidad de pixeles d es  var off = (y width + x) d * 4; [pixels[off], pixels[off+1], pixels[off+2], pixels[off+3]]. Ver la referencia de pixels[] para mayor información.",
-      "params": ["Número: coordenada x del pixel",
-      "Número: coordenada y del pixel",
-      "Número: ancho",
-      "Número: altura"],
-      "returns": "Arreglo|p5.Image: valores de pixel en la posición (x, y) en formato arreglo RGBAs o p5.Image"
+      "description": "返回任何像素值的一个为 [R,G,B,A] 的数组或捕捉图像的一部分。如果没有提供任何参数，将会返回整个图像。可使用 x 及 y 参数以取得一个像素的值。多加定义 w 及 h 参数可取的显示窗口的一部分。当在取得图像时，x 及 y 参数将定义图像的左上角坐标值，无论当时的图像模式为何。<br><br>如果欲取得的像素在图像外，将返回 [0,0,0,255]。以取得根据当时的颜色值范围及颜色模式的数字，请使用 getColor 而不是 get。<br><br>使用 get(x, y) 以取得一个像素的颜色相对来说简单，但是其速度并没有直接从 pixels[] 数组获取数据来的快。与使用 get(x, y) 有相同的效果但使用 pixels[] 及像素密度 d 的范例如下 <code>var x, y, d; // 设置这为坐标 var off = (y width + x) d * 4; var components = [ pixels[off], pixels[off + 1], pixels[off + 2], pixels[off + 3] ]; print(components);</code><br><br>请参考 pixels[] 文献以知更多详情。",
+      "params": ["数字：像素的 x 坐标",
+                 "数字：像素的 y 坐标",
+                 "数字：宽度",
+                 "数字：高度"],
+      "returns": "数字[]|p5.Image：在 x,y 的像素值数组或 p5.Image"
     },
     "loadPixels": {
-      "description": "Carga los datos de los pixeles en pantalla al arreglo pixels[]. Esta función siempre debe ser llamada antes de leer o escribir en el arreglo pixels[]",
-      "returns": "该 p5 物件"
+      "description": "将显示窗口的像素资料加载到 pixels[] 数组里。这函数必须在读写 pixels[] 之前被调用。注意只有使用 set() 或直接修改 pixels[] 的改变会发生。",
+      "returns": ""
     },
     "set": {
-      "description": "Cambia el color de cualquier pixel, o pone una imagen directamente en la ventana. Los parámetros x e y especifican el pixel a cambiar y c especifica el valor del color. Puede ser un objeto p5.Color o un arreglo de pixeles RGBA. También puede ser un valor único en escala de grises. Cuando se define una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el modo actual de imagen según imageMode(). Después de usar set(), debes llamar a updatePixels()' para que tus cambios aparezcan. Esta función debería ser llamada una vez que todos los pixeles han sido definidos. Definir el color de un solo pixel con set(x, y) es fácil, pero es tan rápido como poner los datos directamente en el arreglo pixels[]. Definir los valores de pixels[] directamente puede ser complicado cuando se trabaja con un monitor retina, pero tendrá un mejor desempeño cuando muchos pixeles necesiten ser definidos directamente en cada iteración. Ver la referencia de pixels[] para mayor información.",
-      "params": ["Número: coordenada x del pixel",
-      "Número: coordenada x del pixel",
-      "Número: coordenada y del pixel",
-      "Número|Arreglo|物件：inserta un valor en escala de grises | un arreglo de pixeles | un objeto p5.Color | un objeto p5.Image a copiar"],
-      "returns": "该 p5 物件"
+      "description": "改变任何像素的颜色，或直接在显示窗口内绘画一个图像。<br><br>x 及 y 参数用于定义该改变的像素而 c 参数用于定义颜色值。这可以是一个 p5.Color 物件或一个 [R, G, B, A] 像素数组。它也能是一个灰阶值。在设定一个图像时，x 及 y 参数将定义图像左上角的坐标值，无论当时的图像模式为何。<br><br>在使用 set() 后，您必须调用 updatePixels() 以使您的改变生效。这应该在所有像素都被设定后才被调用，而且也必须在调用 get() 或绘制图像之前调用。<br><br>使用 set(x, y) 设置一个像素的颜色相对来说简单，但使其速度并没有直接将数据写在 pixels[] 数组里来的快。直接使用 pixels[] 设置像素值可能在使用视网膜显示器时比较复杂，不过它会在每一个循环有很多像素需要被设定时表现得更好。<br><br>请参考 pixels[] 文献以知更多详情。",
+      "params": ["数字：像素的 x 坐标",
+                 "数字：像素的 y 坐标",
+                 "数字|数字[]|物件：插入一个灰阶值 | 一个像素数组 | 一个 p5.Color 物件 | 一个用于复制的 p5.Image"],
+      "returns": ""
     },
     "updatePixels": {
-      "description": "Actualiza la ventana mostrada con los datos del arreglo pixels[]. Se usa en conjunto con loadPixels(). Si solo estás leyendo pixeles desde el arreglo, no hay necesidad de llamar a updatePixels() - actualizar es solo necesario para aplicar cambios. updatePixels() debe ser llamada cada vez que el arreglo de pixeles es manipulado o si se llama a la función set().",
-      "params": ["Número: coordenada x de la esquina superior izquierda de la región a actualizar",
-      "Número: coordenada y de la esquina superior izquierda de la región a actualizar",
-      "Número: ancho de la región a actualizar",
-      "Número: altura de la región a actualizar"],
-      "returns": "该 p5 物件"
+      "description": "使用 pixels[] 数组内的资料更新显示窗口。通常与 loadPixels() 一起使用。如果您只需从该数组中读取像素资料，您不需要调用 updatePixels() — 更新只有在进行更改时需要被调用。updatePixels() 应该在像素数组被更改或 set() 被调用时使用，只有使用 set() 或直接修改 pixels[] 的改变会发生。",
+      "params": ["数字：欲更新的区域的左上角 x 坐标",
+                 "数字：欲更新的区域的左上角 y 坐标",
+                 "数字：欲更新的区域的宽度",
+                 "数字：欲更新的区域的高度"],
+      "returns": ""
     },
     "loadFont": {
       "description": "Carga un archivo de fuente de letra (.otf, .ttf) desde un archivo o URL, y retorna un objeto PFont. Este método es asíncrono, lo que significa que puede que no finalice antes de que la siguiente línea en tu bosquejo sea ejecutada. La ubicación del archivo debe ser relativo al archivo HTML que lo vincula con tu bosquejo. Cargar desde una URL u otra ubicación remota puede ser bloqueado por las opciones de seguridad del navegador.",
