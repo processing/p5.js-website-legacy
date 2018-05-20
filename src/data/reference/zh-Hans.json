@@ -1242,120 +1242,125 @@
       "returns": "p5.XML: 该 p5 物件.XML generado"
     },
     "createVector": {
-      "description": "Crea un nuevo objeto p5.Vector (el tipo de datos para almacenar vectores). Esto provee un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección.",
-      "params": ["Número: componente x del vector",
-      "Número: componente y del vector",
-      "Número: componente z del vector"],
-      "returns": "该 p5 物件"
+      "description": "创造一个新的 p5.Vector 向量（用以储存向量的数据类型）。此函数将提供一个二维或三维的向量，准确来说一个欧几里得（也称为几何）向量。向量为一个有大小及方向的量。",
+      "params": ["数字：该向量的 x 分量",
+                 "数字：该向量的 y 分量",
+                 "数字：该向量的 z 分量"],
+      "returns": "p5.Vector"
     },
     "p5.Vector": {
       "description": "Una clase para describir un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección. El tipo de datos, sin embargo, graba los componentes del vector (x, y para 2D y x,y,z para 3D). La magnitud y la dirección pueden ser calculados con los métodos mag() y heading(). En muchos de los ejemplos de p5.js, verás que p5.Vector es usado para describir una posición, velocidad o aceleración. Por ejemplo, si consideras un rectángulo moviéndose a lo largo de la pantalla, en cada instante tiene una posición (un vector que apunta desde el origen hasta su ubicación), una velocidad(la tasa a la que la posición del objeto cambia por unidad de tiempo, expresada como vector), y aceleración (la tasa a la que la velocidad del objeto cambia por unidad de tiempo, expresada como vector). Como los vectores representan grupos de valores, no podemos simplemente usar las operaciones tradicionales de adición, multiplicación, etc. En vez de eso, necesitaremos hacer matemática de vectores, lo que es simplificado con los métodos dentro de la clase p5.Vector.",
       "params": ["Número: componente x del vector",
-      "Número: componente y del vector",
-      "Número: componente z del vector"],
+                 "Número: componente y del vector",
+                 "Número: componente z del vector"],
       "returns": "该 p5 物件"
     },
     "abs": {
-      "description": "Calcula el valor absoluto (magnitud) de un número. Usa Math.abs(). El valor absoluto de un número es siempre positivo.",
-      "params": ["Número: número a computar"],
-      "returns": "Número: valor absoluto del número dado"
+      "description": "计算一个数字的绝对值（大小值）。映射到 Math.abs()。一个数字的绝对值一定是个正数。",
+      "params": ["数字：用于计算的数字"],
+      "returns": "数字：被给予数字的绝对值"
     },
     "ceil": {
-      "description": "Calcula el entero más cercano que es mayor o igual que el valor del paráemtro. Usa Math.ceil(). Por ejemplo, ceil(9.03) retorna el valor 10.",
-      "params": ["Número: número a redondear"],
-      "returns": "Número: número redondeado hacia arriba"
+      "description": "计算最靠近并大于或等于参数值的整数。映射到 Math.ceil()。比如说，ceil(9.03) 将返回 10。",
+      "params": ["数字：该取整的数字"],
+      "returns": "整数：取整后的数字"
     },
     "constrain": {
-      "description": "Restringe un valor a estar entre un valor mínimo y uno máximo.",
-      "params": ["Número: número a restringir",
-      "Número: límite mínimo",
-      "Número: límite máximo"],
-      "returns": "Número: número restringido"
+      "description": "限制一个数字于最低值与最高值之间。",
+      "params": ["数字：该限制的数字",
+                 "数字：最低值",
+                 "数字：最高值"],
+      "returns": "数字：被限制后的数字"
     },
     "dist": {
-      "description": "Calcula la distancia entre dos puntos",
-      "params": ["Número: la coordenada x del primer punto",
-      "Número: la coordenada y del primer punto",
-      "Número: la coordenada z del primer punto",
-      "Número: la coordenada x del segundo punto",
-      "Número: la coordenada y del segundo punto",
-      "Número: la coordenada z del segundo punto"],
-      "returns": "Número: distancia entre los dos puntos"
+      "description": "计算两点之间的距离。",
+      "params": ["数字：第一个点的 x 坐标",
+                 "数字：第一个点的 y 坐标",
+                 "数字：第二个点的 x 坐标",
+                 "数字：第二个点的 y 坐标",
+                 "数字：第一个点的 z 坐标",
+                 "数字：第二个点的 z 坐标"],
+      "returns": "数字：两点之间的距离"
     },
     "exp": {
-      "description": "Retorna el número de Euler (2.71828...) elevado al parámetro n. Usa Math.exp().",
-      "params": ["Número: exponente a elevar"],
-      "returns": "e^n"
+      "description": "返回欧拉数 e （2.71828...）提升到由参数 n 定义的指数。映射到 Math.exp()。",
+      "params": ["数字：该提升的指数"],
+      "returns": "数字：e^n"
     },
     "floor": {
-      "description": "Calcula el valor entero más cercano que es menor o igual al parámetro. Usa Math.floor().",
-      "params": ["Número: número a ser redondeado hacia abajo"],
-      "returns": "Número: número redondeado hacia abajo"
+      "description": "计算最靠近并小于或等于参数值的整数。映射到 Math.floor()。",
+      "params": ["数字：该取整的数字"],
+      "returns": "整数：取整后的数字"
     },
     "lerp": {
-      "description": "Calcula un número entre dos números a un incremento específico. El parámetro amt es la cantidad a interpolar entre los dos valores donde 0.0 es igual al primer punto, 0.1 está muy cerca del primer punto, 0.5 está a medio camino entre ambos números, etc. La función lerp es conveniente para crear movimiento a lo largo de un camino recto y para dibujar líneas punteadas.",
-      "params": ["Número: primer valor",
-      "Número: segundo valor",
-      "Número: número entre 0.0 y 1.0"],
-      "returns": "Número: valor interpolado"
+      "description": "计算一个介于两个数字之间所定义的插值量位置的数字。amt 参数为两个值之间的插值量，0.0 为第一个值，0.1 为非常接近第一个值，0.5 为两者之间等等。lerp 函数可用来沿着直线制作动画及绘制虚线。",
+      "params": ["数字：第一个值",
+                 "数字：第二个值",
+                 "数字：介于 0.0 与 1.0 之间的数字"],
+      "returns": "数字：插值"
     },
     "log": {
-      "description": "Calcula el logaritmo natural (logaritmo con base e) de un número. Esta función espera que el parámetro n sea de un valor más grande que 0.0. Usa Math.log().",
-      "params": ["Número: número más grande que 0"],
-      "returns": "Número: logaritmo naturla de n"
+      "description": "计算一个数字的自然对数（e 为底数的对数）。这函数需要 n 参数大于 0.0。映射到 Math.log()。",
+      "params": ["数字：大于 0 的数字"],
+      "returns": "数字：n 的自然对数"
     },
     "mag": {
-      "description": "Calcula la magnitud (o tamaño) de un vector. Un vector es una dirección en el espacio comúnmente usada en gráfica computacional y álgebra lineal. Como no tiene posición de inicio, la magnitud del vector puede ser pensada como la distancia entre la coordenada 0,0 a su valor x,y. Por lo tanto, mag() es un atajo a escribir dist(0, 0, x, y).",
-      "params": ["Número: primer valor",
-      "Número: segundo valor"],
-      "returns": "Número: magnitud del vector entre (0, 0) y (a, b)"
+      "description": "计算一个向量的大小（或长度）。向量为一个空间内的方向，通常用于电脑图形及线性代数。因为它没有“开始”位置，一个向量的大小可以被想成是 0,0 坐标与向量 x,y 坐标之间的距离。因此，mag() 是 dist(0, 0, x, y) 的缩写。",
+      "params": ["数字：第一个值",
+                 "数字：第二个值"],
+      "returns": "数字：从 (0, 0) 至 (a, b) 的向量的大小"
     },
     "map": {
-      "description": "Escala un nombre de un rango a otro rango. En el primer ejemplo anterior, el número 25 es convertido de un valor en el rango entre 0 y 100 a un valor cuyo rango está entre el borde izquierdo de la ventana (0) y el borde derecho (ancho).",
-      "params": ["Número: el valor a ser convertido",
-      "Número: límite inferior del rango actual",
-      "Número: límite superior del rango actual",
-      "Número: límite inferior del rango deseado",
-      "Número: límite superior del rango deseado"],
-      "returns": "Número: número escalado"
+      "description": "从一个范围内映射一个数字去另一个范围。<br><br>在以上第一个范例，25 被从 0 至 100 之间的范围映射去窗口最左方 (0) 至最右方 (width) 的范围内。",
+      "params": ["数字：该转换的值",
+                 "数字：现在值的最低值",
+                 "数字：现在值的最低值",
+                 "数字：目标值的最低值",
+                 "数字：目标值的最高值",
+                 "布尔值：限制目标值在最高及最低值之间"],
+      "returns": "数字：映射后的数字"
     },
     "max": {
-      "description": "Determina el valor más grande en una secuencia de números, y luego retorna ese valor. max() acepta cualquier número de parámetros tipo número, o un arreglo de cualquier largo.",
-      "params": ["Número|Arreglo: números a comparar"],
-      "returns": "Número: número máximo"
+      "description": "找出一系列数字中最大的值，并返回该值。max() 能接受任何数量的数字参数，或是一个任何大小的数组。",
+      "params": ["数字：用于比较的数字",
+                 "数字：用于比较的数字",
+                 "数字[]：用于比较的数字"],
+      "returns": "数字：最高值的数字"
     },
     "min": {
-      "description": "Determina el valor más pequeño en una secuencia de números, y luego retorna ese valor. max() acepta cualquier número de parámetros tipo número, o un arreglo de cualquier largo.",
-      "params": ["Número|Arreglo: números a comparar"],
-    "returns": "Número: número mínimo"
+      "description": "找出一系列数字中最小的值，并返回该值。min() 能接受任何数量的数字参数，或是一个任何大小的数组。",
+      "params": ["数字：用于比较的数字",
+                 "数字：用于比较的数字",
+                 "数字[]：用于比较的数字"],
+      "returns": "数字：最低值的数字"
     },
     "norm": {
-      "description": "Normaliza un número de un rango a otro rango entre 0 y 1. Es idéntico a map(value, low, high, 0, 1). Los números fuera del rango no son saturados a 0 o 1, porque los números fuera de rango son muchas veces intencionales y útiles (ver el segundo ejemplo más arriba)",
-      "params": ["Número: valor entrante a ser normalizado",
-      "Número: límite inferior del rango actual",
-      "Número: límite superior del rango actual"],
-      "returns": "Número: número normalizado"
+      "description": "将一个数字由一个范围标准化成介于 0 及 1 之间的值。与 map(value, low, high, 0, 1) 的效果相同。在范围外的数字将不会被限制在 0 与 1 之间，因为范围外的值通常是有意及有用的。（参考以上第二个范例）",
+      "params": ["数字：该标准化的值",
+                 "数字：现在值的最低值",
+                 "数字：现在值的最高值"],
+      "returns": "数字：标准化后的数字"
     },
     "pow": {
-      "description": "Facilita las expresiones exponenciales. La función pow() es una manera eficiente de multiplicar números po sí mismos (o sus recíprocos) en grandes cantidades. Por ejemplo, pow(3, 5) es equivalente a la expresión 3*3*3*3*3 y pow (3, -5) es equivalente a 1/3*3*3*3*3. Usa Math.pow().",
-      "params": ["Número: base de la expresión exponencial",
-      "Número: potencia a la que se eleva la base"],
-      "returns": "n^e"
+      "description": "执行幂运算。pow() 函数是个能有效率地将数字大量乘于自己（或其倒数）的方式。比如说，pow(3, 5) 等同于 3*3*3*3*3 而 pow(3, -5) 等同于 1 / (3*3*3*3*3)。映射到 Math.pow()。",
+      "params": ["数字：幂运算的底数",
+                 "数字：幂运算的指数"],
+      "returns": "数字：n^e"
     },
     "round": {
-      "description": "Calcula el entero más cercano al parámetro n. Por ejemplo, round(133.8) retorna el valor 134. Usa la función Math.round().",
-      "params": ["Número: número a redondear"],
-      "returns": "Número: número redondeado"
+      "description": "计算最靠近 n 参数的整数。比如说，round(133.8) 将返回 134。映射到 Math.round()。",
+      "params": ["数字：该取整的数字"],
+      "returns": "整数：取整后的数字"
     },
     "sq": {
-      "description": "Eleva al cuadrado un número (lo multiplica por sí mismo), El resultado es siempre un número positivo, porque multiplicar dos números negativos siempre resulta en un número positivo.",
-      "params": ["Número: número a elevar al cuadrado"],
-      "returns": "Número: número elevado al cuadrado"
+      "description": "平方一个数字（将数字乘于自己）。结果一定是个正数，因为将两个负数相乘一定会有一个正数结果。比如说 -1 * -1 = 1。",
+      "params": ["数字：该平方的数字"],
+      "returns": "数字：平方后的数字"
     },
     "sqrt": {
-      "description": "Calcula la raíz cuadrada de un número. La raíz cuadrada de un número es siempre positiva, aunque puede haber una raíz cuadrada válida que sea negativa. La raíz cuadrada s de un número a es tal que s*s = a. Es lo opuesto a elevar al cuadrado. Usa Math.sqrt().",
-      "params": ["Número: número no negativo al que se le calcula la raíz cuadrada"],
-      "returns": "Número: raíz cuadrada del número"
+      "description": "计算一个数字的平方根。一个数字的平方根一定是个正数，虽然也可能有正确的负数平方根。一个数字 a 的平方根 s 有以下属性 s*s = a。此函数为取平方的相反。映射到 Math.sqrt()。",
+      "params": ["数字：该取平方根的非负数"],
+      "returns": "数字：取平方根后的数字"
     },
     "noise": {
       "description": "Retorna el valor del ruido Perlin en las coordenadas específicas. El ruido Perlin es un generador de secuencias aleatorias produciendo una sucesión de números más naturalmente ordenada y armónica, en comparación con la función estándar random(). Fue inventada por Ken Perlin en los 1980s y ha sido usada desde entonces en aplicaciones gráficas para producir texturas procedurales, movimiento natural, figuras, terrenos, etc. La principal diferencia con la función random() es definida en una espacio infinito n-dimensional donde cada par de coordenadas corresponde a un valor fijo semi-aleatorio (fijado solo durante el tiempo de vida del programa; ver la función noiseSeed()). p5.js puede calcular ruido 1D, 2D y 3D, dependiendo del número de coordenadas dado. El valor resultante siempre estará entre 0.0 y 1.0. El valor de ruido puede ser animado moviéndose a través del espacio del ruido como fue demostrado en el ejemplo superior. Las dimensiones segunda y tercera también pueden ser interpretadas como tiempo. El ruido está estructurado de forma similar a una señal de audio, con respecto al uso de la función de las frecuencias. De forma similar al conecpto de armónicas en física, el ruido Perlin es calculado a lo largo de varias octavas que se han sumado para dar forma al resultado final. Otra manera de ajustar el caracter de la secuencia resultante es la escala de las coordenadas de entrada. Como la función trabaja en un espacio infinito, el valor de las coordenadas no importa como tal, solo la distancia entre las coordenadas sucesivas importa (por ejemplo: cuando se usa noise() dentro de un bucle). Como regla general, a menor la diferencia entre coordenadas, más suave es el ruido resultante. Pasos entre 0.005 y 0.03 funcionan mejor para la mayor parte de las aplicaciones, pero esto diferirá dependiendo del uso.",
