@@ -1091,66 +1091,78 @@
       "returns": ""
     },
     "loadFont": {
-      "description": "Carga un archivo de fuente de letra (.otf, .ttf) desde un archivo o URL, y retorna un objeto PFont. Este método es asíncrono, lo que significa que puede que no finalice antes de que la siguiente línea en tu bosquejo sea ejecutada. La ubicación del archivo debe ser relativo al archivo HTML que lo vincula con tu bosquejo. Cargar desde una URL u otra ubicación remota puede ser bloqueado por las opciones de seguridad del navegador.",
-      "params": ["String: número del archivo o URL a cargar",
-      "Función: función a ser ejecutada después de que loadFont() es completada"],
-      "returns": "物件：objeto p5.Font"
+      "description": "从一个文件或网址加载一个 opentype 字形文件（.otf、.ttf），将返回一个 p5.Font 物件。这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。<br><br>字形的路径应该相对于链接您的绘图的 HTML 文件。从其他 URL 或远程位置加载字形可能会被浏览器的内建安全模式阻止。",
+      "params": ["字符串：该加载的字形名字或网址",
+                 "函数：在 loadFont() 完成后该调用的函数",
+                 "函数：在发生错误时该调用的函数"],
+      "returns": "p5.Font：p5.Font 物件"
     },
     "loadJSON": {
-      "description": "Carga un archivo JSON desde un archivo o una URL, y retorna un objeto o un arreglo. Este método es asíncrono, lo que significa que puede que no termine antes que se ejecute la siguiente línea en tu bosquejo.",
-      "params": ["String: nombre de archivo o URL a cargar",
-      "Función: función a ser ejecutada después de que loadJSON() finalice, los datos son pasados como primer argumento",
-      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento",
-      "String: json o jsonp"],
-      "returns": "Objeto|Arreglo: datos JSON"
+      "description": "从一个文件或网址加载一个 JSON 文件，将返回一个物件。注意如果该 JSON 文件内涵一个数组，此函数仍然会返回一个以数字为指数的物件。<br><br>这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。JSONP 功能支持是由填充工具所提供而您可以使用第二个参数来定义一个有 JSON 回调定义的物件，只需跟从这里的<a href='https://github.com/camsong/fetch-jsonp'>指示</a>。",
+      "params": ["字符串：该加载的文件名或网址",
+                 "物件：关于 jsonp 设置的设置物件",
+                 "字符串：\"json\" 或 \"jsonp\"",
+                 "函数：在 loadJSON() 完成后该执行的函数，返回的数据将会是函数第一个参数",
+                 "函数：在发生错误时该执行的函数，回复将会是函数第一个参数"],
+      "returns": "物件：JSON 数据"
     },
     "loadStrings": {
-      "description": "Lee los contenidos de un archivo y crea un arreglo de Strings de sus líneas individuales. Si el nombre del archivo es usado como parámetro, como en el ejemplo anterior, el archivo debe estar ubicado en el directorio del bosquejo. Alternativamente, el archivo puede ser cargado desde cualquier lugar del computador local usando una dirección absoluta (empieza con / en Unix y Linux, o una letra representando el disco en Windows), o el parámetro de nombre de archivo puede ser una URL donde esté el archivo dentro de una red. Este método es asíncrono, lo que significa que puede ser que su ejecución no termine antes de que se ejecute la siguiente línea del bosquejo.",
-      "params": ["String: nombre de archivo o URL a cargar",
-      "Función: función a ser ejecutada después de que loadStrings() finalice, el arreglo es pasado como primer argumento",
-      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
-      "returns": "Arreglo: un arreglo de Strings"
+      "description": "读取一个文件的内容并使用个别字行创造一个字符串数组。如果文件名被用作第一个参数，如以上范例，该文件必须被储存在绘图文件夹内。<br><br>除此之外，该文件也能从本地电脑任何位置加载，只需使用绝对路径（任何在 Unix 及 Linux 内由 / 开始的路径，或在 Windows 内由驱动器符号开始的路径），又或者任何在网络上的文件网址也能用来当作 filename 参数。<br><br>这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。",
+      "params": ["字符串：该加载的文件名或网址",
+                 "函数：在 loadStrings() 完成后该执行的函数，返回的数组将会是函数第一个参数",
+                 "函数：在发生错误时该执行的函数，回复将会是函数第一个参数"],
+      "returns": "字符串[]：字符串数组"
     },
     "loadTable": {
-      "description": "Lee los contenidos de un archivo o URL y crea un objeto p5.Table con sus valores. Si un archivo es especificado, debe ser ubicado en el directorio data del bosquejo. El parámetro de nombre de archivo puede también ser una URL de un archivo en línea. Por defecto, se asume que el archivo está separado por comas (formato CSV), La tabla sólo busca una fila de encabezado si es que se incluye la opción header. Las opciones posibles incluyen: csv: se procesan los datos como valores separados por comas, tsv: se procesan los datos como separados por tabulación, header: la tabla tiene una fila de encabezados (títulos). Si se incluyenn múltiples opciones, se deben ingresar como parámetros separados por comas. Todos los archivos son cargados y grabados usando codificación UTF-8. Este método es asíncrono, lo que significa que su ejecución puede no haber terminado antes de que se ejecute la siguiente línea del bosquejo. Si se llama a loadTable() dentro de preload() se garantiza que se complete la operación antes de que setup() y draw() sean llamadas. Fuera de preload(), puedes suplir una función callback para manejar el objeto.",
-      "params": ["String: nombre de archivo o URL a cargar",
-      "String|Strings: header, csv, tsv",
-      "Función: función a ser ejecutada después de que loadTable() finalice, el arreglo es pasado como primer argumento. Si es exitosa, el objeto Table es pasado como primer argumento, en caso contrario se pasa el valor boolean false."],
-      "returns": "Objeto Table conteniendo los datos"
+      "description": "读取一个文件的内容并使用其内容创造一个 p5.Table 物件。如果文件名被用作第一个参数，该文件必须被储存在绘图文件夹内。文件名参数也能是一个在网络上的文件的网址。默认上，该文件被假定为以逗号分隔（格式为 CSV）。该表格只会在 ‘header’ 设置被使用时才会寻找标签。<br><br>可使用的设置包括：<ul><li>csv - 将表格解析为逗号分隔值</li><li>tsv - 将表格解析为制表符分隔值</li><li>header - 这表格有标签行</li></ul><br><br>当使用多个设置时，您只需将他们分为个别的参数并使用逗号分隔。例如：<br><br><code>loadTable('my_csv_file.csv', 'csv', 'header'); </code><br><br>所有加载及储存的文件都需使用 UTF-8 编码。<br><br>这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。在 preload() 内调用 loadTable() 将保证加载工作会在 setup() 及 draw() 被调用前完成<br><br>在 preload() 外，您可以提供一个回调函数以处理加载物件。",
+      "params": ["字符串：该加载的文件名或网址",
+                 "字符串：\"header\" \"csv\" \"tsv\"",
+                 "函数：在 loadTable() 完成后该执行的函数，返回的 Table 物件将会是函数第一个参数",
+                 "函数：在发生错误时该执行的函数，回复将会是函数第一个参数"],
+      "returns": "物件：含有数据的 Table 物件"
     },
     "loadXML": {
-      "description": "Lee los contenidos de un archivo y crea un objeto XML con sus valores. Si el nombre del archivo es usado como parámetro, el archivo debe estar ubicado en el directorio del bosquejo. Alternativamente, el archivo puede ser cargado desde cualquier lugar del computador local usando una dirección absoluta (que empieza con / en Unix y Linux, o con una letra que simbolice el disco duro en Windows). También se puede usar como parámetro de nombre de archivo una URL para un archivo en una red. Este método es asíncrono, lo que significa que su ejecución puede no estar completa antes de que se ejecute la siguiente línea de código en el bosquejo. Llamar a loadXML() dentro de preload() garantiza que la operación se complete antes de que setup() y draw() sean llamados. Fuera de preload(), puedes suplir una función callBack para manejar el objeto.",
-      "params": ["String: nombre de archivo o URL a cargar",
-      "Función: función a ser ejecutada después de que loadXML() finalice, el objeto XML es pasado como primer argumento",
-      "Función: la función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
-      "returns": "objeto XML que contiene los datos"
+      "description": "读取一个文件的内容并使用其内容创造一个 XML 物件。如果文件名被用作第一个参数，该文件必须被储存在绘图文件夹内。<br><br>除此之外，该文件也能从本地电脑任何位置加载，只需使用绝对路径（任何在 Unix 及 Linux 内由 / 开始的路径，或在 Windows 内由驱动器符号开始的路径），又或者任何在网络上的文件网址也能用来当作 filename 参数。<br><br>这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。在 preload() 内调用 loadTable() 将保证加载工作会在 setup() 及 draw() 被调用前完成<br><br>在 preload() 外，您可以提供一个回调函数以处理加载物件。",
+      "params": ["字符串：该加载的文件名或网址",
+                 "函数：在 loadXML() 完成后该执行的函数，返回的 XML 物件将会是函数第一个参数",
+                 "函数：在发生错误时该执行的函数，回复将会是函数第一个参数"],
+      "returns": "物件：含有数据的 XML 物件"
+    },
+    "loadBytes": {
+      "description": "",
+      "params": ["字符串：该加载的文件名或网址",
+                 "函数：在 load() 完成后该执行的函数",
+                 "函数：在发生错误时该执行的函数"],
+      "returns": "物件：一个 ‘bytes’ 属性将为被加载的缓冲区的物件"
     },
     "httpGet": {
-      "description": "Método para ejecutar una solicitud HTTP GET. Si no se especifica el tipo de datos, p5 tratará de adivinar basándose en la URL, usando texto por defecto.",
-      "params": ["String: nombre del archivo o URL a cargar",
-      "物件：parámetro de datos pasados con la solicitud enviada",
-      "String: json, jsonp, xml o text",
-      "Función: función a ser ejecutada después de que httpGet() finalice, los datos son pasados como primer argumento",
-      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
-      "returns": "该 p5 物件"
+      "description": "执行 HTTP GET 请求的函数。如果数据类型（datatype）没有被定义的话，p5 将会尝试根据网址猜返回数据的类型，默认为文字。这和调用 httpDo(path, 'GET') 的效果一样。‘binary’ 数据类型将会返回一个 Blob 物件，而 ‘arrayBuffer’ 数据类型将会返回一个 ArrayBuffer 并可用来创造类型化数组（如 Uint8Array）。",
+      "params": ["字符串：该加载的文件名或网址",
+                 "字符串：\"json\"、\"jsonp\"、\"binary\"、\"arrayBuffer\"、\"xml\"或\"text\"",
+                 "物件|布尔值：与请求一起传送的参数资料",
+                 "函数：在 httpGet() 完成后该执行的函数，返回的资料物件将会是函数第一个参数",
+                 "函数：在发生错误时该执行的函数，回复将会是函数第一个参数"],
+      "returns": ""
     },
     "httpPost": {
-      "description": "Método para ejecutar una solicitud HTTP POST. Si no se especifica el tipo de datos, p5 tratará de adivinar basándose en la URL, usando texto por defecto.",
-      "params": ["String: nombre del archivo o URL a cargar",
-      "物件：parámetro de datos pasados con la solicitud enviada",
-      "String: json, jsonp, xml o text",
-      "Función: función a ser ejecutada después de que httpPost() finalice, los datos son pasados como primer argumento",
-      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
-      "returns": "该 p5 物件"
+      "description": "执行 HTTP POST 请求的函数。如果数据类型（datatype）没有被定义的话，p5 将会尝试根据网址猜返回数据的类型，默认为文字。这和调用 httpDo(path, 'POST') 的效果一样。",
+      "params": ["字符串：该加载的文件名或网址",
+                 "字符串：\"json\"、\"jsonp\"、\"xml\" 或 \"text\"。如果不提供此参数，httpPost() 将尝试猜",
+                 "物件|布尔值：与请求一起传送的参数资料",
+                 "函数：在 httpPost() 完成后该执行的函数，返回的资料物件将会是函数第一个参数",
+                 "函数：在发生错误时该执行的函数，回复将会是函数第一个参数"],
+      "returns": ""
     },
     "httpDo": {
-      "description": "Método para ejecutar una solicitud HTTP. Si no se especifica el tipo de datos, p5 tratará de adivinar basándose en la URL, usando texto por defecto. También puedes pasar un objeto especificando todos los parámetros de la solicitud siguiendo los ejemplos dentro de las llamadas de reqwest()",
-      "params": ["String: nombre del archivo o URL a cargar",
-      "物件：parámetro de datos pasados con la solicitud enviada",
-      "String: json, jsonp, xml o text",
-      "Función: función a ser ejecutada después de que httpDo() finalice, los datos son pasados como primer argumento",
-      "Función: función a ser ejecutada si es que hay un error, la respuesta es pasada como primer argumento"],
-      "returns": "该 p5 物件"
+      "description": "执行 HTTP 请求的函数。如果数据类型（datatype）没有被定义的话，p5 将会尝试根据网址猜返回数据的类型，默认为文字。<br><br>如果需要更高等的使用法，您可以在第一个参数给予路径而第二个参数给予一个物件，物件内容设置与 Fetch API 规范的一样。",
+      "params": ["字符串：该加载的文件名或网址",
+                 "字符串：\"GET\"、\"POST\" 或 \"PUT\"，默认为 \"GET\"",
+                 "字符串：\"json\"、\"jsonp\"、\"xml\" 或 \"text\"",
+                 "物件|布尔值：与请求一起传送的参数资料",
+                 "函数：在 httpDo() 完成后该执行的函数，返回的资料物件将会是函数第一个参数",
+                 "函数：在发生错误时该执行的函数，回复将会是函数第一个参数",
+                 "物件：Request 物件，请参考 “fetch” API <a href='https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API'>文献</a>以了解可使用设置"],
+      "returns": ""
     },
     "save": {
       "description": "Graba una imagen, text, json, csv, wav o html. Hace que la descarga ocurra en el computador cliente. Notar que no es recomendado llamar a save() dentro de draw() si está en bucle, porque la función save() abrirá una ventana de diálogo en cada cuadro. El comportamiento por defecto es grabar el lienzo como una imagen. Puedes opcionalmente especificar un nombre de archivo. Por ejemplo: TODO. Alternativamente, el primer parámetro puede ser un puntero a un lienzo p5.Element, un arreglo de Strings, un arreglo de JSON, un objeto JSON, un p5.Table, un p5.Image, o un p5.SoundFile (requiere p5.sound). El segundo parámetro es el nombre del archivo (incluyendo la extensión). El tercer parámetro es para opciones específicas a este tipo de objeto. Este método grabará un archivo que se austa a los parámetros dados. Por ejemplo: TODO. ",
