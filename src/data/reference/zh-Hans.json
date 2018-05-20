@@ -1164,32 +1164,38 @@
                  "物件：Request 物件，请参考 “fetch” API <a href='https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API'>文献</a>以了解可使用设置"],
       "returns": ""
     },
+    "createWriter": {
+      "description": "",
+      "params": ["字符串：该创造的文件的名",
+                 "字符串："]
+    },
     "save": {
-      "description": "Graba una imagen, text, json, csv, wav o html. Hace que la descarga ocurra en el computador cliente. Notar que no es recomendado llamar a save() dentro de draw() si está en bucle, porque la función save() abrirá una ventana de diálogo en cada cuadro. El comportamiento por defecto es grabar el lienzo como una imagen. Puedes opcionalmente especificar un nombre de archivo. Por ejemplo: TODO. Alternativamente, el primer parámetro puede ser un puntero a un lienzo p5.Element, un arreglo de Strings, un arreglo de JSON, un objeto JSON, un p5.Table, un p5.Image, o un p5.SoundFile (requiere p5.sound). El segundo parámetro es el nombre del archivo (incluyendo la extensión). El tercer parámetro es para opciones específicas a este tipo de objeto. Este método grabará un archivo que se austa a los parámetros dados. Por ejemplo: TODO. ",
-      "params": ["Objeto|String: si se provee un nombre de archivo, se grabará el lienzo como una imagen con la extensión png o jpg, dependiendo del nombre del archivo. Si se provee un objeto, se grabará dependiendo del objeto y el nombre del archivo (ver los ejemplos anteriores)",
-                 "String: Si se provee un objeto como el primer parámetro, entonces el segundo parámetro indica el nombre del archivo, y debe incluir la extensión apropiada (ver los ejemplos anteriores).",
-                 "Boolean|String: opciones adicionales depndiendo del tipo de archivo. Por ejemplo, cuando se graba un archivo JSON, true indica que la salida será optimizada según el tamaño del archivo, en vez de por legibilidad."],
-      "returns": "该 p5 物件"
+      "description": "储存一个图像、文字、JSON、csv、wav 或 html 文件。将提示客户电脑下载文件。<b>注意 save() 函数不建议在正在循环执行的 draw 函数内使用，因为每一次被调用 save() 函数将会弹出一个储存对话框。</b><br><br>默认上此函数将储存画布成一个图像。您也可以选择定义一个文件名。例如：<pre>CODE BLOCK PENDING</pre>除此之外，第一个参数也能是个画布 p5.Element 的对象、字符串数组、JSON 数组、JSON 物件、p5.Table、p5.Image 或 p5.SoundFile（需要 p5.sound）。第二个参数为文件名（包括扩展名）。第三个参数适用于特别给这一类物件的设定。这函数将会储存一个符合给予的参数的文件。例如：<pre>CODE BLOCK PENDING</pre>",
+      "params": ["物件|字符串：如果所提供的是文件名，此函数将会使用该文件名加上 png 或 jpg 文件扩展名来储存画布为一个图像。如果所提供的是物件，此函数则会一物件所定义的方式储存文件（请参考以上范例）。",
+                 "字符串：如果所提供的第一个参数为物件，那第二个参数则定义文件名，同时必须包括适当的文件扩展名（请参考以上范例）。",
+                 "布尔值|字符串：依文件类型而定的设定。比如说，在储存 JSON 时，true 表示输出文件将会针对文件大小进行优化，而同时牺牲可读性。"],
+      "returns": ""
     },
     "saveJSON": {
-      "description": "Escribe los contenidos de un arreglo o un objeto JSON a un archivo .json. El proceso de grabación del archivo y su ubicación pueden variar entre navegadores web.",
-      "params": ["Arreglo|Objeto:",
-                 "String: ",
-                 "Boolean: si es verdadero (true), remueve los saltos de línea del archivo de salida para optimizar el tamaño del archivo, en desmedro de la legibilidad."],
-      "returns": "该 p5 物件"
+      "description": "将一个数组或 JSON 物件的内容写进一个 .json 文件内。文件的储存方式及地点在不同浏览器之间有所不同。",
+      "params": ["数组|物件：",
+                 "字符串：",
+                 "布尔值：如果为 true，将移除输出文件内的换行符及空格以优化文件大小（但牺牲可读性）"],
+      "returns": ""
     },
     "saveStrings": {
-      "description": "Escribe un arreglo de Strings a un archivo de texto, una línea por String. El proceso de grabación del archivo y su ubicación pueden variar entre navegadores web.",
-      "params": ["Arreglo: arreglo de Strings a ser escrito",
-                 "String: nombre del archivo de salida"],
-      "returns": "该 p5 物件"
+      "description": "将一个字符串数组写进一个文字文件内，每一行为每一组字符串。文件的储存方式及地点在不同浏览器之间有所不同。",
+      "params": ["字符串[]：该输出的字符串数组",
+                 "字符串：输出文件的名字",
+                 "字符串：文件扩展名"],
+      "returns": ""
     },
     "saveTable": {
-      "description": "Escribe los contenidos de un objeto Table a un archivo. Por defecto es un archivo de texto con valores separados por coma (csv), pero también puede usar separación por tabulación (tsv), o generar una tabla HTML (html). El proceso de grabación del archivo y su ubicación pueden variar entre navegadores web.",
-      "params": ["Table: el objeto Table a ser grabado en un archivo",
-                 "String: el nombre del archivo en el que Table será grabado",
-                 "String: puede ser tsv, csv o html."],
-      "returns": "该 p5 物件"
+      "description": "将一个表格（Table）物件的内容写进一个文件内。默认将储存为逗号分隔值（'csv'）的文字文件但也可以使用制表符分隔（'tsv'）或生成一个 HTML 表格（'html'）。文件的储存方式及地点在不同浏览器之间有所不同。",
+      "params": ["p5.Table：该储存在文件内的表格物件",
+                 "字符串：储存表格文件的名字",
+                 "字符串：可以是 \"tsv\"、\"csv\" 或 \"html\""],
+      "returns": ""
     },
     "p5.Table": {
       "description": "Los objetos Table almacenan datos con múltiples filas y columnas, tal como una hoja de cálculo tradicional. Los objetos Table pueden ser generados desde cero, dinámicamente, o usando datos desde un archivo existente.",
