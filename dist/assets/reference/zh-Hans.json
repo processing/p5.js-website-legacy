@@ -1450,44 +1450,53 @@
       "returns": "数字：随机数"
     },
     "textAlign": {
-      "description": "Define el alineamiento actual para dibujar texto. Acepta dos argumentos: horizAlign(LEFT, CENTER o RIGHT) y vertAlign(TOP, BOTTOM, CENTER, o BASELINE). El parámetro horizAlign se refiere al valor x de la función text(), mientras que vel parámetro vertAlign al valor y. Así que si escribes textAlign(LEFT), estás alineando el borde izquierdo de tu texto al valor x dado en la función text(). Si escribes textAlign(RIGHT, TOP), estás alineando el borde derecho de tu texto con el valor x y el borde superior con el valor y del texto.",
-      "params": ["Constante: alineamiento horizontal, puede ser LEFT, CENTER o RIGHT",
-      "Constante: alineamiento vertical, puede ser TOP, BOTTOM, CENTER o BASELINE"],
-      "returns": "该 p5 物件"
+      "description": "定义绘制问题的对齐方向。使用两个参数：horizAlign（LEFT、CENTER 或 RIGHT）及 vertAlign（TOP、BOTTOM、CENTER 或 BASELINE）。<br><br>horizAlign 参数为 text() 函数的 x 值，而 vertAlign 参数为 y 值。<br><br>因此如果您使用 textAlign(LEFT)，您将会使文字最左方对齐 text() 函数所使用的 x 参数。如果您使用 textAlign(RIGHT, TOP)，您将会使文字最右方对齐 x 值而文字最上方对齐 y 值。",
+      "params": ["常量：水平对齐，LEFT、CENTER 或 RIGHT",
+                 "常量：垂直对齐，TOP、BOTTOM、CENTER 或 BASELINE"],
+      "returns": ""
     },
     "textLeading": {
-      "description": "Define o retorna el espaciado, en pixeles, entre líneas de texto. Esta configuración será usada en todas las llamadas posteriores a la función text().",
-      "params": ["Número: el tamaño en pixeles de espaciamiento entre líneas"],
-      "returns": "该 p5 物件"
+      "description": "定义或获取行与行之间的像素距离。此设置将会在所有接下来的 text() 函数调用时生效。",
+      "params": ["数字：行与行之间的像素距离"],
+      "returns": ""
     },
     "textSize": {
-      "description": "Define o retorna el tamaño actual de la tipografía. Este tamaño será usado en todas las llamadas posteriores a la función text(). El tamaño de la tipografía es medido en pixeles.",
-      "params": ["Número: el tamaño en pixeles de las letras en pixeles"],
-      "returns": "该 p5 物件"
+      "description": "定义或获取当时的字体大小。这大小将会在所有接下来的 text() 函数调用时生效。字形大小是使用像素定义。",
+      "params": ["数字：字体的像素大小"],
+      "returns": ""
     },
     "textStyle": {
-      "description": "Define o retorna el estilo actual de la tipografía. Puede ser NORMAL (normal), ITALIC (cursivo) o BOLD (destacado). Notar que puede ser anulado por estilo CSS. Para tipografías que no sean de sistema (opentype, truetype, etc.), usa loadFont().",
-      "params": ["Número|Constante: estilo del texto, puede ser NORMAL, ITALIC o BOLD"],
-      "returns": "该 p5 物件"
+      "description": "定义或获取系统字体的风格，可以是 NORMAL、ITALIC 或 BOLD。注意：这可能被 CSS 风格所覆盖。至与非系统字体（opentype、truetype 等）请直接加载已风格化的字体。",
+      "params": ["常量：字体的风格，可以是 NORMAL、ITALIC 或 BOLD"],
+      "returns": ""
     },
     "textWidth": {
-      "description": "Calcula y retorna el ancho de cualquier caracter o string.",
-      "params": ["String: el String de caracteres a medir"],
-      "returns": "Número"
+      "description": "计算及返回任何字符或字符串的宽度。",
+      "params": ["字符串：该测量的字符串"],
+      "returns": "数字"
+    },
+    "textAscent": {
+      "description": "返回当时字体在当时所定的大小的整体高度。这高度代表从基准线算起至最高字体的顶点的距离。",
+      "returns": "数字"
+    },
+    "textDescent": {
+      "description": "返回当时字体在当时所定的大小的下端线高度。",
+      "returns": "数字"
     },
     "text": {
-      "description": "Dibuja texto en la pantalla. Muestra la información especificada en el primer parámetro en la pantalla, en la posición especificada por los parámetros adicionales. Una fuente por defecto será usada a menos que una fuente sea definida por la función textFont() y un tamaño por defecto será usado a menos que se use la función textSize(). Cambia el color del texto con la función fill(). Cambia la apariencia del texto con las funciones stroke() y strokeWeight(). El texto se muestra en relación a la función textAlign(), que da la opción de dibujar a la izuiqerda, derecha y centro de las coordenadas. Los parámetros x2 e y2 definen un área rectangular donde mostrar el texto y solo puede ser usado por los datos tipo String. Cuando estos parámetros son especificados, son interpretados según la configuración de rectMode(). El texto que no cabe completamente dentro del rectángulo especificado no será dibujado en pantalla.",
-      "params": ["String: símbolos alfanuméricos a ser mostrados",
-      "Número: coordenada x del texto",
-      "Número: coordenada y del texto",
-      "Número: por defecto, el ancho de la caja contenedora del texto, ver rectMode() para más información",
-      "Número: por defecto, la altura de la caja contenedora del texto, ver rectMode() para más información"],
-      "returns": "Objeto"
+      "description": "将文字绘制在荧幕上。显示第一个参数内的资料在荧幕上由其他参数所定义的位置。将会使用默认字形除非使用 textFont() 函数定义使用其他字形同时也将使用默认大小除非使用 textSize() 定义文字大小。文字的颜色可使用 fill() 函数定义。可使用 stroke() 及 strokeWeight() 函数添加文字外形线。<br><br>文字显示将位于 textAlign() 函数所定义的位置，您可将文字绘制在坐标的左边、右边或中间。<br><br>x2 及 y2 参数将定义一个方形文字显示区而且只适用于字符串资料类型。当这两个参数被定义时，它们将使用当时的 rectMode() 设置被解读。不符合方形大小的文字将不会被绘制在荧幕上。",
+      "params": ["字符串|物件|数组|数字|布尔值：该显示的字母数字符号",
+                 "数字：文字的 x 坐标",
+                 "数字：文字的 y 坐标",
+                 "数字：默认上，文字格的宽度，请参考 rectMode()",
+                 "数字：默认上，文字格的高度，请参考 rectMode()"],
+      "returns": ""
     },
     "textFont": {
-      "description": "Define la función actual con la que se dibujará el contenido de la función text()",
-      "params": ["Objeto|String: una fuente cargada con loadFont(), o un String representando una tipografía segura de la web (una fuente ampliamente disponible a lo largo de todos los sistemas)."],
-      "returns": "Objeto"
+      "description": "定义使用 text() 函数绘制文字时该使用的字形。",
+      "params": ["物件|字符串：一个使用 loadFont() 加载的字形，或一个代表 Web 安全字体（一个所有系统都通用的字形）的字符串",
+                 "数字：字形大小"],
+      "returns": ""
     },
     "p5.Font": {
       "description": "Clase base para manipulación de tipografía",
@@ -1497,22 +1506,22 @@
     "append": {
       "description": "Añade un valor al final de un arreglo. Extiende el largo de un arreglo en una unidad. Usa la función Array.push()",
       "params": ["Arreglo: Arreglo al que se agregará el dato",
-      "Cualquiera: a ser añadido al arreglo"],
+                 "Cualquiera: a ser añadido al arreglo"],
       "returns": "该 p5 物件"
     },
     "arrayCopy": {
       "description": "Copia el arreglo (o una parte del arreglo) a otro arreglo. El arreglo fuente es copiado al arreglo de destino, empezando por la posición especificada por srcPosition y a la posición especificada por dstPosition. El número de elementos a copiar es determinado por el largo. Notar que al copiar valores se sobreescriben los valores existentes en el arreglo de destino. Para anexar valores en vez de sobreescribirlos, usa la función concat(). La versión simplificada con dos argumentos, arrayCopy(src, dest), copia un arreglo entero a otro del mismo tamaño. Es equivaletne a arrayCopy(src, 0, dst, 0, src.length). Usar esta función es mucho más eficiente para copiar datos de un arreglo que iterar con un bucle for() y copiar cada elemento individualmente. ",
       "params": ["Arreglo: el arreglo fuente",
-      "Número: posición inicial en el arreglo fuente",
-      "Arreglo: el arreglo de destino",
-      "Número: posición inicial del arreglo de destino",
-      "Número: númeor de elementos del arreglo a ser copiados"],
+                 "Número: posición inicial en el arreglo fuente",
+                 "Arreglo: el arreglo de destino",
+                 "Número: posición inicial del arreglo de destino",
+                 "Número: númeor de elementos del arreglo a ser copiados"],
       "returns": "该 p5 物件"
     },
     "concat": {
       "description": "Concatena dos arreglos, usa la función Array.concat(). No modifica los arreglos de entrada.",
       "params": ["Arreglo: primer arreglo a concatenar",
-      "Arreglo: segundo arreglo a concatenar"],
+                 "Arreglo: segundo arreglo a concatenar"],
       "returns": "Arreglo: el arreglo concatenado"
     },
     "reverse": {
@@ -1528,27 +1537,27 @@
     "shuffle": {
       "description": "Ordena aleatoriamente los elementos de un arreglo. Implementa el algoritmo Fisher Yates.",
       "params": ["Arreglo: Arreglo a ordenar",
-      "Boolean: modifica el arreglo"],
+                 "Boolean: modifica el arreglo"],
       "returns": "Arreglo: retorna el arreglo ordenado"
     },
     "sort": {
       "description": "Ordena un arreglo de números, desde el más pequeño al más grande, o pone un arreglo de palabras en orden alfabético. El arreglo original no es modificado, un nuevo arreglo ordenado es retornado. El parámetro count define el número de elementos a ordenar. Por ejemplo, si hay 12 elementos en un arreglo y count es 5, los primeros 5 elementos del arreglo serán ordenados.",
       "params": ["Arreglo: arreglo a ordenar",
-      "Número: número de elementos a ordenar, empezando desde 0"],
+                 "Número: número de elementos a ordenar, empezando desde 0"],
       "returns": "该 p5 物件"
     },
     "splice": {
       "description": "Inserta un valor o un arreglo de valores en un arreglo existente El primer parámetro especifica el arreglo inicial a ser modificado, y el segundo parámetro define los datos a insertarse. El tercer parámetro es un índice que especifica la posición del arreglo a partir de la que se insertarán los datos. Recuerda que el índice del arreglo empieza en 0, así que la primera posición es 0, la segunda es 1, etc.",
       "params": ["Arreglo: arreglo a ser modificado",
-      "Cualquiera: valor a ser introducido",
-      "Número: posición del arreglo donde se inserta el dato"],
+                 "Cualquiera: valor a ser introducido",
+                 "Número: posición del arreglo donde se inserta el dato"],
       "returns": "该 p5 物件"
     },
     "subset": {
       "description": "Extrae un arreglo de elementos de un arreglo existente. El parámetro list define el arreglo desde el cual los elementos serán copiados, y los parámetros start y count especifican cuáles elementos extraer. Si no especifica count, los elementos serán extraidos desde el principio. Esta función no modifica el arreglo original",
       "params": ["Arreglo: arreglo del cual se extrae",
-      "Número: posición de donde empezar a extraer",
-      "Número: número de valores a extraer"],
+                 "Número: posición de donde empezar a extraer",
+      "          Número: número de valores a extraer"],
       "returns": "Arreglo: arreglo de elementos extraidos"
     },
     "float": {
@@ -1599,58 +1608,58 @@
     "join": {
       "description": "Combina una arreglo de Strings en un String, cada uno separado por los caracteres usados como parámetro separator. Para unir arreglos de enteros o floats, es necesario primero convertirlos a Strings usando las funciones nf() o nfs().",
       "params": ["Arreglo: arreglo de Strings a ser unidos",
-      "String: String a ser posicionado entre cada item"],
+                 "String: String a ser posicionado entre cada item"],
       "returns": "String: String unificado"
     },
     "match": {
       "description": "Esta función es usada para aplicar una expresión regular a una porción de texto,  y retorna grupos coincidentes (elementos encontrados entre paréntesis) como un arreglo de Strings. Si no existen coincidencias, se retorna el valor null. Si no se especifican grupos en la expresión regular, pero la secuencia coincide, un arreglo de largo 1 (con el texto coincidente como primer elemento del arreglo) será retornado. Para usar la función, primero comprueba si el resultado es null. Si el resultado es null, entonces la secuencia no tuvo coincidencias. Si la secuencia tuvo coincidencias, retorna un arreglo. Si exsiten grupos (especificados como conjuntos de paréntesis) en la expresión regular, entonces los contenidos de cada uno serán retornados en el arreglo. El elemento[0] de una coincidencia de expresión regular retorna el string coincidente, y el grupo de coincidencia empieza en el elemento[1] (el primer grupo es [1], el segundo es [2], etc).",
       "params": ["String: el String a ser buscado",
-      "String: la expresión regular a ser usada para buscar coincidencias"],
+                 "String: la expresión regular a ser usada para buscar coincidencias"],
       "returns": "Arreglo: arreglo de Strings encontrados"
     },
     "matchAll": {
       "description": "Esta función es usada para aplicar una expresión regular a una porción de texto,  y retorna una lista de grupos coincidentes (elementos encontrados entre paréntesis) como un arreglo de Strings bidimensional. Si no existen coincidencias, se retorna el valor null. Si no se especifican grupos en la expresión regular, pero la secuencia coincide, un arreglo de dos dimensiones es retornado, pero es de largo 1. Para usar la función, primero comprueba si el resultado es null. Si el resultado es null, entonces la secuencia no tuvo coincidencias. Si la secuencia tuvo coincidencias, retorna un arreglo 2D. Si exsiten grupos (especificados como conjuntos de paréntesis) en la expresión regular, entonces los contenidos de cada uno serán retornados en el arreglo. El elemento[i][0] de una coincidencia de expresión regular retorna el string coincidente completo, y el grupo de coincidencia empieza en el elemento[i][1] (el primer grupo es [i][1], el segundo es [i][2], etc).",
       "params": ["String: el String a ser buscado",
-      "String: la expresión regular a ser usada para buscar coincidencias"],
+                 "String: la expresión regular a ser usada para buscar coincidencias"],
       "returns": "Arreglo: arreglo 2D de Strings encontrados"
     },
     "nf": {
       "description": "Función de utilidad para formatear números a strings. Existen dos veriones: una para formatear floats, y una para formatear enteros. Los valores de los dígitos y los parámetros left y right siempre deben ser enteros positivos",
       "params": ["Número|Arreglo: el número a formatear",
-      "Número: número de dígitos a la izquierda del punto decimal",
-      "Número: número de dígitos a la derecha del punto decimal"],
+                 "Número: número de dígitos a la izquierda del punto decimal",
+                 "Número: número de dígitos a la derecha del punto decimal"],
       "returns": "String|Arreglo: String formateada"
     },
     "nfc": {
       "description": "Función de utilidad para formatear números en strings y poner las comas apropiadas para señalar múltiplos de mil. Hay dos versiones: una para números enteros y otra para arreglos de enteros. El valor del parámetro right debe siempre ser un entero positivo.",
       "params": ["Número|Arreglo: el número a formatear",
-      "Número: número de dígitos a la derecha del punto decimal"],
+                 "Número: número de dígitos a la derecha del punto decimal"],
       "returns": "String|Arreglo: String formateada"
     },
     "nfp": {
       "description": "Función de utilidad para formatear números en strings. Similar a nf() pero pone un signo + en frente de los números positivos y un signo - en frente de números negativos. Hay dos versiones, una para formatear floats y otra para formatear enteros. Los valores de los parámetros left y right deben siempre ser enteros positivos.",
       "params": ["Número|Arreglo: el número a formatear",
-      "Número: número de dígitos a la izquierda del punto decimal",
-      "Número: número de dígitos a la derecha del punto decimal"],
+                 "Número: número de dígitos a la izquierda del punto decimal",
+                 "Número: número de dígitos a la derecha del punto decimal"],
       "returns": "String|Arreglo: String formateada"
     },
     "nfs": {
       "description": "Función de utilidad para formatear números en strings. Similar a nf() pero pone un espacio en frente de los números positivos y un signo - en frente de números negativos. Hay dos versiones, una para formatear floats y otra para formatear enteros. Los valores de los parámetros left y right deben siempre ser enteros positivos.",
       "params": ["Número|Arreglo: el número a formatear",
-      "Número: número de dígitos a la izquierda del punto decimal",
-      "Número: número de dígitos a la derecha del punto decimal"],
+                 "Número: número de dígitos a la izquierda del punto decimal",
+                 "Número: número de dígitos a la derecha del punto decimal"],
       "returns": "String|Arreglo: String formateada"
     },
     "split": {
       "description": "La función split usa String.split(), corta un String en pedazos usando un caracter o String como delimitador. El parámetro delim especifica el caracter o caracteres que marcan los bordes entre cada pieza. Un arreglo String[] es retornado, que contiene cada una de las piezas. La función splitTokens() funciona de forma similar, excepto que divide usango un rango de caracteres en vez de usar un caracter o una secuencia de caracteres específicos.",
       "params": ["String: el String a ser dividido",
-      "String: el String usado para separar los datos"],
+                 "String: el String usado para separar los datos"],
       "returns": "Arreglo: arreglo de Strings"
     },
     "splitTokens": {
       "description": "La función splitTokens() divide un String en uno o varios caracteres delimitadores o tokens. El parámetro delim especifica el o los caracteres a ser usados como borde. Si no se especifican caracteres delim, cualquier caracter tipo whitespace será usado para dividir. Los caracteres whitespace incluyen tabulación (\t), nueva línea (\n), retorno de carro (\r), entrada de formulario (\f), y espacio.",
       "params": ["String: el String a ser dividido",
-      "String: lista de Strings individuales que serán usados como separadores"],
+                 "String: lista de Strings individuales que serán usados como separadores"],
       "returns": "Arreglo: arreglo de Strings"
     },
     "trim": {
