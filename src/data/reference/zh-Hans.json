@@ -1363,22 +1363,22 @@
       "returns": "数字：取平方根后的数字"
     },
     "noise": {
-      "description": "Retorna el valor del ruido Perlin en las coordenadas específicas. El ruido Perlin es un generador de secuencias aleatorias produciendo una sucesión de números más naturalmente ordenada y armónica, en comparación con la función estándar random(). Fue inventada por Ken Perlin en los 1980s y ha sido usada desde entonces en aplicaciones gráficas para producir texturas procedurales, movimiento natural, figuras, terrenos, etc. La principal diferencia con la función random() es definida en una espacio infinito n-dimensional donde cada par de coordenadas corresponde a un valor fijo semi-aleatorio (fijado solo durante el tiempo de vida del programa; ver la función noiseSeed()). p5.js puede calcular ruido 1D, 2D y 3D, dependiendo del número de coordenadas dado. El valor resultante siempre estará entre 0.0 y 1.0. El valor de ruido puede ser animado moviéndose a través del espacio del ruido como fue demostrado en el ejemplo superior. Las dimensiones segunda y tercera también pueden ser interpretadas como tiempo. El ruido está estructurado de forma similar a una señal de audio, con respecto al uso de la función de las frecuencias. De forma similar al conecpto de armónicas en física, el ruido Perlin es calculado a lo largo de varias octavas que se han sumado para dar forma al resultado final. Otra manera de ajustar el caracter de la secuencia resultante es la escala de las coordenadas de entrada. Como la función trabaja en un espacio infinito, el valor de las coordenadas no importa como tal, solo la distancia entre las coordenadas sucesivas importa (por ejemplo: cuando se usa noise() dentro de un bucle). Como regla general, a menor la diferencia entre coordenadas, más suave es el ruido resultante. Pasos entre 0.005 y 0.03 funcionan mejor para la mayor parte de las aplicaciones, pero esto diferirá dependiendo del uso.",
-      "params": ["Número: coordenada x en el espacio del ruido",
-      "Número: coordenada y en el espacio del ruido",
-      "Número: coordenada z en el espacio del ruido"],
-      "returns": "valor de ruido Perlin (entre 0 y 1) en las coordenadas especificadas"
+      "description": "返回所定义坐标的柏林噪声值。柏林噪声是个用来生成比 random() 所能生成更自然及更谐波的随机数字系列。在 1980 年代有 Ken Perlin 所发明，柏林噪声至今常被用在图形应用程序中生成程序纹理、自然运动、形状、地形等等。<br><br>柏林噪声与 random() 函数最主要的不同点在于前者是在一个无限的 n 维空间内定义的，这空间内每一对坐标都相对于一个固定的半随机值（只有在程序进行时为固定的；请参考 noiseSeed() 函数）。p5.js 能计算 1 维、2 维及 3 维噪声，这取决于所给予的坐标数。返回的值一定会在 0.0 至 1.0 之间。噪音值可以通过在噪音空间内移动以制成动画，如以上范例所示。第二及第三个空间维度也能被解读成时间。<br><br>所生成的噪音结构上和一般音频信号相似，尤其是此函数的频率。与物理学上谐波的概念相似，泊林噪音也是在计算几个八度后再将其结果加起来以得到最后的结果。<br><br>另外一个控制返回随机数系列的特征的方法是控制输入坐标值的大小。因为此函数能在无限之的空内内应用，输入坐标的值并不重要，只有个别坐标之间的距离需要被注意（如在循环内使用 noise() 时）。一般来说坐标之间的距离越小，生成噪声随机数列将会越平滑。介于 0.005-0.03 之间的距离应该适合大多数应用场合，不过这可能因应用需求而变。",
+      "params": ["数字：噪声空间的 x 坐标",
+                 "数字：噪声空间的 y 坐标",
+                 "数字：噪声空间的 z 坐标"],
+      "returns": "数字：柏林噪声在特定坐标的值（介于 0 与 1 之间）"
     },
     "noiseDetail": {
-      "description": "Ajusta el caracter y nivel de detalle producido por la función de ruido Perlin. Similar al concepto de armónicas en física, el ruido es calculado a lo largo de varias octavas. Las octavas más graves contribuyen de forma más significativa a la señal de salida y como define la intensidad general del ruido, mientras que las octavas más altas crean detalles más finos en la secuencia de ruido. Por defecto, el ruido es calculado a lo largo de 4 octavas, con cada octava contribuyendo exactamente la mitad que su predecesora, partiendo con una intensidad de 50% para la primera octava. Este tamaño de caída puede ser cambiado al añadir un parámetro adicional a la función. Por ejemplo, un factor de caída de 75% significa que cada octava tendrá un 75% de impacto (25% menos) que la octava anterior. Cualquier valor entre 0.0 y 1.0 es válido, sin embargo nota que valores superiores a 0.5 pueden resultar en que noise() retorne valores mayores a 1.0. Al cambiar estos parámetros, la señal creada por noise() puede ser adaptada para calzar con necesidades y características específicas.",
-      "params": ["Número: número de octavas a ser usadas por el ruido",
-      "Número: factor de caída para cada octava"],
-      "returns": "该 p5 物件"
+      "description": "调整柏林噪声函数所生成的噪声特征及细节度。与物理学上谐波的概念相似，泊林噪音也是在计算几个八度后才得到最后的结果。越低的八度将会影响输出信号值越多因此同时会定义噪音的整体强度，而较高的八度将会在噪音系列中制作更精细的细节。<br><br>默认上，此噪音将使用四个八度计算而每个八度将有其前者一半的影响力，第一个八度的影响力为 50% 。这衰退值能通过加多一个参数而改变。比如说如果衰退因数为 0.75 那表示每个八度将会有其前者的 75% 的影响力（减少 25%）。任何介于 0.0 与 1.0 的值都能被接受，不过注意高于 0.5 的值可能会造成 noise() 函数会返回大于 1.0 的值。<br><br>通过改变这些参数，noise() 函数所生成的信号可适应于非常特别的需求或特点。",
+      "params": ["数字：噪音该使用的八度数",
+                 "数字：每个八度的衰退因数"],
+      "returns": ""
     },
     "noiseSeed": {
-      "description": "Define el valor semilla para la función noise(). Por defecto, noise() produce diferentes resultados cada vez que el programa es ejecutado. Defines el parámetro value a una constante para que retorne la misma secuencia de números pseudo-aleatorios cada vez que el programa es ejecutado",
-      "params": ["Número: el valor semilla"],
-      "returns": "该 p5 物件"
+      "description": "定义 noise() 使用的随机种子值。默认上，noise() 将在每一次改程序被执行时生成不同的结果。只需定义 value 参数至一个常量就能确保每一次软件执行时都会返回一样的随机数列。",
+      "params": ["数字：随机种子值"],
+      "returns": ""
     },
     "acos": {
       "description": "El inverso de la función cos(), retorna el arcocoseno de un valor. Esta función espera valores entre -1 y 1 y los valores retornados están en el rango entre 0 y PI (3.1415927).",
@@ -1432,22 +1432,22 @@
       "returns": "该 p5 物件"
     },
     "randomSeed": {
-      "description": "Define la semilla para la función random(). Por defecto, la función random() produce diferentes resultados cada vez que el programa es ejecutado. Definir el parámetro semilla como una constante hace que retorne la misma secuencia de números pseudo-aleatorios cada vez que el programa es ejecutado.",
-      "params": ["Número: el valor semilla"],
-      "returns": "该 p5 物件"
+      "description": "定义 random() 使用的随机种子值。<br><br>默认上，random() 将在每一次改程序被执行时生成不同的结果。只需定义 seed 参数至一个常量就能确保每一次软件执行时都会返回一样的伪随机数。",
+      "params": ["数字：随机种子值"],
+      "returns": ""
     },
     "random": {
-      "description": "Retorna un número aleaotorio de tipo float (punto flotante). Acepta 0, 1 o 2 argumentos. Si no se le da un argumento, retorna un número aleatorio entre 0 y 1 (sin incluir 1). Si se da un argumento y es un número, retorna un número aleatorio entre 0 y hasta (pero sin incluir) el parámetro. Si se da un argumento y es un arreglo, retorna una elemento al azar del arreglo. Si se dan dos argumentos, retorna un número aleatorio entre el primer argumento y hasta (pero sin incluir) el segundo argumento.",
-      "params": ["Número: el límite inferior (inclusivo)",
-      "Número: el límite superio (exclusivo)",
-      "Arreglo: el arreglo del cual se elige"],
-      "returns": "Número: el número aleatorio o un elemento aleatorio de un conjunto de opciones"
+      "description": "返回一个随机的浮点数。<br><br>可使用 0、1 或 2 个参数。<br><br>如果并没有定义任何参数，将返回一个介于 0 与 1（但不包括 1）的随机数。<br><br>如果只定义一个参数并且该参数为数字，将返回一个介于 0 与 该数字（但不包括该数字）的随机数。<br><br>如果值定义一个参数并且该参数为数组，将返回该数组中随机一个元素。<br><br>如果定义两个参数，将返回一个介于第一个参数与第二个参数（但不包括第二个参数）的随机数。",
+      "params": ["数字：最低值（包括此值）",
+                 "数字：最高值（不包括此值）",
+                 "数组：供选择的数组"],
+      "returns": "数字：随机数"
     },
     "randomGaussian": {
-      "description": "Retorna un número aleatorio ajjustado a una distribución Gaussiana o normal. No existe teóricamente un valor mínimo o máximo que la función randomGaussian() pueda retornar. En vez de eso, existe solo una muy baja probabilidad de retornar valores lejos de la media, y una alta probabilidad de retornar números cercanos a la media. Acepta 0, 1 o 2 argumentos. Si no tiene argumentos, retorna una media de 0 y una desviación estándar de 1. Si tiene un argumento, el argumento es la media (y la desviación estándar es 1). Si tiene dos argumentos, el primero es la media y el segundo es la desviación estándar.",
-      "params": ["Número: la media",
-      "Número: la desviación estándar"],
-      "returns": "el número aleatorio"
+      "description": "返回一个符合高斯，或正态，分布的随机数。理论上 randomGaussian() 没有最高或最低返回值。不过，差均值很多的值被返回的机率将会很低；而接近均质的值被返回的机率将会相对较高。<br><br>可使用 0、1 或 2 个参数。<br>如果并没有定义任何参数，将使用均值为 0 与 标准差为 1。<br>如果只定义一个参数，该参数将为均值（标准差为 1）。<br>如果定义两个参数，第一个参数为均值，第二个参数为标准差。",
+      "params": ["数字：均值",
+                 "数字：标准偏差"],
+      "returns": "数字：随机数"
     },
     "textAlign": {
       "description": "Define el alineamiento actual para dibujar texto. Acepta dos argumentos: horizAlign(LEFT, CENTER o RIGHT) y vertAlign(TOP, BOTTOM, CENTER, o BASELINE). El parámetro horizAlign se refiere al valor x de la función text(), mientras que vel parámetro vertAlign al valor y. Así que si escribes textAlign(LEFT), estás alineando el borde izquierdo de tu texto al valor x dado en la función text(). Si escribes textAlign(RIGHT, TOP), estás alineando el borde derecho de tu texto con el valor x y el borde superior con el valor y del texto.",
