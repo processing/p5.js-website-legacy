@@ -1561,49 +1561,57 @@
       "returns": "数组：提取出来的元素数组"
     },
     "float": {
-      "description": "Convierte un String a su representación de punto flotante. Los contenidos de un String deben parecerse a un número, en otro caso NaN es retornado. Por ejemplo, float('1234.56') evalua a 1234.56, pero float('giraffe') retorna NaN. Cuando un arreglo de valores es pasado, un arreglo de floats del mismo largo es retornado.",
-      "params": ["String: string a ser procesado"],
-      "returns": "Número: representación en punto flotante de un string"
+      "description": "将一个字符串转换成其浮点值。字符串内内容必须是数字，不然将返回 NaN（不是数字）。比如说，float(\"1234.56\") 将返回 1234.56，但 float(\"giraffe\") 将返回 NaN。<br><br>当给予一数组的值时，将返回一个等同大小的浮点数组。",
+      "params": ["字符串：该解析的浮点字符串"],
+      "returns": "数字：该字符串的浮点值"
     },
     "int": {
-      "description": "Convierte un boolean, string o float a su representación en número entero. Cuando un arreglo de valores es introducido, entonces un arreglo de enteros de la misma longitud es retornado.",
-      "params": ["String|Boolean|Número|Arreglo: valor a procesar"],
-      "returns": "Número: valor representado como entero"
+      "description": "转换一个布尔值、字符串或浮点值成其整数值。当给予一数组的值时，将返回一个等同大小的整数数组。",
+      "params": ["字符串|布尔值|数字：该解析的值",
+                 "整数：该转换成的基数",
+                 "数组：该解析的值"],
+      "returns": "数字：该值的整数值"
     },
     "str": {
-      "description": "Convierte un boolean, string, o número a su representación en string. Cuando un arreglo de valores es introducido, entonces un arreglo de strings de la misma longitud es retornado.",
-      "params": ["String|Boolean|Número|Arreglo: valor a procesar"],
-      "returns": "String: valor representado como string"
+      "description": "转换一个布尔值、字符串或数字成其字符串值。当给予一数组的值时，将返回一个等同大小的字符串数组。",
+      "params": ["字符串|布尔值|数字|数组：该解析的值"],
+      "returns": "字符串：该值的字符串值"
     },
     "boolean": {
-      "description": "Convierte un número o string a su representación en boolean. Para números, cualquier valor distinto de cero (positivo o ne gativo), evalua a true, mientras que cero evalua a falso. Para un string, el valor true evalua a true, mientras que cualquier otro valor evalua a falso. Cuando un arreglo de números o strings es introducido, entonces un arreglo de booleans de la misma longitud es retornado.",
-      "params": ["String|Boolean|Número|Arreglo: valor a procesar"],
-      "returns": "Boolean: representación en formato boolean del valor"
+      "description": "转换一个数字或字符串成其布尔值。在数字上，任何非零的值（无论正负）都将转换为 true，而零将转换为 false。在字符串上，\"true\" 将转换成 true，而任何其他值都会转换成 false。当给予一数组的数字或字符串时，将返回一个等同大小的布尔值数组。",
+      "params": ["字符串|布尔值|数字|数组：该解析的值"],
+      "returns": "布尔值：该值的布尔值"
     },
     "byte": {
-      "description": "Convierte un número, string o boolean a su representación en byte. Un byte puede solo ser un número entero entre -128 y 127, así que cuando un valor fuera de este rango es convertido, se hace wrap a la representación correspondiente en byte. Cuando un arreglo de números, string, o booleans es introducido, entonces un arreglo de bytes de la misma longitud es retornado.",
-      "params": ["String|Boolean|Número|Arreglo: valor a procesar"],
-      "returns": "Número: representación en formato byte del valor"
+      "description": "转换一个数字、代表数字的字符串或布尔值成其字节值.一个字节只能是一个介于 -128 与 127 之间的整数，因此如果在这范围外的值被转换时，它将会绕回相对的字节值。当给予一数组的数字、字符串或布尔值时，将返回一个等同大小的字节数组。",
+      "params": ["字符串|布尔值|数字：该解析的值",
+                 "数组：该解析的值"],
+      "returns": "数字：该值的字节值"
     },
     "char": {
-      "description": "Convierte un número o string a su representaciómo como un string de un único caracter. Si se provee un parámetro, es primero pasado como entero y luego evaluado como un string de un único caracter. Cuando un arreglo de números o strings es introducido, entonces un arreglo de strings de un único caracter de la misma longitud es retornado.",
-      "params": ["String|Número|Arreglo: valor a procesar"],
-      "returns": "String: representación en formato string del valor"
+      "description": "转换一个数字或字符串成其单一字符的值。如果提供一个字符串参数，它将会先被解析成整数然后再被转换成单一字符。当给予一数组的数字或字符串时，将返回一个等同大小的单一字符数组。",
+      "params": ["字符串|数字：该解析的值",
+                 "数组：该解析的值"],
+      "returns": "字符串：该值的字符串值"
     },
     "unchar": {
-      "description": "Convierte un string de un único caracter a su correspondiente representación como valor entero. Cuando un arreglo de strings de un caracter es introducido, entonces un arreglo de enteros de la misma longitud es retornado.",
-      "params": ["String|Arreglo: valor a procesar"],
-      "returns": "Número: representación en formato entero del valor"
+      "description": "转换一个单一字符成其整数值。当给予一数组的单一字符值时，将返回一个等同大小的整数数组。",
+      "params": ["字符串：该解析的值",
+                 "数组：该解析的值"],
+      "returns": "数字：该值的整数值"
     },
     "hex": {
-      "description": "Convierte un número a su correspondiente representación como hexadecimal. Si se ingersa un segundo parámetro, es usado para definir el número de caracteres a generar en la notación hexadecimal. Cuando un arreglo es introducido, entonces un arreglo de strings en notación hexadecimal de la misma longitud es retornado.",
-      "params": ["Número|Arreglo: valor a procesar"],
-      "returns": "String: representación en formato string hexadecimal del valor"
+      "description": "转换一个数字成其十六进制值的字符串。如果提供第二个参数，它将被用来定义该生成的十六进制值的字符量。当给予一数组时，将返回一个等同大小的十六进制字符串数组。",
+      "params": ["数字：该解析的值",
+                 "数字",
+                 "数字[]：该解析的值"],
+      "returns": "字符串：该值的十六进制值"
     },
     "unhex": {
-      "description": "Convierte una representación en string de un número hexadecimal a su correspondiente representación como valor entero. Cuando un arreglo de strings en notación hexadecimal es introducido, entonces un arreglo de enteros de la misma longitud es retornado.",
-      "params": ["String|Arreglo: valor a procesar"],
-      "returns": "Número: representación en formato entero del valor hexadecimal"
+      "description": "转换一个十六进制字符串成其整数值。当给予一数组的十六进制字符串时，将返回一个等同大小的整数数组。",
+      "params": ["数字：该解析的值",
+                 "数组：该解析的值"],
+      "returns": "数字：该十六进制值的整数值"
     },
     "join": {
       "description": "Combina una arreglo de Strings en un String, cada uno separado por los caracteres usados como parámetro separator. Para unir arreglos de enteros o floats, es necesario primero convertirlos a Strings usando las funciones nf() o nfs().",
