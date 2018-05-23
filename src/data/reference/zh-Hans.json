@@ -1504,61 +1504,61 @@
       "returns": "该 p5 物件"
     },
     "append": {
-      "description": "Añade un valor al final de un arreglo. Extiende el largo de un arreglo en una unidad. Usa la función Array.push()",
-      "params": ["Arreglo: Arreglo al que se agregará el dato",
-                 "Cualquiera: a ser añadido al arreglo"],
-      "returns": "该 p5 物件"
+      "description": "弃用：append() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push'>array.push(value)</a>。<br><br>在数组的尾端增加一个值。将增加数组的一个大小。映射到 Array.push()。",
+      "params": ["数组：该附加到的数组",
+                 "任何：该附加进数组的元素"],
+      "returns": ""
     },
     "arrayCopy": {
-      "description": "Copia el arreglo (o una parte del arreglo) a otro arreglo. El arreglo fuente es copiado al arreglo de destino, empezando por la posición especificada por srcPosition y a la posición especificada por dstPosition. El número de elementos a copiar es determinado por el largo. Notar que al copiar valores se sobreescriben los valores existentes en el arreglo de destino. Para anexar valores en vez de sobreescribirlos, usa la función concat(). La versión simplificada con dos argumentos, arrayCopy(src, dest), copia un arreglo entero a otro del mismo tamaño. Es equivaletne a arrayCopy(src, 0, dst, 0, src.length). Usar esta función es mucho más eficiente para copiar datos de un arreglo que iterar con un bucle for() y copiar cada elemento individualmente. ",
-      "params": ["Arreglo: el arreglo fuente",
-                 "Número: posición inicial en el arreglo fuente",
-                 "Arreglo: el arreglo de destino",
-                 "Número: posición inicial del arreglo de destino",
-                 "Número: númeor de elementos del arreglo a ser copiados"],
-      "returns": "该 p5 物件"
+      "description": "弃用：arrayCopy() 已被弃用并将会在未来的 p5 版本中移除。<br><br>复制一个数组（或该数组的一部分）去另外一个数组。src 数组将会被复制去 dst 数组，开端位置由 srcPosition 参数定义并复制进由 dstPosition 定义的位置。该复制的元素数量由 length 参数定义。注意在复制元素时该元素将覆盖终点数组原有的元素。如果想要添加元素，请使用 use concat()。<br><br>简化版本将只使用两个参数：arrayCopy(src, dst) 将复制整个数组去另一个相同大小的数组。这等同于使用 arrayCopy(src, 0, dst, 0, src.length)。<br><br>使用这函数将比使用 for 循环数组内每一个元素并一一复制来的更有效率。",
+      "params": ["数组：原数组",
+                 "数字：在原数组内的开端指数",
+                 "数组：终点数组",
+                 "数字：在终点数组内的开端指数",
+                 "数字：该复制的元素量"],
+      "returns": ""
     },
     "concat": {
-      "description": "Concatena dos arreglos, usa la función Array.concat(). No modifica los arreglos de entrada.",
-      "params": ["Arreglo: primer arreglo a concatenar",
-                 "Arreglo: segundo arreglo a concatenar"],
-      "returns": "Arreglo: el arreglo concatenado"
+      "description": "弃用：concat() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat'>arr1.concat(arr2)</a>。<br><br>串接两个数组，映射到 Array.concat()。将不会修改原有数组。",
+      "params": ["数组：串接的第一个数组",
+                 "数组：串接的第二个数组"],
+      "returns": "数组：串接后的数组"
     },
     "reverse": {
-      "description": "Invierte el orden un arreglo, usa Array.reverse().",
-      "params": ["Arreglo: arreglo a ser invertido"],
-      "returns": "该 p5 物件"
+      "description": "弃用：reverse() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse'>array.reverse()</a>。<br><br>倒转数组内元素的次序，映射到 Array.reverse()。",
+      "params": ["数组：该倒转的数组"],
+      "returns": ""
     },
     "shorten": {
-      "description": "Disminuye un arreglo en un elemento y retorna el arreglo más corto, usa Array.pop().",
-      "params": ["Lista: arreglo a acortar"],
-      "returns": "Arreglo: el arreglo acortado"
+      "description": "弃用：shorten() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop'>array.pop()</a>。<br><br>将数组减少一个元素并返回缩短后的数组，映射到 Array.pop()。",
+      "params": ["数组：该缩短的数组"],
+      "returns": "数组：缩短后的数组"
     },
     "shuffle": {
-      "description": "Ordena aleatoriamente los elementos de un arreglo. Implementa el algoritmo Fisher Yates.",
-      "params": ["Arreglo: Arreglo a ordenar",
-                 "Boolean: modifica el arreglo"],
-      "returns": "Arreglo: retorna el arreglo ordenado"
+      "description": "弃用：shuffle() 已被弃用并将会在未来的 p5 版本中移除。请参考<a hreh='https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array'>使用 Javascript 混洗数组</a>（英文页面）。<br><br>随机排列数组内的元素。使用 Fisher-Yates 混洗函数。",
+      "params": ["数组：该混洗的数组",
+                 "布尔值：修改所给予的数组"],
+      "returns": "数组：混洗后的数组"
     },
     "sort": {
-      "description": "Ordena un arreglo de números, desde el más pequeño al más grande, o pone un arreglo de palabras en orden alfabético. El arreglo original no es modificado, un nuevo arreglo ordenado es retornado. El parámetro count define el número de elementos a ordenar. Por ejemplo, si hay 12 elementos en un arreglo y count es 5, los primeros 5 elementos del arreglo serán ordenados.",
-      "params": ["Arreglo: arreglo a ordenar",
-                 "Número: número de elementos a ordenar, empezando desde 0"],
-      "returns": "该 p5 物件"
+      "description": "弃用：sort() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort'>array.sort()</a>。<br><br>将一个含有数字的数组有最小到最大值重新排列，或将一个含有文字的数组依字母顺序排列。原数组将不会被修改，而将会返回重新排列后的数组。count 参数定义该排列的元素量。比如说，如果数组内有 12 个元素而 count 被设为 5，只有数组内前五个元素将会被排列。",
+      "params": ["数组：该排列的数组",
+                 "整数：该排列的元素数，由 0 开始"],
+      "returns": ""
     },
     "splice": {
-      "description": "Inserta un valor o un arreglo de valores en un arreglo existente El primer parámetro especifica el arreglo inicial a ser modificado, y el segundo parámetro define los datos a insertarse. El tercer parámetro es un índice que especifica la posición del arreglo a partir de la que se insertarán los datos. Recuerda que el índice del arreglo empieza en 0, así que la primera posición es 0, la segunda es 1, etc.",
-      "params": ["Arreglo: arreglo a ser modificado",
-                 "Cualquiera: valor a ser introducido",
-                 "Número: posición del arreglo donde se inserta el dato"],
-      "returns": "该 p5 物件"
+      "description": "弃用：splice() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice'>array.splice()</a>。<br><br>在一个原有的数组内添加一个值或另一数组的值。第一个参数定义该修改的数组，而第二个参数定义该添加的资料。第三个参数为该添加元素的位置的数组指数。（记得数组指数从零开始，因此第一个位置为 0，而第二的位置为 1 等等。）",
+      "params": ["数组：拼接进的数组",
+                 "任何：欲拼接进数组的值",
+                 "整数：数组内该添加该元素的位置"],
+      "returns": ""
     },
     "subset": {
-      "description": "Extrae un arreglo de elementos de un arreglo existente. El parámetro list define el arreglo desde el cual los elementos serán copiados, y los parámetros start y count especifican cuáles elementos extraer. Si no especifica count, los elementos serán extraidos desde el principio. Esta función no modifica el arreglo original",
-      "params": ["Arreglo: arreglo del cual se extrae",
-                 "Número: posición de donde empezar a extraer",
-      "          Número: número de valores a extraer"],
-      "returns": "Arreglo: arreglo de elementos extraidos"
+      "description": "弃用：subset() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice'>array.slice()</a>。<br><br>从一个现有的数组中提取一数组的元素。list 参数定义该复制提取元素的数组，而 start 及 count 参数定义该提取哪一些元素。如果没有提供 count 参数，那将会提取数组由开头到结尾的元素。在定义 start 参数时，记得数组第一个指数为 0。这函数将不会修改原数组。",
+      "params": ["数组：该提取元素的数组",
+                 "整数：开始位置",
+                 "整数：提取元素数"],
+      "returns": "数组：提取出来的元素数组"
     },
     "float": {
       "description": "Convierte un String a su representación de punto flotante. Los contenidos de un String deben parecerse a un número, en otro caso NaN es retornado. Por ejemplo, float('1234.56') evalua a 1234.56, pero float('giraffe') retorna NaN. Cuando un arreglo de valores es pasado, un arreglo de floats del mismo largo es retornado.",
