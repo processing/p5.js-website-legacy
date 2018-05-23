@@ -1614,66 +1614,71 @@
       "returns": "数字：该十六进制值的整数值"
     },
     "join": {
-      "description": "Combina una arreglo de Strings en un String, cada uno separado por los caracteres usados como parámetro separator. Para unir arreglos de enteros o floats, es necesario primero convertirlos a Strings usando las funciones nf() o nfs().",
-      "params": ["Arreglo: arreglo de Strings a ser unidos",
-                 "String: String a ser posicionado entre cada item"],
-      "returns": "String: String unificado"
+      "description": "将一数组的字符串合成一个字符串，每一个元素由 separator 参数定义的字符分隔开。如果要连接整数或浮点数数组，它们必须先使用 nf() 或 nfs() 转换成字符串。",
+      "params": ["数组：该连接的字符串",
+                 "字符串：在个元素之间穿插的字符串"],
+      "returns": "字符串：连接后的字符串"
     },
     "match": {
-      "description": "Esta función es usada para aplicar una expresión regular a una porción de texto,  y retorna grupos coincidentes (elementos encontrados entre paréntesis) como un arreglo de Strings. Si no existen coincidencias, se retorna el valor null. Si no se especifican grupos en la expresión regular, pero la secuencia coincide, un arreglo de largo 1 (con el texto coincidente como primer elemento del arreglo) será retornado. Para usar la función, primero comprueba si el resultado es null. Si el resultado es null, entonces la secuencia no tuvo coincidencias. Si la secuencia tuvo coincidencias, retorna un arreglo. Si exsiten grupos (especificados como conjuntos de paréntesis) en la expresión regular, entonces los contenidos de cada uno serán retornados en el arreglo. El elemento[0] de una coincidencia de expresión regular retorna el string coincidente, y el grupo de coincidencia empieza en el elemento[1] (el primer grupo es [1], el segundo es [2], etc).",
-      "params": ["String: el String a ser buscado",
-                 "String: la expresión regular a ser usada para buscar coincidencias"],
-      "returns": "Arreglo: arreglo de Strings encontrados"
+      "description": "这函数可被用来在一段文字上应用正则表达式，并将返回含有符合表达式的组合（在括号内的元素）的字符串数组。如果没找到任何匹配组合，将返回 null。如果正则表达式内没有定义任何组合，但有搜寻到匹配序列，将返回一个大小为 1 的数组（匹配的文字为数组的第一个元素）。<br><br>使用此函数时，先查看结果是否为 null。如果结果为 null，那表示该段文字没有匹配序列。如果有找到匹配序列，将返回一个数组。<br><br>如果正则表达式内有组合（由括号定义），那个别内容将会以数组的形式返回。正则表达式匹配返回的元素 [0] 将会是整个匹配的字符串，而匹配组合将从元素 [1] 开始（第一组为 [1]、第二组为 [2] 等）。",
+      "params": ["字符串：在此字符串内搜寻",
+                 "字符串：用于搜寻的正则表达式"],
+      "returns": "数组：搜寻到的字符串数组"
     },
     "matchAll": {
-      "description": "Esta función es usada para aplicar una expresión regular a una porción de texto,  y retorna una lista de grupos coincidentes (elementos encontrados entre paréntesis) como un arreglo de Strings bidimensional. Si no existen coincidencias, se retorna el valor null. Si no se especifican grupos en la expresión regular, pero la secuencia coincide, un arreglo de dos dimensiones es retornado, pero es de largo 1. Para usar la función, primero comprueba si el resultado es null. Si el resultado es null, entonces la secuencia no tuvo coincidencias. Si la secuencia tuvo coincidencias, retorna un arreglo 2D. Si exsiten grupos (especificados como conjuntos de paréntesis) en la expresión regular, entonces los contenidos de cada uno serán retornados en el arreglo. El elemento[i][0] de una coincidencia de expresión regular retorna el string coincidente completo, y el grupo de coincidencia empieza en el elemento[i][1] (el primer grupo es [i][1], el segundo es [i][2], etc).",
-      "params": ["String: el String a ser buscado",
-                 "String: la expresión regular a ser usada para buscar coincidencias"],
-      "returns": "Arreglo: arreglo 2D de Strings encontrados"
+      "description": "这函数可被用来在一段文字上应用正则表达式，并将返回含有符合表达式的组合（在括号内的元素）的二维字符串数组。如果没找到任何匹配组合，将返回 null。如果正则表达式内没有定义任何组合，但有搜寻到匹配序列，仍然将返回一个二维数组，但第二维度数组的大小将为一。<br><br>使用此函数时，先查看结果是否为 null。如果结果为 null，那表示该段文字没有匹配序列。如果有找到匹配序列，将返回一个二维数组。<br><br>如果正则表达式内有组合（由括号定义），那个别内容将会以数组的形式返回。假设有一个有计算其变量 i 的循环，正则表达式匹配返回的元素 [i][0] 将会是整个匹配的字符串，而匹配组合将从元素 [i][1] 开始（第一组为 [i][1]、第二组为 [i][2] 等）。",
+      "params": ["字符串：在此字符串内搜寻",
+                 "字符串：用于搜寻的正则表达式"],
+      "returns": "字符串[]：搜寻到的二维字符串数组"
     },
     "nf": {
-      "description": "Función de utilidad para formatear números a strings. Existen dos veriones: una para formatear floats, y una para formatear enteros. Los valores de los dígitos y los parámetros left y right siempre deben ser enteros positivos",
-      "params": ["Número|Arreglo: el número a formatear",
-                 "Número: número de dígitos a la izquierda del punto decimal",
-                 "Número: número de dígitos a la derecha del punto decimal"],
-      "returns": "String|Arreglo: String formateada"
+      "description": "用于将数字格式化成字符串的辅助函数。此函数有两个版本：一个用于格式化浮点数，另一个用于格式化整数。参数 left 及 right 的值必须是正整数。",
+      "params": ["数字|字符串：该格式化的数字",
+                 "整数|字符串：小数点左边的位数",
+                 "整数|字符串：小数点右边的位数",
+                 "数组：该格式化的数字"],
+      "returns": "字符串：格式化后的字符串"
     },
     "nfc": {
-      "description": "Función de utilidad para formatear números en strings y poner las comas apropiadas para señalar múltiplos de mil. Hay dos versiones: una para números enteros y otra para arreglos de enteros. El valor del parámetro right debe siempre ser un entero positivo.",
-      "params": ["Número|Arreglo: el número a formatear",
-                 "Número: número de dígitos a la derecha del punto decimal"],
-      "returns": "String|Arreglo: String formateada"
+      "description": "用于将数字格式化成字符串并在适当的地方添加逗号以示意 1000 位的辅助函数。此函数有两个版本：一个用于格式化整数，另一个用于格式化一数组的整数。参数 right 的值必须是正整数。",
+      "params": ["数字|字符串：该格式化的数字",
+                 "整数|字符串：小数点左边的位数",
+                 "整数|字符串：小数点右边的位数",
+                 "数组：该格式化的数字"],
+      "returns": "字符串：格式化后的字符串"
     },
     "nfp": {
-      "description": "Función de utilidad para formatear números en strings. Similar a nf() pero pone un signo + en frente de los números positivos y un signo - en frente de números negativos. Hay dos versiones, una para formatear floats y otra para formatear enteros. Los valores de los parámetros left y right deben siempre ser enteros positivos.",
-      "params": ["Número|Arreglo: el número a formatear",
-                 "Número: número de dígitos a la izquierda del punto decimal",
-                 "Número: número de dígitos a la derecha del punto decimal"],
-      "returns": "String|Arreglo: String formateada"
+      "description": "用于将数字格式化成字符串的辅助函数。与 nf() 相似但会在正数前加个 \"+\" 号而在负数前加个 \"-\" 号。此函数有两个版本：一个用于格式化浮点数，另一个用于格式化整数。参数 left 及 right 的值必须是正整数。",
+      "params": ["数字|字符串：该格式化的数字",
+                 "整数|字符串：小数点右边的位数",
+                 "数组：该格式化的数字"],
+      "returns": "字符串：格式化后的字符串"
     },
     "nfs": {
-      "description": "Función de utilidad para formatear números en strings. Similar a nf() pero pone un espacio en frente de los números positivos y un signo - en frente de números negativos. Hay dos versiones, una para formatear floats y otra para formatear enteros. Los valores de los parámetros left y right deben siempre ser enteros positivos.",
-      "params": ["Número|Arreglo: el número a formatear",
-                 "Número: número de dígitos a la izquierda del punto decimal",
-                 "Número: número de dígitos a la derecha del punto decimal"],
-      "returns": "String|Arreglo: String formateada"
+      "description": "用于将数字格式化成字符串的辅助函数。与 nf() 相似但会在正数前加个 \" \"（空格）而在负数前加个 \"-\" 号。此函数有两个版本：一个用于格式化浮点数，另一个用于格式化整数。参数 left 及 right 的值必须是正整数。",
+      "params": ["数字：该格式化的数字",
+                 "整数：小数点左边的位数",
+                 "整数：小数点右边的位数",
+                 "数组：该格式化的数字"],
+      "returns": "字符串：格式化后的字符串"
     },
     "split": {
-      "description": "La función split usa String.split(), corta un String en pedazos usando un caracter o String como delimitador. El parámetro delim especifica el caracter o caracteres que marcan los bordes entre cada pieza. Un arreglo String[] es retornado, que contiene cada una de las piezas. La función splitTokens() funciona de forma similar, excepto que divide usango un rango de caracteres en vez de usar un caracter o una secuencia de caracteres específicos.",
-      "params": ["String: el String a ser dividido",
-                 "String: el String usado para separar los datos"],
-      "returns": "Arreglo: arreglo de Strings"
+      "description": "split() 函数映射到 String.split()，它使用一个字符或字符串为分隔号以将另一个字符串拆分成多个部分。delim 参数定义用于标示各个部分之间边界的字符或字符串。将返回一个含有各个部分的字符串数组。<br><br>splitTokens() 函数也与此函数相似，不过它将使用一系列字符以拆分字符串而不是使用特别定义的单一字符或字符串。",
+      "params": ["字符串：还拆分的字符串",
+                 "字符串：用于分隔资料的字符串"],
+      "returns": "字符串[]：字符串数组"
     },
     "splitTokens": {
-      "description": "La función splitTokens() divide un String en uno o varios caracteres delimitadores o tokens. El parámetro delim especifica el o los caracteres a ser usados como borde. Si no se especifican caracteres delim, cualquier caracter tipo whitespace será usado para dividir. Los caracteres whitespace incluyen tabulación (\t), nueva línea (\n), retorno de carro (\r), entrada de formulario (\f), y espacio.",
-      "params": ["String: el String a ser dividido",
-                 "String: lista de Strings individuales que serán usados como separadores"],
-      "returns": "Arreglo: arreglo de Strings"
+      "description": "splitTokens() 函数将在一个或多个字符（或 “tokens”）所标示的地方拆分一个字符串。delim 参数将定义用于标示各个部分之间边界的字符或字符串。<br><br>如果 delim 参数没有被定义，此函数将使用任何空白字符拆分。空白字符包括制表符（\\t）、换行符（\\n）、回车符（\\r）、新页符（\\f）及空格。",
+      "params": ["字符串：还拆分的字符串",
+                 "字符串：用于分隔资料的字符串列"],
+      "returns": "字符串[]：字符串数组"
     },
     "trim": {
-      "description": "Remueve caracteres tipo whitespace (espacio en blanco) del comienzo y el final de un String. En adición a los caracteres estámdar de whitespace como espacio, retorno de carro y tabulación, esta función también remueve el caracter Unicode nbsp.",
-      "params": ["String|Arreglo: un String o arreglo de Strings a ser recortados."],
-      "returns": "String|Arreglo: un String o arreglo de Strings recortados."
+      "description": "从一个字符串的前端及后端删除空白字符。除了一般的空白字符如空格、回车及制表符之外，这函数也将删除 Unicode “nbsp” 字符。",
+      "params": ["字符串：该修剪的字符串",
+                 "数组：该修剪的字符串数组"],
+      "returns": "字符串：修剪后的字符串"
     },
     "camera": {
       "description": "Define la posición de la cámara",
