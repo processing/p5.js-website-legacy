@@ -1681,85 +1681,115 @@
       "returns": "字符串：修剪后的字符串"
     },
     "camera": {
-      "description": "Define la posición de la cámara",
-      "params": ["Número: valor de la posición de la cámara en el eje x",
-      "Número: valor de la posición de la cámara en el eje y",
-      "Número: valor de la posición de la cámara en el eje z"],
-      "returns": "p5: 该 p5 物件"
+      "description": "定义在一个三维绘图内相机的位置。此函数的行为与 gluLookAt 相似，不过它会覆盖原有的模型视图矩阵而不会在原有的模型视图上添加任何变形。当没有给予任何参数时，此函数将定义默认相机为 camera(0, 0, (height/2.0) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, 1, 0);",
+      "params": ["数字：相机在 x 轴的位置",
+                 "数字：相机在 y 轴的位置",
+                 "数字：相机在 z 轴的位置",
+                 "数字：代表绘图中心点的 x 坐标",
+                 "数字：代表绘图中心点的 y 坐标",
+                 "数字：代表绘图中心点的 z 坐标",
+                 "数字：相机向上方向量的 x 分量",
+                 "数字：相机向上方向量的 y 分量",
+                 "数字：相机向上方向量的 z 分量"],
+      "returns": ""
     },
     "perspective": {
-      "description": "Define la perspectiva de la cámara",
-      "params": ["Número: frustum del campo de visión vertical de la cámara, de abajo hacia arriba, en grados",
-      "Número: frustum de la relación de aspecto de la cámara",
-      "Número: frustum del largo del plano cercano",
-      "Número: frustum del largo del plano lejano"],
-      "returns": "p5: 该 p5 物件"
+      "description": "定义透视相机。当没有给予任何参数时，此函数将定义默认相机为 perspective(PI/3.0, width/height, cameraZ/10.0, cameraZ*10.0) 其中 cameraZ 为 ((height/2.0) / tan(PI60.0/360.0));",
+      "params": ["数字：相机视锥的垂直视野，使用角度模式单位定义视野底部到顶部的角度",
+                 "数字：相机视锥的长宽比",
+                 "数字：视锥近平面的长度",
+                 "数字：视锥远平面的长度"],
+      "returns": ""
     },
     "ortho": {
-      "description": "Define la cámara ortogonal",
-      "params": ["Número: define el frustum del plano izquierdo de la cámara",
-      "Número: define el frustum del plano derecho de la cámara",
-      "Número: define el frustum del plano inferior de la cámara",
-      "Número: define el frustum del plano superior de la cámara",
-      "Número: define el frustum del plano cercano de la cámara",
-      "Número: define el frustum del plano lejano de la cámara"],
-      "returns": "p5: 该 p5 物件"
+      "description": "定义正射相机。",
+      "params": ["数字：相机视锥的左平面",
+                 "数字：相机视锥的右平面",
+                 "数字：相机视锥的底平面",
+                 "数字：相机视锥的顶平面",
+                 "数字：相机视锥的近平面",
+                 "数字：相机视锥的远平面"],
+      "returns": ""
     },
     "ambientLight": {
-      "description": "Crea una luz ambiente con color",
-      "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
-      "Número: opcional, valor de verde o saturación",
-      "Número: opcional, valor de azul o brillo",
-      "Número: opcional, valor de opacidad"],
-      "returns": "该 p5 物件"
+      "description": "使用所定义的颜色创造一个环境光。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值，需在被定义的范围内",
+                 "数字：蓝彩值或亮度值，需在被定义的范围内",
+                 "数字：",
+                 "字符串：颜色字符串",
+                 "数字：灰阶值",
+                 "数字[]：一个有红、绿、蓝及透明度值的数组",
+                 "p5.Color：环境光色"],
+      "returns": ""
     },
 
     "directionalLight": {
-      "description": "Crea una luz direccional con color y dirección",
-      "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
-      "Número: opcional, valor de verde o saturación",
-      "Número: opcional, valor de azul o brillo",
-      "Número: opcional, valor de opacidad",
-      "Número|p5.Vector: dirección del eje x o un p5.Vector",
-      "Número: opcional, dirección del eje y",
-      "Número: opcional, dirección del eje z"],
-      "returns": "该 p5 物件"
+      "description": "使用所定义的颜色及方向创造一个定向光。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值",
+                 "数字：蓝彩值或亮度值",
+                 "p5.Vector：光的方向",
+                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值",
+                 "数字：x 轴方向",
+                 "数字：y 轴方向",
+                 "数字：z 轴方向"],
+      "returns": ""
     },
     "pointLight": {
-      "description": "Crea una luz puntual con color y posición",
-      "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
-      "Número: opcional, valor de verde o saturación",
-      "Número: opcional, valor de azul o brillo",
-      "Número: opcional, valor de opacidad",
-      "Número|p5.Vector: dirección del eje x o un p5.Vector",
-      "Número: opcional, dirección del eje y",
-      "Número: opcional, dirección del eje z"],
-      "returns": "p5: 该 p5 物件"
+      "description": "使用所定义的颜色及灯光位置创造一个点光源。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值",
+                 "数字：蓝彩值或亮度值",
+                 "数字：x 轴方向",
+                 "数字：y 轴方向",
+                 "数字：z 轴方向",
+                 "p5.Vector：光的方向",
+                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
+      "returns": ""
+    },
+    "loadShader": {
+      "description": "从所定义的顶点及片断着色器文件路径加载自定的着色器。着色器是在背景异步加载的，因此此函数应该在 preload() 内使用。<br><br>现在为止有三种主要的着色器种类。只要相对的参数有在着色器内被定义，p5 将会自动提供相对的顶点、法线、颜色及灯光属性。",
+      "params": ["字符串：存有顶点着色器源代码的文件的路径",
+                 "字符串：存有片断着色器源代码的文件的路径"],
+      "returns": "p5.Shader：由所定义的顶点及片断着色器所创造的着色器物件"
+    },
+    "createShader": {
+      "description": "",
+      "params": ["字符串：顶点着色器的源代码",
+                 "字符串：片断着色器的源代码"],
+      "returns": "p5.Shader：由所定义的顶点及片断着色器所创造的着色器物件"
+    },
+    "shader": {
+      "description": "shader() 函数让其使用者提供自定的着色器以用于在 WEBGL 模式下渲染形状。使用这能使用 loadShader() 加载自定义的着色器。",
+      "params": ["p5.Shader：欲用于渲染形状用的 p5.Shader"]
     },
     "normalMaterial": {
-      "description": "Material normal para geometría. Puedes ver todos los posibles materiales en este ejemplo (TODO).",
-      "returns": "p5: 该 p5 物件"
+      "description": "形状的法线材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "returns": ""
     },
     "texture": {
-      "description": "Textura para geometría. Puedes ver todos los posibles materiales en este ejemplo (TODO).",
-      "params": ["p5.Image|p5.MediaElement|p5.Graphics: gráfica bidimensional para hacer render como textura."],
-      "returns": "p5: 该 p5 物件"
+      "description": "形状的纹理。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "params": ["p5.Image|p5.MediaElement|p5.Graphics：该渲染成纹理的二维图像"],
+      "returns": ""
     },
     "ambientMaterial": {
-      "description": "Material ambiente para geometría con un color dado. Puedes ver todos los posibles materiales en este ejemplo (TODO).",
-      "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color), o arreglo de color, o String de color CSS",
-      "Número: opcional, valor de verde o saturación",
-      "Número: opcional, valor de azul o brillo",
-      "Número: opcional, valor de opacidad"],
-      "returns": "p5: 该 p5 物件"
+      "description": "使用所给予颜色定义形状的环境材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值",
+                 "数字：蓝彩值或亮度值",
+                 "数字：透明度",
+                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
+      "returns": ""
     },
     "specularMaterial": {
-      "description": "Material espejo para geometría con un color dado. Puedes ver todos los posibles materiales en este ejemplo (TODO).",
-      "params": ["Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color), o arreglo de color, o String de color CSS",
-      "Número: opcional, valor de verde o saturación",
-      "Número: opcional, valor de azul o brillo",
-      "Número: opcional, valor de opacidad"],
-      "returns": "p5: 该 p5 物件"
+      "description": "使用所给予颜色定义形状的镜面材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值",
+                 "数字：蓝彩值或亮度值",
+                 "数字：透明度",
+                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
+      "returns": ""
     },
     "p5.RendererGL": {
       "description": "TODO",
