@@ -37,20 +37,37 @@ $(function() {
     return window.matchMedia("(min-width: 720px)").matches;
   };
 
+  // Calculate what the top for the sidebar should be.
+  var getNewTop = function(){
+    return Math.max($window.scrollTop() - sidebarOffset.top, 0);
+  }
+
   // Change sidebar position:
-  var setSidebarPosition = function() {
-    if ($window.scrollTop() > sidebarOffset.top) {
-      $sidebar.stop().animate({
-        marginTop: $window.scrollTop() - sidebarOffset.top
-      });
-    } else {
-      $sidebar.stop().animate({
-        marginTop: 0
-      });
+  var setSidebarPosition = function(newTop) {
+    // If it is already animating, return. This makes the animation less choppy.
+    // It will pick up the final top when the current animation ends.
+    if ($sidebar.is(':animated')){
+      return;
     }
+
+    // Calculate new top if none passed in.
+    newTop = newTop || getNewTop();
+
+    $sidebar.animate({top: newTop}, { 
+      easing: 'linear',
+      duration: 100,
+      complete: function(){
+        // Go again if a subsequent scroll has changed the final top.
+        var finalTop = getNewTop();
+        if (newTop != finalTop){
+          setSidebarPosition(finalTop);
+        }
+      }
+    });
   };
-  if (isWidescreen() && $window.scrollTop() > sidebarOffset.top) {
-    $sidebar.css('margin-top', $window.scrollTop() - sidebarOffset.top);
+  
+  if (isWidescreen()){
+    $sidebar.css('top', getNewTop());
   }
 
   // Rotate specific elements:
@@ -65,7 +82,7 @@ $(function() {
 
   $window.scroll(function() {
     if (isWidescreen()) {
-      //setSidebarPosition(); // temp to stop buggy scrolling
+      setSidebarPosition();
       rotateElements();
     }
   });
