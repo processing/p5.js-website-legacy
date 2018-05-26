@@ -211,9 +211,9 @@ module.exports = function(grunt) {
       },
       reference_assets: {
         expand: true,
-        cwd: '<%= config.src %>/templates/pages/reference/assets',
-        src: ['**'],
-        dest: '<%= config.dist %>/reference/assets'
+        cwd: '<%= config.src %>/templates/pages/reference/',
+        src: ['**/!(*.hbs)'],
+        dest: '<%= config.dist %>/reference/'
       },
       reference_es: {
         expand: true,
@@ -279,7 +279,7 @@ module.exports = function(grunt) {
         files: [
           {
             prepend: "referenceData = ",
-            input: '<%= config.dist %>/reference/data.json',
+            input: '<%= config.src %>/templates/pages/reference/data.json',
             output: '<%= config.src %>/offline-reference/js/data.js'
           }
         ]
