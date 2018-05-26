@@ -209,6 +209,12 @@ module.exports = function(grunt) {
         src: ['**'],
         dest: '<%= config.dist %>/assets/reference'
       },
+      reference_assets: {
+        expand: true,
+        cwd: '<%= config.src %>/templates/pages/reference/assets',
+        src: ['**'],
+        dest: '<%= config.dist %>/reference/assets'
+      },
       reference_es: {
         expand: true,
         cwd: '<%= config.dist %>/reference',
