@@ -8,7 +8,7 @@
  * el valor local para hacer sus cálculos dentro de la función.
  * Las variables son localizadas dentro de cada bloque, el espacio entre llaves { y }.
  */
-var a = 80;  // Crea una variable global "a"
+let a = 80; // Create a global variable "a"
 
 function setup() {
   createCanvas(720, 400);
@@ -18,36 +18,31 @@ function setup() {
 }
 
 function draw() {
-  // Dibuja una línea usando la variable global "a"
+  // Draw a line using the global variable "a"
   line(a, 0, a, height);
 
-  // Crea una nueva variable local "a" al for()
-  for (var a = 120; a < 200; a += 3) {
+  // Use a local variable a in for loop
+  for (let a = 120; a < 200; a += 3) {
     line(a, 0, a, height);
   }
 
-  // Crea una nueva  variable local "a" de la  función draw()
-  var a = 300;
-  // Dibuja una línea usando la nueva variable local "a"
-  line(a, 0, a, height);
-
-  // Llamada a la función drawAnotherLine()
+  // Make a call to the custom function drawAnotherLine()
   drawAnotherLine();
 
-  // Llamada a la función drawYetAnotherLine()
+  // Make a call to the custom function drawYetAnotherLine()
   drawYetAnotherLine();
 }
 
 function drawAnotherLine() {
-  // Crea una nueva variable local "a" de este método
-  var a = 320;
-  // Dibuja una línea usando la variable local "a"
+  // Create a new variable "a" local to this function
+  let a = 320;
+  // Draw a line using the local variable "a"
   line(a, 0, a, height);
 }
 
 function drawYetAnotherLine() {
-  // Como no definimos una nueva variable local "a",
-  // esta línea se dibuja usando la variable global original
-  // "a" que tiene un valor de 20.
-  line(a+3, 0, a+3, height);
+  // Because no new local variable "a" is set,
+  // this line draws using the original global
+  // variable "a" which is set to the value 20.
+  line(a + 3, 0, a + 3, height);
 }
