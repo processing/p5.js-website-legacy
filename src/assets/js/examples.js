@@ -18,6 +18,10 @@ var examples = {
     $('#resetButton').click( function() {
       examples.resetExample();
     });
+    $('#copyButton').click( function() {
+      $('textarea')[0].select();
+      document.execCommand('copy');
+    });
 
 
     // Example Frame

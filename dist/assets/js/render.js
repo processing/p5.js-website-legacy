@@ -103,6 +103,17 @@ var renderCode = function(sel) {
         setMode(sketch, 'run');
       };
 
+
+      var copy_button = document.createElement('button');
+      copy_button.value = 'copy';
+      copy_button.innerHTML = 'copy';
+      copy_button.className = 'copy_button';
+      edit_space.appendChild(copy_button);
+      copy_button.onclick = function() {
+        edit_area.select();
+        document.execCommand('copy');
+      };
+
       var edit_area = document.createElement('textarea');
       edit_area.value = runnable;
       edit_area.rows = rows;
