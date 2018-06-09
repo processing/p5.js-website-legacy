@@ -110,8 +110,18 @@ var renderCode = function(sel) {
       // edit_area.position = 'absolute'
       edit_space.appendChild(edit_area);
       edit_area.style.display = 'none';
-
       enableTab(edit_area);
+
+      var copy_button = document.createElement('button');
+      copy_button.value = 'copy';
+      copy_button.innerHTML = 'copy';
+      copy_button.className = 'copy_button';
+      edit_space.appendChild(copy_button);
+      copy_button.onclick = function() {
+        setMode(sketch, 'edit');
+        edit_area.select();
+        document.execCommand('copy');
+      };
 
       function setMode(sketch, m) {
         if (m === 'edit') {
