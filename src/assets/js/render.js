@@ -119,7 +119,6 @@ var renderCode = function(sel) {
       edit_space.appendChild(copy_button);
       copy_button.onclick = function() {
         setMode(sketch, 'edit');
-        console.log(edit_area);
         edit_area.select();
         document.execCommand('copy');
       };
