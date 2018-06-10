@@ -143,8 +143,11 @@ window.onload = function() {
   // temp until chinese launch
   if (lang !== 'pangu' || isStaging()) {
     window.lang = lang;
-  } else {
-    $('button[data-lang="zh-Hans"').hide();
+  } 
+
+  // temp until chinese launch
+  if (isStaging()) {
+    $('button[data-lang="zh-Hans"').show();
   }
 
   // ===============================================
