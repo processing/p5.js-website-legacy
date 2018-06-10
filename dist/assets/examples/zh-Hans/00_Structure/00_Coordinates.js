@@ -1,5 +1,5 @@
 /*
- * @name Coordinates
+ * @name testCoordinates
  * @description All shapes drawn to the screen have a position that is 
  * specified as a coordinate. All coordinates are measured as the distance from
  * the origin in units of pixels. The origin [0, 0] is the coordinate in the
