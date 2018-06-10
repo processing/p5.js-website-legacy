@@ -129,15 +129,21 @@ window.onload = function() {
         lang = saved_lang;
       }
     } else {
-      if (is_root && browser_lang != loc_lang) {
-        loc = '/' + browser_lang;
-        window.location = loc;
+      if (is_root && browser_lang != loc_lang) { 
+        if (lang !== 'pangu') { // temp until chinese launch
+          loc = '/' + browser_lang;
+          window.location = loc;
+        }
       }
     }
   } else {
     lang = get_loc_lang();
   }
-  window.lang = lang;
+
+  // temp until chinese launch
+  if (lang !== 'pangu') {
+    window.lang = lang;
+  }
 
   // ===============================================
   // Language change:
