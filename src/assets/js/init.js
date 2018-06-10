@@ -130,7 +130,7 @@ window.onload = function() {
       }
     } else {
       if (is_root && browser_lang != loc_lang) { 
-        if (lang !== 'pangu') { // temp until chinese launch
+        if (lang !== 'pangu' || isStaging()) { // temp until chinese launch
           loc = '/' + browser_lang;
           window.location = loc;
         }
@@ -141,8 +141,10 @@ window.onload = function() {
   }
 
   // temp until chinese launch
-  if (lang !== 'pangu') {
+  if (lang !== 'pangu' || isStaging()) {
     window.lang = lang;
+  } else {
+    $('button[data-lang="zh-Hans"').hide();
   }
 
   // ===============================================
@@ -199,5 +201,9 @@ window.onload = function() {
   // Chinese spacing
   if (window.pangu) {
     pangu.spacingPage();
+  }
+
+  function isStaging() {
+    return window.location.href.indexOf('staging') !== -1 || window.location.href.indexOf('localhost') !== -1;
   }
 }
