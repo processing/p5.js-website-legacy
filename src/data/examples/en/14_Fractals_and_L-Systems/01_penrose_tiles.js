@@ -1,3 +1,9 @@
+/*
+ * @name Penrose Tiles
+ * @frame 710,400
+ * @description This is a port by David Blitz of the "Penrose Tile" example from processing.org/examples
+ */
+ 
 var ds;
 
 function setup() {
