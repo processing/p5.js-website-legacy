@@ -1,9 +1,9 @@
 var verbose = false;
 
 // now load the modules we need
-var ejs = require('ejs'), // library for turning .ejs templates into .html files
-  fs = require('fs'), // node.js library for reading and writing files
-  async = require('async'); // async module
+var ejs = require('ejs'); // library for turning .ejs templates into .html files
+var fs = require('fs'); // node.js library for reading and writing files
+var path = require('upath'); // platform indepedent file paths
 
 // make sure EJS is configured to use curly braces for templates
 // ejs.open = '<%';
@@ -11,18 +11,17 @@ var ejs = require('ejs'), // library for turning .ejs templates into .html files
 
 var outputRoot = process.argv.slice(2)[0];
 
-var metaReg = new RegExp('\\* ', 'g');
 var spaceReg = new RegExp(' ', 'g');
-
-// make sure we use the correct line-endings on Windows
-var EOL = process.platform === 'win32' ? '\r\n' : '\n';
 
 // build the templates
 var example_template = ejs.compile(
-  fs.readFileSync(__dirname + '/example_template.ejs', 'utf8')
+  fs.readFileSync(path.joinSafe(__dirname, '/example_template.ejs'), 'utf8')
 );
 var all_examples_template = ejs.compile(
-  fs.readFileSync(__dirname + '/all_examples_template.ejs', 'utf8')
+  fs.readFileSync(
+    path.joinSafe(__dirname, '/all_examples_template.ejs'),
+    'utf8'
+  )
 );
 
 var all = {};
@@ -32,15 +31,15 @@ var languages = ['en', 'es', 'zh-Hans']; // pend: can we grab this from somewher
 languages.forEach(function(lang) {
   buildSection(lang, function() {
     if (verbose) {
-      console.log(all);
-      console.log(total);
+      console.log('all', all);
+      console.log('total', total);
     }
   });
 });
 
 // write main page
 fs.writeFile(
-  outputRoot + '/index.hbs',
+  path.joinSafe(outputRoot, '/index.hbs'),
   all_examples_template({ all: all, total: total }),
   'utf8'
 );
@@ -48,15 +47,18 @@ fs.writeFile(
 function buildSection(lang) {
   console.log('BUILD EXAMPLES' + lang);
   // get examples folders
-  var inputRoot = __dirname + '/../' + lang + '/';
+  var inputRoot = path.joinSafe(__dirname, '/../', lang);
   var inputFolder = fs.readdirSync(inputRoot);
 
   if (lang === 'en') {
     var f = fs.readdirSync(outputRoot);
     f.forEach(function(file) {
-      if (verbose) console.log(file);
-      if (file.indexOf('.hbs') !== -1) {
-        fs.unlinkSync(outputRoot + file);
+      if (verbose) {
+        console.log('file', file);
+      }
+
+      if (path.extname(file) === '.hbs') {
+        fs.unlinkSync(path.joinSafe(outputRoot, file));
       }
     });
   }
@@ -65,29 +67,42 @@ function buildSection(lang) {
   });
 }
 
+function findName(data) {
+  var nameTagPos = data.indexOf('@name');
+  if (nameTagPos === -1) {
+    return '';
+  }
+
+  var startNamePos = nameTagPos + 6;
+  var endNamePos = data.indexOf('\n', startNamePos);
+
+  return data.substring(startNamePos, endNamePos);
+}
+
 function buildFolder(lang, inputRoot, outputRoot, folder) {
-  if (fs.statSync(inputRoot + folder).isDirectory()) {
+  var folderPath = path.joinSafe(inputRoot, folder);
+  if (fs.statSync(folderPath).isDirectory()) {
+    // Grab name after NN_
     var folderName = folder.substring(3);
-    if (!(folderName in all)) {
+    if (!all[folderName]) {
       all[folderName] = [];
     }
 
-    var i = 0;
-    var inputFiles = fs.readdirSync(inputRoot + folder).filter(function(f) {
-      return f.indexOf('.js') !== -1;
+    var inputFiles = fs.readdirSync(folderPath).filter(function(f) {
+      return path.extname(f) === '.js';
     });
 
+    var i = 0;
     inputFiles.forEach(function(file) {
-      var data = fs.readFileSync(inputRoot + folder + '/' + file, 'utf8');
-
-      var startName = data.indexOf('@name') + 6;
-      var endName = data.indexOf('\n', startName);
-      var name = startName !== 5 ? data.substring(startName, endName) : '';
+      var fileName = path.joinSafe(folderPath, file);
+      var data = fs.readFileSync(fileName, 'utf8');
+      var name = findName(data);
 
       if (lang === 'en') {
         var isMobile = folderName.indexOf('Mobile') >= 0;
+        var relativeFileName = path.joinSafe(folder, file);
         var content = example_template({
-          file: folder + '/' + file,
+          file: relativeFileName,
           mobileEx: isMobile
         });
 
@@ -95,7 +110,9 @@ function buildFolder(lang, inputRoot, outputRoot, folder) {
         name = name.replace(spaceReg, '-');
         var outName = (folderName + '-' + name).toLowerCase().replace('_', '-');
         var outputFile = outputRoot + outName + '.hbs';
-        if (verbose) console.log(outputFile);
+        if (verbose) {
+          console.log('outputFile', outputFile);
+        }
 
         all[folderName].push({ en: shortName, link: outName + '.html' });
 
