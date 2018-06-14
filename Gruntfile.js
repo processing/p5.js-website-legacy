@@ -89,7 +89,8 @@ module.exports = function(grunt) {
           i18n: {
             languages: [
               'en',
-              'es'
+              'es',
+              'zh-Hans'
             ],
             templates: [
               "<%= config.src %>/templates/pages/**/*.hbs",
@@ -101,15 +102,15 @@ module.exports = function(grunt) {
               {
                 pattern: ':lang',
                 replacement: function () {
-                  return this.language === 'en' ? '' : this.language;
+                  return this.language.toLowerCase() === 'en' ? '' : this.language.toLowerCase();
                 }
               },
               {
                 pattern: ':base',
                 replacement: function () {
-                  var check = this.basename.substring(this.basename.length-3);
-                  if (check === '-'+this.language) {
-                    return this.basename.substring(0, this.basename.length-3);
+                  var check = this.basename.lastIndexOf(this.language.toLowerCase());
+                  if (check > -1){
+                    return this.basename.substring(0, check-1);
                   } else return this.basename;
                 }
               }
@@ -208,11 +209,23 @@ module.exports = function(grunt) {
         src: ['**'],
         dest: '<%= config.dist %>/assets/reference'
       },
+      reference_assets: {
+        expand: true,
+        cwd: '<%= config.src %>/templates/pages/reference/',
+        src: ['**/!(*.hbs)'],
+        dest: '<%= config.dist %>/reference/'
+      },
       reference_es: {
         expand: true,
         cwd: '<%= config.dist %>/reference',
         src: ['**'],
         dest: '<%= config.dist %>/es/reference'
+      },
+      reference_zh_Hans: {
+        expand: true,
+        cwd: '<%= config.dist %>/reference',
+        src: ['**'],
+        dest: '<%= config.dist %>/zh-Hans/reference'
       },
       offlineReference: {
         files: [
@@ -266,7 +279,7 @@ module.exports = function(grunt) {
         files: [
           {
             prepend: "referenceData = ",
-            input: '<%= config.dist %>/reference/data.json',
+            input: '<%= config.src %>/templates/pages/reference/data.json',
             output: '<%= config.src %>/offline-reference/js/data.js'
           }
         ]
@@ -311,6 +324,12 @@ module.exports = function(grunt) {
     'postcss'
   ]);
 
+  // i18n tracking task
+  grunt.registerTask('i18n', function(){
+    var done = this.async();
+    require("./i18n.js")(done);
+  });
+
   // runs three tasks in order
   grunt.registerTask('build', [
     'exec',
@@ -319,7 +338,8 @@ module.exports = function(grunt) {
     'assemble',
     'optimize',
     'file_append',
-    'compress'
+    'compress',
+    'i18n'
   ]);
 
   // runs with just grunt command

@@ -2363,7 +2363,7 @@ define('listView',[
               };
             }
 
-            // hide the un-interesting constants  
+            // hide the un-interesting constants
             if (group === 'Constants' && !item.example)
               return;
 
@@ -2402,6 +2402,9 @@ define('listView',[
         // Render the view
         this.$el.html(listHtml);
       }
+
+      var renderEvent = new Event('reference-rendered');
+      window.dispatchEvent(renderEvent);
 
       return this;
     },
@@ -4243,6 +4246,9 @@ define('itemView',[
         }, 1000);
         Prism.highlightAll();
       }
+
+      var renderEvent = new Event('reference-rendered');
+      window.dispatchEvent(renderEvent);
 
       return this;
     },
