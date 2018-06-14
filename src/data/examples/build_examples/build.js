@@ -24,7 +24,7 @@ var all_examples_template = ejs.compile(fs.readFileSync(__dirname+"/all_examples
 
 var all = {};
 var total = 0;
-var languages = ['en', 'es']; //pend
+var languages = ['en', 'es', 'zh-Hans']; // pend: can we grab this from somewhere central?
 
 languages.forEach(function(lang) {
   buildSection(lang, function() {

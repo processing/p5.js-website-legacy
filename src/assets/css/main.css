@@ -276,6 +276,24 @@
   float:left;
 }
 
+#reference-page .params table p {
+  /* Recently-added support for Markdown means that every parameter
+   * description is wrapped in a paragraph element. (Previously, they weren't
+   * wrapped in any kind of element.)
+   *
+   * We may eventually want to display paragraphs as blocks, so that we
+   * can have lengthy descriptions for parameters, but for now we'll
+   * keep our pre-existing behavior and essentially make paragraphs
+   * "invisible" by rendering them inline. */
+  display: inline;
+
+  font-size: inherit;
+}
+
+#reference-page .param-optional {
+  color: #AFAFAF;
+}
+
 /* EXAMPLES IN REF */
 
 .example-content .edit_space,
@@ -1673,7 +1691,7 @@ footer {
     }
 
     #home-sketch-frame {
-      
+
       display: none; /* HIDDEN SKETCH */
     }
 

@@ -10,4 +10,14 @@ module.exports.register = function(Handlebars, options) {
       return '/'+this.language;
     }
   });
+  Handlebars.registerHelper('ifLowerCaseEquals', function(a, b, options){
+    if(typeof a == "string") a = a.toLowerCase();
+    if(typeof b == "string") b = b.toLowerCase();
+
+    if(a == b){
+      return options.fn(this);
+    }else{
+      return options.inverse(this);
+    }
+  });
 };
