@@ -276,6 +276,24 @@
   float:left;
 }
 
+#reference-page .params table p {
+  /* Recently-added support for Markdown means that every parameter
+   * description is wrapped in a paragraph element. (Previously, they weren't
+   * wrapped in any kind of element.)
+   *
+   * We may eventually want to display paragraphs as blocks, so that we
+   * can have lengthy descriptions for parameters, but for now we'll
+   * keep our pre-existing behavior and essentially make paragraphs
+   * "invisible" by rendering them inline. */
+  display: inline;
+
+  font-size: inherit;
+}
+
+#reference-page .param-optional {
+  color: #AFAFAF;
+}
+
 /* EXAMPLES IN REF */
 
 .example-content .edit_space,
@@ -337,11 +355,15 @@ pre.norender {
 }
 
 .edit_button {
-    left: 24.5em;
+    left: 21.42em;
 }
 
 .reset_button {
-    left: 27.5em;
+    left: 24.0em;
+}
+
+.copy_button {
+    left: 27.33em;
 }
 
 .display_button {
@@ -792,12 +814,17 @@ h3.contribute-title{
 }
 
 #exampleDisplay .edit_button {
-    left: 29em;
+    left: 26.42em;
     top: -2.5em;
 }
 
 #exampleDisplay .reset_button {
-    left: 32em;
+    left: 29.0em;
+    top: -2.5em;
+}
+
+#exampleDisplay .copy_button {
+    left: 32.33em;
     top: -2.5em;
 }
 
@@ -1664,7 +1691,7 @@ footer {
     }
 
     #home-sketch-frame {
-      
+
       display: none; /* HIDDEN SKETCH */
     }
 
@@ -1674,11 +1701,15 @@ footer {
 
 
     #exampleDisplay .edit_button {
-      left: -0.5em;
+      left: -0.58em;
     }
 
     #exampleDisplay .reset_button {
-      left: 2.5em;
+      left: 3.0em;
+    }
+
+    #exampleDisplay .copy_button {
+      left: 6.44em;
     }
 
     #exampleEditor {

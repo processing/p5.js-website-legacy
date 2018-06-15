@@ -20,6 +20,8 @@
     <script type="text/javascript" src="/../assets/js/scroll.js"></script>
     <script type="text/javascript" src="/../assets/js/init.js"></script>
 
+    
+
     <style>
     @font-face {
       font-family: myFirstFont;
@@ -56,8 +58,9 @@
 <!-- p5*js language buttons -->
 <div id="i18n-btn">
   <h1 class='visuallyhidden'>Language Settings</h1>
-  <button data-lang="en">EN</button>
-  <button data-lang="es">ES</button>
+  <button data-lang='en'>EN</button>
+  <button data-lang='es'>ES</button>
+  <button data-lang='zh-Hans' style='display:none'>简体中文</button>
 </div>
     <a href="#content" class="skip">Skip to content</a>
     <!-- .container -->
@@ -160,14 +163,14 @@
         </h2></a>
 
       <div class="info" id = "environment">
-
         <p>You can use the 
           <a href="http://en.wikipedia.org/wiki/Source_code_editor" target="_blank">
-            code editor</a>
+             code editor </a>
             of your choice. Instructions for getting set up with 
-             <a href="http://www.sublimetext.com/2" target="_blank"> Sublime Text 2</a>
-              are included below, other good editor options include <a href='http://brackets.io/' target=_blank>Brackets</a>, <a href='https://atom.io/' target=_blank>Atom</a>  and 
-             <a href='http://openprocessing.org' target=_blank>OpenProcessing</a>.
+            <a href="http://www.sublimetext.com/2" target="_blank"> Sublime Text 2</a>
+             are included below, other good editor options include <a href='http://brackets.io/' target=_blank>Brackets</a>, <a href='https://atom.io/' target=_blank>Atom</a>  and 
+            <a href='http://openprocessing.org' target=_blank>OpenProcessing</a>. If you are a screen reader user and not using the p5 web editor, you may want to use  <a href="https://notepad-plus-plus.org/">Notepad++</a>  or 
+            <a href="https://www.eclipse.org/ide/" target="_blank">Eclipse</a>.
         </p>
 
         <p>
@@ -176,7 +179,7 @@
 
         <p>
           Click on your sketch.js file and it will open on the right where you can edit it. 
-          <img src="../assets/img/get-started/sublime2.png" />
+          <img src="../assets/img/get-started/sublime2.png" alt="p5 starter code opened up in sublime editor."/>
         </p>
 
         <p>
@@ -209,7 +212,11 @@ function draw() {
         <p>Save your sketch and refresh your page view in your browser. If you've typed  everything correctly, you'll see this appear in the display window:
         </p>
 
-        <img src="../assets/img/get-started/first-sketch.png" />
+        <p>Note: If you are using a screen reader, you must either turn on the accessible outputs in the p5 online editor, outside the editor you must add the accessibility library in your html. To learn about <a href="https://p5js.org/learn/" target="_blank">using p5 with a screen reader click here</a>
+           and to learn more about<a href="https://github.com/processing/p5.accessibility" target="_blank">the accessibility library here.</a>.
+        </p>
+
+        <img src="../assets/img/get-started/first-sketch.png" alt="canvas has a circle of width and height 50 at position 80 x and 80 y"/>
 
         <p>If you didn't type it correctly, you might not see anything. If this happens, make sure that you've copied the example code exactly: the numbers should be contained within parentheses and have commas between each of them, and the line should end with a semicolon.
         </p>
@@ -238,7 +245,7 @@ function draw() {
         <p>This program creates a window that is 640 pixels wide and 480 pixels high, and then starts drawing white circles at the position of the mouse. When a mouse button is pressed, the circle color changes to black. We'll explain more about the elements of this program in detail later. For now, run the code, move the mouse, and click to experience it.
         </p>
 
-        <img src="../assets/img/get-started/first-sketch2.png" />
+        <img src="../assets/img/get-started/first-sketch2.png" alt="canvas has multiple circles drawn on it following the path of the mouse"/>
       </div>
 
       <h2 class="start-element tutorial-btn" id="next">What Next?</h2>
@@ -250,6 +257,7 @@ function draw() {
           <li>View the <a href="../reference/"> reference</a> for full documentation. </li>
 
           <li>Check out the <a href="../learn/">learn</a> page and <a href="../examples">examples</a> page for more.</li>
+          <li>If you wish to use p5 with a screenreader, check out the<a href="../learn/">p5 with a screenreader tutorial</a>.</li>
         </ul>
       </div>
 

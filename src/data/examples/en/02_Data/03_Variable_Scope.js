@@ -8,7 +8,7 @@
  * will use the function variable to make its calculations within the current
  * scope.
  */
-var a = 80;  // Create a global variable "a"
+let a = 80; // Create a global variable "a"
 
 function setup() {
   createCanvas(720, 400);
@@ -21,13 +21,10 @@ function draw() {
   // Draw a line using the global variable "a"
   line(a, 0, a, height);
 
-  for (var a = 120; a < 200; a += 3) {
+  // Use a local variable a in for loop
+  for (let a = 120; a < 200; a += 3) {
     line(a, 0, a, height);
   }
-
-  var a = 300;
-  // Draw a line using the new local variable "a"
-  line(a, 0, a, height);
 
   // Make a call to the custom function drawAnotherLine()
   drawAnotherLine();
@@ -38,7 +35,7 @@ function draw() {
 
 function drawAnotherLine() {
   // Create a new variable "a" local to this function
-  var a = 320;
+  let a = 320;
   // Draw a line using the local variable "a"
   line(a, 0, a, height);
 }
@@ -47,5 +44,5 @@ function drawYetAnotherLine() {
   // Because no new local variable "a" is set,
   // this line draws using the original global
   // variable "a" which is set to the value 20.
-  line(a+3, 0, a+3, height);
+  line(a + 3, 0, a + 3, height);
 }

@@ -8,7 +8,7 @@
  * el valor local para hacer sus cálculos dentro de la función.
  * Las variables son localizadas dentro de cada bloque, el espacio entre llaves { y }.
  */
-var a = 80;  // Crea una variable global "a"
+let a = 80;  // Crea una variable global "a"
 
 function setup() {
   createCanvas(720, 400);
@@ -26,11 +26,6 @@ function draw() {
     line(a, 0, a, height);
   }
 
-  // Crea una nueva  variable local "a" de la  función draw()
-  var a = 300;
-  // Dibuja una línea usando la nueva variable local "a"
-  line(a, 0, a, height);
-
   // Llamada a la función drawAnotherLine()
   drawAnotherLine();
 
@@ -40,7 +35,7 @@ function draw() {
 
 function drawAnotherLine() {
   // Crea una nueva variable local "a" de este método
-  var a = 320;
+  let a = 320;
   // Dibuja una línea usando la variable local "a"
   line(a, 0, a, height);
 }
@@ -51,3 +46,6 @@ function drawYetAnotherLine() {
   // "a" que tiene un valor de 20.
   line(a+3, 0, a+3, height);
 }
+
+
+

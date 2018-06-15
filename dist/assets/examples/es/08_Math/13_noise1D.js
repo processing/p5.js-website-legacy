@@ -16,7 +16,7 @@ function draw() {
   fill(0, 10);
   rect(0,0,width,height);
 
-  //float n = random(0,width);  // Prueba esta línea en vez del ruido (noise)
+  //var n = random(0,width);  // Prueba esta línea en vez del ruido (noise)
 
   // Obtener un valor de ruido basado en xoff y escalarlo
   // según el ancho de la ventana

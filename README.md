@@ -54,6 +54,9 @@ Once you've setup the site, to run again in the future:
  * The "p5" key in the JSON object contains individual keys for each reference entry, indexed by variable/function/object name.
  * Any entries in the JSON object which are not filled in will be left in English when the page is loaded.
  * This is a somewhat hacky solution and not ideal. However, it comes from balancing the desire to have documentation directly in the source code, with the unwieldiness of having multiple languages of documentation inline. It will be our working solution until a better one is found.
+ 
+### Introducción a p5.js
+The repository for the book and PDF production of Introducción a p5.js can be found [here](https://github.com/processing/p5.js-getting-started-es).
 
 ## Updating the reference
 

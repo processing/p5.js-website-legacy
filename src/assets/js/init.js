@@ -1,4 +1,4 @@
-var langs = ['en', 'es'];
+var langs = ['en', 'es', 'zh-Hans'];
 
 // =================================================
 // Family bar:
@@ -129,15 +129,26 @@ window.onload = function() {
         lang = saved_lang;
       }
     } else {
-      if (is_root && browser_lang != loc_lang) {
-        loc = '/' + browser_lang;
-        window.location = loc;
+      if (is_root && browser_lang != loc_lang) { 
+        if (lang !== 'pangu' || isStaging()) { // temp until chinese launch
+          loc = '/' + browser_lang;
+          window.location = loc;
+        }
       }
     }
   } else {
     lang = get_loc_lang();
   }
-  window.lang = lang;
+
+  // temp until chinese launch
+  if (lang !== 'pangu' || isStaging()) {
+    window.lang = lang;
+  } 
+
+  // temp until chinese launch
+  if (isStaging()) {
+    $('button[data-lang="zh-Hans"').show();
+  }
 
   // ===============================================
   // Language change:
@@ -162,10 +173,13 @@ window.onload = function() {
     if (new_lang == 'en') {
       for (var j=0, l=langs.length; j < l; j++) {
         if (langs[j] != 'en') {
-          loc = '/' + loc.replace('\/' + langs[j] + '\/', '');
+          loc = loc.replace('\/' + langs[j] + '\/', '/');
         }
       }
     } else {
+      for (var j=0, l=langs.length; j < l; j++) {
+        loc = loc.replace('\/' + langs[j] + '\/', '/');
+      }
       loc = '/' + new_lang + loc;
     }
     if (can_store) {
@@ -186,5 +200,13 @@ window.onload = function() {
     }
   }
 
+  // =================================================
+  // Chinese spacing
+  if (window.pangu) {
+    pangu.spacingPage();
+  }
 
+  function isStaging() {
+    return window.location.href.indexOf('staging') !== -1 || window.location.href.indexOf('localhost') !== -1;
+  }
 }

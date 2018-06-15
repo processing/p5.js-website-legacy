@@ -19,11 +19,10 @@ slug: examples/
         <% for(var i=0; i<all[topic].length; i++) { %>
           <a class='js-lang example-link' href="<%=all[topic][i]['link']%>"
             <%
-              var keys = Object.keys(all[topic][i]).filter(function(k) { return k.length === 2 });
+              var keys = Object.keys(all[topic][i]).filter(function(k) { return k !== 'link' });
               for(var j=0; j < keys.length; j++) { %>
                 data-<%=keys[j]%>='<%=all[topic][i][keys[j]]%>'
             <%}%>
-            data-test='hi'
           ><%= all[topic][i]['en'] %></a><br>
           <% t++ %>
         <% } %>

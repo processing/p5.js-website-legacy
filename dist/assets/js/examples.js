@@ -18,6 +18,14 @@ var examples = {
     $('#resetButton').click( function() {
       examples.resetExample();
     });
+    $('#copyButton').click( function() {
+      // don't know why we need this twice, or the setTimeout
+      // guessing it's some interaction with the editor..
+      document.querySelector('textarea').select();
+      $('textarea')[0].select();
+      document.execCommand('copy');
+      setTimeout(function() { document.execCommand('copy'); }, 200);
+    });
 
 
     // Example Frame
@@ -102,6 +110,7 @@ var examples = {
       $('iframe').hide();
       $('#resetButton').hide();
       $('#runButton').hide();
+      $('#copyButton').hide();
     } else {
       examples.runExample();
       $('#exampleDisplay').show();
