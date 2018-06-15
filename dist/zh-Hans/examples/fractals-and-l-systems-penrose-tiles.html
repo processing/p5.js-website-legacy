@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">p5.js | examples</title>
+    <link rel="stylesheet" href="/../../assets/css/all.css">
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script type="text/javascript" src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/prism.js"></script>
+    <script type="text/javascript" src="/../../assets/js/scroll.js"></script>
+    <script type="text/javascript" src="/../../assets/js/init.js"></script>
+
+    
+    <script type="text/javascript" src="/../../assets/js/vendor/pangu.min.js"></script>
+    
+
+    <style>
+    @font-face {
+      font-family: myFirstFont;
+      src: url(assets/p5_featured/nea-p5js/assets/Museo_Slab_500_2.otf);
+    }
+    #top {
+      font-family: myFirstFont !important;
+      color: white;
+      font-size: 12px;
+      padding: 7px;
+      padding-left: 20px;
+      line-height: 20px;
+      background-color: #ED225D;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 5;
+      display: none;
+    }
+
+    #top a {
+      color: white !important;
+      text-decoration: underline;
+    }
+
+
+    footer { padding-bottom: 26px; }
+    </style>
+  </head>
+  <body>
+
+    
+<!-- p5*js language buttons -->
+<div id="i18n-btn">
+  <h1 class='visuallyhidden'>Language Settings</h1>
+  <button data-lang='en'>EN</button>
+  <button data-lang='es'>ES</button>
+  <button data-lang='zh-Hans' style='display:none'>简体中文</button>
+</div>
+    <a href="#content" class="skip">Skip to content</a>
+    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/zh-Hans/">
+          <img src="../../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+        <p class='tagline'>Processing 的趣味结合 JavaScript 的俏皮</p>
+        <p class='tagline'>Processing 的简易性结合 JavaScript 的灵活性</p>
+        <p class='tagline'>Processing 的直觉结合 JavaScript 的力量</p>
+        <p class='tagline'>Processing 的创意结合 JavaScript 的活跃性</p>
+        <p class='tagline'>Processing 的社群结合 JavaScript 的社群</p>
+        <p class='tagline'>Processing 的力量结合 JavaScript 的范围</p>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+<!-- site navigation -->
+<div class="column-span">
+  <nav role="navigation">
+    <ul id="menu">
+      <li><a href="/zh-Hans/">主页</a></li>
+      <li><a href="/zh-Hans/download/">下载</a></li>
+      <li><a href="/zh-Hans/gallery/"></a></li>
+      <li><a href="/zh-Hans/get-started/">入门</a></li>
+      <li><a href="/zh-Hans/reference/">参考文献</a></li>
+      <li><a href="/zh-Hans/libraries/">程式库</a></li>
+      <li><a href="/zh-Hans/learn/">学习</a></li>
+      <li><a href="/zh-Hans/examples/">范例</a></li>
+      <li><a href="/zh-Hans/books/">书籍</a></li>
+      <li><a href="/zh-Hans/community/">社群</a></li>
+      <li><a href="https://discourse.processing.org/categories" target=_blank class="other-link">论坛</a></li>
+      <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+      <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- <script src="../../assets/js/scroll.js"></script> -->
+
+
+  <div class="column-span">
+
+    <section id="content" role="region" label="main content">
+
+      <p id="backlink"><a href="./">< 返回</a></p>
+      <h1 id='example-name'></h1>
+      <p id='example-desc'></p>
+
+      
+
+      <div id="exampleDisplay">
+        <iframe id="exampleFrame" src="../../assets/examples/example.html" ></iframe>
+
+        
+
+        <div class="edit_space">
+          <button id="runButton" class="edit_button">run</button>
+          <button id="resetButton" class="reset_button">reset</button>
+          <button id="copyButton" class="copy_button">copy</button>
+        </div>
+        <div id="exampleEditor"></div>
+      </div>
+
+      <p><a style="border-bottom:none !important;" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" style="width:88px"/></a></p>
+
+    </section>
+
+    
+<footer>
+  <p> p5.js 的原作者为<a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a>并在<a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a> 和
+  <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. 的支持下由其合作社群所开发。形象及平面设计<a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/zh-Hans/copyright.html">&copy; Info.</a></p>
+</footer>
+
+
+  </div> <!-- end column-span -->
+
+  
+<!-- outside of column for footer to go across both -->
+
+<p class="clearfix"> &nbsp; </p>
+
+<object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+     *<!-- to do: add fallback image in CSS -->
+</object>
+
+
+  <!-- <script src="../../assets/js/vendor/ace-nc/ace.js"></script>
+  <script src="../../assets/js/examples.js"></script> -->
+  <script>
+    window._p5jsExample = '../../assets/examples/zh-Hans/14_Fractals_and_L-Systems/01_penrose_tiles.js';
+    window.addEventListener('load', function() {
+      // examples.init('../../assets/examples/zh-Hans/14_Fractals_and_L-Systems/01_penrose_tiles.js');
+      if (false) {
+        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        document.getElementById('exampleFrame').style.display = 'none';
+        if (isMobile.matches) {
+          document.getElementById('notMobile-message').style.display = 'none';
+          document.getElementById('isMobile-displayButton').style.display = 'block';
+        } else {
+          document.getElementById('notMobile-message').style.display = 'block';
+          document.getElementById('isMobile-displayButton').style.display = 'none';
+          document.getElementById('runButton').style.display = 'none';
+          document.getElementById('resetButton').style.display = 'none';
+          document.getElementById('copyButton').style.display = 'none';
+        }
+      }
+    }, true);
+  </script>
+
+</div><!-- end id="get-started-page"  -->
+
+
+
+<script type="text/javascript" src="/../../assets/js/examples.js"></script>
+<script type="text/javascript" src="/../../assets/js/render.js"></script>
+
+
+
+    </div> <!-- close class='container'-->
+
+    
+<div id="family">
+  <p class="left"><a href="http://processing.org">Processing</a>
+    <a class="here" href="/zh-Hans/">p5.js</a>
+    <a href="http://py.processing.org/">Processing.py</a>
+    <a href="http://android.processing.org/">Processing for Android</a>
+    <a href="http://pi.processing.org/">Processing for Pi</a>
+  </p>
+  <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
+    <input type="hidden" name="as_sitesearch" value="p5js.org" />
+    <input id='search_field' type="text" name="q" id="q" size="20" />
+    <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
+  </form>
+
+  <p class="right">
+    <a href="https://processingfoundation.org/">Processing Foundation</a>
+  </p>
+</div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>
