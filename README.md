@@ -5,16 +5,15 @@
 0. Install [node.js](https://nodejs.org/en/download/).
 1. Download this zip file or [clone this repository](https://help.github.com/articles/cloning-a-repository/) and navigate to the directory in the terminal.
 2. Type `npm install`.
-2. Rename `dist\download\version-sample.json` to `dist\download\version.json`.
-2. Type `npm install -g grunt-cli` to enable grunt.
-2. Type `grunt server` to run.
+2. Copy `dist\download\version-sample.json` to `dist\download\version.json`.
+2. Type `npm run watch` to run.
 3. This should open a window in your browser with the site running at http://localhost:9000.
 
 ## Running
 
 Once you've setup the site, to run again in the future:
 
-1. Type `grunt server` to run.
+1. Type `npm run watch` to run.
 2. This should open a window in your browser with the site running at http://localhost:9000.
 
 ## File structure
@@ -71,7 +70,7 @@ The examples are handled a bit differently from other pages.
 * The folder, file, and numbering structure should match exactly between the different languages. Do not change the filenames. The text for the example name, description, and source code are all in the .js files in the folders.
 * Assets for the examples are placed in `src/data/examples/assets`.
 * Translations for the topic headers on the example index page are done in the YAML files (`src/data/*.yml`).
-* When adding a new example, first add an english version of the file to the `en/` folder, then make sure it is duplicated in the same place in all other languages, then translate for whichever languages you can. If you have created a new folder, add entries to the YAML files with the foldername as the key.
+* When adding a new example, first add an English version of the file to the `en/` folder, then make sure it is duplicated in the same place in all other languages, then translate for whichever languages you can. If you have created a new folder, add entries to the YAML files with the foldername as the key.
 
 ## Documentation
 
