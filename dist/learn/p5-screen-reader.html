@@ -113,7 +113,7 @@
 
       <h1>Using p5 with a screen reader</h1>
 
-      <p>          
+      <p>
         This page introduces some of the screen reader friendly features of the p5js web editor, it provides an overview of accessible outputs, and examples and tutorials on how to get started with p5 when using a screen reader.
       </p>
       <p>
@@ -131,50 +131,50 @@
       <p>
         Using the p5.js web editor with a screen reader works better when you have one of the following screen reader/browser/operating system pairings:
         <ul>
-          <li>Red + Green = Yellow</li>
-          <li>Red + Blue = Purple</li>
-          <li>Green + Blue = Cyan (blue-green)</li>
+          <li>VoiceOver and Safari</li>
+          <li>NVDA and Firefox</li>
+          <li>JAWS and Chrome</li>
         </ul>
       </p>
-      
+
       <h2>Outputs</h2>
       <p>
         With a screen reader we can access the content of the canvas through the following outputs:
       </p>
-      
+
       <h3>Plain Text Output</h3>
       <p>
         This output describes the visual content present on the canvas in plain text.
       </p>
-      
+
       <h3>Table Output</h3>
       <p>
         The table output laids out the content of the canvas in the form of a table based on the spatial location of each element.
 
       </p>
-      
+
       <h3>Sound Output</h3>
       <p>
         This mode explains the movement of the objects present in the canvas. Top to bottom movement is represented by a decrease in frequency and left to right through panning.
       </p>
-      
+
       <h2>How to select an output:</h2>
       <p>
-        In the p5.js web editor there are two ways to select the accessible outputs that we want to make available. 
+        In the p5.js web editor there are two ways to select the accessible outputs that we want to make available.
         <ol>
           <li>
-            When we press the “play sketch, button” accessible to screen readers the “plain-text output” will automatically be available. 
+            When we press the “play sketch, button” accessible to screen readers the “plain-text output” will automatically be available.
           </li>
           <li>
-            If we want to access other outputs we should do the following: 
+            If we want to access other outputs we should do the following:
             <ul>
-              <li> 
+              <li>
                 First, stop the sketch by pressing the “stop sketch, button” and go to “Settings”.
               </li>
-              <li> 
+              <li>
                 Within settings we must find the “Accessibility” tab.
               </li>
-              <li> 
+              <li>
                 In the “Accessibility” tab and under the “Accessible text-based canvas” section we can choose our preferred outputs.
               </li>
             </ul>
@@ -185,9 +185,9 @@
         Within “Settings” and under the “Accessibility” tab it is also possible to activate a lint warning sound that should make debugging easier. In “Settings” and under the  “General Settings” tab we can increase the size of the font and select a high contrast theme. After choosing our settings we can close the “Settings” window and go back to coding and playing our sketch.
       </p>
       <p>
-        It is possible to add these accessible outputs to p5 sketches outside of the p5.js web editor by including the p5.accessibility.js library. <a href="">You can learn more about the library here.</a>
+        It is possible to add these accessible outputs to p5 sketches outside of the p5.js web editor by including the p5.accessibility.js library. <a  target="_blank" href="https://github.com/processing/p5.accessibility">You can learn more about the library here.</a>
       </p>
-      
+
       <h3>Keyboard Shortcuts</h3>
       <p>
         There are also ways to turn on the accessible outputs using keyboard shortcuts. Once we are on the code editor area we can use the following shortcuts (we have listed the shortcuts  for Windows computers, if you are using Mac OS please use the command key instead of control):
@@ -211,22 +211,22 @@
       </p>
       <h3>Text output for Lesson 1</h3>
       <h3>Text output for Lesson 1</h3>
-      
+
       <h1>Lessons</h1>
       <h2>Lesson 1: Hello World</h2>
       <p>
-        In this section we go through some basic functions in p5 and look at how the screen reader will read the output. 
+        In this section we go through some basic functions in p5 and look at how the screen reader will read the output.
 
         There are two main functions we will use in our programs. The setup() function runs once, and is typically used for initialization, or for creating a program that does not need a loop running code repeatedly. The draw() function runs over and over again, and is used to perform a certain action repeatedly and for animation.
         Now we can open the editor: alpha.p5js.org and look for the code edit area. If you notice, there’s some code there already. Whenever you open the editor by default it will create a setup() function and a draw() function. However, for our first "Hello World" program we will take a step back and delete everything. Once we have a blank editor, we create a setup() block and add one line:
       </p>
-      
-      <pre><code class="language-javascript">   
+
+      <pre><code class="language-javascript">
         function setup() {
           createCanvas(200,200);
         }
-      </code></pre>   
-      
+      </code></pre>
+
     <p>
       The createCanvas() function creates a canvas for us  to draw  or display the output. The canvas is the space on which the output is “drawn” or displayed. The code above creates a canvas of width and height 200 pixels. Since there is no movement, we will take a look only at the text and table outputs.
     </p>
@@ -246,8 +246,8 @@
       <p>
         In this example, we will draw an ellipse on the top left, and a rectangle on the bottom right of the canvas of size 500 by 500 pixels. First, let's create the canvas and draw a shape in the setup function. Feel free to copy the code to the editor and run it.
       </p>
-      
-      <pre><code class="language-javascript">   
+
+      <pre><code class="language-javascript">
         function setup() {
           createCanvas(500, 500);
           ellipse(50,50,20,20);
@@ -257,10 +257,10 @@
         This code creates a canvas of 500 by 500 pixels and then draws an ellipse. The first 2 numbers we pass to the ellipse indicate where the center of the ellipse will be on the canvas. In this case, that is 50 and 50 pixels. The next 2 numbers indicate the width and height of the ellipse. In this case, they are both 20 pixels, implying we want to draw a circle. It is important to note that the top left corner of the canvas is point 0,0 pixels and the bottom right corner of the canvas is point 500,500 pixels.
       </p>
       <p>
-        Now, we can also type this code a bit differently. We can create the canvas in the setup() function and draw the shape in the draw() function. 
+        Now, we can also type this code a bit differently. We can create the canvas in the setup() function and draw the shape in the draw() function.
       </p>
 
-      <pre><code class="language-javascript">   
+      <pre><code class="language-javascript">
         function setup() {
           createCanvas(500, 500);
         }
@@ -277,10 +277,10 @@
       <p>
         In this case the output will be following:
       </p>
-      
+
       <h3>Text output for Lesson 2</h3>
       <p>
-        The overview for the text output contains “Your output is a 500 by 500 white canvas containing the following 1 object:”. 
+        The overview for the text output contains “Your output is a 500 by 500 white canvas containing the following 1 object:”.
       </p>
       <p>
         This description is followed by a list of elements where the shape, color, position, and area of each element are described (in this case: “white ellipse at top left covering 0.13% of the canvas” ). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: “white ellipse   location=top left    coordinates =50x,50y    area=0.13%”).
@@ -292,11 +292,11 @@
       <p>
         This is followed by a table that describes the content spatially. It is a 10 by 10 table structure where each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: “white ellipse”). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, coordinates and area are described (example: “white ellipse   location=top left    coordinates =50x,50y    area=0.13%”) is also available.
       </p>
-      <p> 
+      <p>
         You can try the <a href="http://alpha.editor.p5js.org/mathura/sketches/rk4uO1bJX">basic shapes example on the p5 editor</a>
       </p>
-      
-      <h3>Lesson 3: Color</h3>
+
+      <h2>Lesson 3: Color</h2>
       <p>
         In these examples, we  look at different ways to add color to our sketch
         First, let’s look at ‘background()’. We can use this function to add a background color to the canvas. Copy the below code to try it out.
@@ -306,97 +306,264 @@
           createCanvas(500, 500);
           background(255,0,0);
         }
-        </code></pre>
-        <p>
-          Here, we have given the color in RGB format. In this format we can describe colors by saying how much, Red, Green and Blue the color has. RGB values must be integers between 0 and 255 with 0 being no color, and 255 highest amount of a certain color. The outputs will now contain “Red (255,0,0) canvas”.
-        </p>
-        <p>
-          Now we can give color to our shapes using the function, fill().
-        </p>
-      
-          
-      
-      <script type="text/p5"  data-autoplay>
-function draw() {
-  background(255);  
-  noStroke(); 
+      </code></pre>
+      <p>
+        Here, we have given the color in RGB format. In this format we can describe colors by saying how much, Red, Green and Blue the color has. RGB values must be integers between 0 and 255 with 0 being no color, and 255 highest amount of a certain color. The outputs will now contain “Red (255,0,0) canvas”.
+      </p>
+      <p>
+        Now we can give color to our shapes using the function, fill().
+      </p>
+      <p>
+        Copy the below code to try it out:
+      </p>
+      <pre><code class="language-javascript">
+        function setup() {
+          createCanvas(500, 500);
+          background(255,0,0);
+        }
 
-  // Bright red
-  fill(255,0,0);
-  ellipse(20,20,16,16);
-
-  // Dark red
-  fill(127,0,0);
-  ellipse(40,20,16,16);
-
-  // Pink (pale red)
-  fill(255,200,200);
-  ellipse(60,20,16,16);
-}
-      </script>
-
-      
-
-      <h2>Color Transparency</h2>
-
-      <p>In addition to the red, green, and blue components of each color, there is an additional optional fourth component, referred to as the color's "alpha." Alpha means transparency and is particularly useful when you want to draw elements that appear partially see-through on top of one another. The alpha values for an image are sometimes referred to collectively as the "alpha channel" of an image.</p>
-      <p>It is important to realize that pixels are not literally transparent, this is simply a convenient illusion that is accomplished by blending colors. Behind the scenes, p5.js takes the color numbers and adds a percentage of one to a percentage of another, creating the optical perception of blending. (If you are interested in programming "rose-colored" glasses, this is where you would begin.)</p>
-
-      <p>Alpha values also range from 0 to 255, with 0 being completely transparent (i.e., 0% opaque) and 255 completely opaque (i.e., 100% opaque).</p>
-
-      <script type="text/p5"  data-autoplay>
-  createCanvas(100, 100);
-  fill(0,0,255);
-  rect(0,0,50,100);
-
-  // 255 means 100% opacity.
-  fill(255,0,0,255);
-  rect(0,0,100,20);
-
-  // 75% opacity.
-  fill(255,0,0,191);
-  rect(0,25,100,20);
-
-  // 55% opacity.
-  fill(255,0,0,127);
-  rect(0,50,100,20);
-
-  // 25% opacity.
-  fill(255,0,0,63);
-  rect(0,75,100,20); 
-      
-      </script>
-     
-      <h2>Custom Color Ranges</h2>
+        function draw() {
+          fill(200,50,8);
+          ellipse(50,50,20,20);
+          fill(20,250,8);
+          ellipse(250,250,20,20);
+          fill(20,150,250);
+          ellipse(450,450,20,20);
+        }
+      </code></pre>
 
       <p>
-      RGB color with ranges of 0 to 255 is not the only way you can handle color in p5.js, in fact, it allows us to think about color any way we like. For example, you might prefer to think of color as ranging from 0 to 100 (like a percentage). You can do this by specifying a custom <a href="/reference/#/p5/colorMode">colorMode()</a>colorMode()</a>. 
-      </p> 
-      
-      <pre><code>
-      colorMode(RGB,100);
+        Now, in the plain text and grid output, we will notice that each shape is prepended with the color of the shape.
+      </p>
+
+      <h3>Text output for Lesson 3</h3>
+      <p>
+        In the text output the overview is as follows
+        “Your output is a 500 by 500 red(255,0,0) canvas containing the following 3 objects”
+      </p>
+      <p>
+        After this we see the list of objects, with their color name and the RGB value. For example -  “crimson(200, 50, 8) ellipse at top left covering 0.13% of the canvas” Each object contains a link that when selected provides more details.
+      </p>
+
+      <h3>Grid output for Lesson 3</h3>
+      <p>
+        The overview is as follows “red(255,0,0) canvas is 500 by 500 of area 250000 contains 3 0bjects - 3 ellipse”
+      </p>
+      <p>
+        And in the table, we will find the objects in the grids corresponding to their location. “crimson(200,50,8) ellipse” and “green(20,250,8) ellipse”
+      </p>
+
+      <p>
+        You can try the <a href="http://alpha.editor.p5js.org/mathura/sketches/rJ-OSs-k7">color example on the p5 editor</a>
+      </p>
+
+      <p>
+        Instead of using Red, Green and Blue values, we can also pass just one value from 0 to 255. This is known as grayscale. It means that Red, Green and Blue will take the same value and the result will be between black and white. 0 being black, and 255 white.
+      </p>
+
+      <h2>Lesson 4: Text</h2>
+      <p>
+        With p5, it is also possible to draw text on the canvas!
+        We can add text to the canvas using the text() function. This function requires us input three values inside the parentheses: the text we want to display written between quotation marks, followed by the x and y position in pixels to display the text in the canvas.
+      </p>
+      <p>
+        Copy and try out the below code.
+      </p>
+      <pre><code class="language-javascript">
+        function setup() {
+          createCanvas(500, 500);
+          background(200);
+        }
+
+        function draw() {
+          fill(255,0,0);
+          text("hello world!", 50,50)
+        }
       </code></pre>
+      <p>
+        Note that fill() also affects text() and that the text we want to write has to be written between quotation marks. Now, let’s go through the output to see what it says.
+      </p>
 
-      <p>The above function says: "OK, we want to think about color in terms of red, green, and blue. The range of RGB values will be from 0 to 100."</p>
+      <h3>Text output for Lesson 4</h3>
+      <p>
+        The overview is as follows  :
+        “Your output is a 500 by 500 grey(200,200,200) canvas containing the following 1 object”
+      </p>
+      <p>
+        Then there is a list of the objects. (For example - “hello world!” (red(255,0,0)) at top left of the canvas
+      </p>
 
-      <p>Although it is rarely convenient to do so, you can also have different ranges for each color component:</p>
+      <h3>Grid output for Lesson 4</h3>
+      <p>
+        The overview is as follows:
+        “grey(200,200,200) canvas is 500 by 500 of area 250000 contains 1 object - 1 text”
+      </p>
+      <p>
+        And in the table you will see the actual text and it’s color in the appropriate location (example - “hello world! (red(255,0,0))”
+      </p>
+      <p>
+        You can try the <a href="http://alpha.editor.p5js.org/mathura/sketches/r1BFz3Zkm">text example on the p5 editor</a>
+      </p>
 
-      <pre><code>
-      colorMode(RGB,100,500,10,255);
-      </code></pre>
-
-      <p>Now we are saying "Red values go from 0 to 100, green from 0 to 500, blue from 0 to 10, and alpha from 0 to 255."</p>
-
-      <p>Finally, while you will likely only need RGB color for all of your programming needs, you can also specify colors in the HSB (hue, saturation, and brightness) mode. Without getting into too much detail, HSB color works as follows:</p>
-
-      <img src="../assets/learn/color/hsb.png">
-      <ul>
-        <li><b>Hue</b>—The color type, ranges from 0 to 255 by default.</li>
-        <li><b>Saturation</b>—The vibrancy of the color, 0 to 255 by default.</li>
-        <li><b>Brightness</b>—The, well, brightness of the color, 0 to 255 by default.</li>
+      <h2>Exercise: Bar Graph</h2>
+      <p>
+        Now that we have covered how to draw basic shapes and write text on the canvas, let’s look at how we can create a bar chart with them.
+      </p>
+      <p>
+        Using rectangles and some numbers, we can create bar graphs. Since we expect the entire sketch to be static, we can do the whole thing in the setup function
+      </p>
+      <p>
+        Let’s start with a sample dataset that we want to depict.
+      </p>
+      <ul>Animals in the park:
+        <li>Dogs - 260</li>
+        <li>Cats - 300</li>
+        <li>Hamsters -100</li>
+        <li>Rabbits - 50</li>
+        <li>Spiders - 10</li>
       </ul>
 
-      <p>With <a href="/reference/#/p5/colorMode">colorMode()</a> you can set your own ranges for these values. Some prefer a range of 0-360 for hue (think of 360 degrees on a color wheel) and 0-100 for saturation and brightness (think of 0-100%).</p>
+      <p>
+        First we create a canvas:
+      </p>
+      <pre><code class="language-javascript">
+        function setup() {
+        createCanvas(500,500);
+        }
+      </code></pre>
+
+      <p>
+        Now we can add some rectangles that represent each animal type. Notice that we will be adding comments in our code. Comments are lines in our code that are not executed and can be notes to ourselves. They start with // in the beginning of the line. We will create 5 rectangles, one for each animal type.
+      </p>
+
+      <p>
+        Remember that when we draw a rectangle, the first 2 values indicate the top left of the rectangle. If we want our bar graph to start on the left of our canvas, we need to calculate the numbers based on that. If we decide to make each bar with 50 pixels height, and to make the width represent the number of animals, for our first rectangle that represents the number of dogs the width would be 260 because there are 260 dogs. Then the values for this rectangle would be (0,0,260,50).
+      </p>
+
+      <pre><code class="language-javascript">
+        function setup() {
+        	createCanvas(500, 500);
+        	//We will use the fill() function to add color to the first bar of our chart.
+        fill(255,0,0);
+        //In this case our color is 255 red, 0 green, 0 blue.
+        	rect(0, 0, 260, 50);
+        }
+      </code></pre>
+
+      <p>
+        Now let’s add the corresponding text:
+      </p>
+
+      <pre><code class="language-javascript">
+        function setup() {
+        	createCanvas(500, 500);
+        	fill(255,0,0);
+        	rect(0, 0, 260, 50);
+        	text('Dogs - 260', 0, 75);
+        	//Remember that the function text() requires the text, and the x, and y values for its position
+        }
+      </code></pre>
+      <p>
+        And voila! We just added the first bar on our graph chart.
+      </p>
+
+      <h3>Text output for Bar Graph 1</h3>
+      <p>
+        Your output is a 500 by 500 white canvas containing the following 2 objects:
+        <ul>
+          <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
+          <li>Dogs-260(red(255, 0, 0)) at top left</li>
+        </ul>
+      </p>
+
+      <p>
+        Now lets add rectangles to represent 300 cats, 100 hamsters, 50 rabbits, and 10 spiders. Remember that the values for the function rect() in our case should be: rect(0, y position, number of animals, 50).
+      </p>
+      <pre><code class="language-javascript">
+        function setup() {
+        	createCanvas(500, 500);
+        	fill(255,0,0);
+        	rect(0, 0, 260, 50);
+        	text('Dogs - 260', 0, 75);
+        	rect(0, 100, 300, 50); // here the second value, y position, is 100 so that we can draw the second bar under the first bar.
+        	text('Cats - 300', 0, 175);
+        	rect(0, 200, 100, 50);
+        	text('Hamsters - 100', 0, 275);
+        	rect(0, 300, 50, 50);
+        	text('Rabbits - 50', 0, 375);
+        	rect(0, 400, 10, 50);
+        	text('Spiders - 10', 0, 475);
+        }
+      </code></pre>
+
+      <p>
+        The text output would be:
+      </p>
+
+      <h3>Text output for Bar Graph 2</h3>
+      <p>
+        Your output is a 500 by 500 white canvas containing the following 10 objects:
+        <ul>
+          <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
+          <li>Dogs-260(red(255, 0, 0)) at top left</li>
+          <li>red(255, 0, 0) rect at top left covering 6.00% of the canvas</li>
+          <li>Cats-300(red(255, 0, 0)) at top left</li>
+          <li>red(255, 0, 0) rect at top left covering 2.00% of the canvas</li>
+          <li>Hamsters-100(red(255, 0, 0)) at top left</li>
+          <li>red(255, 0, 0) rect at top left covering 1.00% of the canvas</li>
+          <li>Rabbits-50(red(255, 0, 0)) at top left</li>
+          <li>red(255, 0, 0) rect at top left covering 0.20% of the canvas</li>
+          <li>Spiders-10(red(255, 0, 0)) at top left</li>
+        </ul>
+      </p>
+      <p>
+        Now we can add different colors to each bar:
+      </p>
+
+      <pre><code class="language-javascript">
+        function setup() {
+        	createCanvas(500, 500);
+        	fill(255,0,0);
+        	rect(0, 0, 260, 50);
+        	text('Dogs - 260', 0, 75);
+        	fill(0,255,0);
+        	rect(0, 100, 300, 50);
+        	text('Cats - 300', 0, 175);
+        	fill(0,0,255);
+        	rect(0, 200, 100, 50);
+        	text('Hamsters - 100', 0, 275);
+        	fill(200,100,0);
+        	rect(0, 300, 50, 50);
+        	text('Rabbits - 50', 0, 375);
+        	fill(0,200,200);
+        	rect(0, 400, 10, 50);
+        	text('Spiders - 10', 0, 475);
+        }
+      </code></pre>
+      <p>
+        Our bar graph is ready! Here is the output:
+      </p>
+
+      <h3>Text output for Bar Graph 3</h3>
+      <p>
+        Your output is a 500 by 500 white canvas containing the following 10 objects:
+        <ul>
+          <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
+          <li>Dogs-260(red(255, 0, 0)) at top left</li>
+          <li>green(0, 255, 0) rect at top left covering 6.00% of the canvas</li>
+          <li>Cats-300(green(0, 255, 0)) at top left</li>
+          <li>blue( 0, 0, 255) rect at top left covering 2.00% of the canvas</li>
+          <li>Hamsters-100(blue( 0, 0, 255)) at top left</li>
+          <li>orange(200, 100, 0) rect at top left covering 1.00% of the canvas</li>
+          <li>Rabbits-50(orange(200, 100, 0)) at top left</li>
+          <li>cyan( 0, 200, 200) rect at top left covering 0.20% of the canvas</li>
+          <li>Spiders-10(cyan( 0, 200, 200)) at top left</li>
+        </ul>
+      </p>
+
+      <p>
+        Now that we created a graph together you should be able to do it by yourself and share the results with your friends!
+      </p>
 
     </section>
 
