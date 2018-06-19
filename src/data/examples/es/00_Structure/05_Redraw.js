@@ -1,7 +1,7 @@
 /*
- *@name Redraw
- *@description La función redraw() hace que draw() se ejecute una vez. En este ejemplo,
- *draw() se ejecutado una vez cada vez que el ratón hace click.
+ * @name Redraw
+ * @description La función redraw() hace que draw() se ejecute una vez. En este ejemplo,
+ * draw() se ejecutado una vez cada vez que el ratón hace click.
 */
 
 var y;
