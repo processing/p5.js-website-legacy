@@ -4,9 +4,9 @@
  */
 var y = 100;
 
-// 程序开始时，setup()函数中的语句执行一次。
+// 程序开始时，setup() 函数中的语句执行一次。
 function setup() {
-  createCanvas(720, 400);  // createCanvas必须是第一条语句
+  createCanvas(720, 400);  // createCanvas 必须是第一条语句
   stroke(255);     // 线条绘制颜色设置为白色
   frameRate(30);
 }

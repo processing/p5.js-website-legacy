@@ -1,11 +1,11 @@
 /*
  * @name No Loop (无循环)
- * @description noLoop() 函数使draw() 只执行一次。
- *如果不调用noLoop() ，draw() 内的代码会持续运行。
+ * @description noLoop() 函数使 draw() 只执行一次。
+ *如果不调用 noLoop() ，draw() 内的代码会持续运行。
  */
 var y;
 
-// 程序开始时，setup()函数中的语句执行一次。
+// 程序开始时，setup() 函数中的语句执行一次。
 function setup() 
 {
   // createCanvas必须是第一条语句
