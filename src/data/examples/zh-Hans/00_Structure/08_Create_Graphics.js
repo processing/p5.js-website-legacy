@@ -1,6 +1,6 @@
 /*
  * @name Create Graphics
- * @description 创建并返回一个新的p5.Renderer对象。如果你需要绘制到屏幕外的图形缓冲区，请使用这个种类。这两个参数以像素为单位定义宽度和高度。
+ * @description 创建并返回一个新的 p5.Renderer 对象。如果你需要绘制到屏幕外的图形缓冲区，请使用这个种类。这两个参数以像素为单位定义宽度和高度。
  */
 
 var pg;
@@ -22,6 +22,6 @@ function draw(){
   pg.stroke(255);
   pg.ellipse(mouseX-150, mouseY-75, 60, 60);
 
-  //使用image() 将屏幕外的缓冲区绘制到屏幕上
+  //使用 image() 将屏幕外的缓冲区绘制到屏幕上
   image(pg, 150, 75);
 }

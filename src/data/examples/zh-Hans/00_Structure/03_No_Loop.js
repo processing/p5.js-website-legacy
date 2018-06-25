@@ -8,7 +8,7 @@ var y;
 // 程序开始时，setup() 函数中的语句执行一次。
 function setup() 
 {
-  // createCanvas必须是第一条语句
+  // createCanvas 必须是第一条语句
   createCanvas(720, 400);  
   stroke(255);     // 线条绘制颜色设置为白色
   noLoop();
