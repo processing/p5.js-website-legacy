@@ -1,8 +1,7 @@
 /*
- * @name Width and Height
- * @description The 'width' and 'height' variables contain the 
- * width and height of the display window as defined in the createCanvas() 
- * function.
+ * @name Width（宽度） 和 Height（高度)
+ * @description 
+'width'（宽度）和'height'（高度）变量包含createCanvas() 函数中定义的显示窗口的宽度和高度。
  */
 function setup() {
   createCanvas(720, 400);
