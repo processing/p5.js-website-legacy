@@ -41,7 +41,10 @@ languages.forEach(function(lang) {
 fs.writeFile(
   path.joinSafe(outputRoot, '/index.hbs'),
   all_examples_template({ all: all, total: total }),
-  'utf8'
+  'utf8',
+  function() {
+    console.log('Created ' + outputRoot + '/index.hbs');
+  }
 );
 
 function buildSection(lang) {
@@ -116,8 +119,9 @@ function buildFolder(lang, inputRoot, outputRoot, folder) {
 
         all[folderName].push({ en: shortName, link: outName + '.html' });
 
-        fs.writeFile(outputFile, content, 'utf8');
-
+        fs.writeFile(outputFile, content, 'utf8', function() {
+          console.log('Created ' + outputFile);
+        });
         total++;
       } else {
         all[folderName][i][lang] = name;
