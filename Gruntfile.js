@@ -6,6 +6,8 @@
 // use this if you want to match all subfolders:
 // '<%= config.src %>/templates/pages/**/*.hbs'
 
+const pkg = require('./package.json');
+
 module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
@@ -87,11 +89,7 @@ module.exports = function(grunt) {
             'assemble-contrib-i18n'
           ],
           i18n: {
-            languages: [
-              'en',
-              'es',
-              'zh-Hans'
-            ],
+            languages: pkg.languages,
             templates: [
               "<%= config.src %>/templates/pages/**/*.hbs",
             ]
