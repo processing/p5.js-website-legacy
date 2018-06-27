@@ -38,11 +38,11 @@ var task = function(done) {
     .status()
     .then(data => {
       if (data.modified.includes(enSrcFile)) {
-        return repo.diff(['-p', enSrcFile]);
+        return repo.diff(['-p', '--cached', enSrcFile]);
       }
       return Promise.reject(`${enSrcFile} file was not modified.`);
     })
-    .then(diff => parseDiff(diff))
+    .then(parseDiff)
     .then(done)
     .catch(e => {
       done();
