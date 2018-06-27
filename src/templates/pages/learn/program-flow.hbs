@@ -1,0 +1,423 @@
+---
+title: learn
+slug: learn/
+---
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <section role="region" label="main content">
+      <div class="attribution">
+      The reference for this tutorial include <em>
+      Getting Started With p5.js</em> by Lauren McCarthy, Casey Reas, and Ben Fry. Copyright 2016 Maker Media. Other reference include <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">MDN JavaScript documentation</a> and <a href="https://www.w3schools.com/js">W3Schools JavaScript tutorials</a>. This tutorial is edited by Alex Yixuan Xu. If you see any errors or have comments, please 
+      <a href="https://github.com/processing/processing-docs/issues?state=open">let us know</a>.
+      </div>
+
+      <h1>Program Flow</h1>
+      <!-- TOPICS -->
+      <!-- Branching: if/else -->
+      <!-- Loops: for/while loop -->
+      <!-- noLoop(), loop() and redraw() -->
+      <!-- Asynchronicity in p5.js: intro to loadImage(), preload(), callbacks -->
+      <!-- Loading JSON & APIs -->
+      <!-- Functions and Callbacks: list of functions -->
+      <!-- Interactivity and Event Listeners: list of event listeners such as mousePressed() -->
+
+
+
+      <!-- https://docs.microsoft.com/en-us/scripting/javascript/controlling-program-flow-javascript -->
+      <p>Normally, JavaScript execute statements sequentialy, one after another in the order that they are written. But there are alternatives to control the program flow - instead of executing the next statement in the sequence, another statement is executed instead.</p>
+
+      <!-- if/else stuff -->
+      <h2>Branching</h2>
+      <!-- https://www.w3schools.com/js/js_if_else.asp -->
+      <p>We could use conditional statements to control the program flow. Conditional statements are used to perform different actions based on different conditions. In JavaScript we have the following conditional statements:</p>
+      <p>
+        <ul>
+          <li>Use <em>if</em> to specify a block of code to be executed, if a specified condition is true</li>
+          <li>Use <em>else</em> to specify a block of code to be executed, if the same condition is false</li>
+          <li>Use <em>else if</em> to specify a new condition to test, if the first condition is false</li>
+        </ul>
+      </p>
+      <p>In the following example, by changing the value for variable i, you can see the color of the rectangle changes accordingly. If i equals to 0, the condition for the <em>if</em> statement is satisfied, and the filling color would be red. The program would continue to draw the rectangle skipping the <em>else if</em> and <em>else</em> statements. If i equals to 1, the condition for the <em>if</em> statement is not satisfied, so the program moves on to check the condition for the <em>else if</em> statement. Since <em>else if</em> condition is satisfied, the filling color would be green. If neither the <em>if</em> nor the <em>else if</em> conditions are satisfied, the program runs the <em>else</em> statement, and the filling color would be blue.</p>
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+      <script type="text/p5" data-autoplay>
+var i = 0; // change the value of i to see the change 
+function setup(){
+  createCanvas(100, 100);
+  rectMode(CENTER);
+}
+function draw(){
+  background(200);
+  if (i==0){
+    fill(255, 0, 0);
+  }
+  else if (i==1){
+    fill(0, 255, 0);
+  }
+  else{
+    fill(0, 0, 255);
+  }
+  rect(width/2, height/2, 50, 50);
+}
+      </script>
+
+      <!-- for loop and while loop -->
+      <h2>Loops</h2>
+      <p>Loops can execute a block of code repeatedly. p5 supports different kinds of loops in JavaScript:</p>
+      <p>
+        <ul>
+          <li>for - loops through a block of code a number of times</li>
+          <li>for/in - loops through the properties of an object</li>
+          <li>while - loops through a block of code while a specified condition is true</li>
+          <li>do/while - also loops through a block of code while a specified condition is true</li>
+        </ul>
+      </p>
+
+      <p>The for loop has the following syntax:</p>
+      <pre><code class="language-javascript">   
+        for (statement 1; statement 2; statement 3) {
+            code block to be executed
+        }
+      </code></pre>
+      <p>
+        <ul>
+          <li>Statement 1 is executed (one time) before the execution of the code block.</li>
+          <li>Statement 2 defines the condition for executing the code block.</li>
+          <li>Statement 3 is executed (every time) after the code block has been executed.</li>
+        </ul>
+      </p>
+
+      <script type="text/p5" data-autoplay>
+function setup(){
+  for (var i=0; i<5; i++){
+    text(i, i*10, height/2);
+  }
+}
+      </script>
+      <p>In this example, variable i is initially set to 0. Every time the <em>for</em> loop runs, i is displayed on the screen and 1 is added to i. Note the <em>for</em> loop would only run until i equals to 4 because the condition is set to be i less than 5.</p>
+
+      <p>The <em>for/in</em> statement loops through the properties of an object:</p>
+      <script type="text/p5" data-autoplay>
+var person = {fname:"John", lname:"Doe", age:25}; 
+var myText = "";
+function setup(){
+  var x;
+  for (x in person) {
+      myText += person[x];
+      myText += " ";
+  }
+  text(myText, 0, height/2);
+}
+      </script>
+      <p>In this example, as the <em>for</em> loop loops through each property of the person object, the property value is added to myText string.</p>
+
+      <p>The while loop loops through a block of code as long as a specified condition is true.</p>
+      <script type="text/p5" data-autoplay>
+var i = 0;
+function setup(){
+  while (i<5){
+    text(i, i*10, height/2);
+    i++;
+  } 
+}
+      </script>
+      <p>This example gives the same result as the <em>for</em> loop example above. Sometimes <em>while</em> loops and <em>for</em> loops can be used interchangeably.</p>
+
+      <p>The <em>do/while</em> loop is a variant of the <em>while</em> loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.</p>
+      <!-- Is there an example particular to do/while? -->
+      <script type="text/p5" data-autoplay>
+var i = 0;
+function setup(){
+  do {
+    text(i, i*10, height/2);
+    i++;
+  }
+  while (i < 5);
+}
+      </script>
+
+
+      <!-- this is particular to p5 -->
+      <h2>noLoop(), loop() and redraw()</h2>
+      <p>The <a href="/reference/#/p5/draw">draw()</a> function in p5 runs as a loop. The code inside the <a href="/reference/#/p5/draw">draw()</a> function runs continuously from top to bottom until the program is stopped. The <a href="/reference/#/p5/draw">draw()</a> loop may be stopped by calling <a href="/reference/#/p5/noLoop">noLoop()</a>, and can then be resumed with <a href="/reference/#/p5/loop">loop()</a>. If using <a href="/reference/#/p5/noLoop">noLoop()</a> in <a href="/reference/#/p5/setup">setup()</a>, it should be the last line inside the block.</p>
+      <script type="text/p5" data-autoplay>
+var x = 0;
+function setup() {
+  createCanvas(100, 100);
+  noLoop();
+}
+function draw() {
+  background(200);
+  ellipse(x, height/2, 20, 20);
+  x ++;
+}
+function mousePressed() {
+  loop();
+}
+function mouseReleased() {
+  noLoop();
+}
+        </script>
+        <p>In this example, <a href="/reference/#/p5/noLoop">noLoop()</a> is called in <a href="/reference/#/p5/setup">setup()</a>, so the code within <a href="/reference/#/p5/draw">draw()</a> would only run once at the start of the program. Since <a href="/reference/#/p5/loop">loop()</a> is placed in <a href="/reference/#/p5/mousePressed">mousePressed()</a>, the <a href="/reference/#/p5/draw">draw()</a> would resume looping when mouse is being pressed. When mouse is released, <a href="/reference/#/p5/noLoop">noLoop()</a> is called again and hence <a href="/reference/#/p5/draw">draw()</a> loop stops.</p>
+
+        <p>The function <a href="/reference/#/p5/redraw">redraw()</a> executes the code within <a href="/reference/#/p5/draw">draw()</a> one time. This functions allows the program to update the display window only when necessary, such as when an event registered by <a href="/reference/#/p5/mousePressed">mousePressed()</a> or <a href="/reference/#/p5/keyPressed">keyPressed()</a> occurs. In structuring a program, it only makes sense to call <a href="/reference/#/p5/redraw">redraw()</a> within events such as <a href="/reference/#/p5/mousePressed">mousePressed()</a>. This is because <a href="/reference/#/p5/redraw">redraw()</a> does not run <a href="/reference/#/p5/draw">draw()</a> immediately, but only sets a flag that indicates an update is needed. The <a href="/reference/#/p5/redraw">redraw()</a> function does not work properly when called inside <a href="/reference/#/p5/draw">draw()</a>. In addition, you can set the number of redraws per method call by adding an integer as single parameter for the number of redraws.</p>
+        <script type="text/p5" data-autoplay>
+var x = 0;
+function setup() {
+   createCanvas(100, 100);
+   noLoop();
+ }
+function draw() {
+   background(200);
+   ellipse(x, height/2, 20, 20);
+   x ++;
+ }
+function mousePressed() {
+   redraw();
+ }
+      </script>
+      <p>Similarly to the above example, in this example, <a href="/reference/#/p5/noLoop">noLoop()</a> is called in <a href="/reference/#/p5/setup">setup()</a> and the code within <a href="/reference/#/p5/draw">draw()</a> would only run once at the start of the program. However, when mouse is being pressed, <a href="/reference/#/p5/redraw">redraw()</a> is called and it only asks <a href="/reference/#/p5/draw">draw()</a> to loop once. To enable animations, it is suggested to use <a href="/reference/#/p5/draw">noLoop()</a> and <a href="/reference/#/p5/draw">loop()</a>.</p>
+
+
+      <h2>Asynchronicity in p5.js</h2>      
+      <p>In JavaScript, events may occur concurrently with the main program flow. This is considered as the asynchronicity in programming. In p5, for example, when we use <a href="/reference/#/p5/loadImage">loadImage()</a> in <a href="/reference/#/p5/setup">setup()</a>, the browser would begin the process of loading the image but skip onto the next line before finishing loading. The following example demonstrates such asynchronicity.</p>
+      <!-- what's the file location??????????????????? -->
+      <script type="text/p5" data-autoplay>
+var img;
+function setup(){
+  createCanvas(100, 100);
+  img = loadImage("assets/learn/program-flow/images/clouds.jpg");
+  noLoop();
+}
+
+function draw(){
+  background(200);
+  image(img,0,0);
+}
+      </script>
+      <p>When you run this program, you'll notice that the drawing canvas is grey with no image displayed. The sketch runs the <a href="/reference/#/p5/setup">setup()</a> function first, then it runs the <a href="/reference/#/p5/draw">draw()</a> function. At the <a href="/reference/#/p5/loadImage">loadImage()</a> line, it begins to load the image, but continues on through the rest of <a href="/reference/#/p5/setup">setup()</a> and on to <a href="/reference/#/p5/draw">draw()</a> before the image has completely loaded. The <a href="/reference/#/p5/noLoop">noLoop()</a> function stops p5.js from continuously executing the code within <a href="/reference/#/p5/draw">draw()</a> so the sketch would only display the first frame. The <a href="/reference/#/p5/image">image()</a> function is unable to draw the not yet existing image.</p>
+
+      <h2>Introduction to Preload</h2>
+      <p>To help with this issue of asynchronicity, p5.js has the <a href="/reference/#/p5/preload">preload()</a> function. Unlike <a href="/reference/#/p5/setup">setup()</a>, <a href="/reference/#/p5/preload">preload()</a> forces the program to wait until everything has loaded before moving on. It is best to only make load calls in <a href="/reference/#/p5/preload">preload()</a>, and do all other setup in <a href="/reference/#/p5/setup">setup()</a>.</p>
+      <script type="text/p5" data-autoplay>
+var img;
+function preload(){
+  img = loadImage("assets/learn/program-flow/images/clouds.jpg");
+}
+
+function setup(){
+  createCanvas(100, 100);
+  noLoop();
+}
+
+function draw(){
+  background(200);
+  image(img,0,0);
+}
+      </script>
+      <p><a href="/reference/#/p5/preload">preload()</a> ensures that the image has been loaded before running the other codes. </p>
+
+
+
+      <h2>Loading with a Callback</h2>
+      <p>Alternatively, instead of using <a href="/reference/#/p5/preload">preload()</a>, you could use something called a <em>callback function</em>. A callback function is a function that is passed as an arguement to a second function, and runs after the second function has completed. The following example illustrates this technique.</p>
+      <script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  loadImage("assets/learn/program-flow/images/clouds.jpg", drawImage);
+  noLoop();
+}
+
+function draw(){
+  background(200);
+}
+
+function drawImage(img){
+  image(img, 0, 0);
+}
+      </script>
+      <p>In this example, we add a second argument to <a href="/reference/#/p5/loadImage">loadImage()</a>, which is the function we want to run after the load is complete. Once the image has loaded, the callback function drawImage() is automatically called, with one argument, the image that has just loaded. There is no need to create a global variable to hold the image. The image is passed directly into the callback function, as the parameter name chosen in the function definition.</p>
+
+
+
+      <h2>Loading JSON & APIs</h2>
+      <!-- page 187 -->
+      <p>The JSON (JavaScript Object Notation) format is a common system for storing data. Like HTML and XML formats, the elements have labels associated with them. One way to load JSON file is to use <a href="/reference/#/p5/loadJSON">loadJSON()</a> function in <a href="/reference/#/p5/preload">preload()</a>.</p>
+      <!-- example where loadJSON() in preload() -->
+      <p>The following request at https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson returns data of recent earthquakes in the world from USGS.</p>
+      <script type="text/p5" data-autoplay data-preview-width="200">
+var earthquakes;
+function preload(){
+  earthquakes = loadJSON('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson');
+}
+function setup(){
+  createCanvas(200, 100);
+  var earthquakeMag = earthquakes.features[0].properties.mag;
+  var earthquakePlace = earthquakes.features[0].properties.place;
+  text(earthquakePlace, 0, height/2);
+  text(earthquakeMag, 0, height-height/3);
+}
+      </script>
+
+      <p>Alternatively, <a href="/reference/#/p5/loadJSON">loadJSON()</a> can take a callback. To use data from an API, you may need a callback function. API (Application Programming Interface) are requests for data made to a service. A lot of APIs would return data in JSON format. Some need you to authenticate with the API to use it (e.g. register as a developer and get keys). You can’t always use <a href="/reference/#/p5/preload">preload()</a> when getting data from APIs because the data might change while you sketch is running and you will want your program to respond accordingly.</p>
+
+      <p><a href="/reference/#/p5/loadJSON">loadJSON()</a> can be used in a few ways: </p>
+      <p>
+        <ul>
+          <li>loadJSON(path)</li>
+          <li>loadJSON(path, callback)</li>
+          <li>loadJSON(path, callback, datatype)</li>
+          <li>loadJSON(path, callback, errorCallback)</li>
+          <li>loadJSON(path, datatype, callback, errorCallback)</li>
+          <li>loadJSON(path, jsonpOptions, datatype, callback, errorCallback)</li>
+        </ul>
+      </p>
+      <p>
+        where:
+        <ul>
+          <li>path - String: name of the file or url to load</li>
+          <li>jsonpOptions - Object: options object for jsonp related settings</li>
+          <li>datatype - String: "json" or "jsonp"</li>
+          <li>callback - Function: function to be executed after loadJSON() completes, data is passed in as first argument</li>
+          <li>errorCallback - Function: function to be executed if there is an error, response is passed in as first argument</li>
+        </ul>
+      </p>
+      <!-- example where loadJSON() takes a callback -->
+      <script type="text/p5" data-autoplay data-preview-width="200">
+function setup() {
+  createCanvas(200, 100);
+  loadJSON('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson', showEarthquake);
+}
+function showEarthquake(earthquakes){
+  var earthquakeMag = earthquakes.features[0].properties.mag;
+  var earthquakePlace = earthquakes.features[0].properties.place;
+  text(earthquakePlace, 0, height/2);
+  text(earthquakeMag, 0, height-height/3);
+}
+      </script>
+      <p>In this example, the <a href="/reference/#/p5/loadJSON">loadJSON()</a> function is placed in <a href="/reference/#/p5/setup">setup()</a> and takes a custom callback function showEarthquake(). This means when the program finishes loading JSON file from USGS earthquakes API, showEarthQuake() is called. The place and magnitude of the most recent earthquake is stored in local variables within showEarthquake and are then displayed on the screen.</p>
+
+      <p>Sometimes we use <a href="/reference/#/p5/setInterval">setInterval()</a> to control the frequence we grab data from APIs. <a href="/reference/#/p5/setInterval">setInterval()</a> can also take a callback function. If you call <a href="/reference/#/p5/setInterval">setInterval()</a> in <a href="/reference/#/p5/setup">setup()</a>, it will run every time interval for the duration of the program.</p>
+      <!-- example setInterval() is used -->
+      <script type="text/p5" data-autoplay data-preview-width="200">
+var i=1; // counter variable to keep track of the interval
+function setup() {
+  createCanvas(200, 100);
+  getEarthquake();
+  setInterval(getEarthquake, 5000); // get data every 5 seconds
+}
+function getEarthquake(){
+  loadJSON('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson', showEarthquake);
+}
+function showEarthquake(earthquakes){
+  background(255);
+  var earthquakeMag = earthquakes.features[0].properties.mag;
+  var earthquakePlace = earthquakes.features[0].properties.place;
+  text("Data grabbed "+i, 0, height/3);
+  text(earthquakePlace, 0, height/2);
+  text(earthquakeMag, 0, height-height/3);
+  i++;
+}
+      </script>
+      <p>In this example, the earthquake data is grabbed from API every 5 seconds and is displayed on the screen.</p>
+
+
+
+
+      <!-- list the functions that accept callbacks? Is this section necessary?-->
+      <h2>Functions and Callbacks</h2>
+      <p>Besides the <a href="/reference/#/p5/loadImage">loadImage()</a>, <a href="/reference/#/p5/loadJSON">loadJSON()</a> and <a href="/reference/#/p5/setInterval">setInterval()</a>, there are other functions in p5 that accept callbacks. Typically, functions that involve loading would accept callbacks, or is advised to be put in <a href="/reference/#/p5/preload">preload()</a>. For example:</p>
+      <p>
+        <ul>
+          <li><a href="/reference/#/p5/loadFont">loadFont()</a></li>
+          <li><a href="/reference/#/p5/loadSound">loadSound()</a></li>
+          <li><a href="/reference/#/p5/loadStrings">loadStrings()</a></li>
+          <li><a href="/reference/#/p5/loadTable">loadTable()</a></li>
+          <li><a href="/reference/#/p5/loadXML">loadXML()</a></li>
+          <li><a href="/reference/#/p5/loadBytes">loadBytes()</a></li>
+          <li><a href="/reference/#/p5/loadModel">loadModel()</a></li>
+        </ul>
+      </p>
+
+      <p>p5.dom makes it easy to interact with other HTML5 objects, including text, hyperlink, image, input, video, audio, and webcam. Some DOM creation methods accept callbacks: </p>
+      <p>
+        <ul>
+          <li><a href="/reference/#/p5/createImg">createImg()</a></li>
+          <li><a href="/reference/#/p5/createFileInput">createFileInput()</a></li>
+          <li><a href="/reference/#/p5/createVideo">createVideo()</a></li>
+          <li><a href="/reference/#/p5/createAudio">createAudio()</a></li>
+          <li><a href="/reference/#/p5/createCapture">createCapture()</a></li>
+        </ul>
+      </p>
+
+
+      <h2>Interactivity and Event Listeners</h2>
+      <p>Callback functions are functions that can be passed as an argument in another function and later be executed or even be returned to be executed later. An event listener or handler is a type of callback. It is called whenever an event occurs such as mouse is pressed, key is pressed etc.</p>
+      <p>Mouse functions like <a href="/reference/#/p5/mousePressed">mousePressed()</a>, <a href="/reference/#/p5/mouseClicked">mouseClicked()</a>, <a href="/reference/#/p5/mouseReleased">mouseReleased()</a>, <a href="/reference/#/p5/mouseMoved">mouseMoved()</a>, etc. can be used as event listeners. They can be attached to certain elements in a sketch.</p>
+      <p>
+        <ul>
+          <li><a href="/reference/#/p5/mousePressed">mousePressed()</a> - Code inside this block is run one time when a mouse button is pressed</li>
+          <li><a href="/reference/#/p5/mouseReleased">mouseReleased()</a> - Code inside this block is run one time when a mouse button is released</li>
+          <li><a href="/reference/#/p5/mouseClicked">mouseClicked()</a> - Code inside this block is run once after a mouse button is pressed and released over the element</li>
+          <li><a href="/reference/#/p5/doubleClicked">doubleClicked()</a> - Code inside this block is run once after a mouse button is pressed and released over the element twice</li>
+          <li><a href="/reference/#/p5/mouseWheel">mouseWheel()</a> - Code inside this block is run once when mouse wheel is scrolled over the element</li>
+          <li><a href="/reference/#/p5/mouseMoved">mouseMoved()</a> - Code inside this block is run one time when the mouse is moved</li>
+          <li><a href="/reference/#/p5/mouseOver">mouseOver()</a> - Code inside this block is run once after every time a mouse moves onto the element.</li>
+          <li><a href="/reference/#/p5/mouseOut">mouseOut()</a> - Code inside this block is run once after every time a mouse moves off the element</li>
+        </ul>
+      </p> 
+
+      <p>In this example, a canvas element is created and event listener <a href="/reference/#/p5/mousePressed">mousePressed()</a> is attached. Function changeGrey() would only run when mouse is pressed over the canvas, and would give a random grey background color. If the mouse is pressed anywhere, the diameter of the ellipse would increase by 10 pixels. The custom function changeGray(), in this instance, is placed within the <a href="/reference/#/p5/mousePressed">mousePressed()</a> function and is to be fired when mouse is pressed over the canvas element. if false is passed instead, the previously firing function will no longer fire.</p>
+      <script type="text/p5" data-autoplay>
+var cnv;
+var d;
+var g;
+function setup() {
+  cnv = createCanvas(100, 100);
+  cnv.mousePressed(changeGray); // attach listener for canvas click only
+  d = 10;
+  g = 100;
+}
+
+function draw() {
+  background(g);
+  ellipse(width / 2, height / 2, d, d);
+}
+
+// this function fires with any click anywhere
+function mousePressed() {
+  d = d + 10;
+}
+
+// this function fires only when cnv is clicked
+function changeGray() {
+  g = random(0, 255);
+}
+      </script>
+
+      <p>Though the above mouse functions can be used without specifying the element. Keyboard functions such as <a href="/reference/#/p5/keyPressed">keyPressed()</a>, <a href="/reference/#/p5/keyReleased">keyReleased()</a>, <a href="/reference/#/p5/keyTyped">keyTyped()</a>, and <a href="/reference/#/p5/mouseDragged">mouseDragged()</a> typically are not attached to a specific element.</p>
+      <p>
+        <ul>
+          <li><a href="/reference/#/p5/mouseDragged">mouseDragged()</a> - Code inside this block is run one time when the mouse is moved while a mouse button is pressed</li>
+          <li><a href="/reference/#/p5/keyPressed">keyPressed()</a> - Code inside this block is run one time when any key is pressed</li>
+          <li><a href="/reference/#/p5/keyTyped">keyTyped()</a> - Code inside this block is run one time when a key is pressed, but action keys such as Ctrl, Shift, and Alt are ignored. The most recent key pressed will be stored in the <a href="/reference/#/p5/key">key</a> variable.</li>
+          <li><a href="/reference/#/p5/keyReleased">keyReleased()</a> - Code inside this block is run one time when any key is released</li>
+        </ul>
+      </p>
+
+
+
+    </section>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->
