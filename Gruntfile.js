@@ -321,6 +321,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-file-append');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // multi-tasks: collections of other tasks
   grunt.registerTask('server', [
