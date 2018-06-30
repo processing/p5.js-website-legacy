@@ -2,6 +2,11 @@
   "name": "p5js",
   "description": "The best project ever..",
   "version": "0.1.0",
+  "languages": [
+    "en",
+    "es",
+    "zh-Hans"
+  ],
   "homepage": "https://github.com/processing/p5.js-website",
   "author": {
     "name": "mayaman26",
@@ -21,7 +26,14 @@
     "assemble": "grunt assemble",
     "build": "grunt build",
     "test": "grunt build",
-    "watch": "grunt server"
+    "watch": "grunt server",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/data/en.yml": [
+      "grunt i18n --changed ",
+      "git add i18n-tracking.yml"
+    ]
   },
   "licenses": [
     {
@@ -53,19 +65,21 @@
     "grunt-file-append": "0.0.7",
     "grunt-newer": "^1.3.0",
     "grunt-postcss": "^0.8.0",
-    "grunt-uncss": "^0.6.2",
+    "grunt-uncss": "^0.8.5",
     "handlebars": "^4.0.11",
+    "husky": "^0.14.3",
     "js-yaml": "^3.11.0",
+    "lint-staged": "^7.2.0",
     "load-grunt-tasks": "^0.6.0",
     "lodash": "^4.17.10",
     "marked": "^0.3.19",
     "moment": "^2.22.1",
     "ms": "^0.7.3",
-    "nodegit": "^0.22.0",
     "prettier": "^1.12.1",
     "qs": "^1.2.2",
-    "send": "^0.11.1",
+    "send": "^0.16.2",
     "serve-index": "^1.9.1",
+    "simple-git": "^1.96.0",
     "time-grunt": "^1.4.0",
     "uglify-js": "^2.8.29"
   },
