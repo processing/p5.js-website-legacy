@@ -120,6 +120,24 @@ module.exports = function(grunt) {
       }
     },
 
+    requirejs: {
+      yuidoc_theme: {
+        options: {
+          baseUrl: '<%= config.src %>/yuidoc-p5-theme-src/scripts/',
+          mainConfigFile: '<%= config.src %>/yuidoc-p5-theme-src/scripts/config.js',
+          name: 'main',
+          out: '<%= config.src %>/templates/pages/reference/assets/js/reference.js',
+          optimize: 'none',
+          generateSourceMaps: true,
+          findNestedDependencies: true,
+          wrap: true,
+          paths: {
+            jquery: 'empty:'
+          }
+        }
+      }
+    },
+
     // Images:
     imagemin: {
       images: {
@@ -301,6 +319,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-file-append');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // multi-tasks: collections of other tasks
   grunt.registerTask('server', [
@@ -332,6 +351,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'exec',
     'clean',
+    'requirejs',
     'copy',
     'assemble',
     'optimize',
