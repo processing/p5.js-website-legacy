@@ -1,23 +1,18 @@
 /*
- * @name Loop
- * @description The code inside the draw() function runs continuously from top 
- * to bottom until the program is stopped.
+ * @name Loop (循环)
+ * @description draw() 函数中的代码从上到下连续运行，直到程序停止。
  */
 var y = 100;
 
-// The statements in the setup() function 
-// execute once when the program begins
+// 程序开始时，setup() 函数中的语句执行一次。
 function setup() {
-  createCanvas(720, 400);  // Size must be the first statement
-  stroke(255);     // Set line drawing color to white
+  createCanvas(720, 400);  // createCanvas 必须是第一条语句
+  stroke(255);     // 线条绘制颜色设置为白色
   frameRate(30);
 }
-// The statements in draw() are executed until the 
-// program is stopped. Each statement is executed in 
-// sequence and after the last line is read, the first 
-// line is executed again.
+// draw() 中的语句一直执行到程序停止为止。每个语句都按顺序执行，并且在读取最后一行之后，将再次执行第一行。
 function draw() { 
-  background(0);   // Set the background to black
+  background(0);   // 将背景设置为黑色
   y = y - 1; 
   if (y < 0) { 
     y = height; 
