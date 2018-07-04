@@ -1,14 +1,11 @@
 /*
- * @name Variable Scope
- * @description Variables have a global or function "scope". For example,
- * variables declared within either the setup() or draw() functions may be
- * only used in these functions. Global variables, variables declared outside
- * of setup() and draw(), may be used anywhere within the program. If a function
- * variable is declared with the same name as a global variable, the program
- * will use the function variable to make its calculations within the current
- * scope.
+ * @name 变量范围
+ * @description 变量具有全局或函数“范围”。
+ * 例如，在 setup() 或 draw() 函数中声明的变量可能仅用于这些函数。 
+ * 全局变量，在 setup() 和 draw() 之外声明的变量，可以在程序中的任何地方使用。
+ * 如果声明的函数变量与全局变量同名，那么程序将使用函数变量在当前范围内进行计算。
  */
-var a = 80;  // Create a global variable "a"
+var a = 80;  // 创建一个全局变量"a"
 
 function setup() {
   createCanvas(720, 400);
@@ -18,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-  // Draw a line using the global variable "a"
+  // 使用全局变量 “a” 绘制一条线
   line(a, 0, a, height);
 
   for (var a = 120; a < 200; a += 3) {
@@ -26,26 +23,24 @@ function draw() {
   }
 
   var a = 300;
-  // Draw a line using the new local variable "a"
+  // 使用新的本地变量 “a” 画一条线
   line(a, 0, a, height);
 
-  // Make a call to the custom function drawAnotherLine()
+  // 调用自定义函数 drawAnotherLine()
   drawAnotherLine();
 
-  // Make a call to the custom function drawYetAnotherLine()
+  // 调用自定义函数 drawYetAnotherLine()
   drawYetAnotherLine();
 }
 
 function drawAnotherLine() {
-  // Create a new variable "a" local to this function
+  // 在此函数的本地创建一个新变量 “a”
   var a = 320;
-  // Draw a line using the local variable "a"
+  // 使用本地变量 “a” 画一条线
   line(a, 0, a, height);
 }
 
 function drawYetAnotherLine() {
-  // Because no new local variable "a" is set,
-  // this line draws using the original global
-  // variable "a" which is set to the value 20.
+  // 因为没有设置新的本地变量 “a”，所以该线使用设置为值 20 的原始全局变量 “a” 进行绘制
   line(a+3, 0, a+3, height);
 }
