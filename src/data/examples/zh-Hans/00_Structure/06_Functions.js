@@ -1,5 +1,5 @@
 /*
- *@name Functions (函数)
+ *@name 函数
  *@description drawTarget() 函数可以很容易绘制许多不同的目标。每次调用 drawTarget() 都会为每个目标指定环的位置，大小和数量。
 */
 

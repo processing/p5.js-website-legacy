@@ -1,5 +1,5 @@
 /*
- * @name No Loop (无循环)
+ * @name No Loop
  * @description noLoop() 函数使 draw() 只执行一次。
  *如果不调用 noLoop() ，draw() 内的代码会持续运行。
  */
