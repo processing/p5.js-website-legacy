@@ -1,8 +1,7 @@
 /*
  * @name Triangle Strip
- * @description Example by Ira Greenberg. Generate a closed ring using the 
- * vertex() function and beginShape(TRIANGLE_STRIP) mode. The outsideRadius 
- * and insideRadius variables control ring's radii respectively.
+ * @description 由Ira Greenberg提供的案例。使用 vertex() 函数和 beginShape(TRIANGLE_STRIP) 模式生成闭环。
+ * 这个 outsideRadius 和 insideRadius 变量分别控制环的内外半径。
  */
 var x;
 var y;

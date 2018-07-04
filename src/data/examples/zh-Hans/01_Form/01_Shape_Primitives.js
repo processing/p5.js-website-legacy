@@ -1,13 +1,12 @@
 /*
- * @name Shape Primitives
- * @description The basic shape primitive functions are triangle(), 
- * rect(), quad(), ellipse(), and arc(). Squares are made with rect() 
- * and circles are made with ellipse(). Each of these functions requires 
- * a number of parameters to determine the shape's position and size.
+ * @name 基本形状
+ * @description 基本形状的原始函数包括 triangle(), 
+ * rect(), quad(), ellipse(), 和 arc()。 方块是通过 rect() 绘制，
+ * 圆形是通过 ellipse() 来绘制. 每个功能都需要一些参数来确定形状的位置和大小。
  */
 function setup() {
 
-  // Sets the screen to be 720 pixels wide and 400 pixels high
+  // 将屏幕设置为720像素宽，400像素高
   createCanvas(720, 400);
   background(0);
   noStroke();

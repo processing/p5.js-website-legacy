@@ -1,9 +1,9 @@
 /*
- * @name 3D Primitives
- * @frame 720,400 (optional)
- * @description Placing mathematically 3D objects in synthetic space.
- * The box() and sphere() functions take at least one parameter to specify their
- * size. These shapes are positioned using the translate() function.
+ * @name 基本 3D 形体
+ * @frame 720,400 (可选的)
+ * @description 将数学上的 3D 形体放置在合成空间中。
+ * box() 和 sphere() 函数至少使用一个参数来指定它们的大小。
+ * 这些形状的位置是由 translate() 函数来定义的。
  */
 function setup() {
 	createCanvas(710, 400, WEBGL);
