@@ -184,12 +184,11 @@ function mousePressed() {
 
       <h2>Asynchronicity in p5.js</h2>      
       <p>In JavaScript, events may occur concurrently with the main program flow. This is considered as asynchronicity in programming. In p5, for example, when we use <a href="/reference/#/p5/loadImage">loadImage()</a> in <a href="/reference/#/p5/setup">setup()</a>, the browser begins the process of loading the image but skip onto the next line before it is finised loading. The following example demonstrates such asynchronicity.</p>
-      <!-- what's the file location??????????????????? -->
-      <script type="text/p5" data-autoplay>
+        <pre><code class="language-javascript">   
 var img;
 function setup(){
   createCanvas(100, 100);
-  img = loadImage("assets/learn/program-flow/images/clouds.jpg");
+  img = loadImage("/assets/learn/program-flow/images/clouds.jpg");
   noLoop();
 }
 
@@ -197,15 +196,30 @@ function draw(){
   background(200);
   image(img,0,0);
 }
-      </script>
+    </code></pre>
+    <iframe src="/assets/learn/program-flow/loadImage-example-1/loadImage-example-1.html" width="150px" height="150px"></iframe>
+      <!-- what's the file location??????????????????? -->
+<!--       <script type="text/p5" data-autoplay>
+var img;
+function setup(){
+  createCanvas(100, 100);
+  img = loadImage("/assets/learn/program-flow/images/clouds.jpg");
+  noLoop();
+}
+
+function draw(){
+  background(200);
+  image(img,0,0);
+}
+      </script> -->
       <p>When you run this program, you'll notice that the drawing canvas is grey with no image displayed. This is because <a href="/reference/#/p5/loadImage">loadImage()</a> begins to load the image, but does not have time to finish this task before the program continues on through the rest of <a href="/reference/#/p5/setup">setup()</a> and on to <a href="/reference/#/p5/draw">draw()</a>. Even with the <a href="/reference/#/p5/noLoop">noLoop()</a> function that stops p5.js from continuously executing the code within draw(). The <a href="/reference/#/p5/image">image()</a> function is unable to display the image as it is not properly loaded.</p>
 
       <h2>Introduction to Preload</h2>
       <p>To help with this issue of asynchronicity, p5.js has the <a href="/reference/#/p5/preload">preload()</a> function. Unlike <a href="/reference/#/p5/setup">setup()</a>, preload() forces the program to wait until everything has loaded before moving on. It is best to only make load calls in preload(), and do all other setup in setup().</p>
-      <script type="text/p5" data-autoplay>
+      <pre><code class="language-javascript">   
 var img;
 function preload(){
-  img = loadImage("../../../assets/learn/program-flow/images/clouds.jpg");
+  img = loadImage("/assets/learn/program-flow/images/clouds.jpg");
 }
 
 function setup(){
@@ -217,17 +231,35 @@ function draw(){
   background(200);
   image(img,0,0);
 }
-      </script>
+      </code></pre>
+      <iframe src="/assets/learn/program-flow/loadImage-example-2/loadImage-example-2.html" width="150px" height="150px"></iframe>
+
+<!--       <script type="text/p5" data-autoplay>
+var img;
+function preload(){
+  img = loadImage("/assets/learn/program-flow/images/clouds.jpg");
+}
+
+function setup(){
+  createCanvas(100, 100);
+  noLoop();
+}
+
+function draw(){
+  background(200);
+  image(img,0,0);
+}
+      </script> -->
       <p><a href="/reference/#/p5/preload">preload()</a> ensures that the image has been loaded before running the other code. </p>
 
 
 
       <h2>Loading with a Callback</h2>
       <p>An alternative to <a href="/reference/#/p5/preload">preload()</a> is to use a <em>callback function</em>. A callback function is a function that is passed as an argument to a second function, and that runs after the second function has completed. The following example illustrates this technique.</p>
-      <script type="text/p5" data-autoplay>
+      <pre><code class="language-javascript">
 function setup(){
   createCanvas(100, 100);
-  loadImage("assets/learn/program-flow/images/clouds.jpg", drawImage);
+  loadImage("/assets/learn/program-flow/images/clouds.jpg", drawImage);
   noLoop();
 }
 
@@ -238,7 +270,23 @@ function draw(){
 function drawImage(img){
   image(img, 0, 0);
 }
-      </script>
+      </code></pre>
+      <iframe src="/assets/learn/program-flow/loadImage-example-3/loadImage-example-3.html" width="150px" height="150px"></iframe>
+<!--       <script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  loadImage("/assets/learn/program-flow/images/clouds.jpg", drawImage);
+  noLoop();
+}
+
+function draw(){
+  background(200);
+}
+
+function drawImage(img){
+  image(img, 0, 0);
+}
+      </script> -->
       <p>In this example, the second argument in <a href="/reference/#/p5/loadImage">loadImage()</a> is the function we want to run after the load is complete. Once the image has loaded, this callback function, drawImage(), is automatically called. It has one argument which contains the image that was just loaded. There is no need to create a global variable to hold the image. The image is passed directly into the callback function, as the parameter name chosen in the function definition.</p>
 
 
