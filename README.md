@@ -65,7 +65,7 @@ The examples are handled a bit differently from other pages.
 3. Add an entry with the language abbreviation [here](https://github.com/processing/p5.js-website/blob/master/Gruntfile.js#L90).
  
 
-## Documentation
+## Tools
 
 * [Assemble](http://assemble.io/) is used to build a static site out of all the layouts and yml data.
 * [grunt-assemble-i18n](https://github.com/assemble/grunt-assemble-i18n) renders a set of pages for each language specified in the gruntfile, based on the handlebars templates and yml data. There is not a lot of documentation, but this [example](https://github.com/LaurentGoderre/i18n-demo) demonstrates the functionality well.
