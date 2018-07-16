@@ -20,13 +20,13 @@ Once you've setup the site, to run again in the future:
 
 * __See note about what to include in pull requests [here](https://github.com/processing/p5.js-website/wiki/Pull-requests).__
 * `src/` – All the pieces for generating the built site. __Edits should be made here.__
-  * `src/assets/` – All static files (imgs, css, fonts, js, p5_featured homepage sketches)
+  * `assets/` – All static files (imgs, css, fonts, js, p5_featured homepage sketches)
     * Note: if you make edits here you must restart the server to see your changes. To see changes immediately, you can edit the assets files in the dist directory, but need to copy and paste your updated work here for it to be saved.
-  * `src/data/` – translation files
-  * `src/templates/`
-    * `src/templateslayouts/` – default.hbs is main page template
-    * `src/templatespages/` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
-    * `src/templatespartials/` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
+  * `data/` – translation files
+  * `templates/`
+    * `layouts/` – default.hbs is main page template
+    * `pages/` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
+    * `partials/` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
 * `dist/` – Where the rendered files are stored, this can be placed directly online.
 * `Gruntfile.js` – This file contains all the tasks for using assemble and YAML to generate the final, static site. It uses the taskrunner [grunt](http://gruntjs.com/).
 
