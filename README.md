@@ -76,5 +76,5 @@ The examples are handled a bit differently from other pages.
 If you've contributed to this website (or any other part of the p5.js project), add yourself [here](https://github.com/processing/p5.js#contributors). Instructions to do this can be found at the bottom of the section.
 
  
-### Etc
+## Etc
 * Introducción a p5.js - The repository for the book and PDF production of Introducción a p5.js can be found [here](https://github.com/processing/p5.js-getting-started-es).
