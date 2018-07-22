@@ -1,6 +1,6 @@
 /*
  * @name Triangle Strip
- * @description 由Ira Greenberg提供的案例。使用 vertex() 函数和 beginShape(TRIANGLE_STRIP) 模式生成闭环。
+ * @description 由 Ira Greenberg 提供的范例。使用 vertex() 函数和 beginShape(TRIANGLE_STRIP) 模式生成闭环。
  * 这个 outsideRadius 和 insideRadius 变量分别控制环的内外半径。
  */
 var x;

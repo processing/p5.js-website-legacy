@@ -1,6 +1,6 @@
 /*
  * @name Star
- * @description 此案例中创建的 star() 函数能够绘制各种不同的形式。
+ * @description 此范例中创建的 star() 函数能够绘制各种不同的形式。
  * 在 draw() 内部，尝试将不同的数字放入 star() 以进行探索。
  */
 function setup() {
@@ -10,7 +10,7 @@ function setup() {
 function draw() {
   background(102);
   
-  push();此·
+  push();
   translate(width*0.2, height*0.5);
   rotate(frameCount / 200.0);
   star(0, 0, 5, 70, 3); 

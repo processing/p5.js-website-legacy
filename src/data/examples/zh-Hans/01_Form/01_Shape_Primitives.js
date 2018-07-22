@@ -1,8 +1,8 @@
 /*
  * @name 基本形状
- * @description 基本形状的原始函数包括 triangle(), 
- * rect(), quad(), ellipse(), 和 arc()。 方块是通过 rect() 绘制，
- * 圆形是通过 ellipse() 来绘制. 每个功能都需要一些参数来确定形状的位置和大小。
+ * @description 基本形状的原始函数包括 triangle()、
+ * rect(), quad()、ellipse() 和 arc()。 方块是通过 rect() 绘制，
+ * 圆形是通过 ellipse() 来绘制。每个功能都需要一些参数来确定形状的位置和大小。
  */
 function setup() {
 
