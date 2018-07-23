@@ -316,7 +316,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('grunt-assemble');
   grunt.loadNpmTasks('grunt-file-append');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-requirejs');

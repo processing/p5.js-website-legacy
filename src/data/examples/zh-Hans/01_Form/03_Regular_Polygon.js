@@ -1,9 +1,7 @@
 /*
- * @name Regular Polygon
- * @description What is your favorite? Pentagon? Hexagon? Heptagon? No? 
- * What about the icosagon? The polygon() function created for this example is 
- * capable of drawing any regular polygon. Try placing different numbers into 
- * the polygon() function calls within draw() to explore.
+ * @name 正多边形
+ * @description 你最喜欢什么形状？五边形？六边形？七边形？都不对？那二十边形呢？
+ * 因此创建的 polygon() 函数能够绘制任何正多边形。在 draw() 内部，尝试将不同的数字放入 polygon() 以进行探索。
  */
 function setup() {
   createCanvas(720, 400);

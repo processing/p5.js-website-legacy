@@ -1,7 +1,6 @@
 /*
- * @name Variables
- * @description Variables are used for storing values. In this example, change 
- * the values of variables to affect the composition.
+ * @name 变量
+ * @description 变量用于存储数值。在此示例中，更改变量的值以影响图形构成。
  */
 function setup() {
 

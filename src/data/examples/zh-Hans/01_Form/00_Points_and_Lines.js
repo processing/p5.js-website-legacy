@@ -1,8 +1,7 @@
 /*
- * @name Points and Lines
- * @description Points and lines can be used to draw basic geometry. 
- * Change the value of the variable 'd' to scale the form. The four 
- * variables set the positions based on the value of 'd'.
+ * @name Points 与 Lines
+ * @description Points 与 lines 可用于绘制基本几何。 
+ * 更改变量 'd' 的值以缩放外形。这四个变量根据 'd' 的值设置位置。
  */
 function setup() {
   
@@ -12,21 +11,21 @@ function setup() {
   var p3 = p2+d;
   var p4 = p3+d;
 
-  // Sets the screen to be 720 pixels wide and 400 pixels high
+  // 将屏幕设置为720像素宽，400像素高
   createCanvas(720, 400);
   background(0);
   noSmooth();
 
   translate(140, 0);
 
-  // Draw gray box
+  // 绘制灰色的方块
   stroke(153);
   line(p3, p3, p2, p3);
   line(p2, p3, p2, p2);
   line(p2, p2, p3, p2);
   line(p3, p2, p3, p3);
 
-  // Draw white points
+  // 绘制白色的点
   stroke(255);
   point(p1, p1);
   point(p1, p3); 
