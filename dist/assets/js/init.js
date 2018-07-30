@@ -140,12 +140,12 @@ window.onload = function() {
     lang = get_loc_lang();
   }
 
+  window.lang = lang;
+  
   // temp until chinese launch
   // if (lang !== 'pangu' || isStaging()) {
-  window.lang = lang;
+  //   window.lang = lang;
   // } 
-
-  // temp until chinese launch
   // if (isStaging()) {
   //   $('button[data-lang="zh-Hans"').show();
   // }
