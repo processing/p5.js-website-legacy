@@ -20,8 +20,8 @@ function draw() {
 
 function keyPressed() {
   var keyIndex = -1;
-  if (key >= 'A' && key <= 'Z') {
-    keyIndex = key.charCodeAt(0) - 'A'.charCodeAt(0);
+  if (key >= 'a' && key <= 'z') {
+    keyIndex = key.charCodeAt(0) - 'a'.charCodeAt(0);
   }
   if (keyIndex == -1) {
     // If it's not a letter key, clear the screen
