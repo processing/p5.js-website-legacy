@@ -1,6 +1,6 @@
 /*
- * @name Embedded Iteration
- * @description Embedding "for" structures allows repetition in two dimensions.
+ * @name 嵌入式迭代
+ * @description 嵌入 “for” 结构允许在两个维度上进行重复。
  */
 function setup() {
 

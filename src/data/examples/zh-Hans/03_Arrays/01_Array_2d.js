@@ -1,9 +1,7 @@
 /*
- * @name Array 2D
- * @description Demonstrates the syntax for creating a two-dimensional (2D)
- * array. Values in a 2D array are accessed through two index values.  
- * 2D arrays are useful for storing images. In this example, each dot 
- * is colored in relation to its distance from the center of the image. 
+ * @name 2D 数组
+ * @description 演示创建二维（2D）数组的句法。 2D 数组中的值是通过两个索引值来访问的。  
+ * 2D阵列对于存储图像很有用。在该示例中，每个点是通过其相对于距图像中心的距离来进行着色的。
  */
 var distances = [];
 var maxDistance;
@@ -13,22 +11,19 @@ function setup() {
   createCanvas(720, 360);
   maxDistance = dist(width/2, height/2, width, height);
   for (var x = 0; x < width; x++) {
-    distances[x] = []; // create nested array
+    distances[x] = []; // 创建嵌套数组
     for (var y = 0; y < height; y++) {
       var distance = dist(width/2, height/2, x, y);
       distances[x][y] = distance/maxDistance * 255;
     }
   }
   spacer = 10;
-  noLoop();  // Run once and stop
+  noLoop();  // 执行一次之后停止
 }
 
 function draw() {
   background(0);
-  // This embedded loop skips over values in the arrays based on
-  // the spacer variable, so there are more values in the array
-  // than are drawn here. Change the value of the spacer variable
-  // to change the density of the points
+  // 这个嵌入式循环基于 spacer 变量跳过数组中的值，因此数组中的值多于此处绘制的值。更改 spacer 变量的值可以更改点的密度
   for (var x = 0; x < width; x += spacer) {
     for (var y = 0; y < height; y += spacer) {
       stroke(distances[x][y]);
