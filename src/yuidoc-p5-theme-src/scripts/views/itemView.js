@@ -6,13 +6,12 @@ define([
   'text!tpl/itemEnd.html',
   // Tools
   'prettify'
-], function (App, itemTpl, classTpl, endTpl) {
-
+], function(App, itemTpl, classTpl, endTpl) {
   'use strict';
 
   var itemView = Backbone.View.extend({
     el: '#item',
-    init: function () {
+    init: function() {
       this.$html = $('html');
       this.$body = $('body');
       this.$scrollBody = $('html, body'); // hack for Chrome/Firefox scroll
@@ -26,20 +25,29 @@ define([
     getSyntax: function(isMethod, cleanItem) {
       var isConstructor = cleanItem.is_constructor;
       var syntax = '';
-      if (isConstructor) syntax += 'new ';
-      else if (cleanItem.static && cleanItem.class) syntax += cleanItem.class + '.';
+      if (isConstructor) {
+        syntax += 'new ';
+      } else if (cleanItem.static && cleanItem.class) {
+        syntax += cleanItem.class + '.';
+      }
       syntax += cleanItem.name;
 
       if (isMethod || isConstructor) {
         syntax += '(';
         if (cleanItem.params) {
-          for (var i=0; i<cleanItem.params.length; i++) {
+          for (var i = 0; i < cleanItem.params.length; i++) {
             var p = cleanItem.params[i];
-            if (p.optional) syntax += '[';
+            if (p.optional) {
+              syntax += '[';
+            }
             syntax += p.name;
-            if (p.optdefault) syntax += '='+p.optdefault;
-            if (p.optional) syntax += ']';
-            if (i !== cleanItem.params.length-1) {
+            if (p.optdefault) {
+              syntax += '=' + p.optdefault;
+            }
+            if (p.optional) {
+              syntax += ']';
+            }
+            if (i !== cleanItem.params.length - 1) {
               syntax += ', ';
             }
           }
@@ -59,13 +67,15 @@ define([
       var overloads = cleanItem.overloads || [cleanItem];
       return overloads.map(this.getSyntax.bind(this, isMethod));
     },
-    render: function (item) {
+    render: function(item) {
       if (item) {
-        var itemHtml = '',
-            cleanItem = this.clean(item),
-            isClass = item.hasOwnProperty('itemtype') ? 0 : 1,
-            collectionName = isClass ? 'Constructor' : this.capitalizeFirst(cleanItem.itemtype),
-            isConstructor = cleanItem.is_constructor;
+        var itemHtml = '';
+        var cleanItem = this.clean(item);
+        var isClass = item.hasOwnProperty('itemtype') ? 0 : 1;
+        var collectionName = isClass
+            ? 'Constructor'
+            : this.capitalizeFirst(cleanItem.itemtype),
+          isConstructor = cleanItem.is_constructor;
         cleanItem.isMethod = collectionName === 'Method';
 
         var syntaxes = this.getSyntaxes(cleanItem.isMethod, cleanItem);
@@ -82,14 +92,15 @@ define([
           });
           cleanItem.constructor = constructor;
 
-          var contents = _.find(App.classes, function(c){ return c.name === cleanItem.name; });
+          var contents = _.find(App.classes, function(c) {
+            return c.name === cleanItem.name;
+          });
           cleanItem.things = contents.items;
 
           itemHtml = this.classTpl(cleanItem);
-
         } else {
-
-          cleanItem.constRefs = item.module === 'Constants' && App.data.consts[item.name];
+          cleanItem.constRefs =
+            item.module === 'Constants' && App.data.consts[item.name];
 
           itemHtml = this.tpl({
             item: cleanItem,
@@ -99,7 +110,7 @@ define([
           });
         }
 
-        itemHtml += this.endTpl({item:cleanItem});
+        itemHtml += this.endTpl({ item: cleanItem });
 
         // Insert the view in the dom
         this.$el.html(itemHtml);
@@ -108,29 +119,38 @@ define([
 
         // Set the document title based on the item name.
         // If it is a method, add parentheses to the name
-        if (item.itemtype === "method"){
-            App.pageView.appendToDocumentTitle(item.name + "()");
-        }
-        else {
-            App.pageView.appendToDocumentTitle(item.name);
+        if (item.itemtype === 'method') {
+          App.pageView.appendToDocumentTitle(item.name + '()');
+        } else {
+          App.pageView.appendToDocumentTitle(item.name);
         }
 
         // Hook up alt-text for examples
         setTimeout(function() {
           var alts = $('.example-content')[0];
           if (alts) {
-            alts = $(alts).data('alt').split('\n');
+            alts = $(alts)
+              .data('alt')
+              .split('\n');
 
             var examples = $('.example_container');
 
-            for (var i=0; i<examples.length; i++) {
-              $(examples[i]).prepend('<span class="visuallyhidden">'+cleanItem.name+' example '+(i+1)+'</span>');
+            for (var i = 0; i < examples.length; i++) {
+              $(examples[i]).prepend(
+                '<span class="visuallyhidden">' +
+                  cleanItem.name +
+                  ' example ' +
+                  (i + 1) +
+                  '</span>'
+              );
             }
 
             var canvases = $('.cnv_div');
-            for (var i=0; i<alts.length; i++) {
-              if (i < canvases.length) {
-                $(canvases[i]).append('<span class="visuallyhidden">'+alts[i]+'</span>');
+            for (var j = 0; j < alts.length; j++) {
+              if (j < canvases.length) {
+                $(canvases[j]).append(
+                  '<span class="visuallyhidden">' + alts[j] + '</span>'
+                );
               }
             }
           }
@@ -148,7 +168,7 @@ define([
      * @param {object} item The item object.
      * @returns {object} Returns the same item object with urlencoded paths.
      */
-    clean: function (item) {
+    clean: function(item) {
       var cleanItem = item;
 
       if (cleanItem.hasOwnProperty('file')) {
@@ -161,7 +181,7 @@ define([
      * @param {object} item Item object.
      * @returns {object} This view.
      */
-    show: function (item) {
+    show: function(item) {
       if (item) {
         this.render(item);
       }
@@ -179,8 +199,10 @@ define([
      * Show a message if no item is found.
      * @returns {object} This view.
      */
-    nothingFound: function () {
-      this.$el.html("<p><br><br>Ouch. I am unable to find any item that match the current query.</p>");
+    nothingFound: function() {
+      this.$el.html(
+        '<p><br><br>Ouch. I am unable to find any item that match the current query.</p>'
+      );
       App.pageView.hideContentViews();
       this.$el.show();
 
@@ -194,7 +216,7 @@ define([
       // Chrome scrolls 'body', Firefox scrolls 'html'
       var scroll = this.$body.scrollTop() > 0 || this.$html.scrollTop() > 0;
       if (scroll) {
-        this.$scrollBody.animate({'scrollTop': 0}, 600);
+        this.$scrollBody.animate({ scrollTop: 0 }, 600);
       }
     },
     /**
@@ -202,11 +224,10 @@ define([
      * @param {string} str
      * @returns {string} Returns the string.
      */
-    capitalizeFirst: function (str) {
+    capitalizeFirst: function(str) {
       return str.substr(0, 1).toUpperCase() + str.substr(1);
     }
   });
 
   return itemView;
-
 });
