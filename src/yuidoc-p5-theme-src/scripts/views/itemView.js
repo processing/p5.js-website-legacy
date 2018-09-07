@@ -9,6 +9,8 @@ define([
 ], function(App, itemTpl, classTpl, endTpl) {
   'use strict';
 
+  var appVersion = App.project.version || 'master';
+
   var itemView = Backbone.View.extend({
     el: '#item',
     init: function() {
@@ -110,7 +112,7 @@ define([
           });
         }
 
-        itemHtml += this.endTpl({ item: cleanItem });
+        itemHtml += this.endTpl({ item: cleanItem, appVersion: appVersion });
 
         // Insert the view in the dom
         this.$el.html(itemHtml);
