@@ -1,6 +1,6 @@
 /*
- * @name Array Objects
- * @description Demonstrates the syntax for creating an array of custom objects.
+ * @name 数组对象
+ * @description 演示创建自定义对象数组的句法。
  */
 var unit = 40;
 var count;
