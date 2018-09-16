@@ -2448,7 +2448,7 @@ define('text!tpl/item.html',[],function () { return '<h3><%=item.name%><% if (it
 define('text!tpl/class.html',[],function () { return '\n<% if (typeof constructor !== \'undefined\') { %>\n<div class="constructor">\n  <!--<h2>Constructor</h2>--> \n  <%=constructor%>\n</div>\n<% } %>\n\n<% var fields = _.filter(things, function(item) { return item.itemtype === \'property\' && item.access !== \'private\' }); %>\n<% if (fields.length > 0) { %>\n  <h4>Fields</h4>\n  <p>\n    <% _.each(fields, function(item) { %>\n      <a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %> ><%=item.name%></a>: <%= item.description %>\n      <br>\n    <% }); %>\n  </p>\n<% } %>\n\n<% var methods = _.filter(things, function(item) { return item.itemtype === \'method\' && item.access !== \'private\' }); %>\n<% if (methods.length > 0) { %>\n  <h4>Methods</h4>\n  <p>\n    <table>\n    <% _.each(methods, function(item) { %>\n      <tr>\n      <td><a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %>><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a></td><td><%= item.description %></td>\n      </tr>\n    <% }); %>\n    </table>\n  </p>\n<% } %>\n';});
 
 
-define('text!tpl/itemEnd.html',[],function () { return '<p>\n\n<!--   <div class="meta">\n    <% if (item.class) { %>\n    <p>Class:\n    <strong><a href=\'#/<%=item.class%>\'><%=item.class%></a></strong></p>\n    <% } %>\n\n  </div> -->\n\n\n  <p class="ref-notice"> <span id="reference-contribute1">If you see any errors or have suggestions</span>, <a href="https://github.com/processing/p5.js/issues"><span id="reference-contribute2">please let us know</span></a>.<p>\n\n  <a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px"/></a>\n\n  <% if (item.file && item.line) { %>\n  <p style="font-size: 0.75em"><span id="reference-error1">Find any typos or bugs?</span> <code><%=item.name%><% if (item.isMethod) { %>()<% } %></code> <span id="reference-error2">is documented and defined in</span> <a href="https://github.com/processing/p5.js/blob/master/<%= item.file %>#L<%= item.line %>" target="_blank" ><code><%= item.file %></code></a>. <span id="reference-error3">Please feel free to</span> <a href="https://github.com/processing/p5.js/edit/master/<%= item.file %>#L<%= item.line %>" target="_blank" style="font-family: inherit"><span id="reference-error4">edit the file</span></a> <span id="reference-error5">and issue a pull request!</span></p>\n  <% } %>\n\n</p>\n';});
+define('text!tpl/itemEnd.html',[],function () { return '<p>\n\n<!--   <div class="meta">\n    <% if (item.class) { %>\n    <p>Class:\n    <strong><a href=\'#/<%=item.class%>\'><%=item.class%></a></strong></p>\n    <% } %>\n\n  </div> -->\n\n\n  <p class="ref-notice"> <span id="reference-contribute1">If you see any errors or have suggestions</span>, <a href="https://github.com/processing/p5.js/issues"><span id="reference-contribute2">please let us know</span></a>.<p>\n\n  <a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px"/></a>\n\n  <% if (item.file && item.line) { %>\n  <p style="font-size: 0.75em"><span id="reference-error1">Find any typos or bugs?</span> <code><%=item.name%><% if (item.isMethod) { %>()<% } %></code> <span id="reference-error2">is documented and defined in</span> <a href="https://github.com/processing/p5.js/blob/<%= appVersion %>/<%= item.file %>#L<%= item.line %>" target="_blank" ><code><%= item.file %></code></a>. <span id="reference-error3">Please feel free to</span> <a href="https://github.com/processing/p5.js/edit/master/<%= item.file %>#L<%= item.line %>" target="_blank" style="font-family: inherit"><span id="reference-error4">edit the file</span></a> <span id="reference-error5">and issue a pull request!</span></p>\n  <% } %>\n\n</p>\n';});
 
 // Copyright (C) 2006 Google Inc.
 //
@@ -4116,13 +4116,14 @@ define('itemView',[
   'text!tpl/itemEnd.html',
   // Tools
   'prettify'
-], function (App, itemTpl, classTpl, endTpl) {
-
+], function(App, itemTpl, classTpl, endTpl) {
   'use strict';
+
+  var appVersion = App.project.version || 'master';
 
   var itemView = Backbone.View.extend({
     el: '#item',
-    init: function () {
+    init: function() {
       this.$html = $('html');
       this.$body = $('body');
       this.$scrollBody = $('html, body'); // hack for Chrome/Firefox scroll
@@ -4136,20 +4137,29 @@ define('itemView',[
     getSyntax: function(isMethod, cleanItem) {
       var isConstructor = cleanItem.is_constructor;
       var syntax = '';
-      if (isConstructor) syntax += 'new ';
-      else if (cleanItem.static && cleanItem.class) syntax += cleanItem.class + '.';
+      if (isConstructor) {
+        syntax += 'new ';
+      } else if (cleanItem.static && cleanItem.class) {
+        syntax += cleanItem.class + '.';
+      }
       syntax += cleanItem.name;
 
       if (isMethod || isConstructor) {
         syntax += '(';
         if (cleanItem.params) {
-          for (var i=0; i<cleanItem.params.length; i++) {
+          for (var i = 0; i < cleanItem.params.length; i++) {
             var p = cleanItem.params[i];
-            if (p.optional) syntax += '[';
+            if (p.optional) {
+              syntax += '[';
+            }
             syntax += p.name;
-            if (p.optdefault) syntax += '='+p.optdefault;
-            if (p.optional) syntax += ']';
-            if (i !== cleanItem.params.length-1) {
+            if (p.optdefault) {
+              syntax += '=' + p.optdefault;
+            }
+            if (p.optional) {
+              syntax += ']';
+            }
+            if (i !== cleanItem.params.length - 1) {
               syntax += ', ';
             }
           }
@@ -4169,13 +4179,15 @@ define('itemView',[
       var overloads = cleanItem.overloads || [cleanItem];
       return overloads.map(this.getSyntax.bind(this, isMethod));
     },
-    render: function (item) {
+    render: function(item) {
       if (item) {
-        var itemHtml = '',
-            cleanItem = this.clean(item),
-            isClass = item.hasOwnProperty('itemtype') ? 0 : 1,
-            collectionName = isClass ? 'Constructor' : this.capitalizeFirst(cleanItem.itemtype),
-            isConstructor = cleanItem.is_constructor;
+        var itemHtml = '';
+        var cleanItem = this.clean(item);
+        var isClass = item.hasOwnProperty('itemtype') ? 0 : 1;
+        var collectionName = isClass
+            ? 'Constructor'
+            : this.capitalizeFirst(cleanItem.itemtype),
+          isConstructor = cleanItem.is_constructor;
         cleanItem.isMethod = collectionName === 'Method';
 
         var syntaxes = this.getSyntaxes(cleanItem.isMethod, cleanItem);
@@ -4192,14 +4204,15 @@ define('itemView',[
           });
           cleanItem.constructor = constructor;
 
-          var contents = _.find(App.classes, function(c){ return c.name === cleanItem.name; });
+          var contents = _.find(App.classes, function(c) {
+            return c.name === cleanItem.name;
+          });
           cleanItem.things = contents.items;
 
           itemHtml = this.classTpl(cleanItem);
-
         } else {
-
-          cleanItem.constRefs = item.module === 'Constants' && App.data.consts[item.name];
+          cleanItem.constRefs =
+            item.module === 'Constants' && App.data.consts[item.name];
 
           itemHtml = this.tpl({
             item: cleanItem,
@@ -4209,7 +4222,7 @@ define('itemView',[
           });
         }
 
-        itemHtml += this.endTpl({item:cleanItem});
+        itemHtml += this.endTpl({ item: cleanItem, appVersion: appVersion });
 
         // Insert the view in the dom
         this.$el.html(itemHtml);
@@ -4218,29 +4231,38 @@ define('itemView',[
 
         // Set the document title based on the item name.
         // If it is a method, add parentheses to the name
-        if (item.itemtype === "method"){
-            App.pageView.appendToDocumentTitle(item.name + "()");
-        }
-        else {
-            App.pageView.appendToDocumentTitle(item.name);
+        if (item.itemtype === 'method') {
+          App.pageView.appendToDocumentTitle(item.name + '()');
+        } else {
+          App.pageView.appendToDocumentTitle(item.name);
         }
 
         // Hook up alt-text for examples
         setTimeout(function() {
           var alts = $('.example-content')[0];
           if (alts) {
-            alts = $(alts).data('alt').split('\n');
+            alts = $(alts)
+              .data('alt')
+              .split('\n');
 
             var examples = $('.example_container');
 
-            for (var i=0; i<examples.length; i++) {
-              $(examples[i]).prepend('<span class="visuallyhidden">'+cleanItem.name+' example '+(i+1)+'</span>');
+            for (var i = 0; i < examples.length; i++) {
+              $(examples[i]).prepend(
+                '<span class="visuallyhidden">' +
+                  cleanItem.name +
+                  ' example ' +
+                  (i + 1) +
+                  '</span>'
+              );
             }
 
             var canvases = $('.cnv_div');
-            for (var i=0; i<alts.length; i++) {
-              if (i < canvases.length) {
-                $(canvases[i]).append('<span class="visuallyhidden">'+alts[i]+'</span>');
+            for (var j = 0; j < alts.length; j++) {
+              if (j < canvases.length) {
+                $(canvases[j]).append(
+                  '<span class="visuallyhidden">' + alts[j] + '</span>'
+                );
               }
             }
           }
@@ -4258,7 +4280,7 @@ define('itemView',[
      * @param {object} item The item object.
      * @returns {object} Returns the same item object with urlencoded paths.
      */
-    clean: function (item) {
+    clean: function(item) {
       var cleanItem = item;
 
       if (cleanItem.hasOwnProperty('file')) {
@@ -4271,7 +4293,7 @@ define('itemView',[
      * @param {object} item Item object.
      * @returns {object} This view.
      */
-    show: function (item) {
+    show: function(item) {
       if (item) {
         this.render(item);
       }
@@ -4289,8 +4311,10 @@ define('itemView',[
      * Show a message if no item is found.
      * @returns {object} This view.
      */
-    nothingFound: function () {
-      this.$el.html("<p><br><br>Ouch. I am unable to find any item that match the current query.</p>");
+    nothingFound: function() {
+      this.$el.html(
+        '<p><br><br>Ouch. I am unable to find any item that match the current query.</p>'
+      );
       App.pageView.hideContentViews();
       this.$el.show();
 
@@ -4304,7 +4328,7 @@ define('itemView',[
       // Chrome scrolls 'body', Firefox scrolls 'html'
       var scroll = this.$body.scrollTop() > 0 || this.$html.scrollTop() > 0;
       if (scroll) {
-        this.$scrollBody.animate({'scrollTop': 0}, 600);
+        this.$scrollBody.animate({ scrollTop: 0 }, 600);
       }
     },
     /**
@@ -4312,13 +4336,12 @@ define('itemView',[
      * @param {string} str
      * @returns {string} Returns the string.
      */
-    capitalizeFirst: function (str) {
+    capitalizeFirst: function(str) {
       return str.substr(0, 1).toUpperCase() + str.substr(1);
     }
   });
 
   return itemView;
-
 });
 
 

@@ -1,12 +1,8 @@
 /*
- * @name Array
- * @description An array is a list of data. Each piece of data in an array 
- * is identified by an index number representing its position in 
- * the array. Arrays are zero based, which means that the first 
- * element in the array is [0], the second element is [1], and so on. 
- * In this example, an array named "coswave" is created and
- * filled with the cosine values. This data is displayed three 
- * separate ways on the screen.  
+ * @name 数组
+ * @description 数组是数据列表。数组中的每条数据由表示其在数组中的位置的索引号标识。
+ * 数组基于零，这意味着数组中的第一个元素是[0]，第二个元素是[1]，依此类推。 
+ * 在此示例中，一个名为 “coswave” 的数组被创建并使用余弦值填充。此数据在屏幕上以三种不同的方式显示。 
  */
 var coswave = [];
 

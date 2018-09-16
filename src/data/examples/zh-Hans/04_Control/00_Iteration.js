@@ -1,6 +1,6 @@
 /*
- * @name Iteration
- * @description Iteration with a "for" structure to construct repetitive forms.
+ * @name 迭代
+ * @description 用 “for” 结构迭代来构造重复的形式。
  */
 var y;
 var num = 14;
@@ -11,7 +11,7 @@ function setup() {
   background(102);
   noStroke();
      
-  // Draw white bars 
+  // 画白条 
   fill(255);
   y = 60;
   for(var i = 0; i < num/3; i++) {
@@ -19,7 +19,7 @@ function setup() {
     y+=20;
   }
 
-  // Gray bars
+  // 灰条
   fill(51);
   y = 40;
   for(var i = 0; i < num; i++) {
@@ -32,7 +32,7 @@ function setup() {
     y += 20;
   }
     
-  // Thin lines
+  // 细线
   y = 45;
   fill(0);
   for(var i = 0; i < num-1; i++) {
