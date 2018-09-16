@@ -1,8 +1,7 @@
 /*
- * @name Logical Operators
- * @description The logical operators for AND (&&) and OR (||) are used to 
- * combine simple relational statements into more complex expressions.
- * The NOT (!) operator is used to negate a boolean statement. 
+ * @name 逻辑运算符
+ * @description AND（&&）和 OR（||）的逻辑运算符被用于将简单的关系语句组合成更复杂的表达式
+ * NOT (!) 运算符被用于否定布尔语句。
  */
 var test = false;
 
@@ -12,29 +11,29 @@ function setup() {
   background(126);
 
   for (var i = 5; i <= height; i += 5) {
-    // Logical AND
+    // 逻辑 AND
     stroke(0);
     if((i > 35) && (i < 100)) {
       line(width/4, i, width/2, i);
       test = false;
     }
     
-    // Logical OR
+    // 逻辑 OR
     stroke(76);
     if ((i <= 35) || (i >= 100)) {
       line(width/2, i, width, i);
       test = true;
     }
     
-    // Testing if a boolean value is "true"
-    // The expression "if(test)" is equivalent to "if(test == true)"
+    // 测试布尔值是否为 “true”
+    // 表达式 “if（test）” 等同于 "if(test == true)"
     if (test) {
       stroke(0);
       point(width/3, i);
     }
       
-    // Testing if a boolean value is "false"
-    // The expression "if(!test)" is equivalent to "if(test == false)"
+    // 测试布尔值是否为 "false"
+    // 表达式 “if（test）” 等同于 "if(test == false)"
     if (!test) {
       stroke(255);
       point(width/4, i);

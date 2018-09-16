@@ -1,12 +1,8 @@
 /*
- * @name Conditionals 1
- * @description Conditions are like questions. 
- * They allow a program to decide to take one action if 
- * the answer to a question is true or to do another action
- * if the answer to the question is false. 
- * The questions asked within a program are always logical
- * or relational statements. For example, if the variable 'i' is 
- * equal to zero then draw a line.
+ * @name 条件 1
+ * @description 条件就像问题。
+ * 如果问题的答案是真的，它们允许程序决定采取一个动作;如果问题的答案是错误的，则允许程序执行另一个动作。
+ * 程序中提出的问题始终是逻辑或关系语句。例如，如果变量 'i' 等于零，则绘制一条线。
  */
 function setup() {
 
