@@ -130,25 +130,25 @@ window.onload = function() {
       }
     } else {
       if (is_root && browser_lang != loc_lang) { 
-        if (lang !== 'pangu' || isStaging()) { // temp until chinese launch
+        // if (lang !== 'pangu' || isStaging()) { // temp until chinese launch
           loc = '/' + browser_lang;
           window.location = loc;
-        }
+        // }
       }
     }
   } else {
     lang = get_loc_lang();
   }
 
+  window.lang = lang;
+  
   // temp until chinese launch
-  if (lang !== 'pangu' || isStaging()) {
-    window.lang = lang;
-  } 
-
-  // temp until chinese launch
-  if (isStaging()) {
-    $('button[data-lang="zh-Hans"').show();
-  }
+  // if (lang !== 'pangu' || isStaging()) {
+  //   window.lang = lang;
+  // } 
+  // if (isStaging()) {
+  //   $('button[data-lang="zh-Hans"').show();
+  // }
 
   // ===============================================
   // Language change:

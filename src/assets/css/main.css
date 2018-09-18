@@ -266,13 +266,14 @@
   font-weight: bold;
 }
 
+
 /*
   //////////////////////////////////////////////////
     REFERENCE
   //////////////////////////////////////////////////
 */
 
-#reference section h1 {
+#reference-page section h1 {
   float:left;
 }
 
@@ -782,6 +783,11 @@ h3.contribute-title{
     border: none;
 }
 
+#exampleDisplay {  
+  display:flex;
+  flex-flow: column;
+}
+
 #popupExampleFrame {
   position: fixed;
   top: 0;
@@ -834,28 +840,31 @@ h3.contribute-title{
 
 
 #exampleDisplay .edit_space {
-    position: relative;
+  position: relative;
+  order: 3;
 }
 
 #exampleFrame {
-    height: 22em;
+  height: 22em;
+  order: 2;
 }
 
 #exampleEditor {
-    height: 500em;
-    width: 710px;
-    overflow: hidden;
-    margin-top: 0.5em;
-    color: #222;
-    font-family:
-      inconsolatamedium,
-      Consolas,
-      Monaco,
-      'Andale Mono',
-      monospace;
-    font-size: 1em !important;
-    background-color: #FFF;
-    line-height: 1em;
+  height: 500em;
+  width: 710px;
+  overflow: hidden;
+  margin-top: 0.5em;
+  color: #222;
+  font-family:
+    inconsolatamedium,
+    Consolas,
+    Monaco,
+    'Andale Mono',
+    monospace;
+  font-size: 1em !important;
+  background-color: #FFF;
+  line-height: 1em;
+  order: 4;
 }
 
 .ace_info {
@@ -949,6 +958,12 @@ variable */
     margin:30px 0px 30px 0px;
 }
 
+
+/* p5.accessibility */
+.textoutput_button, #toggleTextOutput {
+  position: absolute;
+  left: -9999px !important;
+}
 
 /*
   //////////////////////////////////////////////////
@@ -1569,6 +1584,7 @@ footer {
 
 #notMobile-message {
   display: none;
+  order: 1;
 }
 
 #isMobile-displayButton {

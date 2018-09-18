@@ -1,5 +1,5 @@
 /*
- * @name Setup（设置） 与 Draw（绘制）
+ * @name Setup 与 Draw
  * @description draw() 函数中的代码从上到下连续运行，直到程序停止。
  */
 var y = 100;

@@ -1,5 +1,5 @@
 /*
- * @name Width（宽度） 和 Height（高度)
+ * @name Width 和 Height
  * @description 'width'（宽度）和 'height'（高度）变量包含 createCanvas() 函数中定义的显示窗口的宽度和高度。
  */
 function setup() {

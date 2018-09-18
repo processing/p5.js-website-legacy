@@ -1,8 +1,7 @@
 /*
  * @name Star
- * @description The star() function created for this example is capable of 
- * drawing a wide range of different forms. Try placing different numbers 
- * into the star() function calls within draw() to explore.
+ * @description 此范例中创建的 star() 函数能够绘制各种不同的形式。
+ * 在 draw() 内部，尝试将不同的数字放入 star() 以进行探索。
  */
 function setup() {
   createCanvas(720, 400);

@@ -1,9 +1,7 @@
 /*
  * @name Bezier
- * @description The first two parameters for the bezier() function specify the 
- * first point in the curve and the last two parameters specify the last point. 
- * The middle parameters set the control points that define the shape of the 
- * curve.
+ * @description bezier() 函数的前两个参数指定曲线中的第一个点，后两个参数指定最后一个点。
+ * 中间的参数设置定义曲线形状的控制点。
  */
 function setup() {
   createCanvas(720, 400);
