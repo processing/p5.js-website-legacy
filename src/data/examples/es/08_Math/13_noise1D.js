@@ -1,5 +1,5 @@
 /*
- * @name  Ruido 1D
+ * @name Ruido 1D
  * @description Uso de ruido Perlin 1D para asignar ubicación.
  */
 var xoff = 0.0;
