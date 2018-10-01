@@ -6,7 +6,9 @@
   <span class="visuallyhidden">Examples for <%=item.name%></span>
 
 	<div class="example-content" data-alt="<%= item.alt %>">
-    <%= item.example %>
+    <% _.each(item.example, function(example){ %>
+      <%= example %>
+    <% }); %>
   </div>
 </div>
 <% } %>

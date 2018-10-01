@@ -3,8 +3,6 @@
  * @frame 710,400 (optional)
  * @description Using 3D noise to create simple animated texture.
  */
-
-
 var noiseVal;
 //Increment x by 0.01 
 var x_increment=0.01;
