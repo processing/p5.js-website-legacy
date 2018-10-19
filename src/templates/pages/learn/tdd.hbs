@@ -186,7 +186,7 @@ slug: learn/
             });
 
 
-            it('should be a awesome', function(done) {
+            it('should be equal to awesome', function(done) {
               // This expect tests the value of the string.
               expect(p5js).to.equal('awesome');
               done();
@@ -203,7 +203,7 @@ slug: learn/
         <pre><code class="language-javascript"><xmp>
           these are my first tests for p5js
               ✓ should be a string
-              ✓ should be a awesome
+              ✓ should be equal to awesome
             2 passing (14ms)
         </xmp></code></pre>
       </p>
@@ -220,7 +220,7 @@ slug: learn/
         <pre><code class="language-javascript"><xmp>
           these are my first tests for p5js
               1) should be a string
-              2) should be a awesome
+              2) should be equal to awesome
 
             0 passing (18ms)
             2 failing
@@ -229,7 +229,7 @@ slug: learn/
                AssertionError: expected 42 to be a string
                 at Context.<anonymous> (test/test.js:14:24)
 
-            2) these are my first tests for p5js should be a awesome:
+            2) these are my first tests for p5js should be equal to awesome:
                AssertionError: expected 42 to equal 'awesome'
                 at Context.<anonymous> (test/test.js:21:21)
         </xmp></code></pre>
@@ -248,7 +248,7 @@ slug: learn/
 
       <h2>Test Driven Development</h2>
       <p>
-        You are going to use Test Driven Development for the rest of this tutorial.  The idea is you write your unit tests first, run them and watch them fail, and then add code to sketch.js to make the tests pass.  This way you ensure you code is working as you expect every step of the way and that new code doesn’t break old code.  Your goal is to create a ColorIncreaser class that:
+        You are going to use Test Driven Development for the rest of this tutorial.  The idea is you write your unit tests first, run them and watch them fail, and then add code to sketch.js to make the tests pass.  This way you ensure your code is working as you expect every step of the way and that new code doesn’t break old code.  Your goal is to create a ColorIncreaser class that:
         <ul style="padding: 0 0 0 40px;">
           <li>takes in an integer as the value to increase each time called colorValueIncrease.</li>
           <li>takes in an instance of the <a href='http://p5js.org/reference/#/p5/color'>p5 color class.</a></li>
@@ -435,7 +435,7 @@ slug: learn/
 
 
           it('should have rgb values 255, 255, 255 after calling increaseFillColor 16777215 times', function(done) {
-            //it is 256^2 - 1 because it starts with the color black
+            //it is 256^3 - 1 because it starts with the color black
             for (var count = 0; count < 16777215; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
