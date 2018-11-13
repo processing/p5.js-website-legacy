@@ -1,11 +1,11 @@
 /*
  * @name Wavemaker
- * @description This illustrates how waves (like water waves) emerge
- * from particles oscillating in place. Move your mouse to direct the wave.
- * Contributed by Aatish Bhatia, inspired by <a href="https://beesandbombs.tumblr.com/post/45513650541/orbiters">Orbiters</a> by Dave Whyte.
+ * @description Este ejemplo ilustra cómo las olas (como las del mar) emergen
+ * a partir de partículas oscilando en su lugar. Mueve el ratón para dirigir la ola.
+ * Contribución por Aatish Bhatia, inspirada en <a href="https://beesandbombs.tumblr.com/post/45513650541/orbiters">Orbiters</a> por Dave Whyte.
  */
 
-let t = 0; // time variable
+let t = 0; // variable de tiempo
 
 function setup() {
   createCanvas(600, 600);
@@ -14,24 +14,24 @@ function setup() {
 }
 
 function draw() {
-  background(10, 10); // translucent background (creates trails)
+  background(10, 10); // fondo translúcido (crea estelas)
 
-  // make a x and y grid of ellipses
+  // grilla de elipses
   for (let x = 0; x <= width; x = x + 30) {
     for (let y = 0; y <= height; y = y + 30) {
-      // starting point of each circle depends on mouse position
-      let xAngle = map(mouseX, 0, width, -4 * PI, 4 * PI, true);
-      let yAngle = map(mouseY, 0, height, -4 * PI, 4 * PI, true);
-      // and also varies based on the particle's location
-      let angle = xAngle * (x / width) + yAngle * (y / height);
+      // punto de partida de cada círculo depende de posición del ratón
+      let anguloX = map(mouseX, 0, width, -4 * PI, 4 * PI, true);
+      let anguloY = map(mouseY, 0, height, -4 * PI, 4 * PI, true);
+      // y también varía según la posición de la partícula
+      let angulo = anguloX * (x / width) + anguloY * (y / height);
 
-      // each particle moves in a circle
-      let myX = x + 20 * cos(2 * PI * t + angle);
-      let myY = y + 20 * sin(2 * PI * t + angle);
+      // cada partícula se mueve en forma circular
+      let myX = x + 20 * cos(2 * PI * t + angulo);
+      let myY = y + 20 * sin(2 * PI * t + angulo);
 
-      ellipse(myX, myY, 10); // draw particle
+      ellipse(myX, myY, 10); // dibujar partícula
     }
   }
 
-  t = t + 0.01; // update time
+  t = t + 0.01; // actualizar tiempo
 }
