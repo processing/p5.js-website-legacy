@@ -1,11 +1,12 @@
 /*
- * @name Scale
- * @description Paramenters for the scale() function are values
- * specified as decimal percentages. For example, the method
- * call scale(2.0) will increase the dimension of the shape by
- * 200 percent. Objects always scale from the origin. This example
- * shows how transforms accumulate and also how scale and translate
- * interact depending on their order.
+ * @name Escalar
+ * @description Los parámetros de la función scale() (del inglés escalar)
+ * son valores especificados como porcentajes decimales. Por ejemplo,
+ * ejecutar scale(2.0) aumentará la dimensión de la digura en un
+ * 200 por ciento. Los objetos siempre se escalan desde el origen.
+ * Este ejemplo muestra cómo las transformaciones se acumulan y
+ * también cómo scale() y translate() interactúan dependiendo de su
+ * orden.
  */
 
 var a = 0.0;
@@ -14,33 +15,33 @@ var s = 0.0;
 function setup() {
   createCanvas(720, 400);
   noStroke();
-  //Draw all rectangles from their center as opposed to
-  // the default upper left corner
+  // Dibuja todos los rectángulos desde su centro, en vez de
+  // la esquina superior izquierda, que es la forma por defecto.
   rectMode(CENTER);
 }
 
 function draw() {
   background(102);
-  
-  //Slowly increase 'a' and then animate 's' with
-  //a smooth cyclical motion by finding the cosine of 'a'
+
+  // Lentamente aumenta 'a' y luego anima 's' con un movimiento
+  // cíclico suave mediante el cálculo de coseno de 'a'
   a = a + 0.04;
   s = cos(a)*2;
-  
-  //Translate our rectangle from the origin to the middle of
-  //the canvas, then scale it with 's'
+
+  // Traslada nuestro rectángulo desde el origen hacia el centro
+  // del lienzo, luego escálalo con 's'
   translate(width/2, height/2);
-  scale(s); 
+  scale(s);
   fill(51);
-  rect(0, 0, 50, 50); 
-  
-  //Translate and scale are accumulating, so this translate
-  //moves the second rectangle further right than the first
-  //and the scale is getting doubled. Note that cosine is 
-  //making 's' both negative and positive, thus it cycles 
-  //from left to right. 
+  rect(0, 0, 50, 50);
+
+  // Traslación y escalamiento son acumulativos, por lo que esta
+  // esta traslación mueve el segundo rectángulo más a la derecha del
+  // primero y el escalamiento es doblado. Observa que el coseno
+  // está haciendo que 's' sea tanto positivo como negativo,
+  // por lo que oscila entre izquierda y derecha.
   translate(75, 0);
   fill(255);
   scale(s);
-  rect(0, 0, 50, 50);       
+  rect(0, 0, 50, 50);
 }
