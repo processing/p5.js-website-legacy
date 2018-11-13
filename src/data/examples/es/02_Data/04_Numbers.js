@@ -1,13 +1,12 @@
 /*
- * @name Numbers
+ * @name Números
  * @frame 720,400
- * @description Numbers can be written with or without decimals. An integer
- * (more commonly called an int) is a number without a decimal point. A float
- * is a floating-point number, which means it is a number that has a decimal
- * place.
+ * @description Los números pueden ser escritos con o sin decimales. Un número * entero (más comúnmente conocido como int por el inglés integer) es un
+ * número sin fracción decimal. Un número de punto flotante (conocido como float
+ * por el inglés floating-point number) es un número con fracción decimal.
  */
-var a = 0;  // Create a global variable "a" of type Number
-var b = 0;  // Create a global variable "b" of type Number
+let a = 0;  // Crea una variable global "a" de tipo Number
+let b = 0;  // Crea una variable global "b" de tipo Number
 
 function setup() {
   createCanvas(720, 400);
@@ -17,8 +16,8 @@ function setup() {
 function draw() {
   background(0);
 
-  a = a + 1;  // Increment a with an integer
-  b = b + 0.2;  //Increment b with a float
+  a = a + 1;  // Incrementar a con un int
+  b = b + 0.2;  //Incrementar b con un float
   line(a, 0, a, height/2);
   line(b, height/2, b, height);
 
