@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">p5.js | learn</title>
+    <link rel="stylesheet" href="/../../assets/css/all.css">
+    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script type="text/javascript" src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script type="text/javascript" src="/../../assets/js/vendor/prism.js"></script>
+    <script type="text/javascript" src="/../../assets/js/scroll.js"></script>
+    <script type="text/javascript" src="/../../assets/js/init.js"></script>
+
+    <script type="text/javascript" src="/../../assets/js/vendor/pangu.min.js"></script>
+
+    <style>
+    @font-face {
+      font-family: myFirstFont;
+      src: url(assets/p5_featured/nea-p5js/assets/Museo_Slab_500_2.otf);
+    }
+    #top {
+      font-family: myFirstFont !important;
+      color: white;
+      font-size: 12px;
+      padding: 7px;
+      padding-left: 20px;
+      line-height: 20px;
+      background-color: #ED225D;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 5;
+      display: none;
+    }
+
+    #top a {
+      color: white !important;
+      text-decoration: underline;
+    }
+
+
+    footer { padding-bottom: 26px; }
+    </style>
+  </head>
+  <body>
+
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h1 class='visuallyhidden'>Language Settings</h1>
+      <button data-lang='en'>EN</button>
+      <button data-lang='es'>ES</button>
+      <button data-lang='zh-Hans'>简体中文</button>
+    </div>    <a href="#content" class="skip">Skip to content</a>
+    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/zh-Hans/">
+          <img src="../../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+        <p class='tagline'>Processing 的趣味结合 JavaScript 的俏皮</p>
+        <p class='tagline'>Processing 的简易性结合 JavaScript 的灵活性</p>
+        <p class='tagline'>Processing 的直觉结合 JavaScript 的力量</p>
+        <p class='tagline'>Processing 的创意结合 JavaScript 的活跃性</p>
+        <p class='tagline'>Processing 的社群结合 JavaScript 的社群</p>
+        <p class='tagline'>Processing 的力量结合 JavaScript 的范围</p>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav role="navigation">
+      <ul id="menu">
+        <li><a href="/zh-Hans/">主页</a></li>
+        <li><a href="/zh-Hans/download/">下载</a></li>
+        <li><a href="/zh-Hans/gallery/"></a></li>
+        <li><a href="/zh-Hans/get-started/">入门</a></li>
+        <li><a href="/zh-Hans/reference/">参考文献</a></li>
+        <li><a href="/zh-Hans/libraries/">程式库</a></li>
+        <li><a href="/zh-Hans/learn/">学习</a></li>
+        <li><a href="/zh-Hans/examples/">范例</a></li>
+        <li><a href="/zh-Hans/books/">书籍</a></li>
+        <li><a href="/zh-Hans/community/">社群</a></li>
+        <li><a href="https://discourse.processing.org/categories" target=_blank class="other-link">论坛</a></li>
+        <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+        <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <!-- <script src="../../assets/js/scroll.js"></script> -->
+
+  <div class="column-span">
+
+    <section role="region" label="main content">
+      <div class="attribution">
+      This is based on the Interactivity chapter from the second edition of<em>
+      <a href="https://processing.org/handbook/">Processing: A Programming Handbook for Visual Designers and Artists</a></em>, published by MIT Press. Copyright 2013 MIT Press. This tutorial was originally written for Processing version 2.0+ but has been ported and updated here for P5 by Alex Yixuan Xu. If you see any errors or have comments, please
+      <a href="https://github.com/processing/processing-docs/issues?state=open">let us know</a>.
+      </div>
+
+      <h1>Interactivity</h1>
+
+      <p>The screen forms a bridge between our bodies and the realm of circuits and electricity inside computers. We control elements on screen through a variety of devices such as touch pads, trackballs, and joysticks, but the keyboard and mouse remain the most common input devices for desktop computers. The computer mouse dates back to the late 1960s, when Douglas Engelbart presented the device as an element of the oN-Line System (NLS), one of the first computer systems with a video display. The mouse concept was further developed at the Xerox Palo Alto Research Center (PARC), but its introduction with the Apple Macintosh in 1984 was the catalyst for its current ubiquity. The design of the mouse has gone through many revisions in the last forty years, but its function has remained the same. In Engelbart's original patent application in 1970 he referred to the mouse as an "X-Y position indicator," and this still accurately, but dryly, defines its contemporary use.</p>
+
+      <p>The physical mouse object is used to control the position of the cursor on screen and to select interface elements. The cursor position is read by computer programs as two numbers, the x-coordinate and the y-coordinate. These numbers can be used to control attributes of elements on screen. If these coordinates are collected and analyzed, they can be used to extract higher-level information such as the speed and direction of the mouse. This data can in turn be used for gesture and pattern recognition.</p>
+
+      <p>Keyboards are typically used to input characters for composing documents, email, and instant messages, but the keyboard has potential for use beyond its original intent. The migration of the keyboard from typewriter to computer expanded its function to enable launching software, moving through the menus of software applications, and navigating 3D environments in games. When writing your own software, you have the freedom to use the keyboard data any way you wish. For example, basic information such as the speed and rhythm of the fingers can be determined by the rate at which keys are pressed. This information could control the speed of an event or the quality of motion. It's also possible to ignore the characters printed on the keyboard itself and use the location of each key relative to the keyboard grid as a numeric position.</p>
+
+      <p>The modern computer keyboard is a direct descendant of the typewriter. The position of the keys on an English-language keyboard is inherited from early typewriters. This layout is called QWERTY because of the order of the top row of letter keys. It was developed for typewriters to put physical distance between frequently typed letter pairs, helping reduce the likelihood of the typebars colliding and jamming as they hit the ribbon. This more than one-hundred-year-old mechanical legacy still affects how we write software today.</p>
+
+      <h2>Mouse Data</h2>
+
+      <p>The variables <a href="/reference/#/p5/mouseX">mouseX</a> and <a href="/reference/#/p5/mouseY">mouseY</a> (note the capital X and Y) store the x-coordinate and y-coordinate of the cursor relative to the origin in the upper-left corner of the display window. To see the actual values produced while moving the mouse, run this program to print the values to the screen:</p>
+
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+      <script type="text/p5" data-autoplay>
+function draw() {
+  background(255);
+  frameRate(12);
+  text("X: "+mouseX, 0, height/4);
+  text("Y: "+mouseY, 0, height/2);
+}
+      </script>
+
+      <p>When a program starts, the <a href="/reference/#/p5/mouseX">mouseX</a> and <a href="/reference/#/p5/mouseY">mouseY</a> values are 0. If the cursor moves into the display window, the values are set to the current position of the cursor. If the cursor is at the left, the mouseX value is 0 and the value increases as the cursor moves to the right. If the cursor is at the top, the mouseY value is 0 and the value increases as the cursor moves down. If mouseX and mouseY are used in programs without a <a href="/reference/#/p5/draw"> draw()</a> or if <a href="/reference/#/p5/noLoop">noLoop()</a> is run in <a href="/reference/#/p5/setup">setup()</a>, the values will always be 0.</p>
+
+      <p>The mouse position is most commonly used to control the location of visual elements on screen. More interesting relations are created when the visual elements relate differently to the mouse values, rather than simply mimicking the current position. Adding and subtracting values from the mouse position creates relationships that remain constant, while multiplying and dividing these values creates changing visual relationships between the mouse position and the elements on the screen. In the first of the following examples, the circle is directly mapped to the cursor, in the second, numbers are added and subtracted from the cursor position to create offsets, and in the third, multiplication and division are used to scale the offsets.</p>
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+}
+function draw() {
+  background(126);
+  ellipse(mouseX, mouseY, 33, 33);
+}
+      </script>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+}
+function draw() {
+  background(126);
+  ellipse(mouseX, 16, 33, 33);    // Top circle
+  ellipse(mouseX+20, 50, 33, 33); // Middle circle
+  ellipse(mouseX-20, 84, 33, 33); // Bottom circle
+}
+      </script>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+}
+function draw() {
+  background(126);
+  ellipse(mouseX, 16, 33, 33);   // Top circle
+  ellipse(mouseX/2, 50, 33, 33); // Middle circle
+  ellipse(mouseX*2, 84, 33, 33); // Bottom circle
+}
+      </script>
+
+      <p>To invert the value of the mouse, subtract the mouseX value from the width of the window and subtract the mouseY value from the height of the screen.</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+}
+function draw() {
+  var x = mouseX;
+  var y = mouseY;
+  var ix = width - mouseX;  // Inverse X
+  var iy = height - mouseY; // Inverse Y
+  background(126);
+  fill(255, 150);
+  ellipse(x, height/2, y, y);
+  fill(0, 159);
+  ellipse(ix, height/2, iy, iy);
+}
+      </script>
+
+      <p>The variables <a href="/reference/#/p5/pmouseX">pmouseX</a> and <a href="/reference/#/p5/pmouseY">pmouseY</a> store the mouse values from the previous frame. If the mouse does not move, the values will be the same, but if the mouse is moving quickly there can be large differences between the values. To see the difference, run the following program and alternate moving the mouse slowly and quickly. Watch the values print to the screen.</p>
+
+      <script type="text/p5" data-autoplay>
+function draw() {
+  background(255);
+  frameRate(12);
+  text(pmouseX - mouseX, 0, height/4);
+}
+      </script>
+
+      <p>Draw a line from the previous mouse position to the current position to show the changing position in one frame and reveal the speed and direction of the mouse. When the mouse is not moving, a point is drawn, but quick mouse movements create long lines.</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  strokeWeight(8);
+}
+function draw() {
+  background(204);
+  line(mouseX, mouseY, pmouseX, pmouseY);
+}
+      </script>
+
+      <p>Use the <a href="/reference/#/p5/mouseX">mouseX</a> and <a href="/reference/#/p5/mouseY">mouseY</a> variables with an if structure to allow the cursor to select regions of the screen. The following examples demonstrate the cursor making a selection between different areas of the display window. The first divides the screen into halves, and the second divides the screen into thirds.</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+  fill(0);
+}
+function draw() {
+  background(204);
+  if (mouseX < 50) {
+    rect(0, 0, 50, 100);  // Left
+  }
+  else {
+    rect(50, 0, 50, 100); // Right
+  }
+}
+      </script>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+  fill(0);
+}
+function draw() {
+  background(204);
+  if (mouseX < 33) {
+    rect(0, 0, 33, 100);  // Left
+  }
+  else if (mouseX < 66) {
+    rect(33, 0, 33, 100); // Middle
+  }
+  else {
+    rect(66, 0, 33, 100); // Right
+  }
+}
+      </script>
+
+      <p>Use the logical operator &amp;&amp; with an if structure to select a rectangular region of the screen. As demonstrated in the following example, when a relational expression is made to test each edge of a rectangle (left, right, top, bottom) and these are concatenated with a logical AND, the entire relational expression is true only when the cursor is inside the rectangle.</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+  fill(0);
+}
+function draw() {
+  background(204);
+  if ((mouseX > 40) && (mouseX < 80) && (mouseY > 20) && (mouseY < 80)){
+    fill(255);
+  }
+  else {
+    fill(0);
+  }
+  rect(40, 20, 40, 60);
+}
+      </script>
+
+      <p>This code asks, "Is the cursor to the right of the left edge and is the cursor to the left of the right edge and is the cursor beyond the top edge and is the cursor above the bottom?" The code for the next example asks a set of similar questions and combines them with the keyword else to determine which one of the defined areas contains the cursor.</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+  fill(0);
+}
+function draw() {
+  background(204);
+  if ((mouseX <= 50) && (mouseY <= 50)) {
+    rect(0, 0, 50, 50);   // Upper-left
+  }
+  else if ((mouseX <= 50) && (mouseY > 50)) {
+    rect(0, 50, 50, 50);  // Lower-left
+  }
+  else if ((mouseX > 50) && (mouseY <= 50)) {
+    rect(50, 0, 50, 50);  // Upper-right
+  }
+  else {
+    rect(50, 50, 50, 50); // Lower-right
+  }
+}
+      </script>
+
+      <h2>Mouse buttons</h2>
+      <p>Computer mice and other related input devices typically have between one and three buttons; p5 can detect when these buttons are pressed with the <a href="/reference/#/p5/mouseIsPressed">mouseIsPressed</a> and <a href="/reference/#/p5/mouseButton">mouseButton</a> variables. Used with the button status, the cursor position enables the mouse to perform different actions. For example, a button press when the mouse is over an icon can select it, so the icon can be moved to a different location on screen. The <a href="/reference/#/p5/mouseIsPressed">mouseIsPressed</a> variable is true if any mouse button is pressed and false if no mouse button is pressed. The variable <a href="/reference/#/p5/mouseButton">mouseButton</a> is LEFT, CENTER, or RIGHT depending on the mouse button most recently pressed. The <a href="/reference/#/p5/mouseIsPressed">mouseIsPressed</a> variable reverts to false as soon as the button is released, but the <a href="/reference/#/p5/mouseButton">mouseButton</a> variable retains its value until a different button is pressed. These variables can be used independently or in combination to control the software. Run these programs to see how the software responds to your fingers.</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+  fill(0);
+}
+function draw() {
+  background(204);
+  if (mouseIsPressed == true) {
+    fill(255); // White
+  }
+  else {
+    fill(0);   // Black
+  }
+  rect(25, 25, 50, 50);
+}
+      </script>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+  fill(0);
+}
+function draw() {
+  background(204);
+  if (mouseButton == LEFT) {
+    fill(0);   // Black
+  }
+  else if (mouseButton == RIGHT) {
+    fill(255); // White
+  }
+  else {
+    fill(126); // Gray
+  }
+  rect(40, 20, 40, 60);
+}
+      </script>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+  fill(0);
+}
+function draw() {
+  background(204);
+  if (mouseIsPressed == true) {
+    if (mouseButton == LEFT) {
+      fill(0);   // Black
+    }
+    else if (mouseButton == RIGHT) {
+      fill(255); // White
+    }
+  }
+  else {
+    fill(126);   // Gray
+  }
+  rect(40, 20, 40, 60);
+}
+      </script>
+
+      <p>Not all mice have multiple buttons, and if software is distributed widely, the interaction should not rely on detecting which button is pressed.</p>
+
+      <h2>Keyboard data</h2>
+
+      <p>p5 registers the most recently pressed key and whether a key is currently pressed. The boolean variable <a href="/reference/#/p5/keyIsPressed">keyIsPressed</a> is true if a key is pressed and is false if not. Include this variable in the test of an if structure to allow lines of code to run only if a key is pressed. The <a href="/reference/#/p5/keyIsPressed">keyIsPressed</a> variable remains true while the key is held down and becomes false only when the key is released.</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  strokeWeight(4);
+}
+function draw() {
+  background(204);
+  if (keyIsPressed == true) {  // If the key is pressed,
+    line(20, 20, 80, 80);      // draw a line;
+  }
+  else {                       // Otherwise,
+    rect(40, 40, 20, 20);      // draw a rectangle.
+  }
+}
+      </script>
+
+      <script type="text/p5" data-autoplay>
+var x = 20;
+function setup() {
+  createCanvas(100, 100);
+  strokeWeight(4);
+}
+function draw() {
+  background(204);
+  if (keyIsPressed == true) { // If the key is pressed,
+    x++;                      // add 1 to x.
+  }
+  line(x, 20, x-60, 80);
+}
+      </script>
+      <!-- made changes about the key variable not guaranteed to be case sensitive in p5 -->
+      <p>The <a href="/reference/#/p5/key">key</a> variable stores a single alphanumeric character. Specifically, it holds the most recently pressed key. However, it is not guaranteed to be case sensitive. To get the proper capitalization, it is best to use it within <a href="/reference/#/p5/keyTyped">keyTyped()</a>. For non-ASCII keys, use the <a href="/reference/#/p5/keyCode">keyCode</a> variable. The key can be displayed on screen with the <a href="/reference/#/p5/text">text()</a> function (p. 150).</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  textSize(60);
+  fill(255);
+}
+function draw() {
+  background(0);
+  text(key, 20, 75); // Draw at coordinate (20,75)
+}
+      </script>
+
+      <!-- no differences in "" and '' in p5, made changes -->
+      <!-- <p>The <a href="/reference/#/p5/key">key</a> variable may be used to determine whether a specific key is pressed. The following example uses the expression key=='A' to test if the A key is pressed. The single quotes signify A as the data type char (p. 144). The expression key == "A" will cause an error because the double quotes signify the A as a String, and it's not possible to compare a String with a char. The logical AND symbol, the &amp;&amp; operator, is used to connect the expression with the <a href="/reference/#/p5/keyPressed">keyPressed</a> variable to ascertain that the key pressed is the uppercase A.</p> -->
+      <p>The <a href="/reference/#/p5/key">key</a> variable may be used to determine whether a specific key is pressed. The following example uses the expression key=='A' to test if the A key is pressed. Note the use of double quotation marks or single quotation marks has no influence on the program as long as you are consistent. The logical AND symbol, the &amp;&amp; operator, is used to connect the expression with the <a href="/reference/#/p5/keyIsPressed">keyIsPressed</a> variable to ascertain that the key pressed is the uppercase A.</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  strokeWeight(4);
+  stroke(255);
+}
+function draw() {
+  background(0);
+  // If the 'A' key is pressed, draw a line
+  if ((keyIsPressed == true) && (key == 'A')) {
+    line(50, 25, 50, 75);
+  }
+  else { // Otherwise, draw an ellipse
+    ellipse(50, 50, 50, 50);
+  }
+}
+      </script>
+
+      <p>The previous example works with an uppercase A, but not if the lowercase letter is pressed. To check for both uppercase and lowercase letters, extend the relational expression with a logical OR, the || relational operator. Line 9 in the previous program would be changed to:</p>
+      <pre><code class="language-javascript">
+        if ((keyIsPressed == true) &amp;&amp; ((key == 'a') || (key == 'A'))) {
+      </code></pre>
+
+      <!-- changes made -->
+      <h2>Coded keys</h2>
+      <p>Because each character has a numeric value as defined by the <a href="https://www.w3schools.com/charsets/ref_html_ascii.asp">ASCII table</a>, the value of the <a href="/reference/#/p5/keyCode">keyCode</a> variable can be used like any other number to control visual attributes such as the position and color of shape elements. For instance, the ASCII table defines the uppercase A as the number 65, and the digit 1 is defined as 49.</p>
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  stroke(0);
+}
+function draw() {
+  if (keyIsPressed === true) {
+    var x = keyCode - 32;
+    line(x, 0, x, height);
+  }
+}
+      </script>
+
+      <script type="text/p5" data-autoplay>
+var angle = 0;
+function setup() {
+  createCanvas(100, 100);
+  stroke(0);
+}
+function draw() {
+  background(204);
+  if (keyIsPressed === true) {
+    if ((keyCode >= 32) && (keyCode <= 126)) {
+      // If the key is alphanumeric, // use its value as an angle
+      angle = (keyCode - 32) * 3;
+    }
+  }
+  arc(50, 50, 66, 66, 0, radians(angle));
+}
+      </script>
+
+      <p>In addition to reading key values for numbers, letters, and symbols, p5 can also read the values from other keys including the arrow keys and the Alt, Control, Shift, Backspace, Tab, Enter, Return, Escape, and Delete keys. The variable <a href="/reference/#/p5/keyCode">keyCode</a> stores the BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. If you're making cross-platform projects, note that the Enter key is commonly used on PCs and UNIX and the Return key is used on Macintosh. Check for both Enter and Return to make sure your program will work for all platforms (see code 12-17).</p>
+
+      <script type="text/p5" data-autoplay>
+var y = 35;
+function setup() {
+  createCanvas(100, 100);
+  stroke(0);
+}
+function draw() {
+  background(204);
+  line(10, 50, 90, 50);
+  if (keyCode == UP_ARROW) {
+    y = 20;
+  }
+  else if (keyCode == DOWN_ARROW) {
+    y = 50;
+  }
+  else {
+    y = 35;
+  }
+  rect(25, y, 50, 30);
+}
+      </script>
+
+      <!--made changes to original content here -->
+<!--       <p>Because each character has a numeric value as defined by the ASCII table (p. 605), the value of the key variable can be used like any other number to control visual attributes such as the position and color of shape elements. For instance, the ASCII table defines the uppercase A as the number 65, and the digit 1 is defined as 49.</p>
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  stroke(0);
+}
+function draw() {
+  if (keyIsPressed === true) {
+    var x = keyCode - 32;
+    line(x, 0, x, height);
+  }
+}
+      </script>
+      <script type="text/p5" data-autoplay>
+var angle = 0;
+function setup() {
+  createCanvas(100, 100);
+  stroke(0);
+}
+function draw() {
+  background(204);
+  if (keyIsPressed === true) {
+    if ((keyCode >= 32) && (keyCode <= 126)) {
+      // If the key is alphanumeric, // use its value as an angle
+      angle = (keyCode - 32) * 3;
+    }
+  }
+  arc(50, 50, 66, 66, 0, radians(angle));
+}
+      </script>
+      <h2>Coded keys</h2>
+      <p>In addition to reading key values for numbers, letters, and symbols, p5 can also read the values from other keys including the arrow keys and the Alt, Control, Shift, Backspace, Tab, Enter, Return, Escape, and Delete keys. The variable <a href="/reference/#/p5/keyCode">keyCode</a> stores the BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. If you're making cross-platform projects, note that the Enter key is commonly used on PCs and UNIX and the Return key is used on Macintosh. Check for both Enter and Return to make sure your program will work for all platforms (see code 12-17).</p>
+      <script type="text/p5" data-autoplay>
+var y = 35;
+function setup() {
+  createCanvas(100, 100);
+  stroke(0);
+}
+function draw() {
+  background(204);
+  line(10, 50, 90, 50);
+  if (keyCode == UP_ARROW) {
+    y = 20;
+  }
+  else if (keyCode == DOWN_ARROW) {
+    y = 50;
+  }
+  else {
+    y = 35;
+  }
+  rect(25, y, 50, 30);
+}
+      </script> -->
+
+      <h2>Events</h2>
+      <p>A category of functions called events alter the normal flow of a program when an action such as a key press or mouse movement takes place. An event is a polite interruption of the normal flow of a program. Key presses and mouse movements are stored until the end of <a href="/reference/#/p5/draw">draw()</a>, where they can take action that won't disturb drawing that's currently in progress. The code inside an event function is run once each time the corresponding event occurs. For example, if a mouse button is pressed, the code inside the <a href="/reference/#/p5/mousePressed">mousePressed()</a> function will run once and will not run again until the button is pressed again. This allows data produced by the mouse and keyboard to be read independently from what is happening in the rest of the program.</p>
+
+      <h2>Mouse events</h2>
+      <!-- added mouseClicked() mouseOver() mouseOut() doubleClicked()-->
+      <p>The mouse event functions are <a href="/reference/#/p5/mousePressed">mousePressed()</a>, <a href="/reference/#/p5/mouseReleased">mouseReleased()</a>, <a href="/reference/#/p5/mouseClicked">mouseClicked()</a>, <a href="/reference/#/p5/mouseMoved">mouseMoved()</a>, <a href="/reference/#/p5/mouseDragged">mouseDragged()</a>, <a href="/reference/#/p5/mouseOver">mouseOver()</a>, and <a href="/reference/#/p5/mouseOut">mouseOut()</a>:</p>
+      <p>
+        <ul>
+          <li><a href="/reference/#/p5/mousePressed">mousePressed()</a> - Code inside this block is run one time when a mouse button is pressed</li>
+          <li><a href="/reference/#/p5/mouseReleased">mouseReleased()</a> - Code inside this block is run one time when a mouse button is released</li>
+          <li><a href="/reference/#/p5/mouseClicked">mouseClicked()</a> - Code inside this block is run once after a mouse button is pressed and released over the element</li>
+          <li><a href="/reference/#/p5/doubleClicked">doubleClicked()</a> - Code inside this block is run once after a mouse button is pressed and released over the element twice</li>
+          <li><a href="/reference/#/p5/mouseMoved">mouseMoved()</a> - Code inside this block is run one time when the mouse is moved</li>
+          <li><a href="/reference/#/p5/mouseDragged">mouseDragged()</a> - Code inside this block is run one time when the mouse is moved while a mouse button is pressed</li>
+          <li><a href="/reference/#/p5/mouseOver">mouseOver()</a> - Code inside this block is run once after every time a mouse moves onto the element.</li>
+          <li><a href="/reference/#/p5/mouseOut">mouseOut()</a> - Code inside this block is run once after every time a mouse moves off the element</li>
+        </ul>
+      </p>
+
+      <p>The <a href="/reference/#/p5/mousePressed">mousePressed()</a> function works differently than the <a href="/reference/#/p5/mouseIsPressed">mouseIsPressed</a> variable. The value of the <a href="/reference/#/p5/mouseIsPressed">mouseIsPressed</a> variable is true until the mouse button is released. It can therefore be used within <a href="/reference/#/p5/draw">draw()</a> to have a line of code run while the mouse is pressed. In contrast, the code inside the <a href="/reference/#/p5/mousePressed">mousePressed()</a> function only runs once when a button is pressed. This makes it useful when a mouse click is used to trigger an action, such as clearing the screen. In the following example, the background value becomes lighter each time a mouse button is pressed. Run the example on your computer to see the change in response to your finger.</p>
+
+      <script type="text/p5" data-autoplay>
+var gray = 0;
+function setup() {
+  createCanvas(100, 100);
+}
+function draw() {
+  background(gray);
+}
+function mousePressed() {
+  gray += 20;
+}
+      </script>
+
+      <p>The following example is the same as the one above, but the gray variable is set in the <a href="/reference/#/p5/mouseReleased">mouseReleased()</a> event function, which is called once every time a button is released. This difference can be seen only by running the program and clicking the mouse button. Keep the mouse button pressed for a long time and notice that the background value changes only when the button is released.</p>
+
+      <script type="text/p5" data-autoplay>
+var gray = 0;
+function setup() {
+  createCanvas(100, 100);
+}
+function draw() {
+  background(gray);
+}
+function mouseReleased() {
+  gray += 20;
+}
+      </script>
+
+      <!-- mouseClicked() example added-->
+      <p>Similarly, the gray variable is set in the <a href="/reference/#/p5/mouseClicked">mouseClicked()</a> event function, which is called once after a mouse button has been pressed and then released. Browsers handle clicks differently, so this function is only guaranteed to be run when the left mouse button is clicked. To handle other mouse buttons being pressed or released, use <a href="/reference/#/p5/mousePressed">mousePressed()</a> or <a href="/reference/#/p5/mouseReleased">mouseReleased()</a>. </p>
+      <script type="text/p5" data-autoplay>
+var gray = 0;
+function setup() {
+  createCanvas(100, 100);
+}
+function draw() {
+  background(gray);
+}
+function mouseClicked() {
+  gray += 20;
+}
+      </script>
+
+      <p>It is generally not a good idea to draw inside an event function, but it can be done under certain conditions. Before drawing inside these functions, it's important to think about the flow of the program. In this example, squares are drawn inside <a href="/reference/#/p5/mousePressed">mousePressed()</a> and they remain on screen because there is no <a href="/reference/#/p5/background">background()</a> inside <a href="/reference/#/p5/draw">draw()</a>. But if <a href="/reference/#/p5/background">background()</a> is used, visual elements drawn within one of the mouse event functions will appear on screen for only a single frame, or, by default, 1/60th of a second. In fact, you'll notice this example has nothing at all inside <a href="/reference/#/p5/draw">draw()</a>, but it needs to be there to force P5 to keep listening for the events. If a <a href="/reference/#/p5/background">background()</a> function were run inside <a href="/reference/#/p5/draw">draw()</a>, the rectangles would flash onto the screen and disappear.</p>
+
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  fill(0, 102);
+  background(204); // Draw once to give a little color
+}
+function draw() {
+} // Empty draw() keeps the program running
+function mousePressed() {
+  rect(mouseX, mouseY, 33, 33);
+}
+      </script>
+
+      <p>The code inside the <a href="/reference/#/p5/mouseMoved">mouseMoved()</a> and <a href="/reference/#/p5/mouseDragged">mouseDragged()</a> event functions are run when there is a change in the mouse position. The code in the <a href="/reference/#/p5/mouseMoved">mouseMoved()</a> block is run at the end of each frame when the mouse moves and no button is pressed. The code in the <a href="/reference/#/p5/mouseDragged">mouseDragged()</a> block does the same when the mouse button is pressed. If the mouse stays in the same position from frame to frame, the code inside these functions does not run. In this example, the gray circle follows the mouse when the button is not pressed, and the black circle follows the mouse when a mouse button is pressed.</p>
+
+      <script type="text/p5" data-autoplay>
+var dragX, dragY, moveX, moveY;
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+}
+function draw() {
+  background(204);
+  fill(0);
+  ellipse(dragX, dragY, 33, 33); // Black circle
+  fill(153);
+  ellipse(moveX, moveY, 33, 33); // Gray circle
+}
+function mouseMoved() {   // Move gray circle
+  moveX = mouseX;
+  moveY = mouseY;
+}
+function mouseDragged() { // Move black circle
+  dragX = mouseX;
+  dragY = mouseY;
+}
+      </script>
+
+      <!-- examples added for mouseOut() and mouseOver() -->
+      <p>The <a href="/reference/#/p5/mouseOver">.mouseOver()</a> function is called once after every time a mouse moves onto the element. In this example, the diameter of the ellipse increase by 10 every time the mouse moves onto the canvas.</p>
+      <script type="text/p5" data-autoplay>
+var cnv;
+var d;
+function setup() {
+  cnv = createCanvas(100, 100);
+  cnv.mouseOver(changeD);
+  d = 10;
+}
+function draw() {
+  ellipse(width / 2, height / 2, d, d);
+}
+function changeD() {
+  d = d + 10;
+}
+      </script>
+
+      <p>The <a href="/reference/#/p5/mouseOut">.mouseOut()</a> function is called once after every time a mouse moves off the element. Similar to the above example, the diameter of the ellipse increase by 10 every time the mouse moves out of the canvas.</p>
+      <script type="text/p5" data-autoplay>
+var cnv;
+var d;
+function setup() {
+  cnv = createCanvas(100, 100);
+  cnv.mouseOut(changeD);
+  d = 10;
+}
+function draw() {
+  ellipse(width / 2, height / 2, d, d);
+}
+function changeD() {
+  d = d + 10;
+}
+      </script> 
+
+      <h2>Wheel Events</h2>
+      <p>The <a href="/reference/#/p5/mouseWheel">.mouseWheel()</a> function is called once after every time a mouse wheel is scrolled over the element. This can be used to attach element specific event listeners. The function accepts a callback function as argument which will be executed when the wheel event is triggered on the element. The <a href="/reference/#/p5/deltaY">event.deltaY</a> property returns negative values if the mouse wheel is rotated up or away from the user and positive in the other direction. The <a href="/reference/#/p5/deltaX">event.deltaX</a> does the same as <a href="/reference/#/p5/deltaY">event.deltaY</a> except it reads the horizontal wheel scroll of the mouse wheel. On OS X with "natural" scrolling enabled, the <a href="/reference/#/p5/deltaY">event.deltaY</a> values are reversed.</p>
+      <p>In this example, an event listener is attached to the canvas element, and function changeSize() would run when scrolling is performed on canvas. By using the <a href="/reference/#/p5/deltaY">event.deltaY</a> variable, scrolling up on canvas would increase the diameter of the ellipse and scrolling down would decrease the diameter. If scrolling is performed anywhere in any direction, the background is going to be darker.</p>
+
+      <script type="text/p5" data-autoplay>
+var cnv;
+var d;
+var g;
+function setup() {
+  cnv = createCanvas(100, 100);
+  cnv.mouseWheel(changeSize); // attach listener for activity on canvas only
+  d = 10;
+  g = 100;
+}
+
+function draw() {
+  background(g);
+  ellipse(width / 2, height / 2, d, d);
+}
+
+// this function fires with mousewheel movement anywhere on screen
+function mouseWheel() {
+  g = g + 10;
+}
+
+// this function fires with mousewheel movement over canvas only
+function changeSize(event) {
+  if (event.deltaY > 0) {
+    d = d + 10;
+  }
+  else {
+    d = d - 10;
+  }
+}
+      </script>
+
+      <h2>Key events</h2>
+      <!-- keyTyped() added -->
+      <p>Each key press is registered through the keyboard event functions <a href="/reference/#/p5/keyPressed">keyPressed()</a>, <a href="/reference/#/p5/keyPressed">keyTyped()</a> and <a href="/reference/#/p5/keyReleased">keyReleased()</a>:</p>
+      <p>
+        <ul>
+          <li><a href="/reference/#/p5/keyPressed">keyPressed()</a> - Code inside this block is run one time when any key is pressed</li>
+          <li><a href="/reference/#/p5/keyTyped">keyTyped()</a> - Code inside this block is run one time when a key is pressed, but action keys such as Ctrl, Shift, and Alt are ignored. The most recent key pressed will be stored in the <a href="/reference/#/p5/key">key</a> variable.</li>
+          <li><a href="/reference/#/p5/keyReleased">keyReleased()</a> - Code inside this block is run one time when any key is released</li>
+        </ul>
+      </p>
+
+      <p>Each time a key is pressed, the code inside the <a href="/reference/#/p5/keyPressed">keyPressed()</a> block is run once. Within this block, it's possible to test which key has been pressed and to use this value for any purpose. If a key is held down for an extended time, the code inside the <a href="/reference/#/p5/keyPressed">keyPressed()</a> block might run many times in a rapid succession because most operating systems will take over and repeatedly call the <a href="/reference/#/p5/keyPressed">keyPressed()</a> function. The amount of time it takes to start repeating and the rate of repetitions will be different from computer to computer, depending on the keyboard preference settings. In this example, the value of the boolean variable drawT is set from false to true when the T key is pressed; this causes the lines of code to render the rectangles in <a href="/reference/#/p5/draw">draw()</a> to start running.</p>
+
+      <script type="text/p5" data-autoplay>
+var drawT = false;
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+}
+function draw() {
+  background(204);
+  if (drawT == true) {
+    rect(20, 20, 60, 20);
+    rect(39, 40, 22, 45);
+  }
+}
+function keyPressed() {
+  if ((key == 'T') || (key == 't')) {
+    drawT = true;
+  }
+}
+      </script>
+
+      <!-- added this information to distinguish keyPressed() and keyTyped() -->
+      <p>When ASCII keys are pressed, the character is stored in the <a href="https://p5js.org/reference/#/p5/key">key </a>variable. However, this variable does not distinguish between uppercase and lowercase when used with the <a href="/reference/#/p5/keyPressed">keyPressed()</a> function. For this reason, it is recommended to use <a href="/reference/#/p5/keyTyped">keyTyped()</a>. When used with the <a href="/reference/#/p5/key">key</a> variable this function will recognize case. </p>
+
+      <p>Each time a key is released, the code inside the <a href="/reference/#/p5/keyReleased">keyReleased()</a> block is run once. The following example builds on the previous code; each time the key is released the boolean variable drawT is set back to false to stop the shape from displaying within <a href="/reference/#/p5/draw">draw()</a>.</p>
+
+      <script type="text/p5" data-autoplay>
+var drawT = false;
+function setup() {
+  createCanvas(100, 100);
+  noStroke();
+}
+function draw() {
+  background(204);
+  if (drawT == true) {
+    rect(20, 20, 60, 20);
+    rect(39, 40, 22, 45);
+  }
+}
+function keyPressed() {
+  if ((key == 'T') || (key == 't')) {
+    drawT = true;
+  }
+}
+function keyReleased() {
+  drawT = false;
+}
+      </script>
+
+      <h2>Event flow</h2>
+      <p>As discussed previously, programs written with <a href="/reference/#/p5/draw">draw()</a> display frames to the screen sixty frames each second. The <a href="/reference/#/p5/frameRate">frameRate()</a> function is used to set a limit on the number of frames that will display each second, and the <a href="/reference/#/p5/noLoop">noLoop()</a> function can be used to stop draw() from looping. The additional functions <a href="/reference/#/p5/loop">loop()</a> and <a href="/reference/#/p5/redraw">redraw()</a> provide more options when used in combination with the mouse and keyboard event functions. If a program has been paused with <a href="/reference/#/p5/noLoop">noLoop()</a>, running <a href="/reference/#/p5/loop">loop()</a> resumes its action. Because the event functions are the only elements that continue to run when a program is paused with noLoop(), the loop() function can be used within these events to continue running the code in draw(). The following example runs the draw() function for about two seconds each time a mouse button is pressed and then pauses the program after that time has elapsed.</p>
+
+      <script type="text/p5" data-autoplay>
+var frame = 0;
+function setup() {
+  createCanvas(100, 100);
+}
+function draw() {
+  if (frame > 120) {              // If 120 frames since the mouse
+    noLoop();                     // was pressed, stop the program
+    background(0);                // and turn the background black.
+  }
+  else {                          // Otherwise, set the background
+    background(204);              // to light gray and draw lines
+    line(mouseX, 0, mouseX, 100); // at the mouse position
+    line(0, mouseY, 100, mouseY);
+    frame++;
+  }
+}
+function mousePressed() {
+  frame = 0;
+  loop();
+}
+      </script>
+
+      <p>The <a href="/reference/#/p5/redraw">redraw()</a> function runs the code in draw() one time and then halts the execution. It's helpful when the display needn't be updated continuously. The following example runs the code in draw() once each time a mouse button is pressed.</p>
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noLoop();
+}
+function draw() {
+  background(204);
+  line(mouseX, 0, mouseX, 100);
+  line(0, mouseY, 100, mouseY);
+}
+function mousePressed() {
+  redraw(); // Run the code in draw one time
+}
+      </script>
+
+      <!-- event listener and callback functions explained??? -->
+      <!-- This should probably be explained in a another tutorial more in-depth -->
+ <!--      Functions like mousePressed(), mouseClicked(), mouseReleased(), mouseMoved(), mouseOver(), and mouseOut() can be used as event listeners. They can be attached to certain elements</p>
+      <p>Function|Boolean: function to be fired when mouse is pressed over the element. if false is passed instead, the previously firing function will no longer fire.</p>
+      <p>In this example</p>
+       <script type="text/p5" data-autoplay>
+var cnv;
+var d;
+var g;
+function setup() {
+  cnv = createCanvas(100, 100);
+  cnv.mousePressed(changeGray); // attach listener for canvas click only
+  d = 10;
+  g = 100;
+}
+function draw() {
+  background(g);
+  ellipse(width / 2, height / 2, d, d);
+}
+// this function fires with any click anywhere
+function mousePressed() {
+  d = d + 10;
+}
+// this function fires only when cnv is clicked
+function changeGray() {
+  g = random(0, 255);
+}
+      </script>
+-->
+      <h2>Cursor icon</h2>
+      <p>The cursor can be hidden with the <a href="/reference/#/p5/noCursor">noCursor()</a> function and can be set to appear as a different icon or image with the <a href="/reference/#/p5/cursor">cursor()</a> function. When the noCursor() function is run, the cursor icon disappears as it moves into the display window. To give feedback about the location of the cursor within the software, a custom cursor can be drawn and controlled with the <a href="/reference/#/p5/mouseX">mouseX</a> and <a href="/reference/#/p5/mouseY">mouseY</a> variables.</p>
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  strokeWeight(7);
+  noCursor();
+}
+function draw() {
+  background(204);
+  ellipse(mouseX, mouseY, 10, 10);
+}
+      </script>
+
+      <p>If <a href="/reference/#/p5/noCursor">noCursor()</a> is run, the cursor will be hidden while the program is running until the <a href="/reference/#/p5/cursor">cursor()</a> function is run to reveal it.</p>
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+}
+function draw() {
+  background(204);
+  if (mouseIsPressed == true) {
+    cursor();
+  }
+  else {
+    noCursor();
+  }
+}
+      </script>
+
+      <p>Add a parameter to the cursor() function to change it to another icon or image. Either load and use image, or use the self-descriptive options are ARROW, CROSS, HAND, MOVE, TEXT, and WAIT.</p>
+      <script type="text/p5" data-autoplay>
+function setup() {
+  createCanvas(100, 100);
+  noCursor();
+}
+function draw() {
+  background(204);
+  if (mouseIsPressed == true) {
+    cursor(HAND);  // Draw cursor as hand
+  }
+  else {
+    cursor(CROSS); // Draw cursor as cross
+  }
+  line(mouseX, 0, mouseX, height);
+  line(0, mouseY, height, mouseY);
+}
+      </script>
+      <p>These cursor icons are part of your computer's operating system and will appear different on different machines.</p>
+
+    </section>
+
+    
+    <footer>
+      <p> p5.js 的原作者为<a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a>并在<a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a> 和
+      <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. 的支持下由其合作社群所开发。形象及平面设计<a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/zh-Hans/copyright.html">&copy; Info.</a></p>
+    </footer>
+
+  </div>
+  <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+       *<!-- to do: add fallback image in CSS -->
+  </object>
+
+</div>
+<!-- end id="get-started-page"  -->
+
+    </div> <!-- close class='container'-->
+
+    
+    <div id="family">
+      <p class="left"><a href="http://processing.org">Processing</a>
+        <a class="here" href="/zh-Hans/">p5.js</a>
+        <a href="http://py.processing.org/">Processing.py</a>
+        <a href="http://android.processing.org/">Processing for Android</a>
+        <a href="http://pi.processing.org/">Processing for Pi</a>
+      </p>
+      <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
+        <input type="hidden" name="as_sitesearch" value="p5js.org" />
+        <input id='search_field' type="text" name="q" id="q" size="20" />
+        <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
+      </form>
+    
+      <p class="right">
+        <a href="https://processingfoundation.org/">Processing Foundation</a>
+      </p>
+    </div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>

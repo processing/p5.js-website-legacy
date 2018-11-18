@@ -79,7 +79,7 @@ module.exports = function(grunt) {
         options: {
           expand: true,
           flatten: true,
-          helpers: ['<%= config.dist %>/assets/js/translation.js'],
+          helpers: ['<%= config.src %>/assets/js/translation.js'],
           assets: '<%= config.dist %>/assets',
           layout: '<%= config.src %>/templates/layouts/default.hbs',
           data: ['<%= config.src %>/data/**/*.{json,yml}', '!<%= config.src %>/data/reference/*.json'],
