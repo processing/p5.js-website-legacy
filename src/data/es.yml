@@ -430,3 +430,54 @@ contributors-conference:
 
 reference:
   Reference: "Referencia"
+
+color:
+  color-description1: "Este tutorial proviene del libro Learning Processing de Daniel Shiffman, publicado por Morgan Kaufmann, © 2008 Elsevier Inc. Todos los derechos reservados. Fue transcrito a p5 por Kelly Chang. Si detectas algún error o tienes comentarios, "
+  color-description2: " por favor escríbenos."
+  color-title: "Color"
+  color-p1x1: "En el mundo digital hablar de color requiere precisión. No basta con decir, por ejemplo: ¿Puedes hacer un círculo verde azulado?, ya que el color se define como un arreglo de números. Comencemos con el caso más simple: negro, blanco y escala de grises. 0 significa negro, 255 significa blanco. Entre medio, cualquier otro número -50, 87, 162, 209, etc- es un tono gris que va entre negro y blanco."
+  color-p2x1: "Al agregar las funciones "
+  color-p2x2: " y "
+  color-p2x3: " antes de dibujar podemos definir el color de cualquier forma deseada.
+  También existe la función "
+  color-p2x4: ", que define el color del lienzo en nuestra pantalla. A continuación hay un ejemplo."
+  color-code1: "background(255);    // Define el color del lienzo como blanco
+  stroke(0);          // Define el contorno de la forma (stroke) como negro
+  fill(150);          // Define el interior de la forma (fill) como gris
+  rect(50,50,75,100); // Dibuja un rectángulo"
+  color-p3x1: "Tanto el contorno como el interior de la forma pueden ser eliminados con las funciones: "
+  color-p3x2: " y "
+  color-p3x3: ".
+  Instintivamente podríamos pensar en utilizar "stroke(0)" para eliminar el contorno, sin embargo, es importante recordar que 0 no significa "nada", sino que indica un color negro.
+  Además, recuerda no eliminar ambos, con "
+  color-p3x4: " y "
+  color-p3x5: ", porque ¡nada aparecerá!"
+  color-p4x1: "Adicionalmente si dibujamos dos figuras, p5.js siempre utilizará la última especificación de contorno y llenado, leyendo el código de arriba a abajo."
+  rgb-color-title: "Color RGB"
+  rgb-color-p1x1: "¿Alguna vez pintaste con las manos? Al mezclar los colores "primarios" podías generar cualquier otro color. Mezclar todos los colores resultaba en un color café fango, y mientras más pintura añadías más oscuro era el resultado. En el mundo digital los colores también se construyen mezclando los tres colores primarios, pero funciona un poco diferente. Primero, los tres colores primarios son otros: rojo, verde y azul (en inglés red, green and blue, es decir, "RGB"). Luego, con los colores en tu pantalla estás mezclando luz, no pintura, por lo que las reglas de esta mezcla también son otras."
+  rgb-color-li1: "Rojo + Verde = Amarillo"
+  rgb-color-li2: "Rojo + Azul = Púrpura"
+  rgb-color-li3: "Verde + Azul = Cian (azul-verde)"
+  rgb-color-li4: "Rojo + Verde + Azul = Blanco"
+  rgb-color-li5: "Ausencia de colores = Negro"
+  rgb-color-p2x1: "Lo anterior presupone que los colores son tan brillantes como sea posible, pero por supuesto, hay un rango de color disponible, por lo que un poco de rojo más un poco de verde y azul genera gris, mientras que un poco de rojo más un poco de azul genera púrpura oscuro.
+  Si bien puede tomar tiempo acostumbrarte a esto, mientras más programes y experimentes con color RGB, más rápido se hará instintivo, como mezclar pintura con los dedos.
+  Y por supuesto no puedes decir "Mezcla un poco de de rojo con un poco de azul", debes proveer una cantidad. Así como en la escala de grises, los elementos de color son expresados en rangos desde 0 (ausencia del color) hasta 255 (presencia máxima del color), y son listados en orden R (rojo), G (verde) y B (azul). Obtendrás el resultado de mezclar color RGB por experimentación, pero en adelante cubriremos mediante ejercicios colores más comunes."
+  color-transparency-title: "Transparencia"
+  color-transparency-p1x1: "Además de los componentes rojo, verde y azul de cada color, existe un cuarto componente opcional denominado "alfa" (alpha, en inglés). Alfa significa transparencia y es particularmente útil cuando deseas dibujar figuras que se superponen y a través de las cuales quieres ver. Los valores de alfa de una imagen son llamados también "canal alfa" de una imagen."
+  color-transparency-p2x1: "Es importante notar que los pixeles no son literalmente transparentes, esto es simplemente una ilusión lograda al mezclar colores. Tras bambalinas p5.js toma los valores de cada color y les asigna un porcentaje, creando una percepción óptica de la mezcla (Si estás interesado en programar vidrios "color rosa", aquí es donde debes comenzar)."
+  color-transparency-p3x1: "Los valores de alfa también se definen en un rango de 0 a 255, donde 0 es completamente transparente (es decir, 0% de opacidad) y 255 es completamente opaco (es decir, 100% opaco)."
+  custom-color-ranges-title: "Rangos de Color Personalizados"
+  custom-color-ranges-p1x1: "El modo RGB con rangos de 0 a 255 no es la única forma en que podemos manipular color en p5.js, de hecho p5.js nos permite pensar el color de la manera que deseemos. Por ejemplo, tu podrías preferir pensar el color en rangos de 0 a 100 (como un porcentaje). Esto lo puedes hacer especificando un modo específico de color con la función "
+  custom-color-ranges-p2x1: "La expresión anterior dice: "Ok, queremos pensar el color en términos de rojo, verde y azul, o RGB, en que el rango de cada color pueda estar entre 0  100.""
+  custom-color-ranges-p3x1: "Aunque rara vez sea conveniente, tu también puedes definir distintos rangos para cada componente de color:"
+  custom-color-ranges-p4x1: "Con la expresión anterior queremos decir: "Rango valores en color rojo va de 0 a 100, verde de 0 a 500, azul de 0 a 10 y alfa de 0 a 255.""
+  custom-color-ranges-p5x1: "Finalmente, si bien es probable que tu código requiera sólamente el modo de color RGB, también puedes especificar colores en el modo HSB (tono, saturación y brillo). Sin entrar mayormente en detalle, el color HSB funciona como sigue:"
+  custom-color-ranges-li1x1: "Tono o Matiz"
+  custom-color-ranges-li1x2: "—El tipo de color, valores por definición van de 0 a 255."
+  custom-color-ranges-li2x1: "Saturación"
+  custom-color-ranges-li2x2: "—La vivacidad del color, 0 a 255 por definición."
+  custom-color-ranges-li3x1: "Brillo"
+  custom-color-ranges-li3x2: "—Es el brillo del color, 0 a 255 por definición."
+  custom-color-ranges-p6x1: "Con "
+  custom-color-ranges-p6x2: " puedes definir tu propio rango de valores. Algunos prefieren un rango de 0-360 para el tono (piensa en los 360 grados de la rueda de color) y 0-100 para la saturación y brillo (piensa en 0-100%)."
