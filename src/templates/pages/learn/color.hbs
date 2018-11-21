@@ -1,6 +1,6 @@
 ---
-title: learn
-slug: learn/
+title: color
+slug: color/
 ---
 
 <div id="learn-page">
@@ -12,37 +12,31 @@ slug: learn/
     <section role="region" label="main content">
 
       <div class="attribution">
-      This tutorial is from the book Learning Processing by Daniel Shiffman, published by Morgan Kaufmann, © 2008 Elsevier Inc. All rights reserved. It was ported to P5 by Kelly Chang. If you see any errors or have comments, <a href="https://github.com/processing/p5.js/issues"> please let us know.</a>
+      {{#i18n "color-description1"}}{{/i18n}}<a href="https://github.com/processing/p5.js/issues">{{#i18n "color-description2"}}{{/i18n}}</a>
 
       </div>
 
-      <h1>Color</h1>
+      <h1>{{#i18n "color-title"}}{{/i18n}}</h1>
 
       <p>
-      In the digital world, when we want to talk about a color, precision is required. Saying "Hey, can you make that circle bluish-green?" will not do. Color, rather, is defined as a range of numbers. Let's start with the simplest case: black & white or grayscale. 0 means black, 255 means white. In between, every other number—50, 87, 162, 209, and so on—is a shade of gray ranging from black to white.
+      {{#i18n "color-p1x1"}}{{/i18n}}
       </p>
 
       <img src="{{assets}}/learn/color/grayscale.svg">
 
       <p>
-      By adding the <a href="{{root}}/reference/#/p5/stroke"> stroke()</a> and <a href="{{root}}/reference/#/p5/fill">fill()</a> functions before something is drawn, we can set the color of any given shape. 
-      There is also the function <a href="{{root}}/reference/#/p5/background">background()</a>, which sets a background color for the window. Here's an example.
+      {{#i18n "color-p2x1"}}{{/i18n}}<a href="{{root}}/reference/#/p5/stroke"> stroke()</a>{{#i18n "color-p2x2"}}{{/i18n}}<a href="{{root}}/reference/#/p5/fill">fill()</a>{{#i18n "color-p2x3"}}{{/i18n}}<a href="{{root}}/reference/#/p5/background">background()</a>{{#i18n "color-p2x4"}}{{/i18n}}
       </p>
 
-      <pre><code class="language-javascript">   
-        background(255);    // Setting the background to white
-        stroke(0);          // Setting the outline (stroke) to black
-        fill(150);          // Setting the interior of a shape (fill) to grey 
-        rect(50,50,75,100); // Drawing the rectangle
-      </code></pre>   
+      <pre><code class="language-javascript">
+        {{#i18n "color-code1"}}{{/i18n}}
+      </code></pre>
 
       <p>
-      Stroke or fill can be eliminated with the functions: <a href="{{root}}/reference/#/p5/noStroke">noStroke()</a> and <a href="{{root}}/reference/#/p5/noFill">noFill()</a>. 
-      Our instinct might be to say "stroke(0)" for no outline, however, it is important to remember that 0 is not "nothing", but rather denotes the color black. 
-      Also, remember not to eliminate both—with <b>noStroke()</b> and <b>noFill()</b>, nothing will appear!
+      {{#i18n "color-p3x1"}}{{/i18n}}<a href="{{root}}/reference/#/p5/noStroke">noStroke()</a>{{#i18n "color-p3x2"}}{{/i18n}}<a href="{{root}}/reference/#/p5/noFill">noFill()</a>{{#i18n "color-p3x3"}}{{/i18n}}<b>noStroke()</b>{{#i18n "color-p3x4"}}{{/i18n}}<b>noFill()</b>{{#i18n "color-p3x5"}}{{/i18n}}
       </p>
 
-      <p>In addition, if we draw two shapes, p5.js will always use the most recently specified stroke and fill, reading the code from top to bottom.</p>
+      <p>{{#i18n "color-p4x1"}}{{/i18n}}</p>
 
       <!-- this script only needs to get added once even if there are multiple widget instances -->
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
@@ -57,33 +51,29 @@ slug: learn/
 }
       </script>
 
-      <h2>RGB Color</h2>
+      <h2>{{#i18n "rgb-color-title"}}{{/i18n}}</h2>
 
       <p>
-      Remember finger painting? By mixing three "primary" colors, any color could be generated. 
-      Swirling all colors together resulted in a muddy brown. The more paint you added, the darker it got. 
-      Digital colors are also constructed by mixing three primary colors, but it works differently from paint. First, the primaries are diff erent: red, green, and blue (i.e., "RGB" color). And with color on the screen, you are mixing light, not paint, so the mixing rules are different as well.
+      {{#i18n "rgb-color-p1x1"}}{{/i18n}}
       </p>
 
       <img src="{{assets}}/learn/color/rgb.jpg">
       <p>
         <ul>
-          <li>Red + Green = Yellow</li>
-          <li>Red + Blue = Purple</li>
-          <li>Green + Blue = Cyan (blue-green)</li>
-          <li>Red + Green + Blue = White</li>
-          <li>No colors = Black</li>
+          <li>{{#i18n "rgb-color-li1"}}{{/i18n}}</li>
+          <li>{{#i18n "rgb-color-li2"}}{{/i18n}}</li>
+          <li>{{#i18n "rgb-color-li3"}}{{/i18n}}</li>
+          <li>{{#i18n "rgb-color-li4"}}{{/i18n}}</li>
+          <li>{{#i18n "rgb-color-li5"}}{{/i18n}}</li>
         </ul>
       </p>
-      
-      <p>This assumes that the colors are all as bright as possible, but of course, you have a range of color available, so some red plus some green plus some blue equals gray, and a bit of red plus a bit of blue equals dark purple. 
-      While this may take some getting used to, the more you program and experiment with RGB color, the more it will become instinctive, much like swirling colors with your fingers. 
-      And of course you can't say "Mix some red with a bit of blue," you have to provide an exact amount. As with grayscale, the individual color elements are expressed as ranges from 0 (none of that color) to 255 (as much as possible), and they are listed in the order R, G, and B. You will get the hang of RGB color mixing through experimentation, but next we will cover some code using some common colors.</p>
+
+      <p>{{#i18n "rgb-color-p2x1"}}{{/i18n}}</p>
 
       <script type="text/p5"  data-autoplay>
 function draw() {
-  background(255);  
-  noStroke(); 
+  background(255);
+  noStroke();
 
   // Bright red
   fill(255,0,0);
@@ -99,14 +89,14 @@ function draw() {
 }
       </script>
 
-      
 
-      <h2>Color Transparency</h2>
 
-      <p>In addition to the red, green, and blue components of each color, there is an additional optional fourth component, referred to as the color's "alpha." Alpha means transparency and is particularly useful when you want to draw elements that appear partially see-through on top of one another. The alpha values for an image are sometimes referred to collectively as the "alpha channel" of an image.</p>
-      <p>It is important to realize that pixels are not literally transparent, this is simply a convenient illusion that is accomplished by blending colors. Behind the scenes, p5.js takes the color numbers and adds a percentage of one to a percentage of another, creating the optical perception of blending. (If you are interested in programming "rose-colored" glasses, this is where you would begin.)</p>
+      <h2>{{#i18n "color-transparency-title"}}{{/i18n}}</h2>
 
-      <p>Alpha values also range from 0 to 255, with 0 being completely transparent (i.e., 0% opaque) and 255 completely opaque (i.e., 100% opaque).</p>
+      <p>{{#i18n "color-transparency-p1x1"}}{{/i18n}}</p>
+      <p>{{#i18n "color-transparency-p2x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "color-transparency-p3x1"}}{{/i18n}}</p>
 
       <script type="text/p5"  data-autoplay>
   createCanvas(100, 100);
@@ -127,40 +117,40 @@ function draw() {
 
   // 25% opacity.
   fill(255,0,0,63);
-  rect(0,75,100,20); 
-      
+  rect(0,75,100,20);
+
       </script>
-     
-      <h2>Custom Color Ranges</h2>
+
+      <h2>{{#i18n "custom-color-ranges-title"}}{{/i18n}}</h2>
 
       <p>
-      RGB color with ranges of 0 to 255 is not the only way you can handle color in p5.js, in fact, it allows us to think about color any way we like. For example, you might prefer to think of color as ranging from 0 to 100 (like a percentage). You can do this by specifying a custom <a href="{{root}}/reference/#/p5/colorMode">colorMode()</a>colorMode()</a>. 
-      </p> 
-      
+      {{#i18n "custom-color-ranges-p1x1"}}{{/i18n}}<a href="{{root}}/reference/#/p5/colorMode">colorMode()</a>.
+      </p>
+
       <pre><code>
       colorMode(RGB,100);
       </code></pre>
 
-      <p>The above function says: "OK, we want to think about color in terms of red, green, and blue. The range of RGB values will be from 0 to 100."</p>
+      <p>{{#i18n "custom-color-ranges-p2x1"}}{{/i18n}}</p>
 
-      <p>Although it is rarely convenient to do so, you can also have different ranges for each color component:</p>
+      <p>{{#i18n "custom-color-ranges-p3x1"}}{{/i18n}}</p>
 
       <pre><code>
       colorMode(RGB,100,500,10,255);
       </code></pre>
 
-      <p>Now we are saying "Red values go from 0 to 100, green from 0 to 500, blue from 0 to 10, and alpha from 0 to 255."</p>
+      <p>{{#i18n "custom-color-ranges-p4x1"}}{{/i18n}}</p>
 
-      <p>Finally, while you will likely only need RGB color for all of your programming needs, you can also specify colors in the HSB (hue, saturation, and brightness) mode. Without getting into too much detail, HSB color works as follows:</p>
+      <p>{{#i18n "custom-color-ranges-p5x1"}}{{/i18n}}</p>
 
       <img src="{{assets}}/learn/color/hsb.png">
       <ul>
-        <li><b>Hue</b>—The color type, ranges from 0 to 255 by default.</li>
-        <li><b>Saturation</b>—The vibrancy of the color, 0 to 255 by default.</li>
-        <li><b>Brightness</b>—The, well, brightness of the color, 0 to 255 by default.</li>
+        <li><b>{{#i18n "custom-color-ranges-li1x1"}}{{/i18n}}</b>{{#i18n "custom-color-ranges-li1x2"}}{{/i18n}}</li>
+        <li><b>{{#i18n "custom-color-ranges-li2x1"}}{{/i18n}}</b>{{#i18n "custom-color-ranges-li2x2"}}{{/i18n}}</li>
+        <li><b>{{#i18n "custom-color-ranges-li3x1"}}{{/i18n}}</b>{{#i18n "custom-color-ranges-li3x2"}}{{/i18n}}</li>
       </ul>
 
-      <p>With <a href="{{root}}/reference/#/p5/colorMode">colorMode()</a> you can set your own ranges for these values. Some prefer a range of 0-360 for hue (think of 360 degrees on a color wheel) and 0-100 for saturation and brightness (think of 0-100%).</p>
+      <p>{{#i18n "custom-color-ranges-p6x1"}}{{/i18n}}<a href="{{root}}/reference/#/p5/colorMode">colorMode()</a>{{#i18n "custom-color-ranges-p6x2"}}{{/i18n}}</p>
 
     </section>
 
