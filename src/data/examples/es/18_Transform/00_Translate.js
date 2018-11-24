@@ -1,9 +1,10 @@
 /*
  * @name Translate
- * @description The translate() function allows objects to be 
- * moved to any location within the window. The first parameter 
- * sets the x-axis offset and the second parameter sets the 
- * y-axis offset. This example shows how transforms accumulate.
+ * @description La función translate() (del inglés trasladar) permite que
+ * los objetos sean movidos a cualquier ubicación dentro de la
+ * ventana. El primer parámetro define la cantidad en el eje x
+ * y el segundo paráemtro en el eye y. Este ejemplo muestra cómo las
+ * transformadas se acumulan.
  */
 
 var x = 0;
@@ -17,25 +18,24 @@ function setup() {
 
 function draw() {
   background(102);
-  // Animate by increasing our x value
+  // Animar al incrementar nuestor valor x
   x = x + 0.8;
-  // If the shape goes off the canvas, reset the position
+  // Si la figura se sale del lienzo, reinicia la posición
   if (x > width + dim) {
     x = -dim;
-  } 
-  
-  // Even though our rect command draws the shape with its
-  // center at the origin, translate moves it to the new 
-  // x and y position
+  }
+
+  // Aunque nuestro comando rect() dibuja la figura con su centro
+  // en el origen, translate() lo mueve a una nueva posición x,y
   translate(x, height/2-dim/2);
   fill(255);
   rect(-dim/2, -dim/2, dim, dim);
-  
-  // Transforms accumulate. Notice how this rect moves 
-  // twice as fast as the other, but it has the same 
-  // parameter for the x-axis value
+
+  // Las transformaciones se acumulan. Observa cómo este rect se mueve
+  // al doble de velocidad que el otro, a pesar de que tiene el mismo
+  // parámetro para el valor de x.
   translate(x, dim);
   fill(0);
   rect(-dim/2, -dim/2, dim, dim);
-  
+
 }

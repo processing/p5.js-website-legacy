@@ -4,7 +4,6 @@
  * so they accumulate to give the illusion of a shaded sphere.
  * Contributed by Aatish Bhatia, inspired by <a href ="http://inconvergent.net/">Anders Hoff</a>
  */
-
 function setup() {
   createCanvas(400, 400);
   background(255, 255, 255);

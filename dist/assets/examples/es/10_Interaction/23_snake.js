@@ -1,170 +1,171 @@
 /*
- * @name Snake game
- * @description The famous snake game! Once you click run, click anywhere
- * inside the black area, and control the snake using i j k and l. Don't let
- * the snake hit itself or the wall!<br>
- * Example created by <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta
+ * @name Juego de Serpiente
+ * @description El famoso juego de Serpiente! Después de hacer click en run/ejecutar, haz click en cualquier parte
+ * dentro del área negra, y controla la serpiente usando i,j,k,l. No dejes que
+ * la serpiente choque contra sí misma o la pared.<br>
+ * Ejemplo creado por <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta
 */
 
-// the snake is divided into small segments, which are drawn and edited on each 'draw' call
-var numSegments = 10;
-var direction = 'right';
+// La serpiente se divide en pequeños segmentos, los que son dibujados y editados en cada ejecución de draw()
+let numeroSegmentos = 10;
+let direccion = 'derecha';
 
-var xStart = 0; //starting x coordinate for snake
-var yStart = 250; //starting y coordinate for snake
-var diff = 10;
+let xInicio = 0; //coordenada x de partida de la serpiente
+let yInicio = 250; //coordenada y de partida de la serpiente
+let diferencia = 10;
 
-var xCor = [];
-var yCor = [];
+let xCuerpo = [];
+let yCuerpo = [];
 
-var xFruit = 0;
-var yFruit = 0;
-var scoreElem;
+let xFruta = 0;
+let yFruta = 0;
+let elementoPuntaje;
 
 function setup() {
-  scoreElem = createDiv('Score = 0');
-  scoreElem.position(20, 20);
-  scoreElem.id = 'score';
-  scoreElem.style('color', 'white');
-  
+  elementoPuntaje = createDiv('Puntaje = 0');
+  elementoPuntaje.position(20, 20);
+  elementoPuntaje.id = 'puntaje';
+  elementoPuntaje.style('color', 'white');
+
   createCanvas(500, 500);
   frameRate(15);
   stroke(255);
   strokeWeight(10);
-  updateFruitCoordinates();
+  actualizarCoordenadasFruta();
 
-  for (var i = 0; i < numSegments; i++) {
-    xCor.push(xStart + (i * diff));
-    yCor.push(yStart);
+  for (let i = 0; i < numeroSegmentos; i++) {
+    xCuerpo.push(xInicio + (i * diferencia));
+    yCuerpo.push(yInicio);
   }
 }
 
 function draw() {
   background(0);
-  for (var i = 0; i < numSegments - 1; i++) {
-    line(xCor[i], yCor[i], xCor[i + 1], yCor[i + 1]);
+  for (let i = 0; i < numeroSegmentos - 1; i++) {
+    line(xCuerpo[i], yCuerpo[i], xCuerpo[i + 1], yCuerpo[i + 1]);
   }
-  updateSnakeCoordinates();
-  checkGameStatus();
-  checkForFruit();
+  actualizarCoordenadasSerpiente();
+  comprobarEstadoJuego();
+  comprobarFruta();
 }
 
 /*
- The segments are updated based on the direction of the snake.
- All segments from 0 to n-1 are just copied over to 1 till n, i.e. segment 0
- gets the value of segment 1, segment 1 gets the value of segment 2, and so on,
- and this results in the movement of the snake.
+ Los segmentos son actualizados en la dirección de la serpiente.
+ Todos los segmentos entre 0 y n-1 son copiados al rango 1 hasta n, por ejemplo, el segmento 0 recibe el valor del segmento 1, el segmento 1 recibe el
+vallor del segmento 2, y así, esto resulta en el movimiento de la serpiente.
 
- The last segment is added based on the direction in which the snake is going,
- if it's going left or right, the last segment's x coordinate is increased by a
- predefined value 'diff' than its second to last segment. And if it's going up
- or down, the segment's y coordinate is affected.
+ El último segmento es añadido según la dirección de movimiento de la serpiente,
+ si está yendo hacia izquierda o derecha, la coordenada x del último segmento
+ es igual a sumar un valor predefinido como 'diferencia' al valor del penúltimo
+ segmento. Y si está yendo hacia arriba o abajo, la coordenada y es afectada.
+ }
+
 */
-function updateSnakeCoordinates() {
+function actualizarCoordenadasSerpiente() {
 
-  for (var i = 0; i < numSegments - 1; i++) {
-    xCor[i] = xCor[i + 1];
-    yCor[i] = yCor[i + 1];
+  for (let i = 0; i < numeroSegmentos - 1; i++) {
+    xCuerpo[i] = xCuerpo[i + 1];
+    yCuerpo[i] = yCuerpo[i + 1];
   }
-  switch (direction) {
-    case 'right':
-      xCor[numSegments - 1] = xCor[numSegments - 2] + diff;
-      yCor[numSegments - 1] = yCor[numSegments - 2];
+  switch (direccion) {
+    case 'derecha':
+      xCuerpo[numeroSegmentos - 1] = xCuerpo[numeroSegmentos - 2] + diferencia;
+      yCuerpo[numeroSegmentos - 1] = yCuerpo[numeroSegmentos - 2];
       break;
-    case 'up':
-      xCor[numSegments - 1] = xCor[numSegments - 2];
-      yCor[numSegments - 1] = yCor[numSegments - 2] - diff;
+    case 'arriba':
+      xCuerpo[numeroSegmentos - 1] = xCuerpo[numeroSegmentos - 2];
+      yCuerpo[numeroSegmentos - 1] = yCuerpo[numeroSegmentos - 2] - diferencia;
       break;
-    case 'left':
-      xCor[numSegments - 1] = xCor[numSegments - 2] - diff;
-      yCor[numSegments - 1] = yCor[numSegments - 2];
+    case 'izquierda':
+      xCuerpo[numeroSegmentos - 1] = xCuerpo[numeroSegmentos - 2] - diferencia;
+      yCuerpo[numeroSegmentos - 1] = yCuerpo[numeroSegmentos - 2];
       break;
-    case 'down':
-      xCor[numSegments - 1] = xCor[numSegments - 2];
-      yCor[numSegments - 1] = yCor[numSegments - 2] + diff;
+    case 'abajo':
+      xCuerpo[numeroSegmentos - 1] = xCuerpo[numeroSegmentos - 2];
+      yCuerpo[numeroSegmentos - 1] = yCuerpo[numeroSegmentos - 2] + diferencia;
       break;
   }
 }
 
 /*
- I always check the snake's head position xCor[xCor.length - 1] and
- yCor[yCor.length - 1] to see if it touches the game's boundaries
- or if the snake hits itself.
+ Siempre reviso la posición de la cabeza de la serpiente
+ xCuerpo[xCuerpo.length - 1] e yCuerpo[yCuerpo.length - 1] para revisar si toca
+ los bordes del juego o si la serpiente se estrelló contra sí misma.
 */
-function checkGameStatus() {
-  if (xCor[xCor.length - 1] > width ||
-      xCor[xCor.length - 1] < 0 ||
-      yCor[yCor.length - 1] > height ||
-      yCor[yCor.length - 1] < 0 ||
-      checkSnakeCollision()) {
+function comprobarEstadoJuego() {
+  if (xCuerpo[xCuerpo.length - 1] > width ||
+      xCuerpo[xCuerpo.length - 1] < 0 ||
+      yCuerpo[yCuerpo.length - 1] > height ||
+      yCuerpo[yCuerpo.length - 1] < 0 ||
+      detectarColision()) {
     noLoop();
-    var scoreVal = parseInt(scoreElem.html().substring(8));
-    scoreElem.html('Game ended! Your score was : ' + scoreVal);
+    let puntajeValor = parseInt(elementoPuntaje.html().substring(8));
+    elementoPuntaje.html('Juego finalizado! Tu puntaje fue: ' + puntajeValor);
   }
 }
 
 /*
- If the snake hits itself, that means the snake head's (x,y) coordinate
- has to be the same as one of its own segment's (x,y) coordinate.
+ Si la serpiente se estrella contra sí misma, esto significa que la coordenada
+ (x,y) tiene que ser igual a la de un segmento propio.
 */
-function checkSnakeCollision() {
-  var snakeHeadX = xCor[xCor.length - 1];
-  var snakeHeadY = yCor[yCor.length - 1];
-  for (var i = 0; i < xCor.length - 1; i++) {
-    if (xCor[i] === snakeHeadX && yCor[i] === snakeHeadY) {
+function detectarColision() {
+  let cabezaSerpienteX = xCuerpo[xCuerpo.length - 1];
+  let cabezaSerpienteY = yCuerpo[yCuerpo.length - 1];
+  for (let i = 0; i < xCuerpo.length - 1; i++) {
+    if (xCuerpo[i] === cabezaSerpienteX && yCuerpo[i] === cabezaSerpienteY) {
       return true;
     }
   }
 }
 
 /*
- Whenever the snake consumes a fruit, I increment the number of segments,
- and just insert the tail segment again at the start of the array (basically
- I add the last segment again at the tail, thereby extending the tail)
+ Cada vez que la serpiente consume una fruta, incremento el número de segmentos,
+ y simplemente inserto este segmento de cola nuevamente al principio del arreglo
+ (básicamente añado el último segmento a la cola, con lo que la alargo).
 */
-function checkForFruit() {
-  point(xFruit, yFruit);
-  if (xCor[xCor.length - 1] === xFruit && yCor[yCor.length - 1] === yFruit) {
-    var prevScore = parseInt(scoreElem.html().substring(8));
-    scoreElem.html('Score = ' + (prevScore + 1));
-    xCor.unshift(xCor[0]);
-    yCor.unshift(yCor[0]);
-    numSegments++;
-    updateFruitCoordinates();
+function comprobarFruta() {
+  point(xFruta, yFruta);
+  if (xCuerpo[xCuerpo.length - 1] === xFruta && yCuerpo[yCuerpo.length - 1] === yFruta) {
+    let prevScore = parseInt(elementoPuntaje.html().substring(8));
+    elementoPuntaje.html('Score = ' + (prevScore + 1));
+    xCuerpo.unshift(xCuerpo[0]);
+    yCuerpo.unshift(yCuerpo[0]);
+    numeroSegmentos++;
+    actualizarCoordenadasFruta();
   }
 }
 
-function updateFruitCoordinates() {
+function actualizarCoordenadasFruta() {
   /*
-    The complex math logic is because I wanted the point to lie
-    in between 100 and width-100, and be rounded off to the nearest
-    number divisible by 10, since I move the snake in multiples of 10.
+    Hice matemática compleja porque quería que el punto estuviera
+    entre 100 y width-100, y que fuera aproximado al número divisible
+    por 10 más cercano, ya que muevo la serpiente en múltiplos de 10.
   */
 
-  xFruit = floor(random(10, (width - 100) / 10)) * 10;
-  yFruit = floor(random(10, (height - 100) / 10)) * 10;
+  xFruta = floor(random(10, (width - 100) / 10)) * 10;
+  yFruta = floor(random(10, (height - 100) / 10)) * 10;
 }
 
 function keyPressed() {
   switch (keyCode) {
     case 74:
-      if (direction != 'right') {
-        direction = 'left';
+      if (direccion != 'derecha') {
+        direccion = 'izquierda';
       }
       break;
     case 76:
-      if (direction != 'left') {
-        direction = 'right';
+      if (direccion != 'izquierda') {
+        direccion = 'derecha';
       }
       break;
     case 73:
-      if (direction != 'down') {
-        direction = 'up';
+      if (direccion != 'abajo') {
+        direccion = 'arriba';
       }
       break;
     case 75:
-      if (direction != 'up') {
-        direction = 'down';
+      if (direccion != 'arriba') {
+        direccion = 'abajo';
       }
       break;
   }

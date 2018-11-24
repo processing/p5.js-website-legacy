@@ -1,43 +1,48 @@
 /*
  * @name Rotate
- * @description Rotating a square around the Z axis. 
- * To get the results you expect, send the rotate function angle
- * parameters that are values between 0 and PI*2 (TWO_PI which is
- * roughly 6.28). If you prefer to think about angles as degrees
- * (0-360), you can use the radians() method to convert your values.
+ * @description Rotar un cuadrado en torno al eje Z
+ Si prefieres usar grados (0-360) para medir los ángulos, puede usas el
+ * método radians() para convertir tus valores a radianes
  * For example: scale(radians(90)) is identical to the statement
  * scale(PI/2). In this example, every even numbered second a jitter
  * is added to the rotation. During odd seconds rotation moves CW and
  * CCW at the speed determined by the last jitter value.
+ * Para obtener los resultados que esperas, usa ángulos de la función
+ * rotate() (del inglés rotar) con valores entre 0 y PI*2 (TWO_PI que
+ * es aproximadamente 6.28)
+ *
+ *
+ *
  */
 
-var angle = 0.0;
-var jitter = 0.0;
+let angulo = 0.0;
+let jitter = 0.0;
 
 function setup() {
   createCanvas(720, 400);
   noStroke();
   fill(255);
-  //Draw the rectangle from the center and it will also be the
-  //rotate around that center
+  // Dibuja el rectánglo desde el centro y también hará que
+  //la rotación sea en torno al centro
   rectMode(CENTER);
 }
 
 function draw() {
   background(51);
 
-  // during even-numbered seconds (0, 2, 4, 6...) add jitter to
-  // the rotation
-  if (second() % 2 == 0) {  
+  // Durante los segundos pares (0, 2, 4, 6...), añade jitter a
+  // la rotación
+  if (second() % 2 == 0) {
     jitter = random(-0.1, 0.1);
   }
   //increase the angle value using the most recent jitter value
-  angle = angle + jitter;
-  //use cosine to get a smooth CW and CCW motion when not jittering
-  var c = cos(angle);
-  //move the shape to the center of the canvas
+  angulo = angulo + jitter;
+  // Usa coseno para obtener un movimiento suave a favor y en contra
+  // de las manecillas del reloj cuando no esté  haciendo jittering
+  var c = cos(angulo);
+  // Mueve la figura al centro del lienzo
   translate(width/2, height/2);
-  //apply the final rotation
+  // Aplica la rotación final
   rotate(c);
-  rect(0, 0, 180, 180);   
+  rect(0, 0, 180, 180);
 }
