@@ -79,5 +79,5 @@ If you've contributed to this website (or any other part of the p5.js project), 
 ## Etc
 * Introducción a p5.js - The repository for the book and PDF production of Introducción a p5.js can be found [here](https://github.com/processing/p5.js-getting-started-es).
 
-## Separately hosted language versions
+## Externally hosted language versions
 * [https://p5js.jp/](https://p5js.jp/) - 日本語 (Japanese)
