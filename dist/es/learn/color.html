@@ -111,38 +111,34 @@
 
     <section role="region" label="main content">
 
-      <div class="attribution">
-      This tutorial is from the book Learning Processing by Daniel Shiffman, published by Morgan Kaufmann, © 2008 Elsevier Inc. All rights reserved. It was ported to P5 by Kelly Chang. If you see any errors or have comments, <a href="https://github.com/processing/p5.js/issues"> please let us know.</a>
+      <div class="attribution">Este tutorial proviene del libro Learning Processing de Daniel Shiffman, publicado por Morgan Kaufmann, © 2008 Elsevier Inc. Todos los derechos reservados. Fue transcrito a p5 por Kelly Chang. Si detectas algún error o tienes comentarios, <a href="https://github.com/processing/p5.js/issues"> por favor escríbenos.</a>
 
       </div>
 
       <h1>Color</h1>
 
       <p>
-      In the digital world, when we want to talk about a color, precision is required. Saying "Hey, can you make that circle bluish-green?" will not do. Color, rather, is defined as a range of numbers. Let's start with the simplest case: black & white or grayscale. 0 means black, 255 means white. In between, every other number—50, 87, 162, 209, and so on—is a shade of gray ranging from black to white.
+      En el mundo digital hablar de color requiere precisión. No basta con decir, por ejemplo: ¿Puedes hacer un círculo verde azulado?, ya que el color se define como un arreglo de números. Comencemos con el caso más simple: negro, blanco y escala de grises. 0 significa negro, 255 significa blanco. Entre medio, cualquier otro número -50, 87, 162, 209, etc- es un tono gris que va entre negro y blanco.
       </p>
 
       <img src="../../assets/learn/color/grayscale.svg">
 
       <p>
-      By adding the <a href="/es/reference/#/p5/stroke"> stroke()</a> and <a href="/es/reference/#/p5/fill">fill()</a> functions before something is drawn, we can set the color of any given shape. 
-      There is also the function <a href="/es/reference/#/p5/background">background()</a>, which sets a background color for the window. Here's an example.
+      Al agregar las funciones <a href="/es/reference/#/p5/stroke"> stroke()</a> y <a href="/es/reference/#/p5/fill">fill()</a> antes de dibujar podemos definir el color de cualquier forma deseada. También existe la función <a href="/es/reference/#/p5/background">background()</a>, que define el color del lienzo en nuestra pantalla. A continuación hay un ejemplo.
       </p>
 
-      <pre><code class="language-javascript">   
-        background(255);    // Setting the background to white
-        stroke(0);          // Setting the outline (stroke) to black
-        fill(150);          // Setting the interior of a shape (fill) to grey 
-        rect(50,50,75,100); // Drawing the rectangle
-      </code></pre>   
+      <pre><code class="language-javascript">
+        background(255);    // Define el color del lienzo como blanco 
+ stroke(0);          // Define el contorno de la forma (stroke) como negro 
+ fill(150);          // Define el interior de la forma (fill) como gris 
+ rect(50,50,75,100); // Dibuja un rectángulo
+      </code></pre>
 
       <p>
-      Stroke or fill can be eliminated with the functions: <a href="/es/reference/#/p5/noStroke">noStroke()</a> and <a href="/es/reference/#/p5/noFill">noFill()</a>. 
-      Our instinct might be to say "stroke(0)" for no outline, however, it is important to remember that 0 is not "nothing", but rather denotes the color black. 
-      Also, remember not to eliminate both—with <b>noStroke()</b> and <b>noFill()</b>, nothing will appear!
+      Tanto el contorno como el interior de la forma pueden ser eliminados con las funciones: <a href="/es/reference/#/p5/noStroke">noStroke()</a> y <a href="/es/reference/#/p5/noFill">noFill()</a>. Instintivamente podríamos pensar en utilizar "stroke(0)" para eliminar el contorno, sin embargo, es importante recordar que 0 no significa "nada", sino que indica un color negro. Además, recuerda no eliminar ambos, con <b>noStroke()</b> y <b>noFill()</b>, porque ¡nada aparecerá!
       </p>
 
-      <p>In addition, if we draw two shapes, p5.js will always use the most recently specified stroke and fill, reading the code from top to bottom.</p>
+      <p>Adicionalmente si dibujamos dos figuras, p5.js siempre utilizará la última especificación de contorno y llenado, leyendo el código de arriba a abajo.</p>
 
       <!-- this script only needs to get added once even if there are multiple widget instances -->
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
@@ -157,33 +153,31 @@
 }
       </script>
 
-      <h2>RGB Color</h2>
+      <h2>Color RGB</h2>
 
       <p>
-      Remember finger painting? By mixing three "primary" colors, any color could be generated. 
-      Swirling all colors together resulted in a muddy brown. The more paint you added, the darker it got. 
-      Digital colors are also constructed by mixing three primary colors, but it works differently from paint. First, the primaries are diff erent: red, green, and blue (i.e., "RGB" color). And with color on the screen, you are mixing light, not paint, so the mixing rules are different as well.
+      ¿Alguna vez pintaste con las manos? Al mezclar los colores "primarios" podías generar cualquier otro color. Mezclar todos los colores resultaba en un color café fango, y mientras más pintura añadías más oscuro era el resultado. En el mundo digital los colores también se construyen mezclando los tres colores primarios, pero funciona un poco diferente. Primero, los tres colores primarios son otros: rojo, verde y azul (en inglés red, green and blue, es decir, "RGB"). Luego, con los colores en tu pantalla estás mezclando luz, no pintura, por lo que las reglas de esta mezcla también son otras.
       </p>
 
       <img src="../../assets/learn/color/rgb.jpg">
       <p>
         <ul>
-          <li>Red + Green = Yellow</li>
-          <li>Red + Blue = Purple</li>
-          <li>Green + Blue = Cyan (blue-green)</li>
-          <li>Red + Green + Blue = White</li>
-          <li>No colors = Black</li>
+          <li>Rojo + Verde = Amarillo</li>
+          <li>Rojo + Azul = Púrpura</li>
+          <li>Verde + Azul = Cian (azul-verde)</li>
+          <li>Rojo + Verde + Azul = Blanco</li>
+          <li>Ausencia de colores = Negro</li>
         </ul>
       </p>
-      
-      <p>This assumes that the colors are all as bright as possible, but of course, you have a range of color available, so some red plus some green plus some blue equals gray, and a bit of red plus a bit of blue equals dark purple. 
-      While this may take some getting used to, the more you program and experiment with RGB color, the more it will become instinctive, much like swirling colors with your fingers. 
-      And of course you can't say "Mix some red with a bit of blue," you have to provide an exact amount. As with grayscale, the individual color elements are expressed as ranges from 0 (none of that color) to 255 (as much as possible), and they are listed in the order R, G, and B. You will get the hang of RGB color mixing through experimentation, but next we will cover some code using some common colors.</p>
+
+      <p>Lo anterior presupone que los colores son tan brillantes como sea posible, pero por supuesto, hay un rango de color disponible, por lo que un poco de rojo más un poco de verde y azul genera gris, mientras que un poco de rojo más un poco de azul genera púrpura oscuro. 
+ Si bien puede tomar tiempo acostumbrarte a esto, mientras más programes y experimentes con color RGB, más rápido se hará instintivo, como mezclar pintura con los dedos. 
+ Y por supuesto no puedes decir "Mezcla un poco de de rojo con un poco de azul", debes proveer una cantidad. Así como en la escala de grises, los elementos de color son expresados en rangos desde 0 (ausencia del color) hasta 255 (presencia máxima del color), y son listados en orden R (rojo), G (verde) y B (azul). Obtendrás el resultado de mezclar color RGB por experimentación, pero en adelante cubriremos mediante ejercicios colores más comunes.</p>
 
       <script type="text/p5"  data-autoplay>
 function draw() {
-  background(255);  
-  noStroke(); 
+  background(255);
+  noStroke();
 
   // Bright red
   fill(255,0,0);
@@ -199,14 +193,14 @@ function draw() {
 }
       </script>
 
-      
 
-      <h2>Color Transparency</h2>
 
-      <p>In addition to the red, green, and blue components of each color, there is an additional optional fourth component, referred to as the color's "alpha." Alpha means transparency and is particularly useful when you want to draw elements that appear partially see-through on top of one another. The alpha values for an image are sometimes referred to collectively as the "alpha channel" of an image.</p>
-      <p>It is important to realize that pixels are not literally transparent, this is simply a convenient illusion that is accomplished by blending colors. Behind the scenes, p5.js takes the color numbers and adds a percentage of one to a percentage of another, creating the optical perception of blending. (If you are interested in programming "rose-colored" glasses, this is where you would begin.)</p>
+      <h2>Transparencia</h2>
 
-      <p>Alpha values also range from 0 to 255, with 0 being completely transparent (i.e., 0% opaque) and 255 completely opaque (i.e., 100% opaque).</p>
+      <p>Además de los componentes rojo, verde y azul de cada color, existe un cuarto componente opcional denominado "alfa" (alpha, en inglés). Alfa significa transparencia y es particularmente útil cuando deseas dibujar figuras que se superponen y a través de las cuales quieres ver. Los valores de alfa de una imagen son llamados también "canal alfa" de una imagen.</p>
+      <p>Es importante notar que los pixeles no son literalmente transparentes, esto es simplemente una ilusión lograda al mezclar colores. Tras bambalinas p5.js toma los valores de cada color y les asigna un porcentaje, creando una percepción óptica de la mezcla (Si estás interesado en programar vidrios "color rosa", aquí es donde debes comenzar).</p>
+
+      <p>Los valores de alfa también se definen en un rango de 0 a 255, donde 0 es completamente transparente (es decir, 0% de opacidad) y 255 es completamente opaco (es decir, 100% opaco).</p>
 
       <script type="text/p5"  data-autoplay>
   createCanvas(100, 100);
@@ -227,40 +221,40 @@ function draw() {
 
   // 25% opacity.
   fill(255,0,0,63);
-  rect(0,75,100,20); 
-      
+  rect(0,75,100,20);
+
       </script>
-     
-      <h2>Custom Color Ranges</h2>
+
+      <h2>Rangos de Color Personalizados</h2>
 
       <p>
-      RGB color with ranges of 0 to 255 is not the only way you can handle color in p5.js, in fact, it allows us to think about color any way we like. For example, you might prefer to think of color as ranging from 0 to 100 (like a percentage). You can do this by specifying a custom <a href="/es/reference/#/p5/colorMode">colorMode()</a>colorMode()</a>. 
-      </p> 
-      
+      El modo RGB con rangos de 0 a 255 no es la única forma en que podemos manipular color en p5.js, de hecho p5.js nos permite pensar el color de la manera que deseemos. Por ejemplo, tu podrías preferir pensar el color en rangos de 0 a 100 (como un porcentaje). Esto lo puedes hacer especificando un modo específico de color con la función <a href="/es/reference/#/p5/colorMode">colorMode()</a>.
+      </p>
+
       <pre><code>
       colorMode(RGB,100);
       </code></pre>
 
-      <p>The above function says: "OK, we want to think about color in terms of red, green, and blue. The range of RGB values will be from 0 to 100."</p>
+      <p>La expresión anterior dice: "Ok, queremos pensar el color en términos de rojo, verde y azul, o RGB, en que el rango de cada color pueda estar entre 0  100."</p>
 
-      <p>Although it is rarely convenient to do so, you can also have different ranges for each color component:</p>
+      <p>Aunque rara vez sea conveniente, tu también puedes definir distintos rangos para cada componente de color:</p>
 
       <pre><code>
       colorMode(RGB,100,500,10,255);
       </code></pre>
 
-      <p>Now we are saying "Red values go from 0 to 100, green from 0 to 500, blue from 0 to 10, and alpha from 0 to 255."</p>
+      <p>Con la expresión anterior queremos decir: "Rango valores en color rojo va de 0 a 100, verde de 0 a 500, azul de 0 a 10 y alfa de 0 a 255."</p>
 
-      <p>Finally, while you will likely only need RGB color for all of your programming needs, you can also specify colors in the HSB (hue, saturation, and brightness) mode. Without getting into too much detail, HSB color works as follows:</p>
+      <p>Finalmente, si bien es probable que tu código requiera sólamente el modo de color RGB, también puedes especificar colores en el modo HSB (tono, saturación y brillo). Sin entrar mayormente en detalle, el color HSB funciona como sigue:</p>
 
       <img src="../../assets/learn/color/hsb.png">
       <ul>
-        <li><b>Hue</b>—The color type, ranges from 0 to 255 by default.</li>
-        <li><b>Saturation</b>—The vibrancy of the color, 0 to 255 by default.</li>
-        <li><b>Brightness</b>—The, well, brightness of the color, 0 to 255 by default.</li>
+        <li><b>Tono o Matiz</b>—El tipo de color, valores por definición van de 0 a 255.</li>
+        <li><b>Saturación</b>—La vivacidad del color, 0 a 255 por definición.</li>
+        <li><b>Brillo</b>—Es el brillo del color, 0 a 255 por definición.</li>
       </ul>
 
-      <p>With <a href="/es/reference/#/p5/colorMode">colorMode()</a> you can set your own ranges for these values. Some prefer a range of 0-360 for hue (think of 360 degrees on a color wheel) and 0-100 for saturation and brightness (think of 0-100%).</p>
+      <p>Con <a href="/es/reference/#/p5/colorMode">colorMode()</a> puedes definir tu propio rango de valores. Algunos prefieren un rango de 0-360 para el tono (piensa en los 360 grados de la rueda de color) y 0-100 para la saturación y brillo (piensa en 0-100%).</p>
 
     </section>
 
