@@ -111,8 +111,7 @@
 
     <section role="region" label="main content">
 
-      <div class="attribution">
-      This tutorial is from the book Learning Processing by Daniel Shiffman, published by Morgan Kaufmann, © 2008 Elsevier Inc. All rights reserved. It was ported to P5 by Kelly Chang. If you see any errors or have comments, <a href="https://github.com/processing/p5.js/issues"> please let us know.</a>
+      <div class="attribution">This tutorial is from the book Learning Processing by Daniel Shiffman, published by Morgan Kaufmann, © 2008 Elsevier Inc. All rights reserved. It was ported to P5 by Kelly Chang. If you see any errors or have comments, <a href="https://github.com/processing/p5.js/issues"> please let us know.</a>
 
       </div>
 
@@ -125,21 +124,18 @@
       <img src="../assets/learn/color/grayscale.svg">
 
       <p>
-      By adding the <a href="/reference/#/p5/stroke"> stroke()</a> and <a href="/reference/#/p5/fill">fill()</a> functions before something is drawn, we can set the color of any given shape. 
-      There is also the function <a href="/reference/#/p5/background">background()</a>, which sets a background color for the window. Here's an example.
+      By adding the <a href="/reference/#/p5/stroke"> stroke()</a> and <a href="/reference/#/p5/fill">fill()</a> functions before something is drawn, we can set the color of any given shape. There is also the function <a href="/reference/#/p5/background">background()</a>, which sets a background color for the window. Here's an example.
       </p>
 
-      <pre><code class="language-javascript">   
-        background(255);    // Setting the background to white
-        stroke(0);          // Setting the outline (stroke) to black
-        fill(150);          // Setting the interior of a shape (fill) to grey 
-        rect(50,50,75,100); // Drawing the rectangle
-      </code></pre>   
+      <pre><code class="language-javascript">
+        background(255);    // Setting the background to white 
+ stroke(0);          // Setting the outline (stroke) to black 
+ fill(150);          // Setting the interior of a shape (fill) to grey 
+ rect(50,50,75,100); // Drawing the rectangle
+      </code></pre>
 
       <p>
-      Stroke or fill can be eliminated with the functions: <a href="/reference/#/p5/noStroke">noStroke()</a> and <a href="/reference/#/p5/noFill">noFill()</a>. 
-      Our instinct might be to say "stroke(0)" for no outline, however, it is important to remember that 0 is not "nothing", but rather denotes the color black. 
-      Also, remember not to eliminate both—with <b>noStroke()</b> and <b>noFill()</b>, nothing will appear!
+      Stroke or fill can be eliminated with the functions: <a href="/reference/#/p5/noStroke">noStroke()</a> and <a href="/reference/#/p5/noFill">noFill()</a>. Our instinct might be to say "stroke(0)" for no outline, however, it is important to remember that 0 is not "nothing", but rather denotes the color black. Also, remember not to eliminate both—with <b>noStroke()</b> and <b>noFill()</b>, nothing will appear!
       </p>
 
       <p>In addition, if we draw two shapes, p5.js will always use the most recently specified stroke and fill, reading the code from top to bottom.</p>
@@ -160,9 +156,7 @@
       <h2>RGB Color</h2>
 
       <p>
-      Remember finger painting? By mixing three "primary" colors, any color could be generated. 
-      Swirling all colors together resulted in a muddy brown. The more paint you added, the darker it got. 
-      Digital colors are also constructed by mixing three primary colors, but it works differently from paint. First, the primaries are diff erent: red, green, and blue (i.e., "RGB" color). And with color on the screen, you are mixing light, not paint, so the mixing rules are different as well.
+      Remember finger painting? By mixing three "primary" colors, any color could be generated. Swirling all colors together resulted in a muddy brown. The more paint you added, the darker it got. Digital colors are also constructed by mixing three primary colors, but it works differently from paint. First, the primaries are different: red, green, and blue (i.e., "RGB" color). And with color on the screen, you are mixing light, not paint, so the mixing rules are different as well.
       </p>
 
       <img src="../assets/learn/color/rgb.jpg">
@@ -175,15 +169,13 @@
           <li>No colors = Black</li>
         </ul>
       </p>
-      
-      <p>This assumes that the colors are all as bright as possible, but of course, you have a range of color available, so some red plus some green plus some blue equals gray, and a bit of red plus a bit of blue equals dark purple. 
-      While this may take some getting used to, the more you program and experiment with RGB color, the more it will become instinctive, much like swirling colors with your fingers. 
-      And of course you can't say "Mix some red with a bit of blue," you have to provide an exact amount. As with grayscale, the individual color elements are expressed as ranges from 0 (none of that color) to 255 (as much as possible), and they are listed in the order R, G, and B. You will get the hang of RGB color mixing through experimentation, but next we will cover some code using some common colors.</p>
+
+      <p>This assumes that the colors are all as bright as possible, but of course, you have a range of color available, so some red plus some green plus some blue equals gray, and a bit of red plus a bit of blue equals dark purple. While this may take some getting used to, the more you program and experiment with RGB color, the more it will become instinctive, much like swirling colors with your fingers. And of course you can't say "Mix some red with a bit of blue," you have to provide an exact amount. As with grayscale, the individual color elements are expressed as ranges from 0 (none of that color) to 255 (as much as possible), and they are listed in the order R, G, and B. You will get the hang of RGB color mixing through experimentation, but next we will cover some code using some common colors.</p>
 
       <script type="text/p5"  data-autoplay>
 function draw() {
-  background(255);  
-  noStroke(); 
+  background(255);
+  noStroke();
 
   // Bright red
   fill(255,0,0);
@@ -199,11 +191,11 @@ function draw() {
 }
       </script>
 
-      
+
 
       <h2>Color Transparency</h2>
 
-      <p>In addition to the red, green, and blue components of each color, there is an additional optional fourth component, referred to as the color's "alpha." Alpha means transparency and is particularly useful when you want to draw elements that appear partially see-through on top of one another. The alpha values for an image are sometimes referred to collectively as the "alpha channel" of an image.</p>
+      <p>In addition to the red, green, and blue components of each color, there is an additional optional fourth component, referred to as the color's "alpha". Alpha means transparency and is particularly useful when you want to draw elements that appear partially see-through on top of one another. The alpha values for an image are sometimes referred to collectively as the "alpha channel" of an image.</p>
       <p>It is important to realize that pixels are not literally transparent, this is simply a convenient illusion that is accomplished by blending colors. Behind the scenes, p5.js takes the color numbers and adds a percentage of one to a percentage of another, creating the optical perception of blending. (If you are interested in programming "rose-colored" glasses, this is where you would begin.)</p>
 
       <p>Alpha values also range from 0 to 255, with 0 being completely transparent (i.e., 0% opaque) and 255 completely opaque (i.e., 100% opaque).</p>
@@ -227,16 +219,16 @@ function draw() {
 
   // 25% opacity.
   fill(255,0,0,63);
-  rect(0,75,100,20); 
-      
+  rect(0,75,100,20);
+
       </script>
-     
+
       <h2>Custom Color Ranges</h2>
 
       <p>
-      RGB color with ranges of 0 to 255 is not the only way you can handle color in p5.js, in fact, it allows us to think about color any way we like. For example, you might prefer to think of color as ranging from 0 to 100 (like a percentage). You can do this by specifying a custom <a href="/reference/#/p5/colorMode">colorMode()</a>colorMode()</a>. 
-      </p> 
-      
+      RGB color with ranges of 0 to 255 is not the only way you can handle color in p5.js, in fact, it allows us to think about color any way we like. For example, you might prefer to think of color as ranging from 0 to 100 (like a percentage). You can do this by specifying a custom <a href="/reference/#/p5/colorMode">colorMode()</a>.
+      </p>
+
       <pre><code>
       colorMode(RGB,100);
       </code></pre>
