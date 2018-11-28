@@ -111,135 +111,134 @@
 
     <section role="region" label="main content">
       <div class="attribution">
-      This tutorial is from the book <em>Learning Processing</em> by Daniel Shiffman, published by Morgan Kaufmann, © 2008 Elsevier Inc. All rights reserved. It was ported to p5.js by Alex Yixuan Xu. If you see any errors or have comments, please 
-      <a href="https://github.com/processing/processing-docs/issues?state=open">let us know</a>.
-      </div>
+      Este tutorial proviene del libro <em>Learning Processing</em> de Daniel Shiffman, publicado por Morgan Kaufmann, © 2008 Elsevier Inc. Todos los derechos reservados. Fue transcrito a p5.js por Alex Yixuan Xu. Si detectas algún error o tienes comentarios, por favor <a href="https://github.com/processing/processing-docs/issues?state=open">escríbenos</a>.</div>
 
-      <h1>Coordinate System and Shapes</h1>
-      <p>Before we begin programming with p5, we must first channel our eighth grade selves, pull out a piece of graph paper, and draw a line. The shortest distance between two points is a good old fashioned line, and this is where we begin, with two points on that graph paper.</p>
+      <h1>Sistema Coordenado y Figuras</h1>
+      <p>Antes de comenzar a programar con p5.js debemos primero remontarnos a nuestra infancia, tomar un trozo de papel y dibujar una línea. La distancia más corta entre dos puntos es una línea y ese es nuestro punto de partida, con dos puntos en un gráfico.</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-01.png">
 
-      The above figure shows a line between point A (1,0) and point B (4,5). If you wanted to direct a friend of yours to draw that same line, you would give them a shout and say "draw a line from the point one-zero to the point four-five, please." Well, for the moment, imagine your friend was a computer and you wanted to instruct this digital pal to display that same line on its screen. The same command applies (only this time you can skip the pleasantries and you will be required to employ a precise formatting). Here, the instruction will look like this:
+      <p>La figura anterior muestra una línea que une un punto A (1,0) y un punto B (4,5). Si le hubieras pedido a un amigo que dibujara la línea por ti, tendrías que haberle dado las indicaciones "traza una línea desde el punto uno coma cero hasta el punto cuatro coma cinco, por favor". Bueno, por el momento imagina que tu amigo era un computador al que solicitaste dibujar la misma línea en su pantalla. El mismo comando aplica (solo que en esta caso puedes obviar formalidades y deberás utilizar un formato preciso). Aquí la instrucción es como sigue:</p>
 
       <pre><code class="language-javascript">
         line(1,0,4,5);
       </code></pre>
 
-      <p>Even without having studied the syntax of writing code, the above statement should make a fair amount of sense. We are providing a command (which we will refer to as a "function") for the machine to follow entitled "line." In addition, we are specifying some arguments for how that line should be drawn, from point A (1,0) to point B (4,5). If you think of that line of code as a sentence, the function is a verb and the arguments are the objects of the sentence. The code sentence also ends with a semicolon instead of a period.</p>
+      <p>Aun sin haber estudiado la sintaxis, la expresión anterior debiera haberte hecho sentido. Estamos entregando a la máquina un comando llamado "línea" (al que nos referiremos como "función") para ser ejecutado. Adicionalmente estamos espcificando argumentos que indican cómo la línea debería ser dibujada, desde un punto A (1,0) hasta un punto B (4,5). Si pensamos una línea de código como una frase, la función es un verbo y los argumentos son los objetos de la frase. La frase de código termina con un punto y coma en vez de un punto final.</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-02.png">
 
-      <p>The key here is to realize that the computer screen is nothing more than a fancier piece of graph paper. Each pixel of the screen is a coordinate - two numbers, an "x" (horizontal) and a "y" (vertical) - that determines the location of a point in space. And it is our job to specify what shapes and colors should appear at these pixel coordinates.</p>
+      <p>La clave aquí es darse cuenta que la pantalla del computador es la abstracción de un trozo de papel. Cada pixel de la pantalla es una coordenada -dos números, "x" (horizontal) e "y" (vertical)- que determinan la ubicación de un punto en el espacio. Y es nuestro trabajo especificar qué figuras y colores debieran apareceren en dicha coordenada de pixeles.</p>
 
-      <p>Nevertheless, there is a catch here. The graph paper from eighth grade ("Cartesian coordinate system") placed (0,0) in the center with the y-axis pointing up and the x-axis pointing to the right (in the positive direction, negative down and to the left). The coordinate system for pixels in a computer window, however, is reversed along the y-axis. (0,0) can be found at the top left with the positive direction to the right horizontally and down vertically. </p>
+      <p>Sin embargo hay una trampa. El gráfico que nos enseñaron cuando chicos ("Sistema Coordenado Cartesiano") ubicaba el punto (0,0) en el centro con el "eje y" apuntando hacia arriba, y el "eje x" apuntando hacia la derecho (hacia los números positivos, los negativos hacia la izquierda y abajo). El sistema coordenado para pixeles en una pantalla de computador, en cambio, está invertido en el eje y. (0,0) se ubica en la parte superior izquierda con la dirección positiva apuntando horizontalmente hacia la derecha y abajo.</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg">
 
-      <h2>Simple Shapes</h2>
-      <p>The vast majority of the programming examples you'll see with p5 are visual in nature. These examples, at their core, involve drawing shapes and setting pixels. Let's begin by looking at four primitive shapes.</p>
+      <h2>Formas Primitivas</h2>
+      <p>La mayoría de los ejemplos que verás en p5.js son de naturaleza visual. Ellos implican principalmente dibujar figuras y definir coordenadas de pixeles. Comencemos observando las cuatro formas primitivas.</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png">
 
-      <p>For each shape, we will ask ourselves what information is required to specify the location and size (and later color) of that shape and learn how p5 expects to receive that information. In each of the diagrams below, we'll assume a window with a width of 10 pixels and height of 10 pixels. This isn't particularly realistic since when you really start coding you will most likely work with much larger windows (10x10 pixels is barely a few millimeters of screen space.) Nevertheless for demonstration purposes, it is nice to work with smaller numbers in order to present the pixels as they might appear on graph paper (for now) to better illustrate the inner workings of each line of code.</p>
+      <p>Para cada figura nos debemos preguntar qué información requerimos para especificar su ubicación y tamaño (y luego su color) y entender cómo p5.js espera recibir dicha información. En cada uno de los siguientes diagramas asumiremos una ventana de 10 pixeles de ancho y 10 pixeles de alto. Esto no es necesariamente realista ya que cuando comiences a trabajar probablemente preferirás una ventana mucho más grande (10x10 pixeles no es más que unos pocos milímetros en el espacio). Sin embargo con fines explicativos es preferible trabajar con numeros más pequeños de modo de presentar los pixeles como aparecerían en un gráfico de papel (por ahora) para ilustrar mejor el funcionamiento de cada linea de código.</p>
 
-      <p>A <a href="/reference/#/p5/point">point()</a> is the easiest of the shapes and a good place to start. To draw a point, we only need an x and y coordinate.</p>
+      <p>Un <a href="/reference/#/p5/point">point()</a> es la forma más simple y un buen lugar para comenzar. Para dibujar un punto solo necesitamos un par ordenado (x,y).</p>
       <!-- this script only needs to get added once even if there are multiple widget instances -->
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
       <script type="text/p5" data-autoplay>
-function setup(){
-  createCanvas(100, 100);
-}
-function draw(){
-  point(40, 50); // point(x, y)
-}
+        function setup(){
+          createCanvas(100, 100);
+        }
+        function draw(){
+          point(40, 50); // point(x, y)
+        }
       </script>
 
-      <p>A <a href="/reference/#/p5/line">line()</a> isn't terribly difficult either and simply requires two points: (x1,y1) and (x2,y2):</p>
+      <p>Una <a href="/reference/#/p5/line">line()</a> tampoco es terriblemente compleja y solo requiere dos puntos: (x1,y1) y (x2,y2):</p>
       <script type="text/p5" data-autoplay>
-function setup(){
-  createCanvas(100, 100);
-}
-function draw(){
-  line(10, 20, 50, 20); // line(x1, y1, x2, y2)
-}
+        function setup(){
+          createCanvas(100, 100);
+        }
+        function draw(){
+          line(10, 20, 50, 20); // line(x1, y1, x2, y2)
+        }
       </script>
 
-      <p>Once we arrive at drawing a <a href="/reference/#/p5/rect">rect()</a>, things become a bit more complicated. In p5, a rectangle is specified by the coordinate for the top left corner of the rectangle, as well as its width and height.</p>
+      <p>Una vez que llegamos a dibujar un <a href="/reference/#/p5/rect">rect()</a>, las cosas se tornan un poco más complejas. En p5.js un rectángulo se especifica con las coordenadas de su esquina superior izquierda, así como ancho y alto.</p>
       <script type="text/p5" data-autoplay>
-function setup(){
-  createCanvas(100, 100);
-}
-function draw(){
-  rect(10, 20, 40, 30); // rect(x, y, width, height)
-}
+        function setup(){
+          createCanvas(100, 100);
+        }
+        function draw(){
+          rect(10, 20, 40, 30); // rect(x, y, width, height)
+        }
       </script>
 
-      <p>A second way to draw a rectangle involves specifying the centerpoint, along with width and height. If we prefer this method, we first indicate that we want to use the <a href="/reference/#/p5/CENTER">CENTER</a> mode before the instruction for the rectangle itself. Note that p5 is case-sensitive.</p>
+      <p>Una segunda manera de dibujar un rectángulo requiere especificar su punto central junto con su ancho y alto. Si preferimos este método, debemos indicar previamente que queremos utilizar el modo <a href="/reference/#/p5/CENTER">CENTER</a> antes de la instrucción del propio rectángulo. Notemos que p5.js es sensible a cada caso.</p>
       <script type="text/p5" data-autoplay>
-function setup(){
-  createCanvas(100, 100);
-  rectMode(CENTER);
-}
-function draw(){
-  rect(30, 20, 40, 20); // rect(x, y, width, height)
-}
+        function setup(){
+          createCanvas(100, 100);
+          rectMode(CENTER);
+        }
+        function draw(){
+          rect(30, 20, 40, 20); // rect(x, y, width, height)
+        }
       </script>
 
-      <p>Finally, we can also draw a rectangle with two points (the top left corner and the bottom right corner). The mode here is <a href="/reference/#/p5/CORNERS">CORNERS</a>. Note this example gives the same result on screen as the example above.</p>
+      <p>Finalmente podemos dibujar un rectángulo con dos puntos (la esquina superior izquierda y la esquina superior derecha). El modo en este caso es <a href="/reference/#/p5/CORNERS">CORNERS</a>. Notar que este ejemplo entrega el mismo resultado en pantalla que el ejemplo anterior.</p>
       <script type="text/p5" data-autoplay>
-function setup(){
-  createCanvas(100, 100);
-  rectMode(CORNERS);
-}
-function draw(){
-  rect(10, 10, 50, 30); // rect(x, y, width, height)
-}
+        function setup(){
+          createCanvas(100, 100);
+          rectMode(CORNERS);
+        }
+        function draw(){
+          rect(10, 10, 50, 30); // rect(x, y, width, height)
+        }
       </script>
 
-      <p>Once we have become comfortable with the concept of drawing a rectangle, an <a href="/reference/#/p5/ellipse">ellipse()</a> is a snap. In fact, it is identical to <a href="/reference/#/p5/rect">rect()</a> with the difference being that an ellipse is drawn where the bounding box of the rectangle would be. The default mode for <a href="/reference/#/p5/ellipse">ellipse()</a> is <a href="/reference/#/p5/CENTER">CENTER</a>, rather than <a href="/reference/#/p5/CORNER">CORNER</a>.</p>
+      <p>Una vez que nos hemos familiarizado con el concepto de dibujar un rectángulo, una <a href="/reference/#/p5/ellipse">ellipse()</a> es muy sencilla de dibujar. De hecho es idéntica al <a href="/reference/#/p5/rect">rect()</a>> con la diferencia de que la elipse se dibuja donde la caja que contiene al rectángulo debiera estar. El modo por defecto para la <a href="/reference/#/p5/ellipse">ellipse()</a> es <a href="/reference/#/p5/CENTER">CENTER</a>, en vez de <a href="/reference/#/p5/CORNER">CORNER</a>.</p>
       <script type="text/p5" data-autoplay>
-function setup(){
-  createCanvas(100, 100);
-  ellipseMode(CENTER);
-}
-function draw(){
-  ellipse(30, 30, 40, 60); // ellipse(x, y, width, height)
-}       
-      </script>
-
-      <script type="text/p5" data-autoplay>
-function setup(){
-  createCanvas(100, 100);
-  ellipseMode(CORNER);
-}
-function draw(){
-  ellipse(10, 10, 30, 50); // ellipse(x, y, width, height)
-}       
+        function setup(){
+          createCanvas(100, 100);
+          ellipseMode(CENTER);
+        }
+        function draw(){
+          ellipse(30, 30, 40, 60); // ellipse(x, y, width, height)
+        }
       </script>
 
       <script type="text/p5" data-autoplay>
-function setup(){
-  createCanvas(100, 100);
-  ellipseMode(CORNERS);
-}
-function draw(){
-  ellipse(10, 10, 40, 50); // ellipse(x, y, width, height)
-}       
+        function setup(){
+          createCanvas(100, 100);
+          ellipseMode(CORNER);
+        }
+        function draw(){
+          ellipse(10, 10, 30, 50); // ellipse(x, y, width, height)
+        }
       </script>
 
-      <p>It is important to acknowledge that these ellipses do not look particularly circular. p5 has a built-in methodology for selecting which pixels should be used to create a circular shape. Zoomed in like this, we get a bunch of squares in a circle-like pattern, but zoomed out on a computer screen, we get a nice round ellipse. p5 also gives us the power to develop our own algorithms for coloring in individual pixels (in fact, we can already imagine how we might do this using "point" over and over again), but for now, we are content with allowing the "ellipse" statement to do the hard work. (For more about pixels, start with: the <a href="/reference/#/p5/pixels">pixels reference page</a>, though be warned this is a great deal more advanced than this tutorial.)</p>
-      <p>Now let's look at what some code with shapes in more realistic setting, with window dimensions of 200 by 200. Note the use of the size() function to specify the width and height of the window.</p>
+      <script type="text/p5" data-autoplay>
+        function setup(){
+          createCanvas(100, 100);
+          ellipseMode(CORNERS);
+        }
+        function draw(){
+          ellipse(10, 10, 40, 50); // ellipse(x, y, width, height)
+        }
+      </script>
+
+      <p>Es imporante considerar que esta elipse no se ve perfectamente circular. p5.js ha integrado una metodología para seleccionar qué pixeles deberían ser usados para crear una forma circular. Si nos acercamos a ella vemos un grupo de cuadrados distribuidos en una forma circular, pero si nos alejamos al nivel de una pantalla de computador tenemos una suave y redonda circunferencia. p5.js también nos otorga el poder de desarrollar nuestros propios algoritmos para colorear pixeles individualmente (de hecho, podemos imaginar cómo sería hacer esto utlizando la función "point" una y otra vez), pero por ahora conformémonos con utilizar el comando "ellipse" para hacerlo. (Para más información sobre pixeles, puedes comenzar con: la <a href="/reference/#/p5/pixels">página de referencia Pixeles</a>, que es mucho más avanzada y compleja que este tutorial).</p>
+
+      <p>Ahora observemos una aplicación un poco más realista, con una pantalla de dimensiones 200 por 200. Notemos el uso de la función createCanvas() para especificar el tamaño de la ventana.</p>
 
       <script type="text/p5" data-autoplay>
-function setup(){
-  createCanvas(200, 200);
-  rectMode(CENTER);
-}
-function draw(){
-  rect(100,100,20,100);
-  ellipse(100,70,60,60);
-  ellipse(81,70,16,32); 
-  ellipse(119,70,16,32); 
-  line(90,150,80,160);
-  line(110,150,120,160);
-}
+        function setup(){
+          createCanvas(200, 200);
+          rectMode(CENTER);
+        }
+        function draw(){
+          rect(100,100,20,100);
+          ellipse(100,70,60,60);
+          ellipse(81,70,16,32);
+          ellipse(119,70,16,32);
+          line(90,150,80,160);
+          line(110,150,120,160);
+        }
       </script>
 
 
@@ -263,6 +262,7 @@ function draw(){
   </object>
 
 </div><!-- end id="get-started-page"  -->
+
 
     </div> <!-- close class='container'-->
 
