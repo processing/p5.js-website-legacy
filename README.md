@@ -3,18 +3,13 @@
 ## Setup
 
 0. Install [node.js](https://nodejs.org/en/download/).
-1. Download this zip file or [clone this repository](https://help.github.com/articles/cloning-a-repository/) and navigate to the directory in the terminal.
-2. Type `npm install`.
-2. Copy `dist\download\version-sample.json` to `dist\download\version.json`.
-2. Type `npm run watch` to run.
-3. This should open a window in your browser with the site running at http://localhost:9000.
+1. Download this repo as a [zip file](https://github.com/processing/p5.js-website/archive/master.zip) or [clone this repository](https://help.github.com/articles/cloning-a-repository/). 
+2. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
+3. Copy `dist\download\version-sample.json` to `dist\download\version.json`.
 
 ## Running
 
-Once you've setup the site, to run again in the future:
-
-1. Type `npm run watch` to run.
-2. This should open a window in your browser with the site running at http://localhost:9000.
+Once you've setup the site, type `npm run watch` to run the website. This should open a window in your browser with the site running at http://localhost:9000.
 
 ## File structure
 
