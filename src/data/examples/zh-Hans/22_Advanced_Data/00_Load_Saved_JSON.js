@@ -6,6 +6,39 @@
  * saveJSON, unlike the Processing example.<br><br>
  * Based on Daniel Shiffman's <a href="https://processing.org/examples/loadsavejson.html">LoadSaveJSON Example</a> for Processing.
  */
+
+// Bubble class
+class Bubble {
+  constructor(x, y, diameter, name) {
+    this.x = x;
+    this.y = y;
+    this.diameter = diameter;
+    this.radius = diameter / 2;
+    this.name = name;
+
+    this.over = false;
+  }
+
+  // Check if mouse is over the bubble
+  rollover(px, py) {
+    let d = dist(px, py, this.x, this.y);
+    this.over = d < this.radius;
+  }
+
+  // Display the Bubble
+  display() {
+    stroke(0);
+    strokeWeight(0.8);
+    noFill();
+    ellipse(this.x, this.y, this.diameter, this.diameter);
+    if (this.over) {
+      fill(0);
+      textAlign(CENTER);
+      text(this.name, this.x, this.y + this.radius + 20);
+    }
+  }
+}
+
 let data = {}; // Global object to hold results from the loadJSON call
 let bubbles = []; // Global array to hold all bubble objects
 
@@ -68,38 +101,4 @@ function draw() {
   textAlign(LEFT);
   fill(0);
   text('Click to add bubbles.', 10, height - 10);
-}
-
-// Bubble class
-function Bubble(x, y, diameter, name) {
-  this.x = x;
-  this.y = y;
-  this.diameter = diameter;
-  this.radius = diameter / 2;
-  this.name = name;
-
-  this.over = false;
-
-  // Check if mouse is over the bubble
-  this.rollover = function(px, py) {
-    let d = dist(px, py, this.x, this.y);
-    if (d < this.radius) {
-      this.over = true;
-    } else {
-      this.over = false;
-    }
-  };
-
-  // Display the Bubble
-  this.display = function() {
-    stroke(0);
-    strokeWeight(0.8);
-    noFill();
-    ellipse(this.x, this.y, this.diameter, this.diameter);
-    if (this.over) {
-      fill(0);
-      textAlign(CENTER);
-      text(this.name, this.x, this.y + this.radius + 20);
-    }
-  };
 }

@@ -8,14 +8,16 @@
  */
 let dancingWords = [];
 
-function DanceSpan(element, x, y) {
-  element.position(x, y);
+class DanceSpan {
+  constructor(element, x, y) {
+    element.position(x, y);
+  }
 
-  this.brownian = function() {
+  brownian() {
     x += random(-6, 6);
     y += random(-6, 6);
     element.position(x, y);
-  };
+  }
 }
 
 function setup() {

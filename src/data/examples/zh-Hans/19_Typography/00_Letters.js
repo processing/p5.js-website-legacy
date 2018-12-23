@@ -43,11 +43,11 @@ function draw() {
 
       // Add different color to the vowels and other characters
       if (
-        letter == 'A' ||
-        letter == 'E' ||
-        letter == 'I' ||
-        letter == 'O' ||
-        letter == 'U'
+        letter === 'A' ||
+        letter === 'E' ||
+        letter === 'I' ||
+        letter === 'O' ||
+        letter === 'U'
       ) {
         fill('#ed225d');
       } else {
