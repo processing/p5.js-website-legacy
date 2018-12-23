@@ -7,7 +7,7 @@
  */
 
 // Una barra deslizante de rango HTML
-var slider;
+let slider;
 
 function setup() {
   createCanvas(720, 400);

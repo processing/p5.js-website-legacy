@@ -8,7 +8,7 @@
  */
 
 // for red, green, and blue color values
-var r, g, b;
+let r, g, b;
 
 function setup() {
   createCanvas(720, 400);
@@ -30,7 +30,7 @@ function draw() {
 // When the user clicks the mouse
 function mousePressed() {
   // Check if mouse is inside the circle
-  var d = dist(mouseX, mouseY, 360, 200);
+  let d = dist(mouseX, mouseY, 360, 200);
   if (d < 100) {
     // Pick new random color values
     r = random(255);
