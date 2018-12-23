@@ -22,11 +22,10 @@ function setup() {
 }
 
 function draw() {
-
   background(0);
 
   // Traslada el punto de origen al centro del lienzo
-  translate(width/2, height/2);
+  translate(width / 2, height / 2);
 
   // Convierte de polar a cartesiano
   let x = r * cos(theta);

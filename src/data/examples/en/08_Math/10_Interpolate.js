@@ -1,10 +1,10 @@
 /*
  * @name Linear Interpolation
  * @frame 720, 400
- * @description Move the mouse across the screen and the symbol will follow. 
- * Between drawing each frame of the animation, the ellipse moves part 
+ * @description Move the mouse across the screen and the symbol will follow.
+ * Between drawing each frame of the animation, the ellipse moves part
  * of the distance (0.05) from its current position toward the cursor using
- * the lerp() function. 
+ * the lerp() function.
  * This is the same as the Easing under input only with lerp() instead..
  */
 

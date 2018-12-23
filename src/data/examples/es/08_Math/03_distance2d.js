@@ -14,10 +14,10 @@ function setup() {
 function draw() {
   background(0);
 
-  for(let i = 0; i <= width; i += 20) {
-    for(let j = 0; j <= height; j += 20) {
+  for (let i = 0; i <= width; i += 20) {
+    for (let j = 0; j <= height; j += 20) {
       let size = dist(mouseX, mouseY, i, j);
-      size = size/max_distance * 66;
+      size = (size / max_distance) * 66;
       ellipse(i, j, size, size);
     }
   }

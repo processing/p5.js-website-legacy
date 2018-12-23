@@ -14,18 +14,18 @@ function setup() {
 function draw() {
   // Crear un fondo traslúcido
   fill(0, 10);
-  rect(0,0,width,height);
+  rect(0, 0, width, height);
 
   //let n = random(0,width);  // Prueba esta línea en vez del ruido (noise)
 
   // Obtener un valor de ruido basado en xoff y escalarlo
   // según el ancho de la ventana
-  let n = noise(xoff)*width;
+  let n = noise(xoff) * width;
 
   // Incrementar xoff en cada ciclo
   xoff += xincrement;
 
   // Dibujar la elipse en la coordenada producida por el ruido Perlin
   fill(200);
-  ellipse(n,height/2, 64, 64);
+  ellipse(n, height / 2, 64, 64);
 }

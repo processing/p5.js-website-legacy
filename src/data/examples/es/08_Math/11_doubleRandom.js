@@ -17,8 +17,8 @@ function setup() {
 function draw() {
   background(0);
   let rand = 0;
-  for  (let i = 1; i < steps; i++) {
-    point( (width/steps) * i, (height/2) + random(-rand, rand) );
+  for (let i = 1; i < steps; i++) {
+    point((width / steps) * i, height / 2 + random(-rand, rand));
     rand += random(-5, 5);
   }
 }
