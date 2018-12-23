@@ -5,7 +5,7 @@
  * in which the draftsperson controls some aspects of the image and the software 
  * controls others.
  */
-var angle = 0;
+let angle = 0;
 
 function setup() {
   createCanvas(710, 400);
@@ -18,10 +18,10 @@ function draw() {
   // Draw only when mouse is pressed
   if (mouseIsPressed === true) {
     angle += 5;
-    var val = cos(radians(angle)) * 12.0;
-    for (var a = 0; a < 360; a += 75) {
-      var xoff = cos(radians(a)) * val;
-      var yoff = sin(radians(a)) * val;
+    let val = cos(radians(angle)) * 12.0;
+    for (let a = 0; a < 360; a += 75) {
+      let xoff = cos(radians(a)) * val;
+      let yoff = sin(radians(a)) * val;
       fill(0);
       ellipse(mouseX + xoff, mouseY + yoff, val, val);
     }

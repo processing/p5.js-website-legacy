@@ -21,7 +21,7 @@ function draw() {
 // y dibuja una elipse grande si el mouse se mueve rápidamente
 
 function variableEllipse(x, y, px, py) {
-  var speed = abs(x-px) + abs(y-py);
+  let speed = abs(x-px) + abs(y-py);
   stroke(speed);
   ellipse(x, y, speed, speed);
 }
