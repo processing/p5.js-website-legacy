@@ -31,6 +31,6 @@ function gotFile(file) {
     // Draw the image onto the canvas
     image(img, 0, 0, width, height);
   } else {
-    println('Not an image file!');
+    console.log('Not an image file!');
   }
 }

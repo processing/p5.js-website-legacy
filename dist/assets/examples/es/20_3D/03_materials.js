@@ -4,7 +4,7 @@
  * Reaccionan de distintas formas a la luz.
  * Mueve tu ratón para cambiar la posición de la luz.
  */
-var img;
+let img;
 function setup() {
   createCanvas(710, 400, WEBGL);
   img = loadImage("assets/cat.jpg");
@@ -13,8 +13,8 @@ function setup() {
 function draw() {
   background(0);
 
-  var locX = mouseX - height / 2;
-  var locY = mouseY - width / 2;
+  let locX = mouseX - height / 2;
+  let locY = mouseY - width / 2;
 
   ambientLight(60, 60, 60);
   pointLight(255, 255, 255, locX, locY, 100);
