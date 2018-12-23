@@ -7,12 +7,12 @@
  * y un<a href="https://github.com/processing/p5.js/wiki/Local-server">
  * servidor local</a>.</span></em></p> corriendo.
  */
-var img;
-var imgMask;
+let img;
+let imgMask;
 
 function preload() {
-  img = loadImage("assets/moonwalk.jpg");
-  imgMask = loadImage("assets/mask.png");
+  img = loadImage('assets/moonwalk.jpg');
+  imgMask = loadImage('assets/mask.png');
 }
 
 function setup() {
@@ -23,6 +23,6 @@ function setup() {
 
 function draw() {
   background(0, 102, 153);
-  image(img, width/2, height/2);
+  image(img, width / 2, height / 2);
   image(img, mouseX, mouseY);
 }

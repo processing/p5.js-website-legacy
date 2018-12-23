@@ -2,19 +2,19 @@
  * @name Arreglo de objetos
  * @description Crea una clase Jitter, instancia múltiples objetos, y los mueve en la pantalla.
  */
-var bugs = []; //arreglo de objetos Jitter
+let bugs = []; //arreglo de objetos Jitter
 
 function setup() {
   createCanvas(710, 400);
   // Crear objetos
-  for (var i=0; i<50; i++) {
+  for (let i = 0; i < 50; i++) {
     bugs.push(new Jitter());
   }
 }
 
 function draw() {
   background(50, 89, 100);
-  for (var i=0; i<bugs.length; i++) {
+  for (let i = 0; i < bugs.length; i++) {
     bugs[i].move();
     bugs[i].display();
   }

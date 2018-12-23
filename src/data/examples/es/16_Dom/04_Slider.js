@@ -5,12 +5,12 @@
  * para que este ejemplo funcione en tu propio proyecto.<br><br>
  * Mueve las barras deslizantes para controlar los valores de color RGB del fondo.
  */
-var rSlider, gSlider, bSlider;
+let rSlider, gSlider, bSlider;
 
 function setup() {
   // crear lienzo
   createCanvas(710, 400);
-  textSize(15)
+  textSize(15);
   noStroke();
 
   // crear barras deslizantes
@@ -23,11 +23,11 @@ function setup() {
 }
 
 function draw() {
-  var r = rSlider.value();
-  var g = gSlider.value();
-  var b = bSlider.value();
+  let r = rSlider.value();
+  let g = gSlider.value();
+  let b = bSlider.value();
   background(r, g, b);
-  text("red", 165, 35);
-  text("green", 165, 65);
-  text("blue", 165, 95);
+  text('red', 165, 35);
+  text('green', 165, 65);
+  text('blue', 165, 95);
 }

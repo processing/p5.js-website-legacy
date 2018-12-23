@@ -1,14 +1,13 @@
 /*
  * @name Input and Button
- * @description You will need to include the 
+ * @description You will need to include the
  * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
  * for this example to work in your own project.<br><br>
  * Input text and click the button to see it affect the the canvas.
  */
-var input, button, greeting;
+let input, button, greeting;
 
 function setup() {
-
   // create canvas
   createCanvas(710, 400);
 
@@ -27,15 +26,15 @@ function setup() {
 }
 
 function greet() {
-  var name = input.value();
-  greeting.html('hello '+name+'!');
+  let name = input.value();
+  greeting.html('hello ' + name + '!');
   input.value('');
 
-  for (var i=0; i<200; i++) {
+  for (let i = 0; i < 200; i++) {
     push();
     fill(random(255), 255, 255);
     translate(random(width), random(height));
-    rotate(random(2*PI));
+    rotate(random(2 * PI));
     text(name, 0, 0);
     pop();
   }

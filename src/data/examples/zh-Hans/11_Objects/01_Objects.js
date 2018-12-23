@@ -4,7 +4,7 @@
  * and move it around the screen. Adapted from Getting Started with
  * Processing by Casey Reas and Ben Fry.
  */
-var bug;  // Declare object
+let bug; // Declare object
 
 function setup() {
   createCanvas(710, 400);

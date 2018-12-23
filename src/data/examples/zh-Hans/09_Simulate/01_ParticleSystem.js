@@ -3,11 +3,11 @@
  * @description This is a basic Particle System
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */
-var system;
+let system;
 
 function setup() {
   createCanvas(720, 400);
-  system = new ParticleSystem(createVector(width/2, 50));
+  system = new ParticleSystem(createVector(width / 2, 50));
 }
 
 function draw() {
@@ -17,7 +17,7 @@ function draw() {
 }
 
 // A simple Particle class
-var Particle = function(position) {
+let Particle = function(position) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
   this.position = position.copy();
@@ -30,7 +30,7 @@ Particle.prototype.run = function() {
 };
 
 // Method to update position
-Particle.prototype.update = function(){
+Particle.prototype.update = function() {
   this.velocity.add(this.acceleration);
   this.position.add(this.velocity);
   this.lifespan -= 2;
@@ -45,11 +45,11 @@ Particle.prototype.display = function() {
 };
 
 // Is the particle still useful?
-Particle.prototype.isDead = function(){
+Particle.prototype.isDead = function() {
   return this.lifespan < 0;
 };
 
-var ParticleSystem = function(position) {
+let ParticleSystem = function(position) {
   this.origin = position.copy();
   this.particles = [];
 };
@@ -59,8 +59,8 @@ ParticleSystem.prototype.addParticle = function() {
 };
 
 ParticleSystem.prototype.run = function() {
-  for (var i = this.particles.length-1; i >= 0; i--) {
-    var p = this.particles[i];
+  for (let i = this.particles.length - 1; i >= 0; i--) {
+    let p = this.particles[i];
     p.run();
     if (p.isDead()) {
       this.particles.splice(i, 1);

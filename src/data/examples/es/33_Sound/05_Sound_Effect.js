@@ -11,10 +11,10 @@
 // Creative Commons BY 3.0
 
 // Un objeto archivo de sonido
-var dingdong;
+let dingdong;
 
 // un objeto timbre (doorbell), que gatillará el sonido
-var doorbell;
+let doorbell;
 
 function setup() {
   createCanvas(200, 200);
@@ -25,7 +25,7 @@ function setup() {
   dingdong = loadSound('assets/doorbell.mp3');
 
   // crear un nuevo timbre
-  doorbell = new Doorbell(width/2, height/2, 64);
+  doorbell = new Doorbell(width / 2, height / 2, 64);
 }
 
 function draw() {
@@ -42,11 +42,11 @@ function mousePressed() {
 }
 
 // una clase para describir un "timbre" (realmente un botón)
-var Doorbell = function(x_, y_, r_) {
+let Doorbell = function(x_, y_, r_) {
   // posición y tamaño
-  var x = x_;
-  var y = y_;
-  var r = r_;
+  let x = x_;
+  let y = y_;
+  let r = r_;
 
   // ¿hay un punto dentro del timbre?(usado para "rollover" del ratón)
   this.contains = function(mx, my) {

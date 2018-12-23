@@ -13,7 +13,7 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * y un archivo de audio.</span></em>
  */
-var noise, env, analyzer;
+let noise, env, analyzer;
 
 function setup() {
   createCanvas(710, 200);
@@ -39,12 +39,12 @@ function draw() {
   background(0);
 
   // obtener lectura de volumen del analizador p5.Amplitude
-  var level = analyzer.getLevel();
+  let level = analyzer.getLevel();
 
   // usar el nivel para dibujar un rectángulo verde
-  var levelHeight = map(level, 0, .4, 0, height);
-  fill(100,250,100);
-  rect(0, height, width, - levelHeight);
+  let levelHeight = map(level, 0, 0.4, 0, height);
+  fill(100, 250, 100);
+  rect(0, height, width, -levelHeight);
 }
 
 function mousePressed() {

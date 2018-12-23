@@ -5,7 +5,6 @@
  * 圆形是通过 ellipse() 来绘制。每个功能都需要一些参数来确定形状的位置和大小。
  */
 function setup() {
-
   // 将屏幕设置为720像素宽，400像素高
   createCanvas(720, 400);
   background(0);
@@ -24,7 +23,7 @@ function setup() {
   ellipse(252, 144, 72, 72);
 
   fill(204);
-  triangle(288, 18, 351, 360, 288, 360); 
+  triangle(288, 18, 351, 360, 288, 360);
 
   fill(255);
   arc(479, 300, 280, 280, PI, TWO_PI);

@@ -25,7 +25,7 @@ function draw() {
   background(0);
 
   // Translate the origin point to the center of the screen
-  translate(width/2, height/2);
+  translate(width / 2, height / 2);
 
   // Convert polar to cartesian
   let x = r * cos(theta);

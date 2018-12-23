@@ -7,19 +7,18 @@
  *  Arrastra el mouse para añadir boids al sistema.
  */
 
+let flock;
 
-var flock;
-
-var text;
+let text;
 
 function setup() {
-  createCanvas(640,360);
-  createP("Drag the mouse to generate new boids.");
+  createCanvas(640, 360);
+  createP('Drag the mouse to generate new boids.');
 
   flock = new Flock();
   // Añade un conjunto inicial de boids al sistema
-  for (var i = 0; i < 100; i++) {
-    var b = new Boid(width/2,height/2);
+  for (let i = 0; i < 100; i++) {
+    let b = new Boid(width / 2, height / 2);
     flock.addBoid(b);
   }
 }
@@ -31,7 +30,7 @@ function draw() {
 
 // Añade un nuevo boid al sistema
 function mouseDragged() {
-  flock.addBoid(new Boid(mouseX,mouseY));
+  flock.addBoid(new Boid(mouseX, mouseY));
 }
 
 // The Nature of Code
@@ -47,14 +46,14 @@ function Flock() {
 }
 
 Flock.prototype.run = function() {
-  for (var i = 0; i < this.boids.length; i++) {
-    this.boids[i].run(this.boids);  // Pasar la lista entera de boids a cada boid de forma individual
+  for (let i = 0; i < this.boids.length; i++) {
+    this.boids[i].run(this.boids); // Pasar la lista entera de boids a cada boid de forma individual
   }
-}
+};
 
 Flock.prototype.addBoid = function(b) {
   this.boids.push(b);
-}
+};
 
 // The Nature of Code
 // Daniel Shiffman
@@ -63,12 +62,12 @@ Flock.prototype.addBoid = function(b) {
 // Clase Boid
 // Métodos para Separación, Cohesión, alineamiento
 
-function Boid(x,y) {
-  this.acceleration = createVector(0,0);
-  this.velocity = createVector(random(-1,1),random(-1,1));
-  this.position = createVector(x,y);
+function Boid(x, y) {
+  this.acceleration = createVector(0, 0);
+  this.velocity = createVector(random(-1, 1), random(-1, 1));
+  this.position = createVector(x, y);
   this.r = 3.0;
-  this.maxspeed = 3;    // Velocidad máxima
+  this.maxspeed = 3; // Velocidad máxima
   this.maxforce = 0.05; // Fuerza de viraje máxima
 }
 
@@ -77,18 +76,18 @@ Boid.prototype.run = function(boids) {
   this.update();
   this.borders();
   this.render();
-}
+};
 
 Boid.prototype.applyForce = function(force) {
   // Posibilidad de agregar masa aquí si queremos A = F / M
   this.acceleration.add(force);
-}
+};
 
 // Acumular una nueva aceleración cada vez basado en tres reglas
 Boid.prototype.flock = function(boids) {
-  var sep = this.separate(boids);   // Separación
-  var ali = this.align(boids);      // Alineamiento
-  var coh = this.cohesion(boids);   // Cohesión
+  let sep = this.separate(boids); // Separación
+  let ali = this.align(boids); // Alineamiento
+  let coh = this.cohesion(boids); // Cohesión
   // Dar un peso arbitrario a cada fuerza
   sep.mult(1.5);
   ali.mult(1.0);
@@ -97,7 +96,7 @@ Boid.prototype.flock = function(boids) {
   this.applyForce(sep);
   this.applyForce(ali);
   this.applyForce(coh);
-}
+};
 
 // Método para actualizar ubicación
 Boid.prototype.update = function() {
@@ -108,62 +107,62 @@ Boid.prototype.update = function() {
   this.position.add(this.velocity);
   // Resetear acceleración a 0 en cada ciclo
   this.acceleration.mult(0);
-}
+};
 
 // Un método que calcula y aplica una fuerza de viraje hacia una posición objetivo
 // VIRAJE = DESEADO - VELOCIDAD
 Boid.prototype.seek = function(target) {
-  var desired = p5.Vector.sub(target,this.position);  // Un vector apuntando desde la ubicación hacia el objetivo
+  let desired = p5.Vector.sub(target, this.position); // Un vector apuntando desde la ubicación hacia el objetivo
   // Normalizar deseado y escalar según velocidad máxima
   desired.normalize();
   desired.mult(this.maxspeed);
   // Viraje = Deseado - Velocidad
-  var steer = p5.Vector.sub(desired,this.velocity);
-  steer.limit(this.maxforce);  // Limita al máximo de fuerza de viraje
+  let steer = p5.Vector.sub(desired, this.velocity);
+  steer.limit(this.maxforce); // Limita al máximo de fuerza de viraje
   return steer;
-}
+};
 
 Boid.prototype.render = function() {
   // Dibuja un triángulo rotado en la dirección de la velocidad
-  var theta = this.velocity.heading() + radians(90);
+  let theta = this.velocity.heading() + radians(90);
   fill(127);
   stroke(200);
   push();
-  translate(this.position.x,this.position.y);
+  translate(this.position.x, this.position.y);
   rotate(theta);
   beginShape();
-  vertex(0, -this.r*2);
-  vertex(-this.r, this.r*2);
-  vertex(this.r, this.r*2);
+  vertex(0, -this.r * 2);
+  vertex(-this.r, this.r * 2);
+  vertex(this.r, this.r * 2);
   endShape(CLOSE);
   pop();
-}
+};
 
 // Wraparound, salir por un borde y aparecer por el contrario
 Boid.prototype.borders = function() {
-  if (this.position.x < -this.r)  this.position.x = width +this.r;
-  if (this.position.y < -this.r)  this.position.y = height+this.r;
-  if (this.position.x > width +this.r) this.position.x = -this.r;
-  if (this.position.y > height+this.r) this.position.y = -this.r;
-}
+  if (this.position.x < -this.r) this.position.x = width + this.r;
+  if (this.position.y < -this.r) this.position.y = height + this.r;
+  if (this.position.x > width + this.r) this.position.x = -this.r;
+  if (this.position.y > height + this.r) this.position.y = -this.r;
+};
 
 // Separación
 // Método que revisa los boids cercanos y vira para alejarse de ellos
 Boid.prototype.separate = function(boids) {
-  var desiredseparation = 25.0;
-  var steer = createVector(0,0);
-  var count = 0;
+  let desiredseparation = 25.0;
+  let steer = createVector(0, 0);
+  let count = 0;
   // Por cada boid en el sistema, revisa si está muy cerca
-  for (var i = 0; i < boids.length; i++) {
-    var d = p5.Vector.dist(this.position,boids[i].position);
+  for (let i = 0; i < boids.length; i++) {
+    let d = p5.Vector.dist(this.position, boids[i].position);
     // Si la distancia es mayor a 0 y menor que una cantidad arbitraria (0 cuando eres tú mismo)
-    if ((d > 0) && (d < desiredseparation)) {
+    if (d > 0 && d < desiredseparation) {
       // Calcular el vector apuntando a alejarse del vecino
-      var diff = p5.Vector.sub(this.position,boids[i].position);
+      let diff = p5.Vector.sub(this.position, boids[i].position);
       diff.normalize();
-      diff.div(d);        // Peso por distancia
+      diff.div(d); // Peso por distancia
       steer.add(diff);
-      count++;            // Mantener registro de cantidad
+      count++; // Mantener registro de cantidad
     }
   }
   // Promedio -- divide por la cantidad
@@ -180,17 +179,17 @@ Boid.prototype.separate = function(boids) {
     steer.limit(this.maxforce);
   }
   return steer;
-}
+};
 
 // Alineamiento
 // Para cada boid cercano en el sistema, calcula la velocidad promedio
 Boid.prototype.align = function(boids) {
-  var neighbordist = 50;
-  var sum = createVector(0,0);
-  var count = 0;
-  for (var i = 0; i < boids.length; i++) {
-    var d = p5.Vector.dist(this.position,boids[i].position);
-    if ((d > 0) && (d < neighbordist)) {
+  let neighbordist = 50;
+  let sum = createVector(0, 0);
+  let count = 0;
+  for (let i = 0; i < boids.length; i++) {
+    let d = p5.Vector.dist(this.position, boids[i].position);
+    if (d > 0 && d < neighbordist) {
       sum.add(boids[i].velocity);
       count++;
     }
@@ -199,31 +198,31 @@ Boid.prototype.align = function(boids) {
     sum.div(count);
     sum.normalize();
     sum.mult(this.maxspeed);
-    var steer = p5.Vector.sub(sum,this.velocity);
+    let steer = p5.Vector.sub(sum, this.velocity);
     steer.limit(this.maxforce);
     return steer;
   } else {
-    return createVector(0,0);
+    return createVector(0, 0);
   }
-}
+};
 
 // Cohesión
 // Para la ubicación promedio (centro) de todos los boids cercanos, calcula el vector de viraje hacia esa ubicación.
 Boid.prototype.cohesion = function(boids) {
-  var neighbordist = 50;
-  var sum = createVector(0,0);   // Empieza con un vector vacío para acumular todas las posiciones
-  var count = 0;
-  for (var i = 0; i < boids.length; i++) {
-    var d = p5.Vector.dist(this.position,boids[i].position);
-    if ((d > 0) && (d < neighbordist)) {
+  let neighbordist = 50;
+  let sum = createVector(0, 0); // Empieza con un vector vacío para acumular todas las posiciones
+  let count = 0;
+  for (let i = 0; i < boids.length; i++) {
+    let d = p5.Vector.dist(this.position, boids[i].position);
+    if (d > 0 && d < neighbordist) {
       sum.add(boids[i].position); // Añada posición
       count++;
     }
   }
   if (count > 0) {
     sum.div(count);
-    return this.seek(sum);  // Vira hacia la posición
+    return this.seek(sum); // Vira hacia la posición
   } else {
-    return createVector(0,0);
+    return createVector(0, 0);
   }
-}
+};

@@ -3,7 +3,7 @@
  * @description El código dentro de la función draw() corre continuamente de arriba
  * a a bajo hasta que el programa es parado.
  */
-var y = 100;
+let y = 100;
 
 // Las instrucciones dentro de la función setup()
 // se ejecutan una vez, al principio del programa

@@ -5,8 +5,8 @@
  * número sin fracción decimal. Un número de punto flotante (conocido como float
  * por el inglés floating-point number) es un número con fracción decimal.
  */
-let a = 0;  // Crea una variable global "a" de tipo Number
-let b = 0;  // Crea una variable global "b" de tipo Number
+let a = 0; // Crea una variable global "a" de tipo Number
+let b = 0; // Crea una variable global "b" de tipo Number
 
 function setup() {
   createCanvas(720, 400);
@@ -16,15 +16,15 @@ function setup() {
 function draw() {
   background(0);
 
-  a = a + 1;  // Incrementar a con un int
-  b = b + 0.2;  //Incrementar b con un float
-  line(a, 0, a, height/2);
-  line(b, height/2, b, height);
+  a = a + 1; // Incrementar a con un int
+  b = b + 0.2; //Incrementar b con un float
+  line(a, 0, a, height / 2);
+  line(b, height / 2, b, height);
 
-  if(a > width) {
+  if (a > width) {
     a = 0;
   }
-  if(b > width) {
+  if (b > width) {
     b = 0;
   }
 }

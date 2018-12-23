@@ -3,19 +3,19 @@
  * @description Create a Jitter class, instantiate an array of objects
  * and move them around the screen.
  */
-var bugs = []; // array of Jitter objects
+let bugs = []; // array of Jitter objects
 
 function setup() {
   createCanvas(710, 400);
   // Create objects
-  for (var i=0; i<50; i++) {
+  for (let i = 0; i < 50; i++) {
     bugs.push(new Jitter());
   }
 }
 
 function draw() {
   background(50, 89, 100);
-  for (var i=0; i<bugs.length; i++) {
+  for (let i = 0; i < bugs.length; i++) {
     bugs[i].move();
     bugs[i].display();
   }

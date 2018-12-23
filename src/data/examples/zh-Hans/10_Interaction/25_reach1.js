@@ -4,16 +4,19 @@
  * @description The arm follows the position of the mouse by calculating the
  * angles with atan2(). Based on code from Keith Peters.
  */
-var segLength = 80,
-  x, y, x2, y2;
+let segLength = 80,
+  x,
+  y,
+  x2,
+  y2;
 
 function setup() {
   createCanvas(710, 400);
   strokeWeight(20);
   stroke(255, 100);
 
-  x = width/2;
-  y = height/2;
+  x = width / 2;
+  y = height / 2;
   x2 = x;
   y2 = y;
 }
@@ -21,8 +24,8 @@ function setup() {
 function draw() {
   background(0);
   dragSegment(0, mouseX, mouseY);
-  for( var i=0; i<x.length-1; i++) {
-    dragSegment(i+1, x[i], y[i]);
+  for (let i = 0; i < x.length - 1; i++) {
+    dragSegment(i + 1, x[i], y[i]);
   }
 }
 

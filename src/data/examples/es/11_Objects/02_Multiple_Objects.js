@@ -2,10 +2,10 @@
  * @name Múltiples objetos
  * @description Crea una clase Jitter, instancia múltiples objetos, y los mueve en la pantalla.
  */
-var bug1;  // declarar objetos
-var bug2;
-var bug3;
-var bug4;
+let bug1; // declarar objetos
+let bug2;
+let bug3;
+let bug4;
 
 function setup() {
   createCanvas(710, 400);

@@ -3,11 +3,11 @@
  * @description Este es un sistema básico de partículas
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */
-var system;
+let system;
 
 function setup() {
   createCanvas(720, 400);
-  system = new ParticleSystem(createVector(width/2, 50));
+  system = new ParticleSystem(createVector(width / 2, 50));
 }
 
 function draw() {
@@ -17,7 +17,7 @@ function draw() {
 }
 
 // Una clase simple de partícula (Particle)
-var Particle = function(position) {
+let Particle = function(position) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
   this.position = position.copy();
@@ -30,7 +30,7 @@ Particle.prototype.run = function() {
 };
 
 // Método para refrescar posición
-Particle.prototype.update = function(){
+Particle.prototype.update = function() {
   this.velocity.add(this.acceleration);
   this.position.add(this.velocity);
   this.lifespan -= 2;
@@ -45,7 +45,7 @@ Particle.prototype.display = function() {
 };
 
 // ¿La partícula todavía es útil?
-Particle.prototype.isDead = function(){
+Particle.prototype.isDead = function() {
   if (this.lifespan < 0) {
     return true;
   } else {
@@ -53,7 +53,7 @@ Particle.prototype.isDead = function(){
   }
 };
 
-var ParticleSystem = function(position) {
+let ParticleSystem = function(position) {
   this.origin = position.copy();
   this.particles = [];
 };
@@ -63,8 +63,8 @@ ParticleSystem.prototype.addParticle = function() {
 };
 
 ParticleSystem.prototype.run = function() {
-  for (var i = this.particles.length-1; i >= 0; i--) {
-    var p = this.particles[i];
+  for (let i = this.particles.length - 1; i >= 0; i--) {
+    let p = this.particles[i];
     p.run();
     if (p.isDead()) {
       this.particles.splice(i, 1);

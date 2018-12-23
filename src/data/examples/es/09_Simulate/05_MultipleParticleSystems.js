@@ -3,7 +3,7 @@
  * @description Hacer click con el ratón para generar una ráfaga de partículas en la posición del ratón.<br>Cada ráfaga es una instancia de un sistema de partículas con objetos Particle y CrazyParticle (una subclase de Particle).<br>Notar el uso de Herencia y Polimorfismo.<br>
  * Original por Daniel Shiffman.
  */
-var systems;
+let systems;
 
 function setup() {
   createCanvas(710, 400);
@@ -17,11 +17,11 @@ function draw() {
     systems[i].run();
     systems[i].addParticle();
   }
-  if (systems.length==0) {
+  if (systems.length == 0) {
     fill(255);
     textAlign(CENTER);
     textSize(32);
-    text("click mouse to add particle systems", width/2, height/2);
+    text('click mouse to add particle systems', width / 2, height / 2);
   }
 }
 
@@ -31,7 +31,7 @@ function mousePressed() {
 }
 
 // Una clase simple de Particle
-var Particle = function(position) {
+let Particle = function(position) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
   this.position = position.copy();
@@ -44,14 +44,14 @@ Particle.prototype.run = function() {
 };
 
 // Método para actualizar posición
-Particle.prototype.update = function(){
+Particle.prototype.update = function() {
   this.velocity.add(this.acceleration);
   this.position.add(this.velocity);
   this.lifespan -= 2;
 };
 
 // Método para mostrar en pantalla
-Particle.prototype.display = function () {
+Particle.prototype.display = function() {
   stroke(200, this.lifespan);
   strokeWeight(2);
   fill(127, this.lifespan);
@@ -59,7 +59,7 @@ Particle.prototype.display = function () {
 };
 
 // ¿Sigue siendo útil la partícula?
-Particle.prototype.isDead = function () {
+Particle.prototype.isDead = function() {
   if (this.lifespan < 0) {
     return true;
   } else {
@@ -67,25 +67,24 @@ Particle.prototype.isDead = function () {
   }
 };
 
-var ParticleSystem = function (position) {
+let ParticleSystem = function(position) {
   this.origin = position.copy();
   this.particles = [];
 };
 
-ParticleSystem.prototype.addParticle = function () {
+ParticleSystem.prototype.addParticle = function() {
   // Añadir o una Particle o una CrazyParticle al sistema
   if (int(random(0, 2)) == 0) {
     p = new Particle(this.origin);
-  }
-  else {
+  } else {
     p = new CrazyParticle(this.origin);
   }
   this.particles.push(p);
 };
 
-ParticleSystem.prototype.run = function () {
-  for (var i = this.particles.length - 1; i >= 0; i--) {
-    var p = this.particles[i];
+ParticleSystem.prototype.run = function() {
+  for (let i = this.particles.length - 1; i >= 0; i--) {
+    let p = this.particles[i];
     p.run();
     if (p.isDead()) {
       this.particles.splice(i, 1);
@@ -101,7 +100,7 @@ function CrazyParticle(origin) {
 
   // Inicializar nustras propiedades añadidas
   this.theta = 0.0;
-};
+}
 
 // Crear un objeto Crazy.prototype que hereda de Particle.prototype.
 // Nota: un error común aquí es usar "new Particle()" para crear el
@@ -116,21 +115,21 @@ CrazyParticle.prototype.constructor = CrazyParticle;
 // Notice we don't have the method run() here; it is inherited from Particle
 
 // This update() method overrides the parent class update() method
-CrazyParticle.prototype.update=function() {
+CrazyParticle.prototype.update = function() {
   Particle.prototype.update.call(this);
   // Incrementar rotación basado en la velocidad horizontal
   this.theta += (this.velocity.x * this.velocity.mag()) / 10.0;
-}
+};
 
 // Este método display() anula el método display() de la clase padre
-CrazyParticle.prototype.display=function() {
+CrazyParticle.prototype.display = function() {
   // Render de la elipse como una partícula regular
   Particle.prototype.display.call(this);
   // Añadir línea giratoria
   push();
   translate(this.position.x, this.position.y);
   rotate(this.theta);
-  stroke(255,this.lifespan);
-  line(0,0,25,0);
+  stroke(255, this.lifespan);
+  line(0, 0, 25, 0);
   pop();
-}
+};

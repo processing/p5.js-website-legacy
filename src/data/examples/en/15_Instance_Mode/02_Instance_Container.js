@@ -18,7 +18,7 @@
 <body>
   <div id='container'></div>
   <script>
-  var sketch = function(p) {
+  let sketch = function(p) {
     p.setup = function(){
       p.createCanvas(100, 100);
       p.background(0);
@@ -38,7 +38,7 @@
 <body>
   <div id='container'></div>
   <script>
-  var sketch = function(p) {
+  let sketch = function(p) {
     p.setup = function(){
       p.createCanvas(100, 100);
       p.background(0);
@@ -58,13 +58,13 @@ and pass in a pointer -->
 </head>
 <body>
   <script>
-  var sketch = function(p) {
+  let sketch = function(p) {
     p.setup = function(){
       p.createCanvas(100, 100);
       p.background(0);
     }
   };
-  var node = document.createElement('div');
+  let node = document.createElement('div');
   window.document.getElementsByTagName('body')[0].appendChild(node);
   new p5(sketch, node);
   </script>
@@ -80,13 +80,13 @@ and attach it to the body -->
 </head>
 <body>
   <script>
-  var sketch = function(p) {
+  let sketch = function(p) {
     p.setup = function(){
       p.createCanvas(100, 100);
       p.background(0);
     }
   };
-  var node = document.createElement('div');
+  let node = document.createElement('div');
   new p5(sketch, node);
   window.document.getElementsByTagName('body')[0].appendChild(node);
   </script>

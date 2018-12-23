@@ -2,12 +2,12 @@
  * @name Load Saved JSON
  * @description Create a Bubble class, instantiate multiple bubbles using data from
  * a JSON file, and display results on the screen.
- *  Because the web browsers differ in where they save files, we do not make use of 
+ *  Because the web browsers differ in where they save files, we do not make use of
  * saveJSON, unlike the Processing example.<br><br>
  * Based on Daniel Shiffman's <a href="https://processing.org/examples/loadsavejson.html">LoadSaveJSON Example</a> for Processing.
  */
-var data = {}; // Global object to hold results from the loadJSON call
-var bubbles = []; // Global array to hold all bubble objects
+let data = {}; // Global object to hold results from the loadJSON call
+let bubbles = []; // Global array to hold all bubble objects
 
 // Put any asynchronous data loading in preload to complete before "setup" is run
 function preload() {
@@ -16,19 +16,19 @@ function preload() {
 
 // Convert saved Bubble data into Bubble Objects
 function loadData() {
-  var bubbleData = data['bubbles'];
-  for (var i = 0; i < bubbleData.length; i++) {
+  let bubbleData = data['bubbles'];
+  for (let i = 0; i < bubbleData.length; i++) {
     // Get each object in the array
-    var bubble = bubbleData[i];
+    let bubble = bubbleData[i];
     // Get a position object
-    var position = bubble['position'];
+    let position = bubble['position'];
     // Get x,y from position
-    var x = position['x'];
-    var y = position['y'];
+    let x = position['x'];
+    let y = position['y'];
 
     // Get diameter and label
-    var diameter = bubble['diameter'];
-    var label = bubble['label'];
+    let diameter = bubble['diameter'];
+    let label = bubble['label'];
 
     // Put object in array
     bubbles.push(new Bubble(x, y, diameter, label));
@@ -38,8 +38,8 @@ function loadData() {
 // Create a new Bubble each time the mouse is clicked.
 function mousePressed() {
   // Add diameter and label to bubble
-  var diameter = random(40, 80);
-  var label = 'New Label';
+  let diameter = random(40, 80);
+  let label = 'New Label';
 
   // Append the new JSON bubble object to the array
   bubbles.push(new Bubble(mouseX, mouseY, diameter, label));
@@ -59,7 +59,7 @@ function draw() {
   background(255);
 
   // Display all bubbles
-  for (var i = 0; i < bubbles.length; i++) {
+  for (let i = 0; i < bubbles.length; i++) {
     bubbles[i].display();
     bubbles[i].rollover(mouseX, mouseY);
   }
@@ -82,7 +82,7 @@ function Bubble(x, y, diameter, name) {
 
   // Check if mouse is over the bubble
   this.rollover = function(px, py) {
-    var d = dist(px, py, this.x, this.y);
+    let d = dist(px, py, this.x, this.y);
     if (d < this.radius) {
       this.over = true;
     } else {

@@ -4,32 +4,32 @@
  * @description Haz click, arrastra y suelta la barra horizontal para inicializar el resorte.
  */
 // Constantes de dibujo de resorte para la barra superior
-var springHeight = 32,
-    left,
-    right,
-    maxHeight = 200,
-    minHeight = 100,
-    over = false,
-    move = false;
+let springHeight = 32,
+  left,
+  right,
+  maxHeight = 200,
+  minHeight = 100,
+  over = false,
+  move = false;
 
 // Constantes de simulación de resorte
-var M = 0.8,  // Masa
-    K = 0.2,  // Constante de resorte
-    D = 0.92, // Amortiguamiento
-    R = 150;  // Posición de reposo
+let M = 0.8, // Masa
+  K = 0.2, // Constante de resorte
+  D = 0.92, // Amortiguamiento
+  R = 150; // Posición de reposo
 
 // Variables de simulación de resorte
-var ps = R,   // Posición
-    vs = 0.0, // Velocidad
-    as = 0,   // Aceleración
-    f = 0;    // Fuerza
+let ps = R, // Posición
+  vs = 0.0, // Velocidad
+  as = 0, // Aceleración
+  f = 0; // Fuerza
 
 function setup() {
   createCanvas(710, 400);
   rectMode(CORNERS);
   noStroke();
-  left = width/2 - 100;
-  right = width/2 + 100;
+  left = width / 2 - 100;
+  right = width / 2 + 100;
 }
 
 function draw() {
@@ -41,8 +41,8 @@ function draw() {
 function drawSpring() {
   // Dibujar la base
   fill(0.2);
-  var baseWidth = 0.5 * ps + -8;
-  rect(width/2 - baseWidth, ps + springHeight, width/2 + baseWidth, height);
+  let baseWidth = 0.5 * ps + -8;
+  rect(width / 2 - baseWidth, ps + springHeight, width / 2 + baseWidth, height);
 
   // Definir color y dibujar barra superior
   if (over || move) {
@@ -56,11 +56,11 @@ function drawSpring() {
 
 function updateSpring() {
   // Actualizar posición del resorte
-  if ( !move ) {
-    f = -K * ( ps - R ); // f=-ky
-    as = f / M;          // Definir la aceleración, f=ma == a=f/m
-    vs = D * (vs + as);  // Definir la velocidad
-    ps = ps + vs;        // Actualizar posición
+  if (!move) {
+    f = -K * (ps - R); // f=-ky
+    as = f / M; // Definir la aceleración, f=ma == a=f/m
+    vs = D * (vs + as); // Definir la velocidad
+    ps = ps + vs; // Actualizar posición
   }
 
   if (abs(vs) < 0.1) {
@@ -68,7 +68,12 @@ function updateSpring() {
   }
 
   // Comprobar si el ratón está sobre la barra superior
-  if (mouseX > left && mouseX < right && mouseY > ps && mouseY < ps + springHeight) {
+  if (
+    mouseX > left &&
+    mouseX < right &&
+    mouseY > ps &&
+    mouseY < ps + springHeight
+  ) {
     over = true;
   } else {
     over = false;
@@ -76,7 +81,7 @@ function updateSpring() {
 
   // Definir y limitar la posición de la barra superior
   if (move) {
-    ps = mouseY - springHeight/2;
+    ps = mouseY - springHeight / 2;
     ps = constrain(ps, minHeight, maxHeight);
   }
 }

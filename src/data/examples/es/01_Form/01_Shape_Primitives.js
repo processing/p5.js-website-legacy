@@ -6,7 +6,6 @@
  * un número de parámetros para determinar la posición y tamaño de la figura.
  */
 function setup() {
-
   // Define un lienzo de 720 pixeles de ancho y 400 de alto
   createCanvas(720, 400);
   background(0);

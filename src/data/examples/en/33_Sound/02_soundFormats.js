@@ -22,7 +22,7 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
-var song;
+let song;
 
 function preload() {
   // we have included both an .ogg file and an .mp3 file
@@ -39,15 +39,16 @@ function setup() {
 
   // song loaded during preload(), ready to play in setup()
   song.play();
-  background(0,255,0);
+  background(0, 255, 0);
 }
 
 function mousePressed() {
-  if ( song.isPlaying() ) { // .isPlaying() returns a boolean
+  if (song.isPlaying()) {
+    // .isPlaying() returns a boolean
     song.pause();
-    background(255,0,0);
+    background(255, 0, 0);
   } else {
     song.play(); // playback will resume from the pause position
-    background(0,255,0);
+    background(0, 255, 0);
   }
 }

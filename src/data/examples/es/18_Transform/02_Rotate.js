@@ -39,9 +39,9 @@ function draw() {
   angulo = angulo + jitter;
   // Usa coseno para obtener un movimiento suave a favor y en contra
   // de las manecillas del reloj cuando no esté  haciendo jittering
-  var c = cos(angulo);
+  let c = cos(angulo);
   // Mueve la figura al centro del lienzo
-  translate(width/2, height/2);
+  translate(width / 2, height / 2);
   // Aplica la rotación final
   rotate(c);
   rect(0, 0, 180, 180);

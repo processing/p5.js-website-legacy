@@ -4,7 +4,7 @@
  * y lo mueve en la pantalla. Adaptado del libro "Getting Started with
  * Processing" por Casey Reas y Ben Fry.
  */
-var bug;  // declarar objeto
+let bug; // declarar objeto
 
 function setup() {
   createCanvas(710, 400);
@@ -32,5 +32,5 @@ function Jitter() {
 
   this.display = function() {
     ellipse(this.x, this.y, this.diameter, this.diameter);
-  }
-};
+  };
+}

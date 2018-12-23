@@ -2,11 +2,11 @@
  * @name Caja 3D
  * @description Usar dispositivo móvil para inclinar una caja
  */
-function setup(){
+function setup() {
   createCanvas(displayWidth, displayHeight, WEBGL);
 }
 
-function draw(){
+function draw() {
   background(250);
   normalMaterial();
   rotateX(accelerationX * 0.01);
