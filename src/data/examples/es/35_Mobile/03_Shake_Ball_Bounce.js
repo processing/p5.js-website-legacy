@@ -11,6 +11,67 @@ let accChangeX = 0;
 let accChangeY = 0;
 let accChangeT = 0;
 
+// clase Ball
+class Ball {
+  constructor() {
+    this.x = random(width);
+    this.y = random(height);
+    this.diameter = random(10, 30);
+    this.xspeed = random(-2, 2);
+    this.yspeed = random(-2, 2);
+    this.oxspeed = this.xspeed;
+    this.oyspeed = this.yspeed;
+    this.direction = 0.7;
+  }
+
+  move() {
+    this.x += this.xspeed * this.direction;
+    this.y += this.yspeed * this.direction;
+  }
+
+  // Rebota cuando toca el borde del lienzo
+  turn() {
+    if (this.x < 0) {
+      this.x = 0;
+      this.direction = -this.direction;
+    } else if (this.y < 0) {
+      this.y = 0;
+      this.direction = -this.direction;
+    } else if (this.x > width - 20) {
+      this.x = width - 20;
+      this.direction = -this.direction;
+    } else if (this.y > height - 20) {
+      this.y = height - 20;
+      this.direction = -this.direction;
+    }
+  }
+
+  // Cambia la velocidad en x e y (xspeed, yspeed) según
+  // el cambio en el valor de la aceleración en x, accelerationX
+  shake() {
+    this.xspeed += random(5, accChangeX / 3);
+    this.yspeed += random(5, accChangeX / 3);
+  }
+
+  // Desacelera gradualmente
+  stopShake() {
+    if (this.xspeed > this.oxspeed) {
+      this.xspeed -= 0.6;
+    } else {
+      this.xspeed = this.oxspeed;
+    }
+    if (this.yspeed > this.oyspeed) {
+      this.yspeed -= 0.6;
+    } else {
+      this.yspeed = this.oyspeed;
+    }
+  }
+
+  display() {
+    ellipse(this.x, this.y, this.diameter, this.diameter);
+  }
+}
+
 function setup() {
   createCanvas(displayWidth, displayHeight);
 
@@ -28,65 +89,6 @@ function draw() {
   }
 
   checkForShake();
-}
-
-// clase Ball
-function Ball() {
-  this.x = random(width);
-  this.y = random(height);
-  this.diameter = random(10, 30);
-  this.xspeed = random(-2, 2);
-  this.yspeed = random(-2, 2);
-  this.oxspeed = this.xspeed;
-  this.oyspeed = this.yspeed;
-  this.direction = 0.7;
-
-  this.move = function() {
-    this.x += this.xspeed * this.direction;
-    this.y += this.yspeed * this.direction;
-  };
-
-  // Rebota cuando toca el borde del lienzo
-  this.turn = function() {
-    if (this.x < 0) {
-      this.x = 0;
-      this.direction = -this.direction;
-    } else if (this.y < 0) {
-      this.y = 0;
-      this.direction = -this.direction;
-    } else if (this.x > width - 20) {
-      this.x = width - 20;
-      this.direction = -this.direction;
-    } else if (this.y > height - 20) {
-      this.y = height - 20;
-      this.direction = -this.direction;
-    }
-  };
-
-  // Cambia la velocidad en x e y (xspeed, yspeed) según
-  // el cambio en el valor de la aceleración en x, accelerationX
-  this.shake = function() {
-    this.xspeed += random(5, accChangeX / 3);
-    this.yspeed += random(5, accChangeX / 3);
-  };
-
-  // Desacelera gradualmente
-  this.stopShake = function() {
-    if (this.xspeed > this.oxspeed) {
-      this.xspeed -= 0.6;
-    } else {
-      this.xspeed = this.oxspeed;
-    }
-    if (this.yspeed > this.oyspeed) {
-      this.yspeed -= 0.6;
-    } else {
-      this.yspeed = this.oyspeed;
-    }
-  };
-
-  this.display = function() {
-    ellipse(this.x, this.y, this.diameter, this.diameter);
-  };
 }
 
 function checkForShake() {

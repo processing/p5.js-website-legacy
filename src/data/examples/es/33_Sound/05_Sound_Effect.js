@@ -10,6 +10,33 @@
 // Sample de timbre por Corsica_S via freesound.org,
 // Creative Commons BY 3.0
 
+// una clase para describir un "timbre" (realmente un botón)
+class Doorbell {
+  constructor(x_, y_, r_) {
+    // posición y tamaño
+    this.x = x_;
+    this.y = y_;
+    this.r = r_;
+  }
+
+  // ¿hay un punto dentro del timbre?(usado para "rollover" del ratón)
+  contains(mx, my) {
+    return dist(mx, my, this.x, this.y) < this.r;
+  }
+
+  // muestra el timbre (colores arbitrarios, podría ser mejorado)
+  display(mx, my) {
+    if (this.contains(mx, my)) {
+      fill(100);
+    } else {
+      fill(175);
+    }
+    stroke(0);
+    strokeWeight(4);
+    ellipse(this.x, this.y, this.r, this.r);
+  }
+}
+
 // Un objeto archivo de sonido
 let dingdong;
 
@@ -40,32 +67,3 @@ function mousePressed() {
     dingdong.play();
   }
 }
-
-// una clase para describir un "timbre" (realmente un botón)
-let Doorbell = function(x_, y_, r_) {
-  // posición y tamaño
-  let x = x_;
-  let y = y_;
-  let r = r_;
-
-  // ¿hay un punto dentro del timbre?(usado para "rollover" del ratón)
-  this.contains = function(mx, my) {
-    if (dist(mx, my, x, y) < r) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  // muestra el timbre (colores arbitrarios, podría ser mejorado)
-  this.display = function(mx, my) {
-    if (this.contains(mx, my)) {
-      fill(100);
-    } else {
-      fill(175);
-    }
-    stroke(0);
-    strokeWeight(4);
-    ellipse(x, y, r, r);
-  };
-};

@@ -33,7 +33,7 @@ function keyPressed(k) {
 }
 
 function togglePlayMode() {
-  if (playMode == 'sustain') {
+  if (playMode === 'sustain') {
     playMode = 'restart';
   } else {
     playMode = 'sustain';
