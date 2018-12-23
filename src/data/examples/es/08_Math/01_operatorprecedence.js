@@ -26,7 +26,7 @@ function setup() {
   stroke(51);
 
   stroke(204);
-  for(var i=0; i< width-20; i+= 4) {
+  for(let i=0; i< width-20; i+= 4) {
     // El 30 es sumado a 70 y luego se evalúa
     // si esto es mayor al valor actual de "i"
     // Por claridad, escribe "if (i > (30 + 70)) {"
@@ -42,7 +42,7 @@ function setup() {
   rect((4 + 2) * 8, 100, 290, 49);
 
   stroke(153);
-  for (var i = 0; i < width; i+= 2) {
+  for (let i = 0; i < width; i+= 2) {
     // Las instrucciones relacionales son evaluadas
     // primero, y luego las declaraciones lógicas AND y
     // finalmente el OR lógico. Por claridad, escribe:

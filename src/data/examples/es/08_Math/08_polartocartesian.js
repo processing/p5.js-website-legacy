@@ -4,12 +4,12 @@
  * a cartesiana (x,y): x = r*cos(theta), y = r*sin(theta)
  * Original por Daniel Shiffman.
  */
-var r;
+let r;
 
 // Ángulo, velocidad angular, aceleración angular
-var theta;
-var theta_vel;
-var theta_acc;
+let theta;
+let theta_vel;
+let theta_acc;
 
 function setup() {
   createCanvas(710, 400);
@@ -29,8 +29,8 @@ function draw() {
   translate(width/2, height/2);
 
   // Convierte de polar a cartesiano
-  var x = r * cos(theta);
-  var y = r * sin(theta);
+  let x = r * cos(theta);
+  let y = r * sin(theta);
 
   // Dibuja la elipse en la coordenada cartesiana
   ellipseMode(CENTER);

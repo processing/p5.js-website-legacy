@@ -4,12 +4,12 @@
  * to cartesian (x,y): x = rcos(theta) y = rsin(theta)
  * Original by Daniel Shiffman. 
  */
-var r;
+let r;
 
 // Angle and angular velocity, accleration
-var theta;
-var theta_vel;
-var theta_acc;
+let theta;
+let theta_vel;
+let theta_acc;
 
 function setup() {
   createCanvas(710, 400);
@@ -29,8 +29,8 @@ function draw() {
   translate(width/2, height/2);
   
   // Convert polar to cartesian
-  var x = r * cos(theta);
-  var y = r * sin(theta);
+  let x = r * cos(theta);
+  let y = r * sin(theta);
   
   // Draw the ellipse at the cartesian coordinate
   ellipseMode(CENTER);

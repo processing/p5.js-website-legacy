@@ -2,7 +2,7 @@
  * @name Arcotangente
  * @description Mueve el ratón para cambiar la dirección de los ojos.<br> La función atan2() calcula el ángulo entre cada ojo y el cursor.
  */
-var e1, e2, e3;
+let e1, e2, e3;
 
 function setup() {
   createCanvas(720, 400);

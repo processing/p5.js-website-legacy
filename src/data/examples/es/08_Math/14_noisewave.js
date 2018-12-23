@@ -3,7 +3,7 @@
  * @description Uso de ruido Perlin para generar un patrón tipo onda.
  * Original por Daniel Shiffman.
  */
-var yoff = 0.0;        // Segunda dimensión del ruido Perlin
+let yoff = 0.0;        // Segunda dimensión del ruido Perlin
 
 function setup() {
   createCanvas(710, 400);
@@ -16,18 +16,18 @@ function draw() {
   // Dibujaremos un polígono a partir de los puntos de la onda
   beginShape();
 
-  var xoff = 0;       // Opción #1: ruido 2D
-  // var xoff = yoff; // Opción #2: ruido 1D
+  let xoff = 0;       // Opción #1: ruido 2D
+  // let xoff = yoff; // Opción #2: ruido 1D
 
   // Iterar sobre los pixeles horizontales
-  for (var x = 0; x <= width; x += 10) {
+  for (let x = 0; x <= width; x += 10) {
     // Calcular un valor de y según el ruido, escalar según
 
     // Opción #1: ruido 2D
-    var y = map(noise(xoff, yoff), 0, 1, 200,300);
+    let y = map(noise(xoff, yoff), 0, 1, 200,300);
 
     // Opción #2: ruido 1D
-    // var y = map(noise(xoff), 0, 1, 200,300);
+    // let y = map(noise(xoff), 0, 1, 200,300);
 
     // Definir el vértice
     vertex(x, y);

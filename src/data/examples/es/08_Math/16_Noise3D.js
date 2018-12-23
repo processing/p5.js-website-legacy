@@ -3,14 +3,14 @@
  * @frame 710,400 (optional)
  * @description Using 3D noise to create simple animated texture.
  */
-var noiseVal;
+let noiseVal;
 //Increment x by 0.01 
-var x_increment=0.01;
+let x_increment=0.01;
 //Increment z by 0.02 every draw() cycle
-var z_increment=0.02;
+let z_increment=0.02;
 
 //Offset values
-var z_off,y_off,x_off;
+let z_off,y_off,x_off;
 
 function setup() {
    //Create the Canvas
@@ -32,12 +32,12 @@ function draw() {
    noiseDetail(8,0.65);
       
    //For each x,y calculate noice value
-   for (var y = 0; y < height; y++) {
+   for (let y = 0; y < height; y++) {
 	 	
      x_off+=x_increment;
      y_off=0;
      
-     for (var x = 0; x < width; x++) {
+     for (let x = 0; x < width; x++) {
        //Calculate and Draw each pixel
        noiseVal = noise(x_off,y_off,z_off);
        stroke(noiseVal*255);

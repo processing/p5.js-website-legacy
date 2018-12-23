@@ -2,8 +2,8 @@
  * @name Ruido 1D
  * @description Uso de ruido Perlin 1D para asignar ubicación.
  */
-var xoff = 0.0;
-var xincrement = 0.01;
+let xoff = 0.0;
+let xincrement = 0.01;
 
 function setup() {
   createCanvas(710, 400);
@@ -16,11 +16,11 @@ function draw() {
   fill(0, 10);
   rect(0,0,width,height);
 
-  //var n = random(0,width);  // Prueba esta línea en vez del ruido (noise)
+  //let n = random(0,width);  // Prueba esta línea en vez del ruido (noise)
 
   // Obtener un valor de ruido basado en xoff y escalarlo
   // según el ancho de la ventana
-  var n = noise(xoff)*width;
+  let n = noise(xoff)*width;
 
   // Incrementar xoff en cada ciclo
   xoff += xincrement;

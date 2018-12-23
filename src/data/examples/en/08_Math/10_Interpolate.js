@@ -8,8 +8,8 @@
  * This is the same as the Easing under input only with lerp() instead..
  */
 
-var x = 0;
-var y = 0;
+let x = 0;
+let y = 0;
 
 function setup() {
   createCanvas(720, 400);
