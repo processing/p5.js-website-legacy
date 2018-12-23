@@ -32,7 +32,7 @@ function draw() {
 function setGradient(x, y, w, h, c1, c2, axis) {
   noFill();
 
-  if (axis == Y_AXIS) {
+  if (axis === Y_AXIS) {
     // Top to bottom gradient
     for (let i = y; i <= y + h; i++) {
       let inter = map(i, y, y + h, 0, 1);
@@ -40,7 +40,7 @@ function setGradient(x, y, w, h, c1, c2, axis) {
       stroke(c);
       line(x, i, x + w, i);
     }
-  } else if (axis == X_AXIS) {
+  } else if (axis === X_AXIS) {
     // Left to right gradient
     for (let i = x; i <= x + w; i++) {
       let inter = map(i, x, x + w, 0, 1);

@@ -2,6 +2,26 @@
  * @name Múltiples objetos
  * @description Crea una clase Jitter, instancia múltiples objetos, y los mueve en la pantalla.
  */
+
+// clase Jitter
+class Jitter {
+  constructor() {
+    this.x = random(width);
+    this.y = random(height);
+    this.diameter = random(10, 30);
+    this.speed = 1;
+  }
+
+  move() {
+    this.x += random(-this.speed, this.speed);
+    this.y += random(-this.speed, this.speed);
+  }
+
+  display() {
+    ellipse(this.x, this.y, this.diameter, this.diameter);
+  }
+}
+
 let bug1; // declarar objetos
 let bug2;
 let bug3;
@@ -26,21 +46,4 @@ function draw() {
   bug3.display();
   bug4.move();
   bug4.display();
-}
-
-// clase Jitter
-function Jitter() {
-  this.x = random(width);
-  this.y = random(height);
-  this.diameter = random(10, 30);
-  this.speed = 1;
-
-  this.move = function() {
-    this.x += random(-this.speed, this.speed);
-    this.y += random(-this.speed, this.speed);
-  };
-
-  this.display = function() {
-    ellipse(this.x, this.y, this.diameter, this.diameter);
-  };
 }

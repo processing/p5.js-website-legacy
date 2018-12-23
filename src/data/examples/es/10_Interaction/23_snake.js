@@ -153,22 +153,22 @@ function actualizarCoordenadasFruta() {
 function keyPressed() {
   switch (keyCode) {
     case 74:
-      if (direccion != 'derecha') {
+      if (direccion !== 'derecha') {
         direccion = 'izquierda';
       }
       break;
     case 76:
-      if (direccion != 'izquierda') {
+      if (direccion !== 'izquierda') {
         direccion = 'derecha';
       }
       break;
     case 73:
-      if (direccion != 'abajo') {
+      if (direccion !== 'abajo') {
         direccion = 'arriba';
       }
       break;
     case 75:
-      if (direccion != 'arriba') {
+      if (direccion !== 'arriba') {
         direccion = 'abajo';
       }
       break;
