@@ -55,8 +55,6 @@ function draw() {
   if (position.x < 0)      position.x = width;
   if (position.y > height) position.y = 0;
   if (position.y < 0)      position.y = height;
-
-
 }
 
 function gotWeather(weather) {

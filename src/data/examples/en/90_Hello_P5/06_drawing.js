@@ -85,8 +85,7 @@ class Path {
   }  
   
   // Display plath
-  display() {
-    
+  display() {    
     // Loop through backwards
     for (let i = this.particles.length - 1; i >= 0; i--) {
       // If we shold remove it
@@ -109,6 +108,7 @@ class Particle {
     this.drag = 0.95;
     this.lifespan = 255;
   }
+
   update() {
     // Move it
     this.position.add(this.velocity);
