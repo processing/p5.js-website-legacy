@@ -1,7 +1,7 @@
 /*
  * @name Pulsos
- * @description Los instrumentos de dibujo de software pueden seguir un ritmo o 
- * cumplir las reglas independientemente de los gestos dibujados. Esta es una 
+ * @description Los instrumentos de dibujo de software pueden seguir un ritmo o
+ * cumplir las reglas independientemente de los gestos dibujados. Esta es una
  * forma de dibujo colaborativo en el que el dibujante controla algunos aspectos
  * de la imagen y el software controla a los demás.
  */
