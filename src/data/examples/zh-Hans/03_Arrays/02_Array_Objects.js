@@ -2,6 +2,40 @@
  * @name 数组对象
  * @description 演示创建自定义对象数组的句法。
  */
+
+class Module {
+  constructor(_xOff, _yOff, _x, _y, _speed, _unit) {
+    this.xOff = _xOff;
+    this.yOff = _yOff;
+    this.x = _x;
+    this.y = _y;
+    this.speed = _speed;
+    this.unit = _unit;
+    this.xDir = 1;
+    this.yDir = 1;
+  }
+
+  // Custom method for updating the variables
+  update() {
+    this.x = this.x + this.speed * this.xDir;
+    if (this.x >= this.unit || this.x <= 0) {
+      this.xDir *= -1;
+      this.x = this.x + 1 * this.xDir;
+      this.y = this.y + 1 * this.yDir;
+    }
+    if (this.y >= this.unit || this.y <= 0) {
+      this.yDir *= -1;
+      this.y = this.y + 1 * this.yDir;
+    }
+  }
+
+  // Custom method for drawing the object
+  draw() {
+    fill(255);
+    ellipse(this.xOff + this.x, this.yOff + this.y, 6, 6);
+  }
+}
+
 let unit = 40;
 let count;
 let mods = [];
@@ -35,34 +69,3 @@ function draw() {
     mods[i].draw();
   }
 }
-
-function Module(_xOff, _yOff, _x, _y, _speed, _unit) {
-  this.xOff = _xOff;
-  this.yOff = _yOff;
-  this.x = _x;
-  this.y = _y;
-  this.speed = _speed;
-  this.unit = _unit;
-  this.xDir = 1;
-  this.yDir = 1;
-}
-
-// Custom method for updating the variables
-Module.prototype.update = function() {
-  this.x = this.x + this.speed * this.xDir;
-  if (this.x >= this.unit || this.x <= 0) {
-    this.xDir *= -1;
-    this.x = this.x + 1 * this.xDir;
-    this.y = this.y + 1 * this.yDir;
-  }
-  if (this.y >= this.unit || this.y <= 0) {
-    this.yDir *= -1;
-    this.y = this.y + 1 * this.yDir;
-  }
-};
-
-// Custom method for drawing the object
-Module.prototype.draw = function() {
-  fill(255);
-  ellipse(this.xOff + this.x, this.yOff + this.y, 6, 6);
-};

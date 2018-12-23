@@ -15,18 +15,14 @@ function setup() {
   let middle = width / 2;
 
   for (let i = d; i <= width; i += d) {
-    if (i < middle) {
-      b = true;
-    } else {
-      b = false;
-    }
+    b = i < middle;
 
-    if (b == true) {
+    if (b === true) {
       // Línea vertical
       line(i, d, i, height - d);
     }
 
-    if (b == false) {
+    if (b === false) {
       // Línea horizontal
       line(middle, i - middle + d, width - d, i - middle + d);
     }
