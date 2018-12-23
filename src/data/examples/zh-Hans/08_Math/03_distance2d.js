@@ -4,7 +4,7 @@
  * and reveal the matrix. Measures the distance from the mouse
  * to each square and sets the size proportionally.
  */
-var max_distance;
+let max_distance;
 
 function setup() {
   createCanvas(710, 400);
@@ -15,8 +15,8 @@ function setup() {
 function draw() {
   background(0);
 
-  for(var i = 0; i <= width; i += 20) {
-    for(var j = 0; j <= height; j += 20) {
+  for(let i = 0; i <= width; i += 20) {
+    for(let j = 0; j <= height; j += 20) {
       var size = dist(mouseX, mouseY, i, j);
       size = size/max_distance * 66;
       ellipse(i, j, size, size);

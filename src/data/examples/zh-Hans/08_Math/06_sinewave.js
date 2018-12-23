@@ -4,13 +4,13 @@
  * Original by Daniel Shiffman.
  */
 
-var xspacing = 16;    // Distance between each horizontal location
-var w;                // Width of entire wave
-var theta = 0.0;      // Start angle at 0
-var amplitude = 75.0; // Height of wave
-var period = 500.0;   // How many pixels before the wave repeats
-var dx;               // Value for incrementing x
-var yvalues;  // Using an array to store height values for the wave
+let xspacing = 16;    // Distance between each horizontal location
+let w;                // Width of entire wave
+let theta = 0.0;      // Start angle at 0
+let amplitude = 75.0; // Height of wave
+let period = 500.0;   // How many pixels before the wave repeats
+let dx;               // Value for incrementing x
+let yvalues;  // Using an array to store height values for the wave
 
 function setup() {
   createCanvas(710, 400);

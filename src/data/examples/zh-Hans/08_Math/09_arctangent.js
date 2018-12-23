@@ -2,7 +2,7 @@
  * @name Arctangent
  * @description Move the mouse to change the direction of the eyes.<br>The atan2() function computes the angle from each eye to the cursor.
  */
-var e1, e2, e3;
+let e1, e2, e3;
 
 function setup() {
   createCanvas(720, 400);

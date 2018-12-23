@@ -5,9 +5,9 @@
  * are put into these functions and numbers between -1 and 1 are returned.
  * These values are then scaled to produce larger movements.
  */
-var angle1=0;
-var angle2=0;
-var scalar = 70;
+let angle1=0;
+let angle2=0;
+let scalar = 70;
 
 function setup() {
   createCanvas(710, 400);
@@ -18,14 +18,14 @@ function setup() {
 function draw() {
   background(0);
 
-  var ang1 = radians(angle1);
-  var ang2 = radians(angle2);
+  let ang1 = radians(angle1);
+  let ang2 = radians(angle2);
 
-  var x1 = width/2 + (scalar * cos(ang1));
-  var x2 = width/2 + (scalar * cos(ang2));
+  let x1 = width/2 + (scalar * cos(ang1));
+  let x2 = width/2 + (scalar * cos(ang2));
   
-  var y1 = height/2 + (scalar * sin(ang1));
-  var y2 = height/2 + (scalar * sin(ang2));
+  let y1 = height/2 + (scalar * sin(ang1));
+  let y2 = height/2 + (scalar * sin(ang2));
   
   fill(255);
   rect(width*0.5, height*0.5, 140, 140);

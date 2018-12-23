@@ -3,9 +3,9 @@
  * @description Writing "a++" is equivalent to "a = a + 1".
  * Writing "a--" is equivalent to "a = a - 1".
  */
-var a;
-var b;
-var direction;
+let a;
+let b;
+let direction;
 
 function setup() {
   createCanvas(710, 400);

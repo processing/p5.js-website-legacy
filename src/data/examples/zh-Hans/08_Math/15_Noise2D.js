@@ -5,8 +5,8 @@
  * 
  */
 
-var noiseVal;
-var noiseScale=0.02;
+let noiseVal;
+let noiseScale=0.02;
 
 function setup() {
    createCanvas(640,360);
@@ -16,8 +16,8 @@ function setup() {
 function draw() {
    background(0);
    // Draw the left half of image   
-   for (var y = 0; y < height-30; y++) {
-     for (var x = 0; x < width/2; x++) {
+   for (let y = 0; y < height-30; y++) {
+     for (let x = 0; x < width/2; x++) {
        // noiceDetail of the pixels octave count and falloff value
        noiseDetail(2,0.2);
        noiseVal = noise((mouseX+x) * noiseScale,
@@ -27,8 +27,8 @@ function draw() {
      }
    }
    // Draw the right half of image
-  for (var y = 0; y < height-30; y++) {
-     for (var x = width/2; x < width; x++) {
+  for (let y = 0; y < height-30; y++) {
+     for (let x = width/2; x < width; x++) {
        // noiceDetail of the pixels octave count and falloff value       
        noiseDetail(5,0.5);
        noiseVal = noise((mouseX+x) * noiseScale,
