@@ -5,8 +5,8 @@
  * entre los segmentos es calculado con la función atan2() y la posición es
  * calculada con sin() y cos(). Basado en código de Keith Peters.
  */
-var x = [0,0],
-  y = [0,0],
+let x = [0, 0],
+  y = [0, 0],
   segLength = 50;
 
 function setup() {
@@ -22,9 +22,9 @@ function draw() {
 }
 
 function dragSegment(i, xin, yin) {
-  var dx = xin - x[i];
-  var dy = yin - y[i];
-  var angle = atan2(dy, dx);
+  let dx = xin - x[i];
+  let dy = yin - y[i];
+  let angle = atan2(dy, dx);
   x[i] = xin - cos(angle) * segLength;
   y[i] = yin - sin(angle) * segLength;
   segment(x[i], y[i], angle);

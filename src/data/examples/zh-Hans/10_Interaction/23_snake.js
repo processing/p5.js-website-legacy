@@ -4,44 +4,44 @@
  * inside the black area, and control the snake using i j k and l. Don't let
  * the snake hit itself or the wall!<br>
  * Example created by <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta
-*/
+ */
 
 // the snake is divided into small segments, which are drawn and edited on each 'draw' call
-var numSegments = 10;
-var direction = 'right';
+let numSegments = 10;
+let direction = 'right';
 
-var xStart = 0; //starting x coordinate for snake
-var yStart = 250; //starting y coordinate for snake
-var diff = 10;
+let xStart = 0; //starting x coordinate for snake
+let yStart = 250; //starting y coordinate for snake
+let diff = 10;
 
-var xCor = [];
-var yCor = [];
+let xCor = [];
+let yCor = [];
 
-var xFruit = 0;
-var yFruit = 0;
-var scoreElem;
+let xFruit = 0;
+let yFruit = 0;
+let scoreElem;
 
 function setup() {
   scoreElem = createDiv('Score = 0');
   scoreElem.position(20, 20);
   scoreElem.id = 'score';
   scoreElem.style('color', 'white');
-  
+
   createCanvas(500, 500);
   frameRate(15);
   stroke(255);
   strokeWeight(10);
   updateFruitCoordinates();
 
-  for (var i = 0; i < numSegments; i++) {
-    xCor.push(xStart + (i * diff));
+  for (let i = 0; i < numSegments; i++) {
+    xCor.push(xStart + i * diff);
     yCor.push(yStart);
   }
 }
 
 function draw() {
   background(0);
-  for (var i = 0; i < numSegments - 1; i++) {
+  for (let i = 0; i < numSegments - 1; i++) {
     line(xCor[i], yCor[i], xCor[i + 1], yCor[i + 1]);
   }
   updateSnakeCoordinates();
@@ -61,8 +61,7 @@ function draw() {
  or down, the segment's y coordinate is affected.
 */
 function updateSnakeCoordinates() {
-
-  for (var i = 0; i < numSegments - 1; i++) {
+  for (let i = 0; i < numSegments - 1; i++) {
     xCor[i] = xCor[i + 1];
     yCor[i] = yCor[i + 1];
   }
@@ -92,13 +91,15 @@ function updateSnakeCoordinates() {
  or if the snake hits itself.
 */
 function checkGameStatus() {
-  if (xCor[xCor.length - 1] > width ||
-      xCor[xCor.length - 1] < 0 ||
-      yCor[yCor.length - 1] > height ||
-      yCor[yCor.length - 1] < 0 ||
-      checkSnakeCollision()) {
+  if (
+    xCor[xCor.length - 1] > width ||
+    xCor[xCor.length - 1] < 0 ||
+    yCor[yCor.length - 1] > height ||
+    yCor[yCor.length - 1] < 0 ||
+    checkSnakeCollision()
+  ) {
     noLoop();
-    var scoreVal = parseInt(scoreElem.html().substring(8));
+    let scoreVal = parseInt(scoreElem.html().substring(8));
     scoreElem.html('Game ended! Your score was : ' + scoreVal);
   }
 }
@@ -108,9 +109,9 @@ function checkGameStatus() {
  has to be the same as one of its own segment's (x,y) coordinate.
 */
 function checkSnakeCollision() {
-  var snakeHeadX = xCor[xCor.length - 1];
-  var snakeHeadY = yCor[yCor.length - 1];
-  for (var i = 0; i < xCor.length - 1; i++) {
+  let snakeHeadX = xCor[xCor.length - 1];
+  let snakeHeadY = yCor[yCor.length - 1];
+  for (let i = 0; i < xCor.length - 1; i++) {
     if (xCor[i] === snakeHeadX && yCor[i] === snakeHeadY) {
       return true;
     }
@@ -125,7 +126,7 @@ function checkSnakeCollision() {
 function checkForFruit() {
   point(xFruit, yFruit);
   if (xCor[xCor.length - 1] === xFruit && yCor[yCor.length - 1] === yFruit) {
-    var prevScore = parseInt(scoreElem.html().substring(8));
+    let prevScore = parseInt(scoreElem.html().substring(8));
     scoreElem.html('Score = ' + (prevScore + 1));
     xCor.unshift(xCor[0]);
     yCor.unshift(yCor[0]);
@@ -148,22 +149,22 @@ function updateFruitCoordinates() {
 function keyPressed() {
   switch (keyCode) {
     case 74:
-      if (direction != 'right') {
+      if (direction !== 'right') {
         direction = 'left';
       }
       break;
     case 76:
-      if (direction != 'left') {
+      if (direction !== 'left') {
         direction = 'right';
       }
       break;
     case 73:
-      if (direction != 'down') {
+      if (direction !== 'down') {
         direction = 'up';
       }
       break;
     case 75:
-      if (direction != 'up') {
+      if (direction !== 'up') {
         direction = 'down';
       }
       break;

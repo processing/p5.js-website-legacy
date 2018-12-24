@@ -4,7 +4,7 @@
  * dentro del área negra, y controla la serpiente usando i,j,k,l. No dejes que
  * la serpiente choque contra sí misma o la pared.<br>
  * Ejemplo creado por <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta
-*/
+ */
 
 // La serpiente se divide en pequeños segmentos, los que son dibujados y editados en cada ejecución de draw()
 let numeroSegmentos = 10;
@@ -34,7 +34,7 @@ function setup() {
   actualizarCoordenadasFruta();
 
   for (let i = 0; i < numeroSegmentos; i++) {
-    xCuerpo.push(xInicio + (i * diferencia));
+    xCuerpo.push(xInicio + i * diferencia);
     yCuerpo.push(yInicio);
   }
 }
@@ -62,7 +62,6 @@ vallor del segmento 2, y así, esto resulta en el movimiento de la serpiente.
 
 */
 function actualizarCoordenadasSerpiente() {
-
   for (let i = 0; i < numeroSegmentos - 1; i++) {
     xCuerpo[i] = xCuerpo[i + 1];
     yCuerpo[i] = yCuerpo[i + 1];
@@ -93,11 +92,13 @@ function actualizarCoordenadasSerpiente() {
  los bordes del juego o si la serpiente se estrelló contra sí misma.
 */
 function comprobarEstadoJuego() {
-  if (xCuerpo[xCuerpo.length - 1] > width ||
-      xCuerpo[xCuerpo.length - 1] < 0 ||
-      yCuerpo[yCuerpo.length - 1] > height ||
-      yCuerpo[yCuerpo.length - 1] < 0 ||
-      detectarColision()) {
+  if (
+    xCuerpo[xCuerpo.length - 1] > width ||
+    xCuerpo[xCuerpo.length - 1] < 0 ||
+    yCuerpo[yCuerpo.length - 1] > height ||
+    yCuerpo[yCuerpo.length - 1] < 0 ||
+    detectarColision()
+  ) {
     noLoop();
     let puntajeValor = parseInt(elementoPuntaje.html().substring(8));
     elementoPuntaje.html('Juego finalizado! Tu puntaje fue: ' + puntajeValor);
@@ -125,7 +126,10 @@ function detectarColision() {
 */
 function comprobarFruta() {
   point(xFruta, yFruta);
-  if (xCuerpo[xCuerpo.length - 1] === xFruta && yCuerpo[yCuerpo.length - 1] === yFruta) {
+  if (
+    xCuerpo[xCuerpo.length - 1] === xFruta &&
+    yCuerpo[yCuerpo.length - 1] === yFruta
+  ) {
     let prevScore = parseInt(elementoPuntaje.html().substring(8));
     elementoPuntaje.html('Score = ' + (prevScore + 1));
     xCuerpo.unshift(xCuerpo[0]);
@@ -149,22 +153,22 @@ function actualizarCoordenadasFruta() {
 function keyPressed() {
   switch (keyCode) {
     case 74:
-      if (direccion != 'derecha') {
+      if (direccion !== 'derecha') {
         direccion = 'izquierda';
       }
       break;
     case 76:
-      if (direccion != 'izquierda') {
+      if (direccion !== 'izquierda') {
         direccion = 'derecha';
       }
       break;
     case 73:
-      if (direccion != 'abajo') {
+      if (direccion !== 'abajo') {
         direccion = 'arriba';
       }
       break;
     case 75:
-      if (direccion != 'arriba') {
+      if (direccion !== 'arriba') {
         direccion = 'abajo';
       }
       break;
