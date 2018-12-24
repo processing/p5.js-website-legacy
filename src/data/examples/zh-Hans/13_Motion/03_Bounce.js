@@ -4,14 +4,14 @@
  * @description When the shape hits the edge of the window, it reverses its direction.
  */
 
-var rad = 60; // Width of the shape
-var xpos, ypos; // Starting position of shape
+let rad = 60; // Width of the shape
+let xpos, ypos; // Starting position of shape
 
-var xspeed = 2.8; // Speed of the shape
-var yspeed = 2.2; // Speed of the shape
+let xspeed = 2.8; // Speed of the shape
+let yspeed = 2.2; // Speed of the shape
 
-var xdirection = 1; // Left or Right
-var ydirection = 1; // Top to Bottom
+let xdirection = 1; // Left or Right
+let ydirection = 1; // Top to Bottom
 
 function setup() {
   createCanvas(720, 400);
