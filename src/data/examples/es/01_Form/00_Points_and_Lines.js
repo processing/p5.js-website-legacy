@@ -5,12 +5,11 @@
  * variables definen las posiciones basadas en el valor de 'd'.
  */
 function setup() {
-
-  var d = 70;
-  var p1 = d;
-  var p2 = p1+d;
-  var p3 = p2+d;
-  var p4 = p3+d;
+  let d = 70;
+  let p1 = d;
+  let p2 = p1 + d;
+  let p3 = p2 + d;
+  let p4 = p3 + d;
 
   // Define el lienzo de 720 pixeles de ancho y 400 de alto
   createCanvas(720, 400);
