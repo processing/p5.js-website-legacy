@@ -1,8 +1,8 @@
 /*
- *@name Recursion
- *@description A demonstration of recursion, which means functions call themselves.
- * Notice how the drawCircle() function calls itself at the end of its block.
- * It continues to do this until the variable "level" is equal to 1.
+ *@name 递归
+ *@description 递归的一个演示，递归指的的是函数可以调用自身。
+ * 注意 drawCircle() 函数是如何在代码块的末尾调用它自身的。
+ * 它将继续这样执行直到变量 “level” 等于1。
  */
 
 function setup() {

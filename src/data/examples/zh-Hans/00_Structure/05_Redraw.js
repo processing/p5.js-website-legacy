@@ -1,13 +1,11 @@
 /*
  * @name Redraw
- * @description The redraw() function makes draw() execute once. In this example,
- * draw() is executed once every time the mouse is clicked.
+ * @description redraw() 函数使 draw() 执行一次。在这个例子中，draw() 将在每次点击鼠标时执行一次。
  */
 
 let y;
 
-// The statements in the setup() function
-// execute once when the program begins
+// 程序开始时，setup() 函数中的语句执行一次。
 function setup() {
   createCanvas(720, 400);
   stroke(255);
@@ -15,10 +13,7 @@ function setup() {
   y = height * 0.5;
 }
 
-// The statements in draw() are executed until the
-// program is stopped. Each statement is executed in
-// sequence and after the last line is read, the first
-// line is executed again.
+// draw() 中的语句一直执行到程序停止为止。每个语句都按顺序执行，并且在读取最后一行之后，将再次执行第一行。.
 function draw() {
   background(0);
   y = y - 4;

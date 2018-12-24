@@ -1,8 +1,7 @@
 /*
- * @name Width and Height
- * @description The 'width' and 'height' variables contain the
- * width and height of the display window as defined in the createCanvas()
- * function.
+ * @name width y height
+ * @description Las variables 'width' (ancho) y 'height' (altura) contienen
+ * el ancho y la altura del lienzo, como fue definido en la función createCanvas().
  */
 function setup() {
   createCanvas(720, 400);

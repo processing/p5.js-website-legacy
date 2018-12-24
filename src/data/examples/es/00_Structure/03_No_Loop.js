@@ -1,7 +1,7 @@
 /*
  * @name No Loop
- * @description The noLoop() function causes draw() to only execute once.
- * Without calling noLoop(), the code inside draw() is run continually.
+ * @description La función noLoop() hace que draw() se ejecuta solo una vez.
+ * Sin ejecutar noLoop(), el código dentro de draw() es ejecutado continuamente.
  */
 let y;
 
@@ -16,10 +16,10 @@ function setup() {
   y = height * 0.5;
 }
 
-// The statements in draw() are executed until the
-// program is stopped. Each statement is executed in
-// sequence and after the last line is read, the first
-// line is executed again.
+// Las instrucciones en draw() son ejecutadas hasta que
+// el programa es parado. Cada instrucción es ejecutada
+// en orden y luego de que la última línea es leída,
+// se vuelve a ejecutar draw() desde el principio
 function draw() {
   background(0); // Set the background to black
   y = y - 1;

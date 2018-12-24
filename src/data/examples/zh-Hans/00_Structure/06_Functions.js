@@ -1,8 +1,6 @@
 /*
- *@name Functions
- *@description The drawTarget() function makes it easy to draw many distinct
- *targets. Each call to drawTarget() specifies the position, size, and number of
- *rings for each target.
+ *@name 函数
+ *@description drawTarget() 函数可以很容易绘制许多不同的目标。每次调用 drawTarget() 都会为每个目标指定环的位置，大小和数量。
  */
 
 function setup() {
