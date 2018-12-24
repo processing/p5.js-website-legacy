@@ -11,7 +11,7 @@
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 // un objeto de archivo de sonido
-var song;
+let song;
 
 function preload() {
   // cargar un archivo de sonido
@@ -30,13 +30,13 @@ function draw() {
   background(200);
 
   // definir el volumen a un rango entre 0 y 1.0
-  var volume = map(mouseX, 0, width, 0, 1);
+  let volume = map(mouseX, 0, width, 0, 1);
   volume = constrain(volume, 0, 1);
   song.amp(volume);
 
   // define la tasa a un rango entre 0.1 y 4
   // cambiar la tasa altera la altura del sonido (pitch)
-  var speed = map(mouseY, 0.1, height, 0, 2);
+  let speed = map(mouseY, 0.1, height, 0, 2);
   speed = constrain(speed, 0.01, 4);
   song.rate(speed);
 

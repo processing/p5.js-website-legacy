@@ -15,7 +15,7 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a> and a
  * sound file.</span></em></p>
  */
-var noise, env, analyzer;
+let noise, env, analyzer;
 
 function setup() {
   createCanvas(710, 200);
@@ -41,12 +41,12 @@ function draw() {
   background(0);
 
   // get volume reading from the p5.Amplitude analyzer
-  var level = analyzer.getLevel();
+  let level = analyzer.getLevel();
 
   // use level to draw a green rectangle
-  var levelHeight = map(level, 0, .4, 0, height);
-  fill(100,250,100);
-  rect(0, height, width, - levelHeight);
+  let levelHeight = map(level, 0, 0.4, 0, height);
+  fill(100, 250, 100);
+  rect(0, height, width, -levelHeight);
 }
 
 function mousePressed() {

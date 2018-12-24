@@ -10,11 +10,38 @@
 // Sample de timbre por Corsica_S via freesound.org,
 // Creative Commons BY 3.0
 
+// una clase para describir un "timbre" (realmente un botón)
+class Doorbell {
+  constructor(x_, y_, r_) {
+    // posición y tamaño
+    this.x = x_;
+    this.y = y_;
+    this.r = r_;
+  }
+
+  // ¿hay un punto dentro del timbre?(usado para "rollover" del ratón)
+  contains(mx, my) {
+    return dist(mx, my, this.x, this.y) < this.r;
+  }
+
+  // muestra el timbre (colores arbitrarios, podría ser mejorado)
+  display(mx, my) {
+    if (this.contains(mx, my)) {
+      fill(100);
+    } else {
+      fill(175);
+    }
+    stroke(0);
+    strokeWeight(4);
+    ellipse(this.x, this.y, this.r, this.r);
+  }
+}
+
 // Un objeto archivo de sonido
-var dingdong;
+let dingdong;
 
 // un objeto timbre (doorbell), que gatillará el sonido
-var doorbell;
+let doorbell;
 
 function setup() {
   createCanvas(200, 200);
@@ -25,7 +52,7 @@ function setup() {
   dingdong = loadSound('assets/doorbell.mp3');
 
   // crear un nuevo timbre
-  doorbell = new Doorbell(width/2, height/2, 64);
+  doorbell = new Doorbell(width / 2, height / 2, 64);
 }
 
 function draw() {
@@ -40,32 +67,3 @@ function mousePressed() {
     dingdong.play();
   }
 }
-
-// una clase para describir un "timbre" (realmente un botón)
-var Doorbell = function(x_, y_, r_) {
-  // posición y tamaño
-  var x = x_;
-  var y = y_;
-  var r = r_;
-
-  // ¿hay un punto dentro del timbre?(usado para "rollover" del ratón)
-  this.contains = function(mx, my) {
-    if (dist(mx, my, x, y) < r) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  // muestra el timbre (colores arbitrarios, podría ser mejorado)
-  this.display = function(mx, my) {
-    if (this.contains(mx, my)) {
-      fill(100);
-    } else {
-      fill(175);
-    }
-    stroke(0);
-    strokeWeight(4);
-    ellipse(x, y, r, r);
-  };
-};
