@@ -1,7 +1,9 @@
 /*
- *@name 函数
- *@description drawTarget() 函数可以很容易绘制许多不同的目标。每次调用 drawTarget() 都会为每个目标指定环的位置，大小和数量。
-*/
+ *@name Functions
+ *@description The drawTarget() function makes it easy to draw many distinct
+ *targets. Each call to drawTarget() specifies the position, size, and number of
+ *rings for each target.
+ */
 
 function setup() {
   createCanvas(720, 400);
@@ -11,16 +13,16 @@ function setup() {
 }
 
 function draw() {
-  drawTarget(width*0.25, height*0.4, 200, 4);
-  drawTarget(width*0.5, height*0.5, 300, 10);
-  drawTarget(width*0.75, height*0.3, 120, 6);
+  drawTarget(width * 0.25, height * 0.4, 200, 4);
+  drawTarget(width * 0.5, height * 0.5, 300, 10);
+  drawTarget(width * 0.75, height * 0.3, 120, 6);
 }
 
 function drawTarget(xloc, yloc, size, num) {
-  var grayvalues = 255/num;
-  var steps = size/num;
-  for (var i = 0; i < num; i++) {
-    fill(i*grayvalues);
-    ellipse(xloc, yloc, size - i*steps, size - i*steps);
+  let grayvalues = 255 / num;
+  let steps = size / num;
+  for (let i = 0; i < num; i++) {
+    fill(i * grayvalues);
+    ellipse(xloc, yloc, size - i * steps, size - i * steps);
   }
 }
