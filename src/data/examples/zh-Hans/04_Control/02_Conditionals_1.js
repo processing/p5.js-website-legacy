@@ -5,16 +5,15 @@
  * 程序中提出的问题始终是逻辑或关系语句。例如，如果变量 'i' 等于零，则绘制一条线。
  */
 function setup() {
-
   createCanvas(720, 360);
   background(0);
 
-  for(var i = 10; i < width; i += 10) {
+  for (let i = 10; i < width; i += 10) {
     // If 'i' divides by 20 with no remainder draw the first line
     // else draw the second line
-    if(i%20 == 0) {
+    if (i % 20 === 0) {
       stroke(255);
-      line(i, 80, i, height/2);
+      line(i, 80, i, height / 2);
     } else {
       stroke(153);
       line(i, 20, i, 180);
