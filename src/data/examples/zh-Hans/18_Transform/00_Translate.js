@@ -1,14 +1,14 @@
 /*
  * @name Translate
- * @description The translate() function allows objects to be 
- * moved to any location within the window. The first parameter 
- * sets the x-axis offset and the second parameter sets the 
+ * @description The translate() function allows objects to be
+ * moved to any location within the window. The first parameter
+ * sets the x-axis offset and the second parameter sets the
  * y-axis offset. This example shows how transforms accumulate.
  */
 
-var x = 0;
-var y = 0;
-var dim = 80.0;
+let x = 0;
+let y = 0;
+let dim = 80.0;
 
 function setup() {
   createCanvas(720, 400);
@@ -22,20 +22,19 @@ function draw() {
   // If the shape goes off the canvas, reset the position
   if (x > width + dim) {
     x = -dim;
-  } 
-  
+  }
+
   // Even though our rect command draws the shape with its
-  // center at the origin, translate moves it to the new 
+  // center at the origin, translate moves it to the new
   // x and y position
-  translate(x, height/2-dim/2);
+  translate(x, height / 2 - dim / 2);
   fill(255);
-  rect(-dim/2, -dim/2, dim, dim);
-  
-  // Transforms accumulate. Notice how this rect moves 
-  // twice as fast as the other, but it has the same 
+  rect(-dim / 2, -dim / 2, dim, dim);
+
+  // Transforms accumulate. Notice how this rect moves
+  // twice as fast as the other, but it has the same
   // parameter for the x-axis value
   translate(x, dim);
   fill(0);
-  rect(-dim/2, -dim/2, dim, dim);
-  
+  rect(-dim / 2, -dim / 2, dim, dim);
 }
