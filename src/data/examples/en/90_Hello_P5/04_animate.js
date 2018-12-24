@@ -3,7 +3,7 @@
  * @description The circle moves.
  */
 // Where is the circle
-var x, y;
+let x, y;
 
 function setup() {
   createCanvas(720, 400);
