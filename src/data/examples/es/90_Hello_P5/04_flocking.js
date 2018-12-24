@@ -4,34 +4,16 @@
  * (Reglas: cohesión, separación, alineamiento.)<br>
  * Extraído de <a href="http://natureofcode.com">natureofcode.com</a>.
  */
-let boids = [];
-
-function setup() {
-  createCanvas(720, 400);
-
-  // Agregar un conjunto inicial de boids al sistema
-  for (let i = 0; i < 100; i++) {
-    boids[i] = new Boid(random(width), random(height));
-  }
-}
-
-function draw() {
-  background(51);
-  // Ejecutar todos los boids
-  for (let i = 0; i < boids.length; i++) {
-    boids[i].run(boids);
-  }
-}
 
 // clase Boid
 // Métodos para separación, cohesión y alineamiento
 class Boid {
-  constructor(x,y) {
+  constructor(x, y) {
     this.acceleration = createVector(0, 0);
     this.velocity = p5.Vector.random2D();
     this.position = createVector(x, y);
     this.r = 3.0;
-    this.maxspeed = 3;    // velocidad máxima
+    this.maxspeed = 3; // velocidad máxima
     this.maxforce = 0.05; // fuerza máxima de viraje
   }
 
@@ -50,7 +32,7 @@ class Boid {
   // acumulamos una nueva aceleración cada vez que el tiempo pasa, basado en tres reglas
   flock(boids) {
     let sep = this.separate(boids); // separación
-    let ali = this.align(boids);    // alineamiento
+    let ali = this.align(boids); // alineamiento
     let coh = this.cohesion(boids); // cohesión
     // darle un peso arbitrario a las fuerzas
     sep.mult(2.5);
@@ -111,7 +93,7 @@ class Boid {
     for (let i = 0; i < boids.length; i++) {
       let d = p5.Vector.dist(this.position, boids[i].position);
       // si la distancia es mayor a 0 y menor que un tamaño arbitrario (0 cuando es sí mismo)
-      if ((d > 0) && (d < desiredseparation)) {
+      if (d > 0 && d < desiredseparation) {
         // calcular vector apuntando para alejarse del vecino
         let diff = p5.Vector.sub(this.position, boids[i].position);
         diff.normalize();
@@ -144,7 +126,7 @@ class Boid {
     let count = 0;
     for (let i = 0; i < boids.length; i++) {
       let d = p5.Vector.dist(this.position, boids[i].position);
-      if ((d > 0) && (d < neighbordist)) {
+      if (d > 0 && d < neighbordist) {
         sum.add(boids[i].velocity);
         count++;
       }
@@ -169,7 +151,7 @@ class Boid {
     let count = 0;
     for (let i = 0; i < boids.length; i++) {
       let d = p5.Vector.dist(this.position, boids[i].position);
-      if ((d > 0) && (d < neighbordist)) {
+      if (d > 0 && d < neighbordist) {
         sum.add(boids[i].position); // Agregar ubicación
         count++;
       }
@@ -180,5 +162,24 @@ class Boid {
     } else {
       return createVector(0, 0);
     }
+  }
+}
+
+let boids = [];
+
+function setup() {
+  createCanvas(720, 400);
+
+  // Agregar un conjunto inicial de boids al sistema
+  for (let i = 0; i < 100; i++) {
+    boids[i] = new Boid(random(width), random(height));
+  }
+}
+
+function draw() {
+  background(51);
+  // Ejecutar todos los boids
+  for (let i = 0; i < boids.length; i++) {
+    boids[i].run(boids);
   }
 }

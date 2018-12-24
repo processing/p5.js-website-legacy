@@ -48,4 +48,3 @@ function draw() {
   bug4.move();
   bug4.display();
 }
-

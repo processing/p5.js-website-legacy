@@ -1,7 +1,7 @@
 /*
-* @name Dibujar
-* @description Programa de pintura generativa.
-*/
+ * @name Dibujar
+ * @description Programa de pintura generativa.
+ */
 
 // todos los caminos
 let paths = [];
@@ -15,16 +15,15 @@ let previous;
 
 function setup() {
   createCanvas(720, 400);
-  current = createVector(0,0);
-  previous = createVector(0,0);
-};
+  current = createVector(0, 0);
+  previous = createVector(0, 0);
+}
 
 function draw() {
   background(200);
 
   // si es tiempo de hacer un nuevo punto
   if (millis() > next && painting) {
-
     // obtener posición del ratón
     current.x = mouseX;
     current.y = mouseY;
@@ -45,7 +44,7 @@ function draw() {
   }
 
   // dibujar todos los caminos
-  for( let i = 0; i < paths.length; i++) {
+  for (let i = 0; i < paths.length; i++) {
     paths[i].update();
     paths[i].display();
   }
@@ -76,27 +75,26 @@ class Path {
     // agregar una nueva partícula con una posición, fuerza y tinte
     this.particles.push(new Particle(position, force, this.hue));
   }
-  
+
   // mostrar camino
   update() {
     for (let i = 0; i < this.particles.length; i++) {
       this.particles[i].update();
     }
   }
-  
+
   // mostrar camino
   display() {
-  
     // iterar sobre el camino de atrás hacia adelante
     for (let i = this.particles.length - 1; i >= 0; i--) {
       // si debemos removerlo
       if (this.particles[i].lifespan <= 0) {
         this.particles.splice(i, 1);
-      // si no, mostrarlo en pantalla
+        // si no, mostrarlo en pantalla
       } else {
-        this.particles[i].display(this.particles[i+1]);
+        this.particles[i].display(this.particles[i + 1]);
       }
-    }  
+    }
   }
 }
 
@@ -117,17 +115,21 @@ class Particle {
     // hazla más transparente
     this.lifespan--;
   }
-  
+
   // dibujar una partícula y conectarla con una línea
   // dibuja una línea a otra
   display(other) {
     stroke(0, this.lifespan);
-    fill(0, this.lifespan/2);
-    ellipse(this.position.x,this.position.y, 8, 8);
+    fill(0, this.lifespan / 2);
+    ellipse(this.position.x, this.position.y, 8, 8);
     // si necesitamos dibujar otra línea
     if (other) {
-      line(this.position.x, this.position.y, other.position.x, other.position.y);
+      line(
+        this.position.x,
+        this.position.y,
+        other.position.x,
+        other.position.y
+      );
     }
-  }  
+  }
 }
-

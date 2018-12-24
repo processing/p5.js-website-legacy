@@ -4,24 +4,6 @@
  * (Rules: Cohesion, Separation, Alignment.)<br>
  * From <a href="http://natureofcode.com">natureofcode.com</a>.
  */
-let boids = [];
-
-function setup() {
-  createCanvas(720, 400);
-
-  // Add an initial set of boids into the system
-  for (let i = 0; i < 100; i++) {
-    boids[i] = new Boid(random(width), random(height));
-  }
-}
-
-function draw() {
-  background(51);
-  // Run all the boids
-  for (let i = 0; i < boids.length; i++) {
-    boids[i].run(boids);
-  }
-}
 
 // Boid class
 // Methods for Separation, Cohesion, Alignment added
@@ -180,5 +162,24 @@ class Boid {
     } else {
       return createVector(0, 0);
     }
+  }
+}
+
+let boids = [];
+
+function setup() {
+  createCanvas(720, 400);
+
+  // Add an initial set of boids into the system
+  for (let i = 0; i < 100; i++) {
+    boids[i] = new Boid(random(width), random(height));
+  }
+}
+
+function draw() {
+  background(51);
+  // Run all the boids
+  for (let i = 0; i < boids.length; i++) {
+    boids[i].run(boids);
   }
 }
