@@ -33,14 +33,14 @@ function setup() {
   // This line grabs the paragraph just created, but it would
   // also grab any other elements with class 'text' in the HTML
   // page.
-  let texts = selectAll('.text');
+  const texts = selectAll('.text');
 
   for (let i = 0; i < texts.length; i++) {
-    let paragraph = texts[i].html();
-    let words = paragraph.split(' ');
+    const paragraph = texts[i].html();
+    const words = paragraph.split(' ');
     for (let j = 0; j < words.length; j++) {
-      let spannedWord = createSpan(words[j]);
-      let dw = new DanceSpan(spannedWord, random(600), random(200));
+      const spannedWord = createSpan(words[j]);
+      const dw = new DanceSpan(spannedWord, random(600), random(200));
       dancingWords.push(dw);
     }
   }

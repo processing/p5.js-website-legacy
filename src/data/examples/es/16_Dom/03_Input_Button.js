@@ -26,7 +26,7 @@ function setup() {
 }
 
 function greet() {
-  let name = input.value();
+  const name = input.value();
   greeting.html('hello ' + name + '!');
   input.value('');
 

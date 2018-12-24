@@ -8,7 +8,7 @@
 
 function setup() {
   // create canvas
-  let c = createCanvas(710, 400);
+  const c = createCanvas(710, 400);
   background(100);
   // Add an event for when a file is dropped onto the canvas
   c.drop(gotFile);
@@ -27,7 +27,7 @@ function gotFile(file) {
   // If it's an image file
   if (file.type === 'image') {
     // Create an image DOM element but don't show it
-    let img = createImg(file.data).hide();
+    const img = createImg(file.data).hide();
     // Draw the image onto the canvas
     image(img, 0, 0, width, height);
   } else {

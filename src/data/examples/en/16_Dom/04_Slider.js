@@ -23,9 +23,9 @@ function setup() {
 }
 
 function draw() {
-  let r = rSlider.value();
-  let g = gSlider.value();
-  let b = bSlider.value();
+  const r = rSlider.value();
+  const g = gSlider.value();
+  const b = bSlider.value();
   background(r, g, b);
   text('red', rSlider.x * 2 + rSlider.width, 35);
   text('green', gSlider.x * 2 + gSlider.width, 65);

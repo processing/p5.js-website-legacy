@@ -8,7 +8,7 @@
 
 function setup() {
   // crear el lienzo
-  let c = createCanvas(710, 400);
+  const c = createCanvas(710, 400);
   background(100);
   // añadir un evento para cuando un archivo sea arrojado al lienzo
   c.drop(gotFile);
@@ -27,7 +27,7 @@ function gotFile(file) {
   // si es un archivo de imagen
   if (file.type === 'image') {
     // crear un elemento de imagen DOM, pero sin mostrarlo
-    let img = createImg(file.data).hide();
+    const img = createImg(file.data).hide();
     // dibujar la imagen en el lienzo
     image(img, 0, 0, width, height);
   } else {

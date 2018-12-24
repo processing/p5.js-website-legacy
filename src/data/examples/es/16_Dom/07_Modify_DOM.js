@@ -31,14 +31,14 @@ function setup() {
 
   // Esta línea toma el párrafo recién creado, pero podría también
   // tomar otros elementos de la clase 'text' en la página HTML.
-  let texts = selectAll('.text');
+  const texts = selectAll('.text');
 
   for (let i = 0; i < texts.length; i++) {
-    let paragraph = texts[i].html();
-    let words = paragraph.split(' ');
+    const paragraph = texts[i].html();
+    const words = paragraph.split(' ');
     for (let j = 0; j < words.length; j++) {
-      let spannedWord = createSpan(words[j]);
-      let dw = new DanceSpan(spannedWord, random(600), random(200));
+      const spannedWord = createSpan(words[j]);
+      const dw = new DanceSpan(spannedWord, random(600), random(200));
       dancingWords.push(dw);
     }
   }
