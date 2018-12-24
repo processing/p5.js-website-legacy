@@ -4,8 +4,8 @@
  * The words can be aligned left, center, or right with the textAlign()
  * function, and like with shapes, words can be colored with fill().
  */
-var font,
-  fontsize = 40
+let font,
+  fontsize = 40;
 
 function preload() {
   // Ensure the .ttf or .otf font stored in the assets directory
@@ -28,17 +28,17 @@ function draw() {
   // Align the text to the right
   // and run drawWords() in the left third of the canvas
   textAlign(RIGHT);
-  drawWords( width * .25 );
+  drawWords(width * 0.25);
 
   // Align the text in the center
   // and run drawWords() in the middle of the canvas
   textAlign(CENTER);
-  drawWords( width * .5 );
+  drawWords(width * 0.5);
 
   // Align the text to the left
   // and run drawWords() in the right third of the canvas
   textAlign(LEFT);
-  drawWords( width * .75 );
+  drawWords(width * 0.75);
 }
 
 function drawWords(x) {
@@ -46,14 +46,14 @@ function drawWords(x) {
   // the text to draw, the horizontal position,
   // and the vertical position
   fill(0);
-  text("ichi", x, 80);
+  text('ichi', x, 80);
 
   fill(65);
-  text("ni", x, 150);
+  text('ni', x, 150);
 
   fill(190);
-  text("san", x, 220);
+  text('san', x, 220);
 
   fill(255);
-  text("shi", x, 290);
+  text('shi', x, 290);
 }
