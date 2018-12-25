@@ -36,8 +36,8 @@ function draw() {
   let counter = 35;
 
   // Loop as long as there is space on the canvas
-  for (y = 0; y < height - gap; y += gap) {
-    for (x = 0; x < width - gap; x += gap) {
+  for (let y = 0; y < height - gap; y += gap) {
+    for (let x = 0; x < width - gap; x += gap) {
       // Use the counter to retrieve individual letters by their Unicode number
       let letter = char(counter);
 
