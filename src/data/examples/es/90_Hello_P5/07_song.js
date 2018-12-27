@@ -8,11 +8,11 @@
 */
 
 // las notas midi de una escala
-var notes = [ 60, 62, 64, 65, 67, 69, 71];
+let notes = [ 60, 62, 64, 65, 67, 69, 71];
 
 // para tocar la canción de forma automática
-var index = 0;
-var song = [
+let index = 0;
+let song = [
   { note: 4, duration: 400, display: "D" },
   { note: 0, duration: 200, display: "G" },
   { note: 1, duration: 200, display: "A" },
@@ -22,15 +22,15 @@ var song = [
   { note: 0, duration: 400, display: "G" },
   { note: 0, duration: 400, display: "G" }
 ];
-var trigger = 0;
-var autoplay = false;
-var osc;
+let trigger = 0;
+let autoplay = false;
+let osc;
 
 function setup() {
   createCanvas(720, 400);
-  var div = createDiv("Haz click para tocar las notas")
+  let div = createDiv("Haz click para tocar las notas")
   div.id("instructions");
-  var button = createButton("toca la canción automáticamente.");
+  let button = createButton("toca la canción automáticamente.");
   button.parent("instructions");
   // gatillar la reproducción automática
   button.mousePressed(function() {
@@ -78,9 +78,9 @@ function draw() {
   // dibujar un teclado
 
   // el ancho de cada tecla
-  var w = width / notes.length;
-  for (var i = 0; i < notes.length; i++) {
-    var x = i * w;
+  let w = width / notes.length;
+  for (let i = 0; i < notes.length; i++) {
+    let x = i * w;
     // si el ratón está sobre la tecla
     if (mouseX > x && mouseX < x + w && mouseY < height) {
       // si estamos haciendo click
@@ -108,7 +108,7 @@ function draw() {
 // cuando hacemos click
 function mousePressed() {
   // mapear el ratón al índice de la tecla
-  var key = floor(map(mouseX, 0, width, 0, notes.length));
+  let key = floor(map(mouseX, 0, width, 0, notes.length));
   playNote(notes[key]);
 }
 

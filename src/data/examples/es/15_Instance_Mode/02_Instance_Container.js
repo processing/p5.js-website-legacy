@@ -8,6 +8,7 @@
  * Aquí hay tres opciones diferentes Para seleccionar un elemento contenedor de DOM.
  * Todos los elementos DOM (lienzos, botones, divisiones, etc) creados por p5
  * serán adjuntados al elemento DOM especificado como el segundo argumento de la llamada a la función p5().
+ */
 <!-- entrega la ID del elemento contenedor -->
 <!DOCTYPE html>
 <head>
@@ -16,7 +17,7 @@
 <body>
   <div id='container'></div>
   <script>
-  var sketch = function(p) {
+  let sketch = function(p) {
     p.setup = function(){
       p.createCanvas(100, 100);
       p.background(0);
@@ -36,7 +37,7 @@
 <body>
   <div id='container'></div>
   <script>
-  var sketch = function(p) {
+  let sketch = function(p) {
     p.setup = function(){
       p.createCanvas(100, 100);
       p.background(0);
@@ -55,13 +56,13 @@
 </head>
 <body>
   <script>
-  var sketch = function(p) {
+  let sketch = function(p) {
     p.setup = function(){
       p.createCanvas(100, 100);
       p.background(0);
     }
   };
-  var node = document.createElement('div');
+  let node = document.createElement('div');
   window.document.getElementsByTagName('body')[0].appendChild(node);
   new p5(sketch, node);
   </script>
@@ -77,13 +78,13 @@ y adjúntalo al cuerpo (body) -->
 </head>
 <body>
   <script>
-  var sketch = function(p) {
+  let sketch = function(p) {
     p.setup = function(){
       p.createCanvas(100, 100);
       p.background(0);
     }
   };
-  var node = document.createElement('div');
+  let node = document.createElement('div');
   new p5(sketch, node);
   window.document.getElementsByTagName('body')[0].appendChild(node);
   </script>

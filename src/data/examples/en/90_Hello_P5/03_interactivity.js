@@ -8,7 +8,7 @@
  */
 
 // A HTML range slider
-var slider;
+let slider;
 
 function setup() {
   createCanvas(720, 400);

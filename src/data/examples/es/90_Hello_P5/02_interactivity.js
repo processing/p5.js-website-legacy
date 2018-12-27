@@ -8,7 +8,7 @@
  */
 
 // variables para los valores de rojo, verde y azul (r, g, b)
-var r, g, b;
+let r, g, b;
 
 function setup() {
   createCanvas(720, 400);
@@ -30,7 +30,7 @@ function draw() {
 // cuando el usuario hace click
 function mousePressed() {
   // revisar si el ratón está dentro del círculo
-  var d = dist(mouseX, mouseY, 360, 200);
+  let d = dist(mouseX, mouseY, 360, 200);
   if (d < 100) {
     // escoger nuevos colores aleatorios
     r = random(255);
