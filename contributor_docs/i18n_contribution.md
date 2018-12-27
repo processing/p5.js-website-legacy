@@ -89,20 +89,21 @@ p5.js-website/
   src/
   dist/
 ```
-* `dist/`: The actual website is stored under this directory and its files **must never be modified by hand**, they are overwritten each time the web is built.
+* `dist/`: the actual website is stored under this directory and its files **must never be modified by hand**, they are overwritten each time the web is built.
 * `src/`: contains the files from where the page is rendered, which means .hbs and .yml files for the website itself and .js and .json files for Reference and Examples. **All your changes must be done here**.
   * `assets/` – All static files (imgs, css, fonts, js, p5_featured homepage sketches)
     * Note: if you make edits here you must restart the server to see your changes. To see changes immediately, you can edit the assets files in the dist directory, but need to copy and paste your updated work here for it to be saved.
-  * `data/` – translation files
+  * `data/` – contains translation files and assets for examples (audio files, fonts, videos).
   * `templates/`
-    * `layouts/` – default.hbs is main page template
+    * `layouts/` – default.hbs is main page template.
     * `pages/` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
     * `partials/` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
 * `Gruntfile.js` – This file contains all the tasks for using assemble and YAML to generate the final, static site. It uses the task runner [grunt](http://gruntjs.com/).
 
 ## Start a new translation
-1. Define a two-letter abbreviation for your language. You can use this [page](https://www.abbreviations.com/acronyms/LANGUAGES2L) as a guide.
-2. Add an entry with the new language abbreviation at `package.json` to the `languages` category -located under the repository root directory.
+1. Define an abbreviation for your language following the [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard. It's expected that abbreviations are two-letter, but for macro languages can be added extra extensions depending on each case.
+2. Open a new issue and propose the addition of the new language. If the both the proposal and the abbreviation are approved proceed with the next step.
+3. Add an entry with the new language abbreviation at `package.json` to the `languages` category -located under the repository root directory.
 ```JSON
 "languages": [
   "en",
@@ -111,8 +112,8 @@ p5.js-website/
   "new language here"
 ],
 ```
-3. Duplicate `en.yml` -stored under `src/data/`- and name it `language_abbreviation.yml`. For example, when the Spanish version was created it was named `es.yml`. Check [How the website works](#how-the-website-works) and [File Structure](#file-structure) for further information.
-4. Duplicate `es.json` -stored under `src/data/reference/`- and name it `language_abbreviation.json`. Unlike the previous step `es.json` must be copied because there's no a `en.js` for the same reason explained in [How the website works](#how-the-website-works).
+4. Duplicate `en.yml` -stored under `src/data/`- and name it `language_abbreviation.yml`. For example, when the Spanish version was created it was named `es.yml`. Check [How the website works](#how-the-website-works) and [File Structure](#file-structure) for further information.
+5. Duplicate `es.json` -stored under `src/data/reference/`- and name it `[language_abbreviation].json`.
 
 ## Working on existing translations
 
