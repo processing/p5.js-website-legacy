@@ -1,6 +1,6 @@
 # Contributing to p5.js website internationalization (i18n)
 
-If you want to contribute with p5.js website translations you are in the right place. The translation of the p5.js website to languages other than English is part of its internationalization -abbreviated [*i18n*](https://en.wikipedia.org/wiki/Internationalization_and_localization)- process. You can improve content that has been already translated -at the reference, examples or other pages within the website- as well as start a new language translation. Some topics of this documentation were taken from the README.md file of this repo.
+If you want to contribute with p5.js website translations you are in the right place. The translation of the p5.js website to languages other than English is part of its internationalization -abbreviated [*i18n*](https://en.wikipedia.org/wiki/Internationalization_and_localization)- process. You can improve content that has been already translated -at the reference, examples or other pages within the website- as well as start a new language translation.
 
 ## Table of Contents
 
@@ -17,11 +17,11 @@ If you want to contribute with p5.js website translations you are in the right p
 ## How the website works
 1. Due to internationalization (i18n) this website is built from templates that retrieve the text content from data files
 2. There are three kind of pages and each works differently:
-   * [Reference](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/i18n_contribution.md#translation-of-reference): Pages are built in English and swapped to other languages using JS on the front-end. Translation content is stored in a JSON object.
-   * [Examples](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/i18n_contribution.md#translation-of-examples): Examples pages are built from from templates handlebars with handlebars, while examples are stored in JS files.
-   * [Other](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/i18n_contribution.md#translation-of-all-pages-except-reference-and-examples): Pages are built from templates in which handlebars point to the content in the actual language when rendered.
+   * [Reference](#translation-of-reference): Pages are built in English and swapped to other languages using JS on the front-end. Translation content is stored in a JSON object.
+   * [Examples](#translation-of-examples): Examples pages are built from from templates handlebars with handlebars, while examples are stored in JS files.
+   * [Other](#translation-of-all-pages-except-reference-and-examples): Pages are built from templates in which handlebars point to the content in the actual language when rendered.
 3. Every time a modification is submitted the website is rendered again.
-4. Built web is stored under `dist/` directory whilst data and templates are stored under `src/` directory. For further information check the [File Structure](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/i18n_contribution.md#file-structure).
+4. Built web is stored under `dist/` directory whilst data and templates are stored under `src/` directory. For further information check the [File Structure](#file-structure).
 5. When collaborating code editing have to be done in files under `src/`, but not under `dist/` as files in there are removed and recreated on build.
 
 
@@ -29,9 +29,9 @@ If you want to contribute with p5.js website translations you are in the right p
 *Please do this only once before you start your contribution.*
 1. Install node.js by following the instructions [here](https://nodejs.org/en/download/).
 2. [Fork](https://help.github.com/articles/fork-a-repo/) the p5.js-website repository to your Github account. Click the *Fork* button on the upper-right side of the p5.js-website Github repo. This will automatically open your fork repo on Github.
-![](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/assets/fork.png)
+![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/tree/master/contributor_docs/assets/fork.png)
 3. On your fork click the green *Clone or download* button. It will display a bar from where you can copy your `repo_URL`.
-![](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/assets/clone.png)
+![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/tree/master/contributor_docs/assets/clone.png)
 4. Open your command-line interface (CLI) and [clone](https://help.github.com/articles/cloning-a-repository/) your fork of the p5.js-website repository to `your_directory` on your laptop by typing:
 ```bash
 $ git clone repo_URL
@@ -80,7 +80,7 @@ $ git commit -m "add a message to your commit"
 $ git push
 ```
 5. Commit to your repository at your github account and create a new [Pull Request](https://github.com/processing/p5.js-website/wiki/Pull-requests). Click the *Pull Reques* tab on your fork page and then click the green button *New Pull Request*.
-![](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/assets/pull_request.png)
+![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://github.com/processing/p5.js-website/tree/master/contributor_docs/assets/pull_request.png)
 
 ## File Structure
 Under this repo there are two directories in which we have to focus:
@@ -118,7 +118,7 @@ p5.js-website/
 ## Working on existing translations
 
 ### Translation of all pages except Reference and Examples
-Each website is written in [.hbs](https://www.npmjs.com/package/hbs) format -files created with Handlebars and written using HTML rules- using handlers to access the i18n data of each language and render. Hbs files are stored under `src/template/pages`.
+Each webpage is written in [.hbs](https://www.npmjs.com/package/hbs) format -files created with the library Handlebars and written using HTML rules- using handlers to access the i18n data of each language and render. Each handler binds an specific spot on the HTML script with an specific content stored in a database, and is replaced by it when the page is built. Hbs files are stored under `src/template/pages`.
 
 The i18n data is stored in [.yml](https://en.wikipedia.org/wiki/YAML) files in the `src/data` folder of this repo. For example, under the above mentioned path the .yml files for English, Spanish and Chinese can be found as follows:
 
@@ -160,7 +160,7 @@ Instead of this, the color-related handler must be added to the `learn` list of 
 In some cases, the text translated from the original .hbs file (written in HTML) included double quotes used for highlight some idea. In those cases remember to use the scape command `\` before the quotes, otherwise your compiler will interpret it as a syntax error due the handler finished more the one time.
 
 ### Translation of Reference
-* The reference works a bit differently. The pages are built in English based on the inline documentation in the source code. They are then swapped out using [JS on the front-end](https://github.com/processing/p5.js-website/blob/master/dist/reference/index.html#L130).
+* The reference works a bit differently. The pages are built in English based on the inline documentation in the source code. They are then swapped out using JS on the front-end.
 * The top level keys in the JSON object correspond to the page headings, menu, footer, etc. You can see all the swaps in [this file](https://github.com/processing/p5.js-website/blob/master/dist/reference/index.html#L130).
 * The "p5" key in the JSON object contains individual keys for each reference entry, indexed by variable/function/object name.
 * Any entries in the JSON object which are not filled in will be left in English when the page is loaded.
