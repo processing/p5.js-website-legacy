@@ -22,7 +22,7 @@ If you want to contribute with p5.js website translations you are in the right p
    * [Other](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/i18n_contribution.md#translation-of-all-pages-except-reference-and-examples): Pages are built from templates in which handlebars point to the content in the actual language when rendered.
 3. Every time a modification is submitted the website is rendered again.
 4. Built web is stored under `dist/` directory whilst data and templates are stored under `src/` directory. For further information check the [File Structure](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/i18n_contribution.md#file-structure).
-5. When collaborating just modify files under `src/`, never touch `dist/`
+5. When collaborating code editing have to be done in files under `src/`, but not under `dist/` as files in there are removed and recreated on build.
 
 
 ## Setting up before start your contribution
@@ -36,13 +36,13 @@ If you want to contribute with p5.js website translations you are in the right p
 ```bash
 $ git clone repo_URL
 ```
-5. Go to the repository's directory `$ Users/your_user/your_directory/p5.js-website/` and install all the packages and dependencies for the website by typing:
-```batch
+5. Go to the repository's directory `[your_directory]/p5.js-website/` and install all the packages and dependencies for the website by typing (if you work on Mac it should be like `Users/[your_user]/[your_directory]/p5.js-website/`):
+```bash
 $ npm install
 ```
 6. Check if the packages are correctly installed by typing:
-```batch
-npm run watch
+```bash
+$ npm run watch
 ```
 7. This should open a window in your browser with the site running at http://localhost:9000.
 8. Set `github.com/processing/p5.js-website` as the upstream of your local. Type the following to list the configured remote for your fork (or follow this [tutorial](https://help.github.com/articles/configuring-a-remote-for-a-fork/)):
@@ -72,10 +72,10 @@ $ git fetch upstream
 $ git merge upstream/master
 ```
 2. Make changes only at files under the `src/` directory.
-3. Check if your changes are correct and don't break the website render by typing `$ npm run watch`.
-4. Commit only the files you have changed, type:
+3. Check if your changes are correct and don't break the website render by typing `npm run watch`.
+4. Commit the files you have changed, type:
 ```bash
-$ git add src/
+$ git add -A
 $ git commit -m "add a message to your commit"
 $ git push
 ```
