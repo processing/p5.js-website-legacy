@@ -5,8 +5,8 @@
  * loop and unicode reference numbers to automatically fill the canvas with
  * characters in a grid. Vowels are selected and given a specific fill color.
  */
-var font,
-  fontsize = 32
+let font,
+  fontsize = 32;
 
 function preload() {
   // Ensure the .ttf or .otf font stored in the assets directory
@@ -27,26 +27,30 @@ function draw() {
   background(160);
 
   // Set the gap between letters and the left and top margin
-  var gap = 52;
-  var margin = 10;
+  let gap = 52;
+  let margin = 10;
   translate(margin * 4, margin * 4);
 
   // Set the counter to start at the character you want
   // in this case 35, which is the # symbol
-  var counter = 35;
+  let counter = 35;
 
   // Loop as long as there is space on the canvas
-  for (y = 0; y < height - gap; y += gap) {
-    for (x = 0; x < width - gap; x += gap) {
-
+  for (let y = 0; y < height - gap; y += gap) {
+    for (let x = 0; x < width - gap; x += gap) {
       // Use the counter to retrieve individual letters by their Unicode number
-      var letter = char(counter);
+      let letter = char(counter);
 
       // Add different color to the vowels and other characters
-      if (letter == 'A' || letter == 'E' || letter == 'I' || letter == 'O' || letter == 'U') {
+      if (
+        letter === 'A' ||
+        letter === 'E' ||
+        letter === 'I' ||
+        letter === 'O' ||
+        letter === 'U'
+      ) {
         fill('#ed225d');
-      }
-      else {
+      } else {
         fill(255);
       }
 
