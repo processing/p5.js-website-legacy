@@ -5,8 +5,8 @@
  * Un color "saturado" es puro y uno "insaturado" tiene un gran porcentaje de gris.
  * Mueve el cursor verticalmente sobre cada barra para alterar su saturación.
  */
-let barWidth = 20;
-let lastBar = -1;
+const barWidth = 20;
+const lastBar = -1;
 
 function setup() {
   createCanvas(720, 400);

@@ -5,8 +5,8 @@
  * color is pure and an "unsaturated" color has a large percentage of gray.
  * Move the cursor vertically over each bar to alter its saturation.
  */
-let barWidth = 20;
-let lastBar = -1;
+const barWidth = 20;
+const lastBar = -1;
 
 function setup() {
   createCanvas(720, 400);

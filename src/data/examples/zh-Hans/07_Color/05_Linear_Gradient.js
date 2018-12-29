@@ -4,8 +4,8 @@
  * two colors.
  */
 // Constants
-let Y_AXIS = 1;
-let X_AXIS = 2;
+const Y_AXIS = 1;
+const X_AXIS = 2;
 let b1, b2, c1, c2;
 
 function setup() {
