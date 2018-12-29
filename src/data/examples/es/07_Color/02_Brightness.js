@@ -5,10 +5,10 @@
  * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás al menos un archivo de imagen
  * y un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a> corriendo.</span></em></p>
  */
-var img;
+let img;
 
 function preload() {
-  img = loadImage("assets/moonwalk.jpg");
+  img = loadImage('assets/moonwalk.jpg');
 }
 
 function setup() {
@@ -19,27 +19,27 @@ function setup() {
 }
 
 function draw() {
-  for (var x = 0; x < img.width; x++) {
-    for (var y = 0; y < img.height; y++ ) {
+  for (let x = 0; x < img.width; x++) {
+    for (let y = 0; y < img.height; y++) {
       // Calcular la posición 1D de una matriz 2D
-      var loc = (x + y*img.width)*4;
+      let loc = (x + y * img.width) * 4;
       // Obtener los valores R,G,B de una imagen
-      var r,g,b;
+      let r, g, b;
       r = img.pixels[loc];
       // Calcular una cantidad a cambiar de brillo basado en la proximidad al ratón
-      var maxdist = 50;
-      var d = dist(x, y, mouseX, mouseY);
-      var adjustbrightness = 255*(maxdist-d)/maxdist;
+      let maxdist = 50;
+      let d = dist(x, y, mouseX, mouseY);
+      let adjustbrightness = (255 * (maxdist - d)) / maxdist;
       r += adjustbrightness;
       // Limitar RGB para asegurarse de estar dentro del rango 0-255 de color
       r = constrain(r, 0, 255);
       // Hacer un nuevo color y definir el pixel en la ventana
       //color c = color(r, g, b);
-      var pixloc = (y*width + x)*4;
+      let pixloc = (y * width + x) * 4;
       pixels[pixloc] = r;
-      pixels[pixloc+1] = r;
-      pixels[pixloc+2] = r;
-      pixels[pixloc+3] = 255;
+      pixels[pixloc + 1] = r;
+      pixels[pixloc + 2] = r;
+      pixels[pixloc + 3] = 255;
     }
   }
   updatePixels();
