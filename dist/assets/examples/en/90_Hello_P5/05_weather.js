@@ -8,14 +8,14 @@
 */
 
 // A wind direction vector
-var wind;
+let wind;
 // Circle position
-var position;
+let position;
 
 function setup() {
   createCanvas(720, 200);
   // Request the data from apixu.com
-  var url = 'https://api.apixu.com/v1/current.json?key=513d8003c8b348f1a2461629162106&q=NYC';
+  let url = 'https://api.apixu.com/v1/current.json?key=513d8003c8b348f1a2461629162106&q=NYC';
   loadJSON(url, gotWeather);
   // Circle starts in the middle
   position = createVector(width/2, height/2);
@@ -55,20 +55,18 @@ function draw() {
   if (position.x < 0)      position.x = width;
   if (position.y > height) position.y = 0;
   if (position.y < 0)      position.y = height;
-
-
 }
 
 function gotWeather(weather) {
   
   // Get the angle (convert to radians)
-  var angle = radians(Number(weather.current.wind_degree));
+  let angle = radians(Number(weather.current.wind_degree));
   // Get the wind speed
-  var windmag = Number(weather.current.wind_mph);
+  let windmag = Number(weather.current.wind_mph);
   
   // Display as HTML elements
-  var temperatureDiv = createDiv(floor(weather.current.temp_f) + '&deg;');
-  var windDiv = createDiv("WIND " + windmag + " <small>MPH</small>");
+  let temperatureDiv = createDiv(floor(weather.current.temp_f) + '&deg;');
+  let windDiv = createDiv("WIND " + windmag + " <small>MPH</small>");
   
   // Make a vector
   wind = p5.Vector.fromAngle(angle);

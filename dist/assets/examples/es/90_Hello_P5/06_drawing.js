@@ -4,14 +4,14 @@
 */
 
 // todos los caminos
-var paths = [];
+let paths = [];
 // si estamos pintando o no
-var painting = false;
+let painting = false;
 // cuánto tiempo pasa antes de hacer el siguiente círculo
-var next = 0;
+let next = 0;
 // dónde estamos ahora y donde estuvimos antes
-var current;
-var previous;
+let current;
+let previous;
 
 function setup() {
   createCanvas(720, 400);
@@ -30,7 +30,7 @@ function draw() {
     current.y = mouseY;
 
     // la fuerza de la nueva partícula depende del movimiento del ratón
-    var force = p5.Vector.sub(current, previous);
+    let force = p5.Vector.sub(current, previous);
     force.mult(0.05);
 
     // añadir nueva partícula
@@ -45,7 +45,7 @@ function draw() {
   }
 
   // dibujar todos los caminos
-  for( var i = 0; i < paths.length; i++) {
+  for( let i = 0; i < paths.length; i++) {
     paths[i].update();
     paths[i].display();
   }
@@ -66,64 +66,68 @@ function mouseReleased() {
 }
 
 // un camino Path es una lista de partículas
-function Path() {
-  this.particles = [];
-  this.hue = random(100);
-}
-
-Path.prototype.add = function(position, force) {
-  // agregar una nueva partícula con una posición, fuerza y tinte
-  this.particles.push(new Particle(position, force, this.hue));
-}
-
-// mostrar camino
-Path.prototype.update = function() {
-  for (var i = 0; i < this.particles.length; i++) {
-    this.particles[i].update();
+class Path {
+  constructor() {
+    this.particles = [];
+    this.hue = random(100);
   }
-}
 
-// mostrar camino
-Path.prototype.display = function() {
-
-  // iterar sobre el camino de atrás hacia adelante
-  for (var i = this.particles.length - 1; i >= 0; i--) {
-    // si debemos removerlo
-    if (this.particles[i].lifespan <= 0) {
-      this.particles.splice(i, 1);
-    // si no, mostrarlo en pantalla
-    } else {
-      this.particles[i].display(this.particles[i+1]);
+  add(position, force) {
+    // agregar una nueva partícula con una posición, fuerza y tinte
+    this.particles.push(new Particle(position, force, this.hue));
+  }
+  
+  // mostrar camino
+  update() {
+    for (let i = 0; i < this.particles.length; i++) {
+      this.particles[i].update();
     }
   }
-
+  
+  // mostrar camino
+  display() {
+  
+    // iterar sobre el camino de atrás hacia adelante
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      // si debemos removerlo
+      if (this.particles[i].lifespan <= 0) {
+        this.particles.splice(i, 1);
+      // si no, mostrarlo en pantalla
+      } else {
+        this.particles[i].display(this.particles[i+1]);
+      }
+    }  
+  }
 }
 
 // partículas en el camino
-function Particle(position, force, hue) {
-  this.position = createVector(position.x, position.y);
-  this.velocity = createVector(force.x, force.y);
-  this.drag = 0.95;
-  this.lifespan = 255;
-}
-
-Particle.prototype.update = function() {
-  // muévela
-  this.position.add(this.velocity);
-  // disminuye su velocidad
-  this.velocity.mult(this.drag);
-  // hazla más transparente
-  this.lifespan--;
-}
-
-// dibujar una partícula y conectarla con una línea
-// dibuja una línea a otra
-Particle.prototype.display = function(other) {
-  stroke(0, this.lifespan);
-  fill(0, this.lifespan/2);
-  ellipse(this.position.x,this.position.y, 8, 8);
-  // si necesitamos dibujar otra línea
-  if (other) {
-    line(this.position.x, this.position.y, other.position.x, other.position.y);
+class Particle {
+  constructor(position, force, hue) {
+    this.position = createVector(position.x, position.y);
+    this.velocity = createVector(force.x, force.y);
+    this.drag = 0.95;
+    this.lifespan = 255;
   }
+
+  update() {
+    // muévela
+    this.position.add(this.velocity);
+    // disminuye su velocidad
+    this.velocity.mult(this.drag);
+    // hazla más transparente
+    this.lifespan--;
+  }
+  
+  // dibujar una partícula y conectarla con una línea
+  // dibuja una línea a otra
+  display(other) {
+    stroke(0, this.lifespan);
+    fill(0, this.lifespan/2);
+    ellipse(this.position.x,this.position.y, 8, 8);
+    // si necesitamos dibujar otra línea
+    if (other) {
+      line(this.position.x, this.position.y, other.position.x, other.position.y);
+    }
+  }  
 }
+

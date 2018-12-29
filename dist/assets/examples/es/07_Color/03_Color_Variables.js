@@ -8,9 +8,9 @@ function setup() {
   noStroke();
   background(51, 0, 0);
 
-  var inside = color(204, 102, 0);
-  var middle = color(204, 153, 0);
-  var outside = color(153, 51, 0);
+  let inside = color(204, 102, 0);
+  let middle = color(204, 153, 0);
+  let outside = color(153, 51, 0);
 
   // Estas instrucciones son equivalentes a las de arriba.
   // Los programadores pueden usar el formato que prefieran.
