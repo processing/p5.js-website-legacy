@@ -5,8 +5,8 @@
  * el nombre del color (rojo, azul, amarillo, etc).
  * Mueve el cursor verticalmente sobre cada barra para alterar su tinte.
  */
-let barWidth = 20;
-let lastBar = -1;
+const barWidth = 20;
+const lastBar = -1;
 
 function setup() {
   createCanvas(720, 400);

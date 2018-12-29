@@ -4,8 +4,8 @@
  * object and is typically referred to as the name of the color (red, blue,
  * yellow, etc.) Move the cursor vertically over each bar to alter its hue.
  */
-let barWidth = 20;
-let lastBar = -1;
+const barWidth = 20;
+const lastBar = -1;
 
 function setup() {
   createCanvas(720, 400);
