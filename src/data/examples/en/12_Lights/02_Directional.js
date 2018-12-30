@@ -6,7 +6,7 @@
  * surface squarely and weaker if it hits at a a gentle angle. After hitting a
  * surface, a directional light scatters in all directions.
  */
-let radius = 200;
+const radius = 200;
 
 function setup() {
   createCanvas(710, 400, WEBGL);
@@ -17,8 +17,8 @@ function setup() {
 function draw() {
   noStroke();
   background(0);
-  let dirY = (mouseY / height - 0.5) * 4;
-  let dirX = (mouseX / width - 0.5) * 4;
+  const dirY = (mouseY / height - 0.5) * 4;
+  const dirX = (mouseX / width - 0.5) * 4;
   directionalLight(204, 204, 204, dirX, dirY, 1);
   translate(-1.5 * radius, 0, 0);
   sphere(radius);
