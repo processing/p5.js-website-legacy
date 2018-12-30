@@ -48,8 +48,8 @@ function positionSegment(a, b) {
 }
 
 function reachSegment(i, xin, yin) {
-  let dx = xin - x[i];
-  let dy = yin - y[i];
+  const dx = xin - x[i];
+  const dy = yin - y[i];
   angle[i] = atan2(dy, dx);
   targetX = xin - cos(angle[i]) * segLength;
   targetY = yin - sin(angle[i]) * segLength;

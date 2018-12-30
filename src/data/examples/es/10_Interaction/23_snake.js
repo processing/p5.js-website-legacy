@@ -10,9 +10,9 @@
 let numeroSegmentos = 10;
 let direccion = 'derecha';
 
-let xInicio = 0; //coordenada x de partida de la serpiente
-let yInicio = 250; //coordenada y de partida de la serpiente
-let diferencia = 10;
+const xInicio = 0; //coordenada x de partida de la serpiente
+const yInicio = 250; //coordenada y de partida de la serpiente
+const diferencia = 10;
 
 let xCuerpo = [];
 let yCuerpo = [];
@@ -100,7 +100,7 @@ function comprobarEstadoJuego() {
     detectarColision()
   ) {
     noLoop();
-    let puntajeValor = parseInt(elementoPuntaje.html().substring(8));
+    const puntajeValor = parseInt(elementoPuntaje.html().substring(8));
     elementoPuntaje.html('Juego finalizado! Tu puntaje fue: ' + puntajeValor);
   }
 }
@@ -110,8 +110,8 @@ function comprobarEstadoJuego() {
  (x,y) tiene que ser igual a la de un segmento propio.
 */
 function detectarColision() {
-  let cabezaSerpienteX = xCuerpo[xCuerpo.length - 1];
-  let cabezaSerpienteY = yCuerpo[yCuerpo.length - 1];
+  const cabezaSerpienteX = xCuerpo[xCuerpo.length - 1];
+  const cabezaSerpienteY = yCuerpo[yCuerpo.length - 1];
   for (let i = 0; i < xCuerpo.length - 1; i++) {
     if (xCuerpo[i] === cabezaSerpienteX && yCuerpo[i] === cabezaSerpienteY) {
       return true;
@@ -130,7 +130,7 @@ function comprobarFruta() {
     xCuerpo[xCuerpo.length - 1] === xFruta &&
     yCuerpo[yCuerpo.length - 1] === yFruta
   ) {
-    let prevScore = parseInt(elementoPuntaje.html().substring(8));
+    const prevScore = parseInt(elementoPuntaje.html().substring(8));
     elementoPuntaje.html('Score = ' + (prevScore + 1));
     xCuerpo.unshift(xCuerpo[0]);
     yCuerpo.unshift(yCuerpo[0]);

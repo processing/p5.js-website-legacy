@@ -22,9 +22,9 @@ function draw() {
 }
 
 function dragSegment(i, xin, yin) {
-  let dx = xin - x[i];
-  let dy = yin - y[i];
-  let angle = atan2(dy, dx);
+  const dx = xin - x[i];
+  const dy = yin - y[i];
+  const angle = atan2(dy, dx);
   x[i] = xin - cos(angle) * segLength;
   y[i] = yin - sin(angle) * segLength;
   segment(x[i], y[i], angle);

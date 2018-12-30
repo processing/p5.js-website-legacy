@@ -10,9 +10,9 @@
 let numSegments = 10;
 let direction = 'right';
 
-let xStart = 0; //starting x coordinate for snake
-let yStart = 250; //starting y coordinate for snake
-let diff = 10;
+const xStart = 0; //starting x coordinate for snake
+const yStart = 250; //starting y coordinate for snake
+const diff = 10;
 
 let xCor = [];
 let yCor = [];
@@ -99,7 +99,7 @@ function checkGameStatus() {
     checkSnakeCollision()
   ) {
     noLoop();
-    let scoreVal = parseInt(scoreElem.html().substring(8));
+    const scoreVal = parseInt(scoreElem.html().substring(8));
     scoreElem.html('Game ended! Your score was : ' + scoreVal);
   }
 }
@@ -109,8 +109,8 @@ function checkGameStatus() {
  has to be the same as one of its own segment's (x,y) coordinate.
 */
 function checkSnakeCollision() {
-  let snakeHeadX = xCor[xCor.length - 1];
-  let snakeHeadY = yCor[yCor.length - 1];
+  const snakeHeadX = xCor[xCor.length - 1];
+  const snakeHeadY = yCor[yCor.length - 1];
   for (let i = 0; i < xCor.length - 1; i++) {
     if (xCor[i] === snakeHeadX && yCor[i] === snakeHeadY) {
       return true;
@@ -126,7 +126,7 @@ function checkSnakeCollision() {
 function checkForFruit() {
   point(xFruit, yFruit);
   if (xCor[xCor.length - 1] === xFruit && yCor[yCor.length - 1] === yFruit) {
-    let prevScore = parseInt(scoreElem.html().substring(8));
+    const prevScore = parseInt(scoreElem.html().substring(8));
     scoreElem.html('Score = ' + (prevScore + 1));
     xCor.unshift(xCor[0]);
     yCor.unshift(yCor[0]);
