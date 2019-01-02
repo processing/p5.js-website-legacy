@@ -28,8 +28,8 @@ function draw() {
   background(0);
 
   //Modifica el ángulo de los segmentos según la posición del ratón
-  angulo1 = (mouseX/float(width) - 0.5) * -TWO_PI;
-  angulo2 = (mouseY/float(height) - 0.5) * PI;
+  angulo1 = (mouseX / float(width) - 0.5) * -TWO_PI;
+  angulo2 = (mouseY / float(height) - 0.5) * PI;
 
   // Usa push y pop para "contener" las transformaciones. Nota que
   // aunque dibujamos los segmentos usando una función de fabricación propia,
