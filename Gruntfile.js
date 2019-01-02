@@ -100,7 +100,7 @@ module.exports = function(grunt) {
               {
                 pattern: ':lang',
                 replacement: function () {
-                  return this.language.toLowerCase() === 'en' ? '' : this.language.toLowerCase();
+                  return this.language.toLowerCase() === 'en' ? '' : this.language;
                 }
               },
               {
