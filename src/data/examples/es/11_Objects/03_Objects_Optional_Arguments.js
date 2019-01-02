@@ -7,12 +7,12 @@
 
 class MRect {
   constructor(iw, ixp, ih, iyp, id, it) {
-    this.w = iw; // single bar width
-    this.xpos = ixp; // rect xposition
-    this.h = ih; // rect height
-    this.ypos = iyp; // rect yposition
-    this.d = id; // single bar distance
-    this.t = it; // number of bars
+    this.w = iw; // ancho de una barra
+    this.xpos = ixp; // posición x del rectángulo
+    this.h = ih; // altura del rectángulo
+    this.ypos = iyp; // posición y del rectángulo
+    this.d = id; // distancia de una barra
+    this.t = it; // número de barras
   }
 
   move(posX, posY, damping) {
