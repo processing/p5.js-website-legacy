@@ -6,22 +6,22 @@
  * Los arreglos 2D son útiles para almacenar imágenes. En este ejemplo, cada punto
  * es coloreado en relación a su distancia del centro de la imagen.
  */
-var distances = [];
-var maxDistance;
-var spacer;
+let distances = [];
+let maxDistance;
+let spacer;
 
 function setup() {
   createCanvas(720, 360);
-  maxDistance = dist(width/2, height/2, width, height);
-  for (var x = 0; x < width; x++) {
+  maxDistance = dist(width / 2, height / 2, width, height);
+  for (let x = 0; x < width; x++) {
     distances[x] = []; // Crear un arreglo anidado
-    for (var y = 0; y < height; y++) {
-      var distance = dist(width/2, height/2, x, y);
-      distances[x][y] = distance/maxDistance * 255;
+    for (let y = 0; y < height; y++) {
+      let distance = dist(width / 2, height / 2, x, y);
+      distances[x][y] = (distance / maxDistance) * 255;
     }
   }
   spacer = 10;
-  noLoop();  // Correr draw() una vez y luego parar
+  noLoop(); // Correr draw() una vez y luego parar
 }
 
 function draw() {
@@ -30,10 +30,10 @@ function draw() {
   // en la variable spacer, así que hay más valores en el arreglo
   // que los que dibujamos. Cambia el valor de la variable spacer
   // para cambiar la densidad de los puntos.
-  for (var x = 0; x < width; x += spacer) {
-    for (var y = 0; y < height; y += spacer) {
+  for (let x = 0; x < width; x += spacer) {
+    for (let y = 0; y < height; y += spacer) {
       stroke(distances[x][y]);
-      point(x + spacer/2, y + spacer/2);
+      point(x + spacer / 2, y + spacer / 2);
     }
   }
 }
