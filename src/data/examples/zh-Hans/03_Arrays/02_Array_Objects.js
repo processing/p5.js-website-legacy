@@ -4,13 +4,13 @@
  */
 
 class Module {
-  constructor(_xOff, _yOff, _x, _y, _speed, _unit) {
-    this.xOff = _xOff;
-    this.yOff = _yOff;
-    this.x = _x;
-    this.y = _y;
-    this.speed = _speed;
-    this.unit = _unit;
+  constructor(xOff, yOff, x, y, speed, unit) {
+    this.xOff = xOff;
+    this.yOff = yOff;
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.unit = unit;
     this.xDir = 1;
     this.yDir = 1;
   }
