@@ -2,11 +2,11 @@
  * @name Geometrías
  * @description Existen seis figuras 3D primitivas en p5 en este momento.
  */
-function setup(){
+function setup() {
   createCanvas(710, 400, WEBGL);
 }
 
-function draw(){
+function draw() {
   background(250);
   translate(-250 * 2.5, 0, 0);
   normalMaterial();

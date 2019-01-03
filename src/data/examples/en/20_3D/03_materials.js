@@ -4,17 +4,17 @@
  * They respond to light differently.
  * Move your mouse to change the light position.
  */
-var img;
+let img;
 function setup() {
   createCanvas(710, 400, WEBGL);
-  img = loadImage("assets/cat.jpg");
+  img = loadImage('assets/cat.jpg');
 }
 
 function draw() {
   background(0);
 
-  var locX = mouseX - height / 2;
-  var locY = mouseY - width / 2;
+  let locX = mouseX - height / 2;
+  let locY = mouseY - width / 2;
 
   ambientLight(60, 60, 60);
   pointLight(255, 255, 255, locX, locY, 100);
