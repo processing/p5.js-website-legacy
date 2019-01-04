@@ -10,6 +10,30 @@ let gravity = 0.03;
 let friction = -0.9;
 let balls = [];
 
+function setup() {
+  createCanvas(720, 400);
+  for (let i = 0; i < numBalls; i++) {
+    balls[i] = new Ball(
+      random(width),
+      random(height),
+      random(30, 70),
+      i,
+      balls
+    );
+  }
+  noStroke();
+  fill(255, 204);
+}
+
+function draw() {
+  background(0);
+  balls.forEach(ball => {
+    ball.collide();
+    ball.move();
+    ball.display();
+  });
+}
+
 class Ball {
   constructor(xin, yin, din, idin, oin) {
     this.x = xin;
@@ -68,28 +92,4 @@ class Ball {
   display() {
     ellipse(this.x, this.y, this.diameter, this.diameter);
   }
-}
-
-function setup() {
-  createCanvas(720, 400);
-  for (let i = 0; i < numBalls; i++) {
-    balls[i] = new Ball(
-      random(width),
-      random(height),
-      random(30, 70),
-      i,
-      balls
-    );
-  }
-  noStroke();
-  fill(255, 204);
-}
-
-function draw() {
-  background(0);
-  balls.forEach(ball => {
-    ball.collide();
-    ball.move();
-    ball.display();
-  });
 }
