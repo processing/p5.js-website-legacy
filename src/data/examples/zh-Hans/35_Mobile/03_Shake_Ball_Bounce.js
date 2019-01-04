@@ -11,6 +11,47 @@ let accChangeX = 0;
 let accChangeY = 0;
 let accChangeT = 0;
 
+function setup() {
+  createCanvas(displayWidth, displayHeight);
+
+  for (let i = 0; i < 20; i++) {
+    balls.push(new Ball());
+  }
+}
+
+function draw() {
+  background(0);
+
+  for (let i = 0; i < balls.length; i++) {
+    balls[i].move();
+    balls[i].display();
+  }
+
+  checkForShake();
+}
+
+function checkForShake() {
+  // Calculate total change in accelerationX and accelerationY
+  accChangeX = abs(accelerationX - pAccelerationX);
+  accChangeY = abs(accelerationY - pAccelerationY);
+  accChangeT = accChangeX + accChangeY;
+  // If shake
+  if (accChangeT >= threshold) {
+    for (let i = 0; i < balls.length; i++) {
+      balls[i].shake();
+      balls[i].turn();
+    }
+  }
+  // If not shake
+  else {
+    for (let i = 0; i < balls.length; i++) {
+      balls[i].stopShake();
+      balls[i].turn();
+      balls[i].move();
+    }
+  }
+}
+
 // Ball class
 class Ball {
   constructor() {
@@ -69,46 +110,5 @@ class Ball {
 
   display() {
     ellipse(this.x, this.y, this.diameter, this.diameter);
-  }
-}
-
-function setup() {
-  createCanvas(displayWidth, displayHeight);
-
-  for (let i = 0; i < 20; i++) {
-    balls.push(new Ball());
-  }
-}
-
-function draw() {
-  background(0);
-
-  for (let i = 0; i < balls.length; i++) {
-    balls[i].move();
-    balls[i].display();
-  }
-
-  checkForShake();
-}
-
-function checkForShake() {
-  // Calculate total change in accelerationX and accelerationY
-  accChangeX = abs(accelerationX - pAccelerationX);
-  accChangeY = abs(accelerationY - pAccelerationY);
-  accChangeT = accChangeX + accChangeY;
-  // If shake
-  if (accChangeT >= threshold) {
-    for (let i = 0; i < balls.length; i++) {
-      balls[i].shake();
-      balls[i].turn();
-    }
-  }
-  // If not shake
-  else {
-    for (let i = 0; i < balls.length; i++) {
-      balls[i].stopShake();
-      balls[i].turn();
-      balls[i].move();
-    }
   }
 }
