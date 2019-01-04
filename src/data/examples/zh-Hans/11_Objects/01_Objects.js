@@ -5,6 +5,20 @@
  * Processing by Casey Reas and Ben Fry.
  */
 
+let bug; // Declare object
+
+function setup() {
+  createCanvas(710, 400);
+  // Create object
+  bug = new Jitter();
+}
+
+function draw() {
+  background(50, 89, 100);
+  bug.move();
+  bug.display();
+}
+
 // Jitter class
 class Jitter {
   constructor() {
@@ -22,18 +36,4 @@ class Jitter {
   display() {
     ellipse(this.x, this.y, this.diameter, this.diameter);
   }
-}
-
-let bug; // Declare object
-
-function setup() {
-  createCanvas(710, 400);
-  // Create object
-  bug = new Jitter();
-}
-
-function draw() {
-  background(50, 89, 100);
-  bug.move();
-  bug.display();
 }
