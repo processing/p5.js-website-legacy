@@ -1,12 +1,12 @@
 /*
  * @name Linear
  * @frame 720,400
- * @description Changing a variable to create a moving line. 
+ * @description Changing a variable to create a moving line.
  * When the line moves off the edge of the window,
  * the variable is set to 0, which places the line back at the bottom of the screen.
  */
 
-var a;
+let a;
 
 function setup() {
   createCanvas(720, 400);

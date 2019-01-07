@@ -9,8 +9,8 @@ function setup() {
 function draw() {
   background(0);
 
-  var locX = mouseX - height / 2;
-  var locY = mouseY - width / 2;
+  let locX = mouseX - height / 2;
+  let locY = mouseY - width / 2;
 
   ambientLight(50);
   directionalLight(255, 0, 0, 0.25, 0.25, 0);

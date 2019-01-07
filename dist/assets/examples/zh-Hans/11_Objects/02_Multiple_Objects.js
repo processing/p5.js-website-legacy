@@ -1,12 +1,13 @@
 /*
  * @name Multiple Objects
  * @description Create a Jitter class, instantiate multiple objects,
- * and move it around the screen. 
+ * and move it around the screen.
  */
-var bug1;  // Declare objects
-var bug2;
-var bug3;
-var bug4;
+
+let bug1; // Declare objects
+let bug2;
+let bug3;
+let bug4;
 
 function setup() {
   createCanvas(710, 400);
@@ -30,18 +31,20 @@ function draw() {
 }
 
 // Jitter class
-function Jitter() {
-  this.x = random(width);
-  this.y = random(height);
-  this.diameter = random(10, 30);
-  this.speed = 1;
+class Jitter {
+  constructor() {
+    this.x = random(width);
+    this.y = random(height);
+    this.diameter = random(10, 30);
+    this.speed = 1;
+  }
 
-  this.move = function() {
+  move() {
     this.x += random(-this.speed, this.speed);
     this.y += random(-this.speed, this.speed);
-  };
+  }
 
-  this.display = function() {
+  display() {
     ellipse(this.x, this.y, this.diameter, this.diameter);
-  };
+  }
 }
