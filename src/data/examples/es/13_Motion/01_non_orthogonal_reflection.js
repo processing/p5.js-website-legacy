@@ -5,29 +5,29 @@
  */
 
 //Position of left hand side of floor
-var base1
+let base1;
 
 //Position of right hand side of floor
-var base2;
+let base2;
 //Length of floor
-//var baseLength;
+//let baseLength;
 
 // Variables related to moving ball
-var position;
-var velocity;
-var r = 6;
-var speed = 3.5;
+let position;
+let velocity;
+let r = 6;
+let speed = 3.5;
 
 function setup() {
   createCanvas(710, 400);
 
   fill(128);
-  base1 = createVector(0, height-150);
+  base1 = createVector(0, height - 150);
   base2 = createVector(width, height);
   //createGround();
 
   //start ellipse at middle top of screen
-  position = createVector(width/2, 0);
+  position = createVector(width / 2, 0);
 
   //calculate initial random velocity
   velocity = p5.Vector.random2D();
@@ -45,15 +45,15 @@ function draw() {
   quad(base1.x, base1.y, base2.x, base2.y, base2.x, height, 0, height);
 
   //calculate base top normal
-  var baseDelta = p5.Vector.sub(base2, base1);
+  let baseDelta = p5.Vector.sub(base2, base1);
   baseDelta.normalize();
-  var normal = createVector(-baseDelta.y, baseDelta.x)
-  var intercept = p5.Vector.dot(base1, normal);
+  let normal = createVector(-baseDelta.y, baseDelta.x);
+  let intercept = p5.Vector.dot(base1, normal);
 
   //draw ellipse
   noStroke();
   fill(255);
-  ellipse(position.x, position.y, r*2, r*2);
+  ellipse(position.x, position.y, r * 2, r * 2);
 
   //move ellipse
   position.add(velocity);
@@ -64,17 +64,26 @@ function draw() {
 
   // detect and handle collision with base
   if (p5.Vector.dot(normal, position) > intercept) {
-    //calculate dot product of incident vector and base top 
-    var dot = incidence.dot(normal);
+    //calculate dot product of incident vector and base top
+    let dot = incidence.dot(normal);
 
     //calculate reflection vector
     //assign reflection vector to direction vector
-    velocity.set(2*normal.x*dot - incidence.x, 2*normal.y*dot - incidence.y, 0);
+    velocity.set(
+      2 * normal.x * dot - incidence.x,
+      2 * normal.y * dot - incidence.y,
+      0
+    );
     velocity.mult(speed);
 
     // draw base top normal at collision point
     stroke(255, 128, 0);
-    line(position.x, position.y, position.x - normal.x*100, position.y - normal.y * 100);
+    line(
+      position.x,
+      position.y,
+      position.x - normal.x * 100,
+      position.y - normal.y * 100
+    );
   }
   //}
 
@@ -90,7 +99,7 @@ function draw() {
     velocity.x *= -1;
   }
   // top
-  if ( position.y < r ) {
+  if (position.y < r) {
     position.y = r;
     velocity.y *= -1;
 
