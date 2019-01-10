@@ -48,7 +48,7 @@ If you've contributed to this website (or any other part of the p5.js project), 
  
 ## Etc
 * [Instructions for contributing to website translation/internationalization](https://github.com/processing/p5.js-website/blob/master/contributor_docs/i18n_contribution.md)
-* Introducción a p5.js - The repository for the book and PDF production of Introducción a p5.js can be found [here](https://github.com/processing/p5.js-getting-started-es).
+* [Introducción a p5.js](https://github.com/processing/p5.js-getting-started-es) - The repository for the book and PDF production of [Introducción a p5.js](http://p5js.org/books/).
 
 ## Externally hosted language versions
 * [https://p5js.jp](https://p5js.jp/) - 日本語 (Japanese), translated and hosted by [Katsuya Endoh](https://enkatsu.org/)
