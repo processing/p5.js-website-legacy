@@ -7,11 +7,11 @@
  * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
  * local server</a>.</span></em></p>
  */
-var img;
-var smallPoint, largePoint;
+let img;
+let smallPoint, largePoint;
 
 function preload() {
-  img = loadImage("assets/moonwalk.jpg");
+  img = loadImage('assets/moonwalk.jpg');
 }
 
 function setup() {
@@ -25,10 +25,10 @@ function setup() {
 }
 
 function draw() {
-  var pointillize = map(mouseX, 0, width, smallPoint, largePoint);
-  var x = floor(random(img.width));
-  var y = floor(random(img.height));
-  var pix = img.get(x, y);
+  let pointillize = map(mouseX, 0, width, smallPoint, largePoint);
+  let x = floor(random(img.width));
+  let y = floor(random(img.height));
+  let pix = img.get(x, y);
   fill(pix, 128);
   ellipse(x, y, pointillize, pointillize);
 }

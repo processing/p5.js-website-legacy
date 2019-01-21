@@ -7,19 +7,19 @@
  * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
  * local server</a>.</span></em></p>
  */
-var img;
-var offset = 0;
-var easing = 0.05;
+let img;
+let offset = 0;
+let easing = 0.05;
 
 function setup() {
   createCanvas(720, 400);
-  img = loadImage("assets/moonwalk.jpg");  // Load an image into the program
+  img = loadImage('assets/moonwalk.jpg'); // Load an image into the program
 }
 
 function draw() {
-  image(img, 0, 0);  // Display at full opacity
-  var dx = (mouseX-img.width/2) - offset;
+  image(img, 0, 0); // Display at full opacity
+  let dx = mouseX - img.width / 2 - offset;
   offset += dx * easing;
-  tint(255, 127);  // Display at half opacity
+  tint(255, 127); // Display at half opacity
   image(img, offset, 0);
 }
