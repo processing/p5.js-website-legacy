@@ -7,12 +7,12 @@
 
 let pg;
 
-function setup(){
+function setup() {
   createCanvas(710, 400);
   pg = createGraphics(400, 250);
 }
 
-function draw(){
+function draw() {
   fill(0, 12);
   rect(0, 0, width, height);
   fill(255);
@@ -22,7 +22,7 @@ function draw(){
   pg.background(51);
   pg.noFill();
   pg.stroke(255);
-  pg.ellipse(mouseX-150, mouseY-75, 60, 60);
+  pg.ellipse(mouseX - 150, mouseY - 75, 60, 60);
 
   //El buffer fuera de pantalla es dibujado en la pantalla con image()
   image(pg, 150, 75);
