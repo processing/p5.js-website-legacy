@@ -9,7 +9,7 @@
  * default the capture feed shows up, too. You can hide the
  * feed by uncommenting the capture.hide() line.
  */
-var capture;
+let capture;
 
 function setup() {
   createCanvas(390, 240);

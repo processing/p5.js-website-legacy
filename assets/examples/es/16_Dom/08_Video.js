@@ -6,15 +6,13 @@
  * un archivo de video y la
  * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>.</span></em></p>
  */
-var playing = false;
-var fingers;
-var button;
-
+let playing = false;
+let fingers;
+let button;
 
 function setup() {
   // especificar múltiples formatos para distintos navegadores
-  fingers = createVideo(['assets/fingers.mov',
-                         'assets/fingers.webm']);
+  fingers = createVideo(['assets/fingers.mov', 'assets/fingers.webm']);
   button = createButton('play');
   button.mousePressed(toggleVid); // adjuntar un listener al botón
 }
