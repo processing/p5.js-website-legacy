@@ -106,10 +106,12 @@ function draw() {
 }
 
 // cuando hacemos click
-function mousePressed() {
-  // mapear el ratón al índice de la tecla
-  let key = floor(map(mouseX, 0, width, 0, notes.length));
-  playNote(notes[key]);
+function mousePressed(event) {
+  if(event.button == 0 && event.clientX < width && event.clientY < height) {
+    // mapear el ratón al índice de la tecla
+    var key = floor(map(mouseX, 0, width, 0, notes.length));
+    playNote(notes[key]);
+  }
 }
 
 // Disminuye gradualmente cuando soltamos el botón del ratón
