@@ -89,10 +89,10 @@ function setup() {
   noStroke();
 }
 function draw() {
-  var x = mouseX;
-  var y = mouseY;
-  var ix = width - mouseX;  // Inverse X
-  var iy = height - mouseY; // Inverse Y
+  let x = mouseX;
+  let y = mouseY;
+  let ix = width - mouseX;  // Inverse X
+  let iy = height - mouseY; // Inverse Y
   background(126);
   fill(255, 150);
   ellipse(x, height/2, y, y);
@@ -296,7 +296,7 @@ function draw() {
       </script>
 
       <script type="text/p5" data-autoplay>
-var x = 20;
+let x = 20;
 function setup() {
   createCanvas(100, 100);
   strokeWeight(4);
@@ -361,14 +361,14 @@ function setup() {
 }
 function draw() {
   if (keyIsPressed === true) {
-    var x = keyCode - 32;
+    let x = keyCode - 32;
     line(x, 0, x, height);
   }
 }
       </script>
 
       <script type="text/p5" data-autoplay>
-var angle = 0;
+let angle = 0;
 function setup() {
   createCanvas(100, 100);
   stroke(0);
@@ -388,7 +388,7 @@ function draw() {
       <p>In addition to reading key values for numbers, letters, and symbols, p5 can also read the values from other keys including the arrow keys and the Alt, Control, Shift, Backspace, Tab, Enter, Return, Escape, and Delete keys. The variable <a href="/reference/#/p5/keyCode">keyCode</a> stores the BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. If you're making cross-platform projects, note that the Enter key is commonly used on PCs and UNIX and the Return key is used on Macintosh. Check for both Enter and Return to make sure your program will work for all platforms (see code 12-17).</p>
 
       <script type="text/p5" data-autoplay>
-var y = 35;
+let y = 35;
 function setup() {
   createCanvas(100, 100);
   stroke(0);
@@ -418,13 +418,13 @@ function setup() {
 }
 function draw() {
   if (keyIsPressed === true) {
-    var x = keyCode - 32;
+    let x = keyCode - 32;
     line(x, 0, x, height);
   }
 }
       </script>
       <script type="text/p5" data-autoplay>
-var angle = 0;
+let angle = 0;
 function setup() {
   createCanvas(100, 100);
   stroke(0);
@@ -443,7 +443,7 @@ function draw() {
       <h2>Coded keys</h2>
       <p>In addition to reading key values for numbers, letters, and symbols, p5 can also read the values from other keys including the arrow keys and the Alt, Control, Shift, Backspace, Tab, Enter, Return, Escape, and Delete keys. The variable <a href="/reference/#/p5/keyCode">keyCode</a> stores the BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. If you're making cross-platform projects, note that the Enter key is commonly used on PCs and UNIX and the Return key is used on Macintosh. Check for both Enter and Return to make sure your program will work for all platforms (see code 12-17).</p>
       <script type="text/p5" data-autoplay>
-var y = 35;
+let y = 35;
 function setup() {
   createCanvas(100, 100);
   stroke(0);
@@ -486,7 +486,7 @@ function draw() {
       <p>The <a href="/reference/#/p5/mousePressed">mousePressed()</a> function works differently than the <a href="/reference/#/p5/mouseIsPressed">mouseIsPressed</a> variable. The value of the <a href="/reference/#/p5/mouseIsPressed">mouseIsPressed</a> variable is true until the mouse button is released. It can therefore be used within <a href="/reference/#/p5/draw">draw()</a> to have a line of code run while the mouse is pressed. In contrast, the code inside the <a href="/reference/#/p5/mousePressed">mousePressed()</a> function only runs once when a button is pressed. This makes it useful when a mouse click is used to trigger an action, such as clearing the screen. In the following example, the background value becomes lighter each time a mouse button is pressed. Run the example on your computer to see the change in response to your finger.</p>
 
       <script type="text/p5" data-autoplay>
-var gray = 0;
+let gray = 0;
 function setup() {
   createCanvas(100, 100);
 }
@@ -501,7 +501,7 @@ function mousePressed() {
       <p>The following example is the same as the one above, but the gray variable is set in the <a href="/reference/#/p5/mouseReleased">mouseReleased()</a> event function, which is called once every time a button is released. This difference can be seen only by running the program and clicking the mouse button. Keep the mouse button pressed for a long time and notice that the background value changes only when the button is released.</p>
 
       <script type="text/p5" data-autoplay>
-var gray = 0;
+let gray = 0;
 function setup() {
   createCanvas(100, 100);
 }
@@ -516,7 +516,7 @@ function mouseReleased() {
       <!-- mouseClicked() example added-->
       <p>Similarly, the gray variable is set in the <a href="/reference/#/p5/mouseClicked">mouseClicked()</a> event function, which is called once after a mouse button has been pressed and then released. Browsers handle clicks differently, so this function is only guaranteed to be run when the left mouse button is clicked. To handle other mouse buttons being pressed or released, use <a href="/reference/#/p5/mousePressed">mousePressed()</a> or <a href="/reference/#/p5/mouseReleased">mouseReleased()</a>. </p>
       <script type="text/p5" data-autoplay>
-var gray = 0;
+let gray = 0;
 function setup() {
   createCanvas(100, 100);
 }
@@ -546,7 +546,7 @@ function mousePressed() {
       <p>The code inside the <a href="/reference/#/p5/mouseMoved">mouseMoved()</a> and <a href="/reference/#/p5/mouseDragged">mouseDragged()</a> event functions are run when there is a change in the mouse position. The code in the <a href="/reference/#/p5/mouseMoved">mouseMoved()</a> block is run at the end of each frame when the mouse moves and no button is pressed. The code in the <a href="/reference/#/p5/mouseDragged">mouseDragged()</a> block does the same when the mouse button is pressed. If the mouse stays in the same position from frame to frame, the code inside these functions does not run. In this example, the gray circle follows the mouse when the button is not pressed, and the black circle follows the mouse when a mouse button is pressed.</p>
 
       <script type="text/p5" data-autoplay>
-var dragX, dragY, moveX, moveY;
+let dragX, dragY, moveX, moveY;
 function setup() {
   createCanvas(100, 100);
   noStroke();
@@ -571,8 +571,8 @@ function mouseDragged() { // Move black circle
       <!-- examples added for mouseOut() and mouseOver() -->
       <p>The <a href="/reference/#/p5/mouseOver">.mouseOver()</a> function is called once after every time a mouse moves onto the element. In this example, the diameter of the ellipse increase by 10 every time the mouse moves onto the canvas.</p>
       <script type="text/p5" data-autoplay>
-var cnv;
-var d;
+let cnv;
+let d;
 function setup() {
   cnv = createCanvas(100, 100);
   cnv.mouseOver(changeD);
@@ -588,8 +588,8 @@ function changeD() {
 
       <p>The <a href="/reference/#/p5/mouseOut">.mouseOut()</a> function is called once after every time a mouse moves off the element. Similar to the above example, the diameter of the ellipse increase by 10 every time the mouse moves out of the canvas.</p>
       <script type="text/p5" data-autoplay>
-var cnv;
-var d;
+let cnv;
+let d;
 function setup() {
   cnv = createCanvas(100, 100);
   cnv.mouseOut(changeD);
@@ -608,9 +608,9 @@ function changeD() {
       <p>In this example, an event listener is attached to the canvas element, and function changeSize() would run when scrolling is performed on canvas. By using the <a href="/reference/#/p5/deltaY">event.deltaY</a> variable, scrolling up on canvas would increase the diameter of the ellipse and scrolling down would decrease the diameter. If scrolling is performed anywhere in any direction, the background is going to be darker.</p>
 
       <script type="text/p5" data-autoplay>
-var cnv;
-var d;
-var g;
+let cnv;
+let d;
+let g;
 function setup() {
   cnv = createCanvas(100, 100);
   cnv.mouseWheel(changeSize); // attach listener for activity on canvas only
@@ -653,7 +653,7 @@ function changeSize(event) {
       <p>Each time a key is pressed, the code inside the <a href="/reference/#/p5/keyPressed">keyPressed()</a> block is run once. Within this block, it's possible to test which key has been pressed and to use this value for any purpose. If a key is held down for an extended time, the code inside the <a href="/reference/#/p5/keyPressed">keyPressed()</a> block might run many times in a rapid succession because most operating systems will take over and repeatedly call the <a href="/reference/#/p5/keyPressed">keyPressed()</a> function. The amount of time it takes to start repeating and the rate of repetitions will be different from computer to computer, depending on the keyboard preference settings. In this example, the value of the boolean variable drawT is set from false to true when the T key is pressed; this causes the lines of code to render the rectangles in <a href="/reference/#/p5/draw">draw()</a> to start running.</p>
 
       <script type="text/p5" data-autoplay>
-var drawT = false;
+let drawT = false;
 function setup() {
   createCanvas(100, 100);
   noStroke();
@@ -678,7 +678,7 @@ function keyPressed() {
       <p>Each time a key is released, the code inside the <a href="/reference/#/p5/keyReleased">keyReleased()</a> block is run once. The following example builds on the previous code; each time the key is released the boolean variable drawT is set back to false to stop the shape from displaying within <a href="/reference/#/p5/draw">draw()</a>.</p>
 
       <script type="text/p5" data-autoplay>
-var drawT = false;
+let drawT = false;
 function setup() {
   createCanvas(100, 100);
   noStroke();
@@ -704,7 +704,7 @@ function keyReleased() {
       <p>As discussed previously, programs written with <a href="/reference/#/p5/draw">draw()</a> display frames to the screen sixty frames each second. The <a href="/reference/#/p5/frameRate">frameRate()</a> function is used to set a limit on the number of frames that will display each second, and the <a href="/reference/#/p5/noLoop">noLoop()</a> function can be used to stop draw() from looping. The additional functions <a href="/reference/#/p5/loop">loop()</a> and <a href="/reference/#/p5/redraw">redraw()</a> provide more options when used in combination with the mouse and keyboard event functions. If a program has been paused with <a href="/reference/#/p5/noLoop">noLoop()</a>, running <a href="/reference/#/p5/loop">loop()</a> resumes its action. Because the event functions are the only elements that continue to run when a program is paused with noLoop(), the loop() function can be used within these events to continue running the code in draw(). The following example runs the draw() function for about two seconds each time a mouse button is pressed and then pauses the program after that time has elapsed.</p>
 
       <script type="text/p5" data-autoplay>
-var frame = 0;
+let frame = 0;
 function setup() {
   createCanvas(100, 100);
 }
@@ -748,9 +748,9 @@ function mousePressed() {
       <p>Function|Boolean: function to be fired when mouse is pressed over the element. if false is passed instead, the previously firing function will no longer fire.</p>
       <p>In this example</p>
        <script type="text/p5" data-autoplay>
-var cnv;
-var d;
-var g;
+let cnv;
+let d;
+let g;
 function setup() {
   cnv = createCanvas(100, 100);
   cnv.mousePressed(changeGray); // attach listener for canvas click only
