@@ -3,7 +3,7 @@
  * @description Hacer click con el ratón para generar una ráfaga de partículas en la posición del ratón.<br>Cada ráfaga es una instancia de un sistema de partículas con objetos Particle y CrazyParticle (una subclase de Particle).<br>Notar el uso de Herencia y Polimorfismo.<br>
  * Original por Daniel Shiffman.
  */
-var systems;
+let systems;
 
 function setup() {
   createCanvas(710, 400);
@@ -17,11 +17,11 @@ function draw() {
     systems[i].run();
     systems[i].addParticle();
   }
-  if (systems.length==0) {
+  if (systems.length == 0) {
     fill(255);
     textAlign(CENTER);
     textSize(32);
-    text("click mouse to add particle systems", width/2, height/2);
+    text("click mouse to add particle systems", width / 2, height / 2);
   }
 }
 
@@ -31,7 +31,7 @@ function mousePressed() {
 }
 
 // Una clase simple de Particle
-var Particle = function(position) {
+let Particle = function(position) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
   this.position = position.copy();
@@ -67,7 +67,7 @@ Particle.prototype.isDead = function () {
   }
 };
 
-var ParticleSystem = function (position) {
+let ParticleSystem = function (position) {
   this.origin = position.copy();
   this.particles = [];
 };
@@ -84,8 +84,8 @@ ParticleSystem.prototype.addParticle = function () {
 };
 
 ParticleSystem.prototype.run = function () {
-  for (var i = this.particles.length - 1; i >= 0; i--) {
-    var p = this.particles[i];
+  for (let i = this.particles.length - 1; i >= 0; i--) {
+    let p = this.particles[i];
     p.run();
     if (p.isDead()) {
       this.particles.splice(i, 1);
@@ -130,7 +130,7 @@ CrazyParticle.prototype.display=function() {
   push();
   translate(this.position.x, this.position.y);
   rotate(this.theta);
-  stroke(255,this.lifespan);
-  line(0,0,25,0);
+  stroke(255, this.lifespan);
+  line(0, 0, 25, 0);
   pop();
 }

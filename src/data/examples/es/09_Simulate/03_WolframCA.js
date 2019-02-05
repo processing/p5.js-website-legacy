@@ -4,20 +4,20 @@
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */
 
-var w = 10;
+let w = 10;
 // Arreglo de 1s y 0s
-var cells;
+let cells;
 
  // Arbitrariamente inicializar con solo la célula del medio teniendo un estado de "1"
-var generation = 0;
+let generation = 0;
 
 // Arreglo para almacenar el conjunto de reglas, por ejemplo {0,1,1,0,1,1,0,1}
-var ruleset = [0, 1, 0, 1, 1, 0, 1, 0];
+let ruleset = [0, 1, 0, 1, 1, 0, 1, 0];
 
 function setup() {
   createCanvas(640, 400);
-  cells = Array(floor(width/w));
-  for (var i = 0; i < cells.length; i++) {
+  cells = Array(floor(width / w));
+  for (let i = 0; i < cells.length; i++) {
     cells[i] = 0;
   }
   cells[cells.length/2] = 1;
@@ -25,16 +25,16 @@ function setup() {
 }
 
 function draw() {
-  for (var i = 0; i < cells.length; i++) {
+  for (let i = 0; i < cells.length; i++) {
     if (cells[i] === 1) {
       fill(200);
     } else {
       fill(51);
       noStroke();
-      rect(i*w, generation*w, w, w);
+      rect(i * w, generation * w, w, w);
     }
   }
-  if (generation < height/w) {
+  if (generation < height / w) {
     generate();
   }
 }
@@ -42,13 +42,13 @@ function draw() {
 // El proceso de crear una nueva generación
 function generate() {
   //Primero crear un arreglo vacío para los nuevos valores
-  var nextgen = Array(cells.length);
+  let nextgen = Array(cells.length);
   // Por cada lugar, determinar el nuevo estado según el examen del estado actual y de los estados vecinos
   // Ignorar bordes que solo tienen un vecino
-  for (var i = 1; i < cells.length-1; i++) {
-    var left   = cells[i-1];   // Estado del vecino izquierdo
-    var me     = cells[i];     // Estado actual
-    var right  = cells[i+1];   // Estado del vecino derecho
+  for (let i = 1; i < cells.length-1; i++) {
+    let left   = cells[i-1];   // Estado del vecino izquierdo
+    let me     = cells[i];     // Estado actual
+    let right  = cells[i+1];   // Estado del vecino derecho
     nextgen[i] = rules(left, me, right); // Calcular el estado siguiente generación basado en el conjunto de reglas
   }
   // La generación actual es la nueva generación
