@@ -2,9 +2,9 @@
  * @name Redraw
  * @description La función redraw() hace que draw() se ejecute una vez. En este ejemplo,
  * draw() se ejecutado una vez cada vez que el ratón hace click.
-*/
+ */
 
-var y;
+let y;
 
 // Las instrucciones dentro de la función setup()
 // se ejecutan una vez, cuando el programa se inicia

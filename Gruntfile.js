@@ -243,6 +243,12 @@ module.exports = function(grunt) {
         src: ['**'],
         dest: '<%= config.dist %>/zh-Hans/reference'
       },
+      gitDeploy: {
+        expand: true,
+        cwd: '<%= config.src %>',
+        src: 'git-pull.php',
+        dest: '<%= config.dist %>'
+      },
       offlineReference: {
         files: [
           {

@@ -5,7 +5,6 @@
  * El origen [0, 0] es la coordenada en la esquina superior izquierda de la ventana y la coordenada de la esquina inferior derecha es [ancho-1, altura-1].
  */
 function setup() {
-
   // Definir lienzo de 720 pixeles de ancho y 400 pixeles de alto
   createCanvas(720, 400);
 }
@@ -28,12 +27,11 @@ function draw() {
   // de line() especifican las coordenadas del primer extremo
   //y los siguientes dos parámetros del segundo extremo.
   stroke(0, 153, 255);
-  line(0, height*0.33, width, height*0.33);
-
+  line(0, height * 0.33, width, height * 0.33);
 
   // Por defecto, los dos primeros parámetros de rect() son
   // las coordenadas de la esquina superior izquierda y el
   // segundo par son el ancho y el alto.
   stroke(255, 153, 0);
-  rect(width*0.25, height*0.1, width * 0.5, height * 0.8);
+  rect(width * 0.25, height * 0.1, width * 0.5, height * 0.8);
 }

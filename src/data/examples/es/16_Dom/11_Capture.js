@@ -10,7 +10,7 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
  *, al menos un archivo de video y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em></p>
  */
-var capture;
+let capture;
 
 function setup() {
   createCanvas(390, 240);

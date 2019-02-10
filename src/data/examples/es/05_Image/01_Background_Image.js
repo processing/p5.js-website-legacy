@@ -8,13 +8,13 @@
  * servidor local</a>.</span></em></p> corriendo.
  */
 
-var bg;
-var y = 0;
+let bg;
+let y = 0;
 
 function setup() {
   // La imagen de fondo debe tener el mismo tamaño que el lienzo, según el método createCanvas().
   // En este programa, el tamaño de la imagen es de 720x400 pixels.
-  bg = loadImage("assets/moonwalk.jpg");
+  bg = loadImage('assets/moonwalk.jpg');
   createCanvas(720, 400);
 }
 
