@@ -112,33 +112,33 @@
 
     <section role="region" label="main content">
       <div class="attribution">
-      This tutorial is from the book <em>Learning Processing</em> by Daniel Shiffman, published by Morgan Kaufmann, © 2008 Elsevier Inc. All rights reserved. It was ported to p5.js by Alex Yixuan Xu. If you see any errors or have comments, please <a href="https://github.com/processing/processing-docs/issues?state=open">let us know</a>.</div>
+      以下教程来自于由 Daniel Shiffman 篇写的《 <em>Learning Processing</em> 》（原文英文），并由 Morgan Kaufmann 出版，© 2008 Elsevier Inc。版权所有。此教程由移植成 P5 代码。如果您发现任何错误或有任何评论，<a href="https://github.com/processing/processing-docs/issues?state=open">请联络我们</a>。</div>
 
-      <h1>Coordinate System and Shapes</h1>
-      <p>Before we begin programming with p5, we must first channel our eighth grade selves, pull out a piece of graph paper, and draw a line. The shortest distance between two points is a good old fashioned line, and this is where we begin, with two points on that graph paper.</p>
+      <h1>坐标系统及图形</h1>
+      <p>在我们开始使用 p5 编程前，我们得先回到我们初中二时的记忆，找出一张坐标纸并画一条直线。两点之间最短的距离正是一条直线，我们将使用坐标纸上的直线的两点作为起点。</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-01.png">
 
-      <p>The above figure shows a line between point A (1,0) and point B (4,5). If you wanted to direct a friend of yours to draw that same line, you would give them a shout and say "draw a line from the point one-zero to the point four-five, please." Well, for the moment, imagine your friend was a computer and you wanted to instruct this digital pal to display that same line on its screen. The same command applies (only this time you can skip the pleasantries and you will be required to employ a precise formatting). Here, the instruction will look like this:</p>
+      <p>以上图解显示一条介于点 A (1,0) 及点 B (4,5) 的直线。如果您想要指示您的朋友画出一样的直线，您或许会对他说：“请从点一、零开始画一条直线去点四、五”。 那么现在暂时想象您的朋友是个电脑而您想要指示这位数码朋友如何画在荧幕上出一样的直线。这情况下您也能使用一样的指示（只不过现在您可以跳过任何客气话但是必须使用精准的格式来表达）。该指示将会是如下：</p>
 
       <pre><code class="language-javascript">
         line(1,0,4,5);
       </code></pre>
 
-      <p>Even without having studied the syntax of writing code, the above statement should make a fair amount of sense. We are providing a command (which we will refer to as a "function") for the machine to follow entitled "line." In addition, we are specifying some arguments for how that line should be drawn, from point A (1,0) to point B (4,5). If you think of that line of code as a sentence, the function is a verb and the arguments are the objects of the sentence. The code sentence also ends with a semicolon instead of a period.</p>
+      <p>就算您还没学习过编写程式的语法，以上的语句应该仍然多少都能理解。我们提供电脑一个指令（我们称这指令为 function 或函数）以让其画出直线（line）。此外，我们也提供一些用于定义该直线的参数：从点 A (1,0) 至点 B (4,5)。 如果您假想这行代码为一个句子，这函数就是个动词而参数就是宾语。这代码句子使用分号作为句尾符号而不是句号。</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-02.png">
 
-      <p>The key here is to realize that the computer screen is nothing more than a fancier piece of graph paper. Each pixel of the screen is a coordinate - two numbers, an "x" (horizontal) and a "y" (vertical) - that determines the location of a point in space. And it is our job to specify what shapes and colors should appear at these pixel coordinates.</p>
+      <p>这里关键是了解电脑屏幕就只是个比较花俏的坐标纸。荧幕上每一个像素都代表着一个坐标 - 或两个数字：“x”（横向）及 “y”（纵向）- 代表着在空间内一点的位置。而我们的工作就是指定该在这些像素坐标位置出现的图形及颜色。</p>
 
-      <p>Nevertheless, there is a catch here. The graph paper from eighth grade ("Cartesian coordinate system") placed (0,0) in the center with the y-axis pointing up and the x-axis pointing to the right (in the positive direction, negative down and to the left). The coordinate system for pixels in a computer window, however, is reversed along the y-axis. (0,0) can be found at the top left with the positive direction to the right horizontally and down vertically.</p>
+      <p>不过，这里有个需要注意的东西。那张来自初中二的坐标纸（使用笛卡尔坐标系）将 (0,0) 放置在正中央，y 轴由下至上 x 轴由左至右。但是电脑窗口的坐标系在 y 轴的方向是相反的。(0,0) 被定义在左上角并往右边及往下延伸。</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg">
 
-      <h2>Simple Shapes</h2>
-      <p>The vast majority of the programming examples you'll see with p5 are visual in nature. These examples, at their core, involve drawing shapes and setting pixels. Let's begin by looking at four primitive shapes.</p>
+      <h2>基本图形</h2>
+      <p>大多数使用 p5 的编程范例一般都会使视觉上的绘图范例。本质上，这些范例都和绘制图形及设定像素有关。我们将从绘制四种基本图形开始。</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png">
 
-      <p>For each shape, we will ask ourselves what information is required to specify the location and size (and later color) of that shape and learn how p5 expects to receive that information. In each of the diagrams below, we'll assume a window with a width of 10 pixels and height of 10 pixels. This isn't particularly realistic since when you really start coding you will most likely work with much larger windows (10x10 pixels is barely a few millimeters of screen space.) Nevertheless for demonstration purposes, it is nice to work with smaller numbers in order to present the pixels as they might appear on graph paper (for now) to better illustrate the inner workings of each line of code.</p>
+      <p>针对每个形状，我们需要问我们需要什么资料才可以定义该图形的位置及大小（更之后其颜色）然后再了解 p5 如何接收这些信息。在以下的绘图内，我们将使用一个宽度为 10 像素及高度为 10 像素的画布。这并不是个特别实际的设置因为当您真正开始编程时您多数会需要使用更大的画布（10x10 像素单单只是荧幕上几个毫米的大小而已）。无论如何，在以下范例内使用较小的数字能帮助我们了解像素和坐标纸的关系，同时这也能帮助说明各行代码的运作原理。</p>
 
-      <p>A <a href="/reference/#/p5/point">point()</a> is the easiest of the shapes and a good place to start. To draw a point, we only need an x and y coordinate.</p>
+      <p><a href="/reference/#/p5/point">point()</a> （点）是最简单的图形同时也是个不错的起点。以绘制一个点（point），我们只需要提供 x 及 y 坐标。</p>
       <!-- this script only needs to get added once even if there are multiple widget instances -->
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
       <script type="text/p5" data-autoplay>
@@ -150,7 +150,7 @@
         }
       </script>
 
-      <p>A <a href="/reference/#/p5/line">line()</a> isn't terribly difficult either and simply requires two points: (x1,y1) and (x2,y2):</p>
+      <p><a href="/reference/#/p5/line">line()</a> （直线）也不会特别困难，我们只需提供两个点 (x1,y1) 及 (x2,y2)：</p>
       <script type="text/p5" data-autoplay>
         function setup(){
           createCanvas(100, 100);
@@ -160,7 +160,7 @@
         }
       </script>
 
-      <p>Once we arrive at drawing a <a href="/reference/#/p5/rect">rect()</a>, things become a bit more complicated. In p5, a rectangle is specified by the coordinate for the top left corner of the rectangle, as well as its width and height.</p>
+      <p>当我们想要绘制一个 <a href="/reference/#/p5/rect">rect()</a> （四方形）时，这就会变得比较复杂一点。在 p5 内，一个四方形是由其左上角的坐标点与其宽度及高度来定义的。</p>
       <script type="text/p5" data-autoplay>
         function setup(){
           createCanvas(100, 100);
@@ -170,7 +170,7 @@
         }
       </script>
 
-      <p>A second way to draw a rectangle involves specifying the centerpoint, along with width and height. If we prefer this method, we first indicate that we want to use the <a href="/reference/#/p5/CENTER">CENTER</a> mode before the instruction for the rectangle itself. Note that p5 is case-sensitive.</p>
+      <p>第二个绘制四方形的方法是定义其中心点的位置，然后定义其宽度及高度。如果我们想要使用这方法，我们必须先表示我们要使用 <a href="/reference/#/p5/CENTER">CENTER</a> 模式然后才输入绘制四方形的指示。请注意 p5 有区分大小写字母。</p>
       <script type="text/p5" data-autoplay>
         function setup(){
           createCanvas(100, 100);
@@ -181,7 +181,7 @@
         }
       </script>
 
-      <p>Finally, we can also draw a rectangle with two points (the top left corner and the bottom right corner). The mode here is <a href="/reference/#/p5/CORNERS">CORNERS</a>. Note this example gives the same result on screen as the example above.</p>
+      <p>最后我们也能使用两个点来绘制一个四方形（分别定义左上角及右下角）。这模式为 <a href="/reference/#/p5/CORNERS">CORNERS</a>。请注意这范例在荧幕上显示的结果和上方的范例一样。</p>
       <script type="text/p5" data-autoplay>
         function setup(){
           createCanvas(100, 100);
@@ -192,7 +192,7 @@
         }
       </script>
 
-      <p>Once we have become comfortable with the concept of drawing a rectangle, an <a href="/reference/#/p5/ellipse">ellipse()</a> is a snap. In fact, it is identical to <a href="/reference/#/p5/rect">rect()</a>> with the difference being that an ellipse is drawn where the bounding box of the rectangle would be. The default mode for <a href="/reference/#/p5/ellipse">ellipse()</a> is <a href="/reference/#/p5/CENTER">CENTER</a>, rather than <a href="/reference/#/p5/CORNER">CORNER</a>.</p>
+      <p>当我们对于绘制一个四方形有了不错的掌握时，绘制一个 <a href="/reference/#/p5/ellipse">ellipse()</a> （椭圆形）可是轻而易举。事实上，它和绘制 <a href="/reference/#/p5/rect">rect()</a> （四方形）一样，唯一不同的是椭圆形将会被绘制在所定义的四方形内。<a href="/reference/#/p5/ellipse">ellipse()</a> 的默认模式为 <a href="/reference/#/p5/CENTER">CENTER</a> 而不是 <a href="/reference/#/p5/CORNER">CORNER</a>。</p>
       <script type="text/p5" data-autoplay>
         function setup(){
           createCanvas(100, 100);
@@ -223,9 +223,9 @@
         }
       </script>
 
-      <p>It is important to acknowledge that these ellipses do not look particularly circular. p5 has a built-in methodology for selecting which pixels should be used to create a circular shape. Zoomed in like this, we get a bunch of squares in a circle-like pattern, but zoomed out on a computer screen, we get a nice round ellipse. p5 also gives us the power to develop our own algorithms for coloring in individual pixels (in fact, we can already imagine how we might do this using "point" over and over again), but for now, we are content with allowing the "ellipse" statement to do the hard work. (For more about pixels, start with: the <a href="/reference/#/p5/pixels">pixels reference page</a>, though be warned this is a great deal more advanced than this tutorial.)</p>
+      <p>这时你可能发现到我们这里所绘制的椭圆形并不特别圆。p5 有内建的函式以决定哪一些像素会被用来构成这椭圆形的一部分。因此当您放大来看您会发现多个正方形构成一个类似圆形的图案，但是当你在电脑荧幕上以一般的缩放大小查看，您可以看到一个完好的椭圆形。p5 同时也让我们定义用来填充荧幕上个别像素的方程式（事实上，我们已经可以想象我们能如何单使用 “point” 来达成这点），不过我们暂时让 “ellipse” 函数来帮我们做这些比较复杂的工作。（要了解更多关于像素的资料，请参考<a href="/reference/#/p5/pixels">像素参考文献</a>，但请记得这可是比这教程更复杂的功能。）</p>
 
-      <p>Now let's look at what some code with shapes in more realistic setting, with window dimensions of 200 by 200. Note the use of the createCanvas() function to specify the width and height of the window.</p>
+      <p>现在让我们来看看一些使用更实际绘图设置的程式代码。我们将使用一个大小为 200 乘 200 的画布大小。请注意我们这里使用的 createCanvas() 函数内所设定的画布高度及宽度。</p>
 
       <script type="text/p5" data-autoplay>
         function setup(){

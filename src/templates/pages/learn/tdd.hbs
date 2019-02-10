@@ -112,9 +112,9 @@ slug: learn/
               // fillColor will be the color of the rectangle.
               // colorIncreaser will become an instance of our ColorIncreaser class.
 
-              var colorValueIncrease = 1;
-              var fillColor
-              var colorIncreaser
+              let colorValueIncrease = 1;
+              let fillColor;
+              let colorIncreaser;
 
               function setup() {
                 createCanvas(500, 500);
@@ -149,7 +149,7 @@ slug: learn/
             </xmp></code></pre>
           </li>
           <li>
-           Open the index.html file in your browser (you don’t need to run a local server in this case). You should see a black box become red and then black again. This is the basis of looping over all the RGB colors. The problem you face is that there are 256 values for red, green, and blue, which means there are over 16 million combinations of colors! You can make this faster. However, making this faster will cause flashing lights which might give some people headaches or seizures. Please only increase this value if you do not have issues with flashing lights. The rest of the tutorial should be fine.  In the sketch.js file change the<pre><code class="language-javascript"><xmp>var colorValueIncrease = 33;</xmp></code></pre> and reload the page. However this still doesn’t guarantee this is working properly. You don’t have time to watch all the colors change nor can you tell yourself if it is iterating through the millions of colors. Change the colorValueIncrease variable back to 1 before you move on.
+           Open the index.html file in your browser (you don’t need to run a local server in this case). You should see a black box become red and then black again. This is the basis of looping over all the RGB colors. The problem you face is that there are 256 values for red, green, and blue, which means there are over 16 million combinations of colors! You can make this faster. However, making this faster will cause flashing lights which might give some people headaches or seizures. Please only increase this value if you do not have issues with flashing lights. The rest of the tutorial should be fine.  In the sketch.js file change the<pre><code class="language-javascript"><xmp>let colorValueIncrease = 33;</xmp></code></pre> and reload the page. However this still doesn’t guarantee this is working properly. You don’t have time to watch all the colors change nor can you tell yourself if it is iterating through the millions of colors. Change the colorValueIncrease variable back to 1 before you move on.
           </li>
           <li>
             At 30 draw loops per second it would take over six days to loop through all of the colors. You certainly don’t have time to do that once, and would never be able to check and see if it worked every time you updated our code. What if you accidentally change something in our draw loop that breaks the code right before install?  You wouldn’t know until it was live and everyone saw your sketch break.
@@ -164,13 +164,15 @@ slug: learn/
       <p>
         In the folder called color_unit_test that you already created, make a new folder called test.  Open the test folder and make a file called test.js.  Type this code into test.js
         <pre><code class="language-javascript"><xmp>
+          'use strict';
+
           // Import the expect library.  This is what allows us to check our code.
           // You can check out the full documentation at http://chaijs.com/api/bdd/
-          var expect = require('chai').expect;
+          const expect = require('chai').expect;
 
 
           // Create the variable you are going to test
-          var p5js = 'awesome';
+          let p5js = 'awesome';
 
 
           // describe lets you comment on what this block of code is for.
@@ -209,11 +211,11 @@ slug: learn/
       </p>
       <p>
         Let's look at what happens when tests fail. Change line 6 in test.js from:
-        <pre><code class="language-javascript"><xmp>var p5js = 'awesome';</xmp></code></pre>
+        <pre><code class="language-javascript"><xmp>let p5js = 'awesome';</xmp></code></pre>
       </p>
       <p>
         to
-        <pre><code class="language-javascript"><xmp>var p5js = 42;</xmp></code></pre>
+        <pre><code class="language-javascript"><xmp>let p5js = 42;</xmp></code></pre>
       </p>
       <p>
         Save test.js and go back to your terminal and run the mocha command again. You should see something like:
@@ -258,13 +260,17 @@ slug: learn/
       <p>
         Delete everything in test.js and replace it with this
         <pre><code class="language-javascript">
+          'use strict';
+
           // Import the expect library.  This is what allows us to check our code.
           // You can check out the full documentation at http://chaijs.com/api/bdd/
-          var expect = require('chai').expect;
-          // Import our colorIncreaser class.
-          var ColorIncreaser = require('../sketch').ColorIncreaser;
+          const expect = require('chai').expect;
+          // Import our ColorIncreaser class.
+          const ColorIncreaser = require('../sketch');
 
           describe('ColorIncreaser tests', function() {
+            // Will hold the reference to the ColorIncreaser class
+            let colorIncreaser;
 
             // beforeEach is a special function that is similar to the setup function in
             // p5.js.  The major difference it that this function runs before each it()
@@ -282,22 +288,24 @@ slug: learn/
         </code></pre>
       </p>
       <p>
-        Now run the mocha command in your terminal and watch your new test fail!  The crux of the error is “TypeError: ColorIncreaser is not a function”.  This makes sense because you have not created a ColorIncreaser class in our sketch yet. <br />
+        Now run the mocha command in your terminal and watch your new test fail!  The crux of the error is “TypeError: ColorIncreaser is not a constructor”.  This makes sense because you have not created a ColorIncreaser class in our sketch yet. <br />
 
         Go to the bottom of your sketch.js file, below the closing bracket } for the draw function, and add this:
         <pre><code class="language-javascript">
-          function ColorIncreaser() {
-            // Stores a value and a color and allows you to increase the color
-            // by that value.
+          class ColorIncreaser {
+            constructor() {
+              // Stores a value and a color and allows you to increase the color
+              // by that value.
+            }
           }
 
-          module.exports.ColorIncreaser = ColorIncreaser;
+          module.exports = ColorIncreaser;
         </code></pre>
       </p>
       <p>
-        Save sketch.js.  The function line will be our color increasing object.  The module.export line is what allows our test.js file to import our ColorIncreaser with the line you already added that looks like this:
+        Save sketch.js.  The function line will be our color increasing object.  The module.exports line is what allows our test.js file to import our ColorIncreaser with the line you already added that looks like this:
         <pre><code class="language-javascript">
-           var ColorIncreaser = require('../sketch').ColorIncreaser;
+           const ColorIncreaser = require('../sketch');
         </code></pre>
       </p>
       <p>
@@ -306,7 +314,7 @@ slug: learn/
         Now get your ColorIncreaser function to actually do something.  Start by storing the colorValueIncrease as a variable in your class.  Before you change the code in sketch.js you have to write your tests.  Change the beforeEach function in test.js to look like this
         <pre><code class="language-javascript">
           beforeEach(function() {
-              var colorValueIncrease = 1;
+              let colorValueIncrease = 1;
               colorIncreaser = new ColorIncreaser(colorValueIncrease);
           });
         </code></pre>
@@ -329,10 +337,12 @@ slug: learn/
         </code></pre>
         and change the ColorIncreaser function to look like this
         <pre><code class="language-javascript">
-          function ColorIncreaser(colorValueIncrease) {
-            // Stores a value and a color and allows you to increase the color
-            // by that value.
-            this.colorValueIncrease = colorValueIncrease
+          class ColorIncreaser() {
+            constructor(colorValueIncrease) {
+              // Stores a value and a color and allows you to increase the color
+              // by that value.
+              this.colorValueIncrease = colorValueIncrease
+            }
           }
         </code></pre>
         Let’s run the mocha test again.  It should pass!
@@ -343,7 +353,7 @@ slug: learn/
         Now you need to add an instance of the p5 color class to our ColorIncreaser. However, for your tests, you don’t want to use an actual instance of the color() class because you don’t want to test external dependencies given by another library.You just want to make sure that your increment function works. So you are going to create what is called a mock of the p5 color class so you can test without worrying about the implementation of code you didn’t write.
       </p>
       <p>
-        The original way of incrementing colors just used the color.levels and changed the red, green and blue values at index [0], [1], and [2].  You can see this in the draw function in sketch.js.  The implementation of color just stores those values in a javascript array so you can mock it out very easily.  Put this code in test.js below the var ColorIncreaser = require… line and above the describe line
+        The original way of incrementing colors just used the color.levels and changed the red, green and blue values at index [0], [1], and [2].  You can see this in the draw function in sketch.js.  The implementation of color just stores those values in a javascript array so you can mock it out very easily.  Put this code in test.js below the const ColorIncreaser = require… line and above the describe line
         <pre><code class="language-javascript">
           function mockColor(red, green, blue, alpha) {
               // Mock of the color class from p5
@@ -359,8 +369,8 @@ slug: learn/
         Update your beforeEach() function
         <pre><code class="language-javascript">
           beforeEach(function() {
-              var colorValueIncrease = 1;
-              var fillColor = new mockColor(0, 0, 0, 255);
+              let colorValueIncrease = 1;
+              let fillColor = new mockColor(0, 0, 0, 255);
               colorIncreaser = new ColorIncreaser(colorValueIncrease, fillColor);
           });
         </code></pre>
@@ -388,11 +398,13 @@ slug: learn/
       <p>
         and update the ColorValueIncreaser function
         <pre><code class="language-javascript">
-          function ColorIncreaser(colorValueIncrease, fillColor) {
-            // Stores a value and a color and allows you to increase the color
-            // by that value.
-            this.colorValueIncrease = colorValueIncrease
-            this.fillColor = fillColor;
+          class ColorIncreaser {
+            constructor(colorValueIncrease, fillColor) {
+              // Stores a value and a color and allows you to increase the color
+              // by that value.
+              this.colorValueIncrease = colorValueIncrease
+              this.fillColor = fillColor;
+            }
           }
         </code></pre>
       </p>
@@ -412,7 +424,7 @@ slug: learn/
         <pre><code class="language-javascript">
           it('should have rgb values 255, 0, 0 after calling increaseFillColor 255 times', function(done) {
             //it is 256^1 - 1 because it starts with the color black
-            for (var count = 0; count < 255; count += 1) {
+            for (let count = 0; count < 255; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
             expect(colorIncreaser.fillColor.levels[0]).to.equal(255)
@@ -424,7 +436,7 @@ slug: learn/
 
           it('should have rgb values 255, 255, 0 after calling increaseFillColor 65535 times', function(done) {
             //it is 256^2 - 1 because it starts with the color black
-            for (var count = 0; count < 65535; count += 1) {
+            for (let count = 0; count < 65535; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
             expect(colorIncreaser.fillColor.levels[0]).to.equal(255)
@@ -436,7 +448,7 @@ slug: learn/
 
           it('should have rgb values 255, 255, 255 after calling increaseFillColor 16777215 times', function(done) {
             //it is 256^3 - 1 because it starts with the color black
-            for (var count = 0; count < 16777215; count += 1) {
+            for (let count = 0; count < 16777215; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
             expect(colorIncreaser.fillColor.levels[0]).to.equal(255)
@@ -447,9 +459,9 @@ slug: learn/
         </code></pre>
       </p>
       <p>
-        And when you run mocha the tests will fail because that function does not exist!  Let’s add a skeleton function in sketch.js between your ColorIncreaserFunction and your module export
+        And when you run mocha the tests will fail because that function does not exist!  Let’s add a skeleton function in sketch.js inside the ColorIncreaser class below the constructor function.
         <pre><code class="language-javascript">
-          ColorIncreaser.prototype.increaseFillColor = function() {
+          increaseFillColor() {
             // increase the first color channel by one.  If that channel
             // is now > 255 then increment the next color channel.  Repeat for second
             // and third channel
@@ -459,11 +471,10 @@ slug: learn/
       <p>
         Save sketch.js.  Now when you run mocha the tests fail for a different reason.  It finds the function, but it doesn’t do what you expect it to.  Let’s change the function in sketch.js to look like what is inside the draw function.
         <pre><code class="language-javascript">
-          ColorIncreaser.prototype.increaseFillColor = function() {
+          increaseFillColor() {
             // increase the first color channel by one.  If that channel
             // is now > 255 then increment the next color channel.  Repeat for second
             // and third channel
-
 
             this.fillColor.levels[0] += this.colorValueIncrease
             this.numColorsSoFar += 1

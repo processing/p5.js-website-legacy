@@ -7,14 +7,14 @@
  * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
  * local server</a>.</span></em></p>
  */
-var bg;
-var y = 0;
+let bg;
+let y = 0;
 
 function setup() {
   // The background image must be the same size as the parameters
   // into the createCanvas() method. In this program, the size of
   // the image is 720x400 pixels.
-  bg = loadImage("assets/moonwalk.jpg");
+  bg = loadImage('assets/moonwalk.jpg');
   createCanvas(720, 400);
 }
 

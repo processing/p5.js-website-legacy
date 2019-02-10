@@ -1,9 +1,9 @@
 /*
  * @name Redraw
  * @description redraw() 函数使 draw() 执行一次。在这个例子中，draw() 将在每次点击鼠标时执行一次。
-*/
+ */
 
-var y;
+let y;
 
 // 程序开始时，setup() 函数中的语句执行一次。
 function setup() {
@@ -24,5 +24,5 @@ function draw() {
 }
 
 function mousePressed() {
-  redraw(); 
+  redraw();
 }
