@@ -266,6 +266,7 @@
         In the folder called color_unit_test that you already created, make a new folder called test.  Open the test folder and make a file called test.js.  Type this code into test.js
         <pre><code class="language-javascript"><xmp>
           'use strict';
+
           // Import the expect library.  This is what allows us to check our code.
           // You can check out the full documentation at http://chaijs.com/api/bdd/
           const expect = require('chai').expect;
@@ -361,13 +362,15 @@
         Delete everything in test.js and replace it with this
         <pre><code class="language-javascript">
           'use strict';
+
           // Import the expect library.  This is what allows us to check our code.
           // You can check out the full documentation at http://chaijs.com/api/bdd/
           const expect = require('chai').expect;
-          // Import our colorIncreaser class.
+          // Import our ColorIncreaser class.
           const ColorIncreaser = require('../sketch');
 
           describe('ColorIncreaser tests', function() {
+            // Will hold the reference to the ColorIncreaser class
             let colorIncreaser;
 
             // beforeEach is a special function that is similar to the setup function in
@@ -386,7 +389,7 @@
         </code></pre>
       </p>
       <p>
-        Now run the mocha command in your terminal and watch your new test fail!  The crux of the error is “TypeError: ColorIncreaser is not a function”.  This makes sense because you have not created a ColorIncreaser class in our sketch yet. <br />
+        Now run the mocha command in your terminal and watch your new test fail!  The crux of the error is “TypeError: ColorIncreaser is not a constructor”.  This makes sense because you have not created a ColorIncreaser class in our sketch yet. <br />
 
         Go to the bottom of your sketch.js file, below the closing bracket } for the draw function, and add this:
         <pre><code class="language-javascript">
@@ -573,7 +576,6 @@
             // increase the first color channel by one.  If that channel
             // is now > 255 then increment the next color channel.  Repeat for second
             // and third channel
-
 
             this.fillColor.levels[0] += this.colorValueIncrease
             this.numColorsSoFar += 1
