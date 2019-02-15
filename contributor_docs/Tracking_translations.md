@@ -1,5 +1,3 @@
-# Tracking Translations
-
 ## WIP
 
 ## TODO
