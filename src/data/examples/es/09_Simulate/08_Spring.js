@@ -4,7 +4,7 @@
  * @description Haz click, arrastra y suelta la barra horizontal para inicializar el resorte.
  */
 // Constantes de dibujo de resorte para la barra superior
-var springHeight = 32,
+let springHeight = 32,
     left,
     right,
     maxHeight = 200,
@@ -13,13 +13,13 @@ var springHeight = 32,
     move = false;
 
 // Constantes de simulación de resorte
-var M = 0.8,  // Masa
+let M = 0.8,  // Masa
     K = 0.2,  // Constante de resorte
     D = 0.92, // Amortiguamiento
     R = 150;  // Posición de reposo
 
-// Variables de simulación de resorte
-var ps = R,   // Posición
+// letiables de simulación de resorte
+let ps = R,   // Posición
     vs = 0.0, // Velocidad
     as = 0,   // Aceleración
     f = 0;    // Fuerza
@@ -28,8 +28,8 @@ function setup() {
   createCanvas(710, 400);
   rectMode(CORNERS);
   noStroke();
-  left = width/2 - 100;
-  right = width/2 + 100;
+  left = width / 2 - 100;
+  right = width / 2 + 100;
 }
 
 function draw() {
@@ -41,7 +41,7 @@ function draw() {
 function drawSpring() {
   // Dibujar la base
   fill(0.2);
-  var baseWidth = 0.5 * ps + -8;
+  let baseWidth = 0.5 * ps + -8;
   rect(width/2 - baseWidth, ps + springHeight, width/2 + baseWidth, height);
 
   // Definir color y dibujar barra superior
@@ -76,7 +76,7 @@ function updateSpring() {
 
   // Definir y limitar la posición de la barra superior
   if (move) {
-    ps = mouseY - springHeight/2;
+    ps = mouseY - springHeight / 2;
     ps = constrain(ps, minHeight, maxHeight);
   }
 }

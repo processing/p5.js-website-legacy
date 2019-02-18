@@ -7,19 +7,19 @@
  * <a href='https://en.wikipedia.org/wiki/L-system'>https://en.wikipedia.org/wiki/L-system</a>
  */
 // SECCIÓN TORTUGA:
-var x, y; // la posición actual de la tortuga
-var currentangle = 0; // hacia dónde apunta la tortuga
-var step = 20; // cuánto se mueve la tortuga en cada 'F'
-var angle = 90; // cuánto gira la tortuga con un '-' or '+'
+let x, y; // la posición actual de la tortuga
+let currentangle = 0; // hacia dónde apunta la tortuga
+let step = 20; // cuánto se mueve la tortuga en cada 'F'
+let angle = 90; // cuánto gira la tortuga con un '-' or '+'
 
 // SECCIÓN LINDENMAYER (SISTEMAS-L)
-var thestring = 'A'; // "axioma" o inicio de la cadena
-var numloops = 5; // cuántas iteraciones a pre-computar
-var therules = []; // arreglo para las reglas
+let thestring = 'A'; // "axioma" o inicio de la cadena
+let numloops = 5; // cuántas iteraciones a pre-computar
+let therules = []; // arreglo para las reglas
 therules[0] = ['A', '-BF+AFA+FB-']; // primera regla
 therules[1] = ['B', '+AF-BFB-FA+']; // segunda regla
 
-var whereinstring = 0; // dónde estamos en el sistema-L
+let whereinstring = 0; // dónde estamos en el sistema-L
 
 function setup() {
   createCanvas(710, 400);
@@ -28,10 +28,10 @@ function setup() {
 
   // inicializar la posición x e y en la esquina inferior izquierda
   x = 0;
-  y = height-1;
+  y = height - 1;
 
   // CALCULAR EL SISTEMA-L
-  for (var i = 0; i < numloops; i++) {
+  for (let i = 0; i < numloops; i++) {
     thestring = lindenmayer(thestring);
   }
 }
@@ -44,18 +44,18 @@ function draw() {
   // incrementar el punto de donde leemos la cadena.
   // si sobrepasamos el final, volver al inicio.
   whereinstring++;
-  if (whereinstring > thestring.length-1) whereinstring = 0;
+  if (whereinstring > thestring.length - 1) whereinstring = 0;
 
 }
 
 // interpretar un sistema-L
 function lindenmayer(s) {
-  var outputstring = ''; // inicializar una cadena de salida en blanco
+  let outputstring = ''; // inicializar una cadena de salida en blanco
 
   // iterar a lo largo de las  'reglas' buscando coincidencias de símbolo:
-  for (var i = 0; i < s.length; i++) {
-    var ismatch = 0; // por defecto, sin coincidencia
-    for (var j = 0; j < therules.length; j++) {
+  for (let i = 0; i < s.length; i++) {
+    let ismatch = 0; // por defecto, sin coincidencia
+    for (let j = 0; j < therules.length; j++) {
       if (s[i] == therules[j][0])  {
         outputstring += therules[j][1]; //escribir substitución
         ismatch = 1; //si  tenemos una coincidencia, no copiemos el símbolo
@@ -63,7 +63,7 @@ function lindenmayer(s) {
       }
     }
     // si nada coincide, simplemente copia el símbolo.
-    if (ismatch == 0) outputstring+= s[i];
+    if (ismatch == 0) outputstring += s[i];
   }
 
   return outputstring; // enviar la cadena modificada
@@ -74,8 +74,8 @@ function drawIt(k) {
 
   if (k=='F') { // dibujar hacia adelante
     // de polar a cartesiano basado en paso y ángulo actual:
-    var x1 = x + step*cos(radians(currentangle));
-    var y1 = y + step*sin(radians(currentangle));
+    let x1 = x + step * cos(radians(currentangle));
+    let y1 = y + step * sin(radians(currentangle));
     line(x, y, x1, y1); // conectar el anterior y el nuevo
 
     // actualizar la posición de la tortuga:
@@ -88,17 +88,17 @@ function drawIt(k) {
   }
 
   // valores aleatorios de color:
-  var r = random(128, 255);
-  var g = random(0, 192);
-  var b = random(0, 50);
-  var a = random(50, 100);
+  let r = random(128, 255);
+  let g = random(0, 192);
+  let b = random(0, 50);
+  let a = random(50, 100);
 
   // escoger una distribución gaussiana (D&D) para el radio:
-  var radius = 0;
+  let radius = 0;
   radius += random(0, 15);
   radius += random(0, 15);
   radius += random(0, 15);
-  radius = radius/3;
+  radius = radius / 3;
 
   // dibujar:
   fill(r, g, b, a);

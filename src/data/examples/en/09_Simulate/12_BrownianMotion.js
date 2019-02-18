@@ -4,16 +4,16 @@
  * Port of original example from the Processing examples page.
  */
 
-var num = 2000;
-var range = 6;
+let num = 2000;
+let range = 6;
 
-var ax = [];
-var ay = [];
+let ax = [];
+let ay = [];
 
 
 function setup() {
   createCanvas(710, 400);
-  for ( var i = 0; i < num; i++ ) {
+  for ( let i = 0; i < num; i++ ) {
     ax[i] = width / 2;
     ay[i] = height / 2;
   }
@@ -24,7 +24,7 @@ function draw() {
   background(51);
 
   // Shift all elements 1 place to the left
-  for ( var i = 1; i < num; i++ ) {
+  for ( let i = 1; i < num; i++ ) {
     ax[i - 1] = ax[i];
     ay[i - 1] = ay[i];
   }
@@ -38,8 +38,8 @@ function draw() {
   ay[num - 1] = constrain(ay[num - 1], 0, height);
 
   // Draw a line connecting the points
-  for ( var j = 1; j < num; j++ ) {
-    var val = j / num * 204.0 + 51;
+  for ( let j = 1; j < num; j++ ) {
+    let val = j / num * 204.0 + 51;
     stroke(val);
     line(ax[j - 1], ay[j - 1], ax[j], ay[j]);
   }
