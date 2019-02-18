@@ -9,16 +9,16 @@
 // cuerpos sujetos a resistencia de fluidos cuando están en el "agua"
 
 // Cinco cuerpos en movimiento
-var movers = [];
+let movers = [];
 
 // Líquido
-var liquid;
+let liquid;
 
 function setup() {
   createCanvas(640, 360);
   reset();
   // Crear objeto líquido
-  liquid = new Liquid(0, height/2, width, height/2, 0.1);
+  liquid = new Liquid(0, height / 2, width, height / 2, 0.1);
 }
 
 function draw() {
@@ -27,18 +27,18 @@ function draw() {
   // Dibujar el agua
   liquid.display();
 
-  for (var i = 0; i < movers.length; i++) {
+  for (let i = 0; i < movers.length; i++) {
 
     // ¿Está el objeto Mover dentro del objeto líquido?
     if (liquid.contains(movers[i])) {
       // Calcular fuerza de arrastre
-      var dragForce = liquid.calculateDrag(movers[i]);
+      let dragForce = liquid.calculateDrag(movers[i]);
       // Aplicar fuerza de arrastre a Mover
       movers[i].applyForce(dragForce);
     }
 
     // Aquí se escala la gravedad según la masa
-    var gravity = createVector(0, 0.1*movers[i].mass);
+    let gravity = createVector(0, 0.1*movers[i].mass);
     // Aplicar gravedad
     movers[i].applyForce(gravity);
 
@@ -57,12 +57,12 @@ function mousePressed() {
 
 // Reiniciar todos los objetos Mover aleatoriamente
 function reset() {
-  for (var i = 0; i < 9; i++) {
-    movers[i] = new Mover(random(0.5, 3), 40+i*70, 0);
+  for (let i = 0; i < 9; i++) {
+    movers[i] = new Mover(random(0.5, 3), 40 + i * 70, 0);
   }
 }
 
-var Liquid = function(x, y, w, h, c) {
+let Liquid = function(x, y, w, h, c) {
   this.x = x;
   this.y = y;
   this.w = w;
@@ -72,7 +72,7 @@ var Liquid = function(x, y, w, h, c) {
 
 // ¿Está el objeto Mover dentro del objeto líquido?
 Liquid.prototype.contains = function(m) {
-  var l = m.position;
+  let l = m.position;
   return l.x > this.x && l.x < this.x + this.w &&
          l.y > this.y && l.y < this.y + this.h;
 };
@@ -80,11 +80,11 @@ Liquid.prototype.contains = function(m) {
 // Calcular fuerza de arrastre
 Liquid.prototype.calculateDrag = function(m) {
   // Magnitud es coeficiente * velocidad al cuadrado
-  var speed = m.velocity.mag();
-  var dragMagnitude = this.c * speed * speed;
+  let speed = m.velocity.mag();
+  let dragMagnitude = this.c * speed * speed;
 
   // Dirección es el inverso de la velocidad
-  var dragForce = m.velocity.copy();
+  let dragForce = m.velocity.copy();
   dragForce.mult(-1);
 
   // Escalar según magnitud
@@ -100,17 +100,17 @@ Liquid.prototype.display = function() {
   rect(this.x, this.y, this.w, this.h);
 };
 
-function Mover(m,x,y) {
+function Mover(m, x, y) {
   this.mass = m;
-  this.position = createVector(x,y);
-  this.velocity = createVector(0,0);
-  this.acceleration = createVector(0,0);
+  this.position = createVector(x, y);
+  this.velocity = createVector(0, 0);
+  this.acceleration = createVector(0, 0);
 }
 
 // Segunda ley de Newton: F = M * A
 // ó A = F / M
 Mover.prototype.applyForce = function(force) {
-  var f = p5.Vector.div(force,this.mass);
+  let f = p5.Vector.div(force,this.mass);
   this.acceleration.add(f);
 };
 
@@ -126,15 +126,15 @@ Mover.prototype.update = function() {
 Mover.prototype.display = function() {
   stroke(0);
   strokeWeight(2);
-  fill(255,127);
-  ellipse(this.position.x,this.position.y,this.mass*16,this.mass*16);
+  fill(255, 127);
+  ellipse(this.position.x, this.position.y, this.mass * 16, this.mass * 16);
 };
 
 // Rebotar contra la parte inferior de la ventana
 Mover.prototype.checkEdges = function() {
-  if (this.position.y > (height - this.mass*8)) {
+  if (this.position.y > (height - this.mass * 8)) {
     // Un poco de amortiguamiento al rebotar contra el fondo
     this.velocity.y *= -0.9;
-    this.position.y = (height - this.mass*8);
+    this.position.y = (height - this.mass * 8);
   }
 };
