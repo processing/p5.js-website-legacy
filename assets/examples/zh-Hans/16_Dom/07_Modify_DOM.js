@@ -11,12 +11,15 @@ let dancingWords = [];
 class DanceSpan {
   constructor(element, x, y) {
     element.position(x, y);
+    this.element = element;
+    this.x = x;
+    this.y = y;
   }
 
   brownian() {
-    x += random(-6, 6);
-    y += random(-6, 6);
-    element.position(x, y);
+    this.x += random(-6, 6);
+    this.y += random(-6, 6);
+    this.element.position(this.x, this.y);
   }
 }
 
@@ -28,7 +31,7 @@ function setup() {
   createP(
     'I learn in this Letter, that Don Peter of Aragon, ' +
       ' comes this night to Messina'
-  ).addClass('text');
+  ).addClass('text').hide();
 
   // This line grabs the paragraph just created, but it would
   // also grab any other elements with class 'text' in the HTML
