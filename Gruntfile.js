@@ -213,6 +213,12 @@ module.exports = function(grunt) {
         src: '**',
         dest: '<%= config.dist %>/assets/learn'
       },
+      p5_featured: {
+        expand: true,
+        cwd: '<%= config.src %>/assets/p5_featured',
+        src: '**',
+        dest: '<%= config.dist %>/assets/p5_featured'
+      },
       examples: {
         expand: true,
         cwd: '<%= config.src %>/data/examples',
@@ -242,12 +248,6 @@ module.exports = function(grunt) {
         cwd: '<%= config.dist %>/reference',
         src: ['**'],
         dest: '<%= config.dist %>/zh-Hans/reference'
-      },
-      gitDeploy: {
-        expand: true,
-        cwd: '<%= config.src %>',
-        src: 'git-pull.php',
-        dest: '<%= config.dist %>'
       },
       offlineReference: {
         files: [
@@ -284,14 +284,8 @@ module.exports = function(grunt) {
     clean: {
       assets: [
         '<%= config.dist %>/**/*.*',
+        '!<%= config.dist %>/download/release.php',
         '!<%= config.dist %>/git-pull.php',
-        '!<%= config.dist %>/**/reference/**/*.*',
-        '!<%= config.dist %>/**/helpers/**/*.*',
-        '!<%= config.dist %>/assets/img/**/*.*',
-        '!<%= config.dist %>/assets/p5_featured/**/*.*',
-        '!<%= config.dist %>/download/version*.json',
-        '!<%= config.dist %>/download/*.php',
-        '!<%= config.dist %>/learn/books/**/*.*',
         '<%= config.src %>/offline-reference/**/*.*'
       ]
     },
