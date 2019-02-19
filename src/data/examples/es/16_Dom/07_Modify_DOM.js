@@ -11,12 +11,15 @@ let dancingWords = [];
 class DanceSpan {
   constructor(element, x, y) {
     element.position(x, y);
+    this.element = element;
+    this.x = x;
+    this.y = y;
   }
 
   brownian() {
-    x += random(-6, 6);
-    y += random(-6, 6);
-    element.position(x, y);
+    this.x += random(-6, 6);
+    this.y += random(-6, 6);
+    this.element.position(this.x, this.y);
   }
 }
 
@@ -25,9 +28,9 @@ function setup() {
   // Es para diferenciar entre la creación de un elemento y su selección.
   // Los elementos seleccionados no necesitan ser creados por p5js, pueden ser HTML plano.
   createP(
-    'I learne in this Letter, that Don Peter of Arragon, ' +
+    'I learn in this Letter, that Don Peter of Arragon, ' +
       ' comes this night to Messina'
-  ).addClass('text');
+  ).addClass('text').hide();
 
   // Esta línea toma el párrafo recién creado, pero podría también
   // tomar otros elementos de la clase 'text' en la página HTML.

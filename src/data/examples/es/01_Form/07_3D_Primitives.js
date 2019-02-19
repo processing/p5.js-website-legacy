@@ -6,26 +6,25 @@
  * tamaño. Estas figuras son posicionadas usando la función translate().
  */
 function setup() {
-	createCanvas(710, 400, WEBGL);
+  createCanvas(710, 400, WEBGL);
 }
 
 function draw() {
-	background(100);
-	
-	noStroke();
-	fill(50);
-	push();
-	translate(-275, 175);
-	rotateY(1.25);
-	rotateX(-0.9);
-	box(100);
-	pop();
+  background(100);
 
-	noFill();
-	stroke(255);
-	push();
-	translate(500, height*0.35, -200);
-	sphere(300);
-	pop();
+  noStroke();
+  fill(50);
+  push();
+  translate(-275, 175);
+  rotateY(1.25);
+  rotateX(-0.9);
+  box(100);
+  pop();
+
+  noFill();
+  stroke(255);
+  push();
+  translate(500, height * 0.35, -200);
+  sphere(300);
+  pop();
 }
-

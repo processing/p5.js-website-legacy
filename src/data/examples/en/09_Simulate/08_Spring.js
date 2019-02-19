@@ -4,7 +4,7 @@
  * @description Click, drag, and release the horizontal bar to start the spring.
  */
 // Spring drawing constants for top bar
-var springHeight = 32,
+let springHeight = 32,
     left,
     right,
     maxHeight = 200,
@@ -13,13 +13,13 @@ var springHeight = 32,
     move = false;
 
 // Spring simulation constants
-var M = 0.8,  // Mass
+let M = 0.8,  // Mass
     K = 0.2,  // Spring constant
     D = 0.92, // Damping
     R = 150;  // Rest position
 
-// Spring simulation variables
-var ps = R,   // Position
+// Spring simulation letiables
+let ps = R,   // Position
     vs = 0.0, // Velocity
     as = 0,   // Acceleration
     f = 0;    // Force
@@ -28,8 +28,8 @@ function setup() {
   createCanvas(710, 400);
   rectMode(CORNERS);
   noStroke();
-  left = width/2 - 100;
-  right = width/2 + 100;
+  left = width / 2 - 100;
+  right = width / 2 + 100;
 }
 
 function draw() {
@@ -41,8 +41,8 @@ function draw() {
 function drawSpring() {
   // Draw base
   fill(0.2);
-  var baseWidth = 0.5 * ps + -8;
-  rect(width/2 - baseWidth, ps + springHeight, width/2 + baseWidth, height);
+  let baseWidth = 0.5 * ps + -8;
+  rect(width / 2 - baseWidth, ps + springHeight, width / 2 + baseWidth, height);
 
   // Set color and draw top bar
   if (over || move) {
@@ -76,7 +76,7 @@ function updateSpring() {
 
   // Set and constrain the position of top bar
   if (move) {
-    ps = mouseY - springHeight/2;
+    ps = mouseY - springHeight / 2;
     ps = constrain(ps, minHeight, maxHeight);
   }
 }
