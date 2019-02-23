@@ -136,6 +136,18 @@ Within the .hbs pages there are tags that replace the actual content and look li
 
 In this example "Download" corresponds to the key-value pair for the translation of that content to other languages. Each key-value can point to a word as well as a phrase. and there must be a key-value for each handler entry in every language, otherwise the website render process can be broken.
 
+When authoring new tags for translations, it is important to remember not to assume any language structure and make the templates as flexible as possible. Specifically, don't include/hard-code any punctuations in the template. For example:
+
+```html
+<p>
+  {{#i18n "download1"}}{{/i18n}}
+  <a href="../download/">{{#i18n "download2"}}{{/i18n}}</a>
+  {{#i18n "download3"}}{{/i18n}}
+</p>
+```
+
+In the example above, note that after the `download2` i18n tag there is still a `download3` i18n tag, while in English you may have ended your sentence after `download2` and may be tempted to just hard-code a full-stop/preriod (`.`) in there, depending on the language that may not make sense. The subject-verb-object order of the target language may be different from English so a translator may want to add additional words after the link to complete the sentence. The target language's punctuation may also be different and not always be `.` (eg. in Chinese it is `。`).
+
 Each page contains YAML "front matter" at the top which includes a title and (optional) slug field. The title corresponds to the section in which to place the i18n key-value pairs. (Note: each page has only one title, so for partials within the `partials` folder, place the i18n pairs at the top level). The slug corresponds to the folder in which the page will be placed. This should generally match the folder structure within the `pages` folder.
 
 For nested pages -for example `p5js.org/es/learn/color.html`- the slug of the .hbs document must match the upper folder, in this case `learn`. This is directly related with the way handlers are displayed in the .yml file. For example, all the handlers for the `learn` page are written under its slug with a tab as follows:
