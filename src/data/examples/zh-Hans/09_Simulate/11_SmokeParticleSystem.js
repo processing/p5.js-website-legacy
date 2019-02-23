@@ -7,7 +7,7 @@
 // texture for the particle
 let particle_texture = null;
 
-// letiable holding our particle system
+// variable holding our particle system
 let ps = null;
 
 function preload() {
@@ -79,8 +79,8 @@ let ParticleSystem = function(num, v, img_) {
  */
 ParticleSystem.prototype.run = function() {
 
-    // cache length of the array we're going to loop into a letiable
-    // You may see <letiable>.length in a for loop, from time to time but
+    // cache length of the array we're going to loop into a variable
+    // You may see <variable>.length in a for loop, from time to time but
     // we cache it here because otherwise the length is re-calculated for each iteration of a loop
     let len = this.particles.length;
 
