@@ -1,15 +1,15 @@
-var x1 = 100;
-var y1 = 150;
-var x2 = 200;
-var y2 = 150;
-var x3 = 50;
-var y3 = 50;
-var x4 = 250;
-var y4 = 50;
-var d1 = false;
-var d2 = false;
-var d4 = false;
-var d3 = false;
+let x1 = 100;
+let y1 = 150;
+let x2 = 200;
+let y2 = 150;
+let x3 = 50;
+let y3 = 50;
+let x4 = 250;
+let y4 = 50;
+let d1 = false;
+let d2 = false;
+let d4 = false;
+let d3 = false;
 
 function setup() {
   createCanvas(400, 400);
