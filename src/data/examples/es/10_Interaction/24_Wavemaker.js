@@ -20,14 +20,14 @@ function draw() {
   for (let x = 0; x <= width; x = x + 30) {
     for (let y = 0; y <= height; y = y + 30) {
       // punto de partida de cada círculo depende de posición del ratón
-      let anguloX = map(mouseX, 0, width, -4 * PI, 4 * PI, true);
-      let anguloY = map(mouseY, 0, height, -4 * PI, 4 * PI, true);
+      const anguloX = map(mouseX, 0, width, -4 * PI, 4 * PI, true);
+      const anguloY = map(mouseY, 0, height, -4 * PI, 4 * PI, true);
       // y también varía según la posición de la partícula
-      let angulo = anguloX * (x / width) + anguloY * (y / height);
+      const angulo = anguloX * (x / width) + anguloY * (y / height);
 
       // cada partícula se mueve en forma circular
-      let myX = x + 20 * cos(2 * PI * t + angulo);
-      let myY = y + 20 * sin(2 * PI * t + angulo);
+      const myX = x + 20 * cos(2 * PI * t + angulo);
+      const myY = y + 20 * sin(2 * PI * t + angulo);
 
       ellipse(myX, myY, 10); // dibujar partícula
     }
