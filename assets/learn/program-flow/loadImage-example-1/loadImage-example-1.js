@@ -1,4 +1,4 @@
-var img;
+let img;
 function setup(){
   createCanvas(100, 100);
   img = loadImage("/assets/learn/program-flow/images/clouds.jpg");
