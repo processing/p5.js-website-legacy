@@ -5,7 +5,7 @@
  * yellow, etc.) Move the cursor vertically over each bar to alter its hue.
  */
 const barWidth = 20;
-const lastBar = -1;
+let lastBar = -1;
 
 function setup() {
   createCanvas(720, 400);

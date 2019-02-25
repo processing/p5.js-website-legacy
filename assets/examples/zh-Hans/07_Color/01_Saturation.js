@@ -6,7 +6,7 @@
  * Move the cursor vertically over each bar to alter its saturation.
  */
 const barWidth = 20;
-const lastBar = -1;
+let lastBar = -1;
 
 function setup() {
   createCanvas(720, 400);
