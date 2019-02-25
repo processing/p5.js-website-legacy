@@ -1,16 +1,16 @@
-var x1 = 80;
-var y1 = 80;
-var x2 = 160;
-var y2 = 120;
-var x3 = 200;
-var y3 = 200;
-var x4 = 120;
-var y4 = 240;
-var d1 = false;
-var d2 = false;
-var d4 = false;
-var d3 = false;
-var d5 = false;
+let x1 = 80;
+let y1 = 80;
+let x2 = 160;
+let y2 = 120;
+let x3 = 200;
+let y3 = 200;
+let x4 = 120;
+let y4 = 240;
+let d1 = false;
+let d2 = false;
+let d4 = false;
+let d3 = false;
+let d5 = false;
 
 function setup() {
   createCanvas(300, 300);
