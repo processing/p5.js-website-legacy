@@ -6,7 +6,7 @@
  * Mueve el cursor verticalmente sobre cada barra para alterar su tinte.
  */
 const barWidth = 20;
-const lastBar = -1;
+let lastBar = -1;
 
 function setup() {
   createCanvas(720, 400);
