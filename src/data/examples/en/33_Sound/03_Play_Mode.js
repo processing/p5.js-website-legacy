@@ -9,8 +9,8 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
-var playMode = 'sustain';
-var sample;
+let playMode = 'sustain';
+let sample;
 
 function setup() {
   createCanvas(710,50);
@@ -20,7 +20,7 @@ function setup() {
 
 function draw() {
   background(255,255,0);
-  var str = 'Click here to play! Press key to toggle play mode.';
+  let str = 'Click here to play! Press key to toggle play mode.';
   str += ' Current Play Mode: ' + playMode+'.';
   text(str, 10, height/2);
 }

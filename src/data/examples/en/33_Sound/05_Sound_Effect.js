@@ -11,10 +11,10 @@
 // Creative Commons BY 3.0
 
 // A sound file object
-var dingdong;
+let dingdong;
 
 // A doorbell object (that will trigger the sound)
-var doorbell;
+let doorbell;
 
 function setup() {
   createCanvas(200, 200);
@@ -42,15 +42,15 @@ function mousePressed() {
 }
 
 // A Class to describe a "doorbell" (really a button)
-var Doorbell = function(x_, y_, r_) {
+const Doorbell = function(x_, y_, r_) {
   // Location and size
-  var x = x_;
-  var y = y_;
-  var r = r_;
+  this.x = x_;
+  this.y = y_;
+  this.r = r_;
 
   // Is a point inside the doorbell? (used for mouse rollover, etc.)
   this.contains = function(mx, my) {
-    if (dist(mx, my, x, y) < r) {
+    if (dist(mx, my, this.x, this.y) < this.r) {
       return true;
     } else {
       return false;
@@ -66,6 +66,6 @@ var Doorbell = function(x_, y_, r_) {
     }
     stroke(0);
     strokeWeight(4);
-    ellipse(x, y, r, r);
+    ellipse(this.x, this.y, this.r, this.r);
   };
 };

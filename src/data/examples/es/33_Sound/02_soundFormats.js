@@ -21,7 +21,7 @@
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 
-var song;
+let song;
 
 function preload() {
   // hemos incluido un archivo .ogg y otro .mp3

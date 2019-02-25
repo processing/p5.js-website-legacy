@@ -27,9 +27,9 @@
  * para que este ejemplo funcione en tu proyecto propio.</em></span></p>
  */
  
-var carrier; // este es el oscilador que escucharemos
-var modulator; // este oscilador modulará la amplitud de la portadora
-var fft; // visualizaremos la forma de onda
+let carrier; // este es el oscilador que escucharemos
+let modulator; // este oscilador modulará la amplitud de la portadora
+let fft; // visualizaremos la forma de onda
 
 function setup() {
   createCanvas(800,400);
@@ -62,10 +62,10 @@ function draw() {
   background(30,30,30,100); // alpha
 
   // mapea la posición vertical del ratón (mouseY) a la frecuencia de la modulante entre 0 y 20 Hz
-  var modFreq = map(mouseY, 0, height, 20, 0);
+  let modFreq = map(mouseY, 0, height, 20, 0);
   modulator.freq(modFreq);
 
-  var modAmp = map(mouseX, 0, width, 0, 1);
+  let modAmp = map(mouseX, 0, width, 0, 1);
   modulator.amp(modAmp, 0.01); // tiempo de transición de 0.1 para mayor suavidad
 
   // analiza la forma de onda
@@ -81,9 +81,9 @@ function drawWaveform() {
   stroke(240);
   strokeWeight(4);
   beginShape();
-  for (var i = 0; i<waveform.length; i++){
-    var x = map(i, 0, waveform.length, 0, width);
-    var y = map(waveform[i], -1, 1, -height/2, height/2);
+  for (let i = 0; i<waveform.length; i++){
+    let x = map(i, 0, waveform.length, 0, width);
+    let y = map(waveform[i], -1, 1, -height/2, height/2);
     vertex(x, y + height/2);
   }
   endShape();

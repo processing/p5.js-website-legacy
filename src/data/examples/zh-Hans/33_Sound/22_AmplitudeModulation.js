@@ -27,9 +27,9 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
  * for this example to work in your own project.</em></span></p>
  */
-var carrier; // this is the oscillator we will hear
-var modulator; // this oscillator will modulate the amplitude of the carrier
-var fft; // we'll visualize the waveform
+let carrier; // this is the oscillator we will hear
+let modulator; // this oscillator will modulate the amplitude of the carrier
+let fft; // we'll visualize the waveform
 
 function setup() {
   createCanvas(800,400);
@@ -62,10 +62,10 @@ function draw() {
   background(30,30,30,100); // alpha
 
   // map mouseY to moodulator freq between 0 and 20hz
-  var modFreq = map(mouseY, 0, height, 20, 0);
+  let modFreq = map(mouseY, 0, height, 20, 0);
   modulator.freq(modFreq);
 
-  var modAmp = map(mouseX, 0, width, 0, 1);
+  let modAmp = map(mouseX, 0, width, 0, 1);
   modulator.amp(modAmp, 0.01); // fade time of 0.1 for smooth fading
 
   // analyze the waveform
@@ -81,9 +81,9 @@ function drawWaveform() {
   stroke(240);
   strokeWeight(4);
   beginShape();
-  for (var i = 0; i<waveform.length; i++){
-    var x = map(i, 0, waveform.length, 0, width);
-    var y = map(waveform[i], -1, 1, -height/2, height/2);
+  for (let i = 0; i<waveform.length; i++){
+    let x = map(i, 0, waveform.length, 0, width);
+    let y = map(waveform[i], -1, 1, -height/2, height/2);
     vertex(x, y + height/2);
   }
   endShape();

@@ -9,10 +9,10 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
-var soundFile;
-var fft;
+let soundFile;
+let fft;
 
-var filter, filterFreq, filterRes;
+let filter, filterFreq, filterRes;
 
 function preload() {
   soundFormats('mp3', 'ogg');
@@ -52,11 +52,11 @@ function draw() {
   // Draw every value in the FFT spectrum analysis where
   // x = lowest (10Hz) to highest (22050Hz) frequencies,
   // h = energy (amplitude / volume) at that frequency
-  var spectrum = fft.analyze();
+  let spectrum = fft.analyze();
   noStroke();
-  for (var i = 0; i< spectrum.length; i++){
-    var x = map(i, 0, spectrum.length, 0, width);
-    var h = -height + map(spectrum[i], 0, 255, height, 0);
+  for (let i = 0; i< spectrum.length; i++){
+    let x = map(i, 0, spectrum.length, 0, width);
+    let h = -height + map(spectrum[i], 0, 255, height, 0);
     rect(x, height, width/spectrum.length, h) ;
   }
 

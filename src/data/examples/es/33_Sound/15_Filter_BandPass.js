@@ -9,9 +9,9 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
-var noise;
-var fft;
-var filter, filterFreq, filterWidth;
+let noise;
+let fft;
+let filter, filterFreq, filterWidth;
 
 function setup() {
   createCanvas(710, 256);
@@ -41,11 +41,11 @@ function draw() {
   // Dibuja cada valor en el análisis de espectro FFT donde
   // x = frecuencia más grave (10Hz) a más aguda (22050Hz),
   // h = energía / amplitud en esa frecuencia
-  var spectrum = fft.analyze();
+  let spectrum = fft.analyze();
   noStroke();
-  for (var i = 0; i< spectrum.length; i++){
-    var x = map(i, 0, spectrum.length, 0, width);
-    var h = -height + map(spectrum[i], 0, 255, height, 0);
+  for (let i = 0; i< spectrum.length; i++){
+    let x = map(i, 0, spectrum.length, 0, width);
+    let h = -height + map(spectrum[i], 0, 255, height, 0);
     rect(x, height, width/spectrum.length, h) ;
   }
 }

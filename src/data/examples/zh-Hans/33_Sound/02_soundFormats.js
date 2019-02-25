@@ -22,7 +22,7 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
-var song;
+let song;
 
 function preload() {
   // we have included both an .ogg file and an .mp3 file

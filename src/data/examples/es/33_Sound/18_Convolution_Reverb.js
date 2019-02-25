@@ -14,9 +14,9 @@
  * <a href="https://www.freesound.org/people/recordinghopkins/">
  * recordinghopkins</a></em></span></p>
  */
-var sound, env, cVerb, fft;
-var currentIR = 0;
-var rawImpulse;
+let sound, env, cVerb, fft;
+let currentIR = 0;
+let rawImpulse;
 
 function preload() {
 
@@ -53,13 +53,13 @@ function draw() {
   background(30);
   fill(0,255,40);
 
-  var spectrum = fft.analyze();
+  let spectrum = fft.analyze();
 
   // dibuja cada valor en el arreglo de espectro de frecuencia como un rectángulo
   noStroke();
-  for (var i = 0; i< spectrum.length; i++){
-    var x = map(i, 0, spectrum.length, 0, width);
-    var h = -height + map(spectrum[i], 0, 255, height, 0);
+  for (let i = 0; i< spectrum.length; i++){
+    let x = map(i, 0, spectrum.length, 0, width);
+    let h = -height + map(spectrum[i], 0, 255, height, 0);
     rect(x, height, width/spectrum.length, h) ;
   }
 }

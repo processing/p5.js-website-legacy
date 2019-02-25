@@ -11,7 +11,7 @@
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
 
-var soundFile, analyzer, delay;
+let soundFile, analyzer, delay;
 
 function preload() {
   soundFormats('ogg', 'mp3');
@@ -34,19 +34,19 @@ function draw() {
   background(0);
 
   // get volume reading from the p5.Amplitude analyzer
-  var level = analyzer.getLevel();
+  let level = analyzer.getLevel();
 
   // use level to draw a green rectangle
-  var levelHeight = map(level, 0, .1, 0, height);
+  let levelHeight = map(level, 0, .1, 0, height);
   fill(100,250,100);
   rect(0, height, width, - levelHeight);
 
-  var filterFreq = map(mouseX, 0, width, 60, 15000);
+  let filterFreq = map(mouseX, 0, width, 60, 15000);
   filterFreq = constrain(filterFreq, 60, 15000);
-  var filterRes = map(mouseY, 0, height, 3, 0.01);
+  let filterRes = map(mouseY, 0, height, 3, 0.01);
   filterRes = constrain(filterRes, 0.01, 3);
   delay.filter(filterFreq, filterRes);
-  var delTime = map(mouseY, 0, width, .2, .01);
+  let delTime = map(mouseY, 0, width, .2, .01);
   delTime = constrain(delTime, .01, .2);
   delay.delayTime(delTime);
 }

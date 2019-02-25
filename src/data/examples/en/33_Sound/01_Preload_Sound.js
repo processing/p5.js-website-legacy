@@ -10,7 +10,7 @@
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em>
  */
 
-var song;
+let song;
 
 function preload() {
   song = loadSound('assets/lucky_dragons_-_power_melody.mp3');

@@ -9,9 +9,9 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
-var mic, recorder, soundFile;
+let mic, recorder, soundFile;
 
-var state = 0; // mousePress will increment from Record, to Stop, to Play
+let state = 0; // mousePress will increment from Record, to Stop, to Play
 
 function setup() {
   createCanvas(400,400);

@@ -5,7 +5,7 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
-var song;
+let song;
 
 function setup() {
   song = loadSound('assets/lucky_dragons_-_power_melody.mp3');

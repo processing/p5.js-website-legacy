@@ -53,22 +53,22 @@
  * para que este ejemplo funcione en tu proyecto propio.</em></span></p>
  */
 
-var carrier; // este es el oscilador que escucharemos, la portadora
-var modulator; // este oscilador modulará la frecuencia de la portadora
+let carrier; // este es el oscilador que escucharemos, la portadora
+let modulator; // este oscilador modulará la frecuencia de la portadora
 
-var analyzer; // lo usaremos para visualizar la forma de onda
+let analyzer; // lo usaremos para visualizar la forma de onda
 
 // la frecuencia de la portadora antes de ser modulada
-var carrierBaseFreq = 220;
+let carrierBaseFreq = 220;
 
 // rangos mínimo y máximo para la modulante
-var modMaxFreq = 112;
-var modMinFreq = 0;
-var modMaxDepth = 150;
-var modMinDepth = -150;
+let modMaxFreq = 112;
+let modMinFreq = 0;
+let modMaxDepth = 150;
+let modMinDepth = -150;
 
 function setup() {
-  var cnv = createCanvas(800,400);
+  let cnv = createCanvas(800,400);
   noFill();
 
   carrier = new p5.Oscillator('sine');
@@ -95,13 +95,13 @@ function draw() {
   background(30);
 
   // mapea la posición vertical del ratón (mouseY) a la frecuencia modulante entre las frecuencias mínima y máxima
-  var modFreq = map(mouseY, height, 0, modMinFreq, modMaxFreq);
+  let modFreq = map(mouseY, height, 0, modMinFreq, modMaxFreq);
   modulator.freq(modFreq);
 
   // cambia la amplitud de la modulante
   // la amplitud negativa pone en reversa la forma de onda diente de sierra, suena percusiva
   //
-  var modDepth = map(mouseX, 0, width, modMinDepth, modMaxDepth);
+  let modDepth = map(mouseX, 0, width, modMinDepth, modMaxDepth);
   modulator.amp(modDepth);
 
   // analiza la forma de onda
@@ -111,9 +111,9 @@ function draw() {
   stroke(255);
   strokeWeight(10);
   beginShape();
-  for (var i = 0; i < waveform.length; i++){
-    var x = map(i, 0, waveform.length, 0, width);
-    var y = map(waveform[i], -1, 1, -height/2, height/2);
+  for (let i = 0; i < waveform.length; i++){
+    let x = map(i, 0, waveform.length, 0, width);
+    let y = map(waveform[i], -1, 1, -height/2, height/2);
     vertex(x, y + height/2);
   }
   endShape();

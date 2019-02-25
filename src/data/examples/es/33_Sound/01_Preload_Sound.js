@@ -10,7 +10,7 @@
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 
-var song;
+let song;
 
 function preload() {
   song = loadSound('assets/lucky_dragons_-_power_melody.mp3');

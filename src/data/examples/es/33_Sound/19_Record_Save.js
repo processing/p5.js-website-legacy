@@ -9,9 +9,9 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
-var mic, recorder, soundFile;
+let mic, recorder, soundFile;
 
-var state = 0; // presionar el ratón cambiará el estado de grabar, a parar y a reproducir
+let state = 0; // presionar el ratón cambiará el estado de grabar, a parar y a reproducir
 
 function setup() {
   createCanvas(400,400);
