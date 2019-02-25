@@ -6,7 +6,7 @@
 // textura de la partícula
 let particle_texture = null;
 
-// letiabla para almacenar el sistema de partículas
+// variabla para almacenar el sistema de partículas
 let ps = null;
 
 function preload() {
@@ -78,8 +78,8 @@ let ParticleSystem = function(num, v, img_) {
  */
 ParticleSystem.prototype.run = function() {
 
-    // guardar en una letiable el largo del arreglo sobre el que vamos a iterar
-    // Puedes encontrar este largo con la sintaxis <letiable>.length dentro un bucle for
+    // guardar en una variable el largo del arreglo sobre el que vamos a iterar
+    // Puedes encontrar este largo con la sintaxis <variable>.length dentro un bucle for
     // pero lo guardamos acá porque en caso contrario, estaríamos recalculando el largo en cada iteración del bucle for
     let len = this.particles.length;
 

@@ -10,7 +10,7 @@
 let NUMSINES = 20; // cuántas partículas podemos hacer al mismo tiempo?
 let sines = new Array(NUMSINES); // un arreglo para almacenar todos los ángulos actuales
 let rad; // un valor de radio inicial para la sinusoide central
-let i; // una letiable contador
+let i; // una variable contador
 
 // juega con estos valores para entender lo que está pasando:
 let fund = 0.005; // la velocidad de la sinusoide central
