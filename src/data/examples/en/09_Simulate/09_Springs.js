@@ -62,7 +62,7 @@ function Spring (_x, _y, _s, _d, _m, _k_in, _others, _id) {
   this.rest_posx = _x;  // Rest position X
   this.rest_posy = _y;  // Rest position Y
 
-  // Spring simulation letiables
+  // Spring simulation variables
   //float pos = 20.0; // Position
   this.velx = 0.0;   // X Velocity
   this.vely = 0.0;   // Y Velocity

@@ -10,7 +10,7 @@
 let NUMSINES = 20; // how many of these things can we do at once?
 let sines = new Array(NUMSINES); // an array to hold all the current angles
 let rad; // an initial radius value for the central sine
-let i; // a counter letiable
+let i; // a counter variable
 
 // play with these to get a sense of what's going on:
 let fund = 0.005; // the speed of the central sine
