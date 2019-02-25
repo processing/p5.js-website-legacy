@@ -18,7 +18,7 @@ let M = 0.8,  // Mass
     D = 0.92, // Damping
     R = 150;  // Rest position
 
-// Spring simulation letiables
+// Spring simulation variables
 let ps = R,   // Position
     vs = 0.0, // Velocity
     as = 0,   // Acceleration

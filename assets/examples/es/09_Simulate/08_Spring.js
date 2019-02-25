@@ -18,7 +18,7 @@ let M = 0.8,  // Masa
     D = 0.92, // Amortiguamiento
     R = 150;  // Posición de reposo
 
-// letiables de simulación de resorte
+// variables de simulación de resorte
 let ps = R,   // Posición
     vs = 0.0, // Velocidad
     as = 0,   // Aceleración
