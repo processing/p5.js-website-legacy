@@ -42,14 +42,17 @@ function mousePressed() {
 }
 
 // una clase para describir un "timbre" (realmente un botón)
-const Doorbell = function(x_, y_, r_) {
-  // posición y tamaño
-  this.x = x_;
-  this.y = y_;
-  this.r = r_;
+class Doorbell {
+
+  constructor(x_, y_, r_){
+    // posición y tamaño
+    this.x = x_;
+    this.y = y_;
+    this.r = r_;
+  }
 
   // ¿hay un punto dentro del timbre?(usado para "rollover" del ratón)
-  this.contains = function(mx, my) {
+  contains(mx, my) {
     if (dist(mx, my, this.x, this.y) < this.r) {
       return true;
     } else {
@@ -58,7 +61,7 @@ const Doorbell = function(x_, y_, r_) {
   };
 
   // muestra el timbre (colores arbitrarios, podría ser mejorado)
-  this.display = function(mx, my) {
+  display(mx, my) {
     if (this.contains(mx, my)) {
       fill(100);
     } else {

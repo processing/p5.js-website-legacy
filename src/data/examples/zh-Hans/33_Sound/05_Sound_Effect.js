@@ -42,14 +42,17 @@ function mousePressed() {
 }
 
 // A Class to describe a "doorbell" (really a button)
-const Doorbell = function(x_, y_, r_) {
-  // Location and size
-  this.x = x_;
-  this.y = y_;
-  this.r = r_;
+class Doorbell {
+  
+  constructor(x_, y_, r_){
+    // Location and size
+    this.x = x_;
+    this.y = y_;
+    this.r = r_;
+  }
 
   // Is a point inside the doorbell? (used for mouse rollover, etc.)
-  this.contains = function(mx, my) {
+  contains(mx, my) {
     if (dist(mx, my, this.x, this.y) < this.r) {
       return true;
     } else {
@@ -58,7 +61,7 @@ const Doorbell = function(x_, y_, r_) {
   };
 
   // Show the doorbell (hardcoded colors, could be improved)
-  this.display = function(mx, my) {
+  display(mx, my) {
     if (this.contains(mx, my)) {
       fill(100);
     } else {
