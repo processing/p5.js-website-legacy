@@ -136,111 +136,109 @@
       <p>大多数使用 p5 的编程范例一般都会使视觉上的绘图范例。本质上，这些范例都和绘制图形及设定像素有关。我们将从绘制四种基本图形开始。</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png">
 
-      <p>针对每个形状，我们需要问我们需要什么资料才可以定义该图形的位置及大小（更之后其颜色）然后再了解 p5 如何接收这些信息。在以下的绘图内，我们将使用一个宽度为 10 像素及高度为 10 像素的画布。这并不是个特别实际的设置因为当您真正开始编程时您多数会需要使用更大的画布（10x10 像素单单只是荧幕上几个毫米的大小而已）。无论如何，在以下范例内使用较小的数字能帮助我们了解像素和坐标纸的关系，同时这也能帮助说明各行代码的运作原理。</p>
+      <p>针对每个形状，我们需要问我们需要什么资料才可以定义该图形的位置及大小（更之后其颜色）然后再了解 p5 如何接收这些信息。在以下的绘图内，我们将使用一个宽度为 100 像素及高度为 100 像素的画布。</p>
 
       <p><a href="/reference/#/p5/point">point()</a> （点）是最简单的图形同时也是个不错的起点。以绘制一个点（point），我们只需要提供 x 及 y 坐标。</p>
       <!-- this script only needs to get added once even if there are multiple widget instances -->
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-        }
-        function draw(){
-          point(40, 50); // point(x, y)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  point(40, 50); // point(x, y)
+}
+</script>
 
       <p><a href="/reference/#/p5/line">line()</a> （直线）也不会特别困难，我们只需提供两个点 (x1,y1) 及 (x2,y2)：</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-        }
-        function draw(){
-          line(10, 20, 50, 20); // line(x1, y1, x2, y2)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  line(10, 20, 50, 20); // line(x1, y1, x2, y2)
+}
+</script>
 
       <p>当我们想要绘制一个 <a href="/reference/#/p5/rect">rect()</a> （四方形）时，这就会变得比较复杂一点。在 p5 内，一个四方形是由其左上角的坐标点与其宽度及高度来定义的。</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-        }
-        function draw(){
-          rect(10, 20, 40, 30); // rect(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  rect(10, 20, 40, 30); // rect(x, y, width, height)
+}
+</script>
 
       <p>第二个绘制四方形的方法是定义其中心点的位置，然后定义其宽度及高度。如果我们想要使用这方法，我们必须先表示我们要使用 <a href="/reference/#/p5/CENTER">CENTER</a> 模式然后才输入绘制四方形的指示。请注意 p5 有区分大小写字母。</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          rectMode(CENTER);
-        }
-        function draw(){
-          rect(30, 20, 40, 20); // rect(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  rectMode(CENTER);
+}
+function draw(){
+  rect(30, 20, 40, 20); // rect(x, y, width, height)
+}
+</script>
 
       <p>最后我们也能使用两个点来绘制一个四方形（分别定义左上角及右下角）。这模式为 <a href="/reference/#/p5/CORNERS">CORNERS</a>。请注意这范例在荧幕上显示的结果和上方的范例一样。</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          rectMode(CORNERS);
-        }
-        function draw(){
-          rect(10, 10, 50, 30); // rect(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  rectMode(CORNERS);
+}
+function draw(){
+  rect(10, 10, 50, 30); // rect(x, y, width, height)
+}
+</script>
 
       <p>当我们对于绘制一个四方形有了不错的掌握时，绘制一个 <a href="/reference/#/p5/ellipse">ellipse()</a> （椭圆形）可是轻而易举。事实上，它和绘制 <a href="/reference/#/p5/rect">rect()</a> （四方形）一样，唯一不同的是椭圆形将会被绘制在所定义的四方形内。<a href="/reference/#/p5/ellipse">ellipse()</a> 的默认模式为 <a href="/reference/#/p5/CENTER">CENTER</a> 而不是 <a href="/reference/#/p5/CORNER">CORNER</a>。</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          ellipseMode(CENTER);
-        }
-        function draw(){
-          ellipse(30, 30, 40, 60); // ellipse(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CENTER);
+}
+function draw(){
+  ellipse(30, 30, 40, 60); // ellipse(x, y, width, height)
+}
+</script>
 
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          ellipseMode(CORNER);
-        }
-        function draw(){
-          ellipse(10, 10, 30, 50); // ellipse(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CORNER);
+}
+function draw(){
+  ellipse(10, 10, 30, 50); // ellipse(x, y, width, height)
+}
+</script>
 
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          ellipseMode(CORNERS);
-        }
-        function draw(){
-          ellipse(10, 10, 40, 50); // ellipse(x, y, width, height)
-        }
-      </script>
-
-      <p>这时你可能发现到我们这里所绘制的椭圆形并不特别圆。p5 有内建的函式以决定哪一些像素会被用来构成这椭圆形的一部分。因此当您放大来看您会发现多个正方形构成一个类似圆形的图案，但是当你在电脑荧幕上以一般的缩放大小查看，您可以看到一个完好的椭圆形。p5 同时也让我们定义用来填充荧幕上个别像素的方程式（事实上，我们已经可以想象我们能如何单使用 “point” 来达成这点），不过我们暂时让 “ellipse” 函数来帮我们做这些比较复杂的工作。（要了解更多关于像素的资料，请参考<a href="/reference/#/p5/pixels">像素参考文献</a>，但请记得这可是比这教程更复杂的功能。）</p>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CORNERS);
+}
+function draw(){
+  ellipse(10, 10, 40, 50); // ellipse(x, y, width, height)
+}
+</script>
 
       <p>现在让我们来看看一些使用更实际绘图设置的程式代码。我们将使用一个大小为 200 乘 200 的画布大小。请注意我们这里使用的 createCanvas() 函数内所设定的画布高度及宽度。</p>
 
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(200, 200);
-          rectMode(CENTER);
-        }
-        function draw(){
-          rect(100,100,20,100);
-          ellipse(100,70,60,60);
-          ellipse(81,70,16,32);
-          ellipse(119,70,16,32);
-          line(90,150,80,160);
-          line(110,150,120,160);
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(200, 200);
+  rectMode(CENTER);
+}
+function draw(){
+  rect(100,100,20,100);
+  ellipse(100,70,60,60);
+  ellipse(81,70,16,32);
+  ellipse(119,70,16,32);
+  line(90,150,80,160);
+  line(110,150,120,160);
+}
+</script>
 
 
     </section>

@@ -135,111 +135,109 @@
       <p>La mayoría de los ejemplos que verás en p5.js son de naturaleza visual. Ellos implican principalmente dibujar figuras y definir coordenadas de pixeles. Comencemos observando las cuatro formas primitivas.</p>
       <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png">
 
-      <p>Para cada figura nos debemos preguntar qué información requerimos para especificar su ubicación y tamaño (y luego su color) y entender cómo p5.js espera recibir dicha información. En cada uno de los siguientes diagramas asumiremos una ventana de 10 pixeles de ancho y 10 pixeles de alto. Esto no es necesariamente realista ya que cuando comiences a trabajar probablemente preferirás una ventana mucho más grande (10x10 pixeles no es más que unos pocos milímetros en el espacio). Sin embargo con fines explicativos es preferible trabajar con numeros más pequeños de modo de presentar los pixeles como aparecerían en un gráfico de papel (por ahora) para ilustrar mejor el funcionamiento de cada linea de código.</p>
+      <p>Para cada figura nos debemos preguntar qué información requerimos para especificar su ubicación y tamaño (y luego su color) y entender cómo p5.js espera recibir dicha información. En cada uno de los siguientes diagramas asumiremos una ventana de 100 pixeles de ancho y 100 pixeles de alto.</p>
 
       <p>Un <a href="/reference/#/p5/point">point()</a> es la forma más simple y un buen lugar para comenzar. Para dibujar un punto solo necesitamos un par ordenado (x,y).</p>
       <!-- this script only needs to get added once even if there are multiple widget instances -->
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-        }
-        function draw(){
-          point(40, 50); // point(x, y)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  point(40, 50); // point(x, y)
+}
+</script>
 
       <p>Una <a href="/reference/#/p5/line">line()</a> tampoco es terriblemente compleja y solo requiere dos puntos: (x1,y1) y (x2,y2):</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-        }
-        function draw(){
-          line(10, 20, 50, 20); // line(x1, y1, x2, y2)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  line(10, 20, 50, 20); // line(x1, y1, x2, y2)
+}
+</script>
 
       <p>Una vez que llegamos a dibujar un <a href="/reference/#/p5/rect">rect()</a>, las cosas se tornan un poco más complejas. En p5.js un rectángulo se especifica con las coordenadas de su esquina superior izquierda, así como ancho y alto.</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-        }
-        function draw(){
-          rect(10, 20, 40, 30); // rect(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  rect(10, 20, 40, 30); // rect(x, y, width, height)
+}
+</script>
 
       <p>Una segunda manera de dibujar un rectángulo requiere especificar su punto central junto con su ancho y alto. Si preferimos este método, debemos indicar previamente que queremos utilizar el modo <a href="/reference/#/p5/CENTER">CENTER</a> antes de la instrucción del propio rectángulo. Notemos que p5.js es sensible a cada caso.</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          rectMode(CENTER);
-        }
-        function draw(){
-          rect(30, 20, 40, 20); // rect(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  rectMode(CENTER);
+}
+function draw(){
+  rect(30, 20, 40, 20); // rect(x, y, width, height)
+}
+</script>
 
       <p>Finalmente podemos dibujar un rectángulo con dos puntos (la esquina superior izquierda y la esquina superior derecha). El modo en este caso es <a href="/reference/#/p5/CORNERS">CORNERS</a>. Notar que este ejemplo entrega el mismo resultado en pantalla que el ejemplo anterior.</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          rectMode(CORNERS);
-        }
-        function draw(){
-          rect(10, 10, 50, 30); // rect(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  rectMode(CORNERS);
+}
+function draw(){
+  rect(10, 10, 50, 30); // rect(x, y, width, height)
+}
+</script>
 
       <p>Una vez que nos hemos familiarizado con el concepto de dibujar un rectángulo, una <a href="/reference/#/p5/ellipse">ellipse()</a> es muy sencilla de dibujar. De hecho es idéntica al <a href="/reference/#/p5/rect">rect()</a> con la diferencia de que la elipse se dibuja donde la caja que contiene al rectángulo debiera estar. El modo por defecto para la <a href="/reference/#/p5/ellipse">ellipse()</a> es <a href="/reference/#/p5/CENTER">CENTER</a>, en vez de <a href="/reference/#/p5/CORNER">CORNER</a>.</p>
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          ellipseMode(CENTER);
-        }
-        function draw(){
-          ellipse(30, 30, 40, 60); // ellipse(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CENTER);
+}
+function draw(){
+  ellipse(30, 30, 40, 60); // ellipse(x, y, width, height)
+}
+</script>
 
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          ellipseMode(CORNER);
-        }
-        function draw(){
-          ellipse(10, 10, 30, 50); // ellipse(x, y, width, height)
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CORNER);
+}
+function draw(){
+  ellipse(10, 10, 30, 50); // ellipse(x, y, width, height)
+}
+</script>
 
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(100, 100);
-          ellipseMode(CORNERS);
-        }
-        function draw(){
-          ellipse(10, 10, 40, 50); // ellipse(x, y, width, height)
-        }
-      </script>
-
-      <p>Es imporante considerar que esta elipse no se ve perfectamente circular. p5.js ha integrado una metodología para seleccionar qué pixeles deberían ser usados para crear una forma circular. Si nos acercamos a ella vemos un grupo de cuadrados distribuidos en una forma circular, pero si nos alejamos al nivel de una pantalla de computador tenemos una suave y redonda circunferencia. p5.js también nos otorga el poder de desarrollar nuestros propios algoritmos para colorear pixeles individualmente (de hecho, podemos imaginar cómo sería hacer esto utlizando la función "point" una y otra vez), pero por ahora conformémonos con utilizar el comando "ellipse" para hacerlo. (Para más información sobre pixeles, puedes comenzar con: la <a href="/reference/#/p5/pixels">página de referencia Pixeles</a>, que es mucho más avanzada y compleja que este tutorial).</p>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CORNERS);
+}
+function draw(){
+  ellipse(10, 10, 40, 50); // ellipse(x, y, width, height)
+}
+</script>
 
       <p>Ahora observemos una aplicación un poco más realista, con una pantalla de dimensiones 200 por 200. Notemos el uso de la función createCanvas() para especificar el tamaño de la ventana.</p>
 
-      <script type="text/p5" data-autoplay>
-        function setup(){
-          createCanvas(200, 200);
-          rectMode(CENTER);
-        }
-        function draw(){
-          rect(100,100,20,100);
-          ellipse(100,70,60,60);
-          ellipse(81,70,16,32);
-          ellipse(119,70,16,32);
-          line(90,150,80,160);
-          line(110,150,120,160);
-        }
-      </script>
+<script type="text/p5" data-autoplay>
+function setup(){
+  createCanvas(200, 200);
+  rectMode(CENTER);
+}
+function draw(){
+  rect(100,100,20,100);
+  ellipse(100,70,60,60);
+  ellipse(81,70,16,32);
+  ellipse(119,70,16,32);
+  line(90,150,80,160);
+  line(110,150,120,160);
+}
+</script>
 
 
     </section>
