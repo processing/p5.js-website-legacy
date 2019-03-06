@@ -20,28 +20,28 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
-let cancion, analizador;
+let song, analyzer;
 
 function preload() {
-  cancion = loadSound('assets/lucky_dragons_-_power_melody.mp3');
+  song = loadSound('assets/lucky_dragons_-_power_melody.mp3');
 }
 
 function setup() {
   createCanvas(710, 200);
-  cancion.loop();
+  song.loop();
 
   // crea un nuevo analizador de amplitud
-  analizador = new p5.Amplitude();
+  analyzer = new p5.Amplitude();
 
   // Conecta la entrada al analizador de amplitud
-  analizador.setInput(cancion);
+  analyzer.setInput(song);
 }
 
 function draw() {
   background(255);
 
   // Obtén la amplitud RMS (root mean square)
-  let rms = analizador.getLevel();
+  let rms = analyzer.getLevel();
   fill(127);
   stroke(0);
 
