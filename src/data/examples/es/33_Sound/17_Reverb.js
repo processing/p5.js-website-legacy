@@ -8,7 +8,7 @@
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 
-var sound, reverb;
+let sound, reverb;
 
 function preload() {
   soundFormats('mp3', 'ogg');
@@ -20,7 +20,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(720,100);
+  createCanvas(720, 100);
   background(0);
 
   reverb = new p5.Reverb();

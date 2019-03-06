@@ -20,7 +20,7 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
-var song, analyzer;
+let song, analyzer;
 
 function preload() {
   song = loadSound('assets/lucky_dragons_-_power_melody.mp3');
@@ -41,10 +41,10 @@ function draw() {
   background(255);
 
   // Obtén la amplitud RMS (root mean square)
-  var rms = analyzer.getLevel();
+  let rms = analyzer.getLevel();
   fill(127);
   stroke(0);
 
   // Dibuja una elipse con su tamaño proporcional al volumen
-  ellipse(width/2, height/2, 10+rms*200, 10+rms*200);
+  ellipse(width / 2, height / 2, 10 + rms * 200, 10 + rms * 200);
 }

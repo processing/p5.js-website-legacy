@@ -41,7 +41,7 @@
  * o triangular <code>/\</code>, la amplitud negativa será la misma que la amplitud positiva.
  * Pero en este ejemplo, la modulante es una onda diente de sierra asimétrica, con una forma así /.
  * Cuando la multiplicamos por un número negativo, se invierte así \.
- * Para observar mejor la diferencia, baja la frecuencia.
+ * Para obserlet mejor la diferencia, baja la frecuencia.
  * </p>
  * <p>- La posición vertical del ratón (mouseY) controla la frecuencia de la modulante entre 0 y 112 Hz.
  * Prueba comparando frecuencias de modulación bajo el rango audible (que empieza en torno a los 20 Hz),
@@ -53,22 +53,22 @@
  * para que este ejemplo funcione en tu proyecto propio.</em></span></p>
  */
 
-var carrier; // este es el oscilador que escucharemos, la portadora
-var modulator; // este oscilador modulará la frecuencia de la portadora
+let carrier; // este es el oscilador que escucharemos, la portadora
+let modulator; // este oscilador modulará la frecuencia de la portadora
 
-var analyzer; // lo usaremos para visualizar la forma de onda
+let analyzer; // lo usaremos para visualizar la forma de onda
 
 // la frecuencia de la portadora antes de ser modulada
-var carrierBaseFreq = 220;
+let carrierBaseFreq = 220;
 
 // rangos mínimo y máximo para la modulante
-var modMaxFreq = 112;
-var modMinFreq = 0;
-var modMaxDepth = 150;
-var modMinDepth = -150;
+let modMaxFreq = 112;
+let modMinFreq = 0;
+let modMaxDepth = 150;
+let modMinDepth = -150;
 
 function setup() {
-  var cnv = createCanvas(800,400);
+  let cnv = createCanvas(800, 400);
   noFill();
 
   carrier = new p5.Oscillator('sine');
@@ -82,7 +82,7 @@ function setup() {
 
   // suma la salida de la modulante para modular la frecuencia de la portadora
   modulator.disconnect();
-  carrier.freq( modulator );
+  carrier.freq(modulator);
 
   // crea una FFT para analizar el audio
   analyzer = new p5.FFT();
@@ -95,13 +95,13 @@ function draw() {
   background(30);
 
   // mapea la posición vertical del ratón (mouseY) a la frecuencia modulante entre las frecuencias mínima y máxima
-  var modFreq = map(mouseY, height, 0, modMinFreq, modMaxFreq);
+  let modFreq = map(mouseY, height, 0, modMinFreq, modMaxFreq);
   modulator.freq(modFreq);
 
   // cambia la amplitud de la modulante
   // la amplitud negativa pone en reversa la forma de onda diente de sierra, suena percusiva
   //
-  var modDepth = map(mouseX, 0, width, modMinDepth, modMaxDepth);
+  let modDepth = map(mouseX, 0, width, modMinDepth, modMaxDepth);
   modulator.amp(modDepth);
 
   // analiza la forma de onda
@@ -111,19 +111,26 @@ function draw() {
   stroke(255);
   strokeWeight(10);
   beginShape();
-  for (var i = 0; i < waveform.length; i++){
-    var x = map(i, 0, waveform.length, 0, width);
-    var y = map(waveform[i], -1, 1, -height/2, height/2);
-    vertex(x, y + height/2);
+  for (let i = 0; i < waveform.length; i++) {
+    let x = map(i, 0, waveform.length, 0, width);
+    let y = map(waveform[i], -1, 1, -height / 2, height / 2);
+    vertex(x, y + height / 2);
   }
   endShape();
 
   strokeWeight(1);
   // añade una nota sobre lo que está pasando
   text('Frecuencia modulante: ' + modFreq.toFixed(3) + ' Hz', 20, 20);
-  text('Amplitud modulante (profundidad de modulación): ' + modDepth.toFixed(3), 20, 40);
-  text('Frecuencia portadora (antes de la modulación): ' + carrierBaseFreq + ' Hz', width/2, 20);
-
+  text(
+    'Amplitud modulante (profundidad de modulación): ' + modDepth.toFixed(3),
+    20,
+    40
+  );
+  text(
+    'Frecuencia portadora (antes de la modulación): ' + carrierBaseFreq + ' Hz',
+    width / 2,
+    20
+  );
 }
 
 // función de ayuda para prender y apagar el sonido

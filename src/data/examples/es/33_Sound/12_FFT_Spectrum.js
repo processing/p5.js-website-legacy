@@ -5,26 +5,26 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
-var mic, fft;
+let mic, fft;
 
 function setup() {
-   createCanvas(710,400);
-   noFill();
+  createCanvas(710, 400);
+  noFill();
 
-   mic = new p5.AudioIn();
-   mic.start();
-   fft = new p5.FFT();
-   fft.setInput(mic);
+  mic = new p5.AudioIn();
+  mic.start();
+  fft = new p5.FFT();
+  fft.setInput(mic);
 }
 
 function draw() {
-   background(200);
+  background(200);
 
-   var spectrum = fft.analyze();
+  let spectrum = fft.analyze();
 
-   beginShape();
-   for (i = 0; i<spectrum.length; i++) {
-    vertex(i, map(spectrum[i], 0, 255, height, 0) );
-   }
-   endShape();
+  beginShape();
+  for (i = 0; i < spectrum.length; i++) {
+    vertex(i, map(spectrum[i], 0, 255, height, 0));
+  }
+  endShape();
 }
