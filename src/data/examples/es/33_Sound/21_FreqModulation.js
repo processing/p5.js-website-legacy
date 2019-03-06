@@ -41,7 +41,7 @@
  * o triangular <code>/\</code>, la amplitud negativa será la misma que la amplitud positiva.
  * Pero en este ejemplo, la modulante es una onda diente de sierra asimétrica, con una forma así /.
  * Cuando la multiplicamos por un número negativo, se invierte así \.
- * Para obserlet mejor la diferencia, baja la frecuencia.
+ * Para observar mejor la diferencia, baja la frecuencia.
  * </p>
  * <p>- La posición vertical del ratón (mouseY) controla la frecuencia de la modulante entre 0 y 112 Hz.
  * Prueba comparando frecuencias de modulación bajo el rango audible (que empieza en torno a los 20 Hz),
