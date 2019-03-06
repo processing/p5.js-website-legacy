@@ -7,7 +7,7 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
-var sound, reverb;
+let sound, reverb;
 
 function preload() {
   soundFormats('mp3', 'ogg');
@@ -19,7 +19,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(720,100);
+  createCanvas(720, 100);
   background(0);
 
   reverb = new p5.Reverb();

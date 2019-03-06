@@ -108,7 +108,7 @@ function draw() {
 function mousePressed(event) {
   if(event.button == 0 && event.clientX < width && event.clientY < height) {
     // Map mouse to the key index
-    var key = floor(map(mouseX, 0, width, 0, notes.length));
+    let key = floor(map(mouseX, 0, width, 0, notes.length));
     playNote(notes[key]);
   }
 }

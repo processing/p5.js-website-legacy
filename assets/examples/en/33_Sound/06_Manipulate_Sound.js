@@ -10,7 +10,7 @@
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
 // A sound file object
-var song;
+let song;
 
 function preload() {
   // Load a sound file
@@ -29,13 +29,13 @@ function draw() {
   background(200);
 
   // Set the volume to a range between 0 and 1.0
-  var volume = map(mouseX, 0, width, 0, 1);
+  let volume = map(mouseX, 0, width, 0, 1);
   volume = constrain(volume, 0, 1);
   song.amp(volume);
 
   // Set the rate to a range between 0.1 and 4
   // Changing the rate alters the pitch
-  var speed = map(mouseY, 0.1, height, 0, 2);
+  let speed = map(mouseY, 0.1, height, 0, 2);
   speed = constrain(speed, 0.01, 4);
   song.rate(speed);
 

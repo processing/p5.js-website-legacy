@@ -9,7 +9,7 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
  * and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
-var mic;
+let mic;
 
 function setup() {
   createCanvas(710, 200);
@@ -26,11 +26,11 @@ function draw() {
   background(200);
 
   // Get the overall volume (between 0 and 1.0)
-  var vol = mic.getLevel();
+  let vol = mic.getLevel();
   fill(127);
   stroke(0);
 
   // Draw an ellipse with height based on volume
-  var h = map(vol, 0, 1, height, 0);
-  ellipse(width/2, h - 25, 50, 50);
+  let h = map(vol, 0, 1, height, 0);
+  ellipse(width / 2, h - 25, 50, 50);
 }

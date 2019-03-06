@@ -6,13 +6,13 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * y un archivo de audio.</span></em>
  */
-var osc, fft;
+let osc, fft;
 
 function setup() {
   createCanvas(720, 256);
 
   osc = new p5.TriOsc(); // definir frecuencia y tipo
-  osc.amp(.5);
+  osc.amp(0.5);
 
   fft = new p5.FFT();
   osc.start();
@@ -21,21 +21,21 @@ function setup() {
 function draw() {
   background(255);
 
-  var waveform = fft.waveform();  // analiza la forma de onda
+  let waveform = fft.waveform(); // analiza la forma de onda
   beginShape();
   strokeWeight(5);
-  for (var i = 0; i < waveform.length; i++){
-    var x = map(i, 0, waveform.length, 0, width);
-    var y = map(waveform[i], -1, 1, height, 0);
+  for (let i = 0; i < waveform.length; i++) {
+    let x = map(i, 0, waveform.length, 0, width);
+    let y = map(waveform[i], -1, 1, height, 0);
     vertex(x, y);
   }
   endShape();
 
   // cambia la frecuencia del oscilador según mouseX
-  var freq = map(mouseX, 0, width, 40, 880);
+  let freq = map(mouseX, 0, width, 40, 880);
   osc.freq(freq);
 
   // cambia la amplitud del oscilador según mouseY
-  var amp = map(mouseY, 0, height, 1, .01);
+  let amp = map(mouseY, 0, height, 1, 0.01);
   osc.amp(amp);
 }
