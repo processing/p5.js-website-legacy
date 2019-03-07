@@ -2,7 +2,7 @@
  * @name Distance 2D
  * @description Move the mouse across the image to obscure
  * and reveal the matrix. Measures the distance from the mouse
- * to each square and sets the size proportionally.
+ * to each circle and sets the size proportionally.
  */
 let max_distance;
 
