@@ -66,7 +66,7 @@ upstream  https://github.com/processing/p5.js-website.git (push)
 
 ## Before submitting a Pull Request
 *Please do this every time you submit a PR.*
-1. Sync your fork to keep it up-to-date with the upstream repository following the next commands or this [tutorial](https://help.github.com/articles/syncing-a-fork/). First fetch the upstream repo and its commits -commits will be stored on your local fork- and then merge changes form upstream to your local:
+1. Sync your fork to keep it up-to-date with the upstream repository following the next commands or this [tutorial](https://help.github.com/articles/syncing-a-fork/). First fetch the upstream repo and its commits -commits will be stored on your local fork- and then merge changes from upstream to your local:
 ```bash
 $ git fetch upstream
 $ git merge upstream/master
