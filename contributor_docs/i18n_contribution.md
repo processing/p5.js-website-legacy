@@ -102,7 +102,7 @@ p5.js-website/
 
 ## Start a new translation
 1. Define an abbreviation for your language following the [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard. It's expected that abbreviations are two-letter, but for macro languages can be added extra extensions depending on each case.
-2. Open a new issue and propose the addition of the new language. If the both the proposal and the abbreviation are approved proceed with the next step.
+2. Open a new issue and propose the addition of the new language. If both the proposal and the abbreviation are approved proceed with the next step.
 3. Add an entry with the new language abbreviation at `package.json` to the `languages` category -located under the repository root directory.
 ```JSON
 "languages": [
@@ -118,7 +118,7 @@ p5.js-website/
 ## Working on existing translations
 
 ### Translation of all pages except Reference and Examples
-Each webpage is written in [.hbs](https://www.npmjs.com/package/hbs) format -files created with the library Handlebars and written using HTML rules- using handlers to access the i18n data of each language and render. Each handler binds an specific spot on the HTML script with an specific content stored in a database, and is replaced by it when the page is built. Hbs files are stored under `src/template/pages`.
+Each webpage is written in [.hbs](https://www.npmjs.com/package/hbs) format -files created with the library Handlebars and written using HTML rules- using handlers to access the i18n data of each language and render. Each handler binds a specific spot on the HTML script with a specific content stored in a database, and is replaced by it when the page is built. Hbs files are stored under `src/template/pages`.
 
 The i18n data is stored in [.yml](https://en.wikipedia.org/wiki/YAML) files in the `src/data` folder of this repo. For example, under the above mentioned path the .yml files for English, Spanish and Chinese can be found as follows:
 
@@ -134,7 +134,7 @@ Within the .hbs pages there are tags that replace the actual content and look li
 <li><a href="{{root}}/download/">{{#i18n "Download"}}{{/i18n}}</a></li>
 ```
 
-In this example "Download" corresponds to the key-value pair for the translation of that content to other languages. Each key-value can point to a word as well as a phrase. and there must be a key-value for each handler entry in every language, otherwise the website render process can be broken.
+In this example "Download" corresponds to the key-value pair for the translation of that content to other languages. Each key-value can point to a word as well as a phrase and there must be a key-value for each handler entry in every language, otherwise the website render process can be broken.
 
 When authoring new tags for translations, it is important to remember not to assume any language structure and make the templates as flexible as possible. Specifically, don't include/hard-code any punctuations in the template. For example:
 
@@ -146,7 +146,7 @@ When authoring new tags for translations, it is important to remember not to ass
 </p>
 ```
 
-In the example above, note that after the `download2` i18n tag there is still a `download3` i18n tag, while in English you may have ended your sentence after `download2` and may be tempted to just hard-code a full-stop/preriod (`.`) in there, depending on the language that may not make sense. The subject-verb-object order of the target language may be different from English so a translator may want to add additional words after the link to complete the sentence. The target language's punctuation may also be different and not always be `.` (eg. in Chinese it is `。`).
+In the example above, note that after the `download2` i18n tag there is still a `download3` i18n tag, while in English you may have ended your sentence after `download2` and may be tempted to just hard-code a full-stop/period (`.`) in there, depending on the language that may not make sense. The subject-verb-object order of the target language may be different from English so a translator may want to add additional words after the link to complete the sentence. The target language's punctuation may also be different and not always be `.` (eg. in Chinese it is `。`).
 
 Each page contains YAML "front matter" at the top which includes a title and (optional) slug field. The title corresponds to the section in which to place the i18n key-value pairs. (Note: each page has only one title, so for partials within the `partials` folder, place the i18n pairs at the top level). The slug corresponds to the folder in which the page will be placed. This should generally match the folder structure within the `pages` folder.
 
@@ -169,7 +169,7 @@ Instead of this, the color-related handler must be added to the `learn` list of 
 
 **Yml files can break the page compilation** process under syntax issues as double quotes within the text. Each YAML handler must be written as `color-rgb-title: "Color RGB"`, which means that the handler `color-rgb-title` has assigned the content `"Color RGB"` in the current language .yml file.
 
-In some cases, the text translated from the original .hbs file (written in HTML) included double quotes used for highlight some idea. In those cases remember to use the scape command `\` before the quotes, otherwise your compiler will interpret it as a syntax error due the handler finished more the one time.
+In some cases, the text translated from the original .hbs file (written in HTML) included double quotes used to highlight some idea. In those cases remember to use the scape command `\` before the quotes, otherwise your compiler will interpret it as a syntax error because the handlers finish more than one time.
 
 ### Translation of Reference
 * The reference works a bit differently. The pages are built in English based on the inline documentation in the source code. They are then swapped out using JS on the front-end.
