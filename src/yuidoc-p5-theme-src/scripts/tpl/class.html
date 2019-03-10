@@ -24,7 +24,7 @@
     <table>
     <% _.each(methods, function(item) { %>
       <tr>
-      <td><a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %>><%=item.name%><% if (item.itemtype === 'method') { %>()<%}%></a></td><td><%= item.description %></td>
+      <td><a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %>><%=item.name%><% if (item.itemtype === 'method') { %>()<%}%></a></td><td><div class="method_description"><%= item.description %></div></td>
       </tr>
     <% }); %>
     </table>
