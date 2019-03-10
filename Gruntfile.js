@@ -286,6 +286,7 @@ module.exports = function(grunt) {
         '<%= config.dist %>/**/*.*',
         '!<%= config.dist %>/download/release.php',
         '!<%= config.dist %>/git-pull.php',
+        '!<%= config.dist %>/books/media.zip',
         '<%= config.src %>/offline-reference/**/*.*'
       ]
     },
