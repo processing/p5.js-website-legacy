@@ -24,9 +24,9 @@ function draw() {
 class SpinArm {
   constructor(x, y, s) {
     this.x = x;
-	  this.y = y;
-	  this.speed = s;
-	  this.angle = 0.0;
+    this.y = y;
+    this.speed = s;
+    this.angle = 0.0;
   }
 
   update() {
@@ -47,11 +47,11 @@ class SpinArm {
 
 class SpinSpots {
   constructor(x, y, s, d) {
-	  this.x = x;
-	  this.y = y;
-	  this.speed = s;
+    this.x = x;
+    this.y = y;
+    this.speed = s;
     this.dim = d;
-	  this.angle = 0.0;
+    this.angle = 0.0;
   }
 
   update() {
