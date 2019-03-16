@@ -15,7 +15,6 @@ We recognize all types of contributions. This project follows the [all-contribut
 0. Install [node.js](https://nodejs.org/en/download/).
 1. Download this repo as a [zip file](https://github.com/processing/p5.js-website/archive/master.zip) or [clone this repository](https://help.github.com/articles/cloning-a-repository/). 
 2. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
-3. Copy `dist\download\version-sample.json` to `dist\download\version.json`.
 
 ## Running
 
@@ -32,7 +31,7 @@ Once you've setup the site, type `npm run watch` to run the website. This should
     * `layouts/` – default.hbs is main page template
     * `pages/` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
     * `partials/` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
-* `dist/` – Where the rendered files are stored, this can be placed directly online.
+* `dist/` – Where the rendered files are stored, this gets generated via `grunt server` but does not get added to pull requests as it is auto-built online.
 * `Gruntfile.js` – This file contains all the tasks for using assemble and YAML to generate the final, static site. It uses the taskrunner [grunt](http://gruntjs.com/).
 
 ## Tools
