@@ -787,7 +787,7 @@ h3.contribute-title{
     border: none;
 }
 
-#exampleDisplay {  
+#exampleDisplay {
   display:flex;
   flex-flow: column;
 }
@@ -1260,11 +1260,11 @@ h4 + p {display: inline;}
 
 
 #family a:link, #family a:visited {
-    margin: 0.5em;
+    margin: 0.4em;
 }
 
 #family a:hover, #family a:active {
-    margin: 0.5em;
+    margin: 0.4em;
     border:none;
 }
 
@@ -1632,6 +1632,9 @@ footer {
         margin:0.375em 0 0.375em 1em !important;
     }
 
+    #family a:link, #family a:visited {
+        margin: 0.1em;
+    }
 
     #i18n-btn {
       position: absolute;
@@ -2201,4 +2204,29 @@ iframe {
 #i18n-btn button:disabled {
   color: #ED225D !important;
   cursor: default !important;
+}
+
+@media (max-width:400px) {
+  #family p.left {
+    margin: 0.375em 0 0.375em 0em !important;
+  }
+
+  #family p.right {
+      display: none;
+  }
+
+  #family a:link, #family a:visited {
+    margin: 0.2em;
+  }
+}
+
+@media (max-width:300px) {
+  #family p.right {
+    margin: 0 0 0 0;
+    display: none;
+  }
+
+  #family p.left {
+    display: none;
+  }
 }
