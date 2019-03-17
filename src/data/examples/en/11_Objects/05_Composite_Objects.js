@@ -17,19 +17,21 @@ function draw() {
   er2.transmit();
 }
 
-Egg = function(xpos, ypos, t, s) {
-  this.x = xpos;
-  this.y = ypos;
-  this.tilt = t;
-  this.scalar = s / 100.0;
-  this.angle = 0.0;
+class Egg {
+  constructor(xpos, ypos, t, s) {
+    this.x = xpos;
+    this.y = ypos;
+    this.tilt = t;
+    this.scalar = s / 100.0;
+    this.angle = 0.0;
+  }
 
-  this.wobble = function() {
+  wobble() {
     this.tilt = cos(this.angle) / 8;
     this.angle += 0.1;
   }
 
-  this.display = function() {
+  display() {
     noStroke();
     fill(255);
     push();
@@ -74,21 +76,22 @@ class Ring {
   }
 }
 
-EggRing = function(x, y, t, sp) {
-  let ovoid;
-  let circle = new Ring();
-  this.x = x;
-  this.y = y;
-  this.t = t;
-  this.sp = sp;
-  ovoid = new Egg(this.x, this.y, this.t, this.sp);
-  circle.start(this.x, this.y - this.sp/2);
+class EggRing {
+  constructor(x, y, t, sp) {
+    this.x = x;
+    this.y = y;
+    this.t = t;
+    this.sp = sp;
+    this.circle = new Ring();
+    this.ovoid = new Egg(this.x, this.y, this.t, this.sp);
+    this.circle.start(this.x, this.y - this.sp/2);
+  }
 
-  this.transmit = function() {
-    ovoid.wobble();
-    ovoid.display();
-    circle.grow();
-    circle.display();
+  transmit() {
+    this.ovoid.wobble();
+    this.ovoid.display();
+    this.circle.grow();
+    this.circle.display();
     if (circle.on == false) {
       circle.on = true;
     }
