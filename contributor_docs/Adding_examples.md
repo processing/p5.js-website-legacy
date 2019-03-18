@@ -72,8 +72,6 @@ grunt server
 2. The folder, file, and numbering structure should match exactly between the different languages. Do not change the filenames. The text for the example name, description, and source code are all in the .js files in the folders.
 3. If you have created a new folder, add entries to the "Examples" section of each of the YML files `src/data/*.yml` with the foldername as the key.
 
-## Questions
-Email [hello@p5js.org](mailto:hello@p5js.org) for help!
 
 
 
