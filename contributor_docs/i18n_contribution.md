@@ -31,10 +31,10 @@ If you want to contribute with p5.js website translations, you are in the right 
 
 1. Install node.js by following the instructions [here](https://nodejs.org/en/download/).
 2. [Fork](https://help.github.com/articles/fork-a-repo/) the p5.js-website repository to your Github account. Click the *Fork* button on the upper-right side of the p5.js-website Github repo. This will automatically open your fork repo on Github.
-![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/tree/master/contributor_docs/assets/fork.png)
+![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/fork.png)
 3. On your fork click the green *Clone or download* button. It will display a bar from where you can copy your `repo_URL`.
 
-    ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/tree/master/contributor_docs/assets/clone.png)
+    ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/clone.png)
 
 4. Open your command-line interface (CLI) and [clone](https://help.github.com/articles/cloning-a-repository/) your fork of the p5.js-website repository to `your_directory` on your laptop by typing:
 
