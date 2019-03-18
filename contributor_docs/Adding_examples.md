@@ -15,8 +15,7 @@ Examples help demonstrate different programming concepts and functionality of th
   ```
 
 ## Make an issue
-
-  1.Open a new issue on the [p5.js-website repository](https://github.com/processing/p5.js-website/issues) listing the examples you are creating with your name, so efforts aren't duplicated.
+1. Open a new issue on the [p5.js-website repository](https://github.com/processing/p5.js-website/issues) listing the examples you are creating with your name, so efforts aren't duplicated.
 
 ## Create your example
 
