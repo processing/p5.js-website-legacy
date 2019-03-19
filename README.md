@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/processing/p5.js-website.svg?branch=master)](https://travis-ci.com/processing/p5.js-website)
-
 # p5js website
+
+[![Build Status](https://travis-ci.com/processing/p5.js-website.svg?branch=master)](https://travis-ci.com/processing/p5.js-website)
 
 ## How To Contribute
 
@@ -13,7 +13,7 @@ We recognize all types of contributions. This project follows the [all-contribut
 ## Setup
 
 0. Install [node.js](https://nodejs.org/en/download/).
-1. Download this repo as a [zip file](https://github.com/processing/p5.js-website/archive/master.zip) or [clone this repository](https://help.github.com/articles/cloning-a-repository/). 
+1. Download this repo as a [zip file](https://github.com/processing/p5.js-website/archive/master.zip) or [clone this repository](https://help.github.com/articles/cloning-a-repository/).
 2. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
 
 ## Running
@@ -44,10 +44,11 @@ Once you've setup the site, type `npm run watch` to run the website. This should
 
 If you've contributed to this website (or any other part of the p5.js project), add yourself [here](https://github.com/processing/p5.js#contributors). Instructions to do this can be found at the bottom of the section.
 
- 
 ## Etc
+
 * [Instructions for contributing to website translation/internationalization](https://github.com/processing/p5.js-website/blob/master/contributor_docs/i18n_contribution.md)
 * [Introducción a p5.js](https://github.com/processing/p5.js-getting-started-es) - The repository for the book and PDF production of [Introducción a p5.js](http://p5js.org/books/).
 
 ## Externally hosted language versions
+
 * [https://p5js.jp](https://p5js.jp/) - 日本語 (Japanese), translated and hosted by [Katsuya Endoh](https://enkatsu.org/)
