@@ -37,40 +37,37 @@ If you want to contribute with p5.js website translations, you are in the right 
     ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/clone.png)
 
 4. Open your command-line interface (CLI) and [clone](https://help.github.com/articles/cloning-a-repository/) your fork of the p5.js-website repository to `your_directory` on your laptop by typing:
-
-    ```bash
+    ```
     $ git clone repo_URL
     ```
 
 5. Go to the repository's directory `[your_directory]/p5.js-website/` and install all the packages and dependencies for the website by typing (if you work on Mac it should be like `Users/[your_user]/[your_directory]/p5.js-website/`):
 
-    ```bash
+    ```
     $ npm install
     ```
 6. Check if the packages are correctly installed by typing:
 
-    ```bash
+    ```
     $ npm run watch
     ```
 
 7. This should open a window in your browser with the site running at http://localhost:9000.
 8. Set `github.com/processing/p5.js-website` as the upstream of your local. Type the following to list the configured remote for your fork (or follow this [tutorial](https://help.github.com/articles/configuring-a-remote-for-a-fork/)):
-
-    ```bash
+    ```
     $ git remote -v
       origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
       origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
     ```
 
-Then specify a new remote upstream for your fork (don't forget that by doing this you are setting the upstream for your local fork, but not for your fork on Github):
-
-    ```bash
+9. Then specify a new remote upstream for your fork (don't forget that by doing this you are setting the upstream for your local fork, but not for your fork on Github):
+    ```
     $ git remote add upstream github.com/processing/p5.js-website
     ```
 
-Finally verify if your remote upstream has been set (it should look like this):
+10. Finally verify if your remote upstream has been set (it should look like this):
 
-    ```bash
+    ```
     $ git remote -v
       origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
       origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
@@ -84,7 +81,7 @@ Finally verify if your remote upstream has been set (it should look like this):
 
 1. Sync your fork to keep it up-to-date with the upstream repository following the next commands or this [tutorial](https://help.github.com/articles/syncing-a-fork/). First fetch the upstream repo and its commits -commits will be stored on your local fork- and then merge changes from upstream to your local:
 
-    ```bash
+    ```
     $ git fetch upstream
     $ git merge upstream/master
     ```
@@ -93,8 +90,8 @@ Finally verify if your remote upstream has been set (it should look like this):
 3. Check if your changes are correct and don't break the website render by typing `npm run watch`.
 4. Commit the files you have changed, type:
 
-    ```bash
-    $  git add -A
+    ```
+    $ git add -A
     $ git commit -m "add a message to your commit"
     $ git push
     ```
@@ -104,12 +101,11 @@ Finally verify if your remote upstream has been set (it should look like this):
 
 ## File Structure
 Under this repo there are two directories in which we have to focus:
-
-    ```
-    p5.js-website/
-      src/
-      dist/
-    ```
+```
+p5.js-website/
+  src/
+  dist/
+```
 
 * `dist/`: the actual website is stored under this directory and its files **must never be modified by hand**, they are overwritten each time the web is built.
 * `src/`: contains the files from where the page is rendered, which means .hbs and .yml files for the website itself and .js and .json files for Reference and Examples. **All your changes must be done here**.
@@ -126,14 +122,14 @@ Under this repo there are two directories in which we have to focus:
 
 1. Define an abbreviation for your language following the [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard. It's expected that abbreviations are two-letter, but for macro languages can be added extra extensions depending on each case.
 2. Open a new issue and propose the addition of the new language. If both the proposal and the abbreviation are approved proceed with the next step.
-3. Add an entry with the new language abbreviation at `package.json` to the `languages` category -located under the repository root directory.
+3. Add an entry with the new language abbreviation at `package.json` to the `languages` category -located under the repository root directory. Please keep the language abbreviations in alphabetical order.
 
     ```JSON
     "languages": [
       "en",
       "es",
       "zh-Hans",
-      "new language here"
+      "new language here (or in correct alphabetical spot)"
     ],
     ```
 
