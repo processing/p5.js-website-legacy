@@ -97,7 +97,7 @@ If you want to contribute with p5.js website translations, you are in the right 
     ```
 
 5. Commit to your repository at your github account and create a new [Pull Request](https://github.com/processing/p5.js-website/wiki/Pull-requests). Click the *Pull Reques* tab on your fork page and then click the green button *New Pull Request*.
-![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://github.com/processing/p5.js-website/tree/master/contributor_docs/assets/pull_request.png)
+![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://raw.githubusercontent.com/processing/p5.js-website/master/contributor_docs/assets/pull_request.png)
 
 ## File Structure
 Under this repo there are two directories in which we have to focus:
