@@ -5,9 +5,7 @@ If you want to contribute with p5.js website translations, you are in the right 
 ## Table of Contents
 
 * [How the website works](#how-the-website-works)
-* [Setting up before start your contribution](#setting-up-before-start-your-contribution)
-* [Before submitting a Pull Request](#before-submitting-a-pull-request)
-* [File Structure](#file-structure)
+* [Setting up before starting your contribution](#setting-up-before-start-your-contribution)
 * [Start a new translation](#start-a-new-translation)
 * [Working on existing translations](working-on-existing-translations)
   * [Translation of all pages except Reference and Examples](#translation-of-all-pages-except-reference-and-examples)
@@ -25,102 +23,11 @@ If you want to contribute with p5.js website translations, you are in the right 
 4. Built web is stored under `dist/` directory whilst data and templates are stored under `src/` directory. For further information check the [File Structure](#file-structure).
 5. When collaborating code editing have to be done in files under `src/`, but not under `dist/` as files in there are removed and recreated on build.
 
-## Setting up before start your contribution
+## Setting up before starting your contribution
 
-*Please do this only once before you start your contribution.*
+You need to have forked and cloned the repo. Also must know how to submit a pull request to this repo. If you are unfamiliar with either of those, or need a quick brush up, please head over to [Getting started](https://github.com/processing/p5.js-website/blob/master/contributor_docs/assets/Getting_started.md) first.
 
-1. Install node.js by following the instructions [here](https://nodejs.org/en/download/).
-2. [Fork](https://help.github.com/articles/fork-a-repo/) the p5.js-website repository to your Github account. Click the *Fork* button on the upper-right side of the p5.js-website Github repo. This will automatically open your fork repo on Github.
-![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/fork.png)
-3. On your fork click the green *Clone or download* button. It will display a bar from where you can copy your `repo_URL`.
-
-    ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/clone.png)
-
-4. Open your command-line interface (CLI) and [clone](https://help.github.com/articles/cloning-a-repository/) your fork of the p5.js-website repository to `your_directory` on your laptop by typing:
-
-    ```bash
-    $ git clone repo_URL
-    ```
-
-5. Go to the repository's directory `[your_directory]/p5.js-website/` and install all the packages and dependencies for the website by typing (if you work on Mac it should be like `Users/[your_user]/[your_directory]/p5.js-website/`):
-
-    ```bash
-    $ npm install
-    ```
-6. Check if the packages are correctly installed by typing:
-
-    ```bash
-    $ npm run watch
-    ```
-
-7. This should open a window in your browser with the site running at http://localhost:9000.
-8. Set `github.com/processing/p5.js-website` as the upstream of your local. Type the following to list the configured remote for your fork (or follow this [tutorial](https://help.github.com/articles/configuring-a-remote-for-a-fork/)):
-
-    ```bash
-    $ git remote -v
-      origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-      origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-    ```
-
-Then specify a new remote upstream for your fork (don't forget that by doing this you are setting the upstream for your local fork, but not for your fork on Github):
-
-    ```bash
-    $ git remote add upstream github.com/processing/p5.js-website
-    ```
-
-Finally verify if your remote upstream has been set (it should look like this):
-
-    ```bash
-    $ git remote -v
-      origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-      origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-      upstream  https://github.com/processing/p5.js-website.git (fetch)
-      upstream  https://github.com/processing/p5.js-website.git (push)
-    ```
-
-## Before submitting a Pull Request
-
-*Please do this every time you submit a PR.*
-
-1. Sync your fork to keep it up-to-date with the upstream repository following the next commands or this [tutorial](https://help.github.com/articles/syncing-a-fork/). First fetch the upstream repo and its commits -commits will be stored on your local fork- and then merge changes from upstream to your local:
-
-    ```bash
-    $ git fetch upstream
-    $ git merge upstream/master
-    ```
-
-2. Make changes only at files under the `src/` directory.
-3. Check if your changes are correct and don't break the website render by typing `npm run watch`.
-4. Commit the files you have changed, type:
-
-    ```bash
-    $  git add -A
-    $ git commit -m "add a message to your commit"
-    $ git push
-    ```
-
-5. Commit to your repository at your github account and create a new [Pull Request](https://github.com/processing/p5.js-website/wiki/Pull-requests). Click the *Pull Reques* tab on your fork page and then click the green button *New Pull Request*.
-![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://github.com/processing/p5.js-website/tree/master/contributor_docs/assets/pull_request.png)
-
-## File Structure
-Under this repo there are two directories in which we have to focus:
-
-    ```
-    p5.js-website/
-      src/
-      dist/
-    ```
-
-* `dist/`: the actual website is stored under this directory and its files **must never be modified by hand**, they are overwritten each time the web is built.
-* `src/`: contains the files from where the page is rendered, which means .hbs and .yml files for the website itself and .js and .json files for Reference and Examples. **All your changes must be done here**.
-  * `assets/` – All static files (imgs, css, fonts, js, p5_featured homepage sketches)
-    * Note: if you make edits here you must restart the server to see your changes. To see changes immediately, you can edit the assets files in the dist directory, but need to copy and paste your updated work here for it to be saved.
-  * `data/` – contains translation files and assets for examples (audio files, fonts, videos).
-  * `templates/`
-    * `layouts/` – default.hbs is main page template.
-    * `pages/` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
-    * `partials/` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
-* `Gruntfile.js` – This file contains all the tasks for using assemble and YAML to generate the final, static site. It uses the task runner [grunt](http://gruntjs.com/).
+Please do also understand the file structure of this repo [README](https://github.com/processing/p5.js-website/blob/master/README.md#file-stucture) before proceeding.
 
 ## Start a new translation
 

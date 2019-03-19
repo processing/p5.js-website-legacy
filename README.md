@@ -10,29 +10,38 @@ If you discover a bug or have an idea for a new feature you'd like to add, begin
 
 We recognize all types of contributions. This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Add yourself to the [p5.js repository readme](https://github.com/processing/p5.js/blob/master/README.md#contributors) by following the [instructions here](https://github.com/processing/p5.js/issues/2309)!
 
-## Setup
+## Quick setup and running
 
 0. Install [node.js](https://nodejs.org/en/download/).
 1. Download this repo as a [zip file](https://github.com/processing/p5.js-website/archive/master.zip) or [clone this repository](https://help.github.com/articles/cloning-a-repository/).
 2. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
 
-## Running
-
 Once you've setup the site, type `npm run watch` to run the website. This should open a window in your browser with the site running at http://localhost:9000.
+
+If you need a more detailed setup guide, please head over to the [Getting started](https://github.com/processing/p5.js-website/blob/master/contributor_docs/assets/Getting_started.md).
 
 ## File structure
 
 * __See note about what to include in pull requests [here](https://github.com/processing/p5.js-website/wiki/Pull-requests).__
-* `src/` – All the pieces for generating the built site. __Edits should be made here.__
+
+Under this repo there are two directories in which we have to focus:
+
+    ```
+    p5.js-website/
+      src/
+      dist/
+    ```
+
+* `dist/`: the actual website is stored under this directory and its files **must never be modified by hand**, they are overwritten each time the web is built.
+* `src/`: contains the files from where the page is rendered, which means .hbs and .yml files for the website itself and .js and .json files for Reference and Examples. **All your changes must be done here**.
   * `assets/` – All static files (imgs, css, fonts, js, p5_featured homepage sketches)
     * Note: if you make edits here you must restart the server to see your changes. To see changes immediately, you can edit the assets files in the dist directory, but need to copy and paste your updated work here for it to be saved.
-  * `data/` – translation files
+  * `data/` – contains translation files and assets for examples (audio files, fonts, videos).
   * `templates/`
-    * `layouts/` – default.hbs is main page template
+    * `layouts/` – default.hbs is main page template.
     * `pages/` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
     * `partials/` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
-* `dist/` – Where the rendered files are stored, this gets generated via `grunt server` but does not get added to pull requests as it is auto-built online.
-* `Gruntfile.js` – This file contains all the tasks for using assemble and YAML to generate the final, static site. It uses the taskrunner [grunt](http://gruntjs.com/).
+* `Gruntfile.js` – This file contains all the tasks for using assemble and YAML to generate the final, static site. It uses the task runner [grunt](http://gruntjs.com/).
 
 ## Tools
 

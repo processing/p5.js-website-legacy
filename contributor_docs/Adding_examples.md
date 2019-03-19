@@ -4,11 +4,9 @@ Examples help demonstrate different programming concepts and functionality of th
 
 ## Getting started
 
-0. If you are not yet familiar with GitHub we recommend checking out this [tutorial](https://guides.github.com/activities/hello-world/).
-1. Install [node.js](https://nodejs.org/en/), which also automatically installs the npm package manager.
-2. [Fork](https://help.github.com/articles/fork-a-repo/) the [p5.js-website](https://github.com/processing/p5.js-website) repository into your own GitHub account.
-3. [Clone](https://help.github.com/articles/cloning-a-repository/) your new fork of the repository from GitHub onto your local computer.
-4. Using the command line, navigate to the `src/data/examples/build_examples` folder, and install all its necessary dependencies with npm.
+We assume you have already forked and cloned this repo. If you haven't, please head over to [Getting started](https://github.com/processing/p5.js-website/blob/master/contributor_docs/assets/Getting_started.md) first.
+
+Now, using the command line, navigate to the `src/data/examples/build_examples` folder, and install all its necessary dependencies with npm.
 
     ```bash
     cd src/data/examples/build_examples
@@ -17,8 +15,7 @@ Examples help demonstrate different programming concepts and functionality of th
 
 ## Make an issue
 
-1. Open a new issue on the [p5.js-website repository](https://github.com/processing/p5.js-website/issues) listing the examples you are creating with your name, so efforts aren't duplicated.
-
+Open a new issue on the [p5.js-website repository](https://github.com/processing/p5.js-website/issues) listing the examples you are creating with your name, so efforts aren't duplicated.
 
 ## Create your example
 
@@ -78,4 +75,3 @@ Examples help demonstrate different programming concepts and functionality of th
 1. First add an English version of the file to the `en/` folder, then make sure it is duplicated in the same place in all other languages, then translate for whichever languages you can.
 2. The folder, file, and numbering structure should match exactly between the different languages. Do not change the filenames. The text for the example name, description, and source code are all in the `.js` files in the folders.
 3. If you have created a new folder, add entries to the "Examples" section of each of the YML files `src/data/*.yml` with the foldername as the key.
-
