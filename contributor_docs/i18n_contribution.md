@@ -88,7 +88,9 @@ If you want to contribute with p5.js website translations, you are in the right 
 
 2. Make changes only at files under the `src/` directory.
 3. Check if your changes are correct and don't break the website render by typing `npm run watch`.
-4. Commit the files you have changed, type:
+4. Create your branch by typing `git branch your-branch`
+5. Switch to your branch by typing `git checkout your-branch`
+6. Commit the files you have changed, type:
 
     ```
     $ git add -A
@@ -96,8 +98,10 @@ If you want to contribute with p5.js website translations, you are in the right 
     $ git push
     ```
 
-5. Commit to your repository at your github account and create a new [Pull Request](https://github.com/processing/p5.js-website/wiki/Pull-requests). Click the *Pull Reques* tab on your fork page and then click the green button *New Pull Request*.
+7. Commit to your repository at your github account and create a new [Pull Request](https://github.com/processing/p5.js-website/wiki/Pull-requests). Click the *Pull Reques* tab on your fork page and then click the green button *New Pull Request*.
 ![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://raw.githubusercontent.com/processing/p5.js-website/master/contributor_docs/assets/pull_request.png)
+
+8. Push your changes by typing `git push --set-upstream origin your-branch`
 
 ## File Structure
 Under this repo there are two directories in which we have to focus:
