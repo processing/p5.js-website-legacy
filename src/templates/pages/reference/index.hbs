@@ -44,20 +44,16 @@ slug: reference/
       var langs = ['es', 'ko', 'zh-Hans'];
       var routes = window.location.pathname.split('/');
       var lang = routes[1];
-      console.log(lang)
-      if (langs.indexOf(lang) != -1) {
+
+      if (langs.indexOf(lang) !== -1) {
       console.log('inside')
         $.getJSON('/assets/reference/'+lang+'.json', function(data) {
-
-      console.log(data)
           translations = data;
-
           window.addEventListener('reference-rendered', function() {
             console.log("rendered");
             updateLanguage();
           }, false);
-        })
-        .error(function(e) { console.log(e) });
+        });
       }
     });
 
