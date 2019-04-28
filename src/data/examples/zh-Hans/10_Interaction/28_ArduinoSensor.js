@@ -22,8 +22,8 @@ function setup() {
 
 // Set up the WebJack connection.
 // Use default profile: https://github.com/publiclab/webjack/blob/master/src/profiles.js
-var profile = WebJack.Profiles["SoftModem"];
-var connection = new WebJack.Connection(profile);
+let profile = WebJack.Profiles["SoftModem"];
+let connection = new WebJack.Connection(profile);
 
 // Runs every time a signal is 'heard'
 connection.listen(function(data) {
