@@ -6,7 +6,7 @@
  * https://github.com/publiclab/webjack
  * 
  * Note: WebJack library must be added to your index.html as
- * <script src="https://webjack.io/dist/webjack.js"></script>
+ * <pre><code class="language-markup">&lt;script src="https://webjack.io/dist/webjack.js">&lt;/script></code></pre>
  * 
  * Testing audio: https://www.youtube.com/watch?v=GtJW1Dlt3cg
  * Load this sketch onto an Arduino: 
