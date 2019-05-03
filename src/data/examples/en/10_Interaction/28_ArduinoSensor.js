@@ -9,6 +9,8 @@
  * <pre><code class="language-markup">&lt;script src="https://webjack.io/dist/webjack.js">&lt;/script></code></pre>
  * <pre><code class="language-markup">&lt;script src="https://jywarren.github.io/p5-webjack/lib.js">&lt;/script></code></pre>
  * 
+ * Working example: https://editor.p5js.org/jywarren/sketches/rkztwSt8M
+ * 
  * Testing audio: https://www.youtube.com/watch?v=GtJW1Dlt3cg
  * Load this sketch onto an Arduino: 
  * https://create.arduino.cc/editor/jywarren/023158d8-be51-4c78-99ff-36c63126b554/preview
