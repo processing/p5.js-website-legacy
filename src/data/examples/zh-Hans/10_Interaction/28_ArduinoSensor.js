@@ -31,6 +31,6 @@ function handleData(data) {
 
   // draw stuff! Browse http://p5js.org/reference/
   background('#ddd');
-  ellipse(200, 200, data[0]+10, data[0]+10);
+  ellipse(100, 200, data[0]+10, data[0]+10);
 
 }
