@@ -5,8 +5,11 @@
  * 
  * https://github.com/publiclab/webjack
  * 
- * Note: WebJack library must be added to your index.html as
- * <script src="https://webjack.io/dist/webjack.js"></script>
+ * Note: WebJack and p5-webjack libraries must be added to your index.html as follows:
+ * <pre><code class="language-markup">&lt;script src="https://webjack.io/dist/webjack.js">&lt;/script></code></pre>
+ * <pre><code class="language-markup">&lt;script src="https://jywarren.github.io/p5-webjack/lib.js">&lt;/script></code></pre>
+ * 
+ * Working example: https://editor.p5js.org/jywarren/sketches/rkztwSt8M
  * 
  * Testing audio: https://www.youtube.com/watch?v=GtJW1Dlt3cg
  * Load this sketch onto an Arduino: 
@@ -18,17 +21,16 @@ function setup() {
   createCanvas(400, 400);
   noStroke();
   fill('#ff00aa22');
+  receiveSensorData(handleData);
 } 
 
-// Set up the WebJack connection.
-// Use default profile: https://github.com/publiclab/webjack/blob/master/src/profiles.js
-let profile = WebJack.Profiles["SoftModem"];
-let connection = new WebJack.Connection(profile);
+function handleData(data) {
 
-// Runs every time a signal is 'heard'
-connection.listen(function(data) {
-  
-  // Draw an ellipse at a height corresponding to the value received from the Arduino (sensor)
-  ellipse(400/2, 400 - (data * 5), 20, 20);
+  console.log(data); // output the values to log
+  // data[0] is the 1st value, data[1] 2nd, etc.
 
-});
+  // draw stuff! Browse http://p5js.org/reference/
+  background('#ddd');
+  ellipse(100, 200, data[0]+10, data[0]+10);
+
+}
