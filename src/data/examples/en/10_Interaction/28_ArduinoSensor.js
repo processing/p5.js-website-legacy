@@ -24,7 +24,7 @@ function setup() {
   receiveSensorData(handleData);
 }
 
-function handleData(data) {
+function handleData(data, connection) {
 
   console.log(data); // output the values to log
   // data[0] is the 1st value, data[1] 2nd, etc.
@@ -33,4 +33,5 @@ function handleData(data) {
   background('#ddd');
   ellipse(100, 200, data[0]+10, data[0]+10);
 
+  // connection.send('send data back to the Arduino if its listening');
 }
