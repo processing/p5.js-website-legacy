@@ -2,7 +2,7 @@
     "project": {
         "name": "p5",
         "description": "[![Build Status](https://travis-ci.org/processing/p5.js.svg?branch=master)](https://travis-ci.org/processing/p5.js) [![npm version](https://badge.fury.io/js/p5.svg)](https://www.npmjs.com/package/p5)",
-        "version": "0.8.0",
+        "version": "0.9.0",
         "url": "https://github.com/processing/p5.js#readme"
     },
     "files": {
@@ -234,6 +234,17 @@
             "name": "src/core/transform.js",
             "modules": {
                 "Transform": 1
+            },
+            "classes": {},
+            "fors": {
+                "p5": 1
+            },
+            "namespaces": {}
+        },
+        "src/data/local_storage.js": {
+            "name": "src/data/local_storage.js",
+            "modules": {
+                "LocalStorage": 1
             },
             "classes": {},
             "fors": {
@@ -998,7 +1009,7 @@
             "namespaces": {},
             "module": "Rendering",
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 474,
+            "line": 519,
             "description": "<p>Thin wrapper around a renderer, to be used for creating a\ngraphics buffer object. Use this class if you need\nto draw into an off-screen graphics buffer. The two parameters define the\nwidth and height in pixels. The fields and methods for this class are\nextensive, but mirror the normal drawing API for p5.</p>\n"
         },
         "Transform": {
@@ -1021,6 +1032,7 @@
         "Data": {
             "name": "Data",
             "submodules": {
+                "LocalStorage": 1,
                 "Dictionary": 1,
                 "Array Functions": 1,
                 "Conversion": 1,
@@ -1033,12 +1045,30 @@
                 "p5.NumberDict": 1
             },
             "fors": {
-                "p5.TypedDict": 1,
-                "p5": 1
+                "p5": 1,
+                "p5.TypedDict": 1
             },
             "namespaces": {},
             "file": "src/data/p5.TypedDict.js",
             "line": 422
+        },
+        "LocalStorage": {
+            "name": "LocalStorage",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {
+                "p5": 1
+            },
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Data",
+            "namespace": "",
+            "file": "src/data/local_storage.js",
+            "line": 1,
+            "requires": [
+                "core\n\nThis module defines the p5 methods for working with local storage"
+            ]
         },
         "Dictionary": {
             "name": "Dictionary",
@@ -1268,7 +1298,7 @@
             "module": "IO",
             "namespace": "",
             "file": "src/io/files.js",
-            "line": 1231,
+            "line": 1238,
             "description": "<p>This is the p5 instance constructor.</p>\n<p>A p5 instance holds all the properties and methods related to\na p5 sketch.  It expects an incoming sketch closure and it can also\ntake an optional node parameter for attaching the generated p5 canvas\nto a node.  The sketch closure takes the newly created p5 instance as\nits sole argument and may optionally set <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, and/or\n<a href=\"#/p5/draw\">draw()</a> properties on it for running a sketch.</p>\n<p>A p5 sketch can run in &quot;global&quot; or &quot;instance&quot; mode:\n&quot;global&quot;   - all properties and methods are attached to the window\n&quot;instance&quot; - all properties and methods are bound to this p5 object</p>\n"
         },
         "Table": {
@@ -1698,7 +1728,7 @@
             "namespaces": {},
             "module": "p5.dom",
             "file": "lib/addons/p5.dom.js",
-            "line": 3331,
+            "line": 3323,
             "description": "<p><p>The web is much more than just canvas and p5.dom makes it easy to interact\nwith other HTML5 objects, including text, hyperlink, image, input, video,\naudio, and webcam.</p></p>\n<p><p>There is a set of creation methods, DOM manipulation methods, and\nan extended <a href=\"#/p5.Element\">p5.Element</a> that supports a range of HTML elements. See the\n<a href='https://github.com/processing/p5.js/wiki/Beyond-the-canvas'>\nbeyond the canvas tutorial</a> for a full overview of how this addon works.</p>\n<p><p>Methods and properties shown in black are part of the p5.js core, items in\nblue are part of the p5.dom library. You will need to include an extra file\nin order to access the blue functions. See the\n<a href='http://p5js.org/libraries/#using-a-library'>using a library</a>\nsection for information on how to include this library. p5.dom comes with\n<a href='http://p5js.org/download'>p5 complete</a> or you can download the single file\n<a href='https://raw.githubusercontent.com/lmccart/p5.js/master/lib/addons/p5.dom.js'>\nhere</a>.</p></p>\n<p><p>See <a href='https://github.com/processing/p5.js/wiki/Beyond-the-canvas'>tutorial: beyond the canvas</a>\nfor more info on how to use this library.</a></p>\n",
             "tag": "main",
             "itemtype": "main"
@@ -1782,14 +1812,8 @@
                 },
                 {
                     "name": "node",
-                    "description": "<p>element to attach canvas to, if a\n                                     boolean is passed in use it as sync</p>\n",
-                    "type": "HTMLElement|Boolean",
-                    "optional": true
-                },
-                {
-                    "name": "sync",
-                    "description": "<p>start synchronously (optional)</p>\n",
-                    "type": "Boolean",
+                    "description": "<p>element to attach canvas to</p>\n",
+                    "type": "HTMLElement",
                     "optional": true
                 }
             ],
@@ -2005,7 +2029,7 @@
             "submodule": "Output",
             "namespace": "",
             "file": "src/io/files.js",
-            "line": 1231,
+            "line": 1238,
             "params": [
                 {
                     "name": "filename",
@@ -2284,7 +2308,7 @@
             "submodule": "p5.dom",
             "namespace": "",
             "file": "lib/addons/p5.dom.js",
-            "line": 3331,
+            "line": 3323,
             "description": "<p>Base class for a file.\nUsed for Element.drop and createFileInput.</p>\n",
             "is_constructor": 1,
             "params": [
@@ -4013,7 +4037,7 @@
         {
             "file": "src/color/setting.js",
             "line": 341,
-            "description": "<p>Sets the color used to fill shapes. For example, if you run\nfill(204, 102, 0), all subsequent shapes will be filled with orange. This\ncolor is either specified in terms of the RGB or HSB color depending on\nthe current <a href=\"#/p5/colorMode\">colorMode()</a>. (The default color space is RGB, with each value\nin the range from 0 to 255). The alpha range by default is also 0 to 255.\n<br><br>\nIf a single string argument is provided, RGB, RGBA and Hex CSS color strings\nand all named color strings are supported. In this case, an alpha number\nvalue as a second argument is not supported, the RGBA form should be used.\n<br><br>\nA p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the fill color.</p>\n",
+            "description": "<p>Sets the color used to fill shapes. For example, if you run\nfill(204, 102, 0), all shapes drawn after the fill command will be filled with the color orange. This\ncolor is either specified in terms of the RGB or HSB color depending on\nthe current <a href=\"#/p5/colorMode\">colorMode()</a>. (The default color space is RGB, with each value\nin the range from 0 to 255). The alpha range by default is also 0 to 255.\n<br><br>\nIf a single string argument is provided, RGB, RGBA and Hex CSS color strings\nand all named color strings are supported. In this case, an alpha number\nvalue as a second argument is not supported, the RGBA form should be used.\n<br><br>\nA p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the fill color.</p>\n",
             "itemtype": "method",
             "name": "fill",
             "chainable": 1,
@@ -4239,7 +4263,7 @@
         {
             "file": "src/core/shape/2d_primitives.js",
             "line": 102,
-            "description": "<p>Draw an arc to the screen. If called with only x, y, w, h, start, and\nstop, the arc will be drawn and filled as an open pie segment. If a mode parameter is provided, the arc\nwill be filled like an open semi-circle (OPEN) , a closed semi-circle (CHORD), or as a closed pie segment (PIE). The\norigin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function.<br><br>\nThe arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse.\nAdding or subtracting TWO_PI to either angle does not change where they fall.\nIf both start and stop fall at the same place, a full ellipse will be drawn.</p>\n",
+            "description": "<p>Draw an arc to the screen. If called with only x, y, w, h, start, and\nstop, the arc will be drawn and filled as an open pie segment. If a mode parameter is provided, the arc\nwill be filled like an open semi-circle (OPEN) , a closed semi-circle (CHORD), or as a closed pie segment (PIE). The\norigin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function.<br><br>\nThe arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse.\nAdding or subtracting TWO_PI to either angle does not change where they fall.\nIf both start and stop fall at the same place, a full ellipse will be drawn. Be aware that the the\ny-axis increases in the downward direction therefore the values of PI is counter clockwise.</p>\n",
             "itemtype": "method",
             "name": "arc",
             "params": [
@@ -5817,9 +5841,9 @@
             "name": "vertex",
             "chainable": 1,
             "example": [
-                "\n<div>\n<code>\nstrokeWeight(3);\nbeginShape(POINTS);\nvertex(30, 20);\nvertex(85, 20);\nvertex(85, 75);\nvertex(30, 75);\nendShape();\n</code>\n</div>"
+                "\n<div>\n<code>\nstrokeWeight(3);\nbeginShape(POINTS);\nvertex(30, 20);\nvertex(85, 20);\nvertex(85, 75);\nvertex(30, 75);\nendShape();\n</code>\n</div>\n\n<div>\n<code>\ncreateCanvas(100, 100, WEBGL);\nbackground(240, 240, 240);\nfill(237, 34, 93);\nnoStroke();\nbeginShape();\nvertex(0, 35);\nvertex(35, 0);\nvertex(0, -35);\nvertex(-35, 0);\nendShape();\n</code>\n</div>\n\n<div>\n<code>\ncreateCanvas(100, 100, WEBGL);\nbackground(240, 240, 240);\nfill(237, 34, 93);\nnoStroke();\nbeginShape();\nvertex(-10, 10);\nvertex(0, 35);\nvertex(10, 10);\nvertex(35, 0);\nvertex(10, -8);\nvertex(0, -35);\nvertex(-10, -8);\nvertex(-35, 0);\nendShape();\n</code>\n</div>\n\n<div>\n<code>\nstrokeWeight(3);\nstroke(237, 34, 93);\nbeginShape(LINES);\nvertex(10, 35);\nvertex(90, 35);\nvertex(10, 65);\nvertex(90, 65);\nvertex(35, 10);\nvertex(35, 90);\nvertex(65, 10);\nvertex(65, 90);\nendShape();\n</code>\n</div>\n\n<div>\n<code>\n// Click to change the number of sides.\n// In WebGL mode, custom shapes will only\n// display hollow fill sections when\n// all calls to vertex() use the same z-value.\n\nlet sides = 3;\nlet angle, px, py;\n\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n  setAttributes('antialias', true);\n  fill(237, 34, 93);\n  strokeWeight(3);\n}\n\nfunction draw() {\n  background(200);\n  rotateX(frameCount * 0.01);\n  rotateZ(frameCount * 0.01);\n  ngon(sides, 0, 0, 80);\n}\n\nfunction mouseClicked() {\n  if (sides > 6) {\n    sides = 3;\n  } else {\n    sides++;\n  }\n}\n\nfunction ngon(n, x, y, d) {\n  beginShape();\n  for (var i = 0; i < n + 1; i++) {\n    angle = TWO_PI / n * i;\n    px = x + sin(angle) * d / 2;\n    py = y - cos(angle) * d / 2;\n    vertex(px, py, 0);\n  }\n  for (i = 0; i < n + 1; i++) {\n    angle = TWO_PI / n * i;\n    px = x + sin(angle) * d / 4;\n    py = y - cos(angle) * d / 4;\n    vertex(px, py, 0);\n  }\n  endShape();\n}\n</code>\n</div>"
             ],
-            "alt": "8 points making 4 lines",
+            "alt": "4 black points in a square shape in middle-right of canvas.\n4 points making a diamond shape.\n8 points making a star.\n8 points making 4 lines.\nA rotating 3D shape with a hollow section in the middle.",
             "class": "p5",
             "module": "Shape",
             "submodule": "Vertex",
@@ -5841,7 +5865,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 900,
+                    "line": 945,
                     "params": [
                         {
                             "name": "x",
@@ -5878,6 +5902,7 @@
         {
             "file": "src/core/constants.js",
             "line": 13,
+            "description": "<p>The default, two-dimensional renderer.</p>\n",
             "itemtype": "property",
             "name": "P2D",
             "type": "String",
@@ -5888,7 +5913,8 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 18,
+            "line": 19,
+            "description": "<p>One of the two render modes in p5.js: P2D (default renderer) and WEBGL\nEnables 3D render by introducing the third dimension: Z</p>\n",
             "itemtype": "property",
             "name": "WEBGL",
             "type": "String",
@@ -5899,7 +5925,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 25,
+            "line": 28,
             "itemtype": "property",
             "name": "ARROW",
             "type": "String",
@@ -5910,7 +5936,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 30,
+            "line": 33,
             "itemtype": "property",
             "name": "CROSS",
             "type": "String",
@@ -5921,7 +5947,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 35,
+            "line": 38,
             "itemtype": "property",
             "name": "HAND",
             "type": "String",
@@ -5932,7 +5958,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 40,
+            "line": 43,
             "itemtype": "property",
             "name": "MOVE",
             "type": "String",
@@ -5943,7 +5969,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 45,
+            "line": 48,
             "itemtype": "property",
             "name": "TEXT",
             "type": "String",
@@ -5954,7 +5980,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 50,
+            "line": 53,
             "itemtype": "property",
             "name": "WAIT",
             "type": "String",
@@ -5965,7 +5991,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 58,
+            "line": 61,
             "description": "<p>HALF_PI is a mathematical constant with the value\n1.57079632679489661923. It is half the ratio of the\ncircumference of a circle to its diameter. It is useful in\ncombination with the trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "HALF_PI",
@@ -5981,7 +6007,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 77,
+            "line": 80,
             "description": "<p>PI is a mathematical constant with the value\n3.14159265358979323846. It is the ratio of the circumference\nof a circle to its diameter. It is useful in combination with\nthe trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "PI",
@@ -5997,7 +6023,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 96,
+            "line": 99,
             "description": "<p>QUARTER_PI is a mathematical constant with the value 0.7853982.\nIt is one quarter the ratio of the circumference of a circle to\nits diameter. It is useful in combination with the trigonometric\nfunctions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "QUARTER_PI",
@@ -6013,7 +6039,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 115,
+            "line": 118,
             "description": "<p>TAU is an alias for TWO_PI, a mathematical constant with the\nvalue 6.28318530717958647693. It is twice the ratio of the\ncircumference of a circle to its diameter. It is useful in\ncombination with the trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "TAU",
@@ -6029,7 +6055,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 134,
+            "line": 137,
             "description": "<p>TWO_PI is a mathematical constant with the value\n6.28318530717958647693. It is twice the ratio of the\ncircumference of a circle to its diameter. It is useful in\ncombination with the trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "TWO_PI",
@@ -6045,7 +6071,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 153,
+            "line": 156,
             "description": "<p>Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which\np5.js interprates and calculates angles (either DEGREES or RADIANS).</p>\n",
             "itemtype": "property",
             "name": "DEGREES",
@@ -6060,7 +6086,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 167,
+            "line": 170,
             "description": "<p>Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which\np5.js interprates and calculates angles (either RADIANS or DEGREES).</p>\n",
             "itemtype": "property",
             "name": "RADIANS",
@@ -6075,7 +6101,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 185,
+            "line": 188,
             "itemtype": "property",
             "name": "CORNER",
             "type": "String",
@@ -6086,7 +6112,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 190,
+            "line": 193,
             "itemtype": "property",
             "name": "CORNERS",
             "type": "String",
@@ -6097,7 +6123,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 195,
+            "line": 198,
             "itemtype": "property",
             "name": "RADIUS",
             "type": "String",
@@ -6108,7 +6134,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 200,
+            "line": 203,
             "itemtype": "property",
             "name": "RIGHT",
             "type": "String",
@@ -6119,7 +6145,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 205,
+            "line": 208,
             "itemtype": "property",
             "name": "LEFT",
             "type": "String",
@@ -6130,7 +6156,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 210,
+            "line": 213,
             "itemtype": "property",
             "name": "CENTER",
             "type": "String",
@@ -6141,7 +6167,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 215,
+            "line": 218,
             "itemtype": "property",
             "name": "TOP",
             "type": "String",
@@ -6152,7 +6178,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 220,
+            "line": 223,
             "itemtype": "property",
             "name": "BOTTOM",
             "type": "String",
@@ -6163,7 +6189,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 225,
+            "line": 228,
             "itemtype": "property",
             "name": "BASELINE",
             "type": "String",
@@ -6175,7 +6201,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 231,
+            "line": 234,
             "itemtype": "property",
             "name": "POINTS",
             "type": "Number",
@@ -6187,7 +6213,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 237,
+            "line": 240,
             "itemtype": "property",
             "name": "LINES",
             "type": "Number",
@@ -6199,7 +6225,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 243,
+            "line": 246,
             "itemtype": "property",
             "name": "LINE_STRIP",
             "type": "Number",
@@ -6211,7 +6237,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 249,
+            "line": 252,
             "itemtype": "property",
             "name": "LINE_LOOP",
             "type": "Number",
@@ -6223,7 +6249,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 255,
+            "line": 258,
             "itemtype": "property",
             "name": "TRIANGLES",
             "type": "Number",
@@ -6235,7 +6261,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 261,
+            "line": 264,
             "itemtype": "property",
             "name": "TRIANGLE_FAN",
             "type": "Number",
@@ -6247,7 +6273,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 267,
+            "line": 270,
             "itemtype": "property",
             "name": "TRIANGLE_STRIP",
             "type": "Number",
@@ -6259,7 +6285,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 273,
+            "line": 276,
             "itemtype": "property",
             "name": "QUADS",
             "type": "String",
@@ -6270,7 +6296,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 278,
+            "line": 281,
             "itemtype": "property",
             "name": "QUAD_STRIP",
             "type": "String",
@@ -6282,7 +6308,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 284,
+            "line": 287,
             "itemtype": "property",
             "name": "CLOSE",
             "type": "String",
@@ -6293,7 +6319,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 289,
+            "line": 292,
             "itemtype": "property",
             "name": "OPEN",
             "type": "String",
@@ -6304,7 +6330,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 294,
+            "line": 297,
             "itemtype": "property",
             "name": "CHORD",
             "type": "String",
@@ -6315,7 +6341,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 299,
+            "line": 302,
             "itemtype": "property",
             "name": "PIE",
             "type": "String",
@@ -6326,7 +6352,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 304,
+            "line": 307,
             "itemtype": "property",
             "name": "PROJECT",
             "type": "String",
@@ -6338,7 +6364,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 310,
+            "line": 313,
             "itemtype": "property",
             "name": "SQUARE",
             "type": "String",
@@ -6350,7 +6376,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 316,
+            "line": 319,
             "itemtype": "property",
             "name": "ROUND",
             "type": "String",
@@ -6361,7 +6387,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 321,
+            "line": 324,
             "itemtype": "property",
             "name": "BEVEL",
             "type": "String",
@@ -6372,7 +6398,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 326,
+            "line": 329,
             "itemtype": "property",
             "name": "MITER",
             "type": "String",
@@ -6383,7 +6409,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 333,
+            "line": 336,
             "itemtype": "property",
             "name": "RGB",
             "type": "String",
@@ -6394,7 +6420,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 338,
+            "line": 341,
             "itemtype": "property",
             "name": "HSB",
             "type": "String",
@@ -6405,7 +6431,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 343,
+            "line": 346,
             "itemtype": "property",
             "name": "HSL",
             "type": "String",
@@ -6416,7 +6442,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 350,
+            "line": 353,
             "description": "<p>AUTO allows us to automatically set the width or height of an element (but not both),\nbased on the current height and width of the element. Only one parameter can\nbe passed to the <a href=\"/#/p5.Element/size\">size</a> function as AUTO, at a time.</p>\n",
             "itemtype": "property",
             "name": "AUTO",
@@ -6428,7 +6454,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 377,
+            "line": 380,
             "itemtype": "property",
             "name": "BLEND",
             "type": "String",
@@ -6440,7 +6466,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 383,
+            "line": 386,
             "itemtype": "property",
             "name": "ADD",
             "type": "String",
@@ -6452,7 +6478,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 391,
+            "line": 394,
             "itemtype": "property",
             "name": "DARKEST",
             "type": "String",
@@ -6463,7 +6489,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 396,
+            "line": 399,
             "itemtype": "property",
             "name": "LIGHTEST",
             "type": "String",
@@ -6475,7 +6501,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 402,
+            "line": 405,
             "itemtype": "property",
             "name": "DIFFERENCE",
             "type": "String",
@@ -6486,7 +6512,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 407,
+            "line": 410,
             "itemtype": "property",
             "name": "SUBTRACT",
             "type": "String",
@@ -6497,7 +6523,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 412,
+            "line": 415,
             "itemtype": "property",
             "name": "EXCLUSION",
             "type": "String",
@@ -6508,7 +6534,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 417,
+            "line": 420,
             "itemtype": "property",
             "name": "MULTIPLY",
             "type": "String",
@@ -6519,7 +6545,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 422,
+            "line": 425,
             "itemtype": "property",
             "name": "SCREEN",
             "type": "String",
@@ -6530,7 +6556,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 427,
+            "line": 430,
             "itemtype": "property",
             "name": "REPLACE",
             "type": "String",
@@ -6542,7 +6568,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 433,
+            "line": 436,
             "itemtype": "property",
             "name": "OVERLAY",
             "type": "String",
@@ -6553,7 +6579,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 438,
+            "line": 441,
             "itemtype": "property",
             "name": "HARD_LIGHT",
             "type": "String",
@@ -6564,7 +6590,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 443,
+            "line": 446,
             "itemtype": "property",
             "name": "SOFT_LIGHT",
             "type": "String",
@@ -6575,7 +6601,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 448,
+            "line": 451,
             "itemtype": "property",
             "name": "DODGE",
             "type": "String",
@@ -6587,7 +6613,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 454,
+            "line": 457,
             "itemtype": "property",
             "name": "BURN",
             "type": "String",
@@ -6599,7 +6625,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 462,
+            "line": 465,
             "itemtype": "property",
             "name": "THRESHOLD",
             "type": "String",
@@ -6610,7 +6636,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 467,
+            "line": 470,
             "itemtype": "property",
             "name": "GRAY",
             "type": "String",
@@ -6621,7 +6647,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 472,
+            "line": 475,
             "itemtype": "property",
             "name": "OPAQUE",
             "type": "String",
@@ -6632,7 +6658,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 477,
+            "line": 480,
             "itemtype": "property",
             "name": "INVERT",
             "type": "String",
@@ -6643,7 +6669,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 482,
+            "line": 485,
             "itemtype": "property",
             "name": "POSTERIZE",
             "type": "String",
@@ -6654,7 +6680,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 487,
+            "line": 490,
             "itemtype": "property",
             "name": "DILATE",
             "type": "String",
@@ -6665,7 +6691,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 492,
+            "line": 495,
             "itemtype": "property",
             "name": "ERODE",
             "type": "String",
@@ -6676,7 +6702,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 497,
+            "line": 500,
             "itemtype": "property",
             "name": "BLUR",
             "type": "String",
@@ -6687,7 +6713,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 504,
+            "line": 507,
             "itemtype": "property",
             "name": "NORMAL",
             "type": "String",
@@ -6698,7 +6724,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 509,
+            "line": 512,
             "itemtype": "property",
             "name": "ITALIC",
             "type": "String",
@@ -6709,7 +6735,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 514,
+            "line": 517,
             "itemtype": "property",
             "name": "BOLD",
             "type": "String",
@@ -6720,7 +6746,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 519,
+            "line": 522,
             "itemtype": "property",
             "name": "BOLDITALIC",
             "type": "String",
@@ -6731,7 +6757,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 544,
+            "line": 547,
             "itemtype": "property",
             "name": "IMAGE",
             "type": "String",
@@ -6742,7 +6768,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 558,
+            "line": 561,
             "itemtype": "property",
             "name": "LANDSCAPE",
             "type": "String",
@@ -6753,7 +6779,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 563,
+            "line": 566,
             "itemtype": "property",
             "name": "PORTRAIT",
             "type": "String",
@@ -6764,7 +6790,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 573,
+            "line": 576,
             "itemtype": "property",
             "name": "GRID",
             "type": "String",
@@ -6775,7 +6801,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 579,
+            "line": 582,
             "itemtype": "property",
             "name": "AXES",
             "type": "String",
@@ -6824,6 +6850,22 @@
         {
             "file": "src/core/environment.js",
             "line": 80,
+            "description": "<p>The system variable <a href=\"#/p5/deltaTime\">deltaTime</a> contains the time\ndifference between the beginning of the previous frame and the beginning\nof the current frame in milliseconds.\n<br><br>\nThis variable is useful for creating time sensitive animation or physics\ncalculation that should stay constant regardless of frame rate.</p>\n",
+            "itemtype": "property",
+            "name": "deltaTime",
+            "type": "Integer",
+            "readonly": "",
+            "example": [
+                "\n<div><code>\nlet rectX = 0;\nlet fr = 30; //starting FPS\nlet clr;\n\nfunction setup() {\n  background(200);\n  frameRate(fr); // Attempt to refresh at starting FPS\n  clr = color(255, 0, 0);\n}\n\nfunction draw() {\n  background(200);\n  rectX = rectX + 1 * (deltaTime / 50); // Move Rectangle in relation to deltaTime\n\n  if (rectX >= width) {\n    // If you go off screen.\n    if (fr === 30) {\n      clr = color(0, 0, 255);\n      fr = 10;\n      frameRate(fr); // make frameRate 10 FPS\n    } else {\n      clr = color(255, 0, 0);\n      fr = 30;\n      frameRate(fr); // make frameRate 30 FPS\n    }\n    rectX = 0;\n  }\n  fill(clr);\n  rect(rectX, 40, 20, 20);\n}\n</code></div>"
+            ],
+            "alt": "red rect moves left to right, followed by blue rect moving at the same speed\nwith a lower frame rate. Loops.",
+            "class": "p5",
+            "module": "Environment",
+            "submodule": "Environment"
+        },
+        {
+            "file": "src/core/environment.js",
+            "line": 131,
             "description": "<p>Confirms if the window a p5.js program is in is &quot;focused,&quot; meaning that\nthe sketch will accept mouse or keyboard input. This variable is\n&quot;true&quot; if the window is focused and &quot;false&quot; if not.</p>\n",
             "itemtype": "property",
             "name": "focused",
@@ -6839,7 +6881,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 112,
+            "line": 163,
             "description": "<p>Sets the cursor to a predefined symbol or an image, or makes it visible\nif already hidden. If you are trying to set an image as the cursor, the\nrecommended size is 16x16 or 32x32 pixels. The values for parameters x and y\nmust be less than the dimensions of the image.</p>\n",
             "itemtype": "method",
             "name": "cursor",
@@ -6872,7 +6914,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 181,
+            "line": 232,
             "description": "<p>Specifies the number of frames to be displayed every second. For example,\nthe function call frameRate(30) will attempt to refresh 30 times a second.\nIf the processor is not fast enough to maintain the specified rate, the\nframe rate will not be achieved. Setting the frame rate within <a href=\"#/p5/setup\">setup()</a> is\nrecommended. The default frame rate is based on the frame rate of the display\n(here also called &quot;refresh rate&quot;), which is set to 60 frames per second on most\ncomputers. A frame rate of 24 frames per second (usual for movies) or above\nwill be enough for smooth animations\nThis is the same as setFrameRate(val).\n<br><br>\nCalling <a href=\"#/p5/frameRate\">frameRate()</a> with no arguments returns the current framerate. The\ndraw function must run at least once before it will return a value. This\nis the same as <a href=\"#/p5/getFrameRate\">getFrameRate()</a>.\n<br><br>\nCalling <a href=\"#/p5/frameRate\">frameRate()</a> with arguments that are not of the type numbers\nor are non positive also returns current framerate.</p>\n",
             "itemtype": "method",
             "name": "frameRate",
@@ -6886,7 +6928,7 @@
             "submodule": "Environment",
             "overloads": [
                 {
-                    "line": 181,
+                    "line": 232,
                     "params": [
                         {
                             "name": "fps",
@@ -6897,7 +6939,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 242,
+                    "line": 293,
                     "params": [],
                     "return": {
                         "description": "current frameRate",
@@ -6908,7 +6950,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 281,
+            "line": 332,
             "description": "<p>Hides the cursor from view.</p>\n",
             "itemtype": "method",
             "name": "noCursor",
@@ -6922,7 +6964,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 306,
+            "line": 357,
             "description": "<p>System variable that stores the width of the screen display according to The\ndefault <a href=\"#/p5/pixelDensity\">pixelDensity</a>. This is used to run a\nfull-screen program on any display size. To return actual screen size,\nmultiply this by pixelDensity.</p>\n",
             "itemtype": "property",
             "name": "displayWidth",
@@ -6938,7 +6980,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 325,
+            "line": 376,
             "description": "<p>System variable that stores the height of the screen display according to The\ndefault <a href=\"#/p5/pixelDensity\">pixelDensity</a>. This is used to run a\nfull-screen program on any display size. To return actual screen size,\nmultiply this by pixelDensity.</p>\n",
             "itemtype": "property",
             "name": "displayHeight",
@@ -6954,7 +6996,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 344,
+            "line": 395,
             "description": "<p>System variable that stores the width of the inner window, it maps to\nwindow.innerWidth.</p>\n",
             "itemtype": "property",
             "name": "windowWidth",
@@ -6970,7 +7012,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 360,
+            "line": 411,
             "description": "<p>System variable that stores the height of the inner window, it maps to\nwindow.innerHeight.</p>\n",
             "itemtype": "property",
             "name": "windowHeight",
@@ -6986,7 +7028,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 376,
+            "line": 427,
             "description": "<p>The <a href=\"#/p5/windowResized\">windowResized()</a> function is called once every time the browser window\nis resized. This is a good place to resize the canvas or do any other\nadjustments to accommodate the new window size.</p>\n",
             "itemtype": "method",
             "name": "windowResized",
@@ -7000,7 +7042,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 430,
+            "line": 481,
             "description": "<p>System variable that stores the width of the drawing canvas. This value\nis set by the first parameter of the <a href=\"#/p5/createCanvas\">createCanvas()</a> function.\nFor example, the function call createCanvas(320, 240) sets the width\nvariable to the value 320. The value of width defaults to 100 if\n<a href=\"#/p5/createCanvas\">createCanvas()</a> is not used in a program.</p>\n",
             "itemtype": "property",
             "name": "width",
@@ -7012,7 +7054,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 442,
+            "line": 493,
             "description": "<p>System variable that stores the height of the drawing canvas. This value\nis set by the second parameter of the <a href=\"#/p5/createCanvas\">createCanvas()</a> function. For\nexample, the function call createCanvas(320, 240) sets the height\nvariable to the value 240. The value of height defaults to 100 if\n<a href=\"#/p5/createCanvas\">createCanvas()</a> is not used in a program.</p>\n",
             "itemtype": "property",
             "name": "height",
@@ -7024,7 +7066,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 454,
+            "line": 505,
             "description": "<p>If argument is given, sets the sketch to fullscreen or not based on the\nvalue of the argument. If no argument is given, returns the current\nfullscreen state. Note that due to browser restrictions this can only\nbe called on user input, for example, on mouse press like the example\nbelow.</p>\n",
             "itemtype": "method",
             "name": "fullscreen",
@@ -7050,7 +7092,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 505,
+            "line": 556,
             "description": "<p>Sets the pixel scaling for high pixel density displays. By default\npixel density is set to match display density, call pixelDensity(1)\nto turn this off. Calling <a href=\"#/p5/pixelDensity\">pixelDensity()</a> with no arguments returns\nthe current pixel density of the sketch.</p>\n",
             "itemtype": "method",
             "name": "pixelDensity",
@@ -7064,7 +7106,7 @@
             "submodule": "Environment",
             "overloads": [
                 {
-                    "line": 505,
+                    "line": 556,
                     "params": [
                         {
                             "name": "val",
@@ -7075,7 +7117,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 540,
+                    "line": 591,
                     "params": [],
                     "return": {
                         "description": "current pixel density of the sketch",
@@ -7086,7 +7128,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 560,
+            "line": 611,
             "description": "<p>Returns the pixel density of the current display the sketch is running on.</p>\n",
             "itemtype": "method",
             "name": "displayDensity",
@@ -7104,7 +7146,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 617,
+            "line": 668,
             "description": "<p>Gets the current URL.</p>\n",
             "itemtype": "method",
             "name": "getURL",
@@ -7122,7 +7164,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 648,
+            "line": 699,
             "description": "<p>Gets the current URL path as an array.</p>\n",
             "itemtype": "method",
             "name": "getURLPath",
@@ -7140,7 +7182,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 671,
+            "line": 722,
             "description": "<p>Gets the current URL params as an Object.</p>\n",
             "itemtype": "method",
             "name": "getURLParams",
@@ -7201,7 +7243,7 @@
         },
         {
             "file": "src/core/main.js",
-            "line": 49,
+            "line": 42,
             "description": "<p>Called directly before <a href=\"#/p5/setup\">setup()</a>, the <a href=\"#/p5/preload\">preload()</a> function is used to handle\nasynchronous loading of external files in a blocking way. If a preload\nfunction is defined, <a href=\"#/p5/setup\">setup()</a> will wait until any load calls within have\nfinished. Nothing besides load calls (<a href=\"#/p5/loadImage\">loadImage</a>, <a href=\"#/p5/loadJSON\">loadJSON</a>, <a href=\"#/p5/loadFont\">loadFont</a>,\n<a href=\"#/p5/loadStrings\">loadStrings</a>, etc.) should be inside the preload function. If asynchronous\nloading is preferred, the load methods can instead be called in <a href=\"#/p5/setup\">setup()</a>\nor anywhere else with the use of a callback parameter.\n<br><br>\nBy default the text &quot;loading...&quot; will be displayed. To make your own\nloading page, include an HTML element with id &quot;p5_loading&quot; in your\npage. More information <a href=\"http://bit.ly/2kQ6Nio\">here</a>.</p>\n",
             "itemtype": "method",
             "name": "preload",
@@ -7215,7 +7257,7 @@
         },
         {
             "file": "src/core/main.js",
-            "line": 90,
+            "line": 83,
             "description": "<p>The <a href=\"#/p5/setup\">setup()</a> function is called once when the program starts. It&#39;s used to\ndefine initial environment properties such as screen size and background\ncolor and to load media such as images and fonts as the program starts.\nThere can only be one <a href=\"#/p5/setup\">setup()</a> function for each program and it shouldn&#39;t\nbe called again after its initial execution.\n<br><br>\nNote: Variables declared within <a href=\"#/p5/setup\">setup()</a> are not accessible within other\nfunctions, including <a href=\"#/p5/draw\">draw()</a>.</p>\n",
             "itemtype": "method",
             "name": "setup",
@@ -7229,7 +7271,7 @@
         },
         {
             "file": "src/core/main.js",
-            "line": 121,
+            "line": 114,
             "description": "<p>Called directly after <a href=\"#/p5/setup\">setup()</a>, the <a href=\"#/p5/draw\">draw()</a> function continuously executes\nthe lines of code contained inside its block until the program is stopped\nor <a href=\"#/p5/noLoop\">noLoop()</a> is called. Note if <a href=\"#/p5/noLoop\">noLoop()</a> is called in <a href=\"#/p5/setup\">setup()</a>, <a href=\"#/p5/draw\">draw()</a> will\nstill be executed once before stopping. <a href=\"#/p5/draw\">draw()</a> is called automatically and\nshould never be called explicitly.\n<br><br>\nIt should always be controlled with <a href=\"#/p5/noLoop\">noLoop()</a>, <a href=\"#/p5/redraw\">redraw()</a> and <a href=\"#/p5/loop\">loop()</a>. After\n<a href=\"#/p5/noLoop\">noLoop()</a> stops the code in <a href=\"#/p5/draw\">draw()</a> from executing, <a href=\"#/p5/redraw\">redraw()</a> causes the\ncode inside <a href=\"#/p5/draw\">draw()</a> to execute once, and <a href=\"#/p5/loop\">loop()</a> will cause the code\ninside <a href=\"#/p5/draw\">draw()</a> to resume executing continuously.\n<br><br>\nThe number of times <a href=\"#/p5/draw\">draw()</a> executes in each second may be controlled with\nthe <a href=\"#/p5/frameRate\">frameRate()</a> function.\n<br><br>\nThere can only be one <a href=\"#/p5/draw\">draw()</a> function for each sketch, and <a href=\"#/p5/draw\">draw()</a> must\nexist if you want the code to run continuously, or to process events such\nas <a href=\"#/p5/mousePressed\">mousePressed()</a>. Sometimes, you might have an empty call to <a href=\"#/p5/draw\">draw()</a> in\nyour program, as shown in the above example.\n<br><br>\nIt is important to note that the drawing coordinate system will be reset\nat the beginning of each <a href=\"#/p5/draw\">draw()</a> call. If any transformations are performed\nwithin <a href=\"#/p5/draw\">draw()</a> (ex: scale, rotate, translate), their effects will be\nundone at the beginning of <a href=\"#/p5/draw\">draw()</a>, so transformations will not accumulate\nover time. On the other hand, styling applied (ex: fill, stroke, etc) will\nremain in effect.</p>\n",
             "itemtype": "method",
             "name": "draw",
@@ -7243,7 +7285,7 @@
         },
         {
             "file": "src/core/main.js",
-            "line": 401,
+            "line": 396,
             "description": "<p>Removes the entire p5 sketch. This will remove the canvas and any\nelements created by p5.js. It will also stop the draw loop and unbind\nany properties or methods from the window global scope. It will\nleave a variable p5 in case you wanted to create a new p5 sketch.\nIf you like, you can set p5 = null to erase it. While all functions and\nvariables and objects created by the p5 library will be removed, any\nother global variables created by your code will remain.</p>\n",
             "itemtype": "method",
             "name": "remove",
@@ -7257,7 +7299,7 @@
         },
         {
             "file": "src/core/main.js",
-            "line": 586,
+            "line": 577,
             "description": "<p>Allows for the friendly error system (FES) to be turned off when creating a sketch,\nwhich can give a significant boost to performance when needed.\nSee <a href='https://github.com/processing/p5.js/wiki/Optimizing-p5.js-Code-for-Performance#disable-the-friendly-error-system-fes'>\ndisabling the friendly error system</a>.</p>\n",
             "itemtype": "property",
             "name": "disableFriendlyErrors",
@@ -7749,7 +7791,7 @@
         },
         {
             "file": "src/core/p5.Renderer2D.js",
-            "line": 405,
+            "line": 407,
             "description": "<p>Generate a cubic Bezier representing an arc on the unit circle of total\nangle <code>size</code> radians, beginning <code>start</code> radians above the x-axis. Up to\nfour of these curves are combined to make a full arc.</p>\n<p>See <a href=\"http://www.joecridge.me/bezier.pdf\">www.joecridge.me/bezier.pdf</a> for an explanation of the method.</p>\n",
             "class": "p5",
             "module": "Rendering"
@@ -8285,6 +8327,90 @@
                     "chainable": 1
                 }
             ]
+        },
+        {
+            "file": "src/data/local_storage.js",
+            "line": 11,
+            "description": "<p>Stores a value in local storage under the key name.\n Local storage is saved in the browser and persists\n between browsing sessions and page reloads.\n The key can be the name of the variable but doesn&#39;t\n have to be. To retrieve stored items\n see <a href=\"#/p5/getItem\">getItem</a>.\n <br><br>\n Sensitive data such as passwords or personal information\n should not be stored in local storage.</p>\n",
+            "itemtype": "method",
+            "name": "storeItem",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "String|Number|Object|Boolean|p5.Color"
+                }
+            ],
+            "example": [
+                "\n <div><code>\n // Type to change the letter in the\n // center of the canvas.\n // If you reload the page, it will\n // still display the last key you entered\nlet myText;\nfunction setup() {\n   createCanvas(100, 100);\n   myText = getItem('myText');\n   if (myText === null) {\n     myText = '';\n   }\n }\nfunction draw() {\n   textSize(40);\n   background(255);\n   text(myText, width / 2, height / 2);\n }\nfunction keyPressed() {\n   myText = key;\n   storeItem('myText', myText);\n }\n </code></div>"
+            ],
+            "alt": "When you type the key name is displayed as black text on white background.\n If you reload the page, the last letter typed is still displaying.",
+            "class": "p5",
+            "module": "Data",
+            "submodule": "LocalStorage"
+        },
+        {
+            "file": "src/data/local_storage.js",
+            "line": 88,
+            "description": "<p>Returns the value of an item that was stored in local storage\n using storeItem()</p>\n",
+            "itemtype": "method",
+            "name": "getItem",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "<p>name that you wish to use to store in local storage</p>\n",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Value of stored item",
+                "type": "Number|Object|String|Boolean|p5.Color"
+            },
+            "example": [
+                "\n <div><code>\n // Click the mouse to change\n // the color of the background\n // Once you have changed the color\n // it will stay changed even when you\n // reload the page.\nlet myColor;\nfunction setup() {\n   createCanvas(100, 100);\n   myColor = getItem('myColor');\n }\nfunction draw() {\n   if (myColor !== null) {\n     background(myColor);\n   }\n }\nfunction mousePressed() {\n   myColor = color(random(255), random(255), random(255));\n   storeItem('myColor', myColor);\n }\n </code></div>"
+            ],
+            "alt": "If you click, the canvas changes to a random color.\n If you reload the page, the canvas is still the color it\n was when the page was previously loaded.",
+            "class": "p5",
+            "module": "Data",
+            "submodule": "LocalStorage"
+        },
+        {
+            "file": "src/data/local_storage.js",
+            "line": 163,
+            "description": "<p>Clears all local storage items set with storeItem()\n for the current domain.</p>\n",
+            "itemtype": "method",
+            "name": "clearStorage",
+            "example": [
+                "\n <div class=\"norender\">\n <code>\n function setup() {\n   let myNum = 10;\n   let myBool = false;\n   storeItem('myNum', myNum);\n   storeItem('myBool', myBool);\n   print(getItem('myNum')); // logs 10 to the console\n   print(getItem('myBool')); // logs false to the console\n   clearStorage();\n   print(getItem('myNum')); // logs null to the console\n   print(getItem('myBool')); // logs null to the console\n }\n </code></div>"
+            ],
+            "class": "p5",
+            "module": "Data",
+            "submodule": "LocalStorage"
+        },
+        {
+            "file": "src/data/local_storage.js",
+            "line": 191,
+            "description": "<p>Removes an item that was stored with storeItem()</p>\n",
+            "itemtype": "method",
+            "name": "removeItem",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n <div class=\"norender\">\n <code>\n function setup() {\n   let myVar = 10;\n   storeItem('myVar', myVar);\n   print(getItem('myVar')); // logs 10 to the console\n   removeItem('myVar');\n   print(getItem('myVar')); // logs null to the console\n }\n </code></div>"
+            ],
+            "class": "p5",
+            "module": "Data",
+            "submodule": "LocalStorage"
         },
         {
             "file": "src/data/p5.TypedDict.js",
@@ -9171,7 +9297,7 @@
         {
             "file": "src/events/keyboard.js",
             "line": 248,
-            "description": "<p>The <a href=\"#/p5/keyTyped\">keyTyped()</a> function is called once every time a key is pressed, but\naction keys such as Ctrl, Shift, and Alt are ignored. The most recent\nkey pressed will be stored in the key variable.\n<br><br>\nBecause of how operating systems handle key repeats, holding down a key\nwill cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The\nrate of repeat is set by the operating system and how each computer is\nconfigured.<br><br>\nBrowsers may have different default behaviors attached to various key\nevents. To prevent any default behavior for this event, add &quot;return false&quot;\nto the end of the method.</p>\n",
+            "description": "<p>The <a href=\"#/p5/keyTyped\">keyTyped()</a> function is called once every time a key is pressed, but\naction keys such as Backspace, Delete, Ctrl, Shift, and Alt are ignored. If you are trying to detect\na keyCode for one of these keys, use the <a href=\"#/p5/keyPressed\">keyPressed()</a> function instead.\nThe most recent key typed will be stored in the key variable.\n<br><br>\nBecause of how operating systems handle key repeats, holding down a key\nwill cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The\nrate of repeat is set by the operating system and how each computer is\nconfigured.<br><br>\nBrowsers may have different default behaviors attached to various key\nevents. To prevent any default behavior for this event, add &quot;return false&quot;\nto the end of the method.</p>\n",
             "itemtype": "method",
             "name": "keyTyped",
             "example": [
@@ -9218,7 +9344,7 @@
         {
             "file": "src/events/mouse.js",
             "line": 22,
-            "description": "<p>The system variable mouseX always contains the current horizontal\nposition of the mouse, relative to (0, 0) of the canvas. If touch is\nused instead of mouse input, mouseX will hold the x value of the most\nrecent touch point.</p>\n",
+            "description": "<p>The system variable mouseX always contains the current horizontal\nposition of the mouse, relative to (0, 0) of the canvas. The value at\nthe top-left corner is (0, 0) for 2-D and (-width/2, -height/2) for WebGL.\nIf touch is used instead of mouse input, mouseX will hold the x value\nof the most recent touch point.</p>\n",
             "itemtype": "property",
             "name": "mouseX",
             "type": "Number",
@@ -9233,8 +9359,8 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 48,
-            "description": "<p>The system variable mouseY always contains the current vertical position\nof the mouse, relative to (0, 0) of the canvas. If touch is\nused instead of mouse input, mouseY will hold the y value of the most\nrecent touch point.</p>\n",
+            "line": 49,
+            "description": "<p>The system variable mouseY always contains the current vertical\nposition of the mouse, relative to (0, 0) of the canvas. The value at\nthe top-left corner is (0, 0) for 2-D and (-width/2, -height/2) for WebGL.\nIf touch is used instead of mouse input, mouseY will hold the y value\nof the most recent touch point.</p>\n",
             "itemtype": "property",
             "name": "mouseY",
             "type": "Number",
@@ -9249,8 +9375,8 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 74,
-            "description": "<p>The system variable pmouseX always contains the horizontal position of\nthe mouse or finger in the frame previous to the current frame, relative to\n(0, 0) of the canvas. Note: pmouseX will be reset to the current mouseX\nvalue at the start of each touch event.</p>\n",
+            "line": 76,
+            "description": "<p>The system variable pmouseX always contains the horizontal position of\nthe mouse or finger in the frame previous to the current frame, relative to\n(0, 0) of the canvas. The value at the top-left corner is (0, 0) for 2-D and\n(-width/2, -height/2) for WebGL. Note: pmouseX will be reset to the current mouseX\nvalue at the start of each touch event.</p>\n",
             "itemtype": "property",
             "name": "pmouseX",
             "type": "Number",
@@ -9265,8 +9391,8 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 106,
-            "description": "<p>The system variable pmouseY always contains the vertical position of the\nmouse or finger in the frame previous to the current frame, relative to\n(0, 0) of the canvas. Note: pmouseY will be reset to the current mouseY\nvalue at the start of each touch event.</p>\n",
+            "line": 109,
+            "description": "<p>The system variable pmouseY always contains the vertical position of\nthe mouse or finger in the frame previous to the current frame, relative to\n(0, 0) of the canvas. The value at the top-left corner is (0, 0) for 2-D and\n(-width/2, -height/2) for WebGL. Note: pmouseY will be reset to the current mouseY\nvalue at the start of each touch event.</p>\n",
             "itemtype": "property",
             "name": "pmouseY",
             "type": "Number",
@@ -9281,7 +9407,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 137,
+            "line": 141,
             "description": "<p>The system variable winMouseX always contains the current horizontal\nposition of the mouse, relative to (0, 0) of the window.</p>\n",
             "itemtype": "property",
             "name": "winMouseX",
@@ -9297,7 +9423,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 176,
+            "line": 180,
             "description": "<p>The system variable winMouseY always contains the current vertical\nposition of the mouse, relative to (0, 0) of the window.</p>\n",
             "itemtype": "property",
             "name": "winMouseY",
@@ -9313,7 +9439,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 215,
+            "line": 219,
             "description": "<p>The system variable pwinMouseX always contains the horizontal position\nof the mouse in the frame previous to the current frame, relative to\n(0, 0) of the window. Note: pwinMouseX will be reset to the current winMouseX\nvalue at the start of each touch event.</p>\n",
             "itemtype": "property",
             "name": "pwinMouseX",
@@ -9329,7 +9455,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 256,
+            "line": 260,
             "description": "<p>The system variable pwinMouseY always contains the vertical position of\nthe mouse in the frame previous to the current frame, relative to (0, 0)\nof the window. Note: pwinMouseY will be reset to the current winMouseY\nvalue at the start of each touch event.</p>\n",
             "itemtype": "property",
             "name": "pwinMouseY",
@@ -9345,7 +9471,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 298,
+            "line": 302,
             "description": "<p>Processing automatically tracks if the mouse button is pressed and which\nbutton is pressed. The value of the system variable mouseButton is either\nLEFT, RIGHT, or CENTER depending on which button was pressed last.\nWarning: different browsers may track mouseButton differently.</p>\n",
             "itemtype": "property",
             "name": "mouseButton",
@@ -9361,7 +9487,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 337,
+            "line": 341,
             "description": "<p>The boolean system variable mouseIsPressed is true if the mouse is pressed\nand false if not.</p>\n",
             "itemtype": "property",
             "name": "mouseIsPressed",
@@ -9377,7 +9503,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 428,
+            "line": 432,
             "description": "<p>The <a href=\"#/p5/mouseMoved\">mouseMoved()</a> function is called every time the mouse moves and a mouse\nbutton is not pressed.<br><br>\nBrowsers may have different default\nbehaviors attached to various mouse events. To prevent any default\nbehavior for this event, add &quot;return false&quot; to the end of the method.</p>\n",
             "itemtype": "method",
             "name": "mouseMoved",
@@ -9399,7 +9525,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 483,
+            "line": 487,
             "description": "<p>The <a href=\"#/p5/mouseDragged\">mouseDragged()</a> function is called once every time the mouse moves and\na mouse button is pressed. If no <a href=\"#/p5/mouseDragged\">mouseDragged()</a> function is defined, the\n<a href=\"#/p5/touchMoved\">touchMoved()</a> function will be called instead if it is defined.<br><br>\nBrowsers may have different default\nbehaviors attached to various mouse events. To prevent any default\nbehavior for this event, add &quot;return false&quot; to the end of the method.</p>\n",
             "itemtype": "method",
             "name": "mouseDragged",
@@ -9421,7 +9547,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 564,
+            "line": 568,
             "description": "<p>The <a href=\"#/p5/mousePressed\">mousePressed()</a> function is called once after every time a mouse button\nis pressed. The mouseButton variable (see the related reference entry)\ncan be used to determine which button has been pressed. If no\n<a href=\"#/p5/mousePressed\">mousePressed()</a> function is defined, the <a href=\"#/p5/touchStarted\">touchStarted()</a> function will be\ncalled instead if it is defined.<br><br>\nBrowsers may have different default\nbehaviors attached to various mouse events. To prevent any default\nbehavior for this event, add &quot;return false&quot; to the end of the method.</p>\n",
             "itemtype": "method",
             "name": "mousePressed",
@@ -9443,7 +9569,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 641,
+            "line": 650,
             "description": "<p>The <a href=\"#/p5/mouseReleased\">mouseReleased()</a> function is called every time a mouse button is\nreleased. If no <a href=\"#/p5/mouseReleased\">mouseReleased()</a> function is defined, the <a href=\"#/p5/touchEnded\">touchEnded()</a>\nfunction will be called instead if it is defined.<br><br>\nBrowsers may have different default\nbehaviors attached to various mouse events. To prevent any default\nbehavior for this event, add &quot;return false&quot; to the end of the method.</p>\n",
             "itemtype": "method",
             "name": "mouseReleased",
@@ -9465,7 +9591,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 719,
+            "line": 728,
             "description": "<p>The <a href=\"#/p5/mouseClicked\">mouseClicked()</a> function is called once after a mouse button has been\npressed and then released.<br><br>\nBrowsers handle clicks differently, so this function is only guaranteed to be\nrun when the left mouse button is clicked. To handle other mouse buttons\nbeing pressed or released, see <a href=\"#/p5/mousePressed\">mousePressed()</a> or <a href=\"#/p5/mouseReleased\">mouseReleased()</a>.<br><br>\nBrowsers may have different default\nbehaviors attached to various mouse events. To prevent any default\nbehavior for this event, add &quot;return false&quot; to the end of the method.</p>\n",
             "itemtype": "method",
             "name": "mouseClicked",
@@ -9487,7 +9613,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 789,
+            "line": 798,
             "description": "<p>The <a href=\"#/p5/doubleClicked\">doubleClicked()</a> function is executed every time a event\nlistener has detected a dblclick event which is a part of the\nDOM L3 specification. The doubleClicked event is fired when a\npointing device button (usually a mouse&#39;s primary button)\nis clicked twice on a single element. For more info on the\ndblclick event refer to mozilla&#39;s documentation here:\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/dblclick\">https://developer.mozilla.org/en-US/docs/Web/Events/dblclick</a></p>\n",
             "itemtype": "method",
             "name": "doubleClicked",
@@ -9509,7 +9635,7 @@
         },
         {
             "file": "src/events/mouse.js",
-            "line": 874,
+            "line": 883,
             "description": "<p>The function <a href=\"#/p5/mouseWheel\">mouseWheel()</a> is executed every time a vertical mouse wheel\nevent is detected either triggered by an actual mouse wheel or by a\ntouchpad.<br><br>\nThe event.delta property returns the amount the mouse wheel\nhave scrolled. The values can be positive or negative depending on the\nscroll direction (on OS X with &quot;natural&quot; scrolling enabled, the signs\nare inverted).<br><br>\nBrowsers may have different default behaviors attached to various\nmouse events. To prevent any default behavior for this event, add\n&quot;return false&quot; to the end of the method.<br><br>\nDue to the current support of the &quot;wheel&quot; event on Safari, the function\nmay only work as expected if &quot;return false&quot; is included while using Safari.</p>\n",
             "itemtype": "method",
             "name": "mouseWheel",
@@ -9569,7 +9695,7 @@
         },
         {
             "file": "src/events/touch.js",
-            "line": 149,
+            "line": 154,
             "description": "<p>The <a href=\"#/p5/touchMoved\">touchMoved()</a> function is called every time a touch move is registered.\nIf no <a href=\"#/p5/touchMoved\">touchMoved()</a> function is defined, the <a href=\"#/p5/mouseDragged\">mouseDragged()</a> function will\nbe called instead if it is defined.<br><br>\nBrowsers may have different default behaviors attached to various touch\nevents. To prevent any default behavior for this event, add &quot;return false&quot;\nto the end of the method.</p>\n",
             "itemtype": "method",
             "name": "touchMoved",
@@ -9591,7 +9717,7 @@
         },
         {
             "file": "src/events/touch.js",
-            "line": 222,
+            "line": 227,
             "description": "<p>The <a href=\"#/p5/touchEnded\">touchEnded()</a> function is called every time a touch ends. If no\n<a href=\"#/p5/touchEnded\">touchEnded()</a> function is defined, the <a href=\"#/p5/mouseReleased\">mouseReleased()</a> function will be\ncalled instead if it is defined.<br><br>\nBrowsers may have different default behaviors attached to various touch\nevents. To prevent any default behavior for this event, add &quot;return false&quot;\nto the end of the method.</p>\n",
             "itemtype": "method",
             "name": "touchEnded",
@@ -10851,7 +10977,7 @@
         {
             "file": "src/image/pixels.js",
             "line": 415,
-            "description": "<p>Get a region of pixels, or a single pixel, from the canvas.</p>\n<p>Returns an array of [R,G,B,A] values for any pixel or grabs a section of\nan image. If no parameters are specified, the entire image is returned.\nUse the x and y parameters to get the value of one pixel. Get a section of\nthe display window by specifying additional w and h parameters. When\ngetting an image, the x and y parameters define the coordinates for the\nupper-left corner of the image, regardless of the current <a href=\"#/p5/imageMode\">imageMode()</a>.\n<br><br>\nTo get the color components scaled according to the current color ranges\nand taking into account <a href=\"#/p5/colorMode\">colorMode</a>, use <a href=\"#/p5/getColor\">getColor</a> instead of get.\n<br><br>\nGetting the color of a single pixel with get(x, y) is easy, but not as fast\nas grabbing the data directly from <a href=\"#/p5/pixels\">pixels[]</a>. The equivalent statement to\nget(x, y) using <a href=\"#/p5/pixels\">pixels[]</a> with pixel density d is</p>\n<pre><code class=\"lang-javascript\">let x, y, d; // set these to the coordinates\nlet off = (y * width + x) * d * 4;\nlet components = [\n  pixels[off],\n  pixels[off + 1],\n  pixels[off + 2],\n  pixels[off + 3]\n];\nprint(components);\n</code></pre>\n<p><br><br></p>\n<p>See the reference for <a href=\"#/p5/pixels\">pixels[]</a> for more information.</p>\n<p>If you want to extract an array of colors or a subimage from an p5.Image object,\ntake a look at <a href=\"#/p5.Image/get\">p5.Image.get()</a></p>\n",
+            "description": "<p>Get a region of pixels, or a single pixel, from the canvas.</p>\n<p>Returns an array of [R,G,B,A] values for any pixel or grabs a section of\nan image. If no parameters are specified, the entire image is returned.\nUse the x and y parameters to get the value of one pixel. Get a section of\nthe display window by specifying additional w and h parameters. When\ngetting an image, the x and y parameters define the coordinates for the\nupper-left corner of the image, regardless of the current <a href=\"#/p5/imageMode\">imageMode()</a>.\n<br><br>\nGetting the color of a single pixel with get(x, y) is easy, but not as fast\nas grabbing the data directly from <a href=\"#/p5/pixels\">pixels[]</a>. The equivalent statement to\nget(x, y) using <a href=\"#/p5/pixels\">pixels[]</a> with pixel density d is</p>\n<pre><code class=\"lang-javascript\">let x, y, d; // set these to the coordinates\nlet off = (y * width + x) * d * 4;\nlet components = [\n  pixels[off],\n  pixels[off + 1],\n  pixels[off + 2],\n  pixels[off + 3]\n];\nprint(components);\n</code></pre>\n<p><br><br></p>\n<p>See the reference for <a href=\"#/p5/pixels\">pixels[]</a> for more information.</p>\n<p>If you want to extract an array of colors or a subimage from an p5.Image object,\ntake a look at <a href=\"#/p5.Image/get\">p5.Image.get()</a></p>\n",
             "itemtype": "method",
             "name": "get",
             "return": {
@@ -10896,7 +11022,7 @@
                     }
                 },
                 {
-                    "line": 491,
+                    "line": 488,
                     "params": [],
                     "return": {
                         "description": "the whole <a href=\"#/p5.Image\">p5.Image</a>",
@@ -10904,7 +11030,7 @@
                     }
                 },
                 {
-                    "line": 495,
+                    "line": 492,
                     "params": [
                         {
                             "name": "x",
@@ -10926,7 +11052,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 506,
+            "line": 503,
             "description": "<p>Loads the pixel data for the display window into the <a href=\"#/p5/pixels\">pixels[]</a> array. This\nfunction must always be called before reading from or writing to <a href=\"#/p5/pixels\">pixels[]</a>.\nNote that only changes made with <a href=\"#/p5/set\">set()</a> or direct manipulation of <a href=\"#/p5/pixels\">pixels[]</a>\nwill occur.</p>\n",
             "itemtype": "method",
             "name": "loadPixels",
@@ -10940,7 +11066,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 543,
+            "line": 540,
             "description": "<p>Changes the color of any pixel, or writes an image directly to the\ndisplay window.</p>\n<p>The x and y parameters specify the pixel to change and the c parameter\nspecifies the color value. This can be a <a href=\"#/p5.Color\">p5.Color</a> object, or [R, G, B, A]\npixel array. It can also be a single grayscale value.\nWhen setting an image, the x and y parameters define the coordinates for\nthe upper-left corner of the image, regardless of the current <a href=\"#/p5/imageMode\">imageMode()</a>.\n</p>\n<p>\nAfter using <a href=\"#/p5/set\">set()</a>, you must call <a href=\"#/p5/updatePixels\">updatePixels()</a> for your changes to appear.\nThis should be called once all pixels have been set, and must be called before\ncalling .<a href=\"#/p5/get\">get()</a> or drawing the image.\n</p>\n<p>Setting the color of a single pixel with set(x, y) is easy, but not as\nfast as putting the data directly into <a href=\"#/p5/pixels\">pixels[]</a>. Setting the <a href=\"#/p5/pixels\">pixels[]</a>\nvalues directly may be complicated when working with a retina display,\nbut will perform better when lots of pixels need to be set directly on\nevery loop.</p>\n<p>See the reference for <a href=\"#/p5/pixels\">pixels[]</a> for more information.</p>",
             "itemtype": "method",
             "name": "set",
@@ -10971,7 +11097,7 @@
         },
         {
             "file": "src/image/pixels.js",
-            "line": 617,
+            "line": 614,
             "description": "<p>Updates the display window with the data in the <a href=\"#/p5/pixels\">pixels[]</a> array.\nUse in conjunction with <a href=\"#/p5/loadPixels\">loadPixels()</a>. If you&#39;re only reading pixels from\nthe array, there&#39;s no need to call <a href=\"#/p5/updatePixels\">updatePixels()</a> — updating is only\nnecessary to apply changes. <a href=\"#/p5/updatePixels\">updatePixels()</a> should be called anytime the\npixels array is manipulated or <a href=\"#/p5/set\">set()</a> is called, and only changes made with\n<a href=\"#/p5/set\">set()</a> or direct changes to <a href=\"#/p5/pixels\">pixels[]</a> will occur.</p>\n",
             "itemtype": "method",
             "name": "updatePixels",
@@ -11125,7 +11251,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 180,
+            "line": 184,
             "description": "<p>Reads the contents of a file and creates a String array of its individual\nlines. If the name of the file is used as the parameter, as in the above\nexample, the file must be located in the sketch directory/folder.\n<br><br>\nAlternatively, the file maybe be loaded from anywhere on the local\ncomputer using an absolute path (something that starts with / on Unix and\nLinux, or a drive letter on Windows), or the filename parameter can be a\nURL for a file found on a network.\n<br><br>\nThis method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed.</p>\n<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
             "itemtype": "method",
             "name": "loadStrings",
@@ -11162,7 +11288,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 293,
+            "line": 297,
             "description": "<p>Reads the contents of a file or URL and creates a <a href=\"#/p5.Table\">p5.Table</a> object with\nits values. If a file is specified, it must be located in the sketch&#39;s\n&quot;data&quot; folder. The filename parameter can also be a URL to a file found\nonline. By default, the file is assumed to be comma-separated (in CSV\nformat). Table only looks for a header row if the &#39;header&#39; option is\nincluded.</p>\n\n<p>Possible options include:\n<ul>\n<li>csv - parse the table as comma-separated values</li>\n<li>tsv - parse the table as tab-separated values</li>\n<li>header - this table has a header (title) row</li>\n</ul>\n</p>\n\n<p>When passing in multiple options, pass them in as separate parameters,\nseperated by commas. For example:\n<br><br>\n<code>\nloadTable(&#39;my_csv_file.csv&#39;, &#39;csv&#39;, &#39;header&#39;);\n</code>\n</p>\n\n<p> All files loaded and saved use UTF-8 encoding.</p>\n\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling <a href=\"#/p5/loadTable\">loadTable()</a> inside <a href=\"#/p5/preload\">preload()</a>\nguarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called.\n<p>Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the\nobject:</p>\n</p>\n\n<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
             "itemtype": "method",
             "name": "loadTable",
@@ -11179,7 +11305,7 @@
             "submodule": "Input",
             "overloads": [
                 {
-                    "line": 293,
+                    "line": 297,
                     "params": [
                         {
                             "name": "filename",
@@ -11210,7 +11336,7 @@
                     }
                 },
                 {
-                    "line": 383,
+                    "line": 387,
                     "params": [
                         {
                             "name": "filename",
@@ -11239,7 +11365,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 603,
+            "line": 607,
             "description": "<p>Reads the contents of a file and creates an XML object with its values.\nIf the name of the file is used as the parameter, as in the above example,\nthe file must be located in the sketch directory/folder.</p>\n<p>Alternatively, the file maybe be loaded from anywhere on the local\ncomputer using an absolute path (something that starts with / on Unix and\nLinux, or a drive letter on Windows), or the filename parameter can be a\nURL for a file found on a network.</p>\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling <a href=\"#/p5/loadXML\">loadXML()</a> inside <a href=\"#/p5/preload\">preload()</a>\nguarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called.</p>\n<p>Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the\nobject.</p>\n<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
             "itemtype": "method",
             "name": "loadXML",
@@ -11276,7 +11402,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 714,
+            "line": 718,
             "description": "<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
             "itemtype": "method",
             "name": "loadBytes",
@@ -11313,7 +11439,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 774,
+            "line": 778,
             "description": "<p>Method for executing an HTTP GET request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text. This is equivalent to\ncalling <code>httpDo(path, &#39;GET&#39;)</code>. The &#39;binary&#39; datatype will return\na Blob object, and the &#39;arrayBuffer&#39; datatype will return an ArrayBuffer\nwhich can be used to initialize typed arrays (such as Uint8Array).</p>\n",
             "itemtype": "method",
             "name": "httpGet",
@@ -11329,7 +11455,7 @@
             "submodule": "Input",
             "overloads": [
                 {
-                    "line": 774,
+                    "line": 778,
                     "params": [
                         {
                             "name": "path",
@@ -11367,7 +11493,7 @@
                     }
                 },
                 {
-                    "line": 828,
+                    "line": 832,
                     "params": [
                         {
                             "name": "path",
@@ -11398,7 +11524,7 @@
                     }
                 },
                 {
-                    "line": 836,
+                    "line": 840,
                     "params": [
                         {
                             "name": "path",
@@ -11426,7 +11552,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 851,
+            "line": 855,
             "description": "<p>Method for executing an HTTP POST request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text. This is equivalent to\ncalling <code>httpDo(path, &#39;POST&#39;)</code>.</p>\n",
             "itemtype": "method",
             "name": "httpPost",
@@ -11442,7 +11568,7 @@
             "submodule": "Input",
             "overloads": [
                 {
-                    "line": 851,
+                    "line": 855,
                     "params": [
                         {
                             "name": "path",
@@ -11480,7 +11606,7 @@
                     }
                 },
                 {
-                    "line": 933,
+                    "line": 937,
                     "params": [
                         {
                             "name": "path",
@@ -11511,7 +11637,7 @@
                     }
                 },
                 {
-                    "line": 941,
+                    "line": 945,
                     "params": [
                         {
                             "name": "path",
@@ -11539,7 +11665,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 956,
+            "line": 960,
             "description": "<p>Method for executing an HTTP request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text.<br><br>\nFor more advanced use, you may also pass in the path as the first argument\nand a object as the second argument, the signature follows the one specified\nin the Fetch API specification.\nThis method is suitable for fetching files up to size of 64MB when &quot;GET&quot; is used.</p>\n",
             "itemtype": "method",
             "name": "httpDo",
@@ -11555,7 +11681,7 @@
             "submodule": "Input",
             "overloads": [
                 {
-                    "line": 956,
+                    "line": 960,
                     "params": [
                         {
                             "name": "path",
@@ -11599,7 +11725,7 @@
                     }
                 },
                 {
-                    "line": 1027,
+                    "line": 1031,
                     "params": [
                         {
                             "name": "path",
@@ -11633,7 +11759,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1186,
+            "line": 1193,
             "itemtype": "method",
             "name": "createWriter",
             "params": [
@@ -11662,7 +11788,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1241,
+            "line": 1248,
             "description": "<p>Writes data to the PrintWriter stream</p>\n",
             "itemtype": "method",
             "name": "write",
@@ -11682,7 +11808,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1281,
+            "line": 1288,
             "description": "<p>Writes data to the PrintWriter stream, and adds a new line at the end</p>\n",
             "itemtype": "method",
             "name": "print",
@@ -11702,7 +11828,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1324,
+            "line": 1331,
             "description": "<p>Clears the data already written to the PrintWriter object</p>\n",
             "itemtype": "method",
             "name": "clear",
@@ -11715,7 +11841,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1342,
+            "line": 1349,
             "description": "<p>Closes the PrintWriter</p>\n",
             "itemtype": "method",
             "name": "close",
@@ -11728,7 +11854,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1391,
+            "line": 1398,
             "description": "<p>Save an image, text, json, csv, wav, or html. Prompts download to\nthe client&#39;s computer. <b>Note that it is not recommended to call <a href=\"#/p5/save\">save()</a>\nwithin draw if it&#39;s looping, as the <a href=\"#/p5/save\">save()</a> function will open a new save\ndialog every frame.</b></p>\n<p>The default behavior is to save the canvas as an image. You can\noptionally specify a filename.\nFor example:</p>\n <pre class='language-javascript'><code>\n save();\n save(&#39;myCanvas.jpg&#39;); // save a specific canvas with a filename\n </code></pre>\n\n<p>Alternately, the first parameter can be a pointer to a canvas\n<a href=\"#/p5.Element\">p5.Element</a>, an Array of Strings,\nan Array of JSON, a JSON object, a <a href=\"#/p5.Table\">p5.Table</a>, a <a href=\"#/p5.Image\">p5.Image</a>, or a\np5.SoundFile (requires p5.sound). The second parameter is a filename\n(including extension). The third parameter is for options specific\nto this type of object. This method will save a file that fits the\ngiven parameters. For example:</p>\n\n <pre class='language-javascript'><code>\n // Saves canvas as an image\n save('myCanvas.jpg');\n\n // Saves pImage as a png image\n let img = createImage(10, 10);\n save(img, 'my.png');\n\n // Saves canvas as an image\n let cnv = createCanvas(100, 100);\n save(cnv, 'myCanvas.jpg');\n\n // Saves p5.Renderer object as an image\n let gb = createGraphics(100, 100);\n save(gb, 'myGraphics.jpg');\n\n let myTable = new p5.Table();\n\n // Saves table as html file\n save(myTable, 'myTable.html');\n\n // Comma Separated Values\n save(myTable, 'myTable.csv');\n\n // Tab Separated Values\n save(myTable, 'myTable.tsv');\n\n let myJSON = { a: 1, b: true };\n\n // Saves pretty JSON\n save(myJSON, 'my.json');\n\n // Optimizes JSON filesize\n save(myJSON, 'my.json', true);\n\n // Saves array of strings to a text file with line breaks after each item\n let arrayOfStrings = ['a', 'b'];\n save(arrayOfStrings, 'my.txt');\n </code></pre>",
             "itemtype": "method",
             "name": "save",
@@ -11758,7 +11884,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1519,
+            "line": 1526,
             "description": "<p>Writes the contents of an Array or a JSON object to a .json file.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveJSON",
@@ -11790,7 +11916,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1577,
+            "line": 1584,
             "description": "<p>Writes an array of Strings to a text file, one line per String.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveStrings",
@@ -11822,7 +11948,7 @@
         },
         {
             "file": "src/io/files.js",
-            "line": 1645,
+            "line": 1652,
             "description": "<p>Writes the contents of a <a href=\"#/p5.Table\">Table</a> object to a file. Defaults to a\ntext file with comma-separated-values (&#39;csv&#39;) but can also\nuse tab separation (&#39;tsv&#39;), or generate an HTML table (&#39;html&#39;).\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveTable",
@@ -13102,7 +13228,7 @@
         {
             "file": "src/math/calculation.js",
             "line": 121,
-            "description": "<p>Calculates the distance between two points.</p>\n",
+            "description": "<p>Calculates the distance between two points, in either two or three dimensions.</p>\n",
             "itemtype": "method",
             "name": "dist",
             "return": {
@@ -13913,7 +14039,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 1556,
+                    "line": 1555,
                     "params": [
                         {
                             "name": "v1",
@@ -13934,7 +14060,7 @@
                     "static": 1
                 },
                 {
-                    "line": 1563,
+                    "line": 1562,
                     "params": [
                         {
                             "name": "v1",
@@ -14004,7 +14130,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 1586,
+                    "line": 1585,
                     "params": [
                         {
                             "name": "v1",
@@ -14025,7 +14151,7 @@
                     "static": 1
                 },
                 {
-                    "line": 1593,
+                    "line": 1592,
                     "params": [
                         {
                             "name": "v1",
@@ -14072,7 +14198,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 1614,
+                    "line": 1613,
                     "params": [
                         {
                             "name": "v",
@@ -14093,7 +14219,7 @@
                     "static": 1
                 },
                 {
-                    "line": 1621,
+                    "line": 1620,
                     "params": [
                         {
                             "name": "v",
@@ -14140,7 +14266,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 1641,
+                    "line": 1640,
                     "params": [
                         {
                             "name": "v",
@@ -14161,7 +14287,7 @@
                     "static": 1
                 },
                 {
-                    "line": 1648,
+                    "line": 1647,
                     "params": [
                         {
                             "name": "v",
@@ -14208,7 +14334,7 @@
                     }
                 },
                 {
-                    "line": 1738,
+                    "line": 1737,
                     "params": [
                         {
                             "name": "vecT",
@@ -14299,7 +14425,7 @@
                     }
                 },
                 {
-                    "line": 1668,
+                    "line": 1667,
                     "params": [
                         {
                             "name": "v1",
@@ -14352,7 +14478,7 @@
                     }
                 },
                 {
-                    "line": 1682,
+                    "line": 1681,
                     "params": [
                         {
                             "name": "v1",
@@ -14405,7 +14531,7 @@
                     }
                 },
                 {
-                    "line": 1697,
+                    "line": 1696,
                     "params": [
                         {
                             "name": "v1",
@@ -14531,8 +14657,8 @@
             "name": "angleBetween",
             "params": [
                 {
-                    "name": "the",
-                    "description": "<p>x, y, and z components of a <a href=\"#/p5.Vector\">p5.Vector</a></p>\n",
+                    "name": "value",
+                    "description": "<p>the x, y, and z components of a <a href=\"#/p5.Vector\">p5.Vector</a></p>\n",
                     "type": "p5.Vector"
                 }
             ],
@@ -14604,7 +14730,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 1712,
+                    "line": 1711,
                     "params": [
                         {
                             "name": "v1",
@@ -14630,7 +14756,7 @@
                     "static": 1
                 },
                 {
-                    "line": 1720,
+                    "line": 1719,
                     "params": [
                         {
                             "name": "v1",
@@ -14743,7 +14869,7 @@
             "params": [
                 {
                     "name": "angle",
-                    "description": "<p>the desired angle, in radians</p>\n",
+                    "description": "<p>the desired angle, in radians (unaffected by <a href=\"#/p5/angleMode\">angleMode</a>)</p>\n",
                     "type": "Number"
                 },
                 {
@@ -14758,7 +14884,7 @@
                 "type": "p5.Vector"
             },
             "example": [
-                "\n<div>\n<code>\nfunction draw() {\n  background(200);\n\n  // Create a variable, proportional to the mouseX,\n  // varying from 0-360, to represent an angle in degrees.\n  angleMode(DEGREES);\n  let myDegrees = map(mouseX, 0, width, 0, 360);\n\n  // Display that variable in an onscreen text.\n  // (Note the nfc() function to truncate additional decimal places,\n  // and the \"\\xB0\" character for the degree symbol.)\n  let readout = 'angle = ' + nfc(myDegrees, 1) + '\\xB0';\n  noStroke();\n  fill(0);\n  text(readout, 5, 15);\n\n  // Create a p5.Vector using the fromAngle function,\n  // and extract its x and y components.\n  let v = p5.Vector.fromAngle(radians(myDegrees), 30);\n  let vx = v.x;\n  let vy = v.y;\n\n  push();\n  translate(width / 2, height / 2);\n  noFill();\n  stroke(150);\n  line(0, 0, 30, 0);\n  stroke(0);\n  line(0, 0, vx, vy);\n  pop();\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nfunction draw() {\n  background(200);\n\n  // Create a variable, proportional to the mouseX,\n  // varying from 0-360, to represent an angle in degrees.\n  let myDegrees = map(mouseX, 0, width, 0, 360);\n\n  // Display that variable in an onscreen text.\n  // (Note the nfc() function to truncate additional decimal places,\n  // and the \"\\xB0\" character for the degree symbol.)\n  let readout = 'angle = ' + nfc(myDegrees, 1) + '\\xB0';\n  noStroke();\n  fill(0);\n  text(readout, 5, 15);\n\n  // Create a p5.Vector using the fromAngle function,\n  // and extract its x and y components.\n  let v = p5.Vector.fromAngle(radians(myDegrees), 30);\n  let vx = v.x;\n  let vy = v.y;\n\n  push();\n  translate(width / 2, height / 2);\n  noFill();\n  stroke(150);\n  line(0, 0, 30, 0);\n  stroke(0);\n  line(0, 0, vx, vy);\n  pop();\n}\n</code>\n</div>"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -14766,7 +14892,7 @@
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1426,
+            "line": 1425,
             "description": "<p>Make a new 3D vector from a pair of ISO spherical angles</p>\n",
             "itemtype": "method",
             "name": "fromAngles",
@@ -14802,7 +14928,7 @@
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1475,
+            "line": 1474,
             "description": "<p>Make a new 2D unit vector from a random angle</p>\n",
             "itemtype": "method",
             "name": "random2D",
@@ -14820,7 +14946,7 @@
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1528,
+            "line": 1527,
             "description": "<p>Make a new random 3D unit vector.</p>\n",
             "itemtype": "method",
             "name": "random3D",
@@ -14838,7 +14964,7 @@
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1611,
+            "line": 1610,
             "description": "<p>Multiplies a vector by a scalar and returns a new vector.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14846,7 +14972,7 @@
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1638,
+            "line": 1637,
             "description": "<p>Divides a vector by a scalar and returns a new vector.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14854,7 +14980,7 @@
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1665,
+            "line": 1664,
             "description": "<p>Calculates the dot product of two vectors.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14862,7 +14988,7 @@
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1679,
+            "line": 1678,
             "description": "<p>Calculates the cross product of two vectors.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14870,7 +14996,7 @@
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1693,
+            "line": 1692,
             "description": "<p>Calculates the Euclidean distance between two points (considering a\npoint as a vector object).</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14878,7 +15004,7 @@
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1708,
+            "line": 1707,
             "description": "<p>Linear interpolate a vector to another vector and return the result as a\nnew vector.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -16666,7 +16792,7 @@
         {
             "file": "src/utilities/string_functions.js",
             "line": 381,
-            "description": "<p>Utility function for formatting numbers into strings. Similar to <a href=\"#/p5/nf\">nf()</a> but\nputs an additional &quot;_&quot; (space) in front of positive numbers just in case to align it with negative\nnumbers which includes &quot;-&quot; (minus) sign.\nThe main usecase of nfs() can be seen when one wants to align the digits (place values) of a positive\nnumber with some negative number (See the example to get a clear picture).\nThere are two versions: one for formatting float, and one for formatting int.\nThe values for the digits, left, and right parameters should always be positive integers.\n(IMP): The result on the canvas basically the expected alignment can vary based on the typeface you are using.\n(NOTE): Be cautious when using left and right parameters as it prepends numbers of 0&#39;s if the parameter\nif greater than the current length of the number.\nFor example if number is 123.2 and left parameter passed is 4 which is greater than length of 123\n(integer part) i.e 3 than result will be 0123.2. Same case for right parameter i.e. if right is 3 than\nthe result will be 123.200.</p>\n",
+            "description": "<p>Utility function for formatting numbers into strings. Similar to <a href=\"#/p5/nf\">nf()</a> but\nputs an additional &quot;_&quot; (space) in front of positive numbers just in case to align it with negative\nnumbers which includes &quot;-&quot; (minus) sign.\nThe main usecase of nfs() can be seen when one wants to align the digits (place values) of a non-negative\nnumber with some negative number (See the example to get a clear picture).\nThere are two versions: one for formatting float, and one for formatting int.\nThe values for the digits, left, and right parameters should always be positive integers.\n(IMP): The result on the canvas basically the expected alignment can vary based on the typeface you are using.\n(NOTE): Be cautious when using left and right parameters as it prepends numbers of 0&#39;s if the parameter\nif greater than the current length of the number.\nFor example if number is 123.2 and left parameter passed is 4 which is greater than length of 123\n(integer part) i.e 3 than result will be 0123.2. Same case for right parameter i.e. if right is 3 than\nthe result will be 123.200.</p>\n",
             "itemtype": "method",
             "name": "nfs",
             "return": {
@@ -17823,7 +17949,7 @@
         {
             "file": "src/webgl/light.js",
             "line": 287,
-            "description": "<p>Sets the default ambient and directional light. The defaults are ambientLight(128, 128, 128) and directionalLight(128, 128, 128, 0, 0, -1). Lights need to be included in the draw() to remain persistent in a looping program. Placing them in the setup() of a looping program will cause them to only have an effect the first time through the loop.</p>\n",
+            "description": "<p>Sets the default ambient and directional light. The defaults are <a href=\"#/p5/ambientLight\">ambientLight(128, 128, 128)</a> and <a href=\"#/p5/directionalLight\">directionalLight(128, 128, 128, 0, 0, -1)</a>. Lights need to be included in the <a href=\"#/p5/draw\">draw()</a> to remain persistent in a looping program. Placing them in the <a href=\"#/p5/setup\">setup()</a> of a looping program will cause them to only have an effect the first time through the loop.</p>\n",
             "itemtype": "method",
             "name": "lights",
             "chainable": 1,
@@ -17836,9 +17962,41 @@
             "submodule": "Lights"
         },
         {
+            "file": "src/webgl/light.js",
+            "line": 318,
+            "description": "<p>Sets the falloff rates for point lights. It affects only the elements which are created after it in the code.\nThe default value is lightFalloff(1.0, 0.0, 0.0), and the parameters are used to calculate the falloff with the following equation:</p>\n<p>d = distance from light position to vertex position</p>\n<p>falloff = 1 / (CONSTANT + d * LINEAR + ( d * d ) * QUADRATIC)</p>\n",
+            "itemtype": "method",
+            "name": "lightFalloff",
+            "params": [
+                {
+                    "name": "constant",
+                    "description": "<p>constant value for determining falloff</p>\n",
+                    "type": "Number"
+                },
+                {
+                    "name": "linear",
+                    "description": "<p>linear value for determining falloff</p>\n",
+                    "type": "Number"
+                },
+                {
+                    "name": "quadratic",
+                    "description": "<p>quadratic value for determining falloff</p>\n",
+                    "type": "Number"
+                }
+            ],
+            "chainable": 1,
+            "example": [
+                "\n<div>\n<code>\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n  noStroke();\n}\nfunction draw() {\n  background(0);\n  let locX = mouseX - width / 2;\n  let locY = mouseY - height / 2;\n  translate(-25, 0, 0);\n  lightFalloff(1, 0, 0);\n  pointLight(250, 250, 250, locX, locY, 50);\n  sphere(20);\n  translate(50, 0, 0);\n  lightFalloff(0.9, 0.01, 0);\n  pointLight(250, 250, 250, locX, locY, 50);\n  sphere(20);\n}\n</code>\n</div>"
+            ],
+            "alt": "Two spheres with different falloff values show different intensity of light",
+            "class": "p5",
+            "module": "Lights, Camera",
+            "submodule": "Lights"
+        },
+        {
             "file": "src/webgl/loading.js",
             "line": 14,
-            "description": "<p>Load a 3d model from an OBJ file.\n<br><br>\nOne of the limitations of the OBJ format is that it doesn&#39;t have a built-in\nsense of scale. This means that models exported from different programs might\nbe very different sizes. If your model isn&#39;t displaying, try calling\n<a href=\"#/p5/loadModel\">loadModel()</a> with the normalized parameter set to true. This will resize the\nmodel to a scale appropriate for p5. You can also make additional changes to\nthe final size of your model with the <a href=\"#/p5/scale\">scale()</a> function.</p>\n",
+            "description": "<p>Load a 3d model from an OBJ or STL file.\n<br><br>\nOne of the limitations of the OBJ and STL format is that it doesn&#39;t have a built-in\nsense of scale. This means that models exported from different programs might\nbe very different sizes. If your model isn&#39;t displaying, try calling\n<a href=\"#/p5/loadModel\">loadModel()</a> with the normalized parameter set to true. This will resize the\nmodel to a scale appropriate for p5. You can also make additional changes to\nthe final size of your model with the <a href=\"#/p5/scale\">scale()</a> function.</p>\n<p>Also, the support for colored STL files is not present. STL files with color will be\nrendered without color properties.</p>\n",
             "itemtype": "method",
             "name": "loadModel",
             "return": {
@@ -17875,7 +18033,7 @@
                         },
                         {
                             "name": "failureCallback",
-                            "description": "<p>called with event error if\n                                        the image fails to load.</p>\n",
+                            "description": "<p>called with event error if\n                                        the model fails to load.</p>\n",
                             "type": "Function(Event)",
                             "optional": true
                         }
@@ -17886,7 +18044,7 @@
                     }
                 },
                 {
-                    "line": 90,
+                    "line": 93,
                     "params": [
                         {
                             "name": "path",
@@ -17915,7 +18073,7 @@
         },
         {
             "file": "src/webgl/loading.js",
-            "line": 135,
+            "line": 169,
             "description": "<p>Parse OBJ lines into model. For reference, this is what a simple model of a\nsquare might look like:</p>\n<p>v -0.5 -0.5 0.5\nv -0.5 -0.5 -0.5\nv -0.5 0.5 -0.5\nv -0.5 0.5 0.5</p>\n<p>f 4 3 2 1</p>\n",
             "class": "p5",
             "module": "Shape",
@@ -17923,7 +18081,47 @@
         },
         {
             "file": "src/webgl/loading.js",
-            "line": 244,
+            "line": 278,
+            "description": "<p>STL files can be of two types, ASCII and Binary,</p>\n<p>We need to convert the arrayBuffer to an array of strings,\nto parse it as an ASCII file.</p>\n",
+            "class": "p5",
+            "module": "Shape",
+            "submodule": "3D Models"
+        },
+        {
+            "file": "src/webgl/loading.js",
+            "line": 305,
+            "description": "<p>This function checks if the file is in ASCII format or in Binary format</p>\n<p>It is done by searching keyword <code>solid</code> at the start of the file.</p>\n<p>An ASCII STL data must begin with <code>solid</code> as the first six bytes.\nHowever, ASCII STLs lacking the SPACE after the <code>d</code> are known to be\nplentiful. So, check the first 5 bytes for <code>solid</code>.</p>\n<p>Several encodings, such as UTF-8, precede the text with up to 5 bytes:\n<a href=\"https://en.wikipedia.org/wiki/Byte_order_mark#Byte_order_marks_by_encoding\">https://en.wikipedia.org/wiki/Byte_order_mark#Byte_order_marks_by_encoding</a>\nSearch for <code>solid</code> to start anywhere after those prefixes.</p>\n",
+            "class": "p5",
+            "module": "Shape",
+            "submodule": "3D Models"
+        },
+        {
+            "file": "src/webgl/loading.js",
+            "line": 332,
+            "description": "<p>This function matches the <code>query</code> at the provided <code>offset</code></p>\n",
+            "class": "p5",
+            "module": "Shape",
+            "submodule": "3D Models"
+        },
+        {
+            "file": "src/webgl/loading.js",
+            "line": 344,
+            "description": "<p>This function parses the Binary STL files.\n<a href=\"https://en.wikipedia.org/wiki/STL_%28file_format%29#Binary_STL\">https://en.wikipedia.org/wiki/STL_%28file_format%29#Binary_STL</a></p>\n<p>Currently there is no support for the colors provided in STL files.</p>\n",
+            "class": "p5",
+            "module": "Shape",
+            "submodule": "3D Models"
+        },
+        {
+            "file": "src/webgl/loading.js",
+            "line": 433,
+            "description": "<p>ASCII STL file starts with <code>solid &#39;nameOfFile&#39;</code>\nThen contain the normal of the face, starting with <code>facet normal</code>\nNext contain a keyword indicating the start of face vertex, <code>outer loop</code>\nNext comes the three vertex, starting with <code>vertex x y z</code>\nVertices ends with <code>endloop</code>\nFace ends with <code>endfacet</code>\nNext face starts with <code>facet normal</code>\nThe end of the file is indicated by <code>endsolid</code></p>\n",
+            "class": "p5",
+            "module": "Shape",
+            "submodule": "3D Models"
+        },
+        {
+            "file": "src/webgl/loading.js",
+            "line": 580,
             "description": "<p>Render a 3d model to the screen.</p>\n",
             "itemtype": "method",
             "name": "model",
@@ -18028,13 +18226,17 @@
                     "optional": true
                 }
             ],
+            "example": [
+                "\n<div modernizr='webgl'>\n<code>\n// Click within the image to toggle\n// the shader used by the quad shape\n// Note: for an alternative approach to the same example,\n// involving changing uniforms please refer to:\n// https://p5js.org/reference/#/p5.Shader/setUniform\n\nlet redGreen;\nlet orangeBlue;\nlet showRedGreen = false;\n\nfunction preload() {\n  // note that we are using two instances\n  // of the same vertex and fragment shaders\n  redGreen = loadShader('assets/shader.vert', 'assets/shader-gradient.frag');\n  orangeBlue = loadShader('assets/shader.vert', 'assets/shader-gradient.frag');\n}\n\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n\n  // initialize the colors for redGreen shader\n  shader(redGreen);\n  redGreen.setUniform('colorCenter', [1.0, 0.0, 0.0]);\n  redGreen.setUniform('colorBackground', [0.0, 1.0, 0.0]);\n\n  // initialize the colors for orangeBlue shader\n  shader(orangeBlue);\n  orangeBlue.setUniform('colorCenter', [1.0, 0.5, 0.0]);\n  orangeBlue.setUniform('colorBackground', [0.226, 0.0, 0.615]);\n\n  noStroke();\n}\n\nfunction draw() {\n  // update the offset values for each shader,\n  // moving orangeBlue in vertical and redGreen\n  // in horizontal direction\n  orangeBlue.setUniform('offset', [0, sin(millis() / 2000) + 1]);\n  redGreen.setUniform('offset', [sin(millis() / 2000), 1]);\n\n  if (showRedGreen === true) {\n    shader(redGreen);\n  } else {\n    shader(orangeBlue);\n  }\n  quad(-1, -1, 1, -1, 1, 1, -1, 1);\n}\n\nfunction mouseClicked() {\n  showRedGreen = !showRedGreen;\n}\n</code>\n</div>"
+            ],
+            "alt": "canvas toggles between a circular gradient of orange and blue vertically. and a circular gradient of red and green moving horizontally when mouse is clicked/pressed.",
             "class": "p5",
             "module": "Lights, Camera",
             "submodule": "Material"
         },
         {
             "file": "src/webgl/material.js",
-            "line": 212,
+            "line": 272,
             "description": "<p>This function restores the default shaders in WEBGL mode. Code that runs\nafter resetShader() will not be affected by previously defined\nshaders. Should be run after <a href=\"#/p5/shader\">shader()</a>.</p>\n",
             "itemtype": "method",
             "name": "resetShader",
@@ -18045,7 +18247,7 @@
         },
         {
             "file": "src/webgl/material.js",
-            "line": 225,
+            "line": 285,
             "description": "<p>Normal material for geometry. You can view all\npossible materials in this\n<a href=\"https://p5js.org/examples/3d-materials.html\">example</a>.</p>\n",
             "itemtype": "method",
             "name": "normalMaterial",
@@ -18060,7 +18262,7 @@
         },
         {
             "file": "src/webgl/material.js",
-            "line": 262,
+            "line": 322,
             "description": "<p>Texture for geometry.  You can view other possible materials in this\n<a href=\"https://p5js.org/examples/3d-materials.html\">example</a>.</p>\n",
             "itemtype": "method",
             "name": "texture",
@@ -18082,7 +18284,7 @@
         },
         {
             "file": "src/webgl/material.js",
-            "line": 359,
+            "line": 419,
             "description": "<p>Sets the coordinate space for texture mapping. The default mode is IMAGE\nwhich refers to the actual coordinates of the image.\nNORMAL refers to a normalized space of values ranging from 0 to 1.\nThis function only works in WEBGL mode.</p>\n<p>With IMAGE, if an image is 100 x 200 pixels, mapping the image onto the entire\nsize of a quad would require the points (0,0) (100, 0) (100,200) (0,200).\nThe same mapping in NORMAL is (0,0) (1,0) (1,1) (0,1).</p>\n",
             "itemtype": "method",
             "name": "textureMode",
@@ -18103,7 +18305,7 @@
         },
         {
             "file": "src/webgl/material.js",
-            "line": 438,
+            "line": 498,
             "description": "<p>Sets the global texture wrapping mode. This controls how textures behave\nwhen their uv&#39;s go outside of the 0 - 1 range. There are three options:\nCLAMP, REPEAT, and MIRROR.</p>\n<p>CLAMP causes the pixels at the edge of the texture to extend to the bounds\nREPEAT causes the texture to tile repeatedly until reaching the bounds\nMIRROR works similarly to REPEAT but it flips the texture with every new tile</p>\n<p>REPEAT &amp; MIRROR are only available if the texture\nis a power of two size (128, 256, 512, 1024, etc.).</p>\n<p>This method will affect all textures in your sketch until a subsequent\ntextureWrap call is made.</p>\n<p>If only one argument is provided, it will be applied to both the\nhorizontal and vertical axes.</p>\n",
             "itemtype": "method",
             "name": "textureWrap",
@@ -18130,7 +18332,7 @@
         },
         {
             "file": "src/webgl/material.js",
-            "line": 513,
+            "line": 573,
             "description": "<p>Ambient material for geometry with a given color. You can view all\npossible materials in this\n<a href=\"https://p5js.org/examples/3d-materials.html\">example</a>.</p>\n",
             "itemtype": "method",
             "name": "ambientMaterial",
@@ -18144,7 +18346,7 @@
             "submodule": "Material",
             "overloads": [
                 {
-                    "line": 513,
+                    "line": 573,
                     "params": [
                         {
                             "name": "v1",
@@ -18173,7 +18375,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 544,
+                    "line": 604,
                     "params": [
                         {
                             "name": "color",
@@ -18187,7 +18389,7 @@
         },
         {
             "file": "src/webgl/material.js",
-            "line": 563,
+            "line": 623,
             "description": "<p>Specular material for geometry with a given color. You can view all\npossible materials in this\n<a href=\"https://p5js.org/examples/3d-materials.html\">example</a>.</p>\n",
             "itemtype": "method",
             "name": "specularMaterial",
@@ -18201,7 +18403,7 @@
             "submodule": "Material",
             "overloads": [
                 {
-                    "line": 563,
+                    "line": 623,
                     "params": [
                         {
                             "name": "v1",
@@ -18230,7 +18432,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 595,
+                    "line": 655,
                     "params": [
                         {
                             "name": "color",
@@ -18244,7 +18446,7 @@
         },
         {
             "file": "src/webgl/material.js",
-            "line": 614,
+            "line": 674,
             "description": "<p>Sets the amount of gloss in the surface of shapes.\nUsed in combination with specularMaterial() in setting\nthe material properties of shapes. The default and minimum value is 1.</p>\n",
             "itemtype": "method",
             "name": "shininess",
@@ -18631,7 +18833,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 50,
+            "line": 66,
             "itemtype": "method",
             "name": "computeFaces",
             "chainable": 1,
@@ -18640,7 +18842,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 92,
+            "line": 108,
             "description": "<p>computes smooth normals per vertex as an average of each\nface.</p>\n",
             "itemtype": "method",
             "name": "computeNormals",
@@ -18650,7 +18852,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 131,
+            "line": 147,
             "description": "<p>Averages the vertex normals. Used in curved\nsurfaces</p>\n",
             "itemtype": "method",
             "name": "averageNormals",
@@ -18660,7 +18862,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 152,
+            "line": 168,
             "description": "<p>Averages pole normals.  Used in spherical primitives</p>\n",
             "itemtype": "method",
             "name": "averagePoleNormals",
@@ -18670,7 +18872,7 @@
         },
         {
             "file": "src/webgl/p5.Geometry.js",
-            "line": 245,
+            "line": 261,
             "description": "<p>Modifies all vertices to be centered within the range -100 to 100.</p>\n",
             "itemtype": "method",
             "name": "normalize",
@@ -18680,8 +18882,8 @@
         },
         {
             "file": "src/webgl/p5.RendererGL.js",
-            "line": 228,
-            "description": "<p>Set attributes for the WebGL Drawing context.\nThis is a way of adjusting how the WebGL\nrenderer works to fine-tune the display and performance.\n<br><br>\nNote that this will reinitialize the drawing context\nif called after the WebGL canvas is made.\n<br><br>\nIf an object is passed as the parameter, all attributes\nnot declared in the object will be set to defaults.\n<br><br>\nThe available attributes are:\n<br>\nalpha - indicates if the canvas contains an alpha buffer\ndefault is false\n<br><br>\ndepth - indicates whether the drawing buffer has a depth buffer\nof at least 16 bits - default is true\n<br><br>\nstencil - indicates whether the drawing buffer has a stencil buffer\nof at least 8 bits\n<br><br>\nantialias - indicates whether or not to perform anti-aliasing\ndefault is false\n<br><br>\npremultipliedAlpha - indicates that the page compositor will assume\nthe drawing buffer contains colors with pre-multiplied alpha\ndefault is false\n<br><br>\npreserveDrawingBuffer - if true the buffers will not be cleared and\nand will preserve their values until cleared or overwritten by author\n(note that p5 clears automatically on draw loop)\ndefault is true\n<br><br>\nperPixelLighting - if true, per-pixel lighting will be used in the\nlighting shader.\ndefault is false\n<br><br></p>\n",
+            "line": 263,
+            "description": "<p>Set attributes for the WebGL Drawing context.\nThis is a way of adjusting how the WebGL\nrenderer works to fine-tune the display and performance.\n<br><br>\nNote that this will reinitialize the drawing context\nif called after the WebGL canvas is made.\n<br><br>\nIf an object is passed as the parameter, all attributes\nnot declared in the object will be set to defaults.\n<br><br>\nThe available attributes are:\n<br>\nalpha - indicates if the canvas contains an alpha buffer\ndefault is true\n<br><br>\ndepth - indicates whether the drawing buffer has a depth buffer\nof at least 16 bits - default is true\n<br><br>\nstencil - indicates whether the drawing buffer has a stencil buffer\nof at least 8 bits\n<br><br>\nantialias - indicates whether or not to perform anti-aliasing\ndefault is false\n<br><br>\npremultipliedAlpha - indicates that the page compositor will assume\nthe drawing buffer contains colors with pre-multiplied alpha\ndefault is false\n<br><br>\npreserveDrawingBuffer - if true the buffers will not be cleared and\nand will preserve their values until cleared or overwritten by author\n(note that p5 clears automatically on draw loop)\ndefault is true\n<br><br>\nperPixelLighting - if true, per-pixel lighting will be used in the\nlighting shader.\ndefault is false\n<br><br></p>\n",
             "itemtype": "method",
             "name": "setAttributes",
             "example": [
@@ -18693,7 +18895,7 @@
             "submodule": "Rendering",
             "overloads": [
                 {
-                    "line": 228,
+                    "line": 263,
                     "params": [
                         {
                             "name": "key",
@@ -18708,7 +18910,7 @@
                     ]
                 },
                 {
-                    "line": 367,
+                    "line": 402,
                     "params": [
                         {
                             "name": "obj",
@@ -18721,7 +18923,7 @@
         },
         {
             "file": "src/webgl/p5.Shader.js",
-            "line": 268,
+            "line": 269,
             "description": "<p>Wrapper around gl.uniform functions.\nAs we store uniform info in the shader we can use that\nto do type checking on the supplied data and call\nthe appropriate function.</p>\n",
             "itemtype": "method",
             "name": "setUniform",
@@ -18738,6 +18940,10 @@
                     "type": "Object|Number|Boolean|Number[]"
                 }
             ],
+            "example": [
+                "\n<div modernizr='webgl'>\n<code>\n// Click within the image to toggle the value of uniforms\n// Note: for an alternative approach to the same example,\n// involving toggling between shaders please refer to:\n// https://p5js.org/reference/#/p5/shader\n\nlet grad;\nlet showRedGreen = false;\n\nfunction preload() {\n  // note that we are using two instances\n  // of the same vertex and fragment shaders\n  grad = loadShader('assets/shader.vert', 'assets/shader-gradient.frag');\n}\n\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n  shader(grad);\n  noStroke();\n}\n\nfunction draw() {\n  // update the offset values for each scenario,\n  // moving the \"grad\" shader in either vertical or\n  // horizontal direction each with differing colors\n\n  if (showRedGreen === true) {\n    grad.setUniform('colorCenter', [1, 0, 0]);\n    grad.setUniform('colorBackground', [0, 1, 0]);\n    grad.setUniform('offset', [sin(millis() / 2000), 1]);\n  } else {\n    grad.setUniform('colorCenter', [1, 0.5, 0]);\n    grad.setUniform('colorBackground', [0.226, 0, 0.615]);\n    grad.setUniform('offset', [0, sin(millis() / 2000) + 1]);\n  }\n  quad(-1, -1, 1, -1, 1, 1, -1, 1);\n}\n\nfunction mouseClicked() {\n  showRedGreen = !showRedGreen;\n}\n</code>\n</div>"
+            ],
+            "alt": "canvas toggles between a circular gradient of orange and blue vertically. and a circular gradient of red and green moving horizontally when mouse is clicked/pressed.",
             "class": "p5.Shader",
             "module": "Lights, Camera",
             "submodule": "Shaders"
@@ -20240,7 +20446,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 2998,
+            "line": 2990,
             "description": "<p>Schedule an event to be called when the audio or video\nelement reaches the end. If the element is looping,\nthis will not be called. The element is passed in\nas the argument to the onended callback.</p>\n",
             "itemtype": "method",
             "name": "onended",
@@ -20261,14 +20467,14 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3029,
+            "line": 3021,
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3031,
+            "line": 3023,
             "description": "<p>Send the audio output of this element to a specified audioNode or\np5.sound object. If no element is provided, connects to p5&#39;s master\noutput. That connection is established when this method is first called.\nAll connections are removed by the .disconnect() method.</p>\n<p>This method is meant to be used with the p5.sound.js addon library.</p>\n",
             "itemtype": "method",
             "name": "connect",
@@ -20285,7 +20491,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3080,
+            "line": 3072,
             "description": "<p>Disconnect all Web Audio routing, including to master output.\nThis is useful if you want to re-route the output through\naudio effects, for example.</p>\n",
             "itemtype": "method",
             "name": "disconnect",
@@ -20295,14 +20501,14 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3095,
+            "line": 3087,
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3097,
+            "line": 3089,
             "description": "<p>Show the default MediaElement controls, as determined by the web browser.</p>\n",
             "itemtype": "method",
             "name": "showControls",
@@ -20315,7 +20521,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3128,
+            "line": 3120,
             "description": "<p>Hide the default mediaElement controls.</p>\n",
             "itemtype": "method",
             "name": "hideControls",
@@ -20328,14 +20534,14 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3157,
+            "line": 3149,
             "class": "p5.MediaElement",
             "module": "p5.dom",
             "submodule": "p5.dom"
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3168,
+            "line": 3160,
             "description": "<p>Schedule events to trigger every time a MediaElement\n(audio/video) reaches a playback cue point.</p>\n<p>Accepts a callback function, a time (in seconds) at which to trigger\nthe callback, and an optional parameter for the callback.</p>\n<p>Time will be passed as the first parameter to the callback function,\nand param will be the second parameter.</p>\n",
             "itemtype": "method",
             "name": "addCue",
@@ -20370,7 +20576,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3232,
+            "line": 3224,
             "description": "<p>Remove a callback based on its ID. The ID is returned by the\naddCue method.</p>\n",
             "itemtype": "method",
             "name": "removeCue",
@@ -20390,7 +20596,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3274,
+            "line": 3266,
             "description": "<p>Remove all of the callbacks that had originally been scheduled\nvia the addCue method.</p>\n",
             "itemtype": "method",
             "name": "clearCues",
@@ -20410,7 +20616,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3340,
+            "line": 3332,
             "description": "<p>Underlying File object. All normal File methods can be called on this.</p>\n",
             "itemtype": "property",
             "name": "file",
@@ -20420,7 +20626,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3352,
+            "line": 3344,
             "description": "<p>File type (image, text, etc.)</p>\n",
             "itemtype": "property",
             "name": "type",
@@ -20430,7 +20636,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3358,
+            "line": 3350,
             "description": "<p>File subtype (usually the file extension jpg, png, xml, etc.)</p>\n",
             "itemtype": "property",
             "name": "subtype",
@@ -20440,7 +20646,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3364,
+            "line": 3356,
             "description": "<p>File name</p>\n",
             "itemtype": "property",
             "name": "name",
@@ -20450,7 +20656,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3370,
+            "line": 3362,
             "description": "<p>File size</p>\n",
             "itemtype": "property",
             "name": "size",
@@ -20460,7 +20666,7 @@
         },
         {
             "file": "lib/addons/p5.dom.js",
-            "line": 3377,
+            "line": 3369,
             "description": "<p>URL string containing image data.</p>\n",
             "itemtype": "property",
             "name": "data",
@@ -25724,35 +25930,23 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/vertex.js:813"
+            "line": " src/core/constants.js:61"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/vertex.js:813"
+            "line": " src/core/constants.js:80"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/vertex.js:813"
+            "line": " src/core/constants.js:99"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:58"
+            "line": " src/core/constants.js:118"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:77"
-        },
-        {
-            "message": "unknown tag: alt",
-            "line": " src/core/constants.js:96"
-        },
-        {
-            "message": "unknown tag: alt",
-            "line": " src/core/constants.js:115"
-        },
-        {
-            "message": "unknown tag: alt",
-            "line": " src/core/constants.js:134"
+            "line": " src/core/constants.js:137"
         },
         {
             "message": "unknown tag: alt",
@@ -25768,31 +25962,23 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:112"
+            "line": " src/core/environment.js:131"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:181"
+            "line": " src/core/environment.js:163"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:281"
+            "line": " src/core/environment.js:232"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:306"
+            "line": " src/core/environment.js:332"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:325"
-        },
-        {
-            "message": "unknown tag: alt",
-            "line": " src/core/environment.js:344"
-        },
-        {
-            "message": "unknown tag: alt",
-            "line": " src/core/environment.js:360"
+            "line": " src/core/environment.js:357"
         },
         {
             "message": "unknown tag: alt",
@@ -25800,51 +25986,63 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:454"
+            "line": " src/core/environment.js:395"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/core/environment.js:411"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/core/environment.js:427"
         },
         {
             "message": "unknown tag: alt",
             "line": " src/core/environment.js:505"
         },
         {
+            "message": "unknown tag: alt",
+            "line": " src/core/environment.js:556"
+        },
+        {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/core/environment.js:540"
+            "line": " src/core/environment.js:591"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/core/environment.js:560"
+            "line": " src/core/environment.js:611"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:560"
+            "line": " src/core/environment.js:611"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:617"
+            "line": " src/core/environment.js:668"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:648"
+            "line": " src/core/environment.js:699"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:671"
+            "line": " src/core/environment.js:722"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/main.js:49"
+            "line": " src/core/main.js:42"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/main.js:90"
+            "line": " src/core/main.js:83"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/main.js:121"
+            "line": " src/core/main.js:114"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/main.js:401"
+            "line": " src/core/main.js:396"
         },
         {
             "message": "unknown tag: alt",
@@ -26000,6 +26198,14 @@
         },
         {
             "message": "unknown tag: alt",
+            "line": " src/data/local_storage.js:11"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/data/local_storage.js:88"
+        },
+        {
+            "message": "unknown tag: alt",
             "line": " src/events/acceleration.js:23"
         },
         {
@@ -26092,67 +26298,67 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:48"
+            "line": " src/events/mouse.js:49"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:74"
+            "line": " src/events/mouse.js:76"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:106"
+            "line": " src/events/mouse.js:109"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:137"
+            "line": " src/events/mouse.js:141"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:176"
+            "line": " src/events/mouse.js:180"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:215"
+            "line": " src/events/mouse.js:219"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:256"
+            "line": " src/events/mouse.js:260"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:298"
+            "line": " src/events/mouse.js:302"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:337"
+            "line": " src/events/mouse.js:341"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:428"
+            "line": " src/events/mouse.js:432"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:483"
+            "line": " src/events/mouse.js:487"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:564"
+            "line": " src/events/mouse.js:568"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:641"
+            "line": " src/events/mouse.js:650"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:719"
+            "line": " src/events/mouse.js:728"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:789"
+            "line": " src/events/mouse.js:798"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/mouse.js:874"
+            "line": " src/events/mouse.js:883"
         },
         {
             "message": "unknown tag: alt",
@@ -26164,11 +26370,11 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/touch.js:149"
+            "line": " src/events/touch.js:154"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/touch.js:222"
+            "line": " src/events/touch.js:227"
         },
         {
             "message": "unknown tag: alt",
@@ -26280,15 +26486,15 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:506"
+            "line": " src/image/pixels.js:503"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:543"
+            "line": " src/image/pixels.js:540"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/pixels.js:617"
+            "line": " src/image/pixels.js:614"
         },
         {
             "message": "unknown tag: alt",
@@ -26296,35 +26502,35 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:180"
+            "line": " src/io/files.js:184"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:293"
+            "line": " src/io/files.js:297"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:603"
+            "line": " src/io/files.js:607"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/io/files.js:714"
+            "line": " src/io/files.js:718"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:714"
+            "line": " src/io/files.js:718"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1519"
+            "line": " src/io/files.js:1526"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1577"
+            "line": " src/io/files.js:1584"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1645"
+            "line": " src/io/files.js:1652"
         },
         {
             "message": "unknown tag: alt",
@@ -26708,7 +26914,7 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/loading.js:14"
+            "line": " src/webgl/light.js:318"
         },
         {
             "message": "unknown tag: alt",
@@ -26716,7 +26922,11 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/loading.js:244"
+            "line": " src/webgl/loading.js:14"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/webgl/loading.js:580"
         },
         {
             "message": "unknown tag: alt",
@@ -26732,35 +26942,39 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:225"
+            "line": " src/webgl/material.js:181"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:262"
+            "line": " src/webgl/material.js:285"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:359"
+            "line": " src/webgl/material.js:322"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:359"
+            "line": " src/webgl/material.js:419"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:438"
+            "line": " src/webgl/material.js:419"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:513"
+            "line": " src/webgl/material.js:498"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:563"
+            "line": " src/webgl/material.js:573"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:614"
+            "line": " src/webgl/material.js:623"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/webgl/material.js:674"
         },
         {
             "message": "unknown tag: alt",
@@ -26803,20 +27017,28 @@
             "line": " src/webgl/p5.Camera.js:1088"
         },
         {
-            "message": "unknown tag: alt",
-            "line": " src/webgl/p5.RendererGL.js:228"
+            "message": "replacing incorrect tag: returns with return",
+            "line": " src/webgl/p5.RendererGL.Retained.js:40"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/p5.RendererGL.js:474"
+            "line": " src/webgl/p5.RendererGL.js:263"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/p5.RendererGL.js:516"
+            "line": " src/webgl/p5.RendererGL.js:519"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/p5.RendererGL.js:586"
+            "line": " src/webgl/p5.RendererGL.js:561"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/webgl/p5.RendererGL.js:631"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/webgl/p5.Shader.js:269"
         },
         {
             "message": "replacing incorrect tag: function with method",
@@ -26976,11 +27198,11 @@
         },
         {
             "message": "Missing item type\nReturns the current framerate.",
-            "line": " src/core/environment.js:255"
+            "line": " src/core/environment.js:306"
         },
         {
             "message": "Missing item type\nSpecifies the number of frames to be displayed every second. For example,\nthe function call frameRate(30) will attempt to refresh 30 times a second.\nIf the processor is not fast enough to maintain the specified rate, the\nframe rate will not be achieved. Setting the frame rate within <a href=\"#/p5/setup\">setup()</a> is\nrecommended. The default rate is 60 frames per second.\n\nCalling <a href=\"#/p5/frameRate\">frameRate()</a> with no arguments returns the current framerate.",
-            "line": " src/core/environment.js:265"
+            "line": " src/core/environment.js:316"
         },
         {
             "message": "Missing item type",
@@ -27028,7 +27250,7 @@
         },
         {
             "message": "Missing item type\nGenerate a cubic Bezier representing an arc on the unit circle of total\nangle `size` radians, beginning `start` radians above the x-axis. Up to\nfour of these curves are combined to make a full arc.\n\nSee www.joecridge.me/bezier.pdf for an explanation of the method.",
-            "line": " src/core/p5.Renderer2D.js:405"
+            "line": " src/core/p5.Renderer2D.js:407"
         },
         {
             "message": "Missing item type\nshim for Uint8ClampedArray.slice\n(allows arrayCopy to work with pixels[])\nwith thanks to http://halfpapstudios.com/blog/tag/html5-canvas/\nEnumerable set to false to protect for...in from\nUint8ClampedArray.prototype pollution.",
@@ -27148,19 +27370,19 @@
         },
         {
             "message": "Missing item type\nGenerate a blob of file data as a url to prepare for download.\nAccepts an array of data, a filename, and an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by <a href=\"#/p5/saveStrings\">saveStrings</a>, <a href=\"#/p5/saveJSON\">saveJSON</a>, <a href=\"#/p5/saveTable\">saveTable</a> etc.",
-            "line": " src/io/files.js:1771"
+            "line": " src/io/files.js:1778"
         },
         {
             "message": "Missing item type\nReturns a file extension, or another string\nif the provided parameter has no extension.",
-            "line": " src/io/files.js:1840"
+            "line": " src/io/files.js:1847"
         },
         {
             "message": "Missing item type\nReturns true if the browser is Safari, false if not.\nSafari makes trouble for downloading files.",
-            "line": " src/io/files.js:1873"
+            "line": " src/io/files.js:1880"
         },
         {
             "message": "Missing item type\nHelper function, a callback for download that deletes\nan invisible anchor element from the DOM once the file\nhas been automatically downloaded.",
-            "line": " src/io/files.js:1885"
+            "line": " src/io/files.js:1892"
         },
         {
             "message": "Missing item type\nTable Options\n<p>Generic class for handling tabular data, typically from a\nCSV, TSV, or other sort of spreadsheet file.</p>\n<p>CSV files are\n<a href=\"http://en.wikipedia.org/wiki/Comma-separated_values\">\ncomma separated values</a>, often with the data in quotes. TSV\nfiles use tabs as separators, and usually don't bother with the\nquotes.</p>\n<p>File names should end with .csv if they're comma separated.</p>\n<p>A rough \"spec\" for CSV can be found\n<a href=\"http://tools.ietf.org/html/rfc4180\">here</a>.</p>\n<p>To load files, use the <a href=\"#/p5/loadTable\">loadTable</a> method.</p>\n<p>To save tables to your computer, use the <a href=\"#/p5/save\">save</a> method\n or the <a href=\"#/p5/saveTable\">saveTable</a> method.</p>\n\nPossible options include:\n<ul>\n<li>csv - parse the table as comma-separated values\n<li>tsv - parse the table as tab-separated values\n<li>header - this table has a header (title) row\n</ul>",
@@ -27168,27 +27390,27 @@
         },
         {
             "message": "Missing item type\nMultiplies a vector by a scalar and returns a new vector.",
-            "line": " src/math/p5.Vector.js:1611"
+            "line": " src/math/p5.Vector.js:1610"
         },
         {
             "message": "Missing item type\nDivides a vector by a scalar and returns a new vector.",
-            "line": " src/math/p5.Vector.js:1638"
+            "line": " src/math/p5.Vector.js:1637"
         },
         {
             "message": "Missing item type\nCalculates the dot product of two vectors.",
-            "line": " src/math/p5.Vector.js:1665"
+            "line": " src/math/p5.Vector.js:1664"
         },
         {
             "message": "Missing item type\nCalculates the cross product of two vectors.",
-            "line": " src/math/p5.Vector.js:1679"
+            "line": " src/math/p5.Vector.js:1678"
         },
         {
             "message": "Missing item type\nCalculates the Euclidean distance between two points (considering a\npoint as a vector object).",
-            "line": " src/math/p5.Vector.js:1693"
+            "line": " src/math/p5.Vector.js:1692"
         },
         {
             "message": "Missing item type\nLinear interpolate a vector to another vector and return the result as a\nnew vector.",
-            "line": " src/math/p5.Vector.js:1708"
+            "line": " src/math/p5.Vector.js:1707"
         },
         {
             "message": "Missing item type\nHelper function to measure ascent and descent.",
@@ -27216,23 +27438,43 @@
         },
         {
             "message": "Missing item type\nParse OBJ lines into model. For reference, this is what a simple model of a\nsquare might look like:\n\nv -0.5 -0.5 0.5\nv -0.5 -0.5 -0.5\nv -0.5 0.5 -0.5\nv -0.5 0.5 0.5\n\nf 4 3 2 1",
-            "line": " src/webgl/loading.js:135"
+            "line": " src/webgl/loading.js:169"
+        },
+        {
+            "message": "Missing item type\nSTL files can be of two types, ASCII and Binary,\n\nWe need to convert the arrayBuffer to an array of strings,\nto parse it as an ASCII file.",
+            "line": " src/webgl/loading.js:278"
+        },
+        {
+            "message": "Missing item type\nThis function checks if the file is in ASCII format or in Binary format\n\nIt is done by searching keyword `solid` at the start of the file.\n\nAn ASCII STL data must begin with `solid` as the first six bytes.\nHowever, ASCII STLs lacking the SPACE after the `d` are known to be\nplentiful. So, check the first 5 bytes for `solid`.\n\nSeveral encodings, such as UTF-8, precede the text with up to 5 bytes:\nhttps://en.wikipedia.org/wiki/Byte_order_mark#Byte_order_marks_by_encoding\nSearch for `solid` to start anywhere after those prefixes.",
+            "line": " src/webgl/loading.js:305"
+        },
+        {
+            "message": "Missing item type\nThis function matches the `query` at the provided `offset`",
+            "line": " src/webgl/loading.js:332"
+        },
+        {
+            "message": "Missing item type\nThis function parses the Binary STL files.\nhttps://en.wikipedia.org/wiki/STL_%28file_format%29#Binary_STL\n\nCurrently there is no support for the colors provided in STL files.",
+            "line": " src/webgl/loading.js:344"
+        },
+        {
+            "message": "Missing item type\nASCII STL file starts with `solid 'nameOfFile'`\nThen contain the normal of the face, starting with `facet normal`\nNext contain a keyword indicating the start of face vertex, `outer loop`\nNext comes the three vertex, starting with `vertex x y z`\nVertices ends with `endloop`\nFace ends with `endfacet`\nNext face starts with `facet normal`\nThe end of the file is indicated by `endsolid`",
+            "line": " src/webgl/loading.js:433"
         },
         {
             "message": "Missing item type",
-            "line": " src/webgl/material.js:659"
+            "line": " src/webgl/material.js:719"
         },
         {
             "message": "Missing item type",
-            "line": " src/webgl/material.js:681"
+            "line": " src/webgl/material.js:741"
         },
         {
             "message": "Missing item type\nCreate a 2D array for establishing stroke connections",
-            "line": " src/webgl/p5.Geometry.js:190"
+            "line": " src/webgl/p5.Geometry.js:206"
         },
         {
             "message": "Missing item type\nCreate 4 vertices for each stroke line, two at the beginning position\nand two at the end position. These vertices are displaced relative to\nthat line's normal on the GPU",
-            "line": " src/webgl/p5.Geometry.js:211"
+            "line": " src/webgl/p5.Geometry.js:227"
         },
         {
             "message": "Missing item type",
@@ -27248,55 +27490,55 @@
         },
         {
             "message": "Missing item type\nEnd shape drawing and render vertices to screen.",
-            "line": " src/webgl/p5.RendererGL.Immediate.js:133"
+            "line": " src/webgl/p5.RendererGL.Immediate.js:140"
         },
         {
             "message": "Missing item type\ninitializes buffer defaults. runs each time a new geometry is\nregistered",
-            "line": " src/webgl/p5.RendererGL.Retained.js:8"
+            "line": " src/webgl/p5.RendererGL.Retained.js:40"
         },
         {
-            "message": "Missing item type\ncreateBuffers description",
-            "line": " src/webgl/p5.RendererGL.Retained.js:47"
+            "message": "Missing item type\ncreates a buffers object that holds the WebGL render buffers\nfor a geometry.",
+            "line": " src/webgl/p5.RendererGL.Retained.js:144"
         },
         {
             "message": "Missing item type\nDraws buffers given a geometry key ID",
-            "line": " src/webgl/p5.RendererGL.Retained.js:196"
+            "line": " src/webgl/p5.RendererGL.Retained.js:182"
         },
         {
             "message": "Missing item type\nmodel view, projection, & normal\nmatrices",
-            "line": " src/webgl/p5.RendererGL.js:80"
+            "line": " src/webgl/p5.RendererGL.js:96"
         },
         {
             "message": "Missing item type\n[background description]",
-            "line": " src/webgl/p5.RendererGL.js:456"
+            "line": " src/webgl/p5.RendererGL.js:501"
         },
         {
             "message": "Missing item type\n[resize description]",
-            "line": " src/webgl/p5.RendererGL.js:707"
+            "line": " src/webgl/p5.RendererGL.js:752"
         },
         {
             "message": "Missing item type\nclears color and depth buffers\nwith r,g,b,a",
-            "line": " src/webgl/p5.RendererGL.js:738"
+            "line": " src/webgl/p5.RendererGL.js:783"
         },
         {
             "message": "Missing item type\n[translate description]",
-            "line": " src/webgl/p5.RendererGL.js:771"
+            "line": " src/webgl/p5.RendererGL.js:816"
         },
         {
             "message": "Missing item type\nScales the Model View Matrix by a vector",
-            "line": " src/webgl/p5.RendererGL.js:790"
+            "line": " src/webgl/p5.RendererGL.js:835"
         },
         {
             "message": "Missing item type\nturn a two dimensional array into one dimensional array",
-            "line": " src/webgl/p5.RendererGL.js:1139"
+            "line": " src/webgl/p5.RendererGL.js:1200"
         },
         {
             "message": "Missing item type\nturn a p5.Vector Array into a one dimensional number array",
-            "line": " src/webgl/p5.RendererGL.js:1176"
+            "line": " src/webgl/p5.RendererGL.js:1237"
         },
         {
             "message": "Missing item type\nensures that p5 is using a 3d renderer. throws an error if not.",
-            "line": " src/webgl/p5.RendererGL.js:1192"
+            "line": " src/webgl/p5.RendererGL.js:1254"
         },
         {
             "message": "Missing item type\nHelper function for select and selectAll",
@@ -27328,15 +27570,15 @@
         },
         {
             "message": "Missing item type",
-            "line": " lib/addons/p5.dom.js:3029"
+            "line": " lib/addons/p5.dom.js:3021"
         },
         {
             "message": "Missing item type",
-            "line": " lib/addons/p5.dom.js:3095"
+            "line": " lib/addons/p5.dom.js:3087"
         },
         {
             "message": "Missing item type",
-            "line": " lib/addons/p5.dom.js:3157"
+            "line": " lib/addons/p5.dom.js:3149"
         },
         {
             "message": "Missing item type\np5.sound \nhttps://p5js.org/reference/#/libraries/p5.sound\n\nFrom the Processing Foundation and contributors\nhttps://github.com/processing/p5.js-sound/graphs/contributors\n\nMIT License (MIT)\nhttps://github.com/processing/p5.js-sound/blob/master/LICENSE\n\nSome of the many audio libraries & resources that inspire p5.sound:\n - TONE.js (c) Yotam Mann. Licensed under The MIT License (MIT). https://github.com/TONEnoTONE/Tone.js\n - buzz.js (c) Jay Salvat. Licensed under The MIT License (MIT). http://buzz.jaysalvat.com/\n - Boris Smus Web Audio API book, 2013. Licensed under the Apache License http://www.apache.org/licenses/LICENSE-2.0\n - wavesurfer.js https://github.com/katspaugh/wavesurfer.js\n - Web Audio Components by Jordan Santell https://github.com/web-audio-components\n - Wilm Thoben's Sound library for Processing https://github.com/processing/processing/tree/master/java/libraries/sound\n\n Web Audio API: http://w3.org/TR/webaudio/",
