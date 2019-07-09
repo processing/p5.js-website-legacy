@@ -43,8 +43,8 @@ slug: learn/
       <p>In the following example, change the value for variable i to change the color of the rectangle. If i equals to 0, the condition for the <em>if</em> statement is satisfied, and the filling color is red. In this case, the program continues to draw the rectangle skipping the <em>else if</em> and <em>else</em> statements. If i equals to 1, the condition for the <em>if</em> statement is not satisfied, and the program moves on to check the condition for the <em>else if</em> statement. Since <em>else if</em> condition is satisfied, the filling color is green. If neither the <em>if</em> nor the <em>else if</em> conditions are satisfied, the program runs the <em>else</em> statement, and the filling color is blue.</p>
       <!-- this script only needs to get added once even if there are multiple widget instances -->
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
-      <script type="text/p5" data-autoplay>
-let i = 0; // change the value of i to see the change 
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+let i = 0; // change the value of i to see the change
 function setup(){
   createCanvas(100, 100);
   rectMode(CENTER);
@@ -77,7 +77,7 @@ function draw(){
       </p>
 
       <p>The <em>for</em> loop sets up a variable (usually i or x) that is then incrementally changed for each loop. It has the following structure:</p>
-      <pre><code class="language-javascript">   
+      <pre><code class="language-javascript">
         for (statement 1; statement 2; statement 3) {
             code block to be executed
         }
@@ -90,7 +90,7 @@ function draw(){
         </ul>
       </p>
 
-      <script type="text/p5" data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 function setup(){
   for (let i=0; i<5; i++){
     text(i, i*10, height/2);
@@ -100,8 +100,8 @@ function setup(){
       <p>In this example, variable i is initially set to 0. Every time the <em>for</em> loop runs, i is displayed on the screen and 1 is added to i. Note the <em>for</em> loop will only run until i equals to 4 because after this the condition that i be less than 5 will be false.</p>
 
       <p>The <em>for/in</em> statement loops through the properties of an object:</p>
-      <script type="text/p5" data-autoplay>
-let person = {fname:"John", lname:"Doe", age:25}; 
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+let person = {fname:"John", lname:"Doe", age:25};
 let myText = "";
 function setup(){
   let x;
@@ -115,20 +115,20 @@ function setup(){
       <p>In this example, as the <em>for</em> loop cycles through each property of the person object, the property value is added to myText string.</p>
 
       <p>The while loop cycles through a block of code as long as its specified condition is true.</p>
-      <script type="text/p5" data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 let i = 0;
 function setup(){
   while (i<5){
     text(i, i*10, height/2);
     i++;
-  } 
+  }
 }
       </script>
       <p>This example gives the same result as the <em>for</em> loop example above. Sometimes <em>while</em> loops and <em>for</em> loops can be used interchangeably.</p>
 
       <p>The <em>do/while</em> loop is a variant of the <em>while</em> loop. This loop will execute the code block once, before checking if the condition is true, it will then repeat the loop as long as the condition is true.</p>
       <!-- Is there an example particular to do/while? -->
-      <script type="text/p5" data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 let i = 0;
 function setup(){
   do {
@@ -143,7 +143,7 @@ function setup(){
       <!-- this is particular to p5 -->
       <h2>noLoop(), loop() and redraw()</h2>
       <p>The <a href="/reference/#/p5/draw">draw()</a> function in p5 runs as a loop. The code inside the draw() function runs continuously from top to bottom until the program is stopped. The draw() loop may be stopped by calling <a href="/reference/#/p5/noLoop">noLoop()</a>, and can then be resumed with <a href="/reference/#/p5/loop">loop()</a>. If using <a href="/reference/#/p5/noLoop">noLoop()</a> in <a href="/reference/#/p5/setup">setup()</a>, it should be the last line inside the block.</p>
-      <script type="text/p5" data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 let x = 0;
 function setup() {
   createCanvas(100, 100);
@@ -164,7 +164,7 @@ function mouseReleased() {
         <p>In this example, <a href="/reference/#/p5/noLoop">noLoop()</a> is called in <a href="/reference/#/p5/setup">setup()</a>, so the code within <a href="/reference/#/p5/draw">draw()</a> will only run once at the start of the program. Since <a href="/reference/#/p5/loop">loop()</a> is placed in <a href="/reference/#/p5/mousePressed">mousePressed()</a>, the draw() block will resume looping when mouse is pressed. When mouse is released, <a href="/reference/#/p5/noLoop">noLoop()</a> is called again and hence the draw() loop stops.</p>
 
         <p>The function <a href="/reference/#/p5/redraw">redraw()</a> executes the code within <a href="/reference/#/p5/draw">draw()</a> one time. This functions allows the program to update the display window only when necessary, such as when an event registered by <a href="/reference/#/p5/mousePressed">mousePressed()</a> or <a href="/reference/#/p5/keyPressed">keyPressed()</a> occurs. In structuring a program, it only makes sense to call <a href="/reference/#/p5/redraw">redraw()</a> within events such as <a href="/reference/#/p5/mousePressed">mousePressed()</a> outside of the draw() loop. The redraw() function does not work properly when called inside draw(). In addition, you can set the number of loops through draw by adding a single argument (an integer) to the redraw() function.</p>
-        <script type="text/p5" data-autoplay>
+        <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 let x = 0;
 function setup() {
    createCanvas(100, 100);
@@ -182,9 +182,9 @@ function mousePressed() {
       <p>This example is similar to the previous one, where <a href="/reference/#/p5/noLoop">noLoop()</a> is called in <a href="/reference/#/p5/setup">setup()</a> and the code within <a href="/reference/#/p5/draw">draw()</a> will only run once at the start of the program. However, when mouse is pressed, <a href="/reference/#/p5/redraw">redraw()</a> is called and <a href="/reference/#/p5/draw">draw()</a> will only loop once. To make smooth animations, it is easier to work with noLoop() and loop().</p>
 
 
-      <h2>Asynchronicity in p5.js</h2>      
+      <h2>Asynchronicity in p5.js</h2>
       <p>In JavaScript, events may occur concurrently with the main program flow. This is considered as asynchronicity in programming. In p5, for example, when we use <a href="/reference/#/p5/loadImage">loadImage()</a> in <a href="/reference/#/p5/setup">setup()</a>, the browser begins the process of loading the image but skip onto the next line before it is finised loading. The following example demonstrates such asynchronicity.</p>
-        <pre><code class="language-javascript">   
+        <pre><code class="language-javascript">
 let img;
 function setup(){
   createCanvas(100, 100);
@@ -199,7 +199,7 @@ function draw(){
     </code></pre>
     <iframe src="/assets/learn/program-flow/loadImage-example-1/loadImage-example-1.html" width="150px" height="150px"></iframe>
       <!-- what's the file location??????????????????? -->
-<!--       <script type="text/p5" data-autoplay>
+<!--       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 let img;
 function setup(){
   createCanvas(100, 100);
@@ -216,7 +216,7 @@ function draw(){
 
       <h2>Introduction to Preload</h2>
       <p>To help with this issue of asynchronicity, p5.js has the <a href="/reference/#/p5/preload">preload()</a> function. Unlike <a href="/reference/#/p5/setup">setup()</a>, preload() forces the program to wait until everything has loaded before moving on. It is best to only make load calls in preload(), and do all other setup in setup().</p>
-      <pre><code class="language-javascript">   
+      <pre><code class="language-javascript">
 let img;
 function preload(){
   img = loadImage("/assets/learn/program-flow/images/clouds.jpg");
@@ -234,7 +234,7 @@ function draw(){
       </code></pre>
       <iframe src="/assets/learn/program-flow/loadImage-example-2/loadImage-example-2.html" width="150px" height="150px"></iframe>
 
-<!--       <script type="text/p5" data-autoplay>
+<!--       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 let img;
 function preload(){
   img = loadImage("/assets/learn/program-flow/images/clouds.jpg");
@@ -272,7 +272,7 @@ function drawImage(img){
 }
       </code></pre>
       <iframe src="/assets/learn/program-flow/loadImage-example-3/loadImage-example-3.html" width="150px" height="150px"></iframe>
-<!--       <script type="text/p5" data-autoplay>
+<!--       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 function setup(){
   createCanvas(100, 100);
   loadImage("/assets/learn/program-flow/images/clouds.jpg", drawImage);
@@ -296,7 +296,7 @@ function drawImage(img){
       <p>The JSON (JavaScript Object Notation) format is a common system for storing data. Like HTML and XML formats, the elements have labels associated with them. One way to load JSON file is to use <a href="/reference/#/p5/loadJSON">loadJSON()</a> function in <a href="/reference/#/p5/preload">preload()</a>.</p>
       <!-- example where loadJSON() in preload() -->
       <p>The following request at https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson returns data of recent earthquakes in the world from USGS.</p>
-      <script type="text/p5" data-autoplay data-preview-width="200">
+      <script type="text/p5" data-autoplay data-preview-width="200" data-p5-version="{{ version }}">
 let earthquakes;
 function preload(){
   earthquakes = loadJSON('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson');
@@ -334,7 +334,7 @@ function setup(){
         </ul>
       </p>
       <!-- example where loadJSON() takes a callback -->
-      <script type="text/p5" data-autoplay data-preview-width="200">
+      <script type="text/p5" data-autoplay data-preview-width="200" data-p5-version="{{ version }}">
 function setup() {
   createCanvas(200, 100);
   loadJSON('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson', showEarthquake);
@@ -350,7 +350,7 @@ function showEarthquake(earthquakes){
 
       <p>Sometimes we use <a href="/reference/#/p5/setInterval">setInterval()</a> to control the frequency of requests made to the API. setInterval() can also take a callback function. If you call setInterval() in <a href="/reference/#/p5/setup">setup()</a>, it will run repeatedly for the duration of the program at the interval set.</p>
       <!-- example setInterval() is used -->
-      <script type="text/p5" data-autoplay data-preview-width="200">
+      <script type="text/p5" data-autoplay data-preview-width="200" data-p5-version="{{ version }}">
 let i=1; // counter variable to keep track of the interval
 function setup() {
   createCanvas(200, 100);
@@ -416,10 +416,10 @@ function showEarthquake(earthquakes){
           <li><a href="/reference/#/p5/mouseOver">mouseOver()</a> - Code inside this block is run once after every time a mouse moves onto the element.</li>
           <li><a href="/reference/#/p5/mouseOut">mouseOut()</a> - Code inside this block is run once after every time a mouse moves off the element</li>
         </ul>
-      </p> 
+      </p>
 
       <p>In this example, a canvas element is created and an event listener <a href="/reference/#/p5/mousePressed">mousePressed()</a> is attached. Function changeGrey() will only run when the mouse is pressed over the canvas, and will will change the background color to a random grey. If the mouse is pressed anywhere, even outside of the canvas, the diameter of the ellipse will increase by 10 pixels. The custom function changeGray(), in this instance, is placed within the <a href="/reference/#/p5/mousePressed">mousePressed()</a> function and is to be triggered when mouse is pressed over the canvas element. If the mouse is not pressed, false is passed and changeGrey() will not run.</p>
-      <script type="text/p5" data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 let cnv;
 let d;
 let g;
