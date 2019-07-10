@@ -23,7 +23,7 @@ slug: learn/
       </p>
 
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
-      <script type="text/p5" data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup() {
 	createCanvas(150, 200);
 	fill(0);
@@ -55,7 +55,7 @@ function drawGrid() {
       move the graph paper itself. If you move the graph paper 50 pixels right and 50 pixels down, you will get exactly the same visual result. Moving the coordinate system is called translation, and can be done using the translate() function.
       </p>
 
-      <script type="text/p5" data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup() {
 	createCanvas(150, 200);
 	fill(0);
@@ -94,7 +94,7 @@ function drawGrid() {
       and style/color commands made between a single push() and pop() apply only to the operations made between them. Take a look at the following example.
       </p>
 
-      <script type="text/p5"  data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup() {
 	createCanvas(150, 200);
 }
@@ -132,7 +132,7 @@ function draw() {
       <p>In the last sketch, we could have achieved the same visual output by simply drawing the rectangles at those exact points. Or we could have used translate() without the push() and pop() blocks by undoing each translation manually, e.g. translate(-25, -25) to undo the first translation of (25, 25).</p>
       <p>For simple shapes like rectangles, it is easier to not use translations, but rather to specify the points manually. But when we begin to draw more complex shapes, translations become advantageous. Let's take a look at an example where translate(), push(), and pop() are really useful.</p>
 
-      <script type="text/p5"  data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup(){
 	createCanvas(150, 200);
 }
@@ -177,7 +177,7 @@ function drawHouse() {
       <p>Since most people think in degrees, p5.js has a built-in radians() function which takes a number of degrees as its argument and converts it to radians for you. It also has a degrees() function that converts radians to degrees. Take a look at the following example which rotates the canvas by an angle measurement set by the mouseX position.
       The red square is drawn before rotation, and the green one after rotation.</p>
 
-      <script type="text/p5"  data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup(){
 	createCanvas(150, 200);
 }
@@ -226,7 +226,7 @@ function drawGrid() {
 
       <p>In the last example, the green square goes off the screen as we rotate the canvas more. Sometimes we want to be able to rotate a shape in place, rather than around the top-left corner of the screen. We can do this by combining translate() and rotate() together. Recall that translate() moves the origin (0,0) to another place in the canvas and that rotate() rotates the canvas around the origin.
         Thus if we want to draw a shape in the middle of the screen and then rotate it in place, we should first translate the canvas to the point we want to draw the shape, then rotate, then draw the shape at (0, 0). Take a look at the following example.</p>
-        <script type="text/p5"  data-autoplay>
+        <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
         function setup(){
 	createCanvas(150, 200);
 }
@@ -247,7 +247,7 @@ function draw(){
         </script>
 
         <p>If you want the rectangle to rotate around its own center point rather than by its corner, we can use the command rectMode(CENTER) to set p5.js to interpret the coordinates of rectangles to refer to the center of the rectangle rather than the top-left corner. The following example is the same as the previous one but with centered coordinates.</p>
-        <script type="text/p5"  data-autoplay>
+        <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
         function setup(){
 	createCanvas(150, 200);
 	rectMode(CENTER);	// now the first two arguments of a rect are its center point, not corner
@@ -270,7 +270,7 @@ function draw(){
 
       <p>Here is a program that generates a wheel of colors by using rotation, and draws a strip every 25 frames.</p>
 
-        <script type="text/p5"  data-autoplay>
+        <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
         function setup() {
 	createCanvas(150, 200);
 	background(240);
@@ -299,7 +299,7 @@ function draw(){
         We then rotate the canvas to the 8 angles evenly distributed between 0 and 2π radians. We then draw a circle 50 pixels away from the center, after each of these rotations.
         </p>
 
-        <script type="text/p5"  data-autoplay>
+        <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
         function setup() {
 	createCanvas(150, 200);
 	rectMode(CENTER);
@@ -327,7 +327,7 @@ function draw(){
         This is convenient because now we can do something even more interesting. Instead of simply drawing a rectangle at each of those points, let's create another loop which will draw six smaller squares evenly distributed around a small circle around each of these new pivot points. See the following.
       </p>
 
-      <script type="text/p5"  data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup() {
 	createCanvas(150, 200);
 	rectMode(CENTER);
@@ -358,7 +358,7 @@ function draw(){
         Now that we have achieved an interesting geometry, we can embellish this program by making a variable for the first translation amount and for the x-position of the rectangle, and modulating them in interesting ways. In the following example, we'll modulate those two values using Perlin noise. If you haven't used Perlin noise before, take a look at the tutorial on Perlin noise.
       </p>
 
-      <script type="text/p5"  data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup() {
 	createCanvas(150, 200);
 	rectMode(CENTER);
@@ -399,7 +399,7 @@ function draw(){
 
       <p>All the noisy variables will be calculated at the top of the draw loop for better organization. Looks cool, right?!</p>
 
-      <script type="text/p5"  data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup() {
 	createCanvas(150, 200);
 	rectMode(CENTER);
@@ -444,7 +444,7 @@ function draw(){
         There is one more function which transforms the coordinate system, and that is scale(). Scale changes the size of the grid by multiplying the coordinate system. See the following example.
       </p>
 
-      <script type="text/p5"  data-autoplay>
+      <script type="text/p5" data-autoplay  data-p5-version="{{ version }}">
       function setup() {
 	createCanvas(150, 200);
 }
