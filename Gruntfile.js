@@ -6,6 +6,8 @@
 // use this if you want to match all subfolders:
 // '<%= config.src %>/templates/pages/**/*.hbs'
 
+const yaml = require('js-yaml');
+const fs = require('fs').promises;
 const pkg = require('./package.json');
 
 module.exports = function(grunt) {
@@ -317,6 +319,23 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('update-version', function(){
+    const done = this.async();
+
+    const version = require('./src/templates/pages/reference/data.json').project.version;
+
+    fs.readFile('./src/data/data.yml').then((str) => {
+      const data = yaml.safeLoad(str);
+      data.version = version;
+
+      const dump = yaml.safeDump(data);
+
+      return fs.writeFile('./src/data/data.yml', dump);
+    }).then(() => {
+      done();
+    });
+  });
+
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-assemble');
   grunt.loadNpmTasks('grunt-file-append');
@@ -351,6 +370,7 @@ module.exports = function(grunt) {
 
   // runs three tasks in order
   grunt.registerTask('build', [
+    'update-version',
     'exec',
     'clean',
     'requirejs',
