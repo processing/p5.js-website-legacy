@@ -11,7 +11,7 @@
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 
-var soundFile, analyzer, delay;
+let soundFile, analyzer, delay;
 
 function preload() {
   soundFormats('ogg', 'mp3');
@@ -24,7 +24,7 @@ function setup() {
   soundFile.disconnect(); // para que solo escuchemos el delay
 
   delay = new p5.Delay();
-  delay.process(soundFile, .12, .7, 2300);
+  delay.process(soundFile, 0.12, 0.7, 2300);
   delay.setType('pingPong'); // un tipo de efecto stereo
 
   analyzer = new p5.Amplitude();
@@ -34,20 +34,20 @@ function draw() {
   background(0);
 
   // obtener una lectura de volumen del analizador p5.Amplitude
-  var level = analyzer.getLevel();
+  let level = analyzer.getLevel();
 
   // usar el nivel para dibujar un rectángulo verde
-  var levelHeight = map(level, 0, .1, 0, height);
-  fill(100,250,100);
-  rect(0, height, width, - levelHeight);
+  let levelHeight = map(level, 0, 0.1, 0, height);
+  fill(100, 250, 100);
+  rect(0, height, width, -levelHeight);
 
-  var filterFreq = map(mouseX, 0, width, 60, 15000);
+  let filterFreq = map(mouseX, 0, width, 60, 15000);
   filterFreq = constrain(filterFreq, 60, 15000);
-  var filterRes = map(mouseY, 0, height, 3, 0.01);
+  let filterRes = map(mouseY, 0, height, 3, 0.01);
   filterRes = constrain(filterRes, 0.01, 3);
   delay.filter(filterFreq, filterRes);
-  var delTime = map(mouseY, 0, width, .2, .01);
-  delTime = constrain(delTime, .01, .2);
+  let delTime = map(mouseY, 0, width, 0.2, 0.01);
+  delTime = constrain(delTime, 0.01, 0.2);
   delay.delayTime(delTime);
 }
 

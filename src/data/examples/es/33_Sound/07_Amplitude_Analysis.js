@@ -46,5 +46,5 @@ function draw() {
   stroke(0);
 
   // Dibuja una elipse con su tamaño proporcional al volumen
-  ellipse(width/2, height/2, 10+rms*200, 10+rms*200);
+  ellipse(width / 2, height / 2, 10 + rms * 200, 10 + rms * 200);
 }

@@ -38,8 +38,8 @@ class Ball {
   constructor(xin, yin, din, idin, oin) {
     this.x = xin;
     this.y = yin;
-    let vx = 0;
-    let vy = 0;
+    this.vx = 0;
+    this.vy = 0;
     this.diameter = din;
     this.id = idin;
     this.others = oin;
@@ -61,8 +61,8 @@ class Ball {
         let targetY = this.y + sin(angle) * minDist;
         let ax = (targetX - this.others[i].x) * spring;
         let ay = (targetY - this.others[i].y) * spring;
-        vx -= ax;
-        vy -= ay;
+        this.vx -= ax;
+        this.vy -= ay;
         this.others[i].vx += ax;
         this.others[i].vy += ay;
       }
@@ -70,22 +70,22 @@ class Ball {
   }
 
   move() {
-    vy += gravity;
-    this.x += vx;
-    this.y += vy;
+    this.vy += gravity;
+    this.x += this.vx;
+    this.y += this.vy;
     if (this.x + this.diameter / 2 > width) {
       this.x = width - this.diameter / 2;
-      vx *= friction;
+      this.vx *= friction;
     } else if (this.x - this.diameter / 2 < 0) {
       this.x = this.diameter / 2;
-      vx *= friction;
+      this.vx *= friction;
     }
     if (this.y + this.diameter / 2 > height) {
       this.y = height - this.diameter / 2;
-      vy *= friction;
+      this.vy *= friction;
     } else if (this.y - this.diameter / 2 < 0) {
       this.y = this.diameter / 2;
-      vy *= friction;
+      this.vy *= friction;
     }
   }
 

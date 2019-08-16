@@ -6,8 +6,8 @@
  * is a floating-point number, which means it is a number that has a decimal
  * place.
  */
-var a = 0;  // Create a global variable "a" of type Number
-var b = 0;  // Create a global variable "b" of type Number
+let a = 0;  // Create a global variable "a" of type Number
+let b = 0;  // Create a global variable "b" of type Number
 
 function setup() {
   createCanvas(720, 400);

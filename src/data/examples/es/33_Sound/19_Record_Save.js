@@ -9,12 +9,12 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
-var mic, recorder, soundFile;
+let mic, recorder, soundFile;
 
-var state = 0; // presionar el ratón cambiará el estado de grabar, a parar y a reproducir
+let state = 0; // presionar el ratón cambiará el estado de grabar, a parar y a reproducir
 
 function setup() {
-  createCanvas(400,400);
+  createCanvas(400, 400);
   background(200);
   fill(0);
   text('Enable mic and click the mouse to begin recording', 20, 20);
@@ -38,24 +38,19 @@ function setup() {
 function mousePressed() {
   // usar el booleano '.enabled' (permitido) para asegurarse que el micrófono haya sido habilitado por el usuario (si no grabaríamos silencio)
   if (state === 0 && mic.enabled) {
-
     // indicar al grabador que grabe en el objeto p5.SoundFile, que usaremos para la reproducción
     recorder.record(soundFile);
 
-    background(255,0,0);
+    background(255, 0, 0);
     text('Recording now! Click to stop.', 20, 20);
     state++;
-  }
-
-  else if (state === 1) {
+  } else if (state === 1) {
     recorder.stop(); // parar el grabador, y enviar el resultado al archivo de audio soundFile
 
-    background(0,255,0);
+    background(0, 255, 0);
     text('Recording stopped. Click to play & save', 20, 20);
     state++;
-  }
-
-  else if (state === 2) {
+  } else if (state === 2) {
     soundFile.play(); // reproduce el sonido
     saveSound(soundFile, 'mySound.wav'); // almacena el archivo
     state++;

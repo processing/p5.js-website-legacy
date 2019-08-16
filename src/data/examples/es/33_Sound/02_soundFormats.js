@@ -21,7 +21,7 @@
  * un archivo de audio y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em>
  */
 
-var song;
+let song;
 
 function preload() {
   // hemos incluido un archivo .ogg y otro .mp3
@@ -38,15 +38,16 @@ function setup() {
 
   // canción cargada durante preload(), lista para ser reproducida durante setup()
   song.play();
-  background(0,255,0);
+  background(0, 255, 0);
 }
 
 function mousePressed() {
-  if ( song.isPlaying() ) { // .isPlaying() retorna una variable booleana
+  if (song.isPlaying()) {
+    // .isPlaying() retorna una variable booleana
     song.pause();
-    background(255,0,0);
+    background(255, 0, 0);
   } else {
     song.play(); // la reproducción continuará desde el instante en que fue pausado.
-    background(0,255,0);
+    background(0, 255, 0);
   }
 }

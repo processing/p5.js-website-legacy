@@ -14,10 +14,10 @@
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">biblioteca p5.sound</a>
  * y un archivo de audio.</span></em>
  */
-var osc, envelope, fft;
+let osc, envelope, fft;
 
-var scaleArray = [60, 62, 64, 65, 67, 69, 71, 72];
-var note = 0;
+let scaleArray = [60, 62, 64, 65, 67, 69, 71, 72];
+let note = 0;
 
 function setup() {
   createCanvas(710, 200);
@@ -41,9 +41,9 @@ function setup() {
 function draw() {
   background(20);
 
-  if (frameCount % 60 == 0 || frameCount == 1) {
-    var midiValue = scaleArray[note];
-    var freqValue = midiToFreq(midiValue);
+  if (frameCount % 60 === 0 || frameCount === 1) {
+    let midiValue = scaleArray[note];
+    let freqValue = midiToFreq(midiValue);
     osc.freq(freqValue);
 
     envelope.play(osc, 0, 0.1);
@@ -51,11 +51,11 @@ function draw() {
   }
 
   // graficar el análisis de frecuencia de FFT.analyze() en el lienzo
-  var spectrum = fft.analyze();
-  for (var i = 0; i < spectrum.length/20; i++) {
-    fill(spectrum[i], spectrum[i]/10, 0);
-    var x = map(i, 0, spectrum.length/20, 0, width);
-    var h = map(spectrum[i], 0, 255, 0, height);
-    rect(x, height, spectrum.length/20, -h);
+  let spectrum = fft.analyze();
+  for (let i = 0; i < spectrum.length / 20; i++) {
+    fill(spectrum[i], spectrum[i] / 10, 0);
+    let x = map(i, 0, spectrum.length / 20, 0, width);
+    let h = map(spectrum[i], 0, 255, 0, height);
+    rect(x, height, spectrum.length / 20, -h);
   }
 }

@@ -8,8 +8,8 @@
  */
 // Adaptado de "Learning Processing" por Daniel Shiffman
 // learningprocessing.com
-var input;
-var analyzer;
+let input;
+let analyzer;
 
 function setup() {
   createCanvas(710, 200);
@@ -23,20 +23,20 @@ function setup() {
 
 function draw() {
   // obtén el volumen general (entre 0.0 y 1.0)
-  var volume = input.getLevel();
+  let volume = input.getLevel();
 
   // si volume > 0.1,  se dibuja un rectángulo en una posición aleatoria.
   // a mayor volumen, más grande el rectángulo.
-  var threshold = 0.1;
+  let threshold = 0.1;
   if (volume > threshold) {
     stroke(0);
     fill(0, 100);
-    rect(random(40, width), random(height), volume*50, volume*50);
+    rect(random(40, width), random(height), volume * 50, volume * 50);
   }
 
   // grafica el volumen potencial general, con una línea en el umbral
-  var y = map(volume, 0, 1, height, 0);
-  var ythreshold = map(threshold, 0, 1, height, 0);
+  let y = map(volume, 0, 1, height, 0);
+  let ythreshold = map(threshold, 0, 1, height, 0);
 
   noStroke();
   fill(175);
