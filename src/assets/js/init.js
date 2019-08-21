@@ -44,10 +44,9 @@ window.onload = function() {
   }
 
   // =================================================
-  // set tagline
+  // set language and tagline
   var path = window.location.pathname;
   var parts = path.split('/');
-  var tagInd = -1;
   for (var i=0; i<parts.length; i++) {
     if (parts[i].length) {
       var langMatch = 0;
@@ -57,18 +56,17 @@ window.onload = function() {
         }
       }
       if (!langMatch) {
-        tagInd = i;
         break;
       }
     }
   }
-  if (tagInd !== -1) {
-    var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
-    if (taglines.length) {
-      var taglineInd = Math.floor(taglines.length * Math.random());
-      taglines[taglineInd].style.display = 'block';
-    }
+
+  var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
+  if (taglines.length) {
+    var taglineInd = Math.floor(taglines.length * Math.random());
+    taglines[taglineInd].style.display = 'block';
   }
+  
 
 
   // ===============================================

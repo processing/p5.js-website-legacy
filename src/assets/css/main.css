@@ -18,11 +18,11 @@
 */
 
 
-#home-page #container {
+#home-page #home {
   pointer-events: none;
 }
 
-#home-page #container a {
+#home-page #home a {
   pointer-events: all !important;
 }
 
@@ -37,10 +37,6 @@
   position: absolute;
   top: 0;
 }
-
-/*#p5_logo {
-  position: absolute;
-}*/
 
 .tagline {
   display: none;
@@ -273,7 +269,7 @@
   //////////////////////////////////////////////////
 */
 
-#reference-page section h1 {
+#reference-page main h1 {
   float:left;
 }
 
@@ -959,13 +955,6 @@ variable */
     margin:30px 0px 30px 0px;
 }
 
-
-/* p5.accessibility */
-.textoutput_button, #toggleTextOutput {
-  position: absolute;
-  left: -9999px !important;
-}
-
 /*
   //////////////////////////////////////////////////
     GALLERY
@@ -1149,41 +1138,6 @@ a.nounderline:hover {
     border: none;
 }
 
-.skip {
-    position: absolute;
-    top: -1000px;
-    height: 1px;
-    width: 1px;
-    text-align: left;
-    overflow: hidden;
-    font-family: AvenirNextLTW01-Medium;
-    font-size: 0.75em;
-    font-weight: normal;
-    border: 0;
-    padding: 5px 10px 3px;
-    background: #ed225d;
-    color: #fff !important;
-    outline: 0 !important;
-}
-a.skip:active,
-a.skip:focus,
-a.skip:hover {
-    width: auto;
-    height: auto;
-    overflow: visible;
-}
-@media (min-width: 720px) {
-    .skip {
-        left: -1000px;
-    }
-    a.skip:active,
-    a.skip:focus,
-    a.skip:hover {
-        top: 52px;
-        left: 28px;
-    }
-}
-
 
 .here {
     color:#ED225D !important;
@@ -1255,6 +1209,11 @@ h4 {
 
 h4 + p {display: inline;}
 
+/*
+  //////////////////////////////////////////////////
+    HEADER
+  //////////////////////////////////////////////////
+*/
 
 #family a:link, #family a:visited {
     margin: 0.4em;
@@ -1282,20 +1241,25 @@ h4 + p {display: inline;}
     background-color: rgba(255,255,255,0.85);  /* */
 }
 
-#family span {
-    margin: 0.5em;
-    color:#333 !important;
+#processing-sites {
+  margin: 0.375em 0;
 }
 
-#family p.left {
-    float: left;
-    margin:0.375em 0 0.375em 2em;
+#processing-sites li {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
 }
 
-#family p.right {
-    float: right;
-    margin:0.375em 0 0.375em 0;
+#processing-sites li:first-child {
+  margin-left: 2em;
 }
+
+#processing-sites li:last-child {
+  float: right;
+  margin-right: 2em;
+}
+
 
 #family form {
     float: right;
@@ -1343,7 +1307,7 @@ h4 + p {display: inline;}
   margin-top: 0;
 }
 
-section {
+main {
     padding:0;
     /*
     margin:0 auto;
@@ -1351,7 +1315,7 @@ section {
     */
 }
 
-section p, section li {
+main p, main li {
     font-size: 1.20em;
 }
 
@@ -1371,7 +1335,7 @@ li {
     margin: 0 0 1em 0;
 }
 
-section li {
+main li {
     margin: 0 0 1em 0.04em;
 }
 
@@ -1404,7 +1368,7 @@ ul.inside {
     margin-bottom: 0.25em;
 }
 
-img, section div img {
+img, main div img {
     margin: 0.5em 0.5em 0 0;
     width:100%;
 }
@@ -1509,23 +1473,23 @@ footer {
  */
 
 .hidden {
-    display: none !important;
-    visibility: hidden;
+  display: none !important;
+  visibility: hidden;
 }
 
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
 
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /*
@@ -1533,14 +1497,14 @@ footer {
  * when navigated to via the keyboard: h5bp.com/p
  */
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
 
 /*
@@ -1620,12 +1584,7 @@ footer {
 
   }
 
-  #home-page #container {
-      padding:0;
-      margin-top: -0.8em;
-  }
-
-  section {
+  main {
       width:36em; /* 36-38 em for about 10-14 words at this size   */
   }
 
@@ -1682,12 +1641,6 @@ footer {
       margin-top:3em;
       padding-top: 0.5em;
       /*border-top: 0.06em solid rgba(51,51,51,0.25);*/
-  }
-
-
-  #home-page .column-span {
-          /*margin:0 0.75em 0 -1.85em; /* margin-right: 0.75em;  */
-      margin-left:7.7em;
   }
 
 
@@ -2105,6 +2058,14 @@ iframe {
   //////////////////////////////////////////////////
 */
 
+#i18n-buttons {
+  margin: 0;
+}
+
+#i18n-buttons li {
+  list-style: none;
+  display: inline-block;
+}
 
 #i18n-btn button {
   border: none !important;

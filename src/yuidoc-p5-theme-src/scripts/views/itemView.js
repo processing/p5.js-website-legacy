@@ -139,7 +139,7 @@ define([
 
             for (var i = 0; i < examples.length; i++) {
               $(examples[i]).prepend(
-                '<span class="visuallyhidden">' +
+                '<span class="sr-only">' +
                   cleanItem.name +
                   ' example ' +
                   (i + 1) +
@@ -151,7 +151,7 @@ define([
             for (var j = 0; j < alts.length; j++) {
               if (j < canvases.length) {
                 $(canvases[j]).append(
-                  '<span class="visuallyhidden">' + alts[j] + '</span>'
+                  '<span class="sr-only">' + alts[j] + '</span>'
                 );
               }
             }

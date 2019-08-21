@@ -3,76 +3,51 @@ title: home
 slug: /
 ---
 <div id="home-page">
-  <div id="container">
+  {{> sidebar}}
 
-    <div class="column-span">
-      <nav role="navigation">
-        <ul id="menu" class="top_menu">
-          <li><a href="{{root}}/download/">{{#i18n "Download"}}{{/i18n}}</a></li>
-          <li><div class="separator-design-element">*</div></li>
+  <div class="column-span">
+    <main id="home">
 
-          <li><a href="{{root}}/get-started/">{{#i18n "Start"}}{{/i18n}}</a></li>
-          <li><div class="separator-design-element">*</div></li>
+      <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
+        <input type="hidden" name="as_sitesearch" value="p5js.org" />
+        <input id='search_field' type="text" name="q" id="q" size="20" />
+        <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
+      </form>
+      
+      <h1>{{#i18n "p1xh1"}}{{/i18n}}</h1>
+      <p>{{#i18n "p1x1"}}{{/i18n}}</p>
+      <p>{{#i18n "p1x2"}}{{/i18n}}</p>
 
-          <li><a href="{{root}}/reference">{{#i18n "Reference"}}{{/i18n}}</a></li>
-          <li><div class="separator-design-element">*</div></li>
+      <h1>{{#i18n "p2xh1"}}{{/i18n}}</h1>
+      <p>{{#i18n "p2x1"}}{{/i18n}}</p>
+      <p>{{#i18n "p2x2"}}{{/i18n}}<a href="https://processing.org" target="_blank">Processing</a>{{#i18n "p2x3"}}{{/i18n}}<a href="https://processingfoundation.org" target="_blank">Processing Foundation</a>{{#i18n "p2x4"}}{{/i18n}}</p>
+      <p>{{#i18n "p2x5"}}{{/i18n}}<a href="community/">{{#i18n "p2x6"}}{{/i18n}}</a>{{#i18n "p2x7"}}{{/i18n}}</p>
 
-          <li><a href="{{root}}/libraries/">{{#i18n "Libraries"}}{{/i18n}}</a></li>
-          <li><div class="separator-design-element">*</div></li>
+      <h1>{{#i18n "p3xh1"}}{{/i18n}}</h1>
+      <p>{{#i18n "p3xp1"}}{{/i18n}}<a href="https://editor.p5js.org" target="_blank">p5.js Editor</a>{{#i18n "p3xp2"}}{{/i18n}}<a href="get-started/">{{#i18n "p3xp3"}}{{/i18n}}</a>{{#i18n "p3xp4"}}{{/i18n}}<a href="reference/">{{#i18n "p3xp5"}}{{/i18n}}</a>{{#i18n "p3xp6"}}{{/i18n}}</p>
 
-          <li><a href="{{root}}/learn/">{{#i18n "Learn"}}{{/i18n}}</a></li>
-          <li><div class="separator-design-element">*</div></li>
+      <h1>{{#i18n "p4xh1"}}{{/i18n}}</h1>
+      <p>{{#i18n "p4xp1"}}{{/i18n}}</p>
+      <h2 id="involvement-options" class="sr-only">{{#i18n "p4xp2"}}{{/i18n}}</h2>
+      <ul aria-labelledby=”involvement-options”>
+        <li>{{#i18n "p4xp3"}}{{/i18n}}</li>
+        <li>{{#i18n "p4xp4"}}{{/i18n}}</li>
+        <li>{{#i18n "p4xp5"}}{{/i18n}}</li>
+        <li>{{#i18n "p4xp6"}}{{/i18n}}</li>
+      </ul>
 
-          <li><a href="{{root}}/community/">{{#i18n "Community"}}{{/i18n}}</a></li>
-        </ul>
-      </nav>
+    </main>
+    {{> footer}}
+  </div> <!-- end column-span -->
 
-      <div id="content">
-        <main id="home" >
-          <p>
-            {{#i18n "p1x1"}}{{/i18n}}<a href ="http://processing.org" target="_blank">Processing</a>{{#i18n "p1x2"}}{{/i18n}}
-          </p>
+<!--   <div id="credits" tabindex='-1'>
+    {{#i18n "sketch_info"}}{{/i18n}}<br>
+    <a href='http://ccfest.rocks/' target="_blank">{{#i18n "sketch_info_link"}}{{/i18n}}</a>
+    <br>
+  </div> -->
 
-          <p>
-            {{#i18n "p2x1"}}{{/i18n}} <a href="libraries/">{{#i18n "libraries"}}{{/i18n}} </a>{{#i18n "p2x2"}}{{/i18n}}
-            <a href="examples/">{{#i18n "interact"}}{{/i18n}} </a> {{#i18n "p2x3"}}{{/i18n}} </p>
-          <p>
+  <p class="clearfix">&nbsp;</p>
 
-          <p style="margin-bottom:2em">{{#i18n "p3x1"}}{{/i18n}} <a href="https://editor.p5js.org" target="_blank">{{#i18n "p3x2"}}{{/i18n}}</a></p>
-
-        </main>
-      </div>
-      {{> footer}}
-    </div> <!-- end column-span -->
-
-    <div id="credits" tabindex='-1'>
-        {{#i18n "sketch_info"}}{{/i18n}}<br>
-        <a href='http://ccfest.rocks/' target="_blank">{{#i18n "sketch_info_link"}}{{/i18n}}</a>
-        <br>
-    </div>
-
-
-  </div> <!-- end container -->
-
-  <object type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" id="asterisk-design-element">*</object>
-  <iframe tabindex='-1' id='home-sketch-frame' src='{{assets}}/p5_featured/Grace_Obergfell/'></iframe>
+  <object type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">*</object>
+  <!-- <iframe tabindex='-1' id='home-sketch-frame' src='{{assets}}/p5_featured/Grace_Obergfell/'></iframe> -->
 </div> <!-- end home-page -->
-
-
-<script type='text/javascript'>
-  // Microsoft Edge and IE appear to have a bug whereby
-  // CSS pointer-events don't do anything on purely inline elements.
-  // This means that almost all our links will be inaccessible, so
-  // we'll force them to be styled as inline-block on affected browsers.
-  // This does result in a few visual artifacts, but it's better than
-  // having completely inaccessible links.
-
-  // http://stackoverflow.com/a/33505753/2422398
-  var EDGE_IE_REGEX = /(?:\b(MS)?IE\s+|\bTrident\/7\.0;.*\s+rv:|\bEdge\/)(\d+)/;
-  if (EDGE_IE_REGEX.test(navigator.userAgent)) {
-    var links = document.getElementsByTagName('a');
-    for (var i=0, l=btns.length; i < l; i++) {
-      links[i].style.display = 'inline-block';
-    }
-  }
-</script>
