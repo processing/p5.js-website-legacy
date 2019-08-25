@@ -1012,112 +1012,179 @@ ul.statement-list {
   //////////////////////////////////////////////////
 */
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,900i|Fugaz+One:400&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,900i&display=swap');
 
-#showcase-page section > h1 {
-  font: italic 900 5.5rem "Montserrat", sans-serif;
-	color: #ED225D;
-	text-transform: uppercase;
-	letter-spacing: 0.25rem;
+#showcase-page .showcase-intro h1 {
+  font: italic 900 8vw "Montserrat", sans-serif;
+  color: #ED225D;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
 }
 
-#showcase-page section > h2 {
-  font: italic 900 2rem "Montserrat", sans-serif; /* 2.5rem */
+#showcase-page .showcase-intro p {
+  font: 400 1.5rem "Montserrat", sans-serif;
+  line-height: 2;
+}
+
+#showcase-page .showcase-featured h2, #showcase-page .project-page h2{
+  font: italic 900 2rem "Montserrat", sans-serif;
   color: #ED225D;
+  text-align: center;
   letter-spacing: 0.05rem;
 }
 
-/*
-#showcase-page img {
-  object-fit: cover;
-  object-position: center center;
-}
-*/
-
-#showcase-page article.showcase-intro p {
-  font: 400 1.5rem "Montserrat", sans-serif;
-  line-height: 2.5rem;
+#showcase-page ul.left-column, #showcase-page ul.right-column, 
+#showcase-page ul.project-tags, #showcase-page ul.links {
+  list-style: none;
 }
 
-#showcase-page article.featured h3 {
+#showcase-page img[alt] {
+  font-size: 0.9rem;
+}
+
+#showcase-page .showcase-featured {
+  margin-top: 15%;
+}
+
+#showcase-page .showcase-featured h3.title {
   font: italic 900 1rem "Montserrat", sans-serif;
 }
 
-#showcase-page article.featured a, a:visited {
+#showcase-page .showcase-featured p.credit {
+  margin-top: 3%;
+  font: 500 1rem "Montserrat", sans-serif;
+}
+
+#showcase-page .showcase-featured p.description {
+  margin-top: 9%;
+  font-size: 1rem;
+}
+
+#showcase-page .link-decoration {
+  margin: 24px 0;
+	text-align: center;
+}
+
+#showcase-page .link-decoration a, #showcase-page .link-decoration a:visited {
+  padding: 10px 10px;
+  border: solid #ED225D 2px;
+  box-shadow: 4px 4px 0 #ED225D;
+  
+  font: 1.5rem "Montserrat", sans-serif;
+  color: #ED225D;
+  letter-spacing: 0.02rem;
+}
+
+#showcase-page .showcase-featured a, #showcase-page .showcase-featured a:visited {
   font-size: 1.2rem;
   color: #ED225D;
   letter-spacing: 0.02rem;
   line-height: 1.5;
 }
 
-#showcase-page article.featured a::after {
+#showcase-page .showcase-featured a::after {
 	content: " →";
 }
 
-#showcase-page article.link-decoration {
-  margin: 24px 0;
-	text-align: center;
+#showcase-page ul.project-tags {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: -3%;
 }
 
-#showcase-page article.link-decoration a, a:visited {
-  padding: 10px 10px;
-  border: solid #ED225D 2px;
-	box-shadow: 4px 4px 0 #ED225D;
-  font: 1.5rem "Montserrat", sans-serif;
-  color: #ED225D;
-  letter-spacing: 0.02rem;
+#showcase-page ul.project-tags li {
+  margin: 5px;
 }
 
-/* 
-#showcase-page article.featured p {
-  font: ;
+#showcase-page .tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border: dashed #7FDBCA;
+  border-radius: 27px;
+
+  font: 0.7rem "Montserrat", sans-serif;
+  color: #333;
 }
-*/
 
 /*
-@media only screen and (max-width: 991.98px){
-  #showcase-page article.featured a, a:visited {
-    text-decoration: underline dotted #ED225D;
+  //////////////////////////////////////////////////
+    SHOWCASE - FEATURED PROJECT PAGE
+  //////////////////////////////////////////////////
+*/
+
+/* Link style for mobile and tablet screens (no :hover state) */
+/*
+@media (max-width: 991.98px){
+  #showcase-page .project-page a, #showcase-page .project-page a:visited {
+    color:#ED225D;
+    text-decoration: none;
+    padding-bottom: 0.11em;
+    border-bottom: 0.11em dashed;
+    border-bottom-color: #ED225D;
+    transition: border-bottom 30ms linear;
   }
 }
 */
 
-#showcase-page section.project-showcased h2 {
+#showcase-page .project-page h2 {
   text-align: center;
   line-height: 1.4;
 }
 
-#showcase-page section.project-showcased h3 {
-  font: 500 1rem "Montserrat", sans-serif; /* 1.2rem */
-  letter-spacing: 0.01rem; /* 0.02rem */
+/* Visually hidden headings to delineate project page sections */
+#showcase-page .project-resources h3#resources, #showcase-page .project-qa h3#qa {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+#showcase-page .project-info, #showcase-page .project-resources, #showcase-page .project-credit {
+  text-align: center;
+}
+
+#showcase-page article.project-resources {
+  display: flex;
+  margin-top: 3%;
+}
+
+#showcase-page .project-resources ul.links {
+  display: inline-grid;
+  grid-auto-flow: row;
+  grid-gap: 3vw;
+  justify-items: center;
+  margin: auto;
+
+  font: 500 .7rem "Montserrat", sans-serif;
+  letter-spacing: 0.01rem;
   line-height: 1.5;
 }
 
-#showcase-page article.project-info {
-  text-align: center;
+@media (min-width: 480px){
+  #showcase-page .project-resources ul.links {
+    grid-auto-flow: column;
+  }
 }
 
-#showcase-page article.project-info p {
-  font: 1rem "Montserrat", sans-serif;
+#showcase ul.links li {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+#showcase-page .project-credit h3, #showcase-page .project-qa h3 {
+  font: 500 1rem "Montserrat", sans-serif;
   letter-spacing: 0.01rem;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
-#showcase-page .tag-highlighted {
-  padding: 0.4rem 0.9rem; /* 0.5rem 0.8rem / 0.125rem 0.5rem; */
-	background-color: #7FDBCA;
-	border-radius: 0.9rem; /* 0.3rem */
-	color: #333;
-}
-
-/*
-#showcase-page .code-snippet {
-  
-}
-*/
-
-#showcase-page article.project-credit {
-  text-align: center;
+#showcase-page .project-credit h3#creator {
+  font: italic 900 1.7rem "Montserrat", sans-serif;
+  letter-spacing: .05rem;
 }
 
 #showcase-page sup.note {
@@ -1125,25 +1192,22 @@ ul.statement-list {
   letter-spacing: 0.04rem;
 }
 
-#showcase-page article.project-credit h2 {
-  font: italic 900 2rem "Montserrat", sans-serif;
-  letter-spacing: .05rem;
-  /*  color: #0042E6; */
-}
-
-#showcase-page article.project-qa {
+#showcase-page .project-qa {
   width: 90%;
   float: right;
 }
 
 #showcase-page .project-qa h3 {
   margin-left: 0%;
-  /* transform: rotate(-3deg); */
 }
 
 #showcase-page .project-qa p {
   float: left;
   margin-left: 20%;
+}
+
+#showcase-page .project-qa code {
+  font-size: 1.1rem;
 }
 
 
