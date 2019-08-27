@@ -3,7 +3,7 @@ title: examples
 slug: examples/
 ---
 
-<div id="learn-page">
+<div id="examples-page">
 
   {{> sidebar}}
 
@@ -12,7 +12,7 @@ slug: examples/
     <main id="content" >
       <h1>{{#i18n "Examples"}}{{/i18n}}</h1>
 
-      <div class="column_0">
+      <div class="column_0 column">
       <% var t = 0; var col=1; for(var topic in all) { %>
         <h3 name='<%=topic.toLowerCase()%>' class='anchor'>{{#i18n "<%=topic%>"}}{{/i18n}}</h3>
         <p>
@@ -29,7 +29,7 @@ slug: examples/
         </p>
         <% if (t >= total/3) { %>
           </div>
-          <div class="column_<%=col%>">
+          <div class="column_<%=col%> column">
         <% col++; t=0; } %>
       <% } %>
       </div>

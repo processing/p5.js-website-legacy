@@ -250,16 +250,8 @@
 */
 
 
-#learn-page h3 {
-  font-weight: bold;
-  font-size: 1.2em;
-  font-family: times;
-  margin: 0.5em 0 0 0;
-}
-
-
-.topic-link {
-  font-weight: bold;
+#examples-page .column {
+  margin-bottom: 2em;
 }
 
 
@@ -474,10 +466,6 @@ textarea {
     line-height: 1.45em;
     padding: 0.5em 1em 0.5em 1em;
     border:none;
-}
-
-textarea:focus {
-    outline: none;
 }
 
 body {
@@ -739,18 +727,8 @@ display: block;
     z-index: 10;
 }
 
-
-
-
-/*#contribute-item:hover {
-  background-color:  rgba(190, 190, 190, 0.5);
-}*/
-
-
-
-
 h3.contribute-title{
-  font-size: 1.3em;
+  font-size: 1.33em;
   margin: 0 0 27px 0;
   padding-bottom: 0.3em;
   border-bottom: 0.09em dashed;
@@ -766,17 +744,21 @@ h3.contribute-title{
 .label {
     position: relative;
 }
-.label h4 {
+.label h3 {
     color: white;
     position: absolute;
     top: 0;
     margin: 1em;
 }
 
-.label:hover h4 {
+.label:hover h3 {
     color:#ED225D;
 }
 
+h3 {
+  font-size: 1.33em;
+  margin: 1em 0 0 0;
+}
 
 #exampleDisplay, #exampleFrame, #exampleEditor {
     width: 36em;
@@ -1081,7 +1063,8 @@ body {
     /* gray #333;
     og p5 pink #ED225D;
     blue #2D7BB6 (a lighter Processing blue â€” it's our take on it) */
-    outline: none !important;
+    
+    /*outline: none !important; keep on for accessibility */
     background: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -1090,29 +1073,14 @@ body {
     -ms-user-select: none;
     user-select: none;
 }
-/*#menu li a:focus {
-    outline-style: solid;
-    outline-color: #ed225d;
-    outline-width: 2px;
-    outline-offset: 0;
-    background: #ed225d;
-    color: #fff;
-}*/
-
 /* body links  */
 
 a:link,
 a:visited {
     color: #2D7BB6;
     text-decoration: none;
-    outline: none !important;
+    /*outline: none !important; keep on for accessibility */ 
 }
-/*a:focus {
-    outline-style: solid;
-    outline-color: #2D7BB6;
-    outline-width: 1px;
-    outline-offset: 1px;
-}*/
 
 a:active,
 a:hover,
@@ -1127,7 +1095,7 @@ a:hover,
 
 a.anchor {
     color: #222 !important;
-    outline: none;
+    /*outline: none !important; keep on for accessibility */ 
 }
 
 a.anchor:hover {
@@ -1207,6 +1175,8 @@ h4 {
     margin: 1em 0 0 0;
 }
 
+
+h3 + p {display: inline;}
 h4 + p {display: inline;}
 
 /*
@@ -1837,6 +1807,7 @@ footer {
   }
 
   #learn-page #asterisk-design-element,
+  #examples-page #asterisk-design-element,
   #other-content-types-page #asterisk-design-element {
       bottom:-14%;
       left:-20%;
