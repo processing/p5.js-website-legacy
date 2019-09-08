@@ -23,7 +23,8 @@ module.exports = function(grunt) {
       dist: 'dist'
     },
     exec: {
-      build_examples: 'node <%= config.src %>/data/examples/build_examples/build.js <%= config.src %>/templates/pages/examples/'
+      build_examples: 'node <%= config.src %>/data/examples/build_examples/build.js <%= config.src %>/templates/pages/examples/',
+      build_libraries: 'node <%= config.src %>/data/libraries/build.js <%= config.src %>/templates/pages/libraries/'
     },
     watch: {
       assemble: {
@@ -321,9 +322,12 @@ module.exports = function(grunt) {
       all: {
         src: ['<%= config.dist %>/**/*.html',
             '!<%= config.dist %>/**/CHANGES.html',
-            '!<%= config.dist %>/**/README.html'],
+            '!<%= config.dist %>/**/README.html',
+            '!<%= config.dist %>/**/learn/*.html',
+            '!<%= config.dist %>/**/reference/**/*.html'],
         options: {
-          ignore: [/^This document appears to be written in English/]
+          ignore: [/^This document appears to be written in English/,
+                  /^Bad value “https:/]
         }
       }
     }
