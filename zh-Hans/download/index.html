@@ -158,7 +158,7 @@
           </div>
         </a>
 
-        <a class='support_link' href="http://cdnjs.com/libraries/p5.js">
+        <a class='support_link' href="http://cdnjs.com/libraries/p5.js" target="_blank">
           <div class="download_box half_box last_box">
             <h4>CDN</h4>
             <p>链接：
@@ -174,7 +174,7 @@
       <div class="link_group">
         <a name="editor" class="anchor"><h2>Editor</h2></a>
 
-        <a class='support_link' href="https://editor.p5js.org">
+        <a class='support_link' href="https://editor.p5js.org" target="_blank">
           <div class="download_box">
 
             <h4>p5.js Web Editor</h4>
@@ -225,14 +225,13 @@
         });
       });
       $('.support_link').on('click', function (e) {
-        e.preventDefault();
-        // if ($(this).hasClass('p5_link')) {
-        //   window.open($(this).attr('href'), '_self');
-        //   setTimeout( function() { window.location = 'support.html'; }, 2000);
-        // } else {
-          window.location = 'support.html';
-          window.open($(this).attr('href'));
-        // }
+        if ($(this).hasClass('p5_link')) {
+          e.preventDefault();
+          window.location = $(this).attr('href');
+          setTimeout( function() { window.location = 'support.html'; }, 2000);
+        } else {
+          setTimeout( function() { window.location = 'support.html'; }, 100);
+        }
 
       });
 
