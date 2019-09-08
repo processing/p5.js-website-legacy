@@ -83,6 +83,8 @@ var renderCode = function(sel) {
       var edit_button = document.createElement('button');
       edit_button.value = 'edit';
       edit_button.innerHTML = 'edit';
+      edit_button.id = 'edit'+i;
+      edit_button['aria-labelledby'] = edit_button.id+'example'+i;
       edit_button.className = 'edit_button';
       edit_space.appendChild(edit_button);
       edit_button.onclick = function(e) {
@@ -96,6 +98,8 @@ var renderCode = function(sel) {
       var reset_button = document.createElement('button');
       reset_button.value = 'reset';
       reset_button.innerHTML = 'reset';
+      reset_button.id = 'reset'+i;
+      reset_button['aria-labelledby'] = reset_button.id+'example'+i;
       reset_button.className = 'reset_button';
       edit_space.appendChild(reset_button);
       reset_button.onclick = function() {
@@ -115,6 +119,8 @@ var renderCode = function(sel) {
       var copy_button = document.createElement('button');
       copy_button.value = 'copy';
       copy_button.innerHTML = 'copy';
+      copy_button.id = 'copy'+i;
+      copy_button['aria-labelledby'] = copy_button.id+'example'+i;
       copy_button.className = 'copy_button';
       edit_space.appendChild(copy_button);
       copy_button.onclick = function() {
