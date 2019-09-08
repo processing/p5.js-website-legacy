@@ -22,12 +22,12 @@ slug: learn/
       </p>
       <p>
         This tutorial is intended for people who:
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>Have written p5.js sketches before.</li>
           <li>Are comfortable using javascript <a href='http://p5js.org/examples/structure-functions.html'>functions.</a></li>
           <li>Can run basic terminal commands.  If you are not familiar using a terminal here is a <a href='http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything'>good tutorial for getting comfortable.</a></li>
         </ul>
-      </p>
 
       <h2> Why unit test?</h2>
       <p>
@@ -35,16 +35,17 @@ slug: learn/
       </p>
       <p>
         Unit testing could have prevented this error and while you might not be launching spaceships (but by all means please try), unit testing can prevent a lot of headaches from the outset of your project to install day. It can help you:
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>improve your design and reduce bugs</li>
           <li>collaborate with others</li>
           <li>finish your project faster</li>
         </ul>
-      </p>
 
       <h2>Setting up for unit testing</h2>
       <p>
         Installing node:
+      </p>
         <ol>
           <li>First you must install node. If you already have node installed this assumes you are using version 4 or higher.  Node is a open source runtime environment for building server side applications.  Don’t worry if that sentence didn’t make sense.  You don’t have to understand all there is to know about node to do this tutorial.  If you are curious to learn more you can read the <a href='https://github.com/processing/p5.js/wiki/p5.js,-node.js,-socket.io'>p5.js node tutorial.</a></li>
           <li>On Mac, Linux, Windows:  Go to <a href='https://nodejs.org/en/'>https://nodejs.org/en/</a> and download the installer.  Open the installer and follow the directions.</li>
@@ -55,7 +56,6 @@ slug: learn/
             </code></pre>
           </li>
         </ol>
-      </p>
       <p>
         Update npm, the Node Package Manager.  Npm is a program that allows you to install software libraries that are compatible with node.  In your open terminal run the command:
         <pre><code class="language-javascript">
@@ -81,28 +81,29 @@ slug: learn/
       </p>
       <p>
         Let’s set up the project. This is what it would look like without any unit tests.
+      </p>
         <ol>
           <li>Make a folder called color_unit_test and open it</li>
           <li>
             Make a file called index.html and type the following code.  While you can just copy/paste it, typing it out will help you understand what it is doing better.  It is worth the time!<br />
-            <pre><code class="language-javascript"><xmp>
-              <!DOCTYPE html>
-              <html>
-              <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.20/p5.js"></script>
-                <script language="javascript" type="text/javascript" src="sketch.js"></script>
-                <style> body {padding: 0; margin: 0;} </style>
-              </head>
-              <body>
-              </body>
-              </html>
-            </xmp></code></pre>
+            <pre><code class="language-javascript">
+              &lt;!DOCTYPE html&gt;
+              &lt;html&gt;
+              &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                &lt;script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.20/p5.js"&gt;&lt;/script&gt;
+                &lt;script language="javascript" type="text/javascript" src="sketch.js"&gt;&lt;/script>&gt;
+                &lt;style&gt; body {padding: 0; margin: 0;} &lt;/style&gt;
+              &lt;/head&gt;
+              &lt;body&gt;
+              &lt;/body&gt;
+              &lt;/html&gt;
+            &lt;/code&gt;&lt;/pre&gt;
           </li>
           <li>
             make a file called sketch.js and put in the following code<br />
-            <pre><code class="language-javascript"><xmp>
+            <pre><code class="language-javascript">
               // This is for a unit test tutorial.
               // it should create a rectangle and allow you to iterate over
               // every single color.
@@ -146,16 +147,15 @@ slug: learn/
                   fillColor.levels[2] = 0;
                 }
               }
-            </xmp></code></pre>
+            </code></pre>
           </li>
           <li>
-           Open the index.html file in your browser (you don’t need to run a local server in this case). You should see a black box become red and then black again. This is the basis of looping over all the RGB colors. The problem you face is that there are 256 values for red, green, and blue, which means there are over 16 million combinations of colors! You can make this faster. However, making this faster will cause flashing lights which might give some people headaches or seizures. Please only increase this value if you do not have issues with flashing lights. The rest of the tutorial should be fine.  In the sketch.js file change the<pre><code class="language-javascript"><xmp>let colorValueIncrease = 33;</xmp></code></pre> and reload the page. However this still doesn’t guarantee this is working properly. You don’t have time to watch all the colors change nor can you tell yourself if it is iterating through the millions of colors. Change the colorValueIncrease variable back to 1 before you move on.
+           Open the index.html file in your browser (you don’t need to run a local server in this case). You should see a black box become red and then black again. This is the basis of looping over all the RGB colors. The problem you face is that there are 256 values for red, green, and blue, which means there are over 16 million combinations of colors! You can make this faster. However, making this faster will cause flashing lights which might give some people headaches or seizures. Please only increase this value if you do not have issues with flashing lights. The rest of the tutorial should be fine.  In the sketch.js file change the<pre><code class="language-javascript">let colorValueIncrease = 33;</code></pre> and reload the page. However this still doesn’t guarantee this is working properly. You don’t have time to watch all the colors change nor can you tell yourself if it is iterating through the millions of colors. Change the colorValueIncrease variable back to 1 before you move on.
           </li>
           <li>
             At 30 draw loops per second it would take over six days to loop through all of the colors. You certainly don’t have time to do that once, and would never be able to check and see if it worked every time you updated our code. What if you accidentally change something in our draw loop that breaks the code right before install?  You wouldn’t know until it was live and everyone saw your sketch break.
           </li>
         </ol>
-      </p>
 
       <h2>Your first unit tests</h2>
       <p>
@@ -163,7 +163,7 @@ slug: learn/
       </p>
       <p>
         In the folder called color_unit_test that you already created, make a new folder called test.  Open the test folder and make a file called test.js.  Type this code into test.js
-        <pre><code class="language-javascript"><xmp>
+        <pre><code class="language-javascript">
           'use strict';
 
           // Import the expect library.  This is what allows us to check our code.
@@ -194,32 +194,32 @@ slug: learn/
               done();
             });
           });
-        </xmp></code></pre>
+        </code></pre>
       </p>
       <p>
         Save test.js and go back to your command line and <a href='http://ss64.com/bash/cd.html'>cd</a> into the main directory of our sketch called color_unit_test.  Type the command
-        <pre><code class="language-javascript"><xmp>mocha</xmp></code></pre>
+        <pre><code class="language-javascript">mocha</code></pre>
       </p>
       <p>
         into the command line and watch your first test run!  You should see something like:
-        <pre><code class="language-javascript"><xmp>
+        <pre><code class="language-javascript">
           these are my first tests for p5js
               ✓ should be a string
               ✓ should be equal to awesome
             2 passing (14ms)
-        </xmp></code></pre>
+        </code></pre>
       </p>
       <p>
         Let's look at what happens when tests fail. Change line 6 in test.js from:
-        <pre><code class="language-javascript"><xmp>let p5js = 'awesome';</xmp></code></pre>
+        <pre><code class="language-javascript">let p5js = 'awesome';</code></pre>
       </p>
       <p>
         to
-        <pre><code class="language-javascript"><xmp>let p5js = 42;</xmp></code></pre>
+        <pre><code class="language-javascript">let p5js = 42;</code></pre>
       </p>
       <p>
         Save test.js and go back to your terminal and run the mocha command again. You should see something like:
-        <pre><code class="language-javascript"><xmp>
+        <pre><code class="language-javascript">
           these are my first tests for p5js
               1) should be a string
               2) should be equal to awesome
@@ -234,16 +234,16 @@ slug: learn/
             2) these are my first tests for p5js should be equal to awesome:
                AssertionError: expected 42 to equal 'awesome'
                 at Context.<anonymous> (test/test.js:21:21)
-        </xmp></code></pre>
+        </code></pre>
       </p>
       <p>
         What is nice about these errors is:
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>They tell you the name of the test that you put in the describe() and it() functions</li>
           <li>They tell you what they expected with AssertionError: expected 42 to be a string</li>
           <li>They tell you what file and line of code had the problem test/test.js:14:24</li>
         </ul>
-      </p>
       <p>
         Now that you know the basics of unit testing you are ready to write some tests against your code and refactor your sketch!
       </p>
@@ -251,12 +251,12 @@ slug: learn/
       <h2>Test Driven Development</h2>
       <p>
         You are going to use Test Driven Development for the rest of this tutorial.  The idea is you write your unit tests first, run them and watch them fail, and then add code to sketch.js to make the tests pass.  This way you ensure your code is working as you expect every step of the way and that new code doesn’t break old code.  Your goal is to create a ColorIncreaser class that:
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>takes in an integer as the value to increase each time called colorValueIncrease.</li>
           <li>takes in an instance of the <a href='http://p5js.org/reference/#/p5/color'>p5 color class.</a></li>
           <li>has a function to increase the values in the color by the value in colorValueIncreases.</li>
         </ul>
-      </p>
       <p>
         Delete everything in test.js and replace it with this
         <pre><code class="language-javascript">
@@ -424,7 +424,7 @@ slug: learn/
         <pre><code class="language-javascript">
           it('should have rgb values 255, 0, 0 after calling increaseFillColor 255 times', function(done) {
             //it is 256^1 - 1 because it starts with the color black
-            for (let count = 0; count < 255; count += 1) {
+            for (let count = 0; count &lt; 255; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
             expect(colorIncreaser.fillColor.levels[0]).to.equal(255)
@@ -436,7 +436,7 @@ slug: learn/
 
           it('should have rgb values 255, 255, 0 after calling increaseFillColor 65535 times', function(done) {
             //it is 256^2 - 1 because it starts with the color black
-            for (let count = 0; count < 65535; count += 1) {
+            for (let count = 0; count &lt; 65535; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
             expect(colorIncreaser.fillColor.levels[0]).to.equal(255)
@@ -448,7 +448,7 @@ slug: learn/
 
           it('should have rgb values 255, 255, 255 after calling increaseFillColor 16777215 times', function(done) {
             //it is 256^3 - 1 because it starts with the color black
-            for (let count = 0; count < 16777215; count += 1) {
+            for (let count = 0; count &lt; 16777215; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
             expect(colorIncreaser.fillColor.levels[0]).to.equal(255)
@@ -509,6 +509,7 @@ slug: learn/
         All tests should pass now and you can expect your code to behave as you want!  As a bonus when you change the code in the future the tests will let you know that it still works as intended!<br />
         Congratulations, you made it to the end! Unit tests and Test Driven Development are powerful ways to build code that you know works just as you expect. <br />
         You can continue to build on your skills by
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>adding tests to your own sketches and projects</li>
           <li>Reading up on the tools we’ve used here:</li>
@@ -520,7 +521,6 @@ slug: learn/
             <li><a href='https://en.wikipedia.org/wiki/Mock_object'>Mock Objects</a></li>
           </ul>
         </ul>
-      </p>
     </main>
 
     {{> footer}}

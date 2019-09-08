@@ -470,18 +470,17 @@ function draw() {
       <h2>Mouse events</h2>
       <!-- added mouseClicked() mouseOver() mouseOut() doubleClicked()-->
       <p>The mouse event functions are <a href="/reference/#/p5/mousePressed">mousePressed()</a>, <a href="/reference/#/p5/mouseReleased">mouseReleased()</a>, <a href="/reference/#/p5/mouseClicked">mouseClicked()</a>, <a href="/reference/#/p5/mouseMoved">mouseMoved()</a>, <a href="/reference/#/p5/mouseDragged">mouseDragged()</a>, <a href="/reference/#/p5/mouseOver">mouseOver()</a>, and <a href="/reference/#/p5/mouseOut">mouseOut()</a>:</p>
-      <p>
-        <ul>
-          <li><a href="/reference/#/p5/mousePressed">mousePressed()</a> - Code inside this block is run one time when a mouse button is pressed</li>
-          <li><a href="/reference/#/p5/mouseReleased">mouseReleased()</a> - Code inside this block is run one time when a mouse button is released</li>
-          <li><a href="/reference/#/p5/mouseClicked">mouseClicked()</a> - Code inside this block is run once after a mouse button is pressed and released over the element</li>
-          <li><a href="/reference/#/p5/doubleClicked">doubleClicked()</a> - Code inside this block is run once after a mouse button is pressed and released over the element twice</li>
-          <li><a href="/reference/#/p5/mouseMoved">mouseMoved()</a> - Code inside this block is run one time when the mouse is moved</li>
-          <li><a href="/reference/#/p5/mouseDragged">mouseDragged()</a> - Code inside this block is run one time when the mouse is moved while a mouse button is pressed</li>
-          <li><a href="/reference/#/p5/mouseOver">mouseOver()</a> - Code inside this block is run once after every time a mouse moves onto the element.</li>
-          <li><a href="/reference/#/p5/mouseOut">mouseOut()</a> - Code inside this block is run once after every time a mouse moves off the element</li>
-        </ul>
-      </p>
+
+      <ul class="list_view">
+        <li><a href="/reference/#/p5/mousePressed">mousePressed()</a> - Code inside this block is run one time when a mouse button is pressed</li>
+        <li><a href="/reference/#/p5/mouseReleased">mouseReleased()</a> - Code inside this block is run one time when a mouse button is released</li>
+        <li><a href="/reference/#/p5/mouseClicked">mouseClicked()</a> - Code inside this block is run once after a mouse button is pressed and released over the element</li>
+        <li><a href="/reference/#/p5/doubleClicked">doubleClicked()</a> - Code inside this block is run once after a mouse button is pressed and released over the element twice</li>
+        <li><a href="/reference/#/p5/mouseMoved">mouseMoved()</a> - Code inside this block is run one time when the mouse is moved</li>
+        <li><a href="/reference/#/p5/mouseDragged">mouseDragged()</a> - Code inside this block is run one time when the mouse is moved while a mouse button is pressed</li>
+        <li><a href="/reference/#/p5/mouseOver">mouseOver()</a> - Code inside this block is run once after every time a mouse moves onto the element.</li>
+        <li><a href="/reference/#/p5/mouseOut">mouseOut()</a> - Code inside this block is run once after every time a mouse moves off the element</li>
+      </ul>
 
       <p>The <a href="/reference/#/p5/mousePressed">mousePressed()</a> function works differently than the <a href="/reference/#/p5/mouseIsPressed">mouseIsPressed</a> variable. The value of the <a href="/reference/#/p5/mouseIsPressed">mouseIsPressed</a> variable is true until the mouse button is released. It can therefore be used within <a href="/reference/#/p5/draw">draw()</a> to have a line of code run while the mouse is pressed. In contrast, the code inside the <a href="/reference/#/p5/mousePressed">mousePressed()</a> function only runs once when a button is pressed. This makes it useful when a mouse click is used to trigger an action, such as clearing the screen. In the following example, the background value becomes lighter each time a mouse button is pressed. Run the example on your computer to see the change in response to your finger.</p>
 
@@ -642,13 +641,12 @@ function changeSize(event) {
       <h2>Key events</h2>
       <!-- keyTyped() added -->
       <p>Each key press is registered through the keyboard event functions <a href="/reference/#/p5/keyPressed">keyPressed()</a>, <a href="/reference/#/p5/keyPressed">keyTyped()</a> and <a href="/reference/#/p5/keyReleased">keyReleased()</a>:</p>
-      <p>
-        <ul>
-          <li><a href="/reference/#/p5/keyPressed">keyPressed()</a> - Code inside this block is run one time when any key is pressed</li>
-          <li><a href="/reference/#/p5/keyTyped">keyTyped()</a> - Code inside this block is run one time when a key is pressed, but action keys such as Ctrl, Shift, and Alt are ignored. The most recent key pressed will be stored in the <a href="/reference/#/p5/key">key</a> variable.</li>
-          <li><a href="/reference/#/p5/keyReleased">keyReleased()</a> - Code inside this block is run one time when any key is released</li>
-        </ul>
-      </p>
+      
+      <ul class="list_view">
+        <li><a href="/reference/#/p5/keyPressed">keyPressed()</a> - Code inside this block is run one time when any key is pressed</li>
+        <li><a href="/reference/#/p5/keyTyped">keyTyped()</a> - Code inside this block is run one time when a key is pressed, but action keys such as Ctrl, Shift, and Alt are ignored. The most recent key pressed will be stored in the <a href="/reference/#/p5/key">key</a> variable.</li>
+        <li><a href="/reference/#/p5/keyReleased">keyReleased()</a> - Code inside this block is run one time when any key is released</li>
+      </ul>
 
       <p>Each time a key is pressed, the code inside the <a href="/reference/#/p5/keyPressed">keyPressed()</a> block is run once. Within this block, it's possible to test which key has been pressed and to use this value for any purpose. If a key is held down for an extended time, the code inside the <a href="/reference/#/p5/keyPressed">keyPressed()</a> block might run many times in a rapid succession because most operating systems will take over and repeatedly call the <a href="/reference/#/p5/keyPressed">keyPressed()</a> function. The amount of time it takes to start repeating and the rate of repetitions will be different from computer to computer, depending on the keyboard preference settings. In this example, the value of the boolean variable drawT is set from false to true when the T key is pressed; this causes the lines of code to render the rectangles in <a href="/reference/#/p5/draw">draw()</a> to start running.</p>
 

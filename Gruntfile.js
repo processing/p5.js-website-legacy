@@ -316,6 +316,16 @@ module.exports = function(grunt) {
         src: ['**/*'],
         dest: 'p5-reference/'
       }
+    },  
+    htmllint: {
+      all: {
+        src: ['<%= config.dist %>/**/*.html',
+            '!<%= config.dist %>/**/CHANGES.html',
+            '!<%= config.dist %>/**/README.html'],
+        options: {
+          ignore: [/^This document appears to be written in English/]
+        }
+      }
     }
   });
 
@@ -341,6 +351,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-file-append');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-html');
 
   // multi-tasks: collections of other tasks
   grunt.registerTask('server', [
@@ -368,7 +379,7 @@ module.exports = function(grunt) {
     require("./i18n.js")(done);
   });
 
-  // runs three tasks in order
+  // runs tasks in order
   grunt.registerTask('build', [
     'update-version',
     'exec',
@@ -379,7 +390,8 @@ module.exports = function(grunt) {
     'optimize',
     'file_append',
     'compress',
-    'i18n'
+    'i18n',
+    'htmllint'
   ]);
 
   // runs with just grunt command
