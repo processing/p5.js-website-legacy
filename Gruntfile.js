@@ -24,7 +24,8 @@ module.exports = function(grunt) {
     },
     exec: {
       build_examples: 'node <%= config.src %>/data/examples/build_examples/build.js <%= config.src %>/templates/pages/examples/',
-      build_libraries: 'node <%= config.src %>/data/libraries/build.js <%= config.src %>/templates/pages/libraries/'
+      build_libraries: 'node <%= config.src %>/data/libraries/build.js <%= config.src %>/templates/pages/libraries/',
+      build_learn: 'node <%= config.src %>/data/learn/build.js <%= config.src %>/templates/pages/learn/'
     },
     watch: {
       assemble: {
