@@ -448,7 +448,7 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!tpl/search.html',[],function () { return '<input type="text" class="<%=className%>" value="" placeholder="<%=placeholder%>" title="search reference" aria-label="search text field"  aria-haspopup="false">';});
+define('text!tpl/search.html',[],function () { return '<h2 class="sr-only">search</h2>\n<form>\n  <input id="search_reference_field" type="text" class="<%=className%>" value="" placeholder="<%=placeholder%>" aria-label="search reference">\n  <label class="sr-only" for="search_reference_field">Search reference</label>\n</form>\n\n';});
 
 
 define('text!tpl/search_suggestion.html',[],function () { return '<p id="index-<%=idx%>" class="search-suggestion">\n\n  <strong><%=name%></strong>\n\n  <span class="small">\n    <% if (final) { %>\n    constant\n    <% } else if (itemtype) { %>\n    <%=itemtype%> \n    <% } %>\n\n    <% if (className) { %>\n    in <strong><%=className%></strong>\n    <% } %>\n\n    <% if (typeof is_constructor !== \'undefined\' && is_constructor) { %>\n    <strong><span class="glyphicon glyphicon-star"></span> constructor</strong>\n    <% } %>\n  </span>\n\n</p>';});
@@ -2260,7 +2260,7 @@ define('searchView',[
       function select(selectedItem) {
         var hash = App.router.getHash(selectedItem);//
         App.router.navigate(hash, {'trigger': true});
-        $input.blur();
+        $('#item').focus();
       }
     },
     /**
@@ -2448,7 +2448,7 @@ define('text!tpl/item.html',[],function () { return '<h2><%=item.name%><% if (it
 define('text!tpl/class.html',[],function () { return '\n<% if (typeof constructor !== \'undefined\') { %>\n<div class="constructor">\n  <!--<h2>Constructor</h2>--> \n  <%=constructor%>\n</div>\n<% } %>\n\n<% var fields = _.filter(things, function(item) { return item.itemtype === \'property\' && item.access !== \'private\' }); %>\n<% if (fields.length > 0) { %>\n  <h4>Fields</h4>\n  <p>\n    <% _.each(fields, function(item) { %>\n      <a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %> ><%=item.name%></a>: <%= item.description %>\n      <br>\n    <% }); %>\n  </p>\n<% } %>\n\n<% var methods = _.filter(things, function(item) { return item.itemtype === \'method\' && item.access !== \'private\' }); %>\n<% if (methods.length > 0) { %>\n  <h4>Methods</h4>\n  <p>\n    <table>\n    <% _.each(methods, function(item) { %>\n      <tr>\n      <td><a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %>><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a></td><td><div class="method_description"><%= item.description %></div></td>\n      </tr>\n    <% }); %>\n    </table>\n  </p>\n<% } %>\n';});
 
 
-define('text!tpl/itemEnd.html',[],function () { return '\n<br>\n\n<div>\n<% if (item.file && item.line) { %>\n<span id="reference-error1">Notice any errors or typos?</span> <a href="https://github.com/processing/p5.js/issues"><span id="reference-contribute2">Please let us know.</span></a> <span id="reference-error3">Please feel free to edit</span> <a href="https://github.com/processing/p5.js/blob/<%= appVersion %>/<%= item.file %>#L<%= item.line %>" target="_blank" ><%= item.file %></a> <span id="reference-error5">and issue a pull request!</span>\n<% } %>\n</div>\n\n<a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px" alt="creative commons logo"/></a>\n<br><br>\n';});
+define('text!tpl/itemEnd.html',[],function () { return '\n<br><br>\n\n<div>\n<% if (item.file && item.line) { %>\n<span id="reference-error1">Notice any errors or typos?</span> <a href="https://github.com/processing/p5.js/issues"><span id="reference-contribute2">Please let us know.</span></a> <span id="reference-error3">Please feel free to edit</span> <a href="https://github.com/processing/p5.js/blob/<%= appVersion %>/<%= item.file %>#L<%= item.line %>" target="_blank" ><%= item.file %></a> <span id="reference-error5">and issue a pull request!</span>\n<% } %>\n</div>\n\n<a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px" alt="creative commons logo"/></a>\n<br><br>\n';});
 
 // Copyright (C) 2006 Google Inc.
 //
@@ -4227,7 +4227,7 @@ define('itemView',[
         // Insert the view in the dom
         this.$el.html(itemHtml);
 
-        renderCode();
+        renderCode(cleanItem.name);
 
         // Set the document title based on the item name.
         // If it is a method, add parentheses to the name
@@ -4244,18 +4244,6 @@ define('itemView',[
             alts = $(alts)
               .data('alt')
               .split('\n');
-
-            var examples = $('.example_container');
-
-            for (var i = 0; i < examples.length; i++) {
-              $(examples[i]).prepend(
-                '<span class="sr-only">' +
-                  cleanItem.name +
-                  ' example ' +
-                  (i + 1) +
-                  '</span>'
-              );
-            }
 
             var canvases = $('.cnv_div');
             for (var j = 0; j < alts.length; j++) {
@@ -4303,8 +4291,7 @@ define('itemView',[
       this.$el.show();
 
       this.scrollTop();
-      //window.scrollTo(0, 0); // LM
-
+      $('#item').focus();
       return this;
     },
     /**
@@ -4345,7 +4332,7 @@ define('itemView',[
 });
 
 
-define('text!tpl/menu.html',[],function () { return '<div>\n  <br>\n  <span id="reference-description1">Can\'t find what you\'re looking for? You may want to check out</span>\n  <a href="#/libraries/p5.sound">p5.sound</a>. <a href=\'https://p5js.org/offline-reference/p5-reference.zip\' target=_blank><span id="reference-description3">You can also download an offline version of the reference.</span></a>\n</div>\n\n<div id=\'collection-list-categories\'>\n<h2 class="sr-only" id="categories">Categories</h2>\n<% var i=0; %>\n<% var max=Math.floor(groups.length/4); %>\n<% var rem=groups.length%4; %>\n\n<% _.each(groups, function(group){ %>\n  <% var m = rem > 0 ? 1 : 0 %>\n  <% if (i === 0) { %>\n    <ul aria-labelledby="categories">\n    <% } %>\n    <li><a href="#group-<%=group%>"><%=group%></a></li>\n    <% if (i === (max+m-1)) { %>\n    </ul>\n  \t<% rem-- %>\n  \t<% i=0 %>\n  <% } else { %>\n  \t<% i++ %>\n  <% } %>\n<% }); %>\n</div>\n';});
+define('text!tpl/menu.html',[],function () { return '<div>\n  <br>\n  <span id="reference-description1">Can\'t find what you\'re looking for? You may want to check out</span>\n  <a href="#/libraries/p5.sound">p5.sound</a>.<br><a href=\'https://p5js.org/offline-reference/p5-reference.zip\' target=_blank><span id="reference-description3">You can also download an offline version of the reference.</span></a>\n</div>\n\n<div id=\'collection-list-categories\'>\n<h2 class="sr-only" id="categories">Categories</h2>\n<% var i=0; %>\n<% var max=Math.floor(groups.length/4); %>\n<% var rem=groups.length%4; %>\n\n<% _.each(groups, function(group){ %>\n  <% var m = rem > 0 ? 1 : 0 %>\n  <% if (i === 0) { %>\n    <ul aria-labelledby="categories">\n    <% } %>\n    <li><a href="#group-<%=group%>"><%=group%></a></li>\n    <% if (i === (max+m-1)) { %>\n    </ul>\n  \t<% rem-- %>\n  \t<% i=0 %>\n  <% } else { %>\n  \t<% i++ %>\n  <% } %>\n<% }); %>\n</div>\n';});
 
 define('menuView',[
   'App',

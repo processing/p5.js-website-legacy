@@ -395,8 +395,8 @@ module.exports = function(grunt) {
     'optimize',
     'file_append',
     'compress',
-    'i18n',
-    'htmllint'
+    'i18n'//,
+    // 'htmllint'
   ]);
 
   // runs with just grunt command

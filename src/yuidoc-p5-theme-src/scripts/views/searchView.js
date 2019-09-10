@@ -79,7 +79,7 @@ define([
       function select(selectedItem) {
         var hash = App.router.getHash(selectedItem);//
         App.router.navigate(hash, {'trigger': true});
-        $input.blur();
+        $('#item').focus();
       }
     },
     /**

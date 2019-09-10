@@ -117,7 +117,7 @@ define([
         // Insert the view in the dom
         this.$el.html(itemHtml);
 
-        renderCode();
+        renderCode(cleanItem.name);
 
         // Set the document title based on the item name.
         // If it is a method, add parentheses to the name
@@ -134,18 +134,6 @@ define([
             alts = $(alts)
               .data('alt')
               .split('\n');
-
-            var examples = $('.example_container');
-
-            for (var i = 0; i < examples.length; i++) {
-              $(examples[i]).prepend(
-                '<span class="sr-only">' +
-                  cleanItem.name +
-                  ' example ' +
-                  (i + 1) +
-                  '</span>'
-              );
-            }
 
             var canvases = $('.cnv_div');
             for (var j = 0; j < alts.length; j++) {
@@ -193,8 +181,7 @@ define([
       this.$el.show();
 
       this.scrollTop();
-      //window.scrollTo(0, 0); // LM
-
+      $('#item').focus();
       return this;
     },
     /**

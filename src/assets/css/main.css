@@ -271,6 +271,35 @@
   float: left;
 }
 
+.reference-group h2 {
+  font-size: 1.5em;
+}
+
+.reference-group h3 {
+  font-size: 1em;
+  font-family: "AvenirNextLTW01-Medium";
+  margin-top: 0.5em;
+}
+
+#reference-page ul {
+  margin-top: 0.5em;
+}
+
+div.reference-group {
+  display: inline-block;
+}
+
+div.reference-subgroups {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+div.reference-subgroup {
+  width: 11em;
+  margin-bottom: 1em;
+}
+
 #reference-page .params table p {
   /* Recently-added support for Markdown means that every parameter
    * description is wrapped in a paragraph element. (Previously, they weren't
@@ -1098,6 +1127,7 @@ body {
 
 p {
   font-size: 1.2em;
+  margin: 0.5em 0;
 }
 
 .freeze {
@@ -1190,14 +1220,6 @@ h2 {
   font-size: 1.5em;
   /* 1.777em */
   margin: 1em 0 0 0;
-}
-
-h3+p {
-  display: inline;
-}
-
-h4+p {
-  display: inline;
 }
 
 .code {
@@ -1687,14 +1709,15 @@ footer {
   }
   #collection-list-nav {
     width: 100%;
-    font-family: "AvenirNextLTW01-Medium";
     clear: both;
     border-bottom: 1px dashed rgba(0, 0, 0, .2);
   }
+  
   #collection-list-categories {
+    font-family: "AvenirNextLTW01-Medium";
     display: flex;
     flex-direction: row;
-    margin: 1em 0;
+    margin: 1em 0 1.5em 0;
   }
   #collection-list-categories ul {
     flex: 1;
@@ -1721,45 +1744,11 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-bottom: 1em;
   }
-  div.reference-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  div.reference-subgroups {
-    margin: 1em 0;
-    padding: 0 0 0.5em 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  div.reference-subgroup {
-    vertical-align: top;
-  }
-  .reference-group div {
-    display: inline-block;
-    flex: 1;
-    margin-right: 1em;
-  }
+
 }
 
-
-/*  div.reference-group:nth-child(1) {
-      margin: 0 0 1em 0;
-  }
-
-  div.reference-group:nth-child(1) h4 {
-      margin-top: 0.5em;
-  }
-
-  div.reference-group:nth-child(even) {
-      background-color: rgba(69, 142, 209, 0.02);
-  }
-
-  div.reference-group:nth-child(even) h4 {
-      margin-top: 0.25em;
-  }*/
 
 @media (max-width: 719px) {
   #family form {
