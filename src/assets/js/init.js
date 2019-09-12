@@ -166,7 +166,7 @@ window.onload = function() {
   // ===============================================
   // Language buttons:
 
-  var btns = document.getElementById('i18n-btn').getElementsByTagName('button');
+  var btns = document.getElementById('i18n-btn').getElementsByTagName('a');
   var evt_type = typeof document.addEventListener !== 'undefined' ? 'click' : 'onclick';
   var click_action = function(e) {
     var new_lang = this.getAttribute('data-lang');
