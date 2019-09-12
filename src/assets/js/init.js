@@ -190,8 +190,9 @@ window.onload = function() {
   for (var i=0, l=btns.length; i < l; i++) {
     var btn_lang = btns[i].getAttribute('data-lang');
     if (loc_lang == btn_lang) {
-      btns[i].setAttribute('disabled', 'disabled');
+      $(btns[i]).addClass('disabled');
     } else {
+      $(btns[i]).removeClass('disabled');
       if (evt_type === 'click') {
         btns[i].addEventListener(evt_type, click_action, false);
       } else { // IE
