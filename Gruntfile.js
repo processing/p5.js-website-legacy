@@ -322,13 +322,17 @@ module.exports = function(grunt) {
     htmllint: {
       all: {
         src: ['<%= config.dist %>/**/*.html',
+            '!<%= config.dist %>/es/**/*.html',
+            '!<%= config.dist %>/zh-Hans/**/*.html',
             '!<%= config.dist %>/**/CHANGES.html',
             '!<%= config.dist %>/**/README.html',
+            '!<%= config.dist %>/**/p5_featured/**/*.html',
             '!<%= config.dist %>/**/learn/*.html',
-            '!<%= config.dist %>/**/reference/**/*.html'],
+            '!<%= config.dist %>/**/examples/*.html'],
         options: {
           ignore: [/^This document appears to be written in English/,
-                  /^Bad value “https:/]
+                  /^Bad value “https:/,
+                  /^Consider adding a “lang” attribute to the “html”/]
         }
       }
     }
@@ -395,8 +399,8 @@ module.exports = function(grunt) {
     'optimize',
     'file_append',
     'compress',
-    'i18n'//,
-    // 'htmllint'
+    'i18n',
+    'htmllint'
   ]);
 
   // runs with just grunt command

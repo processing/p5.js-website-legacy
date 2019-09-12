@@ -4493,7 +4493,7 @@ amdclean['outputfiles'] = function (require, core) {
         }
       }
     } else {
-      pWriter.println('<html>');
+      pWriter.println('<!DOCTYPE html>');
       pWriter.println('<head>');
       var str = '  <meta http-equiv="content-type" content';
       str += '="text/html;charset=utf-8" />';

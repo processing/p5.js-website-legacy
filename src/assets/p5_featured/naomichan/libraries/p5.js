@@ -21204,7 +21204,7 @@ p5.prototype.saveTable = function (table, filename, options) {
 
   // otherwise, make HTML
   else {
-    pWriter.print('<html>');
+    pWriter.print('<!DOCTYPE html>');
     pWriter.print('<head>');
     var str = '  <meta http-equiv=\"content-type\" content';
     str += '=\"text/html;charset=utf-8\" />';
