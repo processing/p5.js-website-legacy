@@ -18,6 +18,10 @@
   //////////////////////////////////////////////////
 */
 
+.tagline {
+  display: none;
+}
+
 #home-page #home {
   pointer-events: none;
 }
@@ -36,10 +40,6 @@
 #logo_image {
   position: absolute;
   top: 0;
-}
-
-.tagline {
-  display: none;
 }
 
 #menu.top_menu,
@@ -1592,18 +1592,35 @@ footer {
   display: inline-block;
 }
 
+@media (min-width: 769px) {
+  .container {
+    width: 49em !important;
+    margin: 10em auto;
+  }
+  main {
+    width: 36em;
+    padding: 0 !important;
+  }
+  footer {
+    width: 48em;
+  }
+}
+
 @media (min-width: 720px) {
   .container {
     margin: 10em auto;
-    width: 49em;
+    width: 100%;
     padding: 0.8em 0 0 0;
     height: auto;
     min-height: 100%;
     background-color: rgba(51, 51, 51, 0.0);
   }
+  #home-page {
+    display: flex;
+    flex-wrap: row;
+  }
   main {
-    width: 36em;
-    /* 36-38 em for about 10-14 words at this size   */
+    padding: 0 1em 0 0;
   }
   small,
   .small,
@@ -1614,7 +1631,6 @@ footer {
   footer {
     clear: both;
     /*margin: 4em 0 2em -.75em;*/
-    width: 48em;
   }
   #i18n-btn {
     position: absolute;
@@ -1735,24 +1751,30 @@ footer {
 
 
 @media (max-width: 719px) {
-  #family form {
+  .tagline {
+    display: none !important;
+  }
+
+  #family  {
     display: none;
   }
-  #family p.left {
-    margin: 0.375em 0 0.375em 0em !important;
-  }
-  #family p.right {
-    display: none;
-  }
-  #family a:link,
-  #family a:visited {
-    margin: 0.1em;
-  }
+
   #i18n-btn {
     position: absolute;
-    top: 1.5em;
+    top: 0.5em;
     right: 0.75em;
   }
+
+  #search {
+    width: 100%;
+    float: left;
+    margin-bottom: 1em;
+  }
+
+  #search input[type=text] {
+    width: 100%;
+  }
+
   #lockup {
     position: absolute;
     top: 2em;
@@ -1794,7 +1816,7 @@ footer {
   }
   #asterisk-design-element,
   .separator-design-element {
-    display: none;
+    display: none !important;
     pointer-events: none;
   }
   pre[class*="language-"] {
@@ -1841,16 +1863,12 @@ footer {
   }
   small,
   .small,
-  footer,
-  #family {
+  footer {
     font-size: 0.5em;
   }
 }
 
 @media (max-width:400px) {
-  #family {
-    display: none;
-  }
   #i18n {
     margin-top: 0.75em !important;
   }
