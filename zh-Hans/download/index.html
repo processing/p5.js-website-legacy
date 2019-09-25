@@ -2,25 +2,24 @@
 <html class="no-js" lang="zh-Hans">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title tabindex="1">p5.js | download</title>
+    <title tabindex="1">download | p5.js</title>
     <link rel="stylesheet" href="/../../assets/css/all.css">
-    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+    <script src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
 
     <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
     <link rel="icon" href="/../../assets/img/favicon.ico">
 
 
-    <script type="text/javascript" src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/ace.js"></script>
-    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
-    <script type="text/javascript" src="/../../assets/js/vendor/prism.js"></script>
-    <script type="text/javascript" src="/../../assets/js/scroll.js"></script>
-    <script type="text/javascript" src="/../../assets/js/init.js"></script>
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/../../assets/js/init.js"></script>
 
-    <script type="text/javascript" src="/../../assets/js/vendor/pangu.min.js"></script>
+    <script src="/../../assets/js/vendor/pangu.min.js"></script>
 
     <style>
     @font-face {
@@ -54,21 +53,23 @@
   </head>
   <body>
 
+    <a href="#content" class="sr-only">Skip to content</a>
     
     <!-- p5*js language buttons -->
     <div id="i18n-btn">
-      <h1 class='visuallyhidden'>Language Settings</h1>
-      <button data-lang='en'>EN</button>
-      <button data-lang='es'>ES</button>
-      <button data-lang='zh-Hans'>简体中文</button>
-    </div>    <a href="#content" class="skip">Skip to content</a>
-    <!-- .container -->
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+      </ul>
+    </div>    <!-- .container -->
     <div class="container">
 
       <!-- logo -->
       <header id="lockup">
         <a href="/zh-Hans/">
-          <img src="../../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <img src="../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
         <p class='tagline'>Processing 的趣味结合 JavaScript 的俏皮</p>
@@ -87,11 +88,11 @@
   
   <!-- site navigation -->
   <div class="column-span">
-    <nav role="navigation">
-      <ul id="menu">
+    <nav>
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <ul id="menu" aria-labelledby="menu-title">
         <li><a href="/zh-Hans/">主页</a></li>
         <li><a href="/zh-Hans/download/">下载</a></li>
-        <li><a href="/zh-Hans/gallery/"></a></li>
         <li><a href="/zh-Hans/get-started/">入门</a></li>
         <li><a href="/zh-Hans/reference/">参考文献</a></li>
         <li><a href="/zh-Hans/libraries/">程式库</a></li>
@@ -99,35 +100,48 @@
         <li><a href="/zh-Hans/examples/">范例</a></li>
         <li><a href="/zh-Hans/books/">书籍</a></li>
         <li><a href="/zh-Hans/community/">社群</a></li>
-        <li><a href="https://discourse.processing.org/categories" target=_blank class="other-link">论坛</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">论坛</a></li>
         <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
         <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
       </ul>
     </nav>
   </div>
-  
-  <!-- <script src="../../assets/js/scroll.js"></script> -->
 
   <div class="column-span">
 
-    <section id="content" role="region" label="main content">
+    <main id="content" >
 
       <h1>下载</h1>
+
+      <h2 class='sr-only'>Introduction</h2>
+      <p></p>
+
+      <!-- EDITOR -->
+      <div class="link_group">
+        <a name="editor" class="anchor"><h2>Editor</h2></a>
+        <p>This link redirects you to the p5.js Editor online so you can begin using p5.js immediately.</p>
+
+        <a class='support_link' href="https://editor.p5js.org" target="_blank">
+          <div class="download_box">
+
+            <span class="download_name">p5.js Editor</span>
+            <p>使用 p5.js Editor 开始编写程式，不需要任何另外的设置！</p>
+
+          </div>
+        </a>
+
+        <div class="spacer"></div>
+      </div>
 
       <!-- COMPLETE LIBRARY -->
       <div class="link_group">
         <h2>完整程式库</h2>
+        <p>This is a download containing the p5.js library file, the p5.sound addon, and an example project. It does not contain an editor. See <a href="get-started/">Get Started</a> to learn how to setup a p5.js project.</p>
 
         <a  class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
           <div class="download_box">
 
-            <h4>p5.js 完整版</h4>
-
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><path stroke-miterlimit="10" d="M16.909,10.259l8.533-2.576l1.676,5.156l-8.498,2.899l5.275,7.48
-                l-4.447,3.225l-5.553-7.348L8.487,26.25l-4.318-3.289l5.275-7.223L0.88,12.647l1.678-5.16l8.598,2.771V1.364h5.754V10.259z"/>
-            </svg>
-
+            <span class="download_name">p5.js 完整版</span>
             <p>包含
               <br>p5.js、p5.dom.js、p5.sound.js 及空白范例
             <br>版本 <span id="p5_version"></span> (<span id="p5_date"></span>)
@@ -141,74 +155,58 @@
       <!-- SINGLE FILES -->
       <div class="link_group">
 
-        <h2>单一文件</h2>
-        <a class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
-          <div class="download_box half_box">
-            <h4>p5.js</h4>
-            <p>单一文件：
-              <br>易读版本</p>
-          </div>
-        </a>
+        <h2 id="single-files">单一文件</h2>
+        <p>These are downloads or links to the p5.js library file. No additional contents are included.</p>
+        <ul aria-labelledby="single-files">
+          <li>
+            <a class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
+              <div class="download_box half_box">
+                <span class="download_name">p5.js</span>
+                <p>单一文件：
+                  <br>易读版本</p>
+              </div>
+            </a>
+          </li>
 
-        <a class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.min.js">
-          <div class="download_box half_box">
-            <h4>p5.min.js</h4>
-            <p>单一文件：
-              <br>极简化版本</p>
-          </div>
-        </a>
+          <li>
+            <a class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.min.js">
+              <div class="download_box half_box">
+                <span class="download_name">p5.min.js</span>
+                <p>单一文件：
+                  <br>极简化版本</p>
+              </div>
+            </a>
+          </li>
 
-        <a class='support_link' href="http://cdnjs.com/libraries/p5.js" target="_blank">
-          <div class="download_box half_box last_box">
-            <h4>CDN</h4>
-            <p>链接：
-              <br>静态链接文件</p>
-          </div>
-        </a>
+          <li>
+            <a class='support_link' href="http://cdnjs.com/libraries/p5.js" target="_blank">
+              <div class="download_box half_box last_box">
+                <span class="download_name">CDN</span>
+                <p>链接：
+                  <br>静态链接文件</p>
+              </div>
+            </a>
+          </li>
+        </ul>
 
         <div class="spacer"></div>
 
       </div>
 
-      <!-- EDITOR -->
+      <!-- Github resources -->
       <div class="link_group">
-        <a name="editor" class="anchor"><h2>Editor</h2></a>
-
-        <a class='support_link' href="https://editor.p5js.org" target="_blank">
-          <div class="download_box">
-
-            <h4>p5.js Web Editor</h4>
-
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><path stroke-miterlimit="10" d="M16.909,10.259l8.533-2.576l1.676,5.156l-8.498,2.899l5.275,7.48
-                l-4.447,3.225l-5.553-7.348L8.487,26.25l-4.318-3.289l5.275-7.223L0.88,12.647l1.678-5.16l8.598,2.771V1.364h5.754V10.259z"/>
-            </svg>
-
-            <p>使用 p5.js Web Editor 开始编写程式，不需要任何另外的设置！</p>
-
-          </div>
-        </a>
+        <h2 id="etc">Github Resources</h2>
+        <ul aria-labelledby="etc" id='etc_list' class="list_view bullets">
+          <li><a href="https://github.com/processing/p5.js/releases">旧版本/更新日志</a></li>
+          <li><a href="https://github.com/processing/p5.js">Code repository (GitHub)</a></li>
+          <li><a href="https://github.com/processing/p5.js/issues">报告缺陷</a></li>
+          <li><a href="https://github.com/processing/p5.js/blob/master/developer_docs/supported_browsers.md">浏览器支持</a></li>
+        </ul>
 
         <div class="spacer"></div>
       </div>
 
-      <!-- ETC -->
-      <div class="link_group">
-        <h2>其他</h2>
-
-        <p>
-        <a href="https://github.com/processing/p5.js/releases">旧版本/更新日志</a><br>
-        <a href="https://github.com/processing/p5.js">GitHub</a>
-        <br>
-        <a href="https://github.com/processing/p5.js/issues">报告缺陷</a>
-        <br>
-        <a href="https://github.com/processing/p5.js/blob/master/developer_docs/supported_browsers.md">浏览器支持</a>
-        </p>
-
-        <div class="spacer"></div>
-      </div>
-
-    </section>
+    </main>
 
     <script type='text/javascript'>
       $.getJSON('/download/version.json', function(data) {
@@ -239,7 +237,8 @@
 
     
     <footer>
-      <p> p5.js 的原作者为<a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a>并在<a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a> 和
+      <h2 class="sr-only">Credits</h2>
+      <p> p5.js 的原<a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a>并在<a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a> 和
       <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. 的支持下由其合作社群所开发。形象及平面设计<a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/zh-Hans/copyright.html">&copy; Info.</a></p>
     </footer>
 
@@ -250,7 +249,7 @@
   
   <p class="clearfix"> &nbsp; </p>
   
-  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
        *<!-- to do: add fallback image in CSS -->
   </object>
 
@@ -260,23 +259,20 @@
     </div> <!-- close class='container'-->
 
     
-    <div id="family">
-      <p class="left"><a href="http://processing.org">Processing</a>
-        <a class="here" href="/zh-Hans/">p5.js</a>
-        <a href="http://py.processing.org/">Processing.py</a>
-        <a href="http://android.processing.org/">Processing for Android</a>
-        <a href="http://pi.processing.org/">Processing for Pi</a>
-      </p>
-      <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
-        <input type="hidden" name="as_sitesearch" value="p5js.org" />
-        <input id='search_field' type="text" name="q" id="q" size="20" />
-        <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
-      </form>
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="http://processing.org">Processing</a></li>
+        <li><a class="here" href="/zh-Hans/">p5.js</a></li>
+        <li><a href="http://py.processing.org/">Processing.py</a></li>
+        <li><a href="http://android.processing.org/">Processing for Android</a></li>
+        <li><a href="http://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
     
-      <p class="right">
-        <a href="https://processingfoundation.org/">Processing Foundation</a>
-      </p>
-    </div>
+    <!--   <p class="right">
+      </p> -->
+    </nav>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

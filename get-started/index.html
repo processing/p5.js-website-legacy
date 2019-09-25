@@ -2,23 +2,22 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title tabindex="1">p5.js | get started</title>
+    <title tabindex="1">get started | p5.js</title>
     <link rel="stylesheet" href="/../assets/css/all.css">
-    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+    <script src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
 
     <link rel="shortcut icon" href="/../assets/img/favicon.ico">
     <link rel="icon" href="/../assets/img/favicon.ico">
 
 
-    <script type="text/javascript" src="/../assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="/../assets/js/vendor/ace-nc/ace.js"></script>
-    <script type="text/javascript" src="/../assets/js/vendor/ace-nc/mode-javascript.js"></script>
-    <script type="text/javascript" src="/../assets/js/vendor/prism.js"></script>
-    <script type="text/javascript" src="/../assets/js/scroll.js"></script>
-    <script type="text/javascript" src="/../assets/js/init.js"></script>
+    <script src="/../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../assets/js/vendor/prism.js"></script>
+    <script src="/../assets/js/init.js"></script>
 
 
     <style>
@@ -53,21 +52,23 @@
   </head>
   <body>
 
+    <a href="#content" class="sr-only">Skip to content</a>
     
     <!-- p5*js language buttons -->
     <div id="i18n-btn">
-      <h1 class='visuallyhidden'>Language Settings</h1>
-      <button data-lang='en'>EN</button>
-      <button data-lang='es'>ES</button>
-      <button data-lang='zh-Hans'>简体中文</button>
-    </div>    <a href="#content" class="skip">Skip to content</a>
-    <!-- .container -->
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+      </ul>
+    </div>    <!-- .container -->
     <div class="container">
 
       <!-- logo -->
       <header id="lockup">
         <a href="/">
-          <img src="../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <img src="../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
         <p class='tagline'>Processing fun times JavaScript quirkiness</p>
@@ -86,41 +87,37 @@
   
   <!-- site navigation -->
   <div class="column-span">
-    <nav role="navigation">
-      <ul id="menu">
+    <nav>
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <ul id="menu" aria-labelledby="menu-title">
         <li><a href="/">Home</a></li>
         <li><a href="/download/">Download</a></li>
-        <li><a href="/gallery/"></a></li>
-        <li><a href="/get-started/">Start</a></li>
+        <li><a href="/get-started/">Get Started</a></li>
         <li><a href="/reference/">Reference</a></li>
         <li><a href="/libraries/">Libraries</a></li>
         <li><a href="/learn/">Learn</a></li>
         <li><a href="/examples/">Examples</a></li>
         <li><a href="/books/">Books</a></li>
         <li><a href="/community/">Community</a></li>
-        <li><a href="https://discourse.processing.org/categories" target=_blank class="other-link">Forum</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">Forum</a></li>
         <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
         <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
       </ul>
     </nav>
   </div>
-  
-  <!-- <script src="../assets/js/scroll.js"></script> -->
 
   <div class="column-span">
 
-    <section id="content" role="region" label="main content">
+    <main id="content" >
 
       <h1>Get Started</h1>
 
-      <p>This page walks you through setting up a p5.js project and making your first sketch. If you'd like to start with the new  <a href="https://editor.p5js.org" target="_blank">p5.js Web Editor</a>, you can jump down to <a href="#sketch">Your First Sketch</a>.
+      <p>This page walks you through setting up a p5.js project and making your first sketch. If you'd like to start with the new  <a href="https://editor.p5js.org" target="_blank">p5.js Editor</a>, you can jump down to <a href="#sketch">Your First Sketch</a>.
       </p>
 
-      <a class="anchor" href="#file-setup">
-        <h2 class = "start-element tutorial-btn" id = "download">
-            Download and File Setup</h2></a>
+      <h2 class="start-element tutorial-btn" id="download">Download and File Setup</h2>
 
-      <div class="info" id="download">
+      <div class="info">
         <p>The easiest way to start is by using the empty example that comes with the 
           <a href="../download/">p5.js complete</a>
            download.
@@ -151,14 +148,11 @@
         <p>You can also start with this template from  <a href='https://codepen.io/p5js/pen/wreBKy'>codepen</a>.</p>
       </div>
 
-      <a name="environment" class="anchor">
-        <h2 class="start-element tutorial-btn" id="environment">
-          Environment
-        </h2></a>
+      <h2 class="start-element tutorial-btn" id="environment">Environment</h2>
 
-      <div class="info" id = "environment">
+      <div class="info">
         <p>You can use the 
-          <a href="http://en.wikipedia.org/wiki/Source_code_editor" target="_blank">
+          <a href='http://en.wikipedia.org/wiki/Source_code_editor"' target="_blank">
              code editor </a>
             of your choice. Instructions for getting set up with 
             <a href="http://www.sublimetext.com/2" target="_blank"> Sublime Text 2</a>
@@ -173,7 +167,7 @@
 
         <p>
           Click on your sketch.js file and it will open on the right where you can edit it. 
-          <img src="../assets/img/get-started/sublime2.png" alt="p5 starter code opened up in sublime editor."/>
+          <img src="../assets/img/get-started/sublime2.png" alt='p5 starter code opened up in sublime editor."'/>
         </p>
 
         <p>
@@ -182,12 +176,12 @@
         </p>
       </div>
 
-      <a name="your-first-sketch" class="anchor">
-        <h2 class="start-element tutorial-btn" id="sketch">Your First Sketch</h2>
-      </a>
+      <h2 class="start-element tutorial-btn" id="sketch">Your First Sketch</h2>
 
-      <div class="info" id="sketch">
-        <p>Processing users may want to check out the <a href=https://github.com/processing/p5.js/wiki/Processing-transition>Processing transition tutorial</a>.</p>
+      <div class="info">
+        <p>Processing users may want to check out the <a href='https://github.com/processing/p5.js/wiki/Processing-transition'>Processing transition tutorial</a>.</p>
+        
+        <h3 class="sr-only">Code snippet with ellipse</h3>
         <p>In your editor, type the following:</p>
 
 <pre><code class="language-javascript">
@@ -200,26 +194,24 @@ function draw() {
 }
 </code></pre>
 
-        <p>This line of code means "draw an ellipse, with the center 50 pixels over from the left and 50 pixels down from the top, with a width and height of 80 pixels".
+        <p>This line of code means "draw an ellipse, with the center 50 pixels over from the left and 50 pixels down from the top, with a width and height of 80 pixels".</p>
+
+        <p>Save your sketch and refresh your page view in your browser. If you've typed  everything correctly, you'll see this appear in the display window:</p>
+
+
+        <h3 class="sr-only">Note for screenreader users</h3>
+        <p>If you are using a screen reader, you must either turn on the accessible outputs in the p5 online editor, outside the editor you must add the accessibility library in your html. To learn about <a href="../learn/p5-screen-reader.html" target="_blank">using p5 with a screen reader</a>
+           and to learn more about <a href="https://github.com/processing/p5.accessibility" target="_blank">the accessibility library</a>.
         </p>
 
-        <p>Save your sketch and refresh your page view in your browser. If you've typed  everything correctly, you'll see this appear in the display window:
-        </p>
+        <img src="../assets/img/get-started/first-sketch.png" alt='canvas has a circle of width and height 50 at position 80 x and 80 y'/>
 
-        <p>Note: If you are using a screen reader, you must either turn on the accessible outputs in the p5 online editor, outside the editor you must add the accessibility library in your html. To learn about <a href="../learn/p5-screen-reader.html" target="_blank">using p5 with a screen reader click here</a>
-           and to learn more about <a href="https://github.com/processing/p5.accessibility" target="_blank">the accessibility library here</a>.
-        </p>
+        <p>If you didn't type it correctly, you might not see anything. If this happens, make sure that you've copied the example code exactly: the numbers should be contained within parentheses and have commas between each of them, and the line should end with a semicolon.</p>
 
-        <img src="../assets/img/get-started/first-sketch.png" alt="canvas has a circle of width and height 50 at position 80 x and 80 y"/>
+        <p>One of the most difficult things about getting started with programming is that you have to be very specific about the syntax. The browser isn't always smart enough to know what you mean, and can be quite fussy about the placement of punctuation. You'll get used to it with a little practice. Depending on the browser you are using, you can also see errors by looking at the JavaScript "console". In Chrome, for example, this is under View > Developer > JavaScript Console.</p>
 
-        <p>If you didn't type it correctly, you might not see anything. If this happens, make sure that you've copied the example code exactly: the numbers should be contained within parentheses and have commas between each of them, and the line should end with a semicolon.
-        </p>
-
-        <p>One of the most difficult things about getting started with programming is that you have to be very specific about the syntax. The browser isn't always smart enough to know what you mean, and can be quite fussy about the placement of punctuation. You'll get used to it with a little practice. Depending on the browser you are using, you can also see errors by looking at the JavaScript "console". In Chrome, for example, this is under View > Developer > JavaScript Console.
-        </p>
-
-        <p>Next, we'll skip ahead to a sketch that's a little more exciting. Delete the text from the last example, and try this:
-        </p>
+        <h3 class="sr-only">Code snippet with interaction</h3>
+        <p>Next, we'll skip ahead to a sketch that's a little more exciting. Delete the text from the last example, and try this:</p>
 
 <pre><code class="language-javascript">
 function setup() {
@@ -239,14 +231,14 @@ function draw() {
         <p>This program creates a canvas that is 640 pixels wide and 480 pixels high, and then starts drawing white circles at the position of the mouse. When a mouse button is pressed, the circle color changes to black. We'll explain more about the elements of this program in detail later. For now, run the code, move the mouse, and click to experience it.
         </p>
 
-        <img src="../assets/img/get-started/first-sketch2.png" alt="canvas has multiple circles drawn on it following the path of the mouse"/>
+        <img src="../assets/img/get-started/first-sketch2.png" alt='canvas has multiple circles drawn on it following the path of the mouse'/>
       </div>
 
       <h2 class="start-element tutorial-btn" id="next">What Next?</h2>
 
-      <div class = 'info' id = 'next'>
-        <ul>
-          <li>Read the <a href="https://github.com/processing/p5.js/wiki/Processing-transition">Processing transition tutorial</a> to learn how to convert from Processing to p5.js, and the main differences between them.</li>
+      <div class='info'>
+        <ul class="list_view">
+          <li>Read the <a href='https://github.com/processing/p5.js/wiki/Processing-transition'>Processing transition tutorial</a> to learn how to convert from Processing to p5.js, and the main differences between them.</li>
 
           <li>View the <a href="../reference/"> reference</a> for full documentation. </li>
 
@@ -255,11 +247,11 @@ function draw() {
         </ul>
       </div>
 
-      <p style="font-size: 1em; color:#AFAFAF">Parts of this tutorial were adapted from the book, Getting Started with p5.js, by Lauren McCarthy, Casey Reas, and Ben Fry, O'Reilly / Make 2015. Copyright  &copy; 2015 Lauren McCarthy, Casey Reas, and Ben Fry. All rights reserved.</p>
+      <div>Parts of this tutorial were adapted from the book, Getting Started with p5.js, by Lauren McCarthy, Casey Reas, and Ben Fry, O'Reilly / Make. Copyright © 2015. All rights reserved.</div>
 
 
 
-      <script type='text/javascript'>
+      <script>
         $.getJSON('../download/version.json', function(data) {
           $('.p5-replace').each(function() {
             var html = $(this).html().replace('[p5_version]', data.version);
@@ -269,10 +261,11 @@ function draw() {
 
       </script>
 
-    </section>
+    </main>
 
     
     <footer>
+      <h2 class="sr-only">Credits</h2>
       <p> p5.js was created by <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> and is developed by a community of collaborators, with support from the <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a>  and 
       <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. Identity and graphic design by <a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/copyright.html">&copy; Info.</a></p>
     </footer>
@@ -284,7 +277,7 @@ function draw() {
   
   <p class="clearfix"> &nbsp; </p>
   
-  <object type="image/svg+xml" data="../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+  <object type="image/svg+xml" data="../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
        *<!-- to do: add fallback image in CSS -->
   </object>
 
@@ -294,23 +287,20 @@ function draw() {
     </div> <!-- close class='container'-->
 
     
-    <div id="family">
-      <p class="left"><a href="http://processing.org">Processing</a>
-        <a class="here" href="/">p5.js</a>
-        <a href="http://py.processing.org/">Processing.py</a>
-        <a href="http://android.processing.org/">Processing for Android</a>
-        <a href="http://pi.processing.org/">Processing for Pi</a>
-      </p>
-      <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
-        <input type="hidden" name="as_sitesearch" value="p5js.org" />
-        <input id='search_field' type="text" name="q" id="q" size="20" />
-        <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
-      </form>
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="http://processing.org">Processing</a></li>
+        <li><a class="here" href="/">p5.js</a></li>
+        <li><a href="http://py.processing.org/">Processing.py</a></li>
+        <li><a href="http://android.processing.org/">Processing for Android</a></li>
+        <li><a href="http://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
     
-      <p class="right">
-        <a href="https://processingfoundation.org/">Processing Foundation</a>
-      </p>
-    </div>
+    <!--   <p class="right">
+      </p> -->
+    </nav>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

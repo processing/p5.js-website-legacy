@@ -2,23 +2,22 @@
 <html class="no-js" lang="es">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title tabindex="1">p5.js | learn</title>
+    <title tabindex="1">learn | p5.js</title>
     <link rel="stylesheet" href="/../../assets/css/all.css">
-    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+    <script src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
 
     <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
     <link rel="icon" href="/../../assets/img/favicon.ico">
 
 
-    <script type="text/javascript" src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/ace.js"></script>
-    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
-    <script type="text/javascript" src="/../../assets/js/vendor/prism.js"></script>
-    <script type="text/javascript" src="/../../assets/js/scroll.js"></script>
-    <script type="text/javascript" src="/../../assets/js/init.js"></script>
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/../../assets/js/init.js"></script>
 
 
     <style>
@@ -53,21 +52,23 @@
   </head>
   <body>
 
+    <a href="#content" class="sr-only">Skip to content</a>
     
     <!-- p5*js language buttons -->
     <div id="i18n-btn">
-      <h1 class='visuallyhidden'>Language Settings</h1>
-      <button data-lang='en'>EN</button>
-      <button data-lang='es'>ES</button>
-      <button data-lang='zh-Hans'>简体中文</button>
-    </div>    <a href="#content" class="skip">Skip to content</a>
-    <!-- .container -->
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+      </ul>
+    </div>    <!-- .container -->
     <div class="container">
 
       <!-- logo -->
       <header id="lockup">
         <a href="/es/">
-          <img src="../../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <img src="../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
         <p class='tagline'>la diversión de Processing x la excentricidad de JavaScript</p>
@@ -86,11 +87,11 @@
   
   <!-- site navigation -->
   <div class="column-span">
-    <nav role="navigation">
-      <ul id="menu">
+    <nav>
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <ul id="menu" aria-labelledby="menu-title">
         <li><a href="/es/">Inicio</a></li>
         <li><a href="/es/download/">Descargar</a></li>
-        <li><a href="/es/gallery/"></a></li>
         <li><a href="/es/get-started/">Empezar</a></li>
         <li><a href="/es/reference/">Referencia</a></li>
         <li><a href="/es/libraries/">Bibliotecas</a></li>
@@ -98,18 +99,16 @@
         <li><a href="/es/examples/">Ejemplos</a></li>
         <li><a href="/es/books/">Libros</a></li>
         <li><a href="/es/community/">Comunidad</a></li>
-        <li><a href="https://discourse.processing.org/categories" target=_blank class="other-link">Foro</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">Foro</a></li>
         <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
         <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
       </ul>
     </nav>
   </div>
-  
-  <!-- <script src="../../assets/js/scroll.js"></script> -->
 
   <div class="column-span">
 
-    <section role="region" label="main content">
+    <main >
 
       <h1>Unit Testing and Test Driven Development</h1>
       <div class="attribution">
@@ -122,12 +121,12 @@
       </p>
       <p>
         This tutorial is intended for people who:
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>Have written p5.js sketches before.</li>
           <li>Are comfortable using javascript <a href='http://p5js.org/examples/structure-functions.html'>functions.</a></li>
           <li>Can run basic terminal commands.  If you are not familiar using a terminal here is a <a href='http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything'>good tutorial for getting comfortable.</a></li>
         </ul>
-      </p>
 
       <h2> Why unit test?</h2>
       <p>
@@ -135,16 +134,17 @@
       </p>
       <p>
         Unit testing could have prevented this error and while you might not be launching spaceships (but by all means please try), unit testing can prevent a lot of headaches from the outset of your project to install day. It can help you:
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>improve your design and reduce bugs</li>
           <li>collaborate with others</li>
           <li>finish your project faster</li>
         </ul>
-      </p>
 
       <h2>Setting up for unit testing</h2>
       <p>
         Installing node:
+      </p>
         <ol>
           <li>First you must install node. If you already have node installed this assumes you are using version 4 or higher.  Node is a open source runtime environment for building server side applications.  Don’t worry if that sentence didn’t make sense.  You don’t have to understand all there is to know about node to do this tutorial.  If you are curious to learn more you can read the <a href='https://github.com/processing/p5.js/wiki/p5.js,-node.js,-socket.io'>p5.js node tutorial.</a></li>
           <li>On Mac, Linux, Windows:  Go to <a href='https://nodejs.org/en/'>https://nodejs.org/en/</a> and download the installer.  Open the installer and follow the directions.</li>
@@ -155,7 +155,6 @@
             </code></pre>
           </li>
         </ol>
-      </p>
       <p>
         Update npm, the Node Package Manager.  Npm is a program that allows you to install software libraries that are compatible with node.  In your open terminal run the command:
         <pre><code class="language-javascript">
@@ -181,28 +180,29 @@
       </p>
       <p>
         Let’s set up the project. This is what it would look like without any unit tests.
+      </p>
         <ol>
           <li>Make a folder called color_unit_test and open it</li>
           <li>
             Make a file called index.html and type the following code.  While you can just copy/paste it, typing it out will help you understand what it is doing better.  It is worth the time!<br />
-            <pre><code class="language-javascript"><xmp>
-              <!DOCTYPE html>
-              <html>
-              <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.20/p5.js"></script>
-                <script language="javascript" type="text/javascript" src="sketch.js"></script>
-                <style> body {padding: 0; margin: 0;} </style>
-              </head>
-              <body>
-              </body>
-              </html>
-            </xmp></code></pre>
+            <pre><code class="language-javascript">
+              &lt;!DOCTYPE html&gt;
+              &lt;html&gt;
+              &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                &lt;script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.20/p5.js"&gt;&lt;/script&gt;
+                &lt;script language="javascript" type="text/javascript" src="sketch.js"&gt;&lt;/script>&gt;
+                &lt;style&gt; body {padding: 0; margin: 0;} &lt;/style&gt;
+              &lt;/head&gt;
+              &lt;body&gt;
+              &lt;/body&gt;
+              &lt;/html&gt;
+            &lt;/code&gt;&lt;/pre&gt;
           </li>
           <li>
             make a file called sketch.js and put in the following code<br />
-            <pre><code class="language-javascript"><xmp>
+            <pre><code class="language-javascript">
               // This is for a unit test tutorial.
               // it should create a rectangle and allow you to iterate over
               // every single color.
@@ -246,16 +246,15 @@
                   fillColor.levels[2] = 0;
                 }
               }
-            </xmp></code></pre>
+            </code></pre>
           </li>
           <li>
-           Open the index.html file in your browser (you don’t need to run a local server in this case). You should see a black box become red and then black again. This is the basis of looping over all the RGB colors. The problem you face is that there are 256 values for red, green, and blue, which means there are over 16 million combinations of colors! You can make this faster. However, making this faster will cause flashing lights which might give some people headaches or seizures. Please only increase this value if you do not have issues with flashing lights. The rest of the tutorial should be fine.  In the sketch.js file change the<pre><code class="language-javascript"><xmp>let colorValueIncrease = 33;</xmp></code></pre> and reload the page. However this still doesn’t guarantee this is working properly. You don’t have time to watch all the colors change nor can you tell yourself if it is iterating through the millions of colors. Change the colorValueIncrease variable back to 1 before you move on.
+           Open the index.html file in your browser (you don’t need to run a local server in this case). You should see a black box become red and then black again. This is the basis of looping over all the RGB colors. The problem you face is that there are 256 values for red, green, and blue, which means there are over 16 million combinations of colors! You can make this faster. However, making this faster will cause flashing lights which might give some people headaches or seizures. Please only increase this value if you do not have issues with flashing lights. The rest of the tutorial should be fine.  In the sketch.js file change the<pre><code class="language-javascript">let colorValueIncrease = 33;</code></pre> and reload the page. However this still doesn’t guarantee this is working properly. You don’t have time to watch all the colors change nor can you tell yourself if it is iterating through the millions of colors. Change the colorValueIncrease variable back to 1 before you move on.
           </li>
           <li>
             At 30 draw loops per second it would take over six days to loop through all of the colors. You certainly don’t have time to do that once, and would never be able to check and see if it worked every time you updated our code. What if you accidentally change something in our draw loop that breaks the code right before install?  You wouldn’t know until it was live and everyone saw your sketch break.
           </li>
         </ol>
-      </p>
 
       <h2>Your first unit tests</h2>
       <p>
@@ -263,7 +262,7 @@
       </p>
       <p>
         In the folder called color_unit_test that you already created, make a new folder called test.  Open the test folder and make a file called test.js.  Type this code into test.js
-        <pre><code class="language-javascript"><xmp>
+        <pre><code class="language-javascript">
           'use strict';
 
           // Import the expect library.  This is what allows us to check our code.
@@ -294,32 +293,32 @@
               done();
             });
           });
-        </xmp></code></pre>
+        </code></pre>
       </p>
       <p>
         Save test.js and go back to your command line and <a href='http://ss64.com/bash/cd.html'>cd</a> into the main directory of our sketch called color_unit_test.  Type the command
-        <pre><code class="language-javascript"><xmp>mocha</xmp></code></pre>
+        <pre><code class="language-javascript">mocha</code></pre>
       </p>
       <p>
         into the command line and watch your first test run!  You should see something like:
-        <pre><code class="language-javascript"><xmp>
+        <pre><code class="language-javascript">
           these are my first tests for p5js
               ✓ should be a string
               ✓ should be equal to awesome
             2 passing (14ms)
-        </xmp></code></pre>
+        </code></pre>
       </p>
       <p>
         Let's look at what happens when tests fail. Change line 6 in test.js from:
-        <pre><code class="language-javascript"><xmp>let p5js = 'awesome';</xmp></code></pre>
+        <pre><code class="language-javascript">let p5js = 'awesome';</code></pre>
       </p>
       <p>
         to
-        <pre><code class="language-javascript"><xmp>let p5js = 42;</xmp></code></pre>
+        <pre><code class="language-javascript">let p5js = 42;</code></pre>
       </p>
       <p>
         Save test.js and go back to your terminal and run the mocha command again. You should see something like:
-        <pre><code class="language-javascript"><xmp>
+        <pre><code class="language-javascript">
           these are my first tests for p5js
               1) should be a string
               2) should be equal to awesome
@@ -334,16 +333,16 @@
             2) these are my first tests for p5js should be equal to awesome:
                AssertionError: expected 42 to equal 'awesome'
                 at Context.<anonymous> (test/test.js:21:21)
-        </xmp></code></pre>
+        </code></pre>
       </p>
       <p>
         What is nice about these errors is:
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>They tell you the name of the test that you put in the describe() and it() functions</li>
           <li>They tell you what they expected with AssertionError: expected 42 to be a string</li>
           <li>They tell you what file and line of code had the problem test/test.js:14:24</li>
         </ul>
-      </p>
       <p>
         Now that you know the basics of unit testing you are ready to write some tests against your code and refactor your sketch!
       </p>
@@ -351,12 +350,12 @@
       <h2>Test Driven Development</h2>
       <p>
         You are going to use Test Driven Development for the rest of this tutorial.  The idea is you write your unit tests first, run them and watch them fail, and then add code to sketch.js to make the tests pass.  This way you ensure your code is working as you expect every step of the way and that new code doesn’t break old code.  Your goal is to create a ColorIncreaser class that:
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>takes in an integer as the value to increase each time called colorValueIncrease.</li>
           <li>takes in an instance of the <a href='http://p5js.org/reference/#/p5/color'>p5 color class.</a></li>
           <li>has a function to increase the values in the color by the value in colorValueIncreases.</li>
         </ul>
-      </p>
       <p>
         Delete everything in test.js and replace it with this
         <pre><code class="language-javascript">
@@ -524,7 +523,7 @@
         <pre><code class="language-javascript">
           it('should have rgb values 255, 0, 0 after calling increaseFillColor 255 times', function(done) {
             //it is 256^1 - 1 because it starts with the color black
-            for (let count = 0; count < 255; count += 1) {
+            for (let count = 0; count &lt; 255; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
             expect(colorIncreaser.fillColor.levels[0]).to.equal(255)
@@ -536,7 +535,7 @@
 
           it('should have rgb values 255, 255, 0 after calling increaseFillColor 65535 times', function(done) {
             //it is 256^2 - 1 because it starts with the color black
-            for (let count = 0; count < 65535; count += 1) {
+            for (let count = 0; count &lt; 65535; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
             expect(colorIncreaser.fillColor.levels[0]).to.equal(255)
@@ -548,7 +547,7 @@
 
           it('should have rgb values 255, 255, 255 after calling increaseFillColor 16777215 times', function(done) {
             //it is 256^3 - 1 because it starts with the color black
-            for (let count = 0; count < 16777215; count += 1) {
+            for (let count = 0; count &lt; 16777215; count += 1) {
                 colorIncreaser.increaseFillColor()
             }
             expect(colorIncreaser.fillColor.levels[0]).to.equal(255)
@@ -609,6 +608,7 @@
         All tests should pass now and you can expect your code to behave as you want!  As a bonus when you change the code in the future the tests will let you know that it still works as intended!<br />
         Congratulations, you made it to the end! Unit tests and Test Driven Development are powerful ways to build code that you know works just as you expect. <br />
         You can continue to build on your skills by
+      </p>
         <ul style="padding: 0 0 0 40px;">
           <li>adding tests to your own sketches and projects</li>
           <li>Reading up on the tools we’ve used here:</li>
@@ -620,11 +620,11 @@
             <li><a href='https://en.wikipedia.org/wiki/Mock_object'>Mock Objects</a></li>
           </ul>
         </ul>
-      </p>
-    </section>
+    </main>
 
     
     <footer>
+      <h2 class="sr-only">Credits</h2>
       <p> ¡Hola! p5.js fue creado por <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> y es desarrollado por una comunidad de colaboradores, con apoyo de <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a>  y 
       <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. Identidad y diseño gráfico por <a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/es/copyright.html">&copy; Info.</a></p>
     </footer>
@@ -636,7 +636,7 @@
   
   <p class="clearfix"> &nbsp; </p>
   
-  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
        *<!-- to do: add fallback image in CSS -->
   </object>
 
@@ -646,23 +646,20 @@
     </div> <!-- close class='container'-->
 
     
-    <div id="family">
-      <p class="left"><a href="http://processing.org">Processing</a>
-        <a class="here" href="/es/">p5.js</a>
-        <a href="http://py.processing.org/">Processing.py</a>
-        <a href="http://android.processing.org/">Processing for Android</a>
-        <a href="http://pi.processing.org/">Processing for Pi</a>
-      </p>
-      <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
-        <input type="hidden" name="as_sitesearch" value="p5js.org" />
-        <input id='search_field' type="text" name="q" id="q" size="20" />
-        <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
-      </form>
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="http://processing.org">Processing</a></li>
+        <li><a class="here" href="/es/">p5.js</a></li>
+        <li><a href="http://py.processing.org/">Processing.py</a></li>
+        <li><a href="http://android.processing.org/">Processing for Android</a></li>
+        <li><a href="http://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
     
-      <p class="right">
-        <a href="https://processingfoundation.org/">Processing Foundation</a>
-      </p>
-    </div>
+    <!--   <p class="right">
+      </p> -->
+    </nav>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

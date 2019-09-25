@@ -2,23 +2,22 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title tabindex="1">p5.js | learn</title>
+    <title tabindex="1">learn | p5.js</title>
     <link rel="stylesheet" href="/../assets/css/all.css">
-    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+    <script src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
 
     <link rel="shortcut icon" href="/../assets/img/favicon.ico">
     <link rel="icon" href="/../assets/img/favicon.ico">
 
 
-    <script type="text/javascript" src="/../assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="/../assets/js/vendor/ace-nc/ace.js"></script>
-    <script type="text/javascript" src="/../assets/js/vendor/ace-nc/mode-javascript.js"></script>
-    <script type="text/javascript" src="/../assets/js/vendor/prism.js"></script>
-    <script type="text/javascript" src="/../assets/js/scroll.js"></script>
-    <script type="text/javascript" src="/../assets/js/init.js"></script>
+    <script src="/../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../assets/js/vendor/prism.js"></script>
+    <script src="/../assets/js/init.js"></script>
 
 
     <style>
@@ -53,21 +52,23 @@
   </head>
   <body>
 
+    <a href="#content" class="sr-only">Skip to content</a>
     
     <!-- p5*js language buttons -->
     <div id="i18n-btn">
-      <h1 class='visuallyhidden'>Language Settings</h1>
-      <button data-lang='en'>EN</button>
-      <button data-lang='es'>ES</button>
-      <button data-lang='zh-Hans'>简体中文</button>
-    </div>    <a href="#content" class="skip">Skip to content</a>
-    <!-- .container -->
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+      </ul>
+    </div>    <!-- .container -->
     <div class="container">
 
       <!-- logo -->
       <header id="lockup">
         <a href="/">
-          <img src="../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <img src="../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
         <p class='tagline'>Processing fun times JavaScript quirkiness</p>
@@ -86,30 +87,28 @@
   
   <!-- site navigation -->
   <div class="column-span">
-    <nav role="navigation">
-      <ul id="menu">
+    <nav>
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <ul id="menu" aria-labelledby="menu-title">
         <li><a href="/">Home</a></li>
         <li><a href="/download/">Download</a></li>
-        <li><a href="/gallery/"></a></li>
-        <li><a href="/get-started/">Start</a></li>
+        <li><a href="/get-started/">Get Started</a></li>
         <li><a href="/reference/">Reference</a></li>
         <li><a href="/libraries/">Libraries</a></li>
         <li><a href="/learn/">Learn</a></li>
         <li><a href="/examples/">Examples</a></li>
         <li><a href="/books/">Books</a></li>
         <li><a href="/community/">Community</a></li>
-        <li><a href="https://discourse.processing.org/categories" target=_blank class="other-link">Forum</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">Forum</a></li>
         <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
         <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
       </ul>
     </nav>
   </div>
-  
-  <!-- <script src="../assets/js/scroll.js"></script> -->
 
   <div class="column-span">
 
-    <section role="region" label="main content">
+    <main >
 
       <h1>Using p5 with a screen reader</h1>
 
@@ -122,9 +121,8 @@
 
 
       <h2>What is the p5.js Web Editor</h2>
-
       <p>
-        The p5.js web editor is a essentially a web page where you can type code in p5.js and run the code to view the output. It allows us to code in and for the browser. The web editor has features that make it screen reader friendly. You can access the <a href="http://alpha.editor.p5js.org/">p5 web editor here.</a>
+        The p5.js web editor is a essentially a web page where you can type code in p5.js and run the code to view the output. It allows us to code in and for the browser. The web editor has features that make it screen reader friendly. You can access the <a href="http://editor.p5js.org/">p5 web editor here.</a>
       </p>
 
       <h2>Pairings</h2>
@@ -133,11 +131,11 @@
       </p>
       <p>
         Using the p5.js web editor with a screen reader works better when you have one of the following screen reader/browser/operating system pairings:
-        <ul>
+      </p>
+        <ul class="list_view">
           <li>NVDA and Firefox</li>
           <li>JAWS and Chrome</li>
         </ul>
-      </p>
 
       <h2>Outputs</h2>
       <p>
@@ -163,26 +161,26 @@
       <h2>How to select an output:</h2>
       <p>
         In the p5.js web editor there are two ways to select the accessible outputs that we want to make available.
-        <ol>
-          <li>
-            When we press the “play sketch, button” accessible to screen readers the “plain-text output” will automatically be available.
-          </li>
-          <li>
-            If we want to access other outputs we should do the following:
-            <ul>
-              <li>
-                First, stop the sketch by pressing the “stop sketch, button” and go to “Settings”.
-              </li>
-              <li>
-                Within settings we must find the “Accessibility” tab.
-              </li>
-              <li>
-                In the “Accessibility” tab and under the “Accessible text-based canvas” section we can choose our preferred outputs.
-              </li>
-            </ul>
-          </li>
-        </ol>
       </p>
+      <ol>
+        <li>
+          When we press the “play sketch, button” accessible to screen readers the “plain-text output” will automatically be available.
+        </li>
+        <li>
+          If we want to access other outputs we should do the following:
+          <ul class="list_view">
+            <li>
+              First, stop the sketch by pressing the “stop sketch, button” and go to “Settings”.
+            </li>
+            <li>
+              Within settings we must find the “Accessibility” tab.
+            </li>
+            <li>
+              In the “Accessibility” tab and under the “Accessible text-based canvas” section we can choose our preferred outputs.
+            </li>
+          </ul>
+        </li>
+      </ol>
       <p>
         Within “Settings” and under the “Accessibility” tab it is also possible to activate a lint warning sound that should make debugging easier. In “Settings” and under the  “General Settings” tab we can increase the size of the font and select a high contrast theme. After choosing our settings we can close the “Settings” window and go back to coding and playing our sketch.
       </p>
@@ -194,7 +192,7 @@
       <p>
         There are also ways to turn on the accessible outputs using keyboard shortcuts. Once we are on the code editor area we can use the following shortcuts (we have listed the shortcuts  for Windows computers, if you are using Mac OS please use the command key instead of control):
       </p>
-      <ul>
+      <ul class="list_view">
         <li>
           Shift + Control +1 - Turns on ALL the accessible output options, including audio
         </li>
@@ -415,7 +413,7 @@
       <p>
         Let’s start with a sample dataset that we want to depict.
       </p>
-      <ul>Animals in the park:
+      <ul class="list_view">Animals in the park:
         <li>Dogs - 260</li>
         <li>Cats - 300</li>
         <li>Hamsters -100</li>
@@ -470,11 +468,11 @@
       <h3>Text output for Bar Graph 1</h3>
       <p>
         Your output is a 500 by 500 white canvas containing the following 2 objects:
-        <ul>
-          <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
-          <li>Dogs-260(red(255, 0, 0)) at top left</li>
-        </ul>
       </p>
+      <ul class="list_view">
+        <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
+        <li>Dogs-260(red(255, 0, 0)) at top left</li>
+      </ul>
 
       <p>
         Now lets add rectangles to represent 300 cats, 100 hamsters, 50 rabbits, and 10 spiders. Remember that the values for the function rect() in our case should be: rect(0, y position, number of animals, 50).
@@ -503,19 +501,19 @@
       <h3>Text output for Bar Graph 2</h3>
       <p>
         Your output is a 500 by 500 white canvas containing the following 10 objects:
-        <ul>
-          <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
-          <li>Dogs-260(red(255, 0, 0)) at top left</li>
-          <li>red(255, 0, 0) rect at top left covering 6.00% of the canvas</li>
-          <li>Cats-300(red(255, 0, 0)) at top left</li>
-          <li>red(255, 0, 0) rect at top left covering 2.00% of the canvas</li>
-          <li>Hamsters-100(red(255, 0, 0)) at top left</li>
-          <li>red(255, 0, 0) rect at top left covering 1.00% of the canvas</li>
-          <li>Rabbits-50(red(255, 0, 0)) at top left</li>
-          <li>red(255, 0, 0) rect at top left covering 0.20% of the canvas</li>
-          <li>Spiders-10(red(255, 0, 0)) at top left</li>
-        </ul>
       </p>
+      <ul class="list_view">
+        <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
+        <li>Dogs-260(red(255, 0, 0)) at top left</li>
+        <li>red(255, 0, 0) rect at top left covering 6.00% of the canvas</li>
+        <li>Cats-300(red(255, 0, 0)) at top left</li>
+        <li>red(255, 0, 0) rect at top left covering 2.00% of the canvas</li>
+        <li>Hamsters-100(red(255, 0, 0)) at top left</li>
+        <li>red(255, 0, 0) rect at top left covering 1.00% of the canvas</li>
+        <li>Rabbits-50(red(255, 0, 0)) at top left</li>
+        <li>red(255, 0, 0) rect at top left covering 0.20% of the canvas</li>
+        <li>Spiders-10(red(255, 0, 0)) at top left</li>
+      </ul>
       <p>
         Now we can add different colors to each bar:
       </p>
@@ -547,28 +545,29 @@
       <h3>Text output for Bar Graph 3</h3>
       <p>
         Your output is a 500 by 500 white canvas containing the following 10 objects:
-        <ul>
-          <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
-          <li>Dogs-260(red(255, 0, 0)) at top left</li>
-          <li>green(0, 255, 0) rect at top left covering 6.00% of the canvas</li>
-          <li>Cats-300(green(0, 255, 0)) at top left</li>
-          <li>blue( 0, 0, 255) rect at top left covering 2.00% of the canvas</li>
-          <li>Hamsters-100(blue( 0, 0, 255)) at top left</li>
-          <li>orange(200, 100, 0) rect at top left covering 1.00% of the canvas</li>
-          <li>Rabbits-50(orange(200, 100, 0)) at top left</li>
-          <li>cyan( 0, 200, 200) rect at top left covering 0.20% of the canvas</li>
-          <li>Spiders-10(cyan( 0, 200, 200)) at top left</li>
-        </ul>
       </p>
+      <ul class="list_view">
+        <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
+        <li>Dogs-260(red(255, 0, 0)) at top left</li>
+        <li>green(0, 255, 0) rect at top left covering 6.00% of the canvas</li>
+        <li>Cats-300(green(0, 255, 0)) at top left</li>
+        <li>blue( 0, 0, 255) rect at top left covering 2.00% of the canvas</li>
+        <li>Hamsters-100(blue( 0, 0, 255)) at top left</li>
+        <li>orange(200, 100, 0) rect at top left covering 1.00% of the canvas</li>
+        <li>Rabbits-50(orange(200, 100, 0)) at top left</li>
+        <li>cyan( 0, 200, 200) rect at top left covering 0.20% of the canvas</li>
+        <li>Spiders-10(cyan( 0, 200, 200)) at top left</li>
+      </ul>
 
       <p>
         Now that we created a graph together you should be able to do it by yourself and share the results with your friends!
       </p>
 
-    </section>
+    </main>
 
     
     <footer>
+      <h2 class="sr-only">Credits</h2>
       <p> p5.js was created by <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> and is developed by a community of collaborators, with support from the <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a>  and 
       <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. Identity and graphic design by <a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/copyright.html">&copy; Info.</a></p>
     </footer>
@@ -580,7 +579,7 @@
   
   <p class="clearfix"> &nbsp; </p>
   
-  <object type="image/svg+xml" data="../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+  <object type="image/svg+xml" data="../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
        *<!-- to do: add fallback image in CSS -->
   </object>
 
@@ -590,23 +589,20 @@
     </div> <!-- close class='container'-->
 
     
-    <div id="family">
-      <p class="left"><a href="http://processing.org">Processing</a>
-        <a class="here" href="/">p5.js</a>
-        <a href="http://py.processing.org/">Processing.py</a>
-        <a href="http://android.processing.org/">Processing for Android</a>
-        <a href="http://pi.processing.org/">Processing for Pi</a>
-      </p>
-      <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
-        <input type="hidden" name="as_sitesearch" value="p5js.org" />
-        <input id='search_field' type="text" name="q" id="q" size="20" />
-        <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
-      </form>
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="http://processing.org">Processing</a></li>
+        <li><a class="here" href="/">p5.js</a></li>
+        <li><a href="http://py.processing.org/">Processing.py</a></li>
+        <li><a href="http://android.processing.org/">Processing for Android</a></li>
+        <li><a href="http://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
     
-      <p class="right">
-        <a href="https://processingfoundation.org/">Processing Foundation</a>
-      </p>
-    </div>
+    <!--   <p class="right">
+      </p> -->
+    </nav>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

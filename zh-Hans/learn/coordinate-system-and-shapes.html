@@ -2,25 +2,24 @@
 <html class="no-js" lang="zh-Hans">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
-    <title tabindex="1">p5.js | learn</title>
+    <title tabindex="1">learn | p5.js</title>
     <link rel="stylesheet" href="/../../assets/css/all.css">
-    <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+    <script src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
 
     <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
     <link rel="icon" href="/../../assets/img/favicon.ico">
 
 
-    <script type="text/javascript" src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/ace.js"></script>
-    <script type="text/javascript" src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
-    <script type="text/javascript" src="/../../assets/js/vendor/prism.js"></script>
-    <script type="text/javascript" src="/../../assets/js/scroll.js"></script>
-    <script type="text/javascript" src="/../../assets/js/init.js"></script>
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/../../assets/js/init.js"></script>
 
-    <script type="text/javascript" src="/../../assets/js/vendor/pangu.min.js"></script>
+    <script src="/../../assets/js/vendor/pangu.min.js"></script>
 
     <style>
     @font-face {
@@ -54,21 +53,23 @@
   </head>
   <body>
 
+    <a href="#content" class="sr-only">Skip to content</a>
     
     <!-- p5*js language buttons -->
     <div id="i18n-btn">
-      <h1 class='visuallyhidden'>Language Settings</h1>
-      <button data-lang='en'>EN</button>
-      <button data-lang='es'>ES</button>
-      <button data-lang='zh-Hans'>简体中文</button>
-    </div>    <a href="#content" class="skip">Skip to content</a>
-    <!-- .container -->
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+      </ul>
+    </div>    <!-- .container -->
     <div class="container">
 
       <!-- logo -->
       <header id="lockup">
         <a href="/zh-Hans/">
-          <img src="../../assets/img/p5js.svg" alt="link to p5 home page" id="logo_image" class="logo" />
+          <img src="../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
         <p class='tagline'>Processing 的趣味结合 JavaScript 的俏皮</p>
@@ -87,11 +88,11 @@
   
   <!-- site navigation -->
   <div class="column-span">
-    <nav role="navigation">
-      <ul id="menu">
+    <nav>
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <ul id="menu" aria-labelledby="menu-title">
         <li><a href="/zh-Hans/">主页</a></li>
         <li><a href="/zh-Hans/download/">下载</a></li>
-        <li><a href="/zh-Hans/gallery/"></a></li>
         <li><a href="/zh-Hans/get-started/">入门</a></li>
         <li><a href="/zh-Hans/reference/">参考文献</a></li>
         <li><a href="/zh-Hans/libraries/">程式库</a></li>
@@ -99,24 +100,22 @@
         <li><a href="/zh-Hans/examples/">范例</a></li>
         <li><a href="/zh-Hans/books/">书籍</a></li>
         <li><a href="/zh-Hans/community/">社群</a></li>
-        <li><a href="https://discourse.processing.org/categories" target=_blank class="other-link">论坛</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">论坛</a></li>
         <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
         <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
       </ul>
     </nav>
   </div>
-  
-  <!-- <script src="../../assets/js/scroll.js"></script> -->
 
   <div class="column-span">
 
-    <section role="region" label="main content">
+    <main >
       <div class="attribution">
       以下教程来自于由 Daniel Shiffman 篇写的《 <em>Learning Processing</em> 》（原文英文），并由 Morgan Kaufmann 出版，© 2008 Elsevier Inc。版权所有。此教程由移植成 P5 代码。如果您发现任何错误或有任何评论，<a href="https://github.com/processing/processing-docs/issues?state=open">请联络我们</a>。</div>
 
       <h1>坐标系统及图形</h1>
       <p>在我们开始使用 p5 编程前，我们得先回到我们初中二时的记忆，找出一张坐标纸并画一条直线。两点之间最短的距离正是一条直线，我们将使用坐标纸上的直线的两点作为起点。</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-01.png">
+      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-01.png" alt="">
 
       <p>以上图解显示一条介于点 A (1,0) 及点 B (4,5) 的直线。如果您想要指示您的朋友画出一样的直线，您或许会对他说：“请从点一、零开始画一条直线去点四、五”。 那么现在暂时想象您的朋友是个电脑而您想要指示这位数码朋友如何画在荧幕上出一样的直线。这情况下您也能使用一样的指示（只不过现在您可以跳过任何客气话但是必须使用精准的格式来表达）。该指示将会是如下：</p>
 
@@ -125,16 +124,16 @@
       </code></pre>
 
       <p>就算您还没学习过编写程式的语法，以上的语句应该仍然多少都能理解。我们提供电脑一个指令（我们称这指令为 function 或函数）以让其画出直线（line）。此外，我们也提供一些用于定义该直线的参数：从点 A (1,0) 至点 B (4,5)。 如果您假想这行代码为一个句子，这函数就是个动词而参数就是宾语。这代码句子使用分号作为句尾符号而不是句号。</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-02.png">
+      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-02.png" alt="">
 
       <p>这里关键是了解电脑屏幕就只是个比较花俏的坐标纸。荧幕上每一个像素都代表着一个坐标 - 或两个数字：“x”（横向）及 “y”（纵向）- 代表着在空间内一点的位置。而我们的工作就是指定该在这些像素坐标位置出现的图形及颜色。</p>
 
       <p>不过，这里有个需要注意的东西。那张来自初中二的坐标纸（使用笛卡尔坐标系）将 (0,0) 放置在正中央，y 轴由下至上 x 轴由左至右。但是电脑窗口的坐标系在 y 轴的方向是相反的。(0,0) 被定义在左上角并往右边及往下延伸。</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg">
+      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg" alt="">
 
       <h2>基本图形</h2>
       <p>大多数使用 p5 的编程范例一般都会使视觉上的绘图范例。本质上，这些范例都和绘制图形及设定像素有关。我们将从绘制四种基本图形开始。</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png">
+      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png" alt="">
 
       <p>针对每个形状，我们需要问我们需要什么资料才可以定义该图形的位置及大小（更之后其颜色）然后再了解 p5 如何接收这些信息。在以下的绘图内，我们将使用一个宽度为 100 像素及高度为 100 像素的画布。</p>
 
@@ -241,11 +240,12 @@ function draw(){
 </script>
 
 
-    </section>
+    </main>
 
     
     <footer>
-      <p> p5.js 的原作者为<a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a>并在<a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a> 和
+      <h2 class="sr-only">Credits</h2>
+      <p> p5.js 的原<a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a>并在<a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a> 和
       <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. 的支持下由其合作社群所开发。形象及平面设计<a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/zh-Hans/copyright.html">&copy; Info.</a></p>
     </footer>
 
@@ -256,7 +256,7 @@ function draw(){
   
   <p class="clearfix"> &nbsp; </p>
   
-  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element">
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
        *<!-- to do: add fallback image in CSS -->
   </object>
 
@@ -266,23 +266,20 @@ function draw(){
     </div> <!-- close class='container'-->
 
     
-    <div id="family">
-      <p class="left"><a href="http://processing.org">Processing</a>
-        <a class="here" href="/zh-Hans/">p5.js</a>
-        <a href="http://py.processing.org/">Processing.py</a>
-        <a href="http://android.processing.org/">Processing for Android</a>
-        <a href="http://pi.processing.org/">Processing for Pi</a>
-      </p>
-      <form id="search_form" style='pointer-events:all;' name="search" method="get" action="https://www.google.com/search">
-        <input type="hidden" name="as_sitesearch" value="p5js.org" />
-        <input id='search_field' type="text" name="q" id="q" size="20" />
-        <label for="q"><input id="search_button" type="submit" value=" " name="Go" alt="submit search"/></label>
-      </form>
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="http://processing.org">Processing</a></li>
+        <li><a class="here" href="/zh-Hans/">p5.js</a></li>
+        <li><a href="http://py.processing.org/">Processing.py</a></li>
+        <li><a href="http://android.processing.org/">Processing for Android</a></li>
+        <li><a href="http://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
     
-      <p class="right">
-        <a href="https://processingfoundation.org/">Processing Foundation</a>
-      </p>
-    </div>
+    <!--   <p class="right">
+      </p> -->
+    </nav>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
