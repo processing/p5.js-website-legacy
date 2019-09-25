@@ -52,11 +52,11 @@
   </head>
   <body>
 
-    <a href="#content" class="sr-only">Skip to content</a>
+    <a href="#content" class="sr-only">Ir al contenido</a>
     
     <!-- p5*js language buttons -->
     <div id="i18n-btn">
-      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <h2 id="i18n-settings" class="sr-only">Preferencias de idioma</h2>
       <ul id="i18n-buttons" aria-labelledby="i18n-settings">
         <li><a href='#' lang='en' data-lang='en'>English</a></li>
         <li><a href='#' lang='es' data-lang='es'>Español</a></li>
@@ -88,9 +88,10 @@
   <!-- site navigation -->
   <div class="column-span">
     <nav>
-      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <h2 id="menu-title" class="sr-only">Navegación del sitio</h2>
       <ul id="menu" aria-labelledby="menu-title">
         <li><a href="/es/">Inicio</a></li>
+        <li><a href="https://editor.p5js.org">Editor</a></li>
         <li><a href="/es/download/">Descargar</a></li>
         <li><a href="/es/get-started/">Empezar</a></li>
         <li><a href="/es/reference/">Referencia</a></li>
@@ -113,12 +114,12 @@
       <h1>Descargar</h1>
 
       <h2 class='sr-only'>Introduction</h2>
-      <p></p>
+      <p>¡Bienvenidos! Aunque esta página se titula "Descargar", en realidad contiene una colección de enlaces para descargar la biblioteca o comenzar a trabajar en línea. Hemos tratado de ordenar cosas desde lo que un principiante podría desear ver primero, a los recursos que los programadores más experimentados pueden estar buscando.</p>
 
       <!-- EDITOR -->
       <div class="link_group">
-        <a name="editor" class="anchor"><h2>Editor</h2></a>
-        <p>This link redirects you to the p5.js Editor online so you can begin using p5.js immediately.</p>
+        <a class="anchor"><h2>Editor</h2></a>
+        <p>Este enlace te redirige al Editor p5.js en línea para que puedas comenzar a usar p5.js de inmediato.</p>
 
         <a class='support_link' href="https://editor.p5js.org" target="_blank">
           <div class="download_box">
@@ -135,7 +136,7 @@
       <!-- COMPLETE LIBRARY -->
       <div class="link_group">
         <h2>Biblioteca completa</h2>
-        <p>This is a download containing the p5.js library file, the p5.sound addon, and an example project. It does not contain an editor. See <a href="get-started/">Get Started</a> to learn how to setup a p5.js project.</p>
+        <p>Esta es una descarga contiene el archivo de la biblioteca p5.js, el complemento p5.sound y un proyecto de ejemplo. No contiene un editor. Explora <a href="get-started/">Empezar</a> para aprender cómo crear un proyecto de p5.js.</p>
 
         <a  class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.zip">
           <div class="download_box">
@@ -155,7 +156,7 @@
       <div class="link_group">
 
         <h2 id="single-files">Archivos por separado</h2>
-        <p>These are downloads or links to the p5.js library file. No additional contents are included.</p>
+        <p>Estas son descargas o enlaces al archivo de biblioteca p5.js. No incluyen contenidos adicionales.</p>
         <ul aria-labelledby="single-files">
           <li>
             <a class='support_link p5_link' href="https://github.com/processing/p5.js/releases/download/[p5_version]/p5.js">
@@ -194,10 +195,10 @@
 
       <!-- Github resources -->
       <div class="link_group">
-        <h2 id="etc">Github Resources</h2>
+        <h2 id="etc">Recursos de GitHub</h2>
         <ul aria-labelledby="etc" id='etc_list' class="list_view bullets">
           <li><a href="https://github.com/processing/p5.js/releases">Versiones antiguas / bitácora de cambios </a></li>
-          <li><a href="https://github.com/processing/p5.js">Code repository (GitHub)</a></li>
+          <li><a href="https://github.com/processing/p5.js">Repositorio de Código (GitHub)</a></li>
           <li><a href="https://github.com/processing/p5.js/issues">Reporta errores </a></li>
           <li><a href="https://github.com/processing/p5.js/blob/master/developer_docs/supported_browsers.md">Navegadores soportados </a></li>
         </ul>
@@ -207,7 +208,7 @@
 
     </main>
 
-    <script type='text/javascript'>
+    <script>
       $.getJSON('/download/version.json', function(data) {
         $('#p5_version').text(data.version);
         $('#p5_date').text(data.date);
@@ -236,8 +237,8 @@
 
     
     <footer>
-      <h2 class="sr-only">Credits</h2>
-      <p> ¡Hola! p5.js fue creado por <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> y es desarrollado por una comunidad de colaboradores, con apoyo de <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a>  y 
+      <h2 class="sr-only">Créditos</h2>
+      <p> p5.js fue creado por <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> y es desarrollado por una comunidad de colaboradores, con apoyo de <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a>  y 
       <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. Identidad y diseño gráfico por <a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/es/copyright.html">&copy; Info.</a></p>
     </footer>
 
