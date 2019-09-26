@@ -11,34 +11,7 @@ slug: libraries/
 
     <main id="content">
       <h1>{{#i18n "Libraries"}}{{/i18n}}</h1>
-
-      <% let all; for(let p=0; p<2; p++) { %>
-        <% if (p == 0) { all = core; %>
-          <h2>{{#i18n "core-libraries"}}{{/i18n}}</h2>
-        <% } else { all = contributed; %>
-          <h2>{{#i18n "community-libraries"}}{{/i18n}}</h2>
-        <% } %>
-        <% let col=0; for(let c in all) { %>
-          <% if (col == 0) { %>
-            <div class="left-column">
-          <% } else { %>
-            <div class="right-column">
-           <% } %>  
-              <div class="label">
-                <a class="nounderline" href="<%=all[c].url%>" target="_blank">
-                  <img alt="" src="{{assets}}/img/libraries/<%=all[c].name.replace(' ', '_')%>.jpg">
-                  <h3><%=all[c].name%></h3>
-                </a>
-              </div>
-              <p>{{#i18n "<%=all[c].name%>"}}{{/i18n}} <% if (all[c].authors) { %>{{#i18n "libraries-created-by" }}{{/i18n}} <% for(let i in all[c].authors) { %><a href="<%=all[c].authors[i].url%>" target="_blank"><%=all[c].authors[i].name%></a><% if (i != all[c].authors.length - 1) { %>, <% } } } %></p>
-            </div>
-          <% if (col == 1 || c == all.length - 1) { %>
-            <div class="spacer"></div>
-           <% } %>  
-          <% col = (col+1)%2; %>
-        <% } %>
-      <% } %>
-
+      
       <h2>{{#i18n "using-a-library-title"}}{{/i18n}}</h2>
 
       <p>{{#i18n "using-a-library1"}}{{/i18n}}<a href="{{root}}/reference/#/libraries/dom">p5.dom</a>
@@ -66,6 +39,34 @@ slug: libraries/
         {{#i18n "create-your-own2"}}{{/i18n}}</a>
         {{#i18n "create-your-own3"}}{{/i18n}}
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdWWb95cfvosaIFI7msA7XC5zOEVsNruaA5klN1jH95ESJVcw/viewform" target="_blank">{{#i18n "create-your-own4"}}{{/i18n}}</a></p>
+
+      <% let all; for(let p=0; p<2; p++) { %>
+        <% if (p == 0) { all = core; %>
+          <h2 class="tutorial-title">{{#i18n "core-libraries"}}{{/i18n}}</h2>
+        <% } else { all = contributed; %>
+          <h2 class="tutorial-title">{{#i18n "community-libraries"}}{{/i18n}}</h2>
+        <% } %>
+        <% let col=0; for(let c in all) { %>
+          <% if (col == 0) { %>
+            <div class="left-column">
+          <% } else { %>
+            <div class="right-column">
+           <% } %>  
+              <div class="label">
+                <a class="nounderline" href="<%=all[c].url%>" target="_blank">
+                  <img alt="" src="{{assets}}/img/libraries/<%=all[c].name.replace(' ', '_')%>.jpg">
+                  <h3><%=all[c].name%></h3>
+                </a>
+              </div>
+              <p>{{#i18n "<%=all[c].name%>"}}{{/i18n}} <% if (all[c].authors) { %>{{#i18n "libraries-created-by" }}{{/i18n}} <% for(let i in all[c].authors) { %><a href="<%=all[c].authors[i].url%>" target="_blank"><%=all[c].authors[i].name%></a><% if (i != all[c].authors.length - 1) { %>, <% } } } %></p>
+            </div>
+          <% if (col == 1 || c == all.length - 1) { %>
+            <div class="spacer"></div>
+           <% } %>  
+          <% col = (col+1)%2; %>
+        <% } %>
+      <% } %>
+
 
     </main>
     {{> footer}}
