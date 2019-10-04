@@ -12,7 +12,7 @@ We recognize all types of contributions. This project follows the [all-contribut
 
 ## Setup
 
--1. Ensure Java is installed. Not installed?  Head over to https://java.oracle.com
+0. Ensure Java is installed. Not installed?  Head over to https://java.oracle.com
 0. Install [node.js](https://nodejs.org/en/download/).
 1. Download this repo as a [zip file](https://github.com/processing/p5.js-website/archive/master.zip) or [clone this repository](https://help.github.com/articles/cloning-a-repository/). 
 2. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
