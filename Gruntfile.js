@@ -23,7 +23,9 @@ module.exports = function(grunt) {
       dist: 'dist'
     },
     exec: {
-      build_examples: 'node <%= config.src %>/data/examples/build_examples/build.js <%= config.src %>/templates/pages/examples/'
+      build_examples: 'node <%= config.src %>/data/examples/build_examples/build.js <%= config.src %>/templates/pages/examples/',
+      build_libraries: 'node <%= config.src %>/data/libraries/build.js <%= config.src %>/templates/pages/libraries/',
+      build_learn: 'node <%= config.src %>/data/learn/build.js <%= config.src %>/templates/pages/learn/'
     },
     watch: {
       assemble: {
@@ -316,6 +318,23 @@ module.exports = function(grunt) {
         src: ['**/*'],
         dest: 'p5-reference/'
       }
+    },  
+    htmllint: {
+      all: {
+        src: ['<%= config.dist %>/**/*.html',
+            '!<%= config.dist %>/es/**/*.html',
+            '!<%= config.dist %>/zh-Hans/**/*.html',
+            '!<%= config.dist %>/**/CHANGES.html',
+            '!<%= config.dist %>/**/README.html',
+            '!<%= config.dist %>/**/p5_featured/**/*.html',
+            '!<%= config.dist %>/**/learn/*.html',
+            '!<%= config.dist %>/**/examples/*.html'],
+        options: {
+          ignore: [/^This document appears to be written in English/,
+                  /^Bad value “https:/,
+                  /^Consider adding a “lang” attribute to the “html”/]
+        }
+      }
     }
   });
 
@@ -341,6 +360,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-file-append');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-html');
 
   // multi-tasks: collections of other tasks
   grunt.registerTask('server', [
@@ -368,7 +388,7 @@ module.exports = function(grunt) {
     require("./i18n.js")(done);
   });
 
-  // runs three tasks in order
+  // runs tasks in order
   grunt.registerTask('build', [
     'update-version',
     'exec',
@@ -379,7 +399,8 @@ module.exports = function(grunt) {
     'optimize',
     'file_append',
     'compress',
-    'i18n'
+    'i18n',
+    'htmllint'
   ]);
 
   // runs with just grunt command

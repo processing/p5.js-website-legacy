@@ -9,7 +9,7 @@ slug: learn/
 
   <div class="column-span">
 
-    <section role="region" label="main content">
+    <main >
 
       <h1>Using p5 with a screen reader</h1>
 
@@ -22,9 +22,8 @@ slug: learn/
 
 
       <h2>What is the p5.js Web Editor</h2>
-
       <p>
-        The p5.js web editor is a essentially a web page where you can type code in p5.js and run the code to view the output. It allows us to code in and for the browser. The web editor has features that make it screen reader friendly. You can access the <a href="http://alpha.editor.p5js.org/">p5 web editor here.</a>
+        The p5.js web editor is a essentially a web page where you can type code in p5.js and run the code to view the output. It allows us to code in and for the browser. The web editor has features that make it screen reader friendly. You can access the <a href="http://editor.p5js.org/">p5 web editor here.</a>
       </p>
 
       <h2>Pairings</h2>
@@ -33,11 +32,11 @@ slug: learn/
       </p>
       <p>
         Using the p5.js web editor with a screen reader works better when you have one of the following screen reader/browser/operating system pairings:
-        <ul>
+      </p>
+        <ul class="list_view">
           <li>NVDA and Firefox</li>
           <li>JAWS and Chrome</li>
         </ul>
-      </p>
 
       <h2>Outputs</h2>
       <p>
@@ -63,26 +62,26 @@ slug: learn/
       <h2>How to select an output:</h2>
       <p>
         In the p5.js web editor there are two ways to select the accessible outputs that we want to make available.
-        <ol>
-          <li>
-            When we press the “play sketch, button” accessible to screen readers the “plain-text output” will automatically be available.
-          </li>
-          <li>
-            If we want to access other outputs we should do the following:
-            <ul>
-              <li>
-                First, stop the sketch by pressing the “stop sketch, button” and go to “Settings”.
-              </li>
-              <li>
-                Within settings we must find the “Accessibility” tab.
-              </li>
-              <li>
-                In the “Accessibility” tab and under the “Accessible text-based canvas” section we can choose our preferred outputs.
-              </li>
-            </ul>
-          </li>
-        </ol>
       </p>
+      <ol>
+        <li>
+          When we press the “play sketch, button” accessible to screen readers the “plain-text output” will automatically be available.
+        </li>
+        <li>
+          If we want to access other outputs we should do the following:
+          <ul class="list_view">
+            <li>
+              First, stop the sketch by pressing the “stop sketch, button” and go to “Settings”.
+            </li>
+            <li>
+              Within settings we must find the “Accessibility” tab.
+            </li>
+            <li>
+              In the “Accessibility” tab and under the “Accessible text-based canvas” section we can choose our preferred outputs.
+            </li>
+          </ul>
+        </li>
+      </ol>
       <p>
         Within “Settings” and under the “Accessibility” tab it is also possible to activate a lint warning sound that should make debugging easier. In “Settings” and under the  “General Settings” tab we can increase the size of the font and select a high contrast theme. After choosing our settings we can close the “Settings” window and go back to coding and playing our sketch.
       </p>
@@ -94,7 +93,7 @@ slug: learn/
       <p>
         There are also ways to turn on the accessible outputs using keyboard shortcuts. Once we are on the code editor area we can use the following shortcuts (we have listed the shortcuts  for Windows computers, if you are using Mac OS please use the command key instead of control):
       </p>
-      <ul>
+      <ul class="list_view">
         <li>
           Shift + Control +1 - Turns on ALL the accessible output options, including audio
         </li>
@@ -315,7 +314,8 @@ slug: learn/
       <p>
         Let’s start with a sample dataset that we want to depict.
       </p>
-      <ul>Animals in the park:
+      <p>Animals in the park:</p>
+      <ul class="list_view">
         <li>Dogs - 260</li>
         <li>Cats - 300</li>
         <li>Hamsters -100</li>
@@ -370,11 +370,11 @@ slug: learn/
       <h3>Text output for Bar Graph 1</h3>
       <p>
         Your output is a 500 by 500 white canvas containing the following 2 objects:
-        <ul>
-          <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
-          <li>Dogs-260(red(255, 0, 0)) at top left</li>
-        </ul>
       </p>
+      <ul class="list_view">
+        <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
+        <li>Dogs-260(red(255, 0, 0)) at top left</li>
+      </ul>
 
       <p>
         Now lets add rectangles to represent 300 cats, 100 hamsters, 50 rabbits, and 10 spiders. Remember that the values for the function rect() in our case should be: rect(0, y position, number of animals, 50).
@@ -403,19 +403,19 @@ slug: learn/
       <h3>Text output for Bar Graph 2</h3>
       <p>
         Your output is a 500 by 500 white canvas containing the following 10 objects:
-        <ul>
-          <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
-          <li>Dogs-260(red(255, 0, 0)) at top left</li>
-          <li>red(255, 0, 0) rect at top left covering 6.00% of the canvas</li>
-          <li>Cats-300(red(255, 0, 0)) at top left</li>
-          <li>red(255, 0, 0) rect at top left covering 2.00% of the canvas</li>
-          <li>Hamsters-100(red(255, 0, 0)) at top left</li>
-          <li>red(255, 0, 0) rect at top left covering 1.00% of the canvas</li>
-          <li>Rabbits-50(red(255, 0, 0)) at top left</li>
-          <li>red(255, 0, 0) rect at top left covering 0.20% of the canvas</li>
-          <li>Spiders-10(red(255, 0, 0)) at top left</li>
-        </ul>
       </p>
+      <ul class="list_view">
+        <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
+        <li>Dogs-260(red(255, 0, 0)) at top left</li>
+        <li>red(255, 0, 0) rect at top left covering 6.00% of the canvas</li>
+        <li>Cats-300(red(255, 0, 0)) at top left</li>
+        <li>red(255, 0, 0) rect at top left covering 2.00% of the canvas</li>
+        <li>Hamsters-100(red(255, 0, 0)) at top left</li>
+        <li>red(255, 0, 0) rect at top left covering 1.00% of the canvas</li>
+        <li>Rabbits-50(red(255, 0, 0)) at top left</li>
+        <li>red(255, 0, 0) rect at top left covering 0.20% of the canvas</li>
+        <li>Spiders-10(red(255, 0, 0)) at top left</li>
+      </ul>
       <p>
         Now we can add different colors to each bar:
       </p>
@@ -447,25 +447,25 @@ slug: learn/
       <h3>Text output for Bar Graph 3</h3>
       <p>
         Your output is a 500 by 500 white canvas containing the following 10 objects:
-        <ul>
-          <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
-          <li>Dogs-260(red(255, 0, 0)) at top left</li>
-          <li>green(0, 255, 0) rect at top left covering 6.00% of the canvas</li>
-          <li>Cats-300(green(0, 255, 0)) at top left</li>
-          <li>blue( 0, 0, 255) rect at top left covering 2.00% of the canvas</li>
-          <li>Hamsters-100(blue( 0, 0, 255)) at top left</li>
-          <li>orange(200, 100, 0) rect at top left covering 1.00% of the canvas</li>
-          <li>Rabbits-50(orange(200, 100, 0)) at top left</li>
-          <li>cyan( 0, 200, 200) rect at top left covering 0.20% of the canvas</li>
-          <li>Spiders-10(cyan( 0, 200, 200)) at top left</li>
-        </ul>
       </p>
+      <ul class="list_view">
+        <li>red(255, 0, 0) rect at top left covering 5.20% of the canvas</li>
+        <li>Dogs-260(red(255, 0, 0)) at top left</li>
+        <li>green(0, 255, 0) rect at top left covering 6.00% of the canvas</li>
+        <li>Cats-300(green(0, 255, 0)) at top left</li>
+        <li>blue( 0, 0, 255) rect at top left covering 2.00% of the canvas</li>
+        <li>Hamsters-100(blue( 0, 0, 255)) at top left</li>
+        <li>orange(200, 100, 0) rect at top left covering 1.00% of the canvas</li>
+        <li>Rabbits-50(orange(200, 100, 0)) at top left</li>
+        <li>cyan( 0, 200, 200) rect at top left covering 0.20% of the canvas</li>
+        <li>Spiders-10(cyan( 0, 200, 200)) at top left</li>
+      </ul>
 
       <p>
         Now that we created a graph together you should be able to do it by yourself and share the results with your friends!
       </p>
 
-    </section>
+    </main>
 
     {{> footer}}
 

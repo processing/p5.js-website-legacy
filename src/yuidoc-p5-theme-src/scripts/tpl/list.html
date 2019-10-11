@@ -1,15 +1,19 @@
 <% _.each(groups, function(group){ %>
-  <h4 class="group-name" id="group-<%=group.name%>"><%=group.name%></h4>
   <div class="reference-group clearfix main-ref-page">  
-  <% _.each(group.subgroups, function(subgroup, ind) { %>
-    <dl>
-    <% if (subgroup.name !== '0') { %>
-        <dt class="subgroup-name subgroup-<%=subgroup.name%>"><%=subgroup.name%></dt>
-    <% } %>
-    <% _.each(subgroup.items, function(item) { %>
-    <dd><a href="<%=item.hash%>"><%=item.name%><% if (item.itemtype === 'method') { %>()<%}%></a></dd>
+    <h2 class="group-name" id="group-<%=group.name%>" tab-index="-1"><%=group.name%></h2>
+    <div class="reference-subgroups clearfix main-ref-page">  
+    <% _.each(group.subgroups, function(subgroup, ind) { %>
+      <div class="reference-subgroup">
+        <% if (subgroup.name !== '0') { %>
+          <h3 id="<%=group.name%><%=ind%>" class="subgroup-name subgroup-<%=subgroup.name%>"><%=subgroup.name%></h3>
+        <% } %>
+        <ul aria-labelledby="<%=group.name%> <%=ind%>">
+        <% _.each(subgroup.items, function(item) { %>
+        <li><a href="<%=item.hash%>"><%=item.name%><% if (item.itemtype === 'method') { %>()<%}%></a></li>
+        <% }); %>
+        </ul>
+      </div>
     <% }); %>
-    </dl>
-  <% }); %>
+    </div>
   </div>
 <% }); %>

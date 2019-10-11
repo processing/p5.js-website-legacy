@@ -1,0 +1,50 @@
+---
+title: learn
+slug: learn/
+---
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main id="content">
+      <h1>{{#i18n "learn-title"}}{{/i18n}}</h1>
+
+      <p>{{#i18n "learn1"}}{{/i18n}}
+        <a href="{{root}}/examples">{{#i18n "learn2"}}{{/i18n}}
+        </a>{{#i18n "learn3"}}{{/i18n}}
+      </p>
+
+      <% for(t in all) { %>
+        <h2 class="tutorial-title">{{#i18n "<%=t%>"}}{{/i18n}}</h2>
+        <% let col=0; for(let c in all[t]) { %>
+          <% if (col == 0) { %>
+            <div class="left-column">
+          <% } else { %>
+            <div class="right-column">
+           <% } %>  
+              <div class="label">
+                <a class="nounderline" href="<%=all[t][c].url%>">
+                  <img alt="" src="{{assets}}/img/learn/lib_placeholder.jpg">
+                  <h3>{{#i18n "<%=all[t][c].name%>-title"}}{{/i18n}}</h3>
+                </a>
+              </div>
+              <p>{{#i18n "<%=all[t][c].name%>"}}{{/i18n}} <% if (all[t][c].authors) { %>{{#i18n "libraries-created-by" }}{{/i18n}} <% for(let i in all[t][c].authors) { %><a href="<%=all[t][c].authors[i].url%>" target="_blank"><%=all[t][c].authors[i].name%></a><% if (i != all[t][c].authors.length - 1) { %>, <% } } } %></p>
+            </div>
+          <% if (col == 1 || c == all[t].length - 1) { %>
+            <div class="spacer"></div>
+           <% } %>  
+          <% col = (col+1)%2; %>
+        <% } %>
+      <% } %>
+
+    </main>
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->

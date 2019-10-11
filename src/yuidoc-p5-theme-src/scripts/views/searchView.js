@@ -15,7 +15,7 @@ define([
     init: function() {
       var tpl = _.template(searchTpl);
       var className = 'form-control input-lg';
-      var placeholder = 'Search the API';
+      var placeholder = 'Search the reference';
       this.searchHtml = tpl({
         'placeholder': placeholder,
         'className': className
@@ -79,7 +79,7 @@ define([
       function select(selectedItem) {
         var hash = App.router.getHash(selectedItem);//
         App.router.navigate(hash, {'trigger': true});
-        $input.blur();
+        $('#item').focus();
       }
     },
     /**
