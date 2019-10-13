@@ -10,7 +10,7 @@ function setup() {
     let dx = w / width;    // Increment x this amount per pixel
     let dy = h / height;   // Increment y this amount per pixel
     let x = -w/2;          // Start x at -1 * width / 2
-    for (let i = 0; i < width; i++) {
+    for (let i = 0; i < width; i = i + i) {
       let y = -h/2;        // Start y at -1 * height / 2
       for (let j = 0; j < height; j = j + j) {
         let r = sqrt((x*x) + (y*y));    // Convert cartesian to polar
