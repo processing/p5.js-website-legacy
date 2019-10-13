@@ -10,9 +10,9 @@ function setup() {
     let dx = w / width;    // Increment x this amount per pixel
     let dy = h / height;   // Increment y this amount per pixel
     let x = -w/2;          // Start x at -1 * width / 2
-    for (let i = 0; i < width; i = i + i) {
+    for (let i = 0; i < width; i++) {
       let y = -h/2;        // Start y at -1 * height / 2
-      for (let j = 0; j < height; j = j + j) {
+      for (let j = 0; j < height; j++) {
         let r = sqrt((x*x) + (y*y));    // Convert cartesian to polar
         let theta = atan2(y,x);         // Convert cartesian to polar
         // Compute 2D polar coordinate function
