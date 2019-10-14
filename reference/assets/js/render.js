@@ -75,21 +75,14 @@ var renderCode = function(sel) {
       }
 
       // create edit space
-      var edit_space_heading = document.createElement('h4');
-      edit_space_heading.id = 'example'+i;
-      edit_space_heading.innerHtml = 'Example '+i;
-      edit_space_heading.className = 'sr-only';
-
-      var edit_space = document.createElement('ul');
-      edit_space['aria-labelledby'] = 'example'+i;
+      var edit_space = document.createElement('div');
       edit_space.className = 'edit_space';
       sketchContainer.appendChild(edit_space);
 
       //add buttons
-      var edit_button = document.createElement('li');
+      var edit_button = document.createElement('button');
+      edit_button.value = 'edit';
       edit_button.innerHTML = 'edit';
-      edit_button.id = 'edit'+i;
-      edit_button['aria-labelledby'] = edit_button.id+'example'+i;
       edit_button.className = 'edit_button';
       edit_space.appendChild(edit_button);
       edit_button.onclick = function(e) {
@@ -100,10 +93,9 @@ var renderCode = function(sel) {
         }
       };
 
-      var reset_button = document.createElement('li');
+      var reset_button = document.createElement('button');
+      reset_button.value = 'reset';
       reset_button.innerHTML = 'reset';
-      reset_button.id = 'reset'+i;
-      reset_button['aria-labelledby'] = reset_button.id+'example'+i;
       reset_button.className = 'reset_button';
       edit_space.appendChild(reset_button);
       reset_button.onclick = function() {
@@ -111,10 +103,18 @@ var renderCode = function(sel) {
         setMode(sketch, 'run');
       };
 
-      var copy_button = document.createElement('li');
+      var edit_area = document.createElement('textarea');
+      edit_area.value = runnable;
+      edit_area.rows = rows;
+      edit_area.cols = 62;
+      // edit_area.position = 'absolute'
+      edit_space.appendChild(edit_area);
+      edit_area.style.display = 'none';
+      enableTab(edit_area);
+
+      var copy_button = document.createElement('button');
+      copy_button.value = 'copy';
       copy_button.innerHTML = 'copy';
-      copy_button.id = 'copy'+i;
-      copy_button['aria-labelledby'] = copy_button.id+'example'+i;
       copy_button.className = 'copy_button';
       edit_space.appendChild(copy_button);
       copy_button.onclick = function() {
@@ -122,13 +122,6 @@ var renderCode = function(sel) {
         edit_area.select();
         document.execCommand('copy');
       };
-
-      var edit_area = document.createElement('textarea');
-      edit_area.value = runnable;
-      edit_area.rows = rows;
-      edit_area.cols = 62;
-      edit_area.style.display = 'none';
-      enableTab(edit_area);
 
       function setMode(sketch, m) {
         if (m === 'edit') {
