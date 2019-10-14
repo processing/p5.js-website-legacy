@@ -328,7 +328,8 @@ module.exports = function(grunt) {
             '!<%= config.dist %>/**/README.html',
             '!<%= config.dist %>/**/p5_featured/**/*.html',
             '!<%= config.dist %>/**/learn/*.html',
-            '!<%= config.dist %>/**/examples/*.html'],
+            '!<%= config.dist %>/**/examples/*.html',
+            '!<%= config.dist %>/reference/assets/index.html'],
         options: {
           ignore: [/^This document appears to be written in English/,
                   /^Bad value “https:/,
