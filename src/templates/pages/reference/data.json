@@ -2,7 +2,7 @@
     "project": {
         "name": "p5",
         "description": "[![Build Status](https://travis-ci.org/processing/p5.js.svg?branch=master)](https://travis-ci.org/processing/p5.js) [![npm version](https://badge.fury.io/js/p5.svg)](https://www.npmjs.com/package/p5)",
-        "version": "0.10.0",
+        "version": "0",
         "url": "https://github.com/processing/p5.js#readme"
     },
     "files": {
@@ -209,16 +209,19 @@
             "name": "src/core/reference.js",
             "modules": {
                 "Declaration": 1,
+                "Comparison Operators": 1,
                 "Control Statement": 1,
                 "Function": 1,
-                "Class": 1,
+                "Types": 1,
+                "Classes": 1,
                 "Iterative Statement": 1,
                 "JS Method": 1
             },
             "classes": {},
             "fors": {
                 "p5": 1,
-                "JSON": 1
+                "JSON": 1,
+                "console": 1
             },
             "namespaces": {}
         },
@@ -1003,7 +1006,7 @@
             "namespaces": {},
             "module": "DOM",
             "file": "src/dom/dom.js",
-            "line": 3288,
+            "line": 3268,
             "description": "<p>The web is much more than just canvas and the DOM functionality makes it easy to interact\nwith other HTML5 objects, including text, hyperlink, image, input, video,\naudio, and webcam.</p>\n<p>There is a set of creation methods, DOM manipulation methods, and\nan extended <a href=\"#/p5.Element\">p5.Element</a> that supports a range of HTML elements. See the\n<a href='https://github.com/processing/p5.js/wiki/Beyond-the-canvas'>\nbeyond the canvas tutorial</a> for a full overview of how this addon works.\n\n<p>See <a href='https://github.com/processing/p5.js/wiki/Beyond-the-canvas'>tutorial: beyond the canvas</a>\nfor more info on how to use this library.</a>",
             "requires": [
                 "p5"
@@ -1033,18 +1036,22 @@
             "name": "Foundation",
             "submodules": {
                 "Declaration": 1,
+                "Comparison Operators": 1,
                 "Control Statement": 1,
                 "Function": 1,
-                "Class": 1,
+                "Types": 1,
+                "Classes": 1,
                 "Iterative Statement": 1
             },
             "elements": {},
             "classes": {
-                "JSON": 1
+                "JSON": 1,
+                "console": 1
             },
             "fors": {
                 "p5": 1,
-                "JSON": 1
+                "JSON": 1,
+                "console": 1
             },
             "namespaces": {}
         },
@@ -1063,6 +1070,19 @@
             "file": "src/core/reference.js",
             "line": 1
         },
+        "Comparison Operators": {
+            "name": "Comparison Operators",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Foundation",
+            "namespace": "",
+            "file": "src/core/reference.js",
+            "line": 57
+        },
         "Control Statement": {
             "name": "Control Statement",
             "submodules": {},
@@ -1074,7 +1094,7 @@
             "module": "Foundation",
             "namespace": "",
             "file": "src/core/reference.js",
-            "line": 38
+            "line": 162
         },
         "Function": {
             "name": "Function",
@@ -1087,10 +1107,10 @@
             "module": "Foundation",
             "namespace": "",
             "file": "src/core/reference.js",
-            "line": 60
+            "line": 193
         },
-        "Class": {
-            "name": "Class",
+        "Types": {
+            "name": "Types",
             "submodules": {},
             "elements": {},
             "classes": {},
@@ -1100,7 +1120,20 @@
             "module": "Foundation",
             "namespace": "",
             "file": "src/core/reference.js",
-            "line": 94
+            "line": 237
+        },
+        "Classes": {
+            "name": "Classes",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "Foundation",
+            "namespace": "",
+            "file": "src/core/reference.js",
+            "line": 317
         },
         "Iterative Statement": {
             "name": "Iterative Statement",
@@ -1113,24 +1146,26 @@
             "module": "Foundation",
             "namespace": "",
             "file": "src/core/reference.js",
-            "line": 118
+            "line": 344
         },
         "JS Method": {
             "name": "JS Method",
             "submodules": {},
             "elements": {},
             "classes": {
-                "JSON": 1
+                "JSON": 1,
+                "console": 1
             },
             "fors": {
-                "JSON": 1
+                "JSON": 1,
+                "console": 1
             },
             "is_submodule": 1,
             "namespaces": {},
             "module": "IO",
             "namespace": "",
             "file": "src/core/reference.js",
-            "line": 173
+            "line": 416
         },
         "Transform": {
             "name": "Transform",
@@ -2014,6 +2049,18 @@
             "submodule": "JS Method",
             "namespace": ""
         },
+        "console": {
+            "name": "console",
+            "shortname": "console",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Foundation",
+            "submodule": "JS Method",
+            "namespace": ""
+        },
         "p5.TypedDict": {
             "name": "p5.TypedDict",
             "shortname": "p5.TypedDict",
@@ -2073,7 +2120,7 @@
             "submodule": "DOM",
             "namespace": "",
             "file": "src/dom/dom.js",
-            "line": 2205,
+            "line": 2185,
             "description": "<p>Extends <a href=\"#/p5.Element\">p5.Element</a> to handle audio and video. In addition to the methods\nof <a href=\"#/p5.Element\">p5.Element</a>, it also contains methods for controlling media. It is not\ncalled directly, but <a href=\"#/p5.MediaElement\">p5.MediaElement</a>s are created by calling <a href=\"#/p5/createVideo\">createVideo</a>,\n<a href=\"#/p5/createAudio\">createAudio</a>, and <a href=\"#/p5/createCapture\">createCapture</a>.</p>\n",
             "is_constructor": 1,
             "params": [
@@ -2096,7 +2143,7 @@
             "submodule": "DOM",
             "namespace": "",
             "file": "src/dom/dom.js",
-            "line": 3288,
+            "line": 3268,
             "description": "<p>Base class for a file.\nUsed for Element.drop and createFileInput.</p>\n",
             "is_constructor": 1,
             "params": [
@@ -8240,7 +8287,7 @@
         {
             "file": "src/core/reference.js",
             "line": 7,
-            "description": "<p>Declares a block scope local variable, optionally initializing it to a value.</p>\n",
+            "description": "<p>Creates and names a new variable. A variable is a container for a value.</p>\n<p>Variables that are declared with <a href=\"#/p5/let\">let</a> will have block-scope.\nThis means that the variable only exists within the <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block\">\nblock</a> that it is created within.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let\">the MDN entry</a>:\nDeclares a block scope local variable, optionally initializing it to a value.</p>\n",
             "itemtype": "property",
             "name": "let",
             "example": [
@@ -8252,12 +8299,12 @@
         },
         {
             "file": "src/core/reference.js",
-            "line": 22,
-            "description": "<p>Declares a read-only named constant.\nConstants are block-scoped, much like variables defined using the &#39;let&#39; statement.\nThe value of a constant can&#39;t be changed through reassignment, and it can&#39;t be redeclared.</p>\n",
+            "line": 31,
+            "description": "<p>Creates and names a new constant. Like a variable created with <a href=\"#/p5/let\">let</a>, a constant\nthat is created with <a href=\"#/p5/const\">const</a> is a container for a value,\nhowever constants cannot be changed once they are declared.</p>\n<p>Constants have block-scope. This means that the constant only exists within\nthe <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block\">\nblock</a> that it is created within. A constant cannot be redeclared within a scope in which it\nalready exists.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const\">the MDN entry</a>:\nDeclares a read-only named constant.\nConstants are block-scoped, much like variables defined using the &#39;let&#39; statement.\nThe value of a constant can&#39;t be changed through reassignment, and it can&#39;t be redeclared.</p>\n",
             "itemtype": "property",
             "name": "const",
             "example": [
-                "\n<div class='norender'>\n<code>\n//define MY_FAV as a constant and give it the value 7\nconst MY_FAV = 7;\nconsole.log('my favorite number is: ' + MY_FAV);\n</code>\n</div>"
+                "\n<div class='norender'>\n<code>\n// define myFavNumber as a constant and give it the value 7\nconst myFavNumber = 7;\nconsole.log('my favorite number is: ' + myFavNumber);\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Foundation",
@@ -8265,8 +8312,73 @@
         },
         {
             "file": "src/core/reference.js",
-            "line": 42,
-            "description": "<p>The &#39;if&#39; statement executes a statement if a specified condition is truthy.\nIf the condition is falsy, another statement can be executed</p>\n",
+            "line": 61,
+            "description": "<p>The strict equality operator <a href=\"#/p5/===\">===</a>\nchecks to see if two values are equal and of the same type.</p>\n<p>A comparison expression always evaluates to a <a href=\"#/p5/boolean\">boolean</a>.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">the MDN entry</a>:\nThe non-identity operator returns true if the operands are not equal and/or not of the same type.</p>\n<p>Note: In some examples around the web you may see a double-equals-sign\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Equality\">==</a>,\nused for comparison instead. This is the non-strict equality operator in Javascript.\nThis will convert the two values being compared to the same type before comparing them.</p>\n",
+            "itemtype": "property",
+            "name": "===",
+            "example": [
+                "\n<div class='norender'>\n<code>\nconsole.log(1 === 1); // prints true to the console\nconsole.log(1 === '1'); // prints false to the console\n</code>\n</div>"
+            ],
+            "class": "p5",
+            "module": "Foundation",
+            "submodule": "Comparison Operators"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 86,
+            "description": "<p>The greater than operator <a href=\"#/p5/>\">&gt;</a>\nevaluates to true if the left value is greater than\nthe right value.</p>\n<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">There is more info on comparison operators on MDN.</a></p>\n",
+            "itemtype": "property",
+            "name": ">",
+            "example": [
+                "\n<div class='norender'>\n<code>\nconsole.log(100 > 1); // prints true to the console\nconsole.log(1 > 100); // prints false to the console\n</code>\n</div>"
+            ],
+            "class": "p5",
+            "module": "Foundation",
+            "submodule": "Comparison Operators"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 105,
+            "description": "<p>The greater than or equal to operator <a href=\"#/p5/>=\">&gt;=</a>\nevaluates to true if the left value is greater than or equal to\nthe right value.</p>\n<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">There is more info on comparison operators on MDN.</a></p>\n",
+            "itemtype": "property",
+            "name": ">=",
+            "example": [
+                "\n<div class='norender'>\n<code>\nconsole.log(100 >= 100); // prints true to the console\nconsole.log(101 >= 100); // prints true to the console\n</code>\n</div>"
+            ],
+            "class": "p5",
+            "module": "Foundation",
+            "submodule": "Comparison Operators"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 124,
+            "description": "<p>The less than operator <a href=\"#/p5/<\">&lt;</a>\nevaluates to true if the left value is less than\nthe right value.</p>\n<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">There is more info on comparison operators on MDN.</a></p>\n",
+            "itemtype": "property",
+            "name": "<",
+            "example": [
+                "\n<div class='norender'>\n<code>\nconsole.log(1 < 100); // prints true to the console\nconsole.log(100 < 99); // prints false to the console\n</code>\n</div>"
+            ],
+            "class": "p5",
+            "module": "Foundation",
+            "submodule": "Comparison Operators"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 143,
+            "description": "<p>The less than or equal to operator <a href=\"#/p5/<=\">&lt;=</a>\nevaluates to true if the left value is less than or equal to\nthe right value.</p>\n<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">There is more info on comparison operators on MDN.</a></p>\n",
+            "itemtype": "property",
+            "name": "<=",
+            "example": [
+                "\n<div class='norender'>\n<code>\nconsole.log(100 <= 100); // prints true to the console\nconsole.log(99 <= 100); // prints true to the console\n</code>\n</div>"
+            ],
+            "class": "p5",
+            "module": "Foundation",
+            "submodule": "Comparison Operators"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 166,
+            "description": "<p>The <a href=\"#/p5/if-else\">if-else</a> statement helps control the flow of your code.</p>\n<p>A condition is placed between the parenthesis following &#39;if&#39;,\nwhen that condition evalues to <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/truthy\">truthy</a>,\nthe code between the following curly braces is run.\nAlternatively, when the condition evaluates to <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Falsy\">falsy</a>,\nthe code between the curly braces that follow &#39;else&#39; is run instead.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else\">the MDN entry</a>:\nThe &#39;if&#39; statement executes a statement if a specified condition is truthy.\nIf the condition is falsy, another statement can be executed</p>\n",
             "itemtype": "property",
             "name": "if-else",
             "example": [
@@ -8278,12 +8390,12 @@
         },
         {
             "file": "src/core/reference.js",
-            "line": 64,
-            "description": "<p>Declares a function with the specified parameters.</p>\n",
+            "line": 197,
+            "description": "<p>Creates and names a <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions\">function</a>.\nA <a href=\"#/p5/function\">function</a> is a set of statements that perform a task.</p>\n<p>Optionally, functions can have parameters. <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Parameter\">Parameters</a>\nare variables that are scoped to the function, that can be assigned a value when calling the function.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function\">the MDN entry</a>:\nDeclares a function with the specified parameters.</p>\n",
             "itemtype": "property",
             "name": "function",
             "example": [
-                "\n<div class='norender'>\n<code>\nfunction calRectArea(width, height) {\n  return width * height;\n}\ncalRectArea(4, 5); //calling the function\n</code>\n</div>"
+                "\n<div class='norender'>\n<code>\nlet myName = 'Hridi';\nfunction sayHello(name) {\n  console.log('Hello ' + name + '!');\n}\nsayHello(myName); // calling the function, prints \"Hello Hridi!\" to console.\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Foundation",
@@ -8291,12 +8403,12 @@
         },
         {
             "file": "src/core/reference.js",
-            "line": 79,
-            "description": "<p>Specifies the value to be returned by a function.</p>\n",
+            "line": 220,
+            "description": "<p>Specifies the value to be returned by a function.\nFor more info checkout <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return\">\nthe MDN entry for return</a>.</p>\n",
             "itemtype": "property",
             "name": "return",
             "example": [
-                "\n<div class='norender'>\n<code>\nfunction calSquare(x) {\n  return x * x;\n}\ncalSquare(4); //return 16\n</code>\n</div>"
+                "\n<div class='norender'>\n<code>\nfunction calculateSquare(x) {\n  return x * x;\n}\ncalculateSquare(4); // returns 16\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Foundation",
@@ -8304,25 +8416,77 @@
         },
         {
             "file": "src/core/reference.js",
-            "line": 98,
-            "description": "<p>The class declaration creates a new class with a given name using prototype-based inheritance.</p>\n",
+            "line": 241,
+            "description": "<p>A <a href=\"#/p5/boolean\">boolean</a> is one of the 7 <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values\">primitive data types</a> in Javascript.\nA boolean can only be <code>true</code> or <code>false</code>.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type\">the MDN entry</a>:\nBoolean represents a logical entity and can have two values: true, and false.</p>\n",
+            "itemtype": "property",
+            "name": "boolean",
+            "example": [
+                "\n<div class='norender'>\n<code>\nlet myBoolean = false;\nconsole.log(typeof myBoolean); // prints 'boolean' to the console\n</code>\n</div>"
+            ],
+            "class": "p5",
+            "module": "Foundation",
+            "submodule": "Types"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 259,
+            "description": "<p>A <a href=\"#/p5/string\">string</a> is one of the 7 <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values\">primitive data types</a> in Javascript.\nA string is a series of text characters. In Javascript, a string value must be surrounded by either single-quotation marks(&#39;) or double-quotation marks(&quot;).</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/string\">the MDN entry</a>:\nA string is a sequence of characters used to represent text.</p>\n",
+            "itemtype": "property",
+            "name": "string",
+            "example": [
+                "\n<div class='norender'>\n<code>\nlet mood = 'chill';\nconsole.log(typeof mood); // prints 'string' to the console\n</code>\n</div>"
+            ],
+            "class": "p5",
+            "module": "Foundation",
+            "submodule": "Types"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 277,
+            "description": "<p>A <a href=\"#/p5/number\">number</a> is one of the 7 <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values\">primitive data types</a> in Javascript.\nA number can be a whole number or a decimal number.</p>\n<p><a href=\"https://developer.mozilla.org/en-US/docs/Glossary/number\">The MDN entry for number</a></p>\n",
+            "itemtype": "property",
+            "name": "number",
+            "example": [
+                "\n<div class='norender'>\n<code>\nlet num = 46.5;\nconsole.log(typeof num); // prints 'number' to the console\n</code>\n</div>"
+            ],
+            "class": "p5",
+            "module": "Foundation",
+            "submodule": "Types"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 294,
+            "description": "<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics\">MDN&#39;s object basics</a>:\n An <a href=\"#/p5/object\">object</a> is a collection of related data and/or functionality (which usually consists of several variables and functions —\n which are called properties and methods when they are inside objects.)</p>\n",
+            "itemtype": "property",
+            "name": "object",
+            "example": [
+                "\n <div class='norender'>\n <code>\n let author = {\n   name: 'Ursula K Le Guin',\n   books: [\n     'The Left Hand of Darkness',\n     'The Dispossessed',\n     'A Wizard of Earthsea'\n   ]\n };\n console.log(author.name); // prints 'Ursula K Le Guin' to the console\n </code>\n </div>"
+            ],
+            "class": "p5",
+            "module": "Foundation",
+            "submodule": "Types"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 321,
+            "description": "<p>Creates and names a <a href=\"#/p5/class\">class</a> which is a template for the creation of <a href=\"#/p5/objects\">objects</a>.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class\">the MDN entry</a>:\nThe class declaration creates a new Class with a given name using prototype-based inheritance.</p>\n",
             "itemtype": "property",
             "name": "class",
             "example": [
-                "\n<div class='norender'>\n<code>\nclass S1 {\n  constructor(height, width) {\n    this.name = 'Polygon';\n    this.height = height;\n    this.width = width;\n  }\n}\nconst poly = new S1(4, 5); //creating new instance of Polygon Class.\nconsole.log(poly.name);\n</code>\n</div>"
+                "\n<div class='norender'>\n<code>\nclass Rectangle {\n  constructor(name, height, width) {\n    this.name = name;\n    this.height = height;\n    this.width = width;\n  }\n}\nlet square = new Rectangle('square', 1, 1); // creating new instance of Polygon Class.\nconsole.log(square.width); // prints '1' to the console\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Foundation",
-            "submodule": "Class"
+            "submodule": "Classes"
         },
         {
             "file": "src/core/reference.js",
-            "line": 122,
-            "description": "<p>Creates a loop that executes a specified statement until the test condition evaluates to false.\nThe condition is evaluated after executing the statement, resulting in the specified statement executing at least once.</p>\n",
+            "line": 348,
+            "description": "<p><a href=\"#/p5/for\">for</a> creates a loop that is useful for executing one section of code multiple times.</p>\n<p>A &#39;for loop&#39; consists of three different expressions inside of a parenthesis, all of which are optional.\nThese expressions are used to control the number of times the loop is run.\nThe first expression is a statement that is used to set the initial state for the loop.\nThe second expression is a condition that you would like to check before each loop. If this expression returns\nfalse then the loop will exit.\nThe third expression is executed at the end of each loop.</p>\n<p>The code inside of the loop body (in between the curly braces) is executed between the evaluation of the second\nand third expression.</p>\n<p>As with any loop, it is important to ensure that the loop can &#39;exit&#39;, or that\nthe test condition will eventually evaluate to false. The test condition with a <a href=\"#/p5/for\">for</a> loop\nis the second expression detailed above. Ensuring that this expression can eventually\nbecome false ensures that your loop doesn&#39;t attempt to run an infinite amount of times,\nwhich can crash your browser.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for\">the MDN entry</a>:\nCreates a loop that executes a specified statement until the test condition evaluates to false.\nThe condition is evaluated after executing the statement, resulting in the specified statement executing at least once.</p>\n",
             "itemtype": "property",
             "name": "for",
             "example": [
-                "\n<div class='norender'>\n<code>\nfor (let i = 0; i < 9; i++) {\n  console.log(i);\n  // more statements\n}\n</code>\n</div>"
+                "\n<div class='norender'>\n<code>\nfor (let i = 0; i < 9; i++) {\n  console.log(i);\n}\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Foundation",
@@ -8330,12 +8494,12 @@
         },
         {
             "file": "src/core/reference.js",
-            "line": 138,
-            "description": "<p>Iterates over the enumerable properties of an object, in arbitrary order.\nFor each distinct property, statements can be executed.</p>\n",
+            "line": 382,
+            "description": "<p><a href=\"#/p5/while\">while</a> creates a loop that is useful for executing one section of code multiple times.</p>\n<p>With a &#39;while loop&#39;, the code inside of the loop body (between the curly braces) is run repeatedly until the test condition\n(inside of the parenthesis) evaluates to false. Unlike a <a href=\"#/p5/for\">for</a> loop, the condition is tested before executing the code body with <a href=\"#/p5/while\">while</a>,\nso if the condition is initially false the loop body, or statement, will never execute.</p>\n<p>As with any loop, it is important to ensure that the loop can &#39;exit&#39;, or that\nthe test condition will eventually evaluate to false. This is to keep your loop from trying to run an infinite amount of times,\nwhich can crash your browser.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while\">the MDN entry</a>:\nThe while statement creates a loop that executes a specified statement as long as the test condition evaluates to true.\nThe condition is evaluated before executing the statement.</p>\n",
             "itemtype": "property",
-            "name": "for-in",
+            "name": "while",
             "example": [
-                "\n<div class='norender'>\n<code>\nconst person = { fname: 'John', lname: 'Doe', age: 25 };\nlet text = '';\nlet x;\nfor (x in person) {\n  text += person[x] + '';\n}\nconsole.log(text); //'John Doe 25 '\n</code>\n</div>"
+                "\n<div class='norender'>\n<code>\n// This example logs the lines below to the console\n// 4\n// 3\n// 2\n// 1\n// 0\nlet num = 5;\nwhile (num > 0) {\n  num = num - 1;\n  console.log(num);\n}\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Foundation",
@@ -8343,36 +8507,11 @@
         },
         {
             "file": "src/core/reference.js",
-            "line": 157,
-            "description": "<p>Iterates over iterable objects (including arrays, array-like objects, iterators and generators),\ninvoking a custom iteration hook with statements to be executed for the value of each distinct property.</p>\n",
-            "itemtype": "property",
-            "name": "for-of",
-            "example": [
-                "\n<div class='norender'>\n<code>\nconst word = 'boo';\nfor (let value of word) {\n  console.log(value);\n}\n</code>\n</div>"
-            ],
-            "class": "p5",
-            "module": "Foundation",
-            "submodule": "Iterative Statement"
-        },
-        {
-            "file": "src/core/reference.js",
-            "line": 177,
-            "description": "<p>The parseInt() function parses a string argument and\nreturns an integer of the specified radix (the base in mathematical numeral systems).</p>\n",
-            "itemtype": "method",
-            "name": "parseInt",
-            "example": [
-                "\n<div class='norender'>\n<code>\nparseInt('F', 16);\nparseInt(21, 8);\n</code>\n</div>"
-            ],
-            "class": "p5",
-            "module": "Foundation",
-            "submodule": "JS Method"
-        },
-        {
-            "file": "src/core/reference.js",
-            "line": 191,
-            "description": "<p>The JSON.stringify() method converts a JavaScript object or value to a JSON string.</p>\n",
+            "line": 420,
+            "description": "<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify\">the MDN entry</a>:\nThe JSON.stringify() method converts a JavaScript object or value to a JSON <a href=\"#/p5/string\">string</a>.</p>\n",
             "itemtype": "method",
             "name": "stringify",
+            "static": 1,
             "params": [
                 {
                     "name": "object",
@@ -8381,9 +8520,30 @@
                 }
             ],
             "example": [
-                "\n<div class='norender'>\n<code>\nJSON.stringify('foo'); // '\"foo\"'\nJSON.stringify([1, 'false', false]); //'[1,\"false\",false]'\nJSON.stringify([NaN, null, Infinity]); //'[null,null,null]'\n</code>\n</div>"
+                "\n<div class='norender'>\n<code>\nlet myObject = { x: 5, y: 6 };\nlet myObjectAsString = JSON.stringify(myObject);\nconsole.log(myObjectAsString); // prints \"{\"x\":5,\"y\":6}\" to the console\nconsole.log(typeof myObjectAsString); // prints 'string' to the console\n</code>\n</div>"
             ],
             "class": "JSON",
+            "module": "Foundation",
+            "submodule": "JS Method"
+        },
+        {
+            "file": "src/core/reference.js",
+            "line": 439,
+            "description": "<p>Prints a message to your browser&#39;s web console. When using p5, you can use <a href=\"#/p5/print\">print</a>\nand <a href=\"#/p5/console/log\">console.log</a> interchangeably.</p>\n<p>The console is opened differently depending on which browser you are using.\nHere are links on how to open the console in <a href=\"https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console\">Firefox</a>\n, <a href=\"https://developers.google.com/web/tools/chrome-devtools/open\">Chrome</a>, <a href=\"https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console\">Edge</a>,\nand <a href=\"https://support.apple.com/en-ca/guide/safari/sfri20948/mac\">Safari</a>. With the <a href=\"https://editor.p5js.org/\">online p5 editor</a> the\nconsole is embedded directly in the page underneath the code editor.</p>\n<p>From <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Console/log\">the MDN entry</a>:\nThe Console method log() outputs a message to the web console. The message may be a single <a href=\"#/p5/string\">string</a> (with optional substitution values),\nor it may be any one or more JavaScript <a href=\"#/p5/object\">objects</a>.</p>\n",
+            "itemtype": "method",
+            "name": "log",
+            "static": 1,
+            "params": [
+                {
+                    "name": "message",
+                    "description": "<p>:Message that you would like to print to the console</p>\n",
+                    "type": "String|Expression|Object"
+                }
+            ],
+            "example": [
+                "\n<div class='norender'>\n<code>\nlet myNum = 5;\nconsole.log(myNum); // prints 5 to the console\nconsole.log(myNum + 12); // prints 17 to the console\n</code>\n</div>"
+            ],
+            "class": "console",
             "module": "Foundation",
             "submodule": "JS Method"
         },
@@ -9661,7 +9821,7 @@
         {
             "file": "src/dom/dom.js",
             "line": 340,
-            "description": "<p>Creates a &lt;div&gt;&lt;/div&gt; element in the DOM with given inner HTML.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
+            "description": "<p>Creates a &lt;div&gt;&lt;/div&gt; element in the DOM with given inner HTML.</p>\n",
             "itemtype": "method",
             "name": "createDiv",
             "params": [
@@ -9685,8 +9845,8 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 354,
-            "description": "<p>Creates a &lt;p&gt;&lt;/p&gt; element in the DOM with given inner HTML. Used\nfor paragraph length text.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
+            "line": 352,
+            "description": "<p>Creates a &lt;p&gt;&lt;/p&gt; element in the DOM with given inner HTML. Used\nfor paragraph length text.</p>\n",
             "itemtype": "method",
             "name": "createP",
             "params": [
@@ -9710,8 +9870,8 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 369,
-            "description": "<p>Creates a &lt;span&gt;&lt;/span&gt; element in the DOM with given inner HTML.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
+            "line": 365,
+            "description": "<p>Creates a &lt;span&gt;&lt;/span&gt; element in the DOM with given inner HTML.</p>\n",
             "itemtype": "method",
             "name": "createSpan",
             "params": [
@@ -9735,8 +9895,8 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 392,
-            "description": "<p>Creates an &lt;img&gt; element in the DOM with given src and\nalternate text.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
+            "line": 386,
+            "description": "<p>Creates an &lt;img&gt; element in the DOM with given src and\nalternate text.</p>\n",
             "itemtype": "method",
             "name": "createImg",
             "return": {
@@ -9751,7 +9911,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 392,
+                    "line": 386,
                     "params": [
                         {
                             "name": "src",
@@ -9770,7 +9930,7 @@
                     }
                 },
                 {
-                    "line": 410,
+                    "line": 402,
                     "params": [
                         {
                             "name": "src",
@@ -9803,8 +9963,8 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 437,
-            "description": "<p>Creates an &lt;a&gt;&lt;/a&gt; element in the DOM for including a hyperlink.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
+            "line": 429,
+            "description": "<p>Creates an &lt;a&gt;&lt;/a&gt; element in the DOM for including a hyperlink.</p>\n",
             "itemtype": "method",
             "name": "createA",
             "params": [
@@ -9838,15 +9998,15 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 462,
+            "line": 452,
             "class": "p5",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 464,
-            "description": "<p>Creates a slider &lt;input&gt;&lt;/input&gt; element in the DOM.\nUse .size() to set the display length of the slider.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
+            "line": 454,
+            "description": "<p>Creates a slider &lt;input&gt;&lt;/input&gt; element in the DOM.\nUse .size() to set the display length of the slider.</p>\n",
             "itemtype": "method",
             "name": "createSlider",
             "params": [
@@ -9886,8 +10046,8 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 521,
-            "description": "<p>Creates a &lt;button&gt;&lt;/button&gt; element in the DOM.\nUse .size() to set the display size of the button.\nUse .mousePressed() to specify behavior on press.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
+            "line": 509,
+            "description": "<p>Creates a &lt;button&gt;&lt;/button&gt; element in the DOM.\nUse .size() to set the display size of the button.\nUse .mousePressed() to specify behavior on press.</p>\n",
             "itemtype": "method",
             "name": "createButton",
             "params": [
@@ -9916,7 +10076,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 557,
+            "line": 543,
             "description": "<p>Creates a checkbox &lt;input&gt;&lt;/input&gt; element in the DOM.\nCalling .checked() on a checkbox returns if it is checked or not</p>\n",
             "itemtype": "method",
             "name": "createCheckbox",
@@ -9947,7 +10107,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 625,
+            "line": 611,
             "description": "<p>Creates a dropdown menu &lt;select&gt;&lt;/select&gt; element in the DOM.\nIt also helps to assign select-box methods to <a href=\"#/p5.Element\">p5.Element</a> when selecting existing select box</p>\n",
             "itemtype": "method",
             "name": "createSelect",
@@ -9963,7 +10123,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 625,
+                    "line": 611,
                     "params": [
                         {
                             "name": "multiple",
@@ -9978,7 +10138,7 @@
                     }
                 },
                 {
-                    "line": 653,
+                    "line": 639,
                     "params": [
                         {
                             "name": "existing",
@@ -9995,7 +10155,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 730,
+            "line": 716,
             "description": "<p>Creates a radio button &lt;input&gt;&lt;/input&gt; element in the DOM.\nThe .option() method can be used to set options for the radio after it is\ncreated. The .value() method will return the currently selected option.</p>\n",
             "itemtype": "method",
             "name": "createRadio",
@@ -10020,7 +10180,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 868,
+            "line": 854,
             "description": "<p>Creates a colorPicker element in the DOM for color input.\nThe .value() method will return a hex string (#rrggbb) of the color.\nThe .color() method will return a p5.Color object with the current chosen color.</p>\n",
             "itemtype": "method",
             "name": "createColorPicker",
@@ -10045,8 +10205,8 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 942,
-            "description": "<p>Creates an &lt;input&gt;&lt;/input&gt; element in the DOM for text input.\nUse .<a href=\"#/p5.Element/size\">size()</a> to set the display length of the box.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
+            "line": 928,
+            "description": "<p>Creates an &lt;input&gt;&lt;/input&gt; element in the DOM for text input.\nUse .<a href=\"#/p5.Element/size\">size()</a> to set the display length of the box.</p>\n",
             "itemtype": "method",
             "name": "createInput",
             "params": [
@@ -10076,7 +10236,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 972,
+            "line": 956,
             "description": "<p>Creates an &lt;input&gt;&lt;/input&gt; element in the DOM of type &#39;file&#39;.\nThis allows users to select local files for use in a sketch.</p>\n",
             "itemtype": "method",
             "name": "createFileInput",
@@ -10107,15 +10267,15 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1045,
+            "line": 1029,
             "class": "p5",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1087,
-            "description": "<p>Creates an HTML5 &lt;video&gt; element in the DOM for simple playback\nof audio/video. Shown by default, can be hidden with .<a href=\"#/p5.Element/hide\">hide()</a>\nand drawn into canvas using video(). Appends to the container\nnode if one is specified, otherwise appends to body. The first parameter\ncan be either a single string path to a video file, or an array of string\npaths to different formats of the same video. This is useful for ensuring\nthat your video can play across different browsers, as each supports\ndifferent formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this\npage</a> for further information about supported formats.</p>\n",
+            "line": 1071,
+            "description": "<p>Creates an HTML5 &lt;video&gt; element in the DOM for simple playback\nof audio/video. Shown by default, can be hidden with .<a href=\"#/p5.Element/hide\">hide()</a>\nand drawn into canvas using video(). The first parameter\ncan be either a single string path to a video file, or an array of string\npaths to different formats of the same video. This is useful for ensuring\nthat your video can play across different browsers, as each supports\ndifferent formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this\npage</a> for further information about supported formats.</p>\n",
             "itemtype": "method",
             "name": "createVideo",
             "params": [
@@ -10144,15 +10304,15 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1134,
+            "line": 1117,
             "class": "p5",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1136,
-            "description": "<p>Creates a hidden HTML5 &lt;audio&gt; element in the DOM for simple audio\nplayback. Appends to the container node if one is specified,\notherwise appends to body. The first parameter\ncan be either a single string path to a audio file, or an array of string\npaths to different formats of the same audio. This is useful for ensuring\nthat your audio can play across different browsers, as each supports\ndifferent formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this\npage for further information about supported formats</a>.</p>\n",
+            "line": 1119,
+            "description": "<p>Creates a hidden HTML5 &lt;audio&gt; element in the DOM for simple audio\nplayback. The first parameter can be either a single string path to a\naudio file, or an array of string paths to different formats of the same\naudio. This is useful for ensuring that your audio can play across\ndifferent browsers, as each supports different formats.\nSee <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this\npage for further information about supported formats</a>.</p>\n",
             "itemtype": "method",
             "name": "createAudio",
             "params": [
@@ -10182,14 +10342,14 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1174,
+            "line": 1156,
             "class": "p5",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1176,
+            "line": 1158,
             "itemtype": "property",
             "name": "VIDEO",
             "type": "String",
@@ -10203,7 +10363,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1182,
+            "line": 1164,
             "itemtype": "property",
             "name": "AUDIO",
             "type": "String",
@@ -10217,7 +10377,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1219,
+            "line": 1201,
             "description": "<p>Creates a new HTML5 &lt;video&gt; element that contains the audio/video\nfeed from a webcam. The element is separate from the canvas and is\ndisplayed by default. The element can be hidden using .<a href=\"#/p5.Element/hide\">hide()</a>. The feed\ncan be drawn onto the canvas using <a href=\"#/p5/image\">image()</a>. The loadedmetadata property can\nbe used to detect when the element has fully loaded (see second example).</p>\n<p>More specific properties of the feed can be passing in a Constraints object.\nSee the\n<a href='http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'> W3C\nspec</a> for possible properties. Note that not all of these are supported\nby all browsers.</p>\n<p>Security note: A new browser security specification requires that getUserMedia,\nwhich is behind <a href=\"#/p5/createCapture\">createCapture()</a>, only works when you're running the code locally,\nor on HTTPS. Learn more <a href='http://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https'>here</a>\nand <a href='https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia'>here</a>.</p>",
             "itemtype": "method",
             "name": "createCapture",
@@ -10247,8 +10407,8 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1356,
-            "description": "<p>Creates element with given tag in the DOM with given content.\nAppends to the container node if one is specified, otherwise\nappends to body.</p>\n",
+            "line": 1338,
+            "description": "<p>Creates element with given tag in the DOM with given content.</p>\n",
             "itemtype": "method",
             "name": "createElement",
             "params": [
@@ -10277,7 +10437,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1382,
+            "line": 1362,
             "description": "<p>Adds specified class to the element.</p>\n",
             "itemtype": "method",
             "name": "addClass",
@@ -10298,7 +10458,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1407,
+            "line": 1387,
             "description": "<p>Removes specified class from the element.</p>\n",
             "itemtype": "method",
             "name": "removeClass",
@@ -10319,7 +10479,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1438,
+            "line": 1418,
             "description": "<p>Checks if specified class already set to element</p>\n",
             "itemtype": "method",
             "name": "hasClass",
@@ -10343,7 +10503,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1467,
+            "line": 1447,
             "description": "<p>Toggles element class</p>\n",
             "itemtype": "method",
             "name": "toggleClass",
@@ -10364,7 +10524,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1500,
+            "line": 1480,
             "description": "<p>Attaches the element  as a child to the parent specified.\n Accepts either a string ID, DOM node, or <a href=\"#/p5.Element\">p5.Element</a>.\n If no argument is specified, an array of children DOM nodes is returned.</p>\n",
             "itemtype": "method",
             "name": "child",
@@ -10380,7 +10540,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 1500,
+                    "line": 1480,
                     "params": [],
                     "return": {
                         "description": "an array of child nodes",
@@ -10388,7 +10548,7 @@
                     }
                 },
                 {
-                    "line": 1528,
+                    "line": 1508,
                     "params": [
                         {
                             "name": "child",
@@ -10403,7 +10563,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1550,
+            "line": 1530,
             "description": "<p>Centers a p5 Element either vertically, horizontally,\nor both, relative to its parent or according to\nthe body if the Element has no parent. If no argument is passed\nthe Element is aligned both vertically and horizontally.</p>\n",
             "itemtype": "method",
             "name": "center",
@@ -10425,7 +10585,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1604,
+            "line": 1584,
             "description": "<p>If an argument is given, sets the inner HTML of the element,\n replacing any existing html. If true is included as a second\n argument, html is appended instead of replacing existing html.\n If no arguments are given, returns\n the inner HTML of the element.</p>\n",
             "itemtype": "method",
             "name": "html",
@@ -10441,7 +10601,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 1604,
+                    "line": 1584,
                     "params": [],
                     "return": {
                         "description": "the inner HTML of the element",
@@ -10449,7 +10609,7 @@
                     }
                 },
                 {
-                    "line": 1625,
+                    "line": 1605,
                     "params": [
                         {
                             "name": "html",
@@ -10470,7 +10630,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1643,
+            "line": 1623,
             "description": "<p>Sets the position of the element relative to (0, 0) of the\n window. Essentially, sets position:absolute and left and top\n properties of style. If no arguments given returns the x and y position\n of the element in an object.</p>\n",
             "itemtype": "method",
             "name": "position",
@@ -10486,7 +10646,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 1643,
+                    "line": 1623,
                     "params": [],
                     "return": {
                         "description": "the x and y position of the element in an object",
@@ -10494,7 +10654,7 @@
                     }
                 },
                 {
-                    "line": 1662,
+                    "line": 1642,
                     "params": [
                         {
                             "name": "x",
@@ -10515,7 +10675,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1737,
+            "line": 1717,
             "description": "<p>Sets the given style (css) property (1st arg) of the element with the\ngiven value (2nd arg). If a single argument is given, .style()\nreturns the value of the given property; however, if the single argument\nis given in css syntax (&#39;text-align:center&#39;), .style() sets the css\nappropriately.</p>\n",
             "itemtype": "method",
             "name": "style",
@@ -10531,7 +10691,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 1737,
+                    "line": 1717,
                     "params": [
                         {
                             "name": "property",
@@ -10545,7 +10705,7 @@
                     }
                 },
                 {
-                    "line": 1772,
+                    "line": 1752,
                     "params": [
                         {
                             "name": "property",
@@ -10568,7 +10728,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1826,
+            "line": 1806,
             "description": "<p>Adds a new attribute or changes the value of an existing attribute\n on the specified element. If no value is specified, returns the\n value of the given attribute, or null if attribute is not set.</p>\n",
             "itemtype": "method",
             "name": "attribute",
@@ -10584,7 +10744,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 1826,
+                    "line": 1806,
                     "params": [],
                     "return": {
                         "description": "value of attribute",
@@ -10592,7 +10752,7 @@
                     }
                 },
                 {
-                    "line": 1841,
+                    "line": 1821,
                     "params": [
                         {
                             "name": "attr",
@@ -10611,7 +10771,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1870,
+            "line": 1850,
             "description": "<p>Removes an attribute on the specified element.</p>\n",
             "itemtype": "method",
             "name": "removeAttribute",
@@ -10632,7 +10792,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1915,
+            "line": 1895,
             "description": "<p>Either returns the value of the element if no arguments\ngiven, or sets the value of the element.</p>\n",
             "itemtype": "method",
             "name": "value",
@@ -10648,7 +10808,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 1915,
+                    "line": 1895,
                     "params": [],
                     "return": {
                         "description": "value of the element",
@@ -10656,7 +10816,7 @@
                     }
                 },
                 {
-                    "line": 1945,
+                    "line": 1925,
                     "params": [
                         {
                             "name": "value",
@@ -10670,7 +10830,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1961,
+            "line": 1941,
             "description": "<p>Shows the current element. Essentially, setting display:block for the style.</p>\n",
             "itemtype": "method",
             "name": "show",
@@ -10684,7 +10844,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1979,
+            "line": 1959,
             "description": "<p>Hides the current element. Essentially, setting display:none for the style.</p>\n",
             "itemtype": "method",
             "name": "hide",
@@ -10698,7 +10858,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1995,
+            "line": 1975,
             "description": "<p>Sets the width and height of the element. AUTO can be used to\n only adjust one dimension at a time. If no arguments are given, it\n returns the width and height of the element in an object. In case of\n elements which need to be loaded, such as images, it is recommended\n to call the function after the element has finished loading.</p>\n",
             "itemtype": "method",
             "name": "size",
@@ -10714,7 +10874,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 1995,
+                    "line": 1975,
                     "params": [],
                     "return": {
                         "description": "the width and height of the element in an object",
@@ -10722,7 +10882,7 @@
                     }
                 },
                 {
-                    "line": 2019,
+                    "line": 1999,
                     "params": [
                         {
                             "name": "w",
@@ -10742,7 +10902,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2076,
+            "line": 2056,
             "description": "<p>Removes the element and deregisters all listeners.</p>\n",
             "itemtype": "method",
             "name": "remove",
@@ -10755,7 +10915,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2096,
+            "line": 2076,
             "description": "<p>Registers a callback that gets called every time a file that is\ndropped on the element has been loaded.\np5 will load every dropped file into memory and pass it as a p5.File object to the callback.\nMultiple files dropped at the same time will result in multiple calls to the callback.</p>\n<p>You can optionally pass a second callback which will be registered to the raw\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/drop\">drop</a> event.\nThe callback will thus be provided the original\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/DragEvent\">DragEvent</a>.\nDropping multiple files at the same time will trigger the second callback once per drop,\nwhereas the first callback will trigger for each loaded file.</p>\n",
             "itemtype": "method",
             "name": "drop",
@@ -10783,7 +10943,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2228,
+            "line": 2208,
             "description": "<p>Path to the media element source.</p>\n",
             "itemtype": "property",
             "name": "src",
@@ -10800,7 +10960,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2293,
+            "line": 2273,
             "description": "<p>Play an HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "play",
@@ -10814,7 +10974,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2354,
+            "line": 2334,
             "description": "<p>Stops an HTML5 media element (sets current time to zero).</p>\n",
             "itemtype": "method",
             "name": "stop",
@@ -10828,7 +10988,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2418,
+            "line": 2398,
             "description": "<p>Pauses an HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "pause",
@@ -10842,7 +11002,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2480,
+            "line": 2460,
             "description": "<p>Set &#39;loop&#39; to true for an HTML5 media element, and starts playing.</p>\n",
             "itemtype": "method",
             "name": "loop",
@@ -10856,7 +11016,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2536,
+            "line": 2516,
             "description": "<p>Set &#39;loop&#39; to false for an HTML5 media element. Element will stop\nwhen it reaches the end.</p>\n",
             "itemtype": "method",
             "name": "noLoop",
@@ -10870,7 +11030,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2588,
+            "line": 2568,
             "description": "<p>Set HTML5 media element to autoplay or not.</p>\n",
             "itemtype": "method",
             "name": "autoplay",
@@ -10888,7 +11048,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2600,
+            "line": 2580,
             "description": "<p>Sets volume for this HTML5 media element. If no argument is given,\nreturns the current volume.</p>\n",
             "itemtype": "method",
             "name": "volume",
@@ -10904,7 +11064,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 2600,
+                    "line": 2580,
                     "params": [],
                     "return": {
                         "description": "current volume",
@@ -10912,7 +11072,7 @@
                     }
                 },
                 {
-                    "line": 2673,
+                    "line": 2653,
                     "params": [
                         {
                             "name": "val",
@@ -10926,7 +11086,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2686,
+            "line": 2666,
             "description": "<p>If no arguments are given, returns the current playback speed of the\nelement. The speed parameter sets the speed where 2.0 will play the\nelement twice as fast, 0.5 will play at half the speed, and -1 will play\nthe element in normal speed in reverse.(Note that not all browsers support\nbackward playback and even if they do, playback might not be smooth.)</p>\n",
             "itemtype": "method",
             "name": "speed",
@@ -10942,7 +11102,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 2686,
+                    "line": 2666,
                     "params": [],
                     "return": {
                         "description": "current playback speed of the element",
@@ -10950,7 +11110,7 @@
                     }
                 },
                 {
-                    "line": 2757,
+                    "line": 2737,
                     "params": [
                         {
                             "name": "speed",
@@ -10964,7 +11124,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2774,
+            "line": 2754,
             "description": "<p>If no arguments are given, returns the current time of the element.\nIf an argument is given the current time of the element is set to it.</p>\n",
             "itemtype": "method",
             "name": "time",
@@ -10980,7 +11140,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 2774,
+                    "line": 2754,
                     "params": [],
                     "return": {
                         "description": "current time (in seconds)",
@@ -10988,7 +11148,7 @@
                     }
                 },
                 {
-                    "line": 2819,
+                    "line": 2799,
                     "params": [
                         {
                             "name": "time",
@@ -11002,7 +11162,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2833,
+            "line": 2813,
             "description": "<p>Returns the duration of the HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "duration",
@@ -11019,7 +11179,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2955,
+            "line": 2935,
             "description": "<p>Schedule an event to be called when the audio or video\nelement reaches the end. If the element is looping,\nthis will not be called. The element is passed in\nas the argument to the onended callback.</p>\n",
             "itemtype": "method",
             "name": "onended",
@@ -11040,14 +11200,14 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2986,
+            "line": 2966,
             "class": "p5.MediaElement",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2988,
+            "line": 2968,
             "description": "<p>Send the audio output of this element to a specified audioNode or\np5.sound object. If no element is provided, connects to p5&#39;s master\noutput. That connection is established when this method is first called.\nAll connections are removed by the .disconnect() method.</p>\n<p>This method is meant to be used with the p5.sound.js addon library.</p>\n",
             "itemtype": "method",
             "name": "connect",
@@ -11064,7 +11224,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3037,
+            "line": 3017,
             "description": "<p>Disconnect all Web Audio routing, including to master output.\nThis is useful if you want to re-route the output through\naudio effects, for example.</p>\n",
             "itemtype": "method",
             "name": "disconnect",
@@ -11074,14 +11234,14 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3052,
+            "line": 3032,
             "class": "p5.MediaElement",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3054,
+            "line": 3034,
             "description": "<p>Show the default MediaElement controls, as determined by the web browser.</p>\n",
             "itemtype": "method",
             "name": "showControls",
@@ -11094,7 +11254,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3085,
+            "line": 3065,
             "description": "<p>Hide the default mediaElement controls.</p>\n",
             "itemtype": "method",
             "name": "hideControls",
@@ -11107,14 +11267,14 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3114,
+            "line": 3094,
             "class": "p5.MediaElement",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3125,
+            "line": 3105,
             "description": "<p>Schedule events to trigger every time a MediaElement\n(audio/video) reaches a playback cue point.</p>\n<p>Accepts a callback function, a time (in seconds) at which to trigger\nthe callback, and an optional parameter for the callback.</p>\n<p>Time will be passed as the first parameter to the callback function,\nand param will be the second parameter.</p>\n",
             "itemtype": "method",
             "name": "addCue",
@@ -11149,7 +11309,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3189,
+            "line": 3169,
             "description": "<p>Remove a callback based on its ID. The ID is returned by the\naddCue method.</p>\n",
             "itemtype": "method",
             "name": "removeCue",
@@ -11169,7 +11329,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3231,
+            "line": 3211,
             "description": "<p>Remove all of the callbacks that had originally been scheduled\nvia the addCue method.</p>\n",
             "itemtype": "method",
             "name": "clearCues",
@@ -11189,7 +11349,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3297,
+            "line": 3277,
             "description": "<p>Underlying File object. All normal File methods can be called on this.</p>\n",
             "itemtype": "property",
             "name": "file",
@@ -11199,7 +11359,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3309,
+            "line": 3289,
             "description": "<p>File type (image, text, etc.)</p>\n",
             "itemtype": "property",
             "name": "type",
@@ -11209,7 +11369,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3315,
+            "line": 3295,
             "description": "<p>File subtype (usually the file extension jpg, png, xml, etc.)</p>\n",
             "itemtype": "property",
             "name": "subtype",
@@ -11219,7 +11379,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3321,
+            "line": 3301,
             "description": "<p>File name</p>\n",
             "itemtype": "property",
             "name": "name",
@@ -11229,7 +11389,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3327,
+            "line": 3307,
             "description": "<p>File size</p>\n",
             "itemtype": "property",
             "name": "size",
@@ -11239,7 +11399,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3334,
+            "line": 3314,
             "description": "<p>URL string containing image data.</p>\n",
             "itemtype": "property",
             "name": "data",
@@ -27650,27 +27810,27 @@
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/dom/dom.js:1438"
+            "line": " src/dom/dom.js:1418"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/dom/dom.js:1500"
+            "line": " src/dom/dom.js:1480"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/dom/dom.js:1604"
+            "line": " src/dom/dom.js:1584"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/dom/dom.js:1643"
+            "line": " src/dom/dom.js:1623"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/dom/dom.js:1737"
+            "line": " src/dom/dom.js:1717"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/dom/dom.js:2096"
+            "line": " src/dom/dom.js:2076"
         },
         {
             "message": "unknown tag: alt",
@@ -28794,31 +28954,31 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:462"
+            "line": " src/dom/dom.js:452"
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:1045"
+            "line": " src/dom/dom.js:1029"
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:1134"
+            "line": " src/dom/dom.js:1117"
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:1174"
+            "line": " src/dom/dom.js:1156"
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:2986"
+            "line": " src/dom/dom.js:2966"
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:3052"
+            "line": " src/dom/dom.js:3032"
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:3114"
+            "line": " src/dom/dom.js:3094"
         },
         {
             "message": "Missing item type\n_updatePAccelerations updates the pAcceleration values",
