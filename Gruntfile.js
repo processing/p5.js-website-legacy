@@ -54,7 +54,8 @@ module.exports = function(grunt) {
           '<%= config.dist %>/assets/js/*.js',
           '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,webp,svg,ico}',
           '<%= config.dist %>/assets/p5_featured/{,*/}*.*',
-          '<%= config.dist %>/assets/learn/{,*/}*.*'
+          '<%= config.dist %>/assets/learn/{,*/}*.*',
+          '<%= config.dist %>/assets/developer_docs/*.*'
         ]
       }
     },
@@ -228,6 +229,12 @@ module.exports = function(grunt) {
         cwd: '<%= config.src %>/data/examples',
         src: ['**', '!build_examples/**' ],
         dest: '<%= config.dist %>/assets/examples'
+      },
+      developer_docs: {
+        expand: true,
+        cwd: '<%= config.src %>/assets/developer_docs',
+        src: '**',
+        dest: '<%= config.dist %>/developer-docs'
       },
       reference: {
         expand: true,
