@@ -20631,7 +20631,7 @@ _dereq_('../core/error_helpers');
  * <div><code>
  * var myFont;
  * function preload() {
- *   myFont = loadFont('assets/AvenirNextLTPro-Demi.otf');
+ *   myFont = loadFont('assets/inconsolata.otf');
  * }
  *
  * function setup() {
@@ -20647,7 +20647,7 @@ _dereq_('../core/error_helpers');
  *
  * <div><code>
  * function setup() {
- *   loadFont('assets/AvenirNextLTPro-Demi.otf', drawText);
+ *   loadFont('assets/inconsolata.otf', drawText);
  * }
  *
  * function drawText(font) {
