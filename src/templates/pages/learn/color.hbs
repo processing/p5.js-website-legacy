@@ -9,7 +9,7 @@ slug: learn/
 
   <div class="column-span">
 
-    <section role="region" label="main content">
+    <main >
 
       <div class="attribution">{{#i18n "color-description1"}}{{/i18n}}<a href="https://github.com/processing/p5.js/issues">{{#i18n "color-description2"}}{{/i18n}}</a>
 
@@ -39,7 +39,7 @@ slug: learn/
 
       <!-- this script only needs to get added once even if there are multiple widget instances -->
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
-      <script type="text/p5" data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
         function draw() {
   background(150);
   stroke(0);
@@ -58,7 +58,7 @@ slug: learn/
 
       <img src="{{assets}}/learn/color/rgb.jpg">
       <p>
-        <ul>
+        <ul class="list_view">
           <li>{{#i18n "color-rgb-li1"}}{{/i18n}}</li>
           <li>{{#i18n "color-rgb-li2"}}{{/i18n}}</li>
           <li>{{#i18n "color-rgb-li3"}}{{/i18n}}</li>
@@ -69,7 +69,7 @@ slug: learn/
 
       <p>{{#i18n "color-rgb-p2x1"}}{{/i18n}}</p>
 
-      <script type="text/p5"  data-autoplay>
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 function draw() {
   background(255);
   noStroke();
@@ -97,7 +97,7 @@ function draw() {
 
       <p>{{#i18n "color-transparency-p3x1"}}{{/i18n}}</p>
 
-      <script type="text/p5"  data-autoplay>
+      <script type="text/p5" data-autoplay  data-p5-version="{{ version }}">
   createCanvas(100, 100);
   fill(0,0,255);
   rect(0,0,50,100);
@@ -143,7 +143,7 @@ function draw() {
       <p>{{#i18n "color-custom-ranges-p5x1"}}{{/i18n}}</p>
 
       <img src="{{assets}}/learn/color/hsb.png">
-      <ul>
+      <ul class="list_view">
         <li><b>{{#i18n "color-custom-ranges-li1x1"}}{{/i18n}}</b>{{#i18n "color-custom-ranges-li1x2"}}{{/i18n}}</li>
         <li><b>{{#i18n "color-custom-ranges-li2x1"}}{{/i18n}}</b>{{#i18n "color-custom-ranges-li2x2"}}{{/i18n}}</li>
         <li><b>{{#i18n "color-custom-ranges-li3x1"}}{{/i18n}}</b>{{#i18n "color-custom-ranges-li3x2"}}{{/i18n}}</li>
@@ -151,7 +151,7 @@ function draw() {
 
       <p>{{#i18n "color-custom-ranges-p6x1"}}{{/i18n}}<a href="{{root}}/reference/#/p5/colorMode">colorMode()</a>{{#i18n "color-custom-ranges-p6x2"}}{{/i18n}}</p>
 
-    </section>
+    </main>
 
     {{> footer}}
 

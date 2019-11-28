@@ -18,7 +18,7 @@ function setup() {
 function draw() {
   background(150);
   image(fingers, 10, 10); // dibuja el cuadro del video en el lienzo.
-  filter('GRAY');
+  filter(GRAY);
   image(fingers, 150, 150); // dibuja una segunda copia en el lienzo.
 }
 

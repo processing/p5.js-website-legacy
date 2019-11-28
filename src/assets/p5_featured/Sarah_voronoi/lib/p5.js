@@ -5406,7 +5406,7 @@ amdclean['io_files'] = function (require, core_core, reqwest) {
         }
       }
     } else {
-      pWriter.println('<html>');
+      pWriter.println('<!DOCTYPE html>');
       pWriter.println('<head>');
       var str = '  <meta http-equiv="content-type" content';
       str += '="text/html;charset=utf-8" />';

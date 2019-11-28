@@ -9,12 +9,10 @@ slug: community/
 
   <div class="column-span">
 
-    <section id="content" role="region" label="main content">
+    <main id="content" >
       <h1>{{#i18n "community-title"}}{{/i18n}}</h1>
-      <br>
       <div class="community-statement">
         <h2 class="community-title">{{#i18n "community-statement-title"}}{{/i18n}} </h2>
-        <br>
         <p>{{#i18n "community-statement1"}}{{/i18n}}
         </p>
 
@@ -24,8 +22,8 @@ slug: community/
         <p>{{#i18n "community-statement3"}}{{/i18n}}
         </p>
 
-        <h4>{{#i18n "in-practice-title"}}{{/i18n}}</h4>
-        <ul class="statement-list bullets">
+        <h3 id="in-practice">{{#i18n "in-practice-title"}}{{/i18n}}</h3>
+        <ul aria-labelledby="in-practice" class="bullets list_view">
           <li>{{#i18n "in-practice1"}}{{/i18n}} </li>
           <li>{{#i18n "in-practice2"}}{{/i18n}} </li>
           <li>{{#i18n "in-practice3"}}{{/i18n}} </li>
@@ -33,8 +31,8 @@ slug: community/
           <li>{{#i18n "in-practice5"}}{{/i18n}} </li>
         </ul>
 
-        <h4>{{#i18n "in-times-conflict-title"}}{{/i18n}}</h4>
-        <ul class="statement-list bullets">
+        <h3 id="in-conflict">{{#i18n "in-times-conflict-title"}}{{/i18n}}</h3>
+        <ul aria-labelledby="in-conflict" class="bullets list_view">
           <li>{{#i18n "in-times-conflict1"}}{{/i18n}}</li>
           <li>{{#i18n "in-times-conflict2"}}{{/i18n}}</li>
           <li>{{#i18n "in-times-conflict3"}}{{/i18n}}</li>
@@ -44,10 +42,13 @@ slug: community/
           <li>{{#i18n "in-times-conflict7"}}{{/i18n}}</li>
         </ul>
 
-        <h4>{{#i18n "in-the-future-title"}}{{/i18n}}</h4>
-        <ul class="statement-list bullets">
+        <h3 id="in-future">{{#i18n "in-the-future-title"}}{{/i18n}}</h3>
+        <ul aria-labelledby="in-future" class="bullets list_view">
           <li>{{#i18n "in-the-future1"}}{{/i18n}}</li>
         </ul>
+
+        <h3 id="sharing">{{#i18n "sharing-title"}}{{/i18n}}</h3>
+        <p>{{#i18n "sharing1"}}{{/i18n}}<a href="https://creativecommons.org/licenses/by-sa/4.0/">{{#i18n "sharing2"}}{{/i18n}}</a>{{#i18n "sharing3"}}{{/i18n}}</p>
       </div>
 
       <h2 id="contribute">{{#i18n "contribute-title"}}{{/i18n}}</h2>
@@ -65,10 +66,15 @@ slug: community/
 
 
       <h2>{{#i18n "contributors-conference-title"}}{{/i18n}}</h2>
-      <p>{{#i18n "contributors-conference1"}}{{/i18n}}<a href="{{root}}/contributors-conference">{{#i18n "contributors-conference2"}}{{/i18n}}</a>{{#i18n "contributors-conference3"}}{{/i18n}}<a href="http://studioforcreativeinquiry.org/">{{#i18n "contributors-conference4"}}{{/i18n}}</a>{{#i18n "contributors-conference5"}}{{/i18n}}
+      <p>{{#i18n "contributors-conference1"}}{{/i18n}}<a href="http://studioforcreativeinquiry.org">Frank-Ratchye STUDIO for Creative Inquiry</a> {{#i18n "contributors-conference2"}}{{/i18n}}
       </p>
+      <h2 id="conferences" class="sr-only">Past Conferences</h2>
+      <ul aria-labelledby="conferences" class="list_view bullets">
+        <li><a href="contributors-conference-2019.html">{{#i18n "2019contributors-conference-title"}}{{/i18n}}</a></li>
+        <li><a href="contributors-conference-2015.html">{{#i18n "2015contributors-conference-title"}}{{/i18n}}</a></li>
+      </ul>
 
-      <a data-flickr-embed="true"  href="https://www.flickr.com/photos/80913365@N04/albums/72157653238862069" title="p5.js conference"><img class="slideshow-image" src="https://farm8.staticflickr.com/7758/18210867280_9a2bc946c9_z.jpg" width="720" height="480" alt="p5.js conference"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+      <img src="{{assets}}/img/community/2015_12.jpg" alt='{{#i18n "2015cc_12"}}{{/i18n}}"'/>
 
       <h2>{{#i18n "mailing-list-title"}}{{/i18n}}</h2>
       <div class="email-octopus-form-wrapper">
@@ -89,38 +95,8 @@ slug: community/
         </form>
       </div>
       <script src="https://emailoctopus.com/bundles/emailoctopuslist/js/formEmbed.js"></script>
-      <style>
-
-        .email-octopus-email-address {
-          color:#ED225D;
-          text-decoration: none;
-          padding-bottom: 0.11em;
-          outline: none;
-          border: none;
-          border-bottom: 0.11em dashed;
-          border-bottom-color: #ED225D;
-          transition: border-bottom 30ms linear;
-          width: 13em;
-        }
-        .email-octopus-form-row-subscribe button, .email-octopus-form-row-hp {
-          position: absolute;
-          left: -5000px;
-        }
-        .email-octopus-email-address::-webkit-input-placeholder { color:#ABABAB; }
-        .email-octopus-email-address::-moz-placeholder { color:#ABABAB; }
-        .email-octopus-email-address:-moz-placeholder { color:#ABABAB; }
-        .email-octopus-email-address:-ms-input-placeholder { color:#ABABAB; }
-
-        @media (min-width: 720px) {
-          .email-octopus-email-address {
-            width: 20em;
-          }
-
-        }
-
-      </style>
       <br><br>
-    </section>
+    </main>
 
     {{> footer}}
 

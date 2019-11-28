@@ -10,11 +10,13 @@ If you discover a bug or have an idea for a new feature you'd like to add, begin
 
 We recognize all types of contributions. This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Add yourself to the [p5.js repository readme](https://github.com/processing/p5.js/blob/master/README.md#contributors) by following the [instructions here](https://github.com/processing/p5.js/issues/2309)!
 
+
 ## Setup
 
-0. Install [node.js](https://nodejs.org/en/download/).
-1. Download this repo as a [zip file](https://github.com/processing/p5.js-website/archive/master.zip) or [clone this repository](https://help.github.com/articles/cloning-a-repository/). 
-2. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
+0. Ensure Java is installed. Not installed?  Head over to https://java.oracle.com
+1. Install [node.js](https://nodejs.org/en/download/).
+2. Download this repo as a [zip file](https://github.com/processing/p5.js-website/archive/master.zip) or [clone this repository](https://help.github.com/articles/cloning-a-repository/). 
+3. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
 
 ## Running
 

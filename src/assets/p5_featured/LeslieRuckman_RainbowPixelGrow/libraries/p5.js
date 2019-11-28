@@ -20631,7 +20631,7 @@ _dereq_('../core/error_helpers');
  * <div><code>
  * var myFont;
  * function preload() {
- *   myFont = loadFont('assets/AvenirNextLTPro-Demi.otf');
+ *   myFont = loadFont('assets/inconsolata.otf');
  * }
  *
  * function setup() {
@@ -20647,7 +20647,7 @@ _dereq_('../core/error_helpers');
  *
  * <div><code>
  * function setup() {
- *   loadFont('assets/AvenirNextLTPro-Demi.otf', drawText);
+ *   loadFont('assets/inconsolata.otf', drawText);
  * }
  *
  * function drawText(font) {
@@ -21718,7 +21718,7 @@ p5.prototype.saveTable = function(table, filename, options) {
 
   // otherwise, make HTML
   else {
-    pWriter.println('<html>');
+    pWriter.println('<!DOCTYPE html>');
     pWriter.println('<head>');
     var str = '  <meta http-equiv=\"content-type\" content';
     str += '=\"text/html;charset=utf-8\" />';
