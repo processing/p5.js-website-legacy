@@ -5,9 +5,9 @@
  * parameters that are values between 0 and PI*2 (TWO_PI which is
  * roughly 6.28). If you prefer to think about angles as degrees
  * (0-360), you can use the radians() method to convert your values.
- * For example: scale(radians(90)) is identical to the statement
- * scale(PI/2). In this example, every even numbered second a jitter
- * is added to the rotation. During odd seconds rotation moves CW and
+ * For example: rotate(radians(90)) is identical to the statement
+ * rotate(PI/2). In this example, every even numbered second a jitter
+ * is added to the rotation. During odd seconds, rotation moves CW and
  * CCW at the speed determined by the last jitter value.
  */
 
