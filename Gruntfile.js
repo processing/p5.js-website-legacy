@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     },
     watch: {
       assemble: {
-        files: '<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,json}',
+        files: '<%= config.src %>/{content,data,templates}/**/*.{md,hbs,yml,json}',
         tasks: ['assemble']
       },
       css: {
