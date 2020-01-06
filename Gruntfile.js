@@ -86,7 +86,10 @@ module.exports = function(grunt) {
           helpers: ['<%= config.src %>/assets/js/translation.js'],
           assets: '<%= config.dist %>/assets',
           layout: '<%= config.src %>/templates/layouts/default.hbs',
-          data: ['<%= config.src %>/data/**/*.{json,yml}', '!<%= config.src %>/data/reference/*.json'],
+          data: [
+            '<%= config.src %>/data/**/*.{json,yml}',
+            '!<%= config.src %>/data/reference/*.json'
+          ],
           partials: '<%= config.src %>/templates/partials/*.hbs',
           plugins: [
             'assemble-contrib-permalinks',
