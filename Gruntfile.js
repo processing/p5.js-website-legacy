@@ -54,7 +54,8 @@ module.exports = function(grunt) {
           '<%= config.dist %>/assets/js/*.js',
           '<%= config.dist %>/assets/img/*.{png,jpg,jpeg,gif,webp,svg,ico}',
           '<%= config.dist %>/assets/p5_featured/{,*/}*.*',
-          '<%= config.dist %>/assets/learn/{,*/}*.*'
+          '<%= config.dist %>/assets/learn/{,*/}*.*',
+          '<%= config.dist %>/assets/contributor-docs/*.*'
         ]
       }
     },
@@ -229,6 +230,12 @@ module.exports = function(grunt) {
         src: ['**', '!build_examples/**' ],
         dest: '<%= config.dist %>/assets/examples'
       },
+      contributor_docs: {
+        expand: true,
+        cwd: '<%= config.src %>/assets/contributor-docs',
+        src: '**',
+        dest: '<%= config.dist %>/contributor-docs'
+      },
       reference: {
         expand: true,
         cwd: '<%= config.src %>/data/reference',
@@ -328,7 +335,8 @@ module.exports = function(grunt) {
             '!<%= config.dist %>/**/README.html',
             '!<%= config.dist %>/**/p5_featured/**/*.html',
             '!<%= config.dist %>/**/learn/*.html',
-            '!<%= config.dist %>/**/examples/*.html'],
+            '!<%= config.dist %>/**/examples/*.html',
+            '!<%= config.dist %>/reference/assets/index.html'],
         options: {
           ignore: [/^This document appears to be written in English/,
                   /^Bad value “https:/,
