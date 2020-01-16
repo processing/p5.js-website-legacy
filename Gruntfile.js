@@ -29,14 +29,13 @@ module.exports = function(grunt) {
     },
     watch: {
       assemble: {
-        files: '<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml,json}',
+        files: '<%= config.src %>/{content,data,templates}/**/*.{md,hbs,yml,json}',
         tasks: ['assemble']
       },
       css: {
         files: '<%= config.src %>/assets/css/*.css',
         tasks: [
           'concat:dist',
-          // 'uncss',
           'postcss'
         ]
       },
@@ -87,7 +86,10 @@ module.exports = function(grunt) {
           helpers: ['<%= config.src %>/assets/js/translation.js'],
           assets: '<%= config.dist %>/assets',
           layout: '<%= config.src %>/templates/layouts/default.hbs',
-          data: ['<%= config.src %>/data/**/*.{json,yml}', '!<%= config.src %>/data/reference/*.json'],
+          data: [
+            '<%= config.src %>/data/**/*.{json,yml}',
+            '!<%= config.src %>/data/reference/*.json'
+          ],
           partials: '<%= config.src %>/templates/partials/*.hbs',
           plugins: [
             'assemble-contrib-permalinks',
@@ -121,7 +123,7 @@ module.exports = function(grunt) {
           }
         },
         dest: '<%= config.dist %>',
-        src: "!*.*"
+        src: '!*.*'
       }
     },
 
@@ -161,7 +163,7 @@ module.exports = function(grunt) {
     // CSS:
     concat: {
       options: {
-        separator: ';',
+        separator: ';'
       },
       dist: {
         src: [
@@ -174,21 +176,20 @@ module.exports = function(grunt) {
     },
     postcss: {
       options: {
-        map: true,
         map: {
           inline: false,
           annotation: '<%= config.dist %>/assets/css/maps/'
         },
         processors: [
           require('autoprefixer')({browsers: [
-            "Android 2.3",
-            "Android >= 4",
-            "Chrome >= 20",
-            "Firefox >= 24",
-            "Explorer >= 8",
-            "iOS >= 6",
-            "Opera >= 12",
-            "Safari >= 6"
+            'Android 2.3',
+            'Android >= 4',
+            'Chrome >= 20',
+            'Firefox >= 24',
+            'Explorer >= 8',
+            'iOS >= 6',
+            'Opera >= 12',
+            'Safari >= 6'
           ]}),
           require('cssnano')()
         ]
@@ -227,7 +228,7 @@ module.exports = function(grunt) {
       examples: {
         expand: true,
         cwd: '<%= config.src %>/data/examples',
-        src: ['**', '!build_examples/**' ],
+        src: ['**', '!build_examples/**'],
         dest: '<%= config.dist %>/assets/examples'
       },
       contributor_docs: {
@@ -307,7 +308,7 @@ module.exports = function(grunt) {
       default_options: {
         files: [
           {
-            prepend: "referenceData = ",
+            prepend: 'referenceData = ',
             input: '<%= config.src %>/templates/pages/reference/data.json',
             output: '<%= config.src %>/offline-reference/js/data.js'
           }
@@ -325,28 +326,32 @@ module.exports = function(grunt) {
         src: ['**/*'],
         dest: 'p5-reference/'
       }
-    },  
+    },
     htmllint: {
       all: {
-        src: ['<%= config.dist %>/**/*.html',
-            '!<%= config.dist %>/es/**/*.html',
-            '!<%= config.dist %>/zh-Hans/**/*.html',
-            '!<%= config.dist %>/**/CHANGES.html',
-            '!<%= config.dist %>/**/README.html',
-            '!<%= config.dist %>/**/p5_featured/**/*.html',
-            '!<%= config.dist %>/**/learn/*.html',
-            '!<%= config.dist %>/**/examples/*.html',
-            '!<%= config.dist %>/reference/assets/index.html'],
+        src: [
+          '<%= config.dist %>/**/*.html',
+          '!<%= config.dist %>/es/**/*.html',
+          '!<%= config.dist %>/zh-Hans/**/*.html',
+          '!<%= config.dist %>/**/CHANGES.html',
+          '!<%= config.dist %>/**/README.html',
+          '!<%= config.dist %>/**/p5_featured/**/*.html',
+          '!<%= config.dist %>/**/learn/*.html',
+          '!<%= config.dist %>/**/examples/*.html',
+          '!<%= config.dist %>/reference/assets/index.html'
+        ],
         options: {
-          ignore: [/^This document appears to be written in English/,
-                  /^Bad value “https:/,
-                  /^Consider adding a “lang” attribute to the “html”/]
+          ignore: [
+            /^This document appears to be written in English/,
+            /^Bad value “https:/,
+            /^Consider adding a “lang” attribute to the “html”/
+          ]
         }
       }
     }
   });
 
-  grunt.registerTask('update-version', function(){
+  grunt.registerTask('update-version', function() {
     const done = this.async();
 
     const version = require('./src/templates/pages/reference/data.json').project.version;
@@ -386,14 +391,13 @@ module.exports = function(grunt) {
   grunt.registerTask('optimize', [
     'newer:imagemin',
     'concat:dist',
-    // 'uncss',
     'postcss'
   ]);
 
   // i18n tracking task
-  grunt.registerTask('i18n', function(){
+  grunt.registerTask('i18n', function() {
     var done = this.async();
-    require("./i18n.js")(done);
+    require('./i18n.js')(done);
   });
 
   // runs tasks in order
@@ -412,8 +416,5 @@ module.exports = function(grunt) {
   ]);
 
   // runs with just grunt command
-  grunt.registerTask('default', [
-    'build'
-  ]);
-
+  grunt.registerTask('default', ['build']);
 };
