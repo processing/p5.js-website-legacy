@@ -54,7 +54,7 @@ Examples help demonstrate different programming concepts and functionality of th
 4. [Grunt](https://gruntjs.com/) should now be installed, and you can use it to build the website by navigating to the top level directory and typing:
 
     ```bash
-    grunt server
+    npm run watch
     ```
 
 5. A local build of the p5js.org site should open in your web browser and you can navigate to the examples page to see your changes.
