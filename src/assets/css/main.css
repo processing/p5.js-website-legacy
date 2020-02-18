@@ -72,6 +72,94 @@
   z-index: -2;
 }
 
+/* <======== Styling for responsive menu bar ========> */
+
+@media screen and (max-width: 719px) {
+  .sidebar-menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .4s ease-out;
+    overflow: hidden;
+  }
+
+  .sidebar-menu-nav-element {
+    width: 91vw;
+  }
+
+  .sidebar-menu a {
+    display: block;
+    text-align: center;
+  }
+
+  .sidebar-menu-icon {
+    top: 2rem;
+    cursor: pointer;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+    margin-bottom: 5rem;
+  }
+  
+  .sidebar-menu-icon .sidebar-nav-icon {
+    background: #ED225D;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .4s ease-out;
+    width: 18px;
+  }
+  
+  .sidebar-menu-icon .sidebar-nav-icon:before,
+  .sidebar-menu-icon .sidebar-nav-icon:after {
+    background: #ED225D;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .4s ease-out;
+    width: 100%;
+  }
+  
+  .sidebar-menu-icon .sidebar-nav-icon:before {
+    top: 5px;
+  }
+  
+  .sidebar-menu-icon .sidebar-nav-icon:after {
+    top: -5px;
+  }
+  
+  .sidebar-menu-btn {
+    display: none;
+  }
+
+  .sidebar-menu-btn:checked ~ .sidebar-menu {
+    max-height: 475px;
+  }
+
+  .sidebar-menu-btn:checked ~ .sidebar-menu-icon .sidebar-nav-icon {
+    background: transparent;
+  }
+  
+  .sidebar-menu-btn:checked ~ .sidebar-menu-icon .sidebar-nav-icon:before {
+    transform: rotate(-45deg);
+    top:0;
+  }
+  
+  .sidebar-menu-btn:checked ~ .sidebar-menu-icon .sidebar-nav-icon:after {
+    transform: rotate(45deg);
+    top:0;
+  }
+
+}
+
+.sidebar-menu-btn {
+  display: none;
+}
+
+
+/* <=================================================> */
+
 #home-sketch-frame {
   position: fixed;
   width: 100%;
