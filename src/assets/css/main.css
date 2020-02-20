@@ -1091,7 +1091,6 @@ img.gallery-img {
 #showcase-page .project-page h2{
   font: italic 900 2rem "Montserrat", sans-serif;
   color: #ED225D;
-  text-align: center;
   letter-spacing: 0.05rem;
 }
 
@@ -1120,11 +1119,11 @@ img.gallery-img {
 
 #showcase-page .showcase-featured p.description {
   font-size: 1em;
+  margin-bottom: 3rem;
 }
 
 #showcase-page .nominate {
   margin-top: 1.5em;
-  text-align: center;
   display: inline-block;
 }
 
@@ -1150,18 +1149,20 @@ img.gallery-img {
 	content: " →";
 }
 
-.glitch-embed-wrap {
+.project-info {
   margin-top: 1em;
 }
 
 #showcase-page ul.project-tags {
-  display: -webkit-box;
+  /*display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-top: -0.2em;
   margin-bottom: 2em;
+  */
+  display: none;
 }
 
 #showcase-page ul.project-tags li {
@@ -1199,64 +1200,74 @@ img.gallery-img {
 */
 
 #showcase-page .project-page h2 {
-  text-align: center;
   line-height: 1.4;
 }
 
-#showcase-page .project-info,
-#showcase-page .project-resources,
-#showcase-page .project-credit {
-  text-align: center;
+@media (min-width: 720px) {
+
+  /* for desktop/tablet:
+   *   - two columns, one each for resources & authors
+   *   - indent answer paragraphs in q & a
+   */
+
+  #showcase-page .project-metadata {
+    display: flex;
+  }
+
+  #showcase-page .project-resources {
+    margin-left: 3.0rem;
+  }
+
+  #showcase-page .project-a {
+    width: 90%;
+    float: right;
+    display: inline-block;
+    clear: both;
+  }
+
 }
 
-#showcase-page .project-resources {
-  display: flex;
+#showcase-page .project-metadata {
   margin-top: 3%;
 }
 
-#showcase-page .project-resources ul.links {
-  display: inline-grid;
-  grid-auto-flow: row;
-  grid-gap: 3vw;
-  justify-items: center;
-  margin: auto;
+#showcase-page .project-metadata section h3 {
+  color: #ED225D;
+  font: bold italic 1.0rem "Montserrat", sans-serif;
+}
 
+#showcase-page .project-resources ul.links {
   font: 500 .7rem "Montserrat", sans-serif;
   letter-spacing: 0.01rem;
   line-height: 1.5;
-}
-
-@media (min-width: 480px){
-  #showcase-page .project-resources ul.links {
-    grid-auto-flow: column;
-  }
-}
-
-#showcase ul.links li {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  margin: 0.5rem 0;
 }
 
 #showcase-page .project-credit {
-  font: italic bold 1.7rem "Montserrat", sans-serif;
+  font: italic bold 1.25rem "Montserrat", sans-serif;
+}
+
+#showcase-page .project-credit p {
+  margin: 0.5rem 0;
 }
 
 #showcase-page .note {
   font-size: 0.7rem;
 }
 
-#showcase-page .project-a {
-  width: 90%;
-  float: right;
-  display: inline-block;
-  clear: both;
+#showcase-page .creator-from {
+  font-size: 0.7rem;
 }
 
 #showcase-page .project-q {
   margin-left: 0%;
   display: inline-block;
   clear: both;
-  font: 500 1rem "Montserrat", sans-serif;
+  /*
+  font-size: 1.2rem;
+  font-weight: 900;
+  */
+  font: 900 1.2rem 'Montserrat', sans-serif;
   line-height: 1.5;
 }
 
