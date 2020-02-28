@@ -1,0 +1,75 @@
+---
+title: showcase
+slug: showcase/featuring/
+---
+
+<div id="showcase-page">
+
+  {{> sidebar}}
+
+  <main id="content" class="column-span project-page">
+    <h1>{{#i18n "project-phuong"}}{{/i18n}}</h1>
+
+    <section class="project-info">
+      <h2 class='sr-only'>Project Info</h2>
+      <div class='iframe-container' style='padding-top: 56.25%'>
+        <iframe title="A video of Phuong Ngo demoing Airi Flies, a game to help Airi fly by saying pew."  src="https://embed-bud.glitch.me/iframe/G8OvtVaWb10" allow="fullscreen"></iframe>
+      </div>
+    </section>
+
+    <section class="project-metadata">
+      <h2 class='sr-only'>Project Authors and Links</h2>
+
+      <section class="project-credit">
+        <h3>Created By</h3>
+        <p>Phuong Ngo <span class="note">(she/her)</span></p>
+        <p class="creator-from">From Kyiv, Ukraine</p>
+      </section>
+
+      <section class="project-resources">
+        <h3 id="resources">Project Links</h3>
+
+        <ul class="links">
+          <li><a href="https://www.yonaymoris.me/AiriFlies/" target="_blank">Play Airi Flies!</a></li>
+          <li><a href="https://github.com/yonaymoris/AiriFlies" target="_blank">Code for AiriFlies on GitHub</a></li>
+          <li><a href="https://www.yonaymoris.me/projects/airiflies" target="_blank">More info in Phuong Ngo's portfolio</a></li>
+        </ul>
+      </section>
+    </section>
+
+
+    <section>
+      <h2 id="qa">Q&amp;A</h2>
+
+      <h3 class='project-q'>What are you up to?</h3>
+      <p class='project-a'>I'm a creative coder and designer, a <a href="https://schoolofma.org/" target="_blank">School of Machines, Making & Make-Believe</a> diversity scholarship recipient, and just a curious creature.</p>
+      
+      <h3 class='project-q'>How did you get started with p5.js?</h3>
+      <p class='project-a'>I was taking a course at the School of Machines in Berlin this summer called “<a href="https://schoolofma.org/bots/" target="_blank">Bots and Machine Learning</a>,” mainly taught by <a href="https://1023.io/" target="_blank">Yining Shi</a>.</p>
+
+      <h3 class='project-q'>How did you use p5.js in this project?</h3>
+      <p class='project-a'>I used p5.js to work on the visual part of the game. The animation sprites for Airi and the ghosts were drawn on an iPad app called <a href="https://rizer.co/pixaki/" target="_blank">Pixaki</a> and then integrated into <a href="http://molleindustria.github.io/p5.play/" target="_blank">p5.play</a> code. I mainly used examples at p5.play as a reference.</p>
+      <p class='project-a'>For the endless scrolling background, I found a <a href="https://editor.p5js.org/chjno/sketches/ByZlypKWM" target="_blank">p5 sketch by chjno</a>. I set a condition so whenever the word "pew" or a mouse click was detected, the scrolling speed would change to make an illusion of Airi flying up. When the user does not do anything, the scrolling speed is negative, which makes it look like Airi is falling down.</p>
+      <p class='project-a'>For sound recognition, I used <a href="https://teachablemachine.withgoogle.com/io19" target="_blank">Google's Teachable Machine 2</a> (currently, there is a beta version not available in public yet, but it will be very soon!). I added around 120 samples of my classmates saying the word "pew" with different intonations and 80 samples of background noise to train it. Then I integrated the model into the game with <a href="https://ml5js.org/" target="_blank">ml5.js</a>.</p>
+      
+      <h3 class='project-q'>What's your favorite p5.js feature?</h3>
+      <p class='project-a'>I really love how easily you can create, manipulate, and delete HTML blocks and classes with the <a href="https://p5js.org/reference/#/libraries/p5.dom" target="_blank">p5.dom library</a> via <code><a href="https://p5js.org/reference/#/p5/createDiv" target="_blank">createDiv()</a></code>, <code><a href="https://p5js.org/reference/#/p5.Element/addClass" target="_blank">addClass()</a></code>, etc. But my most favorite function is <code><a href="https://p5js.org/reference/#/p5/draw" target="_blank">draw()</a></code>, since this is where you create magic.</p>
+
+      <h3 class='project-q'>Did you face any challenges working on this project? If so, how did you overcome them?</h3>
+      <p class='project-a'>There were a lot of challenges simply because p5.js was something new to me. I did not work much with JavaScript in general before. Reading documentation and searching for similar examples helped a lot.</p>
+
+      <h3 class='project-q'>What's a cool thing we should check out?</h3>
+      <p class='project-a'>Check out <a href="https://schoolofma.org/programs" target="_blank">School of Machines' courses</a>! They try hard to connect the most creative people in the world and they do it well so far. ❤️</p>
+
+      <h3 class='project-q'>Where can people learn more about you?</h3>
+      <p class='project-a'><a href="https://www.yonaymoris.me/" target="_blank">yonaymoris.me</a></p>
+    </section>
+    <div style='clear:both'></div>
+
+    {{> footer}}
+
+  </main>
+
+  {{> asterisk}}
+
+</div>
