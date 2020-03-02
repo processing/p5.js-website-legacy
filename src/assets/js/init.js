@@ -1,4 +1,4 @@
-var langs = ['en', 'es', 'zh-Hans'];
+var langs = ['en', 'es', 'pl', 'zh-Hans'];
 
 // =================================================
 // Family bar:
