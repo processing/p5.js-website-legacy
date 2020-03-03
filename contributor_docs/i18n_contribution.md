@@ -123,6 +123,8 @@ p5.js-website/
 1. Define an abbreviation for your language following the [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard. It's expected that abbreviations are two-letter, but for macro languages can be added extra extensions depending on each case.
 2. Open a new issue and propose the addition of the new language. If both the proposal and the abbreviation are approved proceed with the next step.
 3. Add an entry with the new language abbreviation at `package.json` to the `languages` category -located under the repository root directory. Please keep the language abbreviations in alphabetical order.
+4. Add an entry with the new language abbreviation at
+   [`src/assets/js/init.js`](https://github.com/processing/p5.js-website/blob/3c96eff611b8d1f05b8d0bfe109f7573d5074a58/src/assets/js/init.js#L1)
 
     ```JSON
     "languages": [
