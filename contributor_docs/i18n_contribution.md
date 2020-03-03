@@ -9,7 +9,7 @@ If you want to contribute with p5.js website translations, you are in the right 
 * [Before submitting a Pull Request](#before-submitting-a-pull-request)
 * [File Structure](#file-structure)
 * [Start a new translation](#start-a-new-translation)
-* [Working on existing translations](working-on-existing-translations)
+* [Working on existing translations](#working-on-existing-translations)
   * [Translation of all pages except Reference and Examples](#translation-of-all-pages-except-reference-and-examples)
   * [Translation of Reference](#translation-of-reference)
   * [Translation of Examples](#translation-of-examples)
