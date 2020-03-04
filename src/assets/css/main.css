@@ -564,86 +564,6 @@ form {
   pointer-events: all;
 }
 
-#search_button {
-  background: url(../img/search.png) 100% no-repeat;
-}
-
-#search input[type="text"],
-#search input[type="search"] {
-  border: 1px solid rgba(200, 200, 200, .5);
-  font-family: "Montserrat", sans-serif;
-  font-size: 2.25em;
-  width: 9.75em;
-}
-
-#search ::-webkit-input-placeholder,
-#search .twitter-typeahead .tt-hint {
-  color: #ccc;
-}
-
-:-moz-placeholder,
- ::-moz-placeholder,
- :-ms-input-placeholder {
-  color: #ccc;
-}
-
-#search input[type="text"]:focus {
-  color: #2d7bb6;
-  outline-color: #2d7bb6;
-  outline-width: 1px;
-  outline-style: solid;
-}
-
-#search .twitter-typeahead .tt-dropdown-menu {
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  overflow-y: auto;
-  font-size: 1em;
-  line-height: 1.4em;
-}
-
-#search .twitter-typeahead .tt-suggestion.tt-cursor {
-  color: #333;
-  background-color: #eee;
-}
-
-#search .twitter-typeahead .tt-suggestion p {
-  margin: 0;
-}
-
-#search .twitter-typeahead .tt-suggestion p .small {
-  font-size: 12px;
-  color: #666;
-}
-
-#search {
-  float: right;
-}
-
-#search .twitter-typeahead .tt-dropdown-menu {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 0.5em;
-  max-height: 200px;
-  overflow-y: auto;
-  font-size: 1em;
-  line-height: 1.4em;
-}
-
-#search .twitter-typeahead .tt-suggestion {
-  padding: 3px 20px;
-  line-height: 24px;
-  cursor: pointer;
-}
-
-#search .twitter-typeahead .empty-message {
-  padding: 8px 20px 1px 20px;
-  font-size: 14px;
-  line-height: 24px;
-}
-
-#search_button {
-  float: right;
-}
 
 a.code.core {
   color: #333;
@@ -1805,6 +1725,55 @@ footer {
   height: 100%;
 }
 
+
+#search-wrapper {
+  position: absolute;
+  width: 200px;
+  top: 5.5em;
+  right: 1em;
+  font-size: 16px;
+}
+
+
+#docsearch{
+  width: 140px;
+}
+
+.algolia-autocomplete  a.algolia-docsearch-suggestion:hover {
+  border-bottom: none;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion{
+  font-family: "Montserrat", sans-serif;;
+}
+
+.algolia-autocomplete .searchbox__input {
+  font-size: 15px;
+}
+
+.searchbox__reset {
+  display: none;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight{
+  color: #ed225d;
+  padding: 0 .05em;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
+  box-shadow: inset 0 -2px 0 0  rgba(237, 34, 93, .4);
+  ;
+}
+
+@media (max-width: 719px) {
+  #search-wrapper {
+    position: absolute;
+    width: 200px;
+    top: .5em;
+    left: 1em;
+  }
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -2111,16 +2080,6 @@ footer {
     position: absolute;
     top: 0.5em;
     right: 0.7em;
-  }
-
-  #search {
-    width: 100%;
-    float: left;
-    margin-bottom: 1em;
-  }
-
-  #search input[type=text] {
-    width: 100%;
   }
 
   #lockup {
