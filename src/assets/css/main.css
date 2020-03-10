@@ -2244,11 +2244,16 @@ iframe {
 }
 
 .cnv_div {
-  /* This ensures that all canvases from example code snippets are only
-   * the width of their actual canvases, rather than the width of
-   * the entire page, potentially obscuring the example code and
-   * preventing it from being selected. */
-  display: inline-block;
+  /* This ensures that all canvases and additional html elements (if any) from
+   * the example code snippets are only 100px wide rather than covering the 
+   * entire page, which potentially obscures the example code. */
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.cnv_div > * {
+  width: 100px;
+  height: auto;
 }
 
 
