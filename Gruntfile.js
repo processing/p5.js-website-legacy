@@ -244,22 +244,28 @@ module.exports = function(grunt) {
         dest: '<%= config.dist %>/assets/reference'
       },
       reference_assets: {
-        expand: true,
-        cwd: '<%= config.src %>/templates/pages/reference/',
-        src: ['**/!(*.hbs)'],
-        dest: '<%= config.dist %>/reference/'
-      },
-      reference_es: {
-        expand: true,
-        cwd: '<%= config.dist %>/reference',
-        src: ['**'],
-        dest: '<%= config.dist %>/es/reference'
-      },
-      reference_zh_Hans: {
-        expand: true,
-        cwd: '<%= config.dist %>/reference',
-        src: ['**'],
-        dest: '<%= config.dist %>/zh-Hans/reference'
+        files: (function() {
+          const cp = [];
+          pkg.languages.forEach(language => {
+            if (language === 'en') {
+              cp.push({
+                expand: true,
+                cwd: '<%= config.src %>/templates/pages/reference/',
+                src: ['**/!(*.hbs)'],
+                dest: '<%= config.dist %>/reference/'
+              });
+            } else {
+              cp.push({
+                expand: true,
+                cwd: '<%= config.src %>/templates/pages/reference/',
+                src: ['**/!(*.hbs)'],
+                dest: `<%= config.dist %>/${language}/reference/`
+              });
+            }
+          });
+
+          return cp;
+        })()
       },
       offlineReference: {
         files: [
@@ -319,7 +325,7 @@ module.exports = function(grunt) {
     compress: {
       main: {
         options: {
-          archive: '<%= config.dist %>/offline-reference/p5-reference.zip',
+          archive: '<%= config.dist %>/offline-reference/p5-reference.zip'
         },
         expand: true,
         cwd: '<%= config.src %>/offline-reference',
@@ -331,14 +337,11 @@ module.exports = function(grunt) {
       all: {
         src: [
           '<%= config.dist %>/**/*.html',
-          '!<%= config.dist %>/es/**/*.html',
-          '!<%= config.dist %>/zh-Hans/**/*.html',
           '!<%= config.dist %>/**/CHANGES.html',
           '!<%= config.dist %>/**/README.html',
           '!<%= config.dist %>/**/p5_featured/**/*.html',
           '!<%= config.dist %>/**/learn/*.html',
-          '!<%= config.dist %>/**/examples/*.html',
-          '!<%= config.dist %>/reference/assets/index.html'
+          '!<%= config.dist %>/**/examples/*.html'
         ],
         options: {
           ignore: [

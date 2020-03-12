@@ -1,6 +1,6 @@
 # Contributing to p5.js website internationalization (i18n)
 
-If you want to contribute with p5.js website translations, you are in the right place. The translation of the p5.js website to languages other than English is part of its internationalization - abbreviated [*i18n*](https://en.wikipedia.org/wiki/Internationalization_and_localization) - process. You can improve content that has been already translated - at the reference, examples or other pages within the website - as well as start a new language translation.
+If you want to contribute with p5.js website translations, you are in the right place. The translation of the p5.js website to languages other than English is part of its internationalization - abbreviated [*i18n*](https://en.wikipedia.org/wiki/Internationalization_and_localization) - process. You can improve content that has been already translated - the reference, examples or other pages within the website - or start a new language translation.
 
 ## Table of Contents
 
@@ -9,21 +9,21 @@ If you want to contribute with p5.js website translations, you are in the right 
 * [Before submitting a Pull Request](#before-submitting-a-pull-request)
 * [File Structure](#file-structure)
 * [Start a new translation](#start-a-new-translation)
-* [Working on existing translations](working-on-existing-translations)
+* [Working on existing translations](#working-on-existing-translations)
   * [Translation of all pages except Reference and Examples](#translation-of-all-pages-except-reference-and-examples)
   * [Translation of Reference](#translation-of-reference)
   * [Translation of Examples](#translation-of-examples)
 
 ## How the website works
 
-1. Due to internationalization (i18n), this website is built from templates that retrieve the text content from data files
+1. Due to internationalization (i18n), this website is built from templates that retrieve the text content from data files.
 2. There are three kind of pages and each works differently:
    * [Reference](#translation-of-reference): Pages are built in English and swapped to other languages using JS on the front-end. Translation content is stored in a JSON object.
    * [Examples](#translation-of-examples): Examples pages are built from templates with handlebars, while examples are stored in JS files.
-   * [Other](#translation-of-all-pages-except-reference-and-examples): Pages are built from templates in which handlebars point to the content in the actual language when rendered.
+   * [Other](#translation-of-all-pages-except-reference-and-examples): Pages are built from templates in which Handlebars point to the content in the actual language when rendered.
 3. Every time a modification is submitted the website is rendered again.
 4. Built web is stored under `dist/` directory whilst data and templates are stored under `src/` directory. For further information check the [File Structure](#file-structure).
-5. When collaborating code editing have to be done in files under `src/`, but not under `dist/` as files in there are removed and recreated on build.
+5. When contributing code, editing have to be done in files under `src/`, but not under `dist/` as files in there are removed and recreated on build.
 
 ## Setting up before start your contribution
 
@@ -31,10 +31,12 @@ If you want to contribute with p5.js website translations, you are in the right 
 
 1. Install node.js by following the instructions [here](https://nodejs.org/en/download/).
 2. [Fork](https://help.github.com/articles/fork-a-repo/) the p5.js-website repository to your Github account. Click the *Fork* button on the upper-right side of the p5.js-website Github repo. This will automatically open your fork repo on Github.
-![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/fork.png)
+
+  ![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/fork.png)
+
 3. On your fork click the green *Clone or download* button. It will display a bar from where you can copy your `repo_URL`.
 
-    ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/clone.png)
+  ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/clone.png)
 
 4. Open your command-line interface (CLI) and [clone](https://help.github.com/articles/cloning-a-repository/) your fork of the p5.js-website repository to `your_directory` on your laptop by typing:
     ```
@@ -96,7 +98,7 @@ If you want to contribute with p5.js website translations, you are in the right 
     $ git push
     ```
 
-5. Commit to your repository at your github account and create a new [Pull Request](https://github.com/processing/p5.js-website/wiki/Pull-requests). Click the *Pull Reques* tab on your fork page and then click the green button *New Pull Request*.
+5. Commit to your repository at your github account and create a new [Pull Request](https://github.com/processing/p5.js-website/wiki/Pull-requests). Click the *Pull Request* tab on your fork page and then click the green button *New Pull Request*.
 ![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://raw.githubusercontent.com/processing/p5.js-website/master/contributor_docs/assets/pull_request.png)
 
 ## File Structure
@@ -116,11 +118,11 @@ p5.js-website/
     * `layouts/` – default.hbs is main page template.
     * `pages/` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
     * `partials/` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
-* `Gruntfile.js` – This file contains all the tasks for using assemble and YAML to generate the final, static site. It uses the task runner [grunt](http://gruntjs.com/).
+* `Gruntfile.js` – This file contains all the tasks for using Assemble and YAML to generate the final, static site. It uses the task runner [grunt](http://gruntjs.com/).
 
 ## Start a new translation
 
-1. Define an abbreviation for your language following the [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard. It's expected that abbreviations are two-letter, but for macro languages can be added extra extensions depending on each case.
+1. Define an abbreviation for your language following the [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) standard. It's expected that abbreviations are two-letter, but for macro languages extra extensions can be added according to [IETF/IANA language tag specification](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry).
 2. Open a new issue and propose the addition of the new language. If both the proposal and the abbreviation are approved proceed with the next step.
 3. Add an entry with the new language abbreviation at `package.json` to the `languages` category -located under the repository root directory. Please keep the language abbreviations in alphabetical order.
 
@@ -135,14 +137,15 @@ p5.js-website/
 
 4. Duplicate `en.yml` - stored under `src/data/` - and name it `language_abbreviation.yml`. For example, when the Spanish version was created it was named `es.yml`. Check [How the website works](#how-the-website-works) and [File Structure](#file-structure) for further information.
 5. Duplicate `es.json` - stored under `src/data/reference/` - and name it `[language_abbreviation].json`.
+6. Add a new menu entry in [`src/templates/partials/i18n.hbs`](https://github.com/processing/p5.js-website/blob/master/src/templates/partials/i18n.hbs#L8) like so `<li><a href='#' lang='[language_abbreviation]' data-lang='[language_abbreviation]'>[language_name]</a></li>`.
 
 ## Working on existing translations
 
 ### Translation of all pages except Reference and Examples
 
-Each webpage is written in [.hbs](https://www.npmjs.com/package/hbs) format -files created with the library Handlebars and written using HTML rules- using handlers to access the i18n data of each language and render. Each handler binds a specific spot on the HTML script with a specific content stored in a database, and is replaced by it when the page is built. Hbs files are stored under `src/template/pages`.
+Each webpage is written in [.hbs](https://www.npmjs.com/package/handlebars) format: files created with the Handlebars library and written using HTML rules. It uses handlers to access the i18n data of each language and render them accordingly. Each handler binds a specific spot on the HTML document with a specific content stored in a file, and is replaced by it when the page is built. Hbs files are stored under `src/template/`.
 
-The i18n data is stored in [.yml](https://en.wikipedia.org/wiki/YAML) files in the `src/data` folder of this repo. For example, under the above mentioned path the .yml files for English, Spanish and Chinese can be found as follows:
+The i18n data is stored in [.yml](https://en.wikipedia.org/wiki/YAML)(YAML) format in the `src/data` folder of this repo. For example, under the above mentioned path the .yml files for English, Spanish and Chinese can be found as follows:
 
 ```filenames
 en.yml
@@ -150,7 +153,7 @@ es.yml
 zh-Hans.yml
 ```
 
-Within the .hbs pages there are tags that replace the actual content and look like this: `{{#i18n "MyKeyword"}}{{/i18n}}`. For example the *Download* tag at the main bar looks like this:
+Within the .hbs pages there are tags that replace the actual content and look like this: `{{#i18n "MyKeyword"}}{{/i18n}}`. For example the *Download* link at the main menu bar looks like this:
 
 ```html
 <li><a href="{{root}}/download/">{{#i18n "Download"}}{{/i18n}}</a></li>
@@ -172,9 +175,9 @@ In the example above, note that after the `download2` i18n tag there is still a 
 
 Each page contains YAML "front matter" at the top which includes a title and (optional) slug field. The title corresponds to the section in which to place the i18n key-value pairs. (Note: each page has only one title, so for partials within the `partials` folder, place the i18n pairs at the top level). The slug corresponds to the folder in which the page will be placed. This should generally match the folder structure within the `pages` folder.
 
-For nested pages -for example `p5js.org/es/learn/color.html`- the slug of the .hbs document must match the upper folder, in this case `learn`. This is directly related with the way handlers are displayed in the .yml file. For example, all the handlers for the `learn` page are written under its slug with a tab as follows:
+For nested pages, for example `p5js.org/es/learn/color.html`, the slug of the .hbs document must match the upper folder, in this case `learn`. This is directly related with the way handlers are displayed in the .yml file. For example, all the handlers for the `learn` page are written under its slug with a tab as follows:
 
-```javascript
+```yaml
 learn:
   learn-title: "Aprender"
   learn1: "Estos tutoriales proveen una revisión en mayor profundidad o paso a paso sobre temas particulares. Revisa la "
@@ -182,21 +185,21 @@ learn:
 
 But for nested pages it's important not to create a new slug for each page, because it can make the .hbs files not to find the handlers when calling the i18n data. So, for the page color **it is not needed to create a new** `slug: color/` like:
 
-```javascript
+```yaml
 color:
   color-title: "Color"
 ```
 
 Instead of this, the color-related handler must be added to the `learn` list of handlers. For English version, the site will follow the same top-level hierarchy as the original site. When you switch to a different language, the permalink and file structure will include the language abbreviation immediately following the root url. (ex: `https://p5js.org/es/get-started/`)
 
-**Yml files can break the page compilation** process under syntax issues as double quotes within the text. Each YAML handler must be written as `color-rgb-title: "Color RGB"`, which means that the handler `color-rgb-title` has assigned the content `"Color RGB"` in the current language .yml file.
+**YAML files can break the page compilation** process under syntax issues as double quotes within the text. Each YAML handler must be written as `color-rgb-title: "Color RGB"`, which means that the handler `color-rgb-title` has assigned the content `"Color RGB"` in the current language .yml file.
 
 In some cases, the text translated from the original .hbs file (written in HTML) included double quotes used to highlight some idea. In those cases remember to use the scape command `\` before the quotes, otherwise your compiler will interpret it as a syntax error because the handlers finish more than one time.
 
 ### Translation of Reference
 
 * The reference works a bit differently. The pages are built in English based on the inline documentation in the source code. They are then swapped out using JS on the front-end.
-* The top level keys in the JSON object correspond to the page headings, menu, footer, etc. You can see all the swaps in [this file](https://github.com/processing/p5.js-website/blob/master/dist/reference/index.html#L130).
+* The top level keys in the JSON object correspond to the page headings, menu, footer, etc. You can see all the swaps in [this file](https://github.com/processing/p5.js-website/blob/master/src/templates/pages/reference/index.hbs#L60).
 * The "p5" key in the JSON object contains individual keys for each reference entry, indexed by variable/function/object name.
 * Any entries in the JSON object which are not filled in will be left in English when the page is loaded.
 * This is a somewhat hacky solution and not ideal. However, it comes from balancing the desire to have documentation directly in the source code, with the unwieldiness of having multiple languages of documentation inline. It will be our working solution until a better one is found.
