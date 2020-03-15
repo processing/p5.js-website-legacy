@@ -2,11 +2,14 @@
 title: language buttons
 ---
 <!-- p5*js language buttons -->
-<div id="i18n-btn">
-  <h2 id="i18n-settings" class="sr-only">{{#i18n "Language-Settings"}}{{/i18n}}</h2>
-  <ul id="i18n-buttons" aria-labelledby="i18n-settings">
-    <li><a href='#' lang='en' data-lang='en'>English</a></li>
-    <li><a href='#' lang='es' data-lang='es'>Español</a></li>
-    <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
-  </ul>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="dropdown" id="i18n-btn">
+	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Languages</button>
+    <h2 id="i18n-settings" class="sr-only">{{#i18n "Language-Settings"}}{{/i18n}}</h2>
+    <div class="dropdown-menu" id="i18n-buttons" aria-labelledby="dropdownMenuButton">
+    	<a class="dropdown-item" href='#' lang='en' data-lang='en'>English</a>
+    	<a class="dropdown-item" href='#' lang='es' data-lang='es'>Español</a>
+    	<a class="dropdown-item" href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a>
+    </div>
 </div>
