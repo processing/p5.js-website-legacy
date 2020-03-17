@@ -1,7 +1,7 @@
 /*
- * @name The Mandelbrot Set
- * @description Simple rendering of the Mandelbrot set.
- * Based on Daniel Shiffman's <a href="https://processing.org/examples/mandelbrot.html">Mandelbrot Example</a> for Processing.
+ * @name El Conjunto de Mandelbrot
+ * @description Renderización simple del conjunto de Mandelbrot.
+ * Basado en el trabajo para Processing de Daniel Shiffman <a href="https://processing.org/examples/mandelbrot.html">Ejemplo de Mandelbrot</a>.
  */
 
 function setup() {
