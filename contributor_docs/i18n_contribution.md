@@ -134,10 +134,10 @@ p5.js-website/
       "new language here (or in correct alphabetical spot)"
     ],
     ```
-
-4. Duplicate `en.yml` - stored under `src/data/` - and name it `language_abbreviation.yml`. For example, when the Spanish version was created it was named `es.yml`. Check [How the website works](#how-the-website-works) and [File Structure](#file-structure) for further information.
-5. Duplicate `es.json` - stored under `src/data/reference/` - and name it `[language_abbreviation].json`.
-6. Add a new menu entry in [`src/templates/partials/i18n.hbs`](https://github.com/processing/p5.js-website/blob/master/src/templates/partials/i18n.hbs#L8) like so `<li><a href='#' lang='[language_abbreviation]' data-lang='[language_abbreviation]'>[language_name]</a></li>`.
+4. Add an entry with the new language abbreviation at `src\assets\js\init.js` to the `langs` array defined in the first line.
+5. Duplicate `en.yml` - stored under `src/data/` - and name it `language_abbreviation.yml`. For example, when the Spanish version was created it was named `es.yml`. Check [How the website works](#how-the-website-works) and [File Structure](#file-structure) for further information.
+6. Duplicate `es.json` - stored under `src/data/reference/` - and name it `[language_abbreviation].json`.
+7. Add a new menu entry in [`src/templates/partials/i18n.hbs`](https://github.com/processing/p5.js-website/blob/master/src/templates/partials/i18n.hbs#L8) like so `<li><a href='#' lang='[language_abbreviation]' data-lang='[language_abbreviation]'>[language_name]</a></li>`.
 
 ## Working on existing translations
 
