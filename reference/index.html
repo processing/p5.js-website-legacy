@@ -190,9 +190,11 @@
           var entry = translations[obj][name];
           $('.description-text').html('<p>'+entry.description+'</p>');
           $('.returns').html(entry.returns);
-          $('.params').find('tr').each(function(i) {
+          $('.params').find('ul').each(function(i) {
             if (i < entry.params.length) {
-              $(this).children('td').eq(1).html(entry.params[i])
+              $(this).children().each(function(j){
+                $(this).children().eq(1).children().eq(1).html(entry.params[i]);
+              })
             }
           });
         }
