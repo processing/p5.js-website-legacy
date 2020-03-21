@@ -54,7 +54,8 @@ slug: examples/
     window.addEventListener('load', function() {
       // examples.init('{{assets}}/examples/{{language}}/<%=file%>');
       if (<%=mobileEx%>) {
-        var isMobile = window.matchMedia("only screen and (max-width: 480px)");
+        var isMobile = window.matchMedia("only screen and (max-width: 767px)");
+        // isMobile is true if viewport is less than 768 pixels wide
         document.getElementById('exampleFrame').style.display = 'none';
         if (isMobile.matches) {
           document.getElementById('notMobile-message').style.display = 'none';
