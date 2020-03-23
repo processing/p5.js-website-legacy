@@ -88,10 +88,6 @@
   "Camera": "Cámara",
   "Lights": "Luces",
   "Material": "Materiales",
-  "footer1": "p5.js fue creado por ",
-  "footer2": " y es desarrollado por una comunidad de colaboradores, con apoyo de ",
-  "footer3": " y ",
-  "footer4": "Identidad y diseño gráfico por ",
   "p5": {
     "alpha": {
       "description": "Extrae el valor de alpha de un color o de un arreglo de pixeles.",
@@ -120,12 +116,12 @@
     "green": {
       "description": "Extrae el valor de verde de un color o de un arreglo de pixeles.",
       "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "hue": {
       "description": "Extrae el valor de tinte de un color o de un arreglo de pixeles. El tinte (hue) existe en HSB y HSL. Esta función retorna el tinte normalizado HSB que cuando se le provee un objeto de color HSB (o cuando se le provee un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará el tinte normalizado según HSB en otro caso. (Estos valores solo son diferentes si la configuración de valor de tinte máximo de cada sistema es diferente.)",
       "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "lerpColor": {
       "description": "Mezcla dos colores para encontrar un tercer color según la combinación de ambos. El parámetro amt es la cantidad a interpolar entre los dos valores, donde 0.0 es igual al primer color, 0.1 es muy cercano al primer color, 0.5 está a medio camino entre ambos, etc. Un valor menor que 0 será tratado como 0. Del mismo modo, valores sobre 1 serán tratados como 1. Esto es distinto al comportamiento de lerp(), pero necesario porque de otra manera los números fuera de rango producirían colores no esperados y extraños. La manera en que los colores son interpolados depende del modo de color actual.",
@@ -137,17 +133,17 @@
     "lightness": {
       "description": "Extrae el valor de luminosidad HSL de un color o de un arreglo de pixeles.",
       "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "red": {
       "description": "Extrae el valor de rojo de un color o de un arreglo de pixeles.",
       "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "saturation": {
       "description": "Extrae el valor de saturación de un color o de un arreglo de pixeles. La saturación es escalada en HSB y HSL de forma distinta. Esta función retornará la saturación HSB cuando le sea provisto un objeto de color HSB (o cuando le sea provisto un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará saturación HSL.",
       "params": ["Objeto: objeto p5.Color o arreglo de pixeles"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "background": {
       "description": "La función background() define el color usado como fondo del lienzo p5.js. El fondo por defecto es gris claro. Esta función es típicamente usada dentro de draw() para despejar o borrar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de setup() para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
@@ -159,11 +155,11 @@
                "Número: valor de verde o saturación (dependiendo del modo de color actual)",
                "Número: valor de azul o brillo (dependiendo del modo de color actual)",
                "p5.Image: imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo)"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "clear": {
       "description": "Borra los pixeles del buffer. Esta función solo funciona en objetos p5.Canvas creados con la función createCanvas(); no funcionará con la ventana principal. A diferencia del contexto principal de gráficas, los pixeles en las áreas gráficas adicionales creadas con createGraphics() pueden ser entera o parcialmente transparentes. Esta función borra todo para hacer los pixeles 100% transparentes.",
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "colorMode": {
       "description": "colorMode() cambia la manera en que p5.js interpreta los datos de color. Por defecto, los parámetros de fill(), stroke(), background() y color() son definidos por valores entre 0 y 255 en modo RGB. Esto es equivalente a definir el modo de color según colorMode(RGB, 255). Definir el modo de color en colorMode(HSB) permite usar el sistema HSB. Por defecto, este modo de color es colorMode(HSB, 360, 100, 100, 1). También se puede usar HSL. Nota: los objetos de color existentes recuerdan el modo en que fueron creados, por lo que puedes cambiar el modo como quieras, sin afectar su apariencia.",
@@ -172,7 +168,7 @@
       "Número: rango de verde o saturación, dependiendo del modo de color actual.",
       "Número: rango de azul o brillo/luminosidad, dependiendo del modo de color actual.",
       "Número: rango de transparencia alpha"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "fill": {
       "description": "Define el color usado para el relleno de figuras geométricas. Por ejemplo, si ejecutas fill(204, 102, 0), todas las figuras a continuación tendrán relleno naranja. Este color es especificado en términos de color RGB o HSB, dependiendo del modo de color según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del relleno.",
@@ -180,15 +176,15 @@
       "Número: valor de verde o saturación (dependiendo del modo de color actual)",
       "Número: valor de azul o brillo (dependiendo del modo de color actual)",
       "Número: opacidad del fondo"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "noFill": {
       "description": "Deshabilita el relleno de figuras geométricas. Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla.",
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "noStroke": {
       "description": "Deshabilita el dibujo de los trazos (bordes). Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla.",
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "stroke": {
       "description": "Define el color usado para dibujar líneas y bordes de figuras. Este color especificado en términos de color RGB o HSB, dependiendo del modo de color actual según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del trazado.",
@@ -207,7 +203,7 @@
       "Número: ángulo inicial del arco de elipse.",
       "Número: ángulo final del arco de elipse.",
       "Constante: parámetro opcional para determinar la manera de dibujar el arco."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "ellipse": {
       "description": "Dibuja una elipse (óvalo)  en la pantalla. Una elipse con igual ancho y altura es un círculo. Por defecto, los primeros dos parámetros definen la ubicación, y el tercero y cuarto definen el ancho y altura de la figura. Si no especifica una altura, el valor del ancho es usado como ancho y altura. El origen puede ser cambiado con la función ellipseMode().",
@@ -215,7 +211,7 @@
       "Número: coordenada y de la elipse.",
       "Número: ancho de la elipse.",
       "Número: altura de la elipse."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "line": {
       "description": "Dibuja una línea (un camino directo entre dos puntos) en la pantalla. La versión de line() con cuatro parámetros dibuja la línea en 2D. Para darle color a una línea, usa la función stroke(). Una línea no puede ser rellenada, por lo que la función fill() no afectará el color de una línea. Las líneas 2D son dibujadas con una ancho de un pixel por defecto, pero esto puede ser cambiado con la función strokeWeight().",
@@ -223,13 +219,13 @@
       "Número: coordenada y del primer punto.",
       "Número: coordenada x del segundo punto.",
       "Número: coordenada y del segundo punto."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "point": {
       "description": "Dibuja un punto, una coordenada en el espacio de un pixel de dimensión. El primer parámetro es la coordenada horizontal del punto, el segundo valor es la coordenada vertical del punto. El color del punto es determinado por el trazado actual con la función stroke().",
       "params": ["Número: coordenada x.",
       "Número: coordenada y ."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "quad": {
       "description": "Dibuja un cuadrilátero, un polígono de cuatro lados. Es similar a un rectángulo, pero los ángulos entre sus bordes no están limitados a noventa grados. El primer par de parámetros (x1, y1) corresponde a las coordenadas del primer vértice y los pares siguientes deben seguir en el mismo orden, según las manecillas del reloj o en contra, alrededor de la figura a definir.",
@@ -241,7 +237,7 @@
       "Número: coordenada y del tercer punto.",
       "Número: coordenada x del cuarto punto.",
       "Número: coordenada y del cuarto punto."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "rect": {
       "description": "Dibuja un rectángulo en la pantalla. Un rectángulo es una figura de cuatro lados con cada ángulo interior de noventa grados. Por defecto, los dos primeros parámetros definen la ubicación de la esquina superior izquierda, el tercero el ancho y el cuarto la altura. La manera en que estos parámetros son interpretados, sin embargo, puede ser cambiado con la función rectMode(). Los parámetros quinto, sexto, séptimo y octavo, si son especificados, determinan el radio de la esquina superior derecha, superior izquierda, inferior derecha e inferior izquierda, respectivamente. Si se omite un parámetro de radio de esquina, se usa el radio especificado por el valor anterior en la lista.",
@@ -265,12 +261,12 @@
       "Número: coordenada y del segundo punto.",
       "Número: coordenada x del tercer punto.",
       "Número: coordenada y del tercer punto."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "ellipseMode": {
       "description": "Modifica la ubicación de donde las elipses son dibujadas, cambiando la manera en que los parámetros dados a ellipse() son interpretados. El modo por defecto es ellipseMode(CENTER), que interpreta los dos primeros parámetros de ellipse() como el centro de la figura, mientras que los parámetros tercero y cuarto son el ancho y la altura. ellipseMode(RADIUS) también usa los dos primeros parámetros de ellipse() como el punto central de la figura, pero usa los parámetros tercero y cuarto para especificar la mitad del ancho y la altura de la figura. ellipseMode(CORNER) interpreta los dos primeros parámetros de ellipse() como la esquina superior izquierda de la figura, mientras que los parámetros tercero y cuarto son el ancho y la altura. ellipseMode(CORNERS) interpreta los dos primeros parámetros de ellipse() como la ubicación de una esquina del rectángulo contenedor de la elipse, y los parámetros tercero y cuarto como la ubicación de la esquina opuesta. El parámetro debe ser escrito en MAYÚSCULAS porque Javascript es una lenguaje de programación que distingue entre mayúsculas y minúsculas.",
       "params": ["Constante: puede ser CENTER, RADIUS, CORNER, o CORNERS."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "noSmooth": {
       "description": "Dibuja las figuras geométricas con bordes no suaves (aliasing). Notar que smooth() está activo por defecto, así que es necesario ejectuar noSmooth() para deshabilitar el suavizado de las figuras geométricas, imágenes y tipografías.",
@@ -279,26 +275,26 @@
     "rectMode": {
       "description": "Modifica la ubicación en que los rectángulos son dibujados, cambiando la manera en que los parámetros dados a rect() son interpretados. El modo por defecto es rectMode(CORNER), que interpreta los primeros dos parámetros de rect() como la esquina superior izquierda de la figura, mientras que los parámetros tercero y cuarto son su ancho y altura. rectMode(CORNERS) interpreta los dos primeros parámetros de rect() como la ubicación de una esquina, y los parámetros tercero y cuarto como la ubicación de la esquina opuesta. rectMode(CENTER) interpreta los dos primeros parámetros de rect() como el punto central de la figura, mientas que los parámetros tercero y cuarto son su ancho y altura. rectMode(RADIUS) también usa los dos primeros parámetros de rect()= como el punto central de la figura, pero usa los parámetros tercero y cuarto para especificar la mitad del ancho y la altura de la figura. Los parámetros deben ser escritos en MAYÚSCULAS porque Javascript es un lenguaje que distingue entre mayúsculas y minúsculas.",
       "params": ["Constante: puede ser CORNER, CORNERS, CENTER, o RADIUS."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "smooth": {
       "description": "Dibuja todas las figuras geométricas con bordes suaves (sin aliasing). smooth() también mejorará la calidad de las imágenes cuyo tamaño ha sido modificado. Notar que smooth() está activo por defecto; noSmooth() puede ser usado para deshabilitar el suavizado de las figuras geométricas, imágenes y tipografía.",
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "strokeCap": {
       "description": "Define el estilo de rendering de los extremos de las líneas. Estos extremos pueden ser cuadrados, extendidos o redondeados, cada uno de estos especifados con los parámetros correspondientes: SQUARE, PROJECT, y ROUND. El extremo por defecto es redonedeado (ROUND).",
       "params": ["Constante: puede ser SQUARE, PROJECT, o ROUND."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "strokeJoin": {
       "description": "Define el estilo de las uniones que conectan segmentos de líneas. Estas uniones pueden ser tipo inglete, biseladas o redondeadas, y especificadas con los parámetros correspondientes: MITER, BEVEL, y ROUND. La unión por defecto es MITER.",
       "params": ["Constante: puede ser MITER, BEVEL, o ROUND."],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "strokeWeight": {
       "description": "Define el ancho del trazo usado para dibujar líneas, puntos y los bordes de las figuras geométricas. Todos los anchos son medidos en pixeles.",
       "params": ["Número: el peso (en pixeles) del trazado"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "bezier": {
       "description": "Dibuja una curva Bezier cúbica en la pantalla. Estas curvas están definidas por una serie de puntos ancla y de control. Los primeros dos parámetros especifican el primer punto ancla y los dos últimos especifican el otro punto ancla, que se convierten en los puntos primero y último de la curva. Los parámetros en el medio especifican los dos puntos de control que definen la forma de la curva. De forma aproximada, los puntos de control atraen la curva hacia ellos. Las curvas Bezier fueron desarrolladas por el ingeniero automotriz Pierre Bezier, y son comúnmente usadas en gráficas computacionales para definir curvas de pendiente suave. Ver también curve().",
@@ -314,7 +310,7 @@
       "Número: coordenada z del primer punto de control",
       "Número: coordenada z del segundo punto ancla",
       "Número: coordenada z del segundo punto de control"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "bezierPoint": {
       "description": "Evalua la curva Bezier en la posición t para los puntos a, b, c, d. Los parámetros a y d son los puntos primero y último de la curva, mientras que b y c son los puntos de control. El parámetro final t varía entre 0 y 1. Esto puede ser realizado una vez con las coordenadas x y una segunda vez con las coordenadas y para obtener la ubicación de la curva Bezier en t.",
@@ -353,7 +349,7 @@
     "curveTightness": {
       "description": "Modifica la calidad de las formas creadas con curve() y curveVertex(). El parámetro tightness (tirantez) determina cómo la curva calza con los vértices. El valor 0.0 es el valor por defecto (este valor define las curvas Spline Catmull-Rom) y el valor 1.0 conecta todos los puntos con líneas rectas. Valores en el rango entre -5.0 y 5.0 deformarán las curvas pero las dejarán reconocibles, y a medida que los valores crecen en magnitud, se continuarán deformando.",
       "params": ["Número: deformación de los vértices originales"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "curvePoint": {
       "description": "Evalua la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, los puntos a y d son puntos en la cruva, y b y c son los puntos de control. Esto puede ser hecho una vez con las coordenadas x y una segunda vez con las coordenadas y para obtener la ubicación de la curva en t.",
@@ -362,7 +358,7 @@
         "Número: coordenada del segundo punto de control de la curva",
         "Número: coordenada del segundo punto de la curva",
         "Número: valor entre 0 y 1"],
-      "returns": "the p5 object"
+      "returns": "el objeto p5"
     },
     "curveTangent": {
       "description": "Evalua la tangente de la curva en la posición t para los puntos a, b, c, d. El parámetro t varía entre 0 y 1, a y d son los puntos de la curva, b y c son los puntos de control.",
@@ -1223,7 +1219,7 @@
       "returns": "Número: valor absoluto del número dado"
     },
     "ceil": {
-      "description": "Calcula el entero más cercano que es mayor o igual que el valor del paráemtro. Usa Math.ceil(). Por ejemplo, ceil(9.03) retorna el valor 10.",
+      "description": "Calcula el entero más cercano que es mayor o igual que el valor del parámetro. Usa Math.ceil(). Por ejemplo, ceil(9.03) retorna el valor 10.",
       "params": ["Número: número a redondear"],
       "returns": "Número: número redondeado hacia arriba"
     },

@@ -1,5 +1,3 @@
-var langs = ['en', 'es', 'ko', 'zh-Hans'];
-
 // =================================================
 // Family bar:
 window.onload = function() {
@@ -68,7 +66,7 @@ window.onload = function() {
     var taglineInd = Math.floor(taglines.length * Math.random());
     taglines[taglineInd].style.display = 'block';
   }
-  
+
 
 
   // ===============================================
@@ -129,7 +127,7 @@ window.onload = function() {
         lang = saved_lang;
       }
     } else {
-      if (is_root && browser_lang != loc_lang) { 
+      if (is_root && browser_lang != loc_lang) {
         // if (lang !== 'pangu' || isStaging()) { // temp until chinese launch
           loc = '/' + browser_lang;
           window.location = loc;
@@ -141,14 +139,6 @@ window.onload = function() {
   }
 
   window.lang = lang;
-  
-  // temp until chinese launch
-  // if (lang !== 'pangu' || isStaging()) {
-  //   window.lang = lang;
-  // } 
-  // if (isStaging()) {
-  //   $('button[data-lang="zh-Hans"').show();
-  // }
 
   // ===============================================
   // Language change:

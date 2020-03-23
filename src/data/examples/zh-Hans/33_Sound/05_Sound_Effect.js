@@ -32,6 +32,7 @@ class Doorbell {
     }
     stroke(0);
     strokeWeight(4);
+    ellipseMode(RADIUS);
     ellipse(this.x, this.y, this.r, this.r);
   }
 }
@@ -51,7 +52,7 @@ function setup() {
   dingdong = loadSound('assets/doorbell.mp3');
 
   // Create a new doorbell
-  doorbell = new Doorbell(width / 2, height / 2, 64);
+  doorbell = new Doorbell(width / 2, height / 2, 32);
 }
 
 function draw() {
