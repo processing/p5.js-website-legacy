@@ -109,7 +109,7 @@ slug: reference/
         if (translations[obj] && translations[obj][name]) {
           var entry = translations[obj][name];
           $('.description-text').html('<p>'+entry.description+'</p>');
-          $('.returns').html(entry.returns);
+          $('.returns').html($('.returns').contents()[0].innerHTML + ": " + entry.returns);
           $('.params').find('ul').each(function(i) {
             if (i < entry.params.length) {
               $(this).children().each(function(j){
