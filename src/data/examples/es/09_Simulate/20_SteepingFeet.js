@@ -3,8 +3,8 @@
  * @description La ilusión de los pasos es un experimento
  * psicológico muy famoso. Ambos bloques parecen moverse
  * a velocidades diferentes, pero en realidad se mueven
- * a la misma velocidad. Haga click con el ratón dentro
- * del Canvas para confirmar que se mueven a la misma velocidad.
+ * a la misma velocidad. Haz click con el ratón dentro
+ * del lienzo para confirmar que se mueven a la misma velocidad.
  * Contribución de Sagar Arora.
  */
 
