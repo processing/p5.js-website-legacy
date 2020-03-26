@@ -1241,6 +1241,16 @@ img.gallery-img {
 	content: " →";
 }
 
+#showcase-page .showcase-featured .no-arrow-link::after {
+	content: " ";
+}
+
+#showcase-page .showcase-featured .no-arrow-link:hover {
+  text-decoration: none;
+  padding: none;
+  border: none;
+}
+
 .project-info {
   margin-top: 1em;
 }
@@ -2151,6 +2161,11 @@ footer {
   #menu li {
     display: inline-block;
   }
+
+  #menu li:nth-last-child(1) a::after{
+    content:"";
+  }
+
   #menu li a::after {
     content: ",";
   }
