@@ -1,9 +1,9 @@
 /*
- * @name Bubble Sort
- * @description Sorts the randomly distributed bars 
- * according to their height in ascending order
- * while simulating the whole sorting process.
- * Took references from Coding Challenge by The Coding Train.
+ * @name Ordenamiento de Burbuja
+ * @description Ordena las barras distribuidas aleatoriamente
+ * según su altura en orden ascendente mientras simula todo el
+ * proceso de clasificación.
+ * Se usaron referencias del 'Coding Challenge' de 'The Coding Train'.
  */
 
 let values = [];
@@ -31,7 +31,7 @@ function draw() {
 }
 
 // The bubbleSort() function sorts taking 8 elements of the array
-// per frame. The algorithm behind this function is 
+// per frame. The algorithm behind this function is
 // bubble sort.
 function bubbleSort() {
   for(let k = 0;k<8;k++){
@@ -42,7 +42,7 @@ function bubbleSort() {
         values[j+1] = temp;
       }
       j++;
-      
+
       if(j>=values.length-i-1){
         j = 0;
         i++;
