@@ -1,7 +1,7 @@
 /*
- * @name Koch Curve
- * @description Renders a simple fractal, the Koch snowflake. Each recursive level is drawn in sequence.
- * By Daniel Shiffman
+ * @name Curva Koch
+ * @description Renderización de un fractal simple: el copo de nieve de Koch. Cada nivel recursivo se dibuja en secuencia.
+ * Por Daniel Shiffman.
  */
 
 let k;
