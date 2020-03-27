@@ -1,11 +1,11 @@
 /*
- * @name Stepping Feet Illusion
- * @description Stepping feet illusion is a very famous psychological experiment
- * Both the bricks will appear to move at different speed
- * even though they are moving at the same speed.
- * Click the mouse inside Canvas to confirm that
- * they are moving at the same speed.
- * Contributed by Sagar Arora.
+ * @name Ilusión de los Pasos
+ * @description La ilusión de los pasos es un experimento
+ * psicológico muy famoso. Ambos bloques parecen moverse
+ * a velocidades diferentes, pero en realidad se mueven
+ * a la misma velocidad. Haz click con el ratón dentro
+ * del lienzo para confirmar que se mueven a la misma velocidad.
+ * Contribución de Sagar Arora.
  */
 
 // this class describes the structure
@@ -45,7 +45,7 @@ function setup() {
   createP("are moving at same speed or not").style('color','#ffffff');
 }
 
-// creating two bricks of 
+// creating two bricks of
 // colors white and black
 let brick1 = new Brick("white",100);
 let brick2 = new Brick("black",250);
