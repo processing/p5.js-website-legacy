@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
     <title tabindex="1">{{title}} | p5.js</title>
+    
+    <meta name="docsearch:language" content="{{language}}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+    />
+
     <link rel="stylesheet" href="/{{assets}}/css/all.css?v=1.0.0">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="/{{assets}}/img/favicon.ico">
     <link rel="icon" href="/{{assets}}/img/favicon.ico">
-
 
     <script src="/{{assets}}/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="/{{assets}}/js/vendor/ace-nc/ace.js"></script>
@@ -28,6 +34,12 @@
 
     <a href="#content" class="sr-only">{{#i18n "Skip-To-Content"}}{{/i18n}}</a>
     {{>i18n}}
+
+    <!-- docsearch  -->
+    <div id="search-wrapper">
+      <input type="text" id="search"/>
+    </div>
+
     <!-- .container -->
     <div class="container">
 
@@ -70,6 +82,14 @@
     });
     </script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript"> docsearch({
+      apiKey: '13d97314da48a00287f5193bf65face4',
+      indexName: 'processing',
+      inputSelector: '#search',
+      enhancedSearchInput: true,
+    });
+    </script>
 
   </body>
 </html>
