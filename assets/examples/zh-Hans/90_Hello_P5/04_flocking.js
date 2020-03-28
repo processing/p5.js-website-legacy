@@ -23,7 +23,6 @@ function draw() {
   }
 }
 
-
 // Boid class
 // Methods for Separation, Cohesion, Alignment added
 class Boid {
@@ -42,11 +41,12 @@ class Boid {
     this.borders();
     this.render();
   }
+  
   // Forces go into acceleration
   applyForce(force) {
     this.acceleration.add(force);
   }
-
+  
   // We accumulate a new acceleration each time based on three rules
   flock(boids) {
     let sep = this.separate(boids); // Separation
@@ -61,7 +61,7 @@ class Boid {
     this.applyForce(ali);
     this.applyForce(coh);
   }
-
+  
   // Method to update location
   update() {
     // Update velocity
@@ -72,7 +72,7 @@ class Boid {
     // Reset acceleration to 0 each cycle
     this.acceleration.mult(0);
   }
-
+  
   // A method that calculates and applies a steering force towards a target
   // STEER = DESIRED MINUS VELOCITY
   seek(target) {
@@ -85,14 +85,14 @@ class Boid {
     steer.limit(this.maxforce); // Limit to maximum steering force
     return steer;
   }
-
+  
   // Draw boid as a circle
   render() {
     fill(127, 127);
     stroke(200);
     ellipse(this.position.x, this.position.y, 16, 16);
   }
-
+  
   // Wraparound
   borders() {
     if (this.position.x < -this.r) this.position.x = width + this.r;
@@ -100,7 +100,7 @@ class Boid {
     if (this.position.x > width + this.r) this.position.x = -this.r;
     if (this.position.y > height + this.r) this.position.y = -this.r;
   }
-
+  
   // Separation
   // Method checks for nearby boids and steers away
   separate(boids) {
@@ -124,7 +124,7 @@ class Boid {
     if (count > 0) {
       steer.div(count);
     }
-
+  
     // As long as the vector is greater than 0
     if (steer.mag() > 0) {
       // Implement Reynolds: Steering = Desired - Velocity
@@ -135,7 +135,7 @@ class Boid {
     }
     return steer;
   }
-
+  
   // Alignment
   // For every nearby boid in the system, calculate the average velocity
   align(boids) {
@@ -160,7 +160,7 @@ class Boid {
       return createVector(0, 0);
     }
   }
-
+  
   // Cohesion
   // For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location
   cohesion(boids) {
@@ -180,9 +180,6 @@ class Boid {
     } else {
       return createVector(0, 0);
     }
-  }
+  }  
 }
-
-
-
 

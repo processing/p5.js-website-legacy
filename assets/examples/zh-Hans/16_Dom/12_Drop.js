@@ -1,9 +1,6 @@
 /*
  * @name Drop
- * @description You will need to include the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.<br><br>
- * Drag an image file onto the canvas to see it displayed.
+ * @description Drag an image file onto the canvas to see it displayed.
  */
 
 function setup() {
@@ -31,6 +28,6 @@ function gotFile(file) {
     // Draw the image onto the canvas
     image(img, 0, 0, width, height);
   } else {
-    println('Not an image file!');
+    console.log('Not an image file!');
   }
 }

@@ -76,17 +76,16 @@ class Path {
     // Add a new particle with a position, force, and hue
     this.particles.push(new Particle(position, force, this.hue));
   }
-
+  
   // Display plath
   update() {  
     for (let i = 0; i < this.particles.length; i++) {
       this.particles[i].update();
     }
   }  
-
+  
   // Display plath
-  display() {
-    
+  display() {    
     // Loop through backwards
     for (let i = this.particles.length - 1; i >= 0; i--) {
       // If we shold remove it
@@ -97,6 +96,7 @@ class Path {
         this.particles[i].display(this.particles[i+1]);
       }
     }
+  
   }  
 }
 
@@ -117,7 +117,7 @@ class Particle {
     // Fade it out
     this.lifespan--;
   }
-  
+
   // Draw particle and connect it with a line
   // Draw a line to another
   display(other) {
