@@ -3,14 +3,15 @@
  * @frame 320,240
  * @description <p>Load a video, manipulate its pixels and draw to canvas.
  * <p><em><span class="small"> To run this example locally, you will need the
- * at least one video file and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
+ * at least one video file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
 let fingers;
 
 function setup() {
   createCanvas(320, 240);
   // specify multiple formats for different browsers
-  fingers = createVideo(["assets/fingers.mov", "assets/fingers.webm"]);
+  fingers = createVideo(['assets/fingers.mov', 'assets/fingers.webm']);
   fingers.loop();
   fingers.hide();
   noStroke();
