@@ -2,15 +2,14 @@
  * @name Video Canvas
  * @description <p>Load a video with multiple formats and draw it to the canvas.</p>
  * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * at least one video file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * at least one video file and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
  */
 let fingers;
 
 function setup() {
   createCanvas(710, 400);
   // specify multiple formats for different browsers
-  fingers = createVideo(['assets/fingers.mov', 'assets/fingers.webm']);
+  fingers = createVideo(["assets/fingers.mov", "assets/fingers.webm"]);
   fingers.hide(); // by default video shows up in separate dom
   // element. hide it and draw it to the canvas
   // instead

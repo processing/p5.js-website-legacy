@@ -1,16 +1,15 @@
 /*
  * @name Lienzo y video
  * @description <p> Cargar un video en múltiples formatos y dibújalo en el lienzo.</p>
- * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás la
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
- *, al menos un archivo de video y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em></p>
+ * <p><em><span class="small"> Para correr este ejemplo localmente
+ * al menos un archivo de video y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em></p>
  */
 let fingers;
 
 function setup() {
   createCanvas(710, 400);
   // especificar múltiples formatos para diferentes navegadores
-  fingers = createVideo(['assets/fingers.mov', 'assets/fingers.webm']);
+  fingers = createVideo(["assets/fingers.mov", "assets/fingers.webm"]);
   fingers.hide(); // por defecto el video aparece en un elemento dom separado.
   // escóndelo y dibújalo en el lienzo en vez de eso.
 }

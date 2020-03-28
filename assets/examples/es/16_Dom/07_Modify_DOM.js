@@ -1,10 +1,7 @@
 /*
  * @name Modificar el DOM
  * @frame 710,300
- * @description <p>Crea elementos DOM y modifica sus propiedades cada vez que draw() es llamado
- * Necesitarás incluir la
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
- * para que este ejemplo funcione en tu proyecto. </p>
+ * @description <p>Crea elementos DOM y modifica sus propiedades cada vez que draw() es llamado</p>
  */
 let dancingWords = [];
 
@@ -28,17 +25,19 @@ function setup() {
   // Es para diferenciar entre la creación de un elemento y su selección.
   // Los elementos seleccionados no necesitan ser creados por p5js, pueden ser HTML plano.
   createP(
-    'I learn in this Letter, that Don Peter of Arragon, ' +
-      ' comes this night to Messina'
-  ).addClass('text').hide();
+    "I learn in this Letter, that Don Peter of Arragon, " +
+      " comes this night to Messina"
+  )
+    .addClass("text")
+    .hide();
 
   // Esta línea toma el párrafo recién creado, pero podría también
   // tomar otros elementos de la clase 'text' en la página HTML.
-  const texts = selectAll('.text');
+  const texts = selectAll(".text");
 
   for (let i = 0; i < texts.length; i++) {
     const paragraph = texts[i].html();
-    const words = paragraph.split(' ');
+    const words = paragraph.split(" ");
     for (let j = 0; j < words.length; j++) {
       const spannedWord = createSpan(words[j]);
       const dw = new DanceSpan(spannedWord, random(600), random(200));
