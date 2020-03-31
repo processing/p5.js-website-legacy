@@ -9,46 +9,43 @@ slug: reference/
 
   <div class="column-span">
 
-    <section id="content" role="region" label="main content">
-      <h1>{{#i18n "Reference"}}{{/i18n}}</h1>
+    <main id="content" >
+      <h1>Reference</h1>
 
-      <div id="search" class="search-wrapper"></div>
-        <div id="collection-list-nav"></div>
+      <div id="search" class="search-wrapper" role="search"></div>
+      <div id="collection-list-nav"></div>
 
-        <!--class="container-fluid"-->
-    <div id="list" tabindex="2" class="list-wrapper allItems-collection"></div>
-    <div id="item" tabindex="1" class="item-wrapper apidocs"></div>
-    <div id="file" class="file-wrapper"></div>
+          <!--class="container-fluid"-->
+      <div id="list" tabindex="2" class="list-wrapper allItems-collection"></div>
+      <div id="item" tabindex="1" class="item-wrapper apidocs"></div>
+      <div id="file" class="file-wrapper"></div>
 
-    </section>
+    </main>
 
     {{> footer}}
 
   </div> <!-- end column-span -->
 
-  <script type="text/javascript" src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
+  <script src="//fast.fonts.net/jsapi/5ace315e-3b19-4568-9e85-5bfcb29004c0.js"></script>
   <script src='/assets/js/p5.min.js'></script>
-  <script src='/assets/js/p5.dom.min.js'></script>
   <script src='/assets/js/p5.sound.min.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
-  <script src="./assets/js/require.min.js"></script>
-  <script src="https://p5js.org/assets/js/render.js"></script>
-  <script src="./assets/js/reference.js"></script>
+  <script src="/reference/assets/js/require.min.js"></script>
+  <script src="/assets/js/render.js"></script>
+  <script src="/reference/assets/js/reference.js"></script>
 
-  <script type='text/javascript'>
+  <script>
 
     var translations;
 
     $(document).ready(function() {
-      var langs = ['es', 'hi', 'ko', 'zh-Hans'];
       var routes = window.location.pathname.split('/');
       var lang = routes[1];
-
-      if (langs.indexOf(lang) !== -1) {
-      console.log('inside')
+      if (langs.indexOf(lang) != -1) {
         $.getJSON('/assets/reference/'+lang+'.json', function(data) {
           translations = data;
+
           window.addEventListener('reference-rendered', function() {
             console.log("rendered");
             updateLanguage();
@@ -113,9 +110,11 @@ slug: reference/
           var entry = translations[obj][name];
           $('.description-text').html('<p>'+entry.description+'</p>');
           $('.returns').html(entry.returns);
-          $('.params').find('tr').each(function(i) {
+          $('.params').find('ul').each(function(i) {
             if (i < entry.params.length) {
-              $(this).children('td').eq(1).html(entry.params[i])
+              $(this).children().each(function(j){
+                $(this).children().eq(1).children().eq(1).html(entry.params[i]);
+              })
             }
           });
         }

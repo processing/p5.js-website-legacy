@@ -1,5 +1,3 @@
-var langs = ['en', 'es', 'ko', 'zh-Hans'];
-
 // =================================================
 // Family bar:
 window.onload = function() {
@@ -20,34 +18,35 @@ window.onload = function() {
 
   var search_form = document.getElementById('search_form'),
       search_field = document.getElementById('search_field');
-  var open_field = function() {
-    search_form.className = 'form__open';
-    search_field.focus();
-  };
-  var close_field = function(e) {
-    if (e.type === 'focusout') {
-      search_form.className = '';
-    } else {
-      if (search_field.value === '') {
+  if (search_form) {
+    var open_field = function() {
+      search_form.className = 'form__open';
+      search_field.focus();
+    };
+    var close_field = function(e) {
+      if (e.type === 'focusout') {
         search_form.className = '';
+      } else {
+        if (search_field.value === '') {
+          search_form.className = '';
+        }
       }
+    };
+    if (search_form.addEventListener) {
+      search_form.addEventListener('mouseover', open_field, false);
+      search_form.addEventListener('mouseout', close_field, false);
+      search_form.addEventListener('focusout', close_field, false);
+    } else { // IE
+      search_form.attachEvent('onmouseover', open_field);
+      search_form.attachEvent('onmouseout', close_field);
+      search_form.attachEvent('onfocusout', close_field);
     }
-  };
-  if (search_form.addEventListener) {
-    search_form.addEventListener('mouseover', open_field, false);
-    search_form.addEventListener('mouseout', close_field, false);
-    search_form.addEventListener('focusout', close_field, false);
-  } else { // IE
-    search_form.attachEvent('onmouseover', open_field);
-    search_form.attachEvent('onmouseout', close_field);
-    search_form.attachEvent('onfocusout', close_field);
   }
 
   // =================================================
-  // set tagline
+  // set language and tagline
   var path = window.location.pathname;
   var parts = path.split('/');
-  var tagInd = -1;
   for (var i=0; i<parts.length; i++) {
     if (parts[i].length) {
       var langMatch = 0;
@@ -57,18 +56,17 @@ window.onload = function() {
         }
       }
       if (!langMatch) {
-        tagInd = i;
         break;
       }
     }
   }
-  if (tagInd !== -1) {
-    var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
-    if (taglines.length) {
-      var taglineInd = Math.floor(taglines.length * Math.random());
-      taglines[taglineInd].style.display = 'block';
-    }
+
+  var taglines = document.getElementsByClassName('tagline'); //divsToHide is an array
+  if (taglines.length) {
+    var taglineInd = Math.floor(taglines.length * Math.random());
+    taglines[taglineInd].style.display = 'block';
   }
+
 
 
   // ===============================================
@@ -129,7 +127,7 @@ window.onload = function() {
         lang = saved_lang;
       }
     } else {
-      if (is_root && browser_lang != loc_lang) { 
+      if (is_root && browser_lang != loc_lang) {
         // if (lang !== 'pangu' || isStaging()) { // temp until chinese launch
           loc = '/' + browser_lang;
           window.location = loc;
@@ -141,14 +139,6 @@ window.onload = function() {
   }
 
   window.lang = lang;
-  
-  // temp until chinese launch
-  // if (lang !== 'pangu' || isStaging()) {
-  //   window.lang = lang;
-  // } 
-  // if (isStaging()) {
-  //   $('button[data-lang="zh-Hans"').show();
-  // }
 
   // ===============================================
   // Language change:
@@ -166,7 +156,7 @@ window.onload = function() {
   // ===============================================
   // Language buttons:
 
-  var btns = document.getElementById('i18n-btn').getElementsByTagName('button');
+  var btns = document.getElementById('i18n-btn').getElementsByTagName('a');
   var evt_type = typeof document.addEventListener !== 'undefined' ? 'click' : 'onclick';
   var click_action = function(e) {
     var new_lang = this.getAttribute('data-lang');
@@ -190,8 +180,9 @@ window.onload = function() {
   for (var i=0, l=btns.length; i < l; i++) {
     var btn_lang = btns[i].getAttribute('data-lang');
     if (loc_lang == btn_lang) {
-      btns[i].setAttribute('disabled', 'disabled');
+      $(btns[i]).addClass('disabled');
     } else {
+      $(btns[i]).removeClass('disabled');
       if (evt_type === 'click') {
         btns[i].addEventListener(evt_type, click_action, false);
       } else { // IE

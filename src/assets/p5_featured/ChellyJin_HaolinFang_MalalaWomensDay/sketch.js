@@ -8,7 +8,7 @@ var scene = 1;
 var font;
 
 function preload() {
-  font = loadFont("Avenir-Medium.ttf");
+  font = loadFont("Inconsolata.otf");
   malala = loadImage("malala.png");
 quote = "Let us remember:   One book, one pen, one child, and one teacher can change the world - Malala Yousafzai";
 
