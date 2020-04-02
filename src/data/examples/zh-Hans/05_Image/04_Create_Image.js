@@ -15,7 +15,7 @@ function setup() {
   for (let x = 0; x < img.width; x++) {
     for (let y = 0; y < img.height; y++) {
       let a = map(y, 0, img.height, 255, 0);
-      // 使用set() 设置该位置像素的颜色
+      // 使用 set() 设置该位置像素的颜色
       img.set(x, y, [0, 153, 204, a]);
     }
   }
