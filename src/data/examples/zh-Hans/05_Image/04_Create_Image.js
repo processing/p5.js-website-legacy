@@ -19,7 +19,7 @@ function setup() {
       img.set(x, y, [0, 153, 204, a]);
     }
   }
-  // 使用set() 后，必须调用updatePixels() 以使改变生效
+  // 使用 set() 后，必须调用updatePixels() 以使改变生效
   img.updatePixels();
 }
 
