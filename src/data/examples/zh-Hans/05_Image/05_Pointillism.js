@@ -29,7 +29,7 @@ function setup() {
 
 function draw() {
   // map() 函数根据鼠标水平位置，
-  // 将其在[0, 画布宽度] 的数值对应到[最小点宽度, 最大点宽度] ([4,40]) 之中，
+  // 将其在 [0, 画布宽度] 的数值对应到 [最小点宽度, 最大点宽度] ([4,40]) 之中，
   // 对应的数值即为点的大小
   let pointillize = map(mouseX, 0, width, smallPoint, largePoint);
   // 随机生成坐标(x, y)
