@@ -1,8 +1,8 @@
 /*
  * @name 创建图像
- * @description createImage() 函数能让我们巧妙地操控一堆像素。 此范例创建了一个渐变图像。
+ * @description createImage() 函数能让我们巧妙地操控一个像素缓冲区。 此范例创建了一个渐变图像。
  */
-let img; // 声明变量'img'
+let img; // 声明变量 'img'
 
 function setup() {
   createCanvas(720, 400);
