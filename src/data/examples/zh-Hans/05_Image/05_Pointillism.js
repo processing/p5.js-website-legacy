@@ -6,7 +6,7 @@
  * <p><em><span class="small">要在本地运行此范例，您需要一个图像文件，并运行在<a href="https://github.com/processing/p5.js/wiki/Local-server">
  * 本地伺服器</a>上。</span></em></p>
  */
-// 声明变量'img', 'smallPoint', 'largePoing'
+// 声明变量 'img', 'smallPoint', 'largePoing'
 let img;
 let smallPoint, largePoint;
 
