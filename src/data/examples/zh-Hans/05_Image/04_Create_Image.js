@@ -6,7 +6,7 @@ let img; // 声明变量'img'
 
 function setup() {
   createCanvas(720, 400);
-  // 设置图像大小230*230 像素
+  // 设置图像大小 230x230 像素
   img = createImage(230, 230);
 
   // 将显示窗口的像素资料加载到 pixels[] 数组里
