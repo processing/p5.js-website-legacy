@@ -35,7 +35,7 @@ function draw() {
   // 随机生成坐标(x, y)
   let x = floor(random(img.width));
   let y = floor(random(img.height));
-  // 得到图像中坐标(x, y) 的颜色
+  // 得到图像中坐标 (x, y) 的颜色
   let pix = img.get(x, y);
   // fill(灰度值，透明度值)
   fill(pix, 128);
