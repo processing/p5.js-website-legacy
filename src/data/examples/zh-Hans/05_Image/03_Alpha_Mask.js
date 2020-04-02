@@ -16,7 +16,7 @@ function preload() {
 
 function setup() {
   createCanvas(720, 400);
-  // maske()函数将图像蒙版覆盖在图像上
+  // mask() 函数将图像蒙版覆盖在图像上
   img.mask(imgMask);
   imageMode(CENTER);
 }
