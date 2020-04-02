@@ -1,12 +1,12 @@
 /*
  * @name 创建图像
- * @description createImage() 函数能让我们巧妙地操控一堆像素。 此范例创建了一个渐变图像。
+ * @description createImage() 函数能让我们巧妙地操控一个像素缓冲区。 此范例创建了一个渐变图像。
  */
-let img; // 声明变量'img'
+let img; // 声明变量 'img'
 
 function setup() {
   createCanvas(720, 400);
-  // 设置图像大小230*230 像素
+  // 设置图像大小 230x230 像素
   img = createImage(230, 230);
 
   // 将显示窗口的像素资料加载到 pixels[] 数组里
@@ -15,11 +15,11 @@ function setup() {
   for (let x = 0; x < img.width; x++) {
     for (let y = 0; y < img.height; y++) {
       let a = map(y, 0, img.height, 255, 0);
-      // 使用set() 设置该位置像素的颜色
+      // 使用 set() 设置该位置像素的颜色
       img.set(x, y, [0, 153, 204, a]);
     }
   }
-  // 使用set() 后，必须调用updatePixels() 以使改变生效
+  // 使用 set() 后，必须调用updatePixels() 以使改变生效
   img.updatePixels();
 }
 

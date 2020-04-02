@@ -9,8 +9,8 @@ let bg;
 let y = 0;
 
 function setup() {
-  // 背景图像的大小必须和createCanvas() 函数中的参数一样。
-  // 该图像大小为720x400 像素。
+  // 背景图像的大小必须和 createCanvas() 函数中的参数一样。
+  // 该图像大小为 720x400 像素。
   bg = loadImage('assets/moonwalk.jpg');
   createCanvas(720, 400);
 }

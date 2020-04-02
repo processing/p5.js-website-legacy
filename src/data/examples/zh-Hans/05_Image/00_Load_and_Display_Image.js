@@ -5,7 +5,7 @@
  * 本地伺服器</a>上。</span></em></p>
 
  */
-let img; // 声明变量'img'
+let img; // 声明变量 'img'
 
 function setup() {
   createCanvas(720, 400);
