@@ -17,7 +17,7 @@ function preload() {
 
 function setup() {
   createCanvas(720, 400);
-  // 设置最小点宽度为4，最大点宽度为40
+  // 设置最小点宽度为 4，最大点宽度为 40
   smallPoint = 4;
   largePoint = 40;
   imageMode(CENTER);
