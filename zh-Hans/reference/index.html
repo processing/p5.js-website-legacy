@@ -190,12 +190,12 @@
         if (translations[obj] && translations[obj][name]) {
           var entry = translations[obj][name];
           $('.description-text').html('<p>'+entry.description+'</p>');
-          $('.returns').html($('.returns').contents()[0].innerHTML + ": " + entry.returns);
+          $('.returns').html(entry.returns);
           $('.params').find('ul').each(function(i) {
             if (i < entry.params.length) {
-              $(this).children().each(function(j){
-                $(this).children().eq(1).children().eq(1).html(entry.params[i]);
-              })
+              $(this).children('li').each(function(j){
+                $(this).children('.paramtype').html(entry.params[j]);
+              });
             }
           });
         }
