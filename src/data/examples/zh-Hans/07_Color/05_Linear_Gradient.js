@@ -1,6 +1,6 @@
 /*
  * @name 线性渐变
- * @description lerpColor()函数可用于在两个颜色之间插值。
+ * @description lerpColor() 函数可用于在两个颜色之间插值。
  */
 // 常量
 const Y_AXIS = 1;

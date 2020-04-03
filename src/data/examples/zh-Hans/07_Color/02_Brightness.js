@@ -10,7 +10,7 @@
 let img;
 
 function preload() {
-  img = loadImage("assets/moonwalk.jpg");
+  img = loadImage('assets/moonwalk.jpg');
 }
 
 function setup() {
@@ -23,9 +23,9 @@ function setup() {
 function draw() {
   for (let x = 0; x < img.width; x++) {
     for (let y = 0; y < img.height; y++) {
-      // 通过2D网格计算1D位置
+      // 通过 2D 网格计算1D位置
       let loc = (x + y * img.width) * 4;
-      // 从图像里获取R,G,B数值
+      // 从图像里获取 R,G,B 数值
       let r, g, b;
       r = img.pixels[loc];
       // 根据距离光标的距离计算亮度改变的量
@@ -33,7 +33,7 @@ function draw() {
       let d = dist(x, y, mouseX, mouseY);
       let adjustbrightness = (255 * (maxdist - d)) / maxdist;
       r += adjustbrightness;
-      // 限制RGB以确保它们在0-255的颜色范围内
+      // 限制 RGB 以确保它们在 0-255 的颜色范围内
       r = constrain(r, 0, 255);
       // 创建一个新颜色，并在窗口里设置像素
       //color c = color(r, g, b);

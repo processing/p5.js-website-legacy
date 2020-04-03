@@ -1,6 +1,6 @@
 /*
  * @name 颜色变量
- * @description (向Albers致敬。) 此范例为颜色们建立了变量。
+ * @description (向 Albers 致敬。) 此范例为颜色们建立了变量。
  * 这样它们可以在程序中以名字指代，而非数字。
  */
 function setup() {
@@ -12,7 +12,7 @@ function setup() {
   let middle = color(204, 153, 0);
   let outside = color(153, 51, 0);
 
-  // 以下陈述与上面陈述的等效。
+  // 以下语句与上面的语句等效。
   // 程序员可以选择他们喜欢的格式。
   //let inside = color('#CC6600');
   //let middle = color('#CC9900');
