@@ -1,9 +1,9 @@
 /*
- * @name Follow 3
+ * @name 跟随 3
  * @frame 710,400
- * @description A segmented line follows the mouse. The relative angle from
- * each segment to the next is calculated with atan2() and the position of
- * the next is calculated with sin() and cos(). Based on code from Keith Peters.
+ * @description 随鼠标移动的一条分段式线条。
+ * 每段之间的相对角度是用 atan2() 计算的，位置是用 sin() 和 cos() 计算的。
+ * 基于 Keith Peters 的代码。
  */
 let x = [],
   y = [],

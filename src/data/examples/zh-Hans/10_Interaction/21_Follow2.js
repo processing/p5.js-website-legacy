@@ -1,9 +1,9 @@
 /*
- * @name Follow 2
+ * @name 跟随 2
  * @frame 710,400
- * @description A two-segmented arm follows the cursor position. The relative
- * angle between the segments is calculated with atan2() and the position
- * calculated with sin() and cos(). Based on code from Keith Peters.
+ * @description 跟随光标移动的两段式手臂。
+ * 两个手臂之间的相对角度是用 atan2() 计算的，位置是用 sin() 和 cos() 计算的。
+ * 基于 Keith Peters 的代码。
  */
 let x = [0, 0],
   y = [0, 0],
