@@ -3,7 +3,7 @@
  * @frame 720, 400
  * @description 在屏幕上移动鼠标，圆会跟着移动。
  * 在动画绘制的每一帧之间，lerp() 函数会使圆从其当前位置向光标移动一部分距离（0.05）。
- * This is the same as the Easing under input only with lerp() instead..
+ * 这和在 Input 中的 <a href ="https://p5js.org/zh-Hans/examples/input-easing.html">Easing</a> 范例一样，只是使用了 lerp() 函数。
  */
 
 let x = 0;
