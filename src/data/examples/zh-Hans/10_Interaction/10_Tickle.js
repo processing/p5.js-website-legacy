@@ -35,7 +35,7 @@ function draw() {
   text(message, x, y);
   bounds = font.textBounds(message, x, y, fontsize);
 
-  // 检查鼠标是否在文本框里；如果在，抖动文本
+  // 检查鼠标是否在文本框里；如果在文本框内，抖动文本
   if (
     mouseX >= bounds.x &&
     mouseX <= bounds.x + bounds.w &&
