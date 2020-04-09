@@ -1,9 +1,8 @@
 /*
- * @name Sine Cosine
- * @description Linear movement with sin() and cos().
- * Numbers between 0 and PI*2 (TWO_PI which angles roughly 6.28)
- * are put into these functions and numbers between -1 and 1 are returned.
- * These values are then scaled to produce larger movements.
+ * @name 正弦余弦
+ * @description sin() 函数和 cos() 函数的线性运动。
+ * 将 0 到 PI*2 (TWO_PI 的角度大致是 6.28) 之间的数字放进这些函数将返回 -1 到 1 之间的数字。
+ * 然后这些数字将缩放以产生更大的运动。
  */
 let angle1 = 0;
 let angle2 = 0;

@@ -1,9 +1,8 @@
 /*
- * @name Double Random
+ * @name 双重随机
  * @frame 720,400 (optional)
- * @description Using two random() calls and the point()
- * function to create an irregular sawtooth line.
- * Original by by Ira Greenberg.
+ * @description 调用两个 random() 函数和一个 point() 函数来绘制一个不规则的锯齿线。
+ * 作者：Ira Greenberg
  */
 let totalPts = 300;
 let steps = totalPts + 1;

@@ -1,12 +1,11 @@
 /*
  * @name PolarToCartesian
- * @description Convert a polar coordinate (r,theta)
- * to cartesian (x,y): x = rcos(theta) y = rsin(theta)
- * Original by Daniel Shiffman.
+ * @description 转换极坐标 (r,theta) 到笛卡尔坐标 (x,y): x = rcos(theta) y = rsin(theta)。
+ * 作者：Daniel Shiffman
  */
 let r;
 
-// Angle and angular velocity, accleration
+// 角度，角速度，角加速度
 let theta;
 let theta_vel;
 let theta_acc;
@@ -14,7 +13,7 @@ let theta_acc;
 function setup() {
   createCanvas(710, 400);
 
-  // Initialize all values
+  // 初始化所有值
   r = height * 0.45;
   theta = 0;
   theta_vel = 0;
@@ -24,21 +23,21 @@ function setup() {
 function draw() {
   background(0);
 
-  // Translate the origin point to the center of the screen
+  // 将原点设为屏幕中心
   translate(width/2, height/2);
 
-  // Convert polar to cartesian
+  // 转换极坐标到笛卡尔坐标
   let x = r * cos(theta);
   let y = r * sin(theta);
 
-  // Draw the ellipse at the cartesian coordinate
+  // 在笛卡尔坐标系上画椭圆
   ellipseMode(CENTER);
   noStroke();
   fill(200);
   ellipse(x, y, 32, 32);
 
-  // Apply acceleration and velocity to angle
-  // (r remains static in this example)
+  // 应用加速度和速度到角度上
+  // （此示例中 r 保持静态）
   theta_vel += theta_acc;
   theta += theta_vel;
 }
