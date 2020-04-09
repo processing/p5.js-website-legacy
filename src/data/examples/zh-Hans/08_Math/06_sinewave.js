@@ -27,6 +27,8 @@ function draw() {
 
 function calcWave() {
   // theta 增量（尝试赋予 ‘角速度’ 不同的数值）
+  theta += 0.02;
+
   // 对于每一个 x 值，使用正弦函数计算 y 值
   let x = theta;
   for (let i = 0; i < yvalues.length; i++) {
