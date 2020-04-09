@@ -16,7 +16,7 @@ function draw() {
   fill(0, 10);
   rect(0, 0, width, height);
 
-  //float n = random(0,width);  // 尝试用这一行代替 noise()
+  //let n = random(0,width);  // 尝试用这一行代替 noise()
 
   // 基于 xoff 和 scale 得到一个噪声值
   // 并根据窗口宽度进行缩放
