@@ -48,7 +48,7 @@ function calcWave() {
   for (let j = 0; j < maxwaves; j++) {
     let x = theta;
     for (let i = 0; i < yvalues.length; i++) {
-      // 每一个其他的波是余弦，而不是正弦
+      // 接下来的所有波都是余弦，而非正弦
       if (j % 2 === 0) yvalues[i] += sin(x) * amplitude[j];
       else yvalues[i] += cos(x) * amplitude[j];
       x += dx[j];
