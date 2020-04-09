@@ -1,6 +1,11 @@
 /*
+<<<<<<< HEAD
  * @name for 내장 반복문
  * @description "for" 반복문 구조를 이중 사용하여 2차원 도형을 반복할 수 있습니다.
+=======
+ * @name Embedded Iteration
+ * @description Embedding "for" structures allows repetition in two dimensions.
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 function setup() {
   createCanvas(720, 360);

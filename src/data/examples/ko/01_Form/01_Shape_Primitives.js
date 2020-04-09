@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  * @name 기본 조형
  * @description 기본 조형을 그리는 함수로는 triangle(),
  * rect(), quad(), ellipse(), 그리고 arc()가 있습니다. 사각형은 rect()로,
@@ -7,6 +8,16 @@
  */
 function setup() {
   // 캔버스 크기를 너비 720픽셀, 높이 720픽셀로 설정
+=======
+ * @name Shape Primitives
+ * @description The basic shape primitive functions are triangle(),
+ * rect(), quad(), ellipse(), and arc(). Squares are made with rect()
+ * and circles are made with ellipse(). Each of these functions requires
+ * a number of parameters to determine the shape's position and size.
+ */
+function setup() {
+  // Sets the screen to be 720 pixels wide and 400 pixels high
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   createCanvas(720, 400);
   background(0);
   noStroke();

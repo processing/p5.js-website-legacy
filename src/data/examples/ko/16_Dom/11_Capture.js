@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  * @name 실시간 비디오 화면
  * @frame 710,240
  * <p><em><span class="small"> 로컬 프로젝트에서 이 예제를 실행하려면 적어도 한 개의 비디오 파일이 필요하고,
@@ -8,6 +9,17 @@
  * 반전 효과 필터도 적용할 수 있습니다.
  * 실시간 비디오 화면은 기본값으로 캔버스 위에 나타납니다.
  * 아래의 코드 중 capture.hide()의 주석 처리(//)를 해제하면 이 실시간 비디오 화면을 숨길 수 있습니다. 
+=======
+ * @name Video Capture
+ * @frame 710,240
+ * @description <p><em><span class="small"> To run this example locally, you will need the
+ * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
+ * at least one video file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p><br><br>
+ * Capture video from the webcam and display
+ * on the canvas as well with invert filter. Note that by
+ * default the capture feed shows up, too. You can hide the
+ * feed by uncommenting the capture.hide() line.
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let capture;
 

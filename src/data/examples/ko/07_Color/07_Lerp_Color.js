@@ -1,7 +1,13 @@
 /*
+<<<<<<< HEAD
  * @name 선형 보간(lerp) 색상
  * @description 무작위의 도형을 반복하고,
  * 빨강색과 파란색을 선형적으로 보간합니다.
+=======
+ * @name Lerp Color
+ * @description Loop random shapes,
+ * lerp color from red to blue.
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 function setup() {
   createCanvas(720, 400);

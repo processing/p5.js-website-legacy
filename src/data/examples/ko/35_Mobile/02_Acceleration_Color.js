@@ -1,6 +1,11 @@
 /*
+<<<<<<< HEAD
  * @name 가속도 색상
  * @description deviceMoved()를 사용해 모바일 기기의 회전을 감지합니다. 배경의 RGB 색상값은 각각 accelerationX, accelerationY, accelerationZ 값에 매핑됩니다.
+=======
+ * @name Acceleration Color
+ * @description Use deviceMoved() to detect when the device is rotated. The background RGB color values are mapped to accelerationX, accelerationY, and accelerationZ values.
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 
 let r, g, b;

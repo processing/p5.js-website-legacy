@@ -1,4 +1,5 @@
 /**
+<<<<<<< HEAD
  *  @name 음계 엔벨로프
  *  @description  <p>엔벨로프(envelope)는 시간/값의 쌍으로 정의되는
  *  일련의 페이드를 말합니다.
@@ -11,6 +12,22 @@
  *  마치 볼륨을 조정하듯 진폭을 조정할 수 있습니다.</p>
  * <p><em><span class="small"> 로컬 프로젝트에서 이 예제를 실행하려면 적어도 한 개의 사운드 파일이 필요하고,
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound 라이브러리</a>를 추가해야 됩니다.</span></em></p>
+=======
+ *  @name Note Envelope
+ *  @description  <p>An Envelope is a series of fades, defined
+ *  as time / value pairs. In this example, the envelope
+ *  will be used to "play" a note by controlling the output
+ *  amplitude of an oscillator.<br/><br/>
+ *  The p5.Oscillator sends its output through
+ *  an internal Web Audio GainNode (p5.Oscillator.output).
+ *  By default, that node has a constant value of 0.5. It can
+ *  be reset with the osc.amp() method. Or, in this example, an
+ *  Envelope takes control of that node, turning the amplitude
+ *  up and down like a volume knob.</p>
+ * <p><em><span class="small"> To run this example locally, you will need the
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a> and a
+ * sound file.</span></em></p>
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let osc, envelope, fft;
 
@@ -21,6 +38,7 @@ function setup() {
   createCanvas(710, 200);
   osc = new p5.SinOsc();
 
+<<<<<<< HEAD
   // 엔벨로프 인스턴스화
   envelope = new p5.Env();
 
@@ -28,6 +46,15 @@ function setup() {
   envelope.setADSR(0.001, 0.5, 0.1, 0.5);
 
   // 어택 레벨, 릴리즈 레벨 설정
+=======
+  // Instantiate the envelope
+  envelope = new p5.Env();
+
+  // set attackTime, decayTime, sustainRatio, releaseTime
+  envelope.setADSR(0.001, 0.5, 0.1, 0.5);
+
+  // set attackLevel, releaseLevel
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   envelope.setRange(1, 0);
 
   osc.start();
@@ -48,7 +75,11 @@ function draw() {
     note = (note + 1) % scaleArray.length;
   }
 
+<<<<<<< HEAD
   // 캔버스에 FFT.analyze() 주파수 분석 내용 기입
+=======
+  // plot FFT.analyze() frequency analysis on the canvas
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   let spectrum = fft.analyze();
   for (let i = 0; i < spectrum.length / 20; i++) {
     fill(spectrum[i], spectrum[i] / 10, 0);

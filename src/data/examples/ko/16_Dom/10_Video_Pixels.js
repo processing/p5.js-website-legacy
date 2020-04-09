@@ -1,16 +1,29 @@
 /*
+<<<<<<< HEAD
  * @name 비디오 픽셀
  * @frame 320,240
  * @description <p>비디오를 불러와 픽셀을 조정하고 캔버스에 그려보세요.
  * <p><em><span class="small"> 로컬 프로젝트에서 이 예제를 실행하려면 적어도 한 개의 비디오 파일이 필요하고,
  * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom 라이브러리</a>를 추가해야 되며, 
  * <a href="https://github.com/processing/p5.js/wiki/Local-server">로컬 서버</a>를 작동시켜야 합니다.</span></em></p>
+=======
+ * @name Video Pixels
+ * @frame 320,240
+ * @description <p>Load a video, manipulate its pixels and draw to canvas.
+ * <p><em><span class="small"> To run this example locally, you will need the
+ * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
+ * at least one video file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let fingers;
 
 function setup() {
   createCanvas(320, 240);
+<<<<<<< HEAD
   // 여러 브라우저 지원을 위해 다양한 비디오 형식 지정
+=======
+  // specify multiple formats for different browsers
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   fingers = createVideo(['assets/fingers.mov', 'assets/fingers.webm']);
   fingers.loop();
   fingers.hide();

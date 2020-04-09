@@ -1,7 +1,14 @@
 /*
+<<<<<<< HEAD
  * @name 1D 마우스
  * @description 마우스를 좌우로 움직여 균형점을 이동해보세요. 
  * mouseX 변수로 사각형의 크기와 색상 모두를 조정할 수 있습니다.
+=======
+ * @name Mouse 1D
+ * @description Move the mouse left and right to
+ * shift the balance. The "mouseX" variable is used
+ * to control both the size and color of the rectangles.
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 function setup() {
   createCanvas(720, 400);

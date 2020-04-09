@@ -1,9 +1,17 @@
 /*
+<<<<<<< HEAD
  * @name 스네이크 게임
  * @description 그 유명한 스네이크 게임입니다! 실행(run)을 누르고, 
  * 검은 화면 위 아무 지점을 클릭한 뒤, i,j,k,l 키로 뱀을 조종할 수 있습니다.
  * 뱀이 벽이나 자신의 몸통에 닿지 않도록 하세요!<br>
  * 예제 제작: <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta
+=======
+ * @name Snake game
+ * @description The famous snake game! Once you click run, click anywhere
+ * inside the black area, and control the snake using i j k and l. Don't let
+ * the snake hit itself or the wall!<br>
+ * Example created by <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 
 // the snake is divided into small segments, which are drawn and edited on each 'draw' call

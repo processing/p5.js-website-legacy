@@ -1,13 +1,23 @@
 /*
+<<<<<<< HEAD
  * @name 파이형 차트
  * @description arc()함수를 사용하여 배열에 저장된 데이터로 파이형 차트를 생성해보세요.
+=======
+ * @name Pie Chart
+ * @description Uses the arc() function to generate a pie chart from the data
+ * stored in an array.
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let angles = [30, 10, 45, 35, 60, 38, 75, 67];
 
 function setup() {
   createCanvas(720, 400);
   noStroke();
+<<<<<<< HEAD
   noLoop(); // 프로그램 시작시 한 번 실행 뒤 멈추기
+=======
+  noLoop(); // Run once and stop
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
 }
 
 function draw() {

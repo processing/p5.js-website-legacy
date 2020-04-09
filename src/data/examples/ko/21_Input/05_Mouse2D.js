@@ -1,6 +1,12 @@
 /*
+<<<<<<< HEAD
  * @name 2D 마우스
  * @description 마우스를 움직이면 각 상자의 위치와 크기가 바뀝니다.
+=======
+ * @name Mouse 2D
+ * @description Moving the mouse changes the position and
+ * size of each box.
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 function setup() {
   createCanvas(720, 400);

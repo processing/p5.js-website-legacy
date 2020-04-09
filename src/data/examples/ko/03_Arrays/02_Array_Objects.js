@@ -1,6 +1,11 @@
 /*
+<<<<<<< HEAD
  * @name 객체 배열
  * @description 사용자가 정의한 객체 배열을 만듭니다.
+=======
+ * @name Array Objects
+ * @description Demonstrates the syntax for creating an array of custom objects.
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 
 class Module {
@@ -15,7 +20,11 @@ class Module {
     this.yDir = 1;
   }
 
+<<<<<<< HEAD
   // 사용자 정의한 메소드를 통해 변수들을 업데이트합니다.
+=======
+  // Custom method for updating the variables
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   update() {
     this.x = this.x + this.speed * this.xDir;
     if (this.x >= this.unit || this.x <= 0) {
@@ -29,7 +38,11 @@ class Module {
     }
   }
 
+<<<<<<< HEAD
   // 사용자가 정의한 메소드를 통해 오브젝트를 그립니다.
+=======
+  // Custom method for drawing the object
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   draw() {
     fill(255);
     ellipse(this.xOff + this.x, this.yOff + this.y, 6, 6);

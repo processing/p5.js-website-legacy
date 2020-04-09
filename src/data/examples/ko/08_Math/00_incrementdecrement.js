@@ -1,7 +1,13 @@
 /*
+<<<<<<< HEAD
  * @name 증가와 감소
  * @description "a++"는 "a = a + 1"와 같은 표현입니다.
  * "a--"는 "a = a - 1"과 같은 표현입니다.
+=======
+ * @name Increment Decrement
+ * @description Writing "a++" is equivalent to "a = a + 1".
+ * Writing "a--" is equivalent to "a = a - 1".
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let a;
 let b;

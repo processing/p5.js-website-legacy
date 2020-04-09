@@ -1,6 +1,11 @@
 /*
+<<<<<<< HEAD
  * @name 파티클 시스템
  * @description 이 예제는 기초적인 파티클 시스템을 다룹니다.
+=======
+ * @name Particle System
+ * @description This is a basic Particle System
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */
 let system;
