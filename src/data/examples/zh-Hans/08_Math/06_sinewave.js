@@ -1,6 +1,6 @@
 /*
  * @name 正弦波
- * @description Render 是一个简单的正弦波。
+ * @description 渲染一个简单的正弦波。
  * 作者：Daniel Shiffman
  */
 
