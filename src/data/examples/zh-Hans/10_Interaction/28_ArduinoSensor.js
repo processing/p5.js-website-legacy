@@ -20,7 +20,7 @@
 function setup() {
   createCanvas(400, 400);
   noStroke();
-  fill("#ff00aa22");
+  fill('#ff00aa22');
   receiveSensorData(handleData);
 }
 
