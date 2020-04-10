@@ -1,8 +1,8 @@
 /*
- * @name Hue
- * @description Hue is the color reflected from or transmitted through an
- * object and is typically referred to as the name of the color (red, blue,
- * yellow, etc.) Move the cursor vertically over each bar to alter its hue.
+ * @name 色调
+ * @description 色调是从物件反射或透过物件传播得到的颜色，
+ * 通常指颜色的名字（红色，蓝色，黄色等）。
+ * 将光标在每个条形上垂直移动以更改其色调。
  */
 const barWidth = 20;
 let lastBar = -1;
