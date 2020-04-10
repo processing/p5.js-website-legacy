@@ -1,8 +1,8 @@
 /*
- * @name Follow 1
+ * @name 跟随 1
  * @frame 710,400
- * @description A line segment is pushed and pulled by the cursor.
- * Based on code from Keith Peters.
+ * @description 被光标拉扯的一条线段。
+ * 基于 Keith Peters 的代码。
  */
 let x = 100,
   y = 100,
