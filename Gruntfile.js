@@ -81,6 +81,10 @@ module.exports = function(grunt) {
     assemble: {
       pages: {
         options: {
+          rtl: function() {
+            var rtlLangs = ['ar', 'fa', 'he', 'ur'];
+            return rtlLangs.includes(this.language);
+          },
           expand: true,
           flatten: true,
           helpers: ['<%= config.src %>/assets/js/translation.js'],
