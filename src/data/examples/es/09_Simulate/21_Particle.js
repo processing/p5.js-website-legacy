@@ -1,9 +1,9 @@
 /*
- * @name Particles
- * @description There is a light-weight JavaScript library named
- * particle.js which creates a very pleasing particle system.
- * This is an attempt to recreate that particle system using p5.js.
- * Inspired by Particle.js, contributed by Sagar Arora.
+ * @name Partículas
+ * @description Hay una biblioteca ligera de JavaScript llamada particle.js
+ * que crea un sistema de partículas muy agradable.
+ * Este es un intento de recrear ese sistema de partículas usando p5.js.
+ * Inspirado en Particle.js, contribuido por Sagar Arora. 
  */
 
 
