@@ -1,7 +1,6 @@
 /*
- * @name Increment Decrement
- * @description Writing "a++" is equivalent to "a = a + 1".
- * Writing "a--" is equivalent to "a = a - 1".
+ * @name 增量/减量
+ * @description "a++" 等于 "a = a + 1"。 "a--" 等于 "a = a - 1"。
  */
 let a;
 let b;

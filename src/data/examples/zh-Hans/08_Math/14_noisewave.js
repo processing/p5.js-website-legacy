@@ -1,9 +1,9 @@
 /*
- * @name Noise Wave
- * @description Using Perlin Noise to generate a wave-like pattern.
- * Original by Daniel Shiffman.
+ * @name 噪声波
+ * @description 调用柏林噪声来产生波状图案。 
+ * 作者：Daniel Shiffman
  */
-let yoff = 0.0; // 2nd dimension of perlin noise
+let yoff = 0.0; // 柏林噪声的第二维度
 
 function setup() {
   createCanvas(710, 400);
@@ -13,28 +13,28 @@ function draw() {
   background(51);
 
   fill(255);
-  // We are going to draw a polygon out of the wave points
+  // 我们将从波点中绘制一个多边形
   beginShape();
 
-  let xoff = 0; // Option #1: 2D Noise
-  // let xoff = yoff; // Option #2: 1D Noise
+  let xoff = 0; // 选项 1: 2D 噪声
+  // let xoff = yoff; // 选项 2: 1D 噪声
 
-  // Iterate over horizontal pixels
+  // 迭代所有水平像素
   for (let x = 0; x <= width; x += 10) {
-    // Calculate a y value according to noise, map to
+    // 根据noise() 和 map() 函数计算一个 y 值
 
-    // Option #1: 2D Noise
+    // 选项 1: 2D 噪声
     let y = map(noise(xoff, yoff), 0, 1, 200, 300);
 
-    // Option #2: 1D Noise
+    // 选项 2: 1D 噪声
     // let y = map(noise(xoff), 0, 1, 200,300);
 
-    // Set the vertex
+    // 设置顶点
     vertex(x, y);
-    // Increment x dimension for noise
+    // 增加噪声的 x 维度
     xoff += 0.05;
   }
-  // increment y dimension for noise
+  // 增加噪声的 y 维度
   yoff += 0.01;
   vertex(width, height);
   vertex(0, height);
