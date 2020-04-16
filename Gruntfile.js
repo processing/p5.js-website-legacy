@@ -83,7 +83,7 @@ module.exports = function(grunt) {
         options: {
           expand: true,
           flatten: true,
-          helpers: ['<%= config.src %>/assets/js/translation.js'],
+          helpers: ['<%= config.src %>/assets/js/translation.js', '<%= config.src %>/assets/js/cache-busting.js'],
           assets: '<%= config.dist %>/assets',
           layout: '<%= config.src %>/templates/layouts/default.hbs',
           data: [
