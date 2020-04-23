@@ -20,7 +20,7 @@
 function setup() {
   createCanvas(400, 400);
   noStroke();
-  fill("#ff00aa22");
+  fill('#ff00aa22');
   receiveSensorData(handleData);
 }
 
@@ -29,6 +29,6 @@ function handleData(data) {
   // data[0] 是第一个值, data[1] 是第二个, 以此类推.
 
   // 绘制！ 参考 http://p5js.org/reference/
-  background("#ddd");
+  background('#ddd');
   ellipse(100, 200, data[0] + 10, data[0] + 10);
 }
