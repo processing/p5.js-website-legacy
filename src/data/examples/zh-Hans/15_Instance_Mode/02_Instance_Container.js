@@ -28,7 +28,7 @@
 </html>
 
 
-<!-- 传递指向容器元素的指针 -->
+<!-- 传递指向容器元素的指标 -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>
@@ -48,7 +48,7 @@
 </html>
 
 
-<!-- 创建一个元素，添加至 body 并 传递指针 -->
+<!-- 创建一个元素，添加至 body 并传递指标 -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>

@@ -19,7 +19,7 @@ let sketch = function (p) {
 
 let myp5 = new p5(sketch);
 
-// “ 全局模式 ” 作为对照
+// “全局模式” 作为对照
 // let x = 100;
 // let y = 100;
 
