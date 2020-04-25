@@ -1,9 +1,8 @@
 /*
- * @name Pulses
- * @description Software drawing instruments can follow a rhythm or abide by
- * rules independent of drawn gestures. This is a form of collaborative drawing
- * in which the draftsperson controls some aspects of the image and the software
- * controls others.
+ * @name 율동
+ * @description 드로잉 스포트웨어는 특정 리듬이나, 그려진 제스쳐로부터 독립된 규칙을 따를 수 있습니다.
+ * 이 예제의 경우, 협업 드로잉으로도 볼 수 있습니다.
+ * 사용자가 이미지의 일부를 조정하면 소프트웨어가 다른 일부를 조정하는 식입니다.
  */
 let angle = 0;
 
@@ -15,7 +14,7 @@ function setup() {
 }
 
 function draw() {
-  // Draw only when mouse is pressed
+  // 마우스가 클릭될 때만 그리기
   if (mouseIsPressed === true) {
     angle += 5;
     let val = cos(radians(angle)) * 12.0;

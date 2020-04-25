@@ -1,8 +1,15 @@
 /*
+<<<<<<< HEAD
+ * @name 재질(Materials)
+ * @description 지원되는 재질은 다섯 가지 입니다.
+ * 각각은 조명에 다르게 반응합니다.
+ * 마우스를 움직여 빛의 위치를 바꿔보세요.
+=======
  * @name Materials
  * @description There are five types of materials supported.
  * They respond to light differently.
  * Move your mouse to change the light position.
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let img;
 function setup() {

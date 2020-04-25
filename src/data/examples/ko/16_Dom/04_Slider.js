@@ -1,19 +1,19 @@
 /*
- * @name Slider
- * @description You will need to include the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.<br><br>
- * Move the sliders to control the R, G, B values of the background.
+ * @name 슬라이더
+ * @description 로컬 프로젝트에서 이 예제를 실행하려면, 
+ * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom 라이브러리</a>
+ * 를 추가하면 됩니다.<br><br>
+ * 슬라이더를 움직여 배경색의 R,G,B값을 조정해보세요.
  */
 let rSlider, gSlider, bSlider;
 
 function setup() {
-  // create canvas
+  // 캔버스 생성하기
   createCanvas(710, 400);
   textSize(15);
   noStroke();
 
-  // create sliders
+  // 슬라이더 생성하기
   rSlider = createSlider(0, 255, 100);
   rSlider.position(20, 20);
   gSlider = createSlider(0, 255, 0);

@@ -1,17 +1,17 @@
 /*
- * @name Acceleration Ball Bounce
- * @description Move an ellipse around based on accelerationX and accelerationY values, and bounces when touch the edge of the canvas.
+ * @name 가속도와 바운스
+ * @description accelerationX와 accelerationY 값을 활용해 타원을 움직이고, 캔버스의 경계에 닿았을 때 튕기도록 만듭니다.
  */
 
-// Position Variables
+// 위치 변수들
 let x = 0;
 let y = 0;
 
-// Speed - Velocity
+// 속도 변수들
 let vx = 0;
 let vy = 0;
 
-// Acceleration
+// 가속 변수들
 let ax = 0;
 let ay = 0;
 
@@ -38,7 +38,7 @@ function ballMove() {
   y = y + vy * vMultiplier;
   x = x + vx * vMultiplier;
 
-  // Bounce when touch the edge of the canvas
+  // 캔버스의 경계에 닿았을 때 튕기기
   if (x < 0) {
     x = 0;
     vx = -vx * bMultiplier;

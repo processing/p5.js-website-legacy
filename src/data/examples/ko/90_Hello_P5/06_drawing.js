@@ -1,15 +1,15 @@
 /*
-* @name Drawing
-* @description Generative painting program.
+* @name 드로잉
+* @description 제너레이티브 페인팅 프로그램입니다.
 */
 
-// All the paths
+// 모든 경로
 let paths = [];
-// Are we painting?
+// 지금 페인팅을 하고 있나요?
 let painting = false;
-// How long until the next circle
+// 다음 원까지 걸리는 시간
 let next = 0;
-// Where are we now and where were we?
+// 현재 및 이전 위치
 let current;
 let previous;
 
@@ -22,36 +22,36 @@ function setup() {
 function draw() {
   background(200);
   
-  // If it's time for a new point
+  // 새로운 점을 만들어 봅시다.
   if (millis() > next && painting) {
 
-    // Grab mouse position      
+    // 마우스 위치 받아오기     
     current.x = mouseX;
     current.y = mouseY;
 
-    // New particle's force is based on mouse movement
+    // 새로운 파티클의 힘은 마우스의 움직임에 기반을 둡니다.
     let force = p5.Vector.sub(current, previous);
     force.mult(0.05);
 
-    // Add new particle
+    // 새로운 파티클 더하기
     paths[paths.length - 1].add(current, force);
     
-    // Schedule next circle
+    // 다음 원의 시간 정하기 
     next = millis() + random(100);
 
-    // Store mouse values
+    // 더 많은 마우스값 저장하기
     previous.x = current.x;
     previous.y = current.y;
   }
 
-  // Draw all paths
+  // 모든 경로 그리기
   for( let i = 0; i < paths.length; i++) {
     paths[i].update();
     paths[i].display();
   }
 }
 
-// Start it up
+// 시작하기
 function mousePressed() {
   next = 0;
   painting = true;
@@ -60,12 +60,12 @@ function mousePressed() {
   paths.push(new Path());
 }
 
-// Stop
+// 정지
 function mouseReleased() {
   painting = false;
 }
 
-// A Path is a list of particles
+// Path(경로)는 파티클들의 목록입니다.
 class Path {
   constructor() {
     this.particles = [];
@@ -73,25 +73,25 @@ class Path {
   }
 
   add(position, force) {
-    // Add a new particle with a position, force, and hue
+    // 새로운 파티클을 그 위치, 힘, 색조값과 함께 추가하기
     this.particles.push(new Particle(position, force, this.hue));
   }
   
-  // Display plath
+  // 파티클 길이 화면에 보이기
   update() {  
     for (let i = 0; i < this.particles.length; i++) {
       this.particles[i].update();
     }
   }  
   
-  // Display plath
+  // 파티클 길이 화면에 보이기
   display() {    
-    // Loop through backwards
+    // 뒤로 반복하기
     for (let i = this.particles.length - 1; i >= 0; i--) {
-      // If we shold remove it
+      // 만약 제거해야 된다면,
       if (this.particles[i].lifespan <= 0) {
         this.particles.splice(i, 1);
-      // Otherwise, display it
+      // 그렇지 않다면, 화면에 보이기
       } else {
         this.particles[i].display(this.particles[i+1]);
       }
@@ -100,7 +100,7 @@ class Path {
   }  
 }
 
-// Particles along the path
+// 경로 위 파티클들
 class Particle {
   constructor(position, force, hue) {
     this.position = createVector(position.x, position.y);
@@ -118,13 +118,13 @@ class Particle {
     this.lifespan--;
   }
 
-  // Draw particle and connect it with a line
-  // Draw a line to another
+  // 파티클을 그리고 선으로 잇기
+  // 다른 파티클을 향해 선그리기
   display(other) {
     stroke(0, this.lifespan);
     fill(0, this.lifespan/2);    
     ellipse(this.position.x,this.position.y, 8, 8);    
-    // If we need to draw a line
+    // 선을 그려야 한다면,
     if (other) {
       line(this.position.x, this.position.y, other.position.x, other.position.y);
     }

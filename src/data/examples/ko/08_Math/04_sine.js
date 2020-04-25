@@ -1,6 +1,6 @@
 /*
- * @name Sine
- * @description Smoothly scaling size with the sin() function.
+ * @name 싸인
+ * @description sin() 함수로 도형의 크기를 부드럽게 조정합니다.
  */
 let diameter;
 let angle = 0;

@@ -1,14 +1,14 @@
 /*
- * @name Input and Button
- * @description You will need to include the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.<br><br>
- * Input text and click the button to see it affect the the canvas.
+ * @name 입력과 버튼
+ * @description 로컬 프로젝트에서 이 예제를 실행하려면, 
+ * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom 라이브러리</a>
+ * 를 추가하면 됩니다.<br><br>
+ * 텍스트를 입력하고 버튼을 클릭하면 어떤 효과가 캔버스에 나타나는지 보세요.
  */
 let input, button, greeting;
 
 function setup() {
-  // create canvas
+  // 캔버스 생성하기
   createCanvas(710, 400);
 
   input = createInput();

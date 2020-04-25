@@ -1,6 +1,6 @@
 /*
- * @name Arctangent
- * @description Move the mouse to change the direction of the eyes.<br>The atan2() function computes the angle from each eye to the cursor.
+ * @name 아크탄젠트
+ * @description 마우스를 움직여 눈의 방향을 바꿔보세요. <br>atan2()함수는 마우스 커서와 눈의 각도를 계산합니다.
  */
 let e1, e2, e3;
 
