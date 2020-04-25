@@ -1,11 +1,6 @@
 /*
-<<<<<<< HEAD
  * @name 1D 노이즈
  * @description 1차원 펄린 노이즈를 사용해 위치를 지정합니다.
-=======
- * @name Noise1D
- * @description Using 1D Perlin Noise to assign location.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let xoff = 0.0;
 let xincrement = 0.01;
@@ -17,7 +12,6 @@ function setup() {
 }
 
 function draw() {
-<<<<<<< HEAD
   // 알파값이 섞인 배경 생성
   fill(0, 10);
   rect(0, 0, width, height);
@@ -32,22 +26,6 @@ function draw() {
   xoff += xincrement;
 
   // 펄린 노이즈가 생성한 값으로 타원 그리기
-=======
-  // Create an alpha blended background
-  fill(0, 10);
-  rect(0, 0, width, height);
-
-  //let n = random(0,width);  // Try this line instead of noise
-
-  // Get a noise value based on xoff and scale
-  // it according to the window's width
-  let n = noise(xoff) * width;
-
-  // With each cycle, increment xoff
-  xoff += xincrement;
-
-  // Draw the ellipse at the value produced by perlin noise
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   fill(200);
   ellipse(n, height / 2, 64, 64);
 }

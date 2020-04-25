@@ -1,15 +1,8 @@
 /*
-<<<<<<< HEAD
  * @name 팔닿기 1
  * @frame 710,400
  * @description 팔 모양이 마우스 위치를 따라다닙니다. 팔의 각도는 atan2()로 계산됩니다.
  * 이 예제는 키스 피터스(Keith Peters)가 제작한 코드를 기반으로 합니다.
-=======
- * @name Reach 1
- * @frame 710,400
- * @description The arm follows the position of the mouse by calculating the
- * angles with atan2(). Based on code from Keith Peters.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let segLength = 80,
   x,

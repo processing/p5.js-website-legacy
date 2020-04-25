@@ -1,11 +1,6 @@
 /*
-<<<<<<< HEAD
  * @name 궤도 제어
  * @description 궤도 제어(Orbit Control)를 사용해 월드를 드래그하거나 움직일 수 있습니다.
-=======
- * @name Orbit Control
- * @description Orbit control allows you to drag and move around the world.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 function setup() {
   createCanvas(710, 400, WEBGL);
@@ -15,11 +10,7 @@ function draw() {
   background(250);
   let radius = width * 1.5;
 
-<<<<<<< HEAD
   //월드를 움직이도록 드래그
-=======
-  //drag to move the world.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   orbitControl();
 
   normalMaterial();

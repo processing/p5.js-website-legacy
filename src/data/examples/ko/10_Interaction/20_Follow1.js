@@ -1,15 +1,8 @@
 /*
-<<<<<<< HEAD
- * @name 따라가기 1
+ * @name 따라다니기 1
  * @frame 710,400
  * @description 마우스 커서로 선분을 밀고 당깁니다.
  * 이 예제는 키스 피터스(Keith Peters)가 제작한 코드를 기반으로 합니다.
-=======
- * @name Follow 1
- * @frame 710,400
- * @description A line segment is pushed and pulled by the cursor.
- * Based on code from Keith Peters.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let x = 100,
   y = 100,

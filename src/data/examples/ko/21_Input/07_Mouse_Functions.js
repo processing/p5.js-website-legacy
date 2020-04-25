@@ -1,11 +1,6 @@
 /*
-<<<<<<< HEAD
- * @name 마우스 기능
+ * @name 마우스 함수
  * @description 상자를 클릭한 뒤 화면 위에서 드래그 해보세요.
-=======
- * @name Mouse Functions
- * @description Click on the box and drag it across the screen.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let bx;
 let by;
@@ -26,11 +21,7 @@ function setup() {
 function draw() {
   background(237, 34, 93);
 
-<<<<<<< HEAD
   // 상자 위에 커서가 있는지를 테스트
-=======
-  // Test if the cursor is over the box
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   if (
     mouseX > bx - boxSize &&
     mouseX < bx + boxSize &&
@@ -48,11 +39,7 @@ function draw() {
     overBox = false;
   }
 
-<<<<<<< HEAD
   // 상자 그리기
-=======
-  // Draw the box
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   rect(bx, by, boxSize, boxSize);
 }
 

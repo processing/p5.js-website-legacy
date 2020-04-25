@@ -1,6 +1,5 @@
 /*
  * @norender
-<<<<<<< HEAD
  * @name 인스턴스 컨테이너
  * @description 캔버스에 기본 컨테이너를 지정하거나,
  * 두번째 인수로 추가될 수 있는 모든 요소를 지정할 수 있습니다. 
@@ -8,17 +7,6 @@
  * 컨테이너 DOM 요소를 지정하는 세 가지 다른 방법이 있습니다.
  * p5로 만들어진 모든 DOM 요소(캔버스, 버튼, div 등)는
  * p5()함수 호출시 두 번째 인수로 지정된 DOM 요소에 담기게 됩니다.
-=======
- * @name Instance Container
- * @description Optionally, you can specify a default container for the canvas
- * and any other elements to append to with a second argument. You can give the
- * ID of an element in your html, or an html node itself.
- *
- * Here are three different options for selecting a container
- * DOM element. All DOM elements (canvas, buttons, divs, etc) created by p5
- * will be attached to the DOM element specified as the second argument to the
- * p5() call.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 <!-- pass in the ID of the container element -->
 <!DOCTYPE html>

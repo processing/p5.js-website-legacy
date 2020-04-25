@@ -1,5 +1,4 @@
 /*
-<<<<<<< HEAD
  * @name 재생 모드
  * @description
  * <p>'sustain' 모드에서는 사운드가 겹쳐서 재생됩니다.
@@ -9,17 +8,6 @@
  * <p><em><span class="small"> 로컬 프로젝트에서 이 예제를 실행하려면 적어도 한 개의 사운드 파일이 필요하고,
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound 라이브러리</a>를 추가해야 되며, 
  * <a href="https://github.com/processing/p5.js/wiki/Local-server">로컬 서버</a>를 작동시켜야 합니다.</span></em></p>
-=======
- * @name Play Mode
- * @description
- * <p>In 'sustain' mode, the sound will overlap with itself.
- * In 'restart' mode it will stop and then start again.
- * Click mouse to play a sound file.
- * Trigger lots of sounds at once! Press any key to change playmode.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let playMode = 'sustain';
 let sample;

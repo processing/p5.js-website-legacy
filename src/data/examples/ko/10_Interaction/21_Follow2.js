@@ -1,17 +1,9 @@
 /*
-<<<<<<< HEAD
  * @name 따라다니기 2
  * @frame 710,400
  * @description 팔 형상의 두 선분이 마우스 커서의 위치를 따라다닙니다.
  * 선분들 사이의 상대 각도는 atan2()로, 그 위치는 sin()과 cos()로 계산됩니다.
  * 이 예제는 키스 피터스(Keith Peters)가 제작한 코드를 기반으로 합니다.
-=======
- * @name Follow 2
- * @frame 710,400
- * @description A two-segmented arm follows the cursor position. The relative
- * angle between the segments is calculated with atan2() and the position
- * calculated with sin() and cos(). Based on code from Keith Peters.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let x = [0, 0],
   y = [0, 0],

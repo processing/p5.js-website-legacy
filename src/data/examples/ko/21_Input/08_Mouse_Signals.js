@@ -1,18 +1,9 @@
 /*
-<<<<<<< HEAD
  * @name 마우스 신호
  * @description 마우스를 움직이고 클릭하여 신호를 만들어보세요.
  * 상단의 행은 "mouseX", 가운데 행은 "mouseY",
  * 하단의 행은 "mouseIsPressed"에 대한 신호입니다.
   */
-=======
- * @name Mouse Signals
- * @description Move and click the mouse to generate signals.
- * The top row is the signal from "mouseX", the middle row is
- * the signal from "mouseY", and the bottom row is the signal
- * from "mouseIsPressed".
- */
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
 let xvals = [];
 let yvals = [];
 let bvals = [];
@@ -30,11 +21,7 @@ function draw() {
     yvals[i - 1] = yvals[i];
     bvals[i - 1] = bvals[i];
   }
-<<<<<<< HEAD
   // 배열의 마지막에 새로운 값들 더하기
-=======
-  // Add the new values to the end of the array
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   xvals[width - 1] = mouseX;
   yvals[width - 1] = mouseY;
 

@@ -1,14 +1,7 @@
 /*
-<<<<<<< HEAD
  * @name 별모양
  * @description 이 예제에서 소개하는 star()함수는 여러가지 다양한 모양을 그립니다. 
  * draw()함수 내에 호출된 polygon() 안에 다양한 숫자를 넣어 탐구해보세요.
-=======
- * @name Star
- * @description The star() function created for this example is capable of
- * drawing a wide range of different forms. Try placing different numbers
- * into the star() function calls within draw() to explore.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 function setup() {
   createCanvas(720, 400);

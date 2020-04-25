@@ -1,5 +1,4 @@
 /**
-<<<<<<< HEAD
  * @name 진폭 변조(AM)
  * @description <p>진폭 변조(Amplitude Modulation, AM)은
  * 반송파와 변조기라는 두 개의 오실레이터를 포함하고, 이는 반송파의 진폭을 조정합니다.</p>
@@ -27,116 +26,47 @@
 let carrier; // 이것이 바로 우리가 듣게될 오실레이터입니다.
 let modulator; // 이 오실레이터가 반송파 주파수를 변조할 것입니다.
 let fft; // 이것을 사용해 파형을 시각화합니다.
-=======
- * @name Amplitude Modulation
- * @description <p>Amplitude Modulation involves two oscillators, referred
- * to as the carrier and the modulator, where the modulator controls
- * the carrier's amplitude.</p>
- *
- * <p>The carrier is typically set at an audible frequency (i.e. 440 Hz)
- * and connected to master output by default. The carrier.amp is
- * set to zero because we will have the modulator control its amplitude.</p>
- *
- * <p>The modulator is disconnected from master output. Instead, it is connected
- * to the amplitude of the Carrier, like this: carrier.amp(modulator).</p>
- *
- * <p>In this example...</p>
- * <p>- MouseX controls the amplitude of the modulator
- * from 0 to 1. When the modulator's amplitude is set to 0, the
- * amplitude modulation has no effect.</p>
- *
- * <p>- MouseY controls the frequency of the modulator from 0 to 20hz.
- * This range is lower frequencies than humans can hear, and we perceive the
- * modulation as a rhythm. This range can simulate effects such as Tremolo.
- * Ring Modulation is a type of Amplitude Modulation where the original
- * carrier signal is not present, and often involves modulation at a faster
- * frequency. </p>
- *
- * <p><em><span class="small">You will need to include the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * for this example to work in your own project.</em></span></p>
- */
-let carrier; // this is the oscillator we will hear
-let modulator; // this oscillator will modulate the amplitude of the carrier
-let fft; // we'll visualize the waveform
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
 
 function setup() {
   createCanvas(800, 400);
   noFill();
-<<<<<<< HEAD
   background(30); // 알파값
 
   carrier = new p5.Oscillator(); // 기본값으로, 마스터 출력에 연결된 상태입니다.
   carrier.freq(340);
   carrier.amp(0);
   // 반송파의 amp는 기본값으로 0을 가져, 변조기에게 완전한 제어 권한을 부여합니다.
-=======
-  background(30); // alpha
-
-  carrier = new p5.Oscillator(); // connects to master output by default
-  carrier.freq(340);
-  carrier.amp(0);
-  // carrier's amp is 0 by default, giving our modulator total control
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
 
   carrier.start();
 
   modulator = new p5.Oscillator('triangle');
-<<<<<<< HEAD
   modulator.disconnect(); // 변조기를 마스터 출력과 연결 해제합니다.
-=======
-  modulator.disconnect(); // disconnect the modulator from master output
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   modulator.freq(5);
   modulator.amp(1);
   modulator.start();
 
-<<<<<<< HEAD
   // 변조기를 사용해 반송파의 진폭을 변조하기
   // 추가적으로, 신호도 조정할 수 있습니다.
   carrier.amp(modulator.scale(-1, 1, 1, -1));
 
   // 오디오 분석을 위해 FFT 생성하기
-=======
-  // Modulate the carrier's amplitude with the modulator
-  // Optionally, we can scale the signal.
-  carrier.amp(modulator.scale(-1, 1, 1, -1));
-
-  // create an fft to analyze the audio
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   fft = new p5.FFT();
 }
 
 function draw() {
-<<<<<<< HEAD
   background(30, 30, 30, 100); // 알파값
 
   // 0과 20hz 사이의 변조기 주파수에 mouseY를 매핑하기
-=======
-  background(30, 30, 30, 100); // alpha
-
-  // map mouseY to moodulator freq between 0 and 20hz
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   let modFreq = map(mouseY, 0, height, 20, 0);
   modulator.freq(modFreq);
 
   let modAmp = map(mouseX, 0, width, 0, 1);
-<<<<<<< HEAD
   modulator.amp(modAmp, 0.01); // 페이드 타임을 0.1로 조정하여 페이딩을 부드럽게 만들기
 
   // 파형 분석하기
   waveform = fft.waveform();
 
   // 파형 그리기
-=======
-  modulator.amp(modAmp, 0.01); // fade time of 0.1 for smooth fading
-
-  // analyze the waveform
-  waveform = fft.waveform();
-
-  // draw the shape of the waveform
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
   drawWaveform();
 
   drawText(modFreq, modAmp);

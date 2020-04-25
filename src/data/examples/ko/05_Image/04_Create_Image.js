@@ -1,15 +1,9 @@
 /*
-<<<<<<< HEAD
  * @name 이미지 만들기
  * @description createImage() 함수로 재밌는 픽셀 버퍼를 만들 수 있습니다.
  * 이 예제는 그래디언트 이미지를 만듭니다.
-=======
- * @name Create Image
- * @description The createImage() function provides a fresh buffer of pixels to
- * play with. This example creates an image gradient.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
-let img; // Declare variable 'img'.
+let img; // 'img' 변수 선언하기
 
 function setup() {
   createCanvas(720, 400);

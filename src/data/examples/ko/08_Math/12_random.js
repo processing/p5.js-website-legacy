@@ -1,7 +1,7 @@
 /*
- * @name Random
- * @description Random numbers create the basis of this image.
- * Each time the program is loaded the result is different.
+ * @name 랜덤
+ * @description 난수(random number)에 근간을 둔 이미지입니다.
+ * 프로그램이 불러오기될 때마다 결과가 달라집니다.
  */
 function setup() {
   createCanvas(710, 400);

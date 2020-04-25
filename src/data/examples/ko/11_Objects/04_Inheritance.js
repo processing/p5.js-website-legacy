@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 /* @name 상속
  * @description 다른 클래스에 기초하여 클래스를 정의할 수 있습니다. 
  * 객체 지향 프로그래밍 언어에서, 한 클래스는 다른 클래스의 필드와 메소드를 상속할 수 있습니다.
  * 이처럼 다른 객체로부터 상속받는 객체를 하위 클래스라 하고,
  * 상속하는 객체를 상위 클래스라고 합니다.
  * 하위 클래스는 상위 클래스를 확장합니다.
-=======
-/* @name Inheritance
- * @description A class can be defined using another class as a
- * foundation. In object-oriented programming terminology, one class can
- * inherit fields and methods from another. An object that inherits from
- * another is called a subclass, and the object it inherits from is called
- * a superclass. A subclass extends the superclass.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let spots, arm;
 
