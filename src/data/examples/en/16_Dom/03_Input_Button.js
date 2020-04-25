@@ -1,9 +1,6 @@
 /*
  * @name Input and Button
- * @description You will need to include the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.<br><br>
- * Input text and click the button to see it affect the the canvas.
+ * @description Input text and click the button to see it affect the the canvas.
  */
 let input, button, greeting;
 
