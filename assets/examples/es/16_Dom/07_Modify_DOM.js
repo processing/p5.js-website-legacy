@@ -1,10 +1,7 @@
 /*
  * @name Modificar el DOM
  * @frame 710,300
- * @description <p>Crea elementos DOM y modifica sus propiedades cada vez que draw() es llamado
- * Necesitarás incluir la
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
- * para que este ejemplo funcione en tu proyecto. </p>
+ * @description Crea elementos DOM y modifica sus propiedades cada vez que draw() es llamado
  */
 let dancingWords = [];
 
