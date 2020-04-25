@@ -408,6 +408,7 @@ module.exports = function(grunt) {
     'update-version',
     'exec',
     'clean',
+    'requirejs:yuidoc_theme',
     'requirejs',
     'copy',
     'assemble',
