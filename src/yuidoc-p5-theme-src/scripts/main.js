@@ -16,7 +16,7 @@ require([
   './documented-method'], function(App, DocumentedMethod) {
 
   // Set collections
-  App.collections = ['allItems', 'classes', 'events', 'methods', 'properties', 'p5.sound', 'p5.dom'];
+  App.collections = ['allItems', 'classes', 'events', 'methods', 'properties', 'p5.sound'];
 
   // Get json API data
   $.getJSON('data.min.json', function(data) {

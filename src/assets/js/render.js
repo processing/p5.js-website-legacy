@@ -152,13 +152,18 @@ var renderCode = function(exampleName) {
           edit_area.style.display = 'block';
           edit_area.focus();
         } else {
-          $('.example_container').each(function(ind, con) {
-            $(con).css('opacity', 1.0);
-            $(con).removeClass('editing');
-          });
           edit_button.innerHTML = 'edit';
           edit_area.style.display = 'none';
           sketch.textContent = edit_area.value;
+          $('.example_container').each(function (ind, con) {
+            $(con).css('opacity', 1.0);
+            $(con).removeClass('editing');
+            $this = $(this);
+            var pre = $this.find('pre')[0];
+            if (pre) {
+              $this.height(Math.max($(pre).height(), 100) + 20);
+            }
+          });
           runCode(sketch, true, i);
         }
       }

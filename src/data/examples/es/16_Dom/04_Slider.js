@@ -1,9 +1,6 @@
 /*
  * @name Barra deslizante
- * @description Necesitarás incluir la
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
- * para que este ejemplo funcione en tu propio proyecto.<br><br>
- * Mueve las barras deslizantes para controlar los valores de color RGB del fondo.
+ * @description Mueve las barras deslizantes para controlar los valores de color RGB del fondo.
  */
 let rSlider, gSlider, bSlider;
 

@@ -1,8 +1,8 @@
 /*
- * @name Snowflakes
- * @description Particle system simulating the motion of falling snowflakes.
- * Uses an array of objects to hold the snowflake particles.
- * Contributed by Aatish Bhatia.
+ * @name Copos de Nieve
+ * @description Sistema de partículas que simula el movimiento de copos de nieve cayendo.
+ * Utiliza un arreglo de objetos para almacenar las particulas de copos de nieve.
+ * Contribución de Aatish Bhatia.
  */
 
 let snowflakes = []; // array to hold snowflake objects
