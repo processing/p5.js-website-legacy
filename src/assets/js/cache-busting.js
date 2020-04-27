@@ -16,7 +16,7 @@ module.exports.register = function(Handlebars, options) {
     hash.write(fs.readFileSync(fullPath, function (err) { if (err) return 0 }).toString());
     hash.end();
     // creating a version string from first 6 hash characters
-    hashCode = filePath + "?v=" + hashCode.substr(0, 6);
+    hashCode = "/" + filePath + "?v=" + hashCode.substr(0, 6);
     return hashCode;
   });
 };
