@@ -1,8 +1,7 @@
 /*
- * @name Distance 2D
- * @description Move the mouse across the image to obscure
- * and reveal the matrix. Measures the distance from the mouse
- * to each circle and sets the size proportionally.
+ * @name 2D 거리
+ * @description 이미지 위로 마우스를 움직여, 매트릭스를 흐리게 또는 뚜렷하게 만들어보세요.
+ * 각 타원과 마우스 간의 거리에 비례하여 원형의 크기가 조정됩니다.
  */
 let max_distance;
 

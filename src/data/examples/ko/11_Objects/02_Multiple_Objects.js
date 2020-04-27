@@ -1,17 +1,17 @@
 /*
- * @name Multiple Objects
- * @description Create a Jitter class, instantiate multiple objects,
- * and move it around the screen.
+ * @name 복수 객체
+ * @description Jitter 클래스를 만들고, 복수의 객체를 인스턴스화하여
+ * 화면 안에서 움직여보세요.
  */
 
-let bug1; // Declare objects
+let bug1; // 객체들 선언하기
 let bug2;
 let bug3;
 let bug4;
 
 function setup() {
   createCanvas(710, 400);
-  // Create object
+  // 객체 생성하기
   bug1 = new Jitter();
   bug2 = new Jitter();
   bug3 = new Jitter();
@@ -30,7 +30,7 @@ function draw() {
   bug4.display();
 }
 
-// Jitter class
+// Jitter 클래스
 class Jitter {
   constructor() {
     this.x = random(width);

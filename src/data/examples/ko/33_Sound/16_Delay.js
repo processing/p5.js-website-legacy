@@ -1,14 +1,14 @@
 /**
- *  @name Delay
+ *  @name 딜레이 필터
  *  @description
- *  Click the mouse to hear the p5.Delay process a SoundFile.
- *  MouseX controls the p5.Delay Filter Frequency.
- *  MouseY controls both the p5.Delay Time and Resonance.
- *  Visualize the resulting sound's volume with an Amplitude object.
+ *  마우스를 클릭하여 p5.Delay로 처리된 사운드 파일을 들어보세요.
+ *  MouseX는 p5.Delay필터의 주파수를 조정합니다.
+ *  MouseY는 p5.Delay필터의 시간과 울림 정도를 조정합니다.
+ *  Amplitude(진폭) 객체로 출력된 사운드의 볼륨을 시각화해보세요.
  *
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * <p><em><span class="small"> 로컬 프로젝트에서 이 예제를 실행하려면 적어도 한 개의 사운드 파일이 필요하고,
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound 라이브러리</a>를 추가해야 되며, 
+ * <a href="https://github.com/processing/p5.js/wiki/Local-server">로컬 서버</a>를 작동시켜야 합니다.</span></em></p>
  */
 
 let soundFile, analyzer, delay;
@@ -21,11 +21,11 @@ function preload() {
 function setup() {
   createCanvas(710, 400);
 
-  soundFile.disconnect(); // so we'll only hear delay
+  soundFile.disconnect(); // 여기선 딜레이만 들을 수 있습니다.
 
   delay = new p5.Delay();
   delay.process(soundFile, 0.12, 0.7, 2300);
-  delay.setType('pingPong'); // a stereo effect
+  delay.setType('pingPong'); // 스테레오 효과
 
   analyzer = new p5.Amplitude();
 }
@@ -33,10 +33,10 @@ function setup() {
 function draw() {
   background(0);
 
-  // get volume reading from the p5.Amplitude analyzer
+  // p5.Amplitude 분석 장치의 볼륨 판독 내용 받아오기
   let level = analyzer.getLevel();
 
-  // use level to draw a green rectangle
+  // 레벨을 사용하여 초록색 사각형 그리기
   let levelHeight = map(level, 0, 0.1, 0, height);
   fill(100, 250, 100);
   rect(0, height, width, -levelHeight);

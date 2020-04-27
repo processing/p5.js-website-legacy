@@ -1,8 +1,8 @@
 /*
- * @name Triangle Strip
- * @description Example by Ira Greenberg. Generate a closed ring using the
- * vertex() function and beginShape(TRIANGLE_STRIP) mode. The outsideRadius
- * and insideRadius variables control ring's radii respectively.
+ * @name 삼각형 고리
+ * @description 이라 그린버그(Ira Greenberg) 제작 예제. vertex()함수와
+ * beginShape(TRIANGLE_STRIP) 모드를 이용하여 닫힌 고리를 하나 생성하세요. 
+ * outsideRadius와 insideRadius 변수를 이용하여 각 고리의 지름(radius)을 조정할 수 있습니다.
  */
 let x;
 let y;

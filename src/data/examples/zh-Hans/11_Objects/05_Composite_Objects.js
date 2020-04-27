@@ -1,7 +1,6 @@
-/* @name Composite Objects
- * @description An object can include several other objects.
- * Creating such composite objects is a good way to use the principles
- * of modularity and build higher levels of abstraction within a program.
+/* @name 复合物件
+ * @description 一个物件可以包含多个其他物件。
+ * 创造复合物件是使用模块性和程序中构建更高级别的抽象的好方法。
  */
 let er1, er2;
 

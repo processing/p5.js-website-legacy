@@ -1,14 +1,13 @@
 /*
- * @name Forces
- * @description Demonstration of multiple force acting on bodies
+ * @name 힘
+ * @description 바디 객체에 작용하는 여러가지 물리학적 힘
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */
-// Demonstration of multiple force acting on
-// bodies (Mover class)
-// Bodies experience gravity continuously
-// Bodies experience fluid resistance when in "water"
+// 바디에 적용되는 여러가지 물리학적 힘(Mover 클래스)
+// 바디는 중력을 끊임없이 경험합니다.
+// 바디는 물 속에서 유체 저항을 경험합니다.
 
-// Five moving bodies
+// 5개의 움직이는 형체
 let movers = [];
 
 // Liquid
@@ -17,32 +16,32 @@ let liquid;
 function setup() {
   createCanvas(640, 360);
   reset();
-  // Create liquid object
+  // liquid(액체) 객체 생성
   liquid = new Liquid(0, height / 2, width, height / 2, 0.1);
 }
 
 function draw() {
   background(127);
 
-  // Draw water
+  // 물 그리기
   liquid.display();
 
   for (let i = 0; i < movers.length; i++) {
 
-    // Is the Mover in the liquid?
+    // Mover가 액체인가요?
     if (liquid.contains(movers[i])) {
-      // Calculate drag force
+      // 항력 계산하기
       let dragForce = liquid.calculateDrag(movers[i]);
-      // Apply drag force to Mover
+      // Mover에 항력 적용하기
       movers[i].applyForce(dragForce);
     }
 
-    // Gravity is scaled by mass here!
+    // 중력은 여기서 mass(질량)에 따라 결정됩니다!
     let gravity = createVector(0, 0.1 * movers[i].mass);
-    // Apply gravity
+    // 중력 적용하기
     movers[i].applyForce(gravity);
 
-    // Update and display
+    // 업데이트하고 화면에 보이기(display)
     movers[i].update();
     movers[i].display();
     movers[i].checkEdges();
@@ -55,7 +54,7 @@ function mousePressed() {
   reset();
 }
 
-// Restart all the Mover objects randomly
+// 모든 Mover 오브젝트들을 무작위로 재시작하기
 function reset() {
   for (let i = 0; i < 9; i++) {
     movers[i] = new Mover(random(0.5, 3), 40 + i * 70, 0);
@@ -70,24 +69,24 @@ let Liquid = function(x, y, w, h, c) {
   this.c = c;
 };
 
-// Is the Mover in the Liquid?
+// Mover가 액체인가요?
 Liquid.prototype.contains = function(m) {
   let l = m.position;
   return l.x > this.x && l.x < this.x + this.w &&
          l.y > this.y && l.y < this.y + this.h;
 };
 
-// Calculate drag force
+// 항력 계산하기
 Liquid.prototype.calculateDrag = function(m) {
-  // Magnitude is coefficient * speed squared
+  // Magnitue(크기) = 계수 * speed(속도)의 제곱
   let speed = m.velocity.mag();
   let dragMagnitude = this.c * speed * speed;
 
-  // Direction is inverse of velocity
+  // 방향은 속도와 반대쪽으로
   let dragForce = m.velocity.copy();
   dragForce.mult(-1);
 
-  // Scale according to magnitude
+  // 힘의 크기에 따라 조정하기
   // dragForce.setMag(dragMagnitude);
   dragForce.normalize();
   dragForce.mult(dragMagnitude);
@@ -107,19 +106,19 @@ function Mover(m, x, y) {
   this.acceleration = createVector(0, 0);
 }
 
-// Newton's 2nd law: F = M * A
-// or A = F / M
+// 뉴턴(Newton)의 두번째 법칙: F = M * A
+// 또는 A = F / M
 Mover.prototype.applyForce = function(force) {
   let f = p5.Vector.div(force, this.mass);
   this.acceleration.add(f);
 };
 
 Mover.prototype.update = function() {
-  // Velocity changes according to acceleration
+  // 가속도에 따라 변하는 속도
   this.velocity.add(this.acceleration);
-  // position changes by velocity
+  // 속도에 따라 변하는 위치
   this.position.add(this.velocity);
-  // We must clear acceleration each frame
+  // 매 프레임마다 가속도 초기화
   this.acceleration.mult(0);
 };
 
@@ -130,10 +129,10 @@ Mover.prototype.display = function() {
   ellipse(this.position.x, this.position.y, this.mass * 16, this.mass * 16);
 };
 
-// Bounce off bottom of window
+// 바닥면에서 튀어오르기
 Mover.prototype.checkEdges = function() {
   if (this.position.y > (height - this.mass * 8)) {
-    // A little dampening when hitting the bottom
+    // 바닥면에 닿을 때 약간의 완충 현상 발생
     this.velocity.y *= -0.9;
     this.position.y = (height - this.mass * 8);
   }

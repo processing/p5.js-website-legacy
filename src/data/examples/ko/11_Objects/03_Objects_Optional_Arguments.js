@@ -1,7 +1,7 @@
 /*
- * @name Objects 2
- * @description Ported from example by hbarragan. Move the cursor across the
- * image to change the speed and positions of the geometry. The class MRect
+ * @name 객체 2
+ * @description hbarragan 제작 예제에서 옮김. 이미지 위로 마우스를 움직여
+ * 기하의 속도와 위치를 바꿔보세요. MRect 클래스가 선들의 군상을 정의합니다.
  * defines a group of lines.
  */
 
@@ -33,12 +33,12 @@ function draw() {
 
 class MRect {
   constructor(iw, ixp, ih, iyp, id, it) {
-    this.w = iw; // single bar width
-    this.xpos = ixp; // rect xposition
-    this.h = ih; // rect height
-    this.ypos = iyp; // rect yposition
-    this.d = id; // single bar distance
-    this.t = it; // number of bars
+    this.w = iw; // 막대기 한 개 너비
+    this.xpos = ixp; // rect의 x위치
+    this.h = ih; // rect의 높이
+    this.ypos = iyp; // rect의 y위치
+    this.d = id; // 막대기 간 거리
+    this.t = it; // 막대기 개수
   }
 
   move(posX, posY, damping) {

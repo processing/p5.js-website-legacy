@@ -1,14 +1,14 @@
 /*
- * @name Array of Objects
- * @description Create a Jitter class, instantiate an array of objects
- * and move them around the screen.
+ * @name 객체 배열
+ * @description Jitter 클래스를 만들고, 객체 배열을 인스턴스화하여
+ * 화면 안에서 움직여보세요.
  */
 
-let bugs = []; // array of Jitter objects
+let bugs = []; // Jitter 객체들의 배열
 
 function setup() {
   createCanvas(710, 400);
-  // Create objects
+  // 객체들 생성하기
   for (let i = 0; i < 50; i++) {
     bugs.push(new Jitter());
   }
@@ -22,7 +22,7 @@ function draw() {
   }
 }
 
-// Jitter class
+// Jitter 클래스
 class Jitter {
   constructor() {
     this.x = random(width);

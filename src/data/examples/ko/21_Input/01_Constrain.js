@@ -1,7 +1,7 @@
 /*
- * @name Constrain
- * @description Move the mouse across the screen to move
- * the circle. The program constrains the circle to its box.
+ * @name 제한
+ * @description 화면 위로 마우스를 움직이면 동그라미가 움직이지만,
+ * 박스 안에서만 움직이도록 제한되어 있습니다.
  */
 let mx = 1;
 let my = 1;

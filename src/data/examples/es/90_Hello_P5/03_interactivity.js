@@ -2,8 +2,6 @@
  * @name Interactividad 2
  * @frame 720,425
  * @description El círculo cambia de color cuando mueves la barra deslizante.
- * Para correr este ejemplo de manera local, necesitarás la
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
  */
 
 // Una barra deslizante de rango HTML

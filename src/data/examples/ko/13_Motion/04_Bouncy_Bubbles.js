@@ -1,7 +1,7 @@
 /*
- * @name Bouncy Bubbles
+ * @name 버블 바운스
  * @frame 720,400
- * @description  based on code from Keith Peters. Multiple-object collision..
+ * @description 이 예제는 키스 피터스(Keith Peters)가 제작한 복수-객체 충돌(Multiple-object collision) 예제 코드를 기반으로 합니다.
  */
 
 let numBalls = 13;

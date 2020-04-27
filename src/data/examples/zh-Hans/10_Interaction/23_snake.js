@@ -1,17 +1,16 @@
 /*
- * @name Snake game
- * @description The famous snake game! Once you click run, click anywhere
- * inside the black area, and control the snake using i j k and l. Don't let
- * the snake hit itself or the wall!<br>
- * Example created by <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta
+ * @name 贪吃蛇
+ * @description 著名的贪吃蛇游戏！点击 run 后，在黑色区域里任意点击， 
+ * 使用 i j k 和 l 控制蛇。注意不要让蛇碰到自己或者墙。<br>
+ * 由 <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta 创作的范例
  */
 
-// the snake is divided into small segments, which are drawn and edited on each 'draw' call
+// 蛇被分为几小段，在每次调用 draw() 时进行绘制和编辑
 let numSegments = 10;
 let direction = 'right';
 
-const xStart = 0; //starting x coordinate for snake
-const yStart = 250; //starting y coordinate for snake
+const xStart = 0; // 蛇的初始 x 坐标
+const yStart = 250; //蛇的初始 y 坐标
 const diff = 10;
 
 let xCor = [];
@@ -50,15 +49,12 @@ function draw() {
 }
 
 /*
- The segments are updated based on the direction of the snake.
- All segments from 0 to n-1 are just copied over to 1 till n, i.e. segment 0
- gets the value of segment 1, segment 1 gets the value of segment 2, and so on,
- and this results in the movement of the snake.
+ 根据蛇的方向更新每个小段。
+ 从 0 至 n-1 的所有片段都被复制到 1 至 n，也就是说，段 0 获取 段 1 的值，
+ 段 1 获取 段 2 的值，以此类推。因此，蛇就会动起来了。
 
- The last segment is added based on the direction in which the snake is going,
- if it's going left or right, the last segment's x coordinate is increased by a
- predefined value 'diff' than its second to last segment. And if it's going up
- or down, the segment's y coordinate is affected.
+ 最后一小段根据蛇运动的方向添加。如果蛇在左后移动，最后一小段的 x 坐标值将比倒数第二小段
+ 增加预定义值 "diff"；如果上下移动，则更改其 y 坐标值。
 */
 function updateSnakeCoordinates() {
   for (let i = 0; i < numSegments - 1; i++) {
@@ -86,9 +82,8 @@ function updateSnakeCoordinates() {
 }
 
 /*
- I always check the snake's head position xCor[xCor.length - 1] and
- yCor[yCor.length - 1] to see if it touches the game's boundaries
- or if the snake hits itself.
+ 检查蛇头的位置 xCor[xCor.length - 1] 和 yCor[yCor.length - 1] 来看它是否
+ 碰到边界或者自己。
 */
 function checkGameStatus() {
   if (
@@ -105,8 +100,7 @@ function checkGameStatus() {
 }
 
 /*
- If the snake hits itself, that means the snake head's (x,y) coordinate
- has to be the same as one of its own segment's (x,y) coordinate.
+ 如果蛇碰到自己，说明蛇头的 (x,y) 坐标和它自身的小段之一的 (x,y) 坐标相同。
 */
 function checkSnakeCollision() {
   const snakeHeadX = xCor[xCor.length - 1];
@@ -119,9 +113,8 @@ function checkSnakeCollision() {
 }
 
 /*
- Whenever the snake consumes a fruit, I increment the number of segments,
- and just insert the tail segment again at the start of the array (basically
- I add the last segment again at the tail, thereby extending the tail)
+ 蛇每吃一个水果，小段的数量就会增加，然后将尾段插入数组的开头
+ （将最后一个小段再次添加到尾部，从而延长了尾部）
 */
 function checkForFruit() {
   point(xFruit, yFruit);
@@ -137,9 +130,8 @@ function checkForFruit() {
 
 function updateFruitCoordinates() {
   /*
-    The complex math logic is because I wanted the point to lie
-    in between 100 and width-100, and be rounded off to the nearest
-    number divisible by 10, since I move the snake in multiples of 10.
+    这里的数学逻辑是因为我希望这个点位于 100 和 width-100 之间，并四舍五入到
+    10 的倍数 ，因为蛇以 10 的倍数移动。
   */
 
   xFruit = floor(random(10, (width - 100) / 10)) * 10;

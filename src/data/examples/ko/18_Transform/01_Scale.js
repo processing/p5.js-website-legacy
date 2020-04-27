@@ -1,11 +1,10 @@
 /*
- * @name Scale
- * @description Paramenters for the scale() function are values
- * specified as decimal percentages. For example, the method
- * call scale(2.0) will increase the dimension of the shape by
- * 200 percent. Objects always scale from the origin. This example
- * shows how transforms accumulate and also how scale and translate
- * interact depending on their order.
+ * @name 크기 조정(Scale)
+ * @description scale()함수의 매개 변수는 10진수 백분율로 표현됩니다.
+ * 예를 들어, scale(2.0) 메소드 호출은 도형의 차원을 200 퍼센트 증가시킵니다.
+ * 오브젝트의 크기는 항상 원점을 기준으로 조정됩니다. 
+ * 이 예제는 그러한 변형이 누적되는 양상과, 순서에 따라 scale과 translate이
+ * 상호작용하는 것을 보여줍니다.
  */
 
 let a = 0.0;
@@ -14,31 +13,31 @@ let s = 0.0;
 function setup() {
   createCanvas(720, 400);
   noStroke();
-  //Draw all rectangles from their center as opposed to
-  // the default upper left corner
+  // 드로잉 시작 기본 위치인 상단 좌측 코너가 아닌,
+  // 화면 중앙에서 직사각형이 그려지도록 합니다.
   rectMode(CENTER);
 }
 
 function draw() {
   background(102);
 
-  //Slowly increase 'a' and then animate 's' with
-  //a smooth cyclical motion by finding the cosine of 'a'
+  // 'a'를 천천히 증가시킨 다음 'a'의 코사인을 찾아,
+  // 's'에 부드럽고 주기적인 애니메이션 효과를 줍니다.
   a = a + 0.04;
   s = cos(a) * 2;
 
-  //Translate our rectangle from the origin to the middle of
-  //the canvas, then scale it with 's'
+  // 사각형을 원점에서 캔버스 중간으로 변환(translate)한 다음,
+  // 's'로 크기를 조정합니다.
   translate(width / 2, height / 2);
   scale(s);
   fill(51);
   rect(0, 0, 50, 50);
 
-  //Translate and scale are accumulating, so this translate
-  //moves the second rectangle further right than the first
-  //and the scale is getting doubled. Note that cosine is
-  //making 's' both negative and positive, thus it cycles
-  //from left to right.
+  // 변환과 크기 조정은 누적됩니다.
+  // 따라서 변환된 두 번째 사각형은 첫 번째 사각형보다 
+  // 조금 더 오른쪽으로 이동하게 되고, 그 크기는 두배가 됩니다.
+  // 한편, 코사인은 's'가 음수와 양수를 오가도록 하는데,
+  // 이에 따라 사각형이 왼쪽과 오른쪽을 순환하게 됩니다.
   translate(75, 0);
   fill(255);
   scale(s);

@@ -1,4 +1,13 @@
 /**
+<<<<<<< HEAD
+ *  @name 로우패스 필터
+ *  @description p5.SoundFile에 p5.LowPass 필터를 적용합니다.
+ *  FFT를 사용해 사운드를 시각화해보세요.
+ *  mouseX를 필터의 차단 주파수에, mouseY를 밴드패스 필터의 울림/폭에 맵핑합니다.
+ * <p><em><span class="small"> 로컬 프로젝트에서 이 예제를 실행하려면
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound 라이브러리</a>를 추가해야 되며, 
+ * <a href="https://github.com/processing/p5.js/wiki/Local-server">로컬 서버</a>를 작동시켜야 합니다.</span></em></p>
+=======
  *  @name Filter LowPass
  *  @description Apply a p5.LowPass filter to a p5.SoundFile.
  *  Visualize the sound with FFT.
@@ -8,6 +17,7 @@
  * <p><em><span class="small"> To run this example locally, you will need the
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
  * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+>>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let soundFile;
 let fft;

@@ -1,6 +1,6 @@
 /*
- * @name Tilted 3D Box
- * @description Use mobile to tilt a box
+ * @name 기울어진 3D상자
+ * @description 모바일 기기를 이용해 상자를 기울게 만듭니다.
  */
 function setup() {
   createCanvas(displayWidth, displayHeight, WEBGL);

@@ -1,13 +1,13 @@
 /*
- * @name Play Mode
+ * @name 재생 모드
  * @description
- * <p>In 'sustain' mode, the sound will overlap with itself.
- * In 'restart' mode it will stop and then start again.
- * Click mouse to play a sound file.
- * Trigger lots of sounds at once! Press any key to change playmode.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * <p>'sustain' 모드에서는 사운드가 겹쳐서 재생됩니다.
+ * 'restart' 모드에서는 사운드가 멈췄다가 다시 재생합니다.
+ * 마우스 클릭으로 사운드 파일을 재생해보세요.
+ * 동시에 여러 사운드를 재생해보세요! 아무 자판을 눌러 재생 모드를 변경합니다.</p>
+ * <p><em><span class="small"> 로컬 프로젝트에서 이 예제를 실행하려면 적어도 한 개의 사운드 파일이 필요하고,
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound 라이브러리</a>를 추가해야 되며, 
+ * <a href="https://github.com/processing/p5.js/wiki/Local-server">로컬 서버</a>를 작동시켜야 합니다.</span></em></p>
  */
 let playMode = 'sustain';
 let sample;

@@ -1,13 +1,15 @@
 /*
- * @name SmokeParticles
- * @description a port of Dan Shiffman's SmokeParticleSystem example originally
- * for Processing. Creates smokey particles :p
+<<<<<<< HEAD
+ * @name 연기 파티클
+ * @description 다니엘 쉬프만(Dan Shiffman)이 프로세싱(Processing)을 위해 제작한
+ * 연기 파티클 시스템(SmokeParticleSystem) 예제를 옮겨왔습니다.
+ * 마치 연기와 같은 파티클을 만들어볼까요 :p
  */
 
-// texture for the particle
+// 파티클 텍스쳐
 let particle_texture = null;
 
-// variable holding our particle system
+// 파티클 시스템을 담는 변수
 let ps = null;
 
 function preload() {
@@ -16,10 +18,10 @@ function preload() {
 
 function setup() {
 
-  //set the canvas size
+  // 캔버스 사이즈 설정
   createCanvas(640, 360);
 
-  //initialize our particle system
+  // 파티클 시스템 초기화
   ps = new ParticleSystem(0, createVector(width / 2, height - 60), particle_texture);
 }
 
@@ -35,12 +37,12 @@ function draw() {
     ps.addParticle();
   }
 
-  // Draw an arrow representing the wind force
+  // 바람의 힘을 뜻하는 화살표 그리기
   drawVector(wind, createVector(width / 2, 50, 0), 500);
 }
 
 /**
- *  This function draws an arrow showing the direction our "wind" is blowing.
+ *  이 함수는 "wind(바람)"이 부는 방향을 나타낸 화살표를 그립니다.
  */
 function drawVector(v, loc, scale){
   push();
@@ -55,19 +57,19 @@ function drawVector(v, loc, scale){
   line(len, 0, len-arrowsize, -arrowsize / 2);
   pop();
 }
-//========= PARTICLE SYSTEM ===========
+//========= 파티클 시스템 ===========
 
 /**
- * A basic particle system class
- * @param num the number of particles
- * @param v the origin of the particle system
- * @param img_ a texture for each particle in the system
- * @constructor
+ * 기본적인 파티클 시스템 클래스
+ * @param num 파티클 개수를 나타내는 매개 변수
+ * @param v 파티클 시스템의 원점을 나타내는 매개 변수
+ * @param img_ 시스템 상 각 파티클의 텍스쳐를 나타내는 매개 변수
+ * @constructor 생성자
  */
 let ParticleSystem = function(num, v, img_) {
 
   this.particles = [];
-  this.origin = v.copy(); // we make sure to copy the vector value in case we accidentally mutate the original by accident
+  this.origin = v.copy(); // 실수로 원래 벡터값(origin)을 바꾼 경우를 대비하여, 벡터값을 복사합니다.
   this.img = img_
   for(let i = 0; i < num; ++i){
     this.particles.push(new Particle(this.origin, this.img));
@@ -75,23 +77,24 @@ let ParticleSystem = function(num, v, img_) {
 };
 
 /**
- * This function runs the entire particle system.
+ * 이 함수는 전체 파티클 시스템을 실행합니다.
  */
 ParticleSystem.prototype.run = function() {
 
-  // cache length of the array we're going to loop into a variable
-  // You may see <variable>.length in a for loop, from time to time but
-  // we cache it here because otherwise the length is re-calculated for each iteration of a loop
+  // 변수들에 반복할, 숨겨진 배열 길이
+  // for 반복문에 <variable> .length가 표시 될 수 있지만, 매 반복마다 그 길이가
+  // 다시 계산되기 때문에 여기에 숨깁니다.
   let len = this.particles.length;
 
-  //loop through and run particles
+  //파티클 반복 및 실행
   for (let i = len - 1; i >= 0; i--) {
     let particle = this.particles[i];
     particle.run();
 
-    // if the particle is dead, we remove it.
-    // javascript arrays don't have a "remove" function but "splice" works just as well.
-    // we feed it an index to start at, then how many numbers from that point to remove.
+    // 파티클이 죽을 경우, 제거(remove)합니다.
+    // 자바스크립트의 배열에는 "remove" 기능이 없지만,
+    // 대신 동일한 기능을 수행하는 "splice"를 사용할 수 있습니다.
+    // 제거를 시작할 지점에 인덱스를 넣고, 해당 지점부터 몇 개를 제거할 지 넣을 수 있습니다.
     if (particle.isDead()) {
       this.particles.splice(i, 1);
     }
@@ -99,8 +102,8 @@ ParticleSystem.prototype.run = function() {
 }
 
 /**
- * Method to add a force vector to all particles currently in the system
- * @param dir a p5.Vector describing the direction of the force.
+ * 현재 시스템의 존재하는 모든 파티클에 힘 벡터를 추가하는 메소드
+ * @param dir 힘의 방향을 묘사하는 p5.Vector 매개 변수
  */
 ParticleSystem.prototype.applyForce = function(dir) {
   let len = this.particles.length;
@@ -110,16 +113,16 @@ ParticleSystem.prototype.applyForce = function(dir) {
 }
 
 /**
- * Adds a new particle to the system at the origin of the system and with
- * the originally set texture.
+ * 본래 지정된 텍스쳐와 동일한 텍스쳐의 파티클을 시스템 원점에 추가
  */
 ParticleSystem.prototype.addParticle = function() {
     this.particles.push(new Particle(this.origin, this.img));
 }
 
-//========= PARTICLE  ===========
+
+//========= 파티클 ===========
 /**
- *  A simple Particle class, renders the particle as an image
+ * 파티클을 이미지로 렌더링하는 간단한 파티클 클래스
  */
 let Particle = function (pos, img_) {
   this.loc = pos.copy();
@@ -134,7 +137,7 @@ let Particle = function (pos, img_) {
 }
 
 /**
- *  Simulataneously updates and displays a particle.
+ *  파티클을 업데이트하는 동시에 보이게 하기
  */
 Particle.prototype.run = function() {
   this.update();
@@ -142,7 +145,7 @@ Particle.prototype.run = function() {
 }
 
 /**
- *  A function to display a particle
+ *  파티클을 화면에 보이게하는 메소드
  */
 Particle.prototype.render = function() {
   imageMode(CENTER);
@@ -151,15 +154,15 @@ Particle.prototype.render = function() {
 }
 
 /**
- *  A method to apply a force vector to a particle.
+ *  파티클에 힘 벡터를 적용하는 메소드
  */
 Particle.prototype.applyForce = function(f) {
   this.acc.add(f);
 }
 
 /**
- *  This method checks to see if the particle has reached the end of it's lifespan,
- *  if it has, return true, otherwise return false.
+ *  파티클의 lifespan(수명)이 끝나가는지 여부를 확인하는 메소드
+ *  만약 끝나간다면 true(참)을, 그렇지 않다면 false(거짓)을 반환
  */
 Particle.prototype.isDead = function () {
   if (this.lifespan <= 0.0) {
@@ -170,7 +173,7 @@ Particle.prototype.isDead = function () {
 }
 
 /**
- *  This method updates the position of the particle.
+ *  파티클의 위치를 업데이트하는 메소드
  */
 Particle.prototype.update = function() {
   this.vel.add(this.acc);

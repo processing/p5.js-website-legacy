@@ -1,13 +1,13 @@
 /*
- * @name Animation
- * @description The circle moves.
+ * @name 애니메이션
+ * @description 원이 움직입니다.
  */
-// Where is the circle
+// 원의 위치를 알기 위해
 let x, y;
 
 function setup() {
   createCanvas(720, 400);
-  // Starts in the middle
+  // 화면 가운데에서 시작하기
   x = width / 2;
   y = height;
 }
@@ -15,17 +15,17 @@ function setup() {
 function draw() {
   background(200);
   
-  // Draw a circle
+  // 원 그리기
   stroke(50);
   fill(100);
   ellipse(x, y, 24, 24);
   
-  // Jiggling randomly on the horizontal axis
+  // 가로축에서 무작위로 흔들리기
   x = x + random(-1, 1);
-  // Moving up at a constant speed
+  // 일정 속도로 위를 향해 움직이기
   y = y - 1;
   
-  // Reset to the bottom
+  // 화면 하단으로 리셋
   if (y < 0) {
     y = height;
   }
