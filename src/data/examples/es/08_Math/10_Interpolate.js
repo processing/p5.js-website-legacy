@@ -1,11 +1,11 @@
 /*
- * @name Linear Interpolation
+ * @name Interpolación Lineal
  * @frame 720, 400
- * @description Move the mouse across the screen and the symbol will follow.
- * Between drawing each frame of the animation, the ellipse moves part
- * of the distance (0.05) from its current position toward the cursor using
- * the lerp() function.
- * This is the same as the Easing under input only with lerp() instead..
+ * @description Mueve el ratón a través de la pantalla y el símbolo le seguirá.
+ * Entre cada fotograma de la animación, la elipse se mueve parte
+ * de la distancia (0,05) desde su posición actual hacia el cursor
+ * usando la función lerp().
+ * Esto es equivalente al uso de Easing en la sección Input, sólo que con lerp() en su lugar...
  */
 
 let x = 0;
@@ -19,12 +19,12 @@ function setup() {
 function draw() {
   background(51);
 
-  // lerp() calculates a number between two numbers at a specific increment.
-  // The amt parameter is the amount to interpolate between the two values
-  // where 0.0 equal to the first point, 0.1 is very near the first point, 0.5
-  // is half-way in between, etc.
+  // lerp() calcula un número entre dos números en un incremento específico.
+  // El parámetro amt (amount) es la cantidad a interpolar entre los dos valores
+  // donde 0,0 es igual al primer punto, 0,1 está muy cerca del primer punto, 0,5
+  // está a mitad de camino, etc.
 
-  // Here we are moving 5% of the way to the mouse location each frame
+  // Aquí estamos moviendo el 5% del camino hacia la ubicación del ratón en cada fotograma
   x = lerp(x, mouseX, 0.05);
   y = lerp(y, mouseY, 0.05);
 

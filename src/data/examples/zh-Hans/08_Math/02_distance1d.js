@@ -1,7 +1,6 @@
 /*
- * @name Distance 1D
- * @description Move the mouse left and right to control
- * the speed and direction of the moving shapes.
+ * @name 一维间距
+ * @description 左右移动鼠标来控制移动形状的速度和方向。
  */
 let xpos1;
 let xpos2;

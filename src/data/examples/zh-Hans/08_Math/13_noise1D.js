@@ -1,6 +1,6 @@
 /*
- * @name Noise1D
- * @description Using 1D Perlin Noise to assign location.
+ * @name 一维噪声 (Noise1D)
+ * @description 调用一维柏林噪声来指定位置。
  */
 let xoff = 0.0;
 let xincrement = 0.01;
@@ -12,20 +12,20 @@ function setup() {
 }
 
 function draw() {
-  // Create an alpha blended background
+  // 创建一个透明度 (alpha) 混合背景
   fill(0, 10);
   rect(0, 0, width, height);
 
-  //float n = random(0,width);  // Try this line instead of noise
+  //let n = random(0,width);  // 尝试用这一行代替 noise()
 
-  // Get a noise value based on xoff and scale
-  // it according to the window's width
+  // 基于 xoff 和 scale 得到一个噪声值
+  // 并根据窗口宽度进行缩放
   let n = noise(xoff) * width;
 
-  // With each cycle, increment xoff
+  // 每一轮增加 xoff
   xoff += xincrement;
 
-  // Draw the ellipse at the value produced by perlin noise
+  // 绘制由柏林噪声产生的数值的椭圆
   fill(200);
   ellipse(n, height / 2, 64, 64);
 }
