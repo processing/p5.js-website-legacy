@@ -1,10 +1,9 @@
 /*
  * @name Pixeles de video
  * @frame 320,240
- * @description <p> Cargar un video, manipula sus pixeles y dibújalo en el lienzo.
- * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás la
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
- *, al menos un archivo de video y correr un <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.</span></em></p>
+ * @description Cargar un video, manipula sus pixeles y dibújalo en el lienzo.
+ * Para correr este ejemplo localmente, necesitarás correr un 
+ * <a href="https://github.com/processing/p5.js/wiki/Local-server">servidor local</a>.
  */
 let fingers;
 

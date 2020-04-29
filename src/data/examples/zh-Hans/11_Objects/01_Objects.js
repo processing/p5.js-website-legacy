@@ -1,15 +1,14 @@
 /*
- * @name Objects
- * @description Create a Jitter class, instantiate an object,
- * and move it around the screen. Adapted from Getting Started with
- * Processing by Casey Reas and Ben Fry.
+ * @name 物件 (Objects)
+ * @description 创建一个 Jitter 类, 实例化一个物件，并且在屏幕上移动。
+ * 改编自 Processing 入门，作者：Casey Reas 和 Ben Fry
  */
 
-let bug; // Declare object
+let bug; // 声明物件
 
 function setup() {
   createCanvas(710, 400);
-  // Create object
+  // 创造物件
   bug = new Jitter();
 }
 
@@ -19,7 +18,7 @@ function draw() {
   bug.display();
 }
 
-// Jitter class
+// Jitter 类
 class Jitter {
   constructor() {
     this.x = random(width);

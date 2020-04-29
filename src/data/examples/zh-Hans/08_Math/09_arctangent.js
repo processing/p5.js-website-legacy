@@ -1,6 +1,7 @@
 /*
- * @name Arctangent
- * @description Move the mouse to change the direction of the eyes.<br>The atan2() function computes the angle from each eye to the cursor.
+ * @name 反正切
+ * @description 移动鼠标来改变眼球的方向。<br>
+ * atan2() 函数计算每个眼球到鼠标的角度。
  */
 let e1, e2, e3;
 

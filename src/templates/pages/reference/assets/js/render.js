@@ -75,21 +75,14 @@ var renderCode = function(sel) {
       }
 
       // create edit space
-      var edit_space_heading = document.createElement('h4');
-      edit_space_heading.id = 'example'+i;
-      edit_space_heading.innerHtml = 'Example '+i;
-      edit_space_heading.className = 'sr-only';
-
-      var edit_space = document.createElement('ul');
-      edit_space['aria-labelledby'] = 'example'+i;
+      var edit_space = document.createElement('div');
       edit_space.className = 'edit_space';
       sketchContainer.appendChild(edit_space);
 
       //add buttons
-      var edit_button = document.createElement('li');
+      var edit_button = document.createElement('button');
+      edit_button.value = 'edit';
       edit_button.innerHTML = 'edit';
-      edit_button.id = 'edit'+i;
-      edit_button['aria-labelledby'] = edit_button.id+'example'+i;
       edit_button.className = 'edit_button';
       edit_space.appendChild(edit_button);
       edit_button.onclick = function(e) {
@@ -100,10 +93,9 @@ var renderCode = function(sel) {
         }
       };
 
-      var reset_button = document.createElement('li');
+      var reset_button = document.createElement('button');
+      reset_button.value = 'reset';
       reset_button.innerHTML = 'reset';
-      reset_button.id = 'reset'+i;
-      reset_button['aria-labelledby'] = reset_button.id+'example'+i;
       reset_button.className = 'reset_button';
       edit_space.appendChild(reset_button);
       reset_button.onclick = function() {
@@ -111,10 +103,18 @@ var renderCode = function(sel) {
         setMode(sketch, 'run');
       };
 
-      var copy_button = document.createElement('li');
+      var edit_area = document.createElement('textarea');
+      edit_area.value = runnable;
+      edit_area.rows = rows;
+      edit_area.cols = 62;
+      // edit_area.position = 'absolute'
+      edit_space.appendChild(edit_area);
+      edit_area.style.display = 'none';
+      enableTab(edit_area);
+
+      var copy_button = document.createElement('button');
+      copy_button.value = 'copy';
       copy_button.innerHTML = 'copy';
-      copy_button.id = 'copy'+i;
-      copy_button['aria-labelledby'] = copy_button.id+'example'+i;
       copy_button.className = 'copy_button';
       edit_space.appendChild(copy_button);
       copy_button.onclick = function() {
@@ -122,13 +122,6 @@ var renderCode = function(sel) {
         edit_area.select();
         document.execCommand('copy');
       };
-
-      var edit_area = document.createElement('textarea');
-      edit_area.value = runnable;
-      edit_area.rows = rows;
-      edit_area.cols = 62;
-      edit_area.style.display = 'none';
-      enableTab(edit_area);
 
       function setMode(sketch, m) {
         if (m === 'edit') {
@@ -184,6 +177,19 @@ var renderCode = function(sel) {
           'touchStarted', 'touchMoved', 'touchEnded',
           'keyPressed', 'keyReleased', 'keyTyped'];
         var _found = [];
+        // p.preload is an empty function created by the p5.sound library in
+        // order to use the p5.js preload system to load AudioWorklet modules
+        // before a sketch runs, even if that sketch doesn't have its own
+        // preload function.
+        // However, this causes an error in the eval code below because the
+        // _found array will always contain "preload", even if the sketch in
+        // question doesn't have a preload function. To get around this, we
+        // delete p.preload before eval-ing the sketch and add it back
+        // afterwards if the sketch doesn't contain its own preload function.
+        // For more info, see: https://github.com/processing/p5.js-sound/blob/master/src/audioWorklet/index.js#L22
+        if (p.preload) {
+          delete p.preload;
+        }
         with (p) {
           // Builds a function to detect declared functions via
           // them being hoisted past the return statement. Does
@@ -211,7 +217,7 @@ var renderCode = function(sel) {
           ].join('\n'));
         }
         // If we haven't found any functions we'll assume it's
-        // just a setup body.
+        // just a setup body with an empty preload.
         if (!_found.length) {
           p.setup = function() {
             p.createCanvas(100, 100);
@@ -228,10 +234,12 @@ var renderCode = function(sel) {
           _found.forEach(function(name) {
             p[name] = eval(name);
           });
+          // Ensure p.preload exists even if sketch doesn't have the function.
+          p.preload = p.preload || function() {};
           p.setup = p.setup || function() {
             p.createCanvas(100, 100);
             p.background(200);
-          }
+          };
         }
       };
     }

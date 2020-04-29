@@ -1,8 +1,7 @@
 /*
- * @name Objects 2
- * @description Ported from example by hbarragan. Move the cursor across the
- * image to change the speed and positions of the geometry. The class MRect
- * defines a group of lines.
+ * @name 物件 2
+ * @description 转自 hbarragan 的范例。在图像上移动光标以更改几何图形的速度和位置。
+ * MRect 类定义了一组线。
  */
 
 let r1, r2, r3, r4;
@@ -33,12 +32,12 @@ function draw() {
 
 class MRect {
   constructor(iw, ixp, ih, iyp, id, it) {
-    this.w = iw; // single bar width
-    this.xpos = ixp; // rect xposition
-    this.h = ih; // rect height
-    this.ypos = iyp; // rect yposition
-    this.d = id; // single bar distance
-    this.t = it; // number of bars
+    this.w = iw; // 单线条宽度
+    this.xpos = ixp; // rect x 值
+    this.h = ih; // rect 高度
+    this.ypos = iyp; // rect y 值
+    this.d = id; // 单线条间距
+    this.t = it; // 单线条数量
   }
 
   move(posX, posY, damping) {
