@@ -9,13 +9,13 @@ slug: reference/
 
   <div class="column-span">
 
-    <main id="content" >
+    <main id="content">
       <h1>Reference</h1>
 
-      <div id="search" class="search-wrapper" role="search"></div>
+      <div id="search" class="search-wrapper" role="search" onfocus="removePlaceholder()"></div>
       <div id="collection-list-nav"></div>
 
-          <!--class="container-fluid"-->
+      <!--class="container-fluid"-->
       <div id="list" tabindex="2" class="list-wrapper allItems-collection"></div>
       <div id="item" tabindex="1" class="item-wrapper apidocs"></div>
       <div id="file" class="file-wrapper"></div>
@@ -39,20 +39,24 @@ slug: reference/
 
     var translations;
 
-    $(document).ready(function() {
+    $(document).ready(function () {
       var routes = window.location.pathname.split('/');
       var lang = routes[1];
       if (langs.indexOf(lang) != -1) {
-        $.getJSON('/assets/reference/'+lang+'.json', function(data) {
+        $.getJSON('/assets/reference/' + lang + '.json', function (data) {
           translations = data;
 
-          window.addEventListener('reference-rendered', function() {
+          window.addEventListener('reference-rendered', function () {
             console.log("rendered");
             updateLanguage();
           }, false);
         });
       }
     });
+
+    function removePlaceholder() {
+      $('#search input').attr('placeholder', '');
+    }
 
     function updateLanguage() {
       if (translations) {
@@ -62,6 +66,7 @@ slug: reference/
         $('#reference-tagline').html(translations['reference-tagline']);
         // reference tagline
         $('#search input').attr('placeholder', translations['reference-search']);
+        $('#search input').on('focus', removePlaceholder)
         $('#search input').attr('title', translations['reference-search']);
         // reference menu
         $('#reference-menu-home').html(translations['reference-menu-home']);
@@ -100,7 +105,7 @@ slug: reference/
         $('#footer2').html(translations['footer2']);
         $('#footer3').html(translations['footer3']);
         $('#footer4').html(translations['footer4']);
-        $('.group-name, .subgroup-name').each(function() {
+        $('.group-name, .subgroup-name').each(function () {
           $(this).text(translations[$(this).text()]);
         });
         var routes = window.location.hash.split('/');
@@ -108,11 +113,11 @@ slug: reference/
         var name = routes[2];
         if (translations[obj] && translations[obj][name]) {
           var entry = translations[obj][name];
-          $('.description-text').html('<p>'+entry.description+'</p>');
+          $('.description-text').html('<p>' + entry.description + '</p>');
           $('.returns').html(entry.returns);
-          $('.params').find('ul').each(function(i) {
+          $('.params').find('ul').each(function (i) {
             if (i < entry.params.length) {
-              $(this).children('li').each(function(j){
+              $(this).children('li').each(function (j) {
                 $(this).children('.paramtype').html(entry.params[j]);
               });
             }
@@ -120,7 +125,7 @@ slug: reference/
         }
       }
     }
-    </script>
+  </script>
 
   {{> asterisk}}
 
