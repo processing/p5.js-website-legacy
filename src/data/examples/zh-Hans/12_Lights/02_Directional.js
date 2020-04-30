@@ -1,10 +1,9 @@
 /*
- * @name Directional
+ * @name 定向光
  * @frame 710,400
- * @description Move the mouse to change the direction of the light.
- * Directional light comes from one direction and is stronger when hitting a
- * surface squarely and weaker if it hits at a a gentle angle. After hitting a
- * surface, a directional light scatters in all directions.
+ * @description 移动鼠标改变光线方向。
+ * 定向光从一个方向打来，垂直打在一个表面上时会更强，而以平缓的角度打则会更弱。
+ * 击打在表面上后，定向光会在所有方向上散射。
  */
 const radius = 200;
 
