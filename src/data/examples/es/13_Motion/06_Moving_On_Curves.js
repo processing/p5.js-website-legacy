@@ -9,8 +9,8 @@ let beginX = 20.0; // Coordenada X inicial
 let beginY = 10.0; // Coordenada Y inicial
 let endX = 570.0; // Coordenada X final
 let endY = 320.0; // Coordenada Y final
-let distX; // Distancia que moverse en el eje X
-let distY; // Distancia que moverse en el eje Y
+let distX; // Distancia a moverse en el eje X
+let distY; // Distancia a moverse en el eje Y
 let exponent = 4; // Determina la curva
 let x = 0.0; // Coordenada X actual
 let y = 0.0; // Coordenada Y actual
