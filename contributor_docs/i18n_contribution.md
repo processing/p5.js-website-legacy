@@ -198,10 +198,13 @@ In some cases, the text translated from the original .hbs file (written in HTML)
 
 ### Translation of Reference
 
-* The reference works a bit differently. The pages are built in English based on the inline documentation in the source code. They are then swapped out using JS on the front-end.
+* The reference works a bit differently. The pages are built in English based on the inline documentation in the p5.js source code. The English text is then swapped out with the appropriate translation using JS on the front-end.
+* The inline API documentation is automatically extracted from the p5.js repository using [YUIdoc](https://yui.github.io/yuidoc/) and saved in a [JSON file](https://github.com/processing/p5.js-website/blob/master/src/templates/pages/reference/data.json). 
+* The translation files are created from the data.json file, but have a different structure (i.e. [es.json](https://github.com/processing/p5.js-website/blob/master/src/data/reference/es.json)).
 * The top level keys in the JSON object correspond to the page headings, menu, footer, etc. You can see all the swaps in [this file](https://github.com/processing/p5.js-website/blob/master/src/templates/pages/reference/index.hbs#L60).
 * The "p5" key in the JSON object contains individual keys for each reference entry, indexed by variable/function/object name.
 * Any entries in the JSON object which are not filled in will be left in English when the page is loaded.
+* The translated versions of the JSON file need to be manually created and updated.
 * This is a somewhat hacky solution and not ideal. However, it comes from balancing the desire to have documentation directly in the source code, with the unwieldiness of having multiple languages of documentation inline. It will be our working solution until a better one is found.
 * The source content for the reference is handled inline in the [p5.js source code](https://github.com/processing/p5.js). See [Inline documentation](https://github.com/processing/p5.js/blob/master/contributor_docs/inline_documentation.md) in the p5.js repo for information on how to contribute.
 
