@@ -1,17 +1,16 @@
 /*
- * @name Multiple Objects
- * @description Create a Jitter class, instantiate multiple objects,
- * and move it around the screen.
+ * @name 多个物件
+ * @description 创建一个 Jitter 类，实例化多个物件，并且在屏幕上移动。
  */
 
-let bug1; // Declare objects
+let bug1; // 声明物件
 let bug2;
 let bug3;
 let bug4;
 
 function setup() {
   createCanvas(710, 400);
-  // Create object
+  // 创造物件
   bug1 = new Jitter();
   bug2 = new Jitter();
   bug3 = new Jitter();
@@ -30,7 +29,7 @@ function draw() {
   bug4.display();
 }
 
-// Jitter class
+// Jitter 类
 class Jitter {
   constructor() {
     this.x = random(width);

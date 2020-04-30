@@ -16,7 +16,7 @@ require([
   './documented-method'], function(App, DocumentedMethod) {
 
   // Set collections
-  App.collections = ['allItems', 'classes', 'events', 'methods', 'properties', 'p5.sound', 'p5.dom'];
+  App.collections = ['allItems', 'classes', 'events', 'methods', 'properties', 'p5.sound'];
 
   // Get json API data
   $.getJSON('data.min.json', function(data) {
@@ -39,9 +39,6 @@ require([
       App.modules.push(m);
       if (m.name == "p5.sound") {
         App.sound.module = m;
-      }
-      else if (m.name == "p5.dom") {
-        App.dom.module = m;
       }
     });
 
@@ -75,12 +72,6 @@ require([
         // libraries
         if (el.module === "p5.sound") {
           App.sound.items.push(el);
-        }
-        else if (el.module === "p5.dom" || el.module === 'DOM') {
-          if (el.class === 'p5.dom') {
-            el.class = 'p5';
-          }
-          App.dom.items.push(el);
         }
       }
     });

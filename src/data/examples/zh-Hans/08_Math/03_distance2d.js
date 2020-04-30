@@ -1,8 +1,7 @@
 /*
- * @name Distance 2D
- * @description Move the mouse across the image to obscure
- * and reveal the matrix. Measures the distance from the mouse
- * to each square and sets the size proportionally.
+ * @name 二维间距
+ * @description 在图片上移动鼠标来遮盖并显示矩阵。
+ * 测量鼠标到每个正方形的距离，并按比例设置大小。
  */
 let max_distance;
 

@@ -1,9 +1,6 @@
 /*
  * @name Slider
- * @description You will need to include the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.<br><br>
- * Move the sliders to control the R, G, B values of the background.
+ * @description Move the sliders to control the R, G, B values of the background.
  */
 let rSlider, gSlider, bSlider;
 
