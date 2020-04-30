@@ -4,7 +4,7 @@
  * @description Cambiar una forma por otra interpolando vértices de uno a otro.
  */
 
-// Dos ArrayList para almacenar los vértices de dos geometrias
+// Dos ArrayList para almacenar los vértices de dos geometrías
 // Este ejemplo asume que cada forma tendrá el mismo número de vértices
 // es decir, el tamaño de cada ArrayList será el mismo
 let circle = [];
