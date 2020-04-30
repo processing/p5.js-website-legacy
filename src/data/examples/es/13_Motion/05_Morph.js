@@ -1,50 +1,50 @@
 /*
- * @name Morph
+ * @name Transformar
  * @frame 720,400
- * @description Changing one shape into another by interpolating vertices from one to another.
+ * @description Cambiar una forma por otra interpolando vértices de uno a otro.
  */
 
-// Two ArrayLists to store the vertices for two shapes
-// This example assumes that each shape will have the same
-// number of vertices, i.e. the size of each ArrayList will be the same
+// Dos ArrayList para almacenar los vértices de dos geometrías
+// Este ejemplo asume que cada forma tendrá el mismo número de vértices
+// es decir, el tamaño de cada ArrayList será el mismo
 let circle = [];
 let square = [];
 
-// An ArrayList for a third set of vertices, the ones we will be drawing
-// in the window
+// Un ArrayList para un tercer conjunto de vértices, los que dibujaremos
+// en la ventana
 let morph = [];
 
-// This boolean variable will control if we are morphing to a circle or square
+// Esta variable booleana controlará si estamos transformando en un círculo o un cuadrado
 let state = false;
 
 function setup() {
   createCanvas(720, 400);
 
-  // Create a circle using vectors pointing from center
+  // Crear un círculo usando vectores que apunten desde el centro
   for (let angle = 0; angle < 360; angle += 9) {
-    // Note we are not starting from 0 in order to match the
-    // path of a circle.
+    // Ten en cuenta que no estamos empezando desde 0 para que coincida con
+    // la trayectoria de un círculo.
     let v = p5.Vector.fromAngle(radians(angle - 135));
     v.mult(100);
     circle.push(v);
-    // Let's fill out morph ArrayList with blank PVectors while we are at it
+    // Llenemos el ArrayList de transformación con PVectores en blanco mientras estamos en ello.
     morph.push(createVector());
   }
 
-  // A square is a bunch of vertices along straight lines
-  // Top of square
+  // Un cuadrado es un montón de vértices a lo largo de líneas rectas
+  // La parte superior del cuadrado
   for (let x = -50; x < 50; x += 10) {
     square.push(createVector(x, -50));
   }
-  // Right side
+  // Lado derecho
   for (let y = -50; y < 50; y += 10) {
     square.push(createVector(50, y));
   }
-  // Bottom
+  // Parte inferior
   for (let x = 50; x > -50; x -= 10) {
     square.push(createVector(x, 50));
   }
-  // Left side
+  // Lado izquierdo
   for (let y = 50; y > -50; y -= 10) {
     square.push(createVector(-50, y));
   }
@@ -53,35 +53,35 @@ function setup() {
 function draw() {
   background(51);
 
-  // We will keep how far the vertices are from their target
+  // Guardaremos la distancia de los vértices de su objetivo
   let totalDistance = 0;
 
-  // Look at each vertex
+  // Mira cada vértice
   for (let i = 0; i < circle.length; i++) {
     let v1;
-    // Are we lerping to the circle or square?
+    // ¿Estamos yendo hacia el círculo o hacia el cuadrado?
     if (state) {
       v1 = circle[i];
     } else {
       v1 = square[i];
     }
-    // Get the vertex we will draw
+    // Consigue el vértice que dibujaremos
     let v2 = morph[i];
-    // Lerp to the target
+    // Transiciona hacia el objetivo...
     v2.lerp(v1, 0.1);
-    // Check how far we are from target
+    // Comprueba lo lejos que estamos del objetivo
     totalDistance += p5.Vector.dist(v1, v2);
   }
 
-  // If all the vertices are close, switch shape
+  // Si todos los vértices están cerca, cambia de forma
   if (totalDistance < 0.1) {
     state = !state;
   }
 
-  // Draw relative to center
+  // Dibuja relativo al centro
   translate(width / 2, height / 2);
   strokeWeight(4);
-  // Draw a polygon that makes up all the vertices
+  // Dibuja un polígono compuesto de todos los vértices
   beginShape();
   noFill();
   stroke(255);
