@@ -9,7 +9,7 @@
  * <pre><code class="language-markup">&lt;script src="https://webjack.io/dist/webjack.js">&lt;/script></code></pre>
  * <pre><code class="language-markup">&lt;script src="https://jywarren.github.io/p5-webjack/lib.js">&lt;/script></code></pre>
  *
- * Ejemplo practico: https://editor.p5js.org/jywarren/sketches/rkztwSt8M
+ * Ejemplo práctico: https://editor.p5js.org/jywarren/sketches/rkztwSt8M
  *
  * Audio de prueba https://www.youtube.com/watch?v=GtJW1Dlt3cg
  * Carga este lienzo en un Arduino:
