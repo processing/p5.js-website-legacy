@@ -1,7 +1,6 @@
 /*
- * @name Radial Gradient
- * @description Draws a series of concentric circles to create a gradient
- * from one color to another.
+ * @name 径向渐变
+ * @description 绘制一系列同心圆，创造出从一个颜色到另一个颜色到渐变效果。
  */
 let dim;
 

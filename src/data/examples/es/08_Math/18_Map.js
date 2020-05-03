@@ -1,10 +1,10 @@
 /*
- * @name Map
- * @description Use the map() function to take any number and scale it to a
- * new number that is more useful for the project that you are working on.
- * For example, use the numbers from the mouse position to control the size or color of a shape.
- * In this example, the mouse’s x-coordinate (numbers between 0 and 360) are scaled to new numbers
- * to define the color and size of a circle.
+ * @name Mapear
+ * @description Utiliza la función map() para tomar cualquier número y escalarlo a un
+ * nuevo número que sea más útil para el proyecto en el que estés trabajando.
+ * Por ejemplo, usa los números de la posición del ratón para controlar el tamaño o el color de una figura.
+ * En este ejemplo, la coordenada x del ratón (números entre 0 y 360) se escalan a nuevos números
+ * para definir el color y el tamaño de un círculo.
  */
 function setup() {
   createCanvas(640, 400);
@@ -13,9 +13,9 @@ function setup() {
 
 function draw() {
   background(0);
-  // Scale the mouseX value from 0 to 640 to a range between 0 and 175
+  // Escala el valor de mouseX de 0 a 640 a un rango entre 0 y 175
   let c = map(mouseX, 0, width, 0, 175);
-  // Scale the mouseX value from 0 to 640 to a range between 40 and 300
+  // Escala el valor de mouseX de 0 a 640 a un rango entre 40 y 300
   let d = map(mouseX, 0, width, 40, 300);
   fill(255, c, 0);
   ellipse(width/2, height/2, d, d);

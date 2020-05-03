@@ -1,8 +1,8 @@
 /*
- * @name Relativity
- * @description Each color is perceived in relation to other colors. The top
- * and bottom bars each contain the same component colors, but a different
- * display order causes individual colors to appear differently.
+ * @name 相对性
+ * @description 我们对每个颜色的感知都是相对于其他颜色而言的。
+ * 上半部分和下半部分的条形具有相同的颜色构成，但是他们呈现每个颜色的顺序不同，
+ * 让同一个颜色看起来也不一样。
  */
 let a, b, c, d, e;
 
@@ -14,7 +14,7 @@ function setup() {
   c = color(42, 106, 105);
   d = color(165, 89, 20);
   e = color(146, 150, 127);
-  noLoop(); // Draw only one time
+  noLoop(); // 只画一次
 }
 
 function draw() {

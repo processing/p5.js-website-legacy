@@ -2,9 +2,6 @@
  * @name Interactivity 1
  * @frame 720,425
  * @description The circle changes color when you click on it.
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>.
- * </em></p>
  */
 
 // for red, green, and blue color values

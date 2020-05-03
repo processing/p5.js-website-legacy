@@ -87,6 +87,8 @@
   .sidebar-menu a {
     display: block;
     text-align: center;
+    padding-bottom: 0.11em;
+    border-bottom: 0.11em dashed transparent;
   }
 
   .sidebar-menu-icon {
@@ -224,6 +226,7 @@
   padding: 0.4em;
   margin: 0 1.75em 0 0;
   width: 18.65em;
+  float: left;
   color: #333 !important;
   height: 7.45em;
   position: relative;
@@ -438,6 +441,14 @@ div.reference-subgroup {
   margin: 1em 0 0 0;
 }
 
+#item ul {
+  margin-top: 0.5em;
+}
+
+#item li {
+  margin-bottom: 1em;
+}
+
 .description {
   clear: both;
   display: block;
@@ -452,7 +463,8 @@ div.reference-subgroup {
 
 .paramname {
   display: inline-block;
-  width: 8em;
+  min-width: 25%;
+  margin-right: 1%;
   font-size: 1.2em;
 }
 
@@ -464,8 +476,16 @@ div.reference-subgroup {
 .paramtype {
   display: inline-block;
   font-size: 1.2em;
-  width: 20em;
+  width: 73%;
   vertical-align: top;
+}
+
+#library-page .group-name{
+  display: inline-block;
+}
+
+#library-page .group-name:hover  {
+  color: #ED225D;
 }
 
 
@@ -908,6 +928,10 @@ h3.contribute-title {
   position: relative;
 }
 
+.label .nounderline img{
+  margin: .5em 0 0 0
+}
+
 .label h3 {
   color: white;
   position: absolute;
@@ -922,6 +946,14 @@ h3.contribute-title {
 h3 {
   font-size: 1.33em;
   margin: 1em 0 0 0;
+}
+
+.label .nounderline img {
+  height: fit-content;
+}
+
+#learn-page .info {
+  display: inline-block;
 }
 
 #exampleDisplay,
@@ -1222,6 +1254,14 @@ img.gallery-img {
   color: #ED225D;
   letter-spacing: 0.02rem;
   transition: all 0.3s;
+}
+
+@media (max-width: 500px) {	
+  #showcase-page .nominate a,
+  #showcase-page .nominate a:visited {
+    padding: 0.4em 0.3em;
+    font: 1.3rem "Montserrat", sans-serif;
+  }	
 }
 
 #showcase-page .nominate a:hover {
@@ -1702,6 +1742,10 @@ ul {
   list-style: none;
 }
 
+ol {
+  font-size: 1.2em;
+}
+
 li {
   margin: 0;
   padding: 0;
@@ -1713,6 +1757,10 @@ ul.list_view {
   list-style: disc;
   list-style-position: outside;
   font-size: 1.2em;
+}
+
+ol ul.list_view {
+  font-size: 1em;
 }
 
 ul.inside {
@@ -2099,9 +2147,7 @@ footer {
   .column.group-name {
     margin-bottom: 1em;
   }
-  #library-page .group-name:hover {
-    color: #ED225D;
-  }
+
   #library-page .group-name {
     margin: 2em 0 0.5em 0;
   }
@@ -2237,6 +2283,9 @@ footer {
   .small,
   footer {
     font-size: 0.5em;
+  }
+  .paramtype {
+    width: 96%;
   }
 }
 
@@ -2385,15 +2434,15 @@ iframe {
 
 #get-started-page #asterisk-design-element,
 #community-page #asterisk-design-element {
-  top: -30%;
-  right: -40%;
-  height: 44em;
-  width: 44em;
-  -webkit-transform: rotate(9deg);
-  -moz-transform: rotate(9deg);
-  -ms-transform: rotate(9deg);
-  -o-transform: rotate(9deg);
-  transform: rotate(9deg);
+  top: 10%;
+  right: -20%;
+  height: 30em;
+  width: 30em;
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  transform: rotate(2deg);
 }
 
 #reference-page #asterisk-design-element,
@@ -2420,10 +2469,26 @@ iframe {
   transition: border-bottom 30ms linear;
   width: 13em;
 }
-.email-octopus-form-row-subscribe button, .email-octopus-form-row-hp {
+
+.email-octopus-form-row-hp {
   position: absolute;
   left: -5000px;
 }
+
+.email-octopus-form-row button {
+  border: 1px solid #ED225D;
+  color: #ED225D;
+  padding: 0.4em 0.6em;
+  margin: 1em 0 0 0;
+  font-family: "Montserrat", sans-serif;
+  display: block;
+}
+
+.email-octopus-form-row button:hover {
+  background-color: #ED225D;
+  color: white;
+}
+
 .email-octopus-email-address::-webkit-input-placeholder { color:#ABABAB; }
 .email-octopus-email-address::-moz-placeholder { color:#ABABAB; }
 .email-octopus-email-address:-moz-placeholder { color:#ABABAB; }
@@ -2431,7 +2496,12 @@ iframe {
 
 @media (min-width: 720px) {
   .email-octopus-email-address {
-    width: 20em;
+    width: 16em;
   }
 
+  .email-octopus-form-row button {
+    margin: 0;
+    margin-left: 0.5em;
+    display: inline;
+  }
 }

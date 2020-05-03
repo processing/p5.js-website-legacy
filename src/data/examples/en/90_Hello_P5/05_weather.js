@@ -2,9 +2,6 @@
  * @name Weather
  * @frame 720,280
  * @description This example grabs JSON weather data from apixu.com.
- * You will need to include the 
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.
 */
 
 // A wind direction vector

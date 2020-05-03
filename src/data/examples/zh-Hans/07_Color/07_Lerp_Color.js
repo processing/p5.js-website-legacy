@@ -1,7 +1,6 @@
 /*
- * @name Lerp Color
- * @description Loop random shapes,
- * lerp color from red to blue.
+ * @name 插值颜色
+ * @description 随机循环形状，颜色从红色到蓝色。
  */
 function setup() {
   createCanvas(720, 400);
