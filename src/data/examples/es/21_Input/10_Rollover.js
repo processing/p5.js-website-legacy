@@ -1,6 +1,8 @@
 /*
  * @name Rollover
  * @description Roll over the colored squares in the center of the image to change the color of the outside rectangle.
+ * <br><br><span class="small"><em>This example is ported from the <a href="https://processing.org/examples/rollover.html"> Rollover example</a>
+ * on the Processing website</em></span>
  */
 let squareX, squareY;  // Position of square button
 let circleX, circleY;  // Position of circle button
