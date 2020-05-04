@@ -1,9 +1,10 @@
 /*
  * @name 修改 DOM
  * @frame 710,300
- * @description <p>每次调用 draw() 函数时，创建 DOM 元素并修改其属性。你需要在该范例中包含 
+ * @description <p>你需要在该范例中包含 
  * <a href="http://p5js.org/reference/#/libraries/p5.dom"> p5.dom 库</a>
  * 才能在你自己的项目中使用。<br><br>
+ * 每次调用 draw() 函数时，创建 DOM 元素并修改其属性。</p>
  */
 let dancingWords = [];
 

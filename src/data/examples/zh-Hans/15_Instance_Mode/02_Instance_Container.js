@@ -1,16 +1,14 @@
 /*
  * @norender
- * @name Instance Container
- * @description Optionally, you can specify a default container for the canvas
- * and any other elements to append to with a second argument. You can give the
- * ID of an element in your html, or an html node itself.
+ * @name 实例容器
+ * @description 第二个参数可以是你指定作为画布的默认容器，也可以是任何
+ 你想要添加此 p5 实例容器至的元素。可以是带 ID 的 html 元素， 也可以是 html 节点本身。
  *
- * Here are three different options for selecting a container
- * DOM element. All DOM elements (canvas, buttons, divs, etc) created by p5
- * will be attached to the DOM element specified as the second argument to the
- * p5() call.
+ * 以下列举了三种选择 DOM 元素作为容器的方法。 
+ * 所有由 p5 创建的 DOM 元素（画布，按钮，div 等）都会被添加到指定的 DOM 元素上，
+ * 这个指定元素就是调用 p5() 时传递的第二个参数。
  */
-<!-- pass in the ID of the container element -->
+<!-- 传递容器元素的 ID -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>
@@ -30,7 +28,7 @@
 </html>
 
 
-<!-- pass in a pointer to the container element -->
+<!-- 传递指向容器元素的指标 -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>
@@ -50,8 +48,7 @@
 </html>
 
 
-<!-- create an element, attach it to the body,
-and pass in a pointer -->
+<!-- 创建一个元素，添加至 body 并传递指标 -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>
@@ -72,8 +69,7 @@ and pass in a pointer -->
 </html>
 
 
-<!-- create an element, pass in a pointer,
-and attach it to the body -->
+<!-- 创建一个元素，传递指针并添加到 body -->
 <!DOCTYPE html>
 <head>
   <script src='p5.js'></script>

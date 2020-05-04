@@ -18,7 +18,7 @@ function draw() {
   directionalLight(0, 102, 255, -1, 0, 0);
 
   // Yellow spotlight from the front
-  pointLight(255, 255, 109, 0, 0, 300);
+  spotLight(255, 255, 109, 0, 0, 300);
 
   rotateY(map(mouseX, 0, width, 0, PI));
   rotateX(map(mouseY, 0, height, 0, PI));

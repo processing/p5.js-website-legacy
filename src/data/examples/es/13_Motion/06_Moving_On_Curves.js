@@ -1,21 +1,21 @@
 /*
- * @name Moving On Curves
+ * @name Moviéndose por Curvas
  * @frame 720,400
- * @description In this example, the circles moves along the curve y = x^4.
- * Click the mouse to have it move to a new position.
+ * @description En este ejemplo, los círculos se mueven a lo largo de la curva y = x^4.
+ * Haz clic con el ratón para que se mueva a una nueva posición.
  */
 
-let beginX = 20.0; // Initial x-coordinate
-let beginY = 10.0; // Initial y-coordinate
-let endX = 570.0; // Final x-coordinate
-let endY = 320.0; // Final y-coordinate
-let distX; // X-axis distance to move
-let distY; // Y-axis distance to move
-let exponent = 4; // Determines the curve
-let x = 0.0; // Current x-coordinate
-let y = 0.0; // Current y-coordinate
-let step = 0.01; // Size of each step along the path
-let pct = 0.0; // Percentage traveled (0.0 to 1.0)
+let beginX = 20.0; // Coordenada X inicial
+let beginY = 10.0; // Coordenada Y inicial
+let endX = 570.0; // Coordenada X final
+let endY = 320.0; // Coordenada Y final
+let distX; // Distancia a moverse en el eje X
+let distY; // Distancia a moverse en el eje Y
+let exponent = 4; // Determina la curva
+let x = 0.0; // Coordenada X actual
+let y = 0.0; // Coordenada Y actual
+let step = 0.01; // Tamaño de cada paso a lo largo del camino
+let pct = 0.0; // Porcentaje viajado (0.0 a 1.0)
 
 function setup() {
   createCanvas(720, 400);
