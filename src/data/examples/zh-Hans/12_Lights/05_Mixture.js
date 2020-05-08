@@ -10,35 +10,34 @@ function setup() {
 
 function draw() {
   background(0);
-  
-  // ambient light
-   ambientLight(0, 255/4, 0);
-  
-  // to set the light position,
-  // think of the world's coordinate as:
-  // -width/2,-height/2 -------- width/2,-height/2
-  //                |            |
-  //                |     0,0    |
-  //                |            |
-  // -width/2,height/2--------width/2,height/2
 
-  // blue directional light from the left
+  // 环境光
+   ambientLight(0, 255/4, 0);
+
+  // 设置光的位置，可将坐标想成如下：
+  // -宽度/2,-高度/2 -------- 宽度/2,-高度/2
+  //              |            |
+  //              |     0,0    |
+  //              |            |
+  // -宽度/2,高度/2--------宽度/2,高度/2
+
+  // 左侧：蓝色定向光
   directionalLight(0, 0, 255, -1, 0, 0);
 
-  // calculate distance from center to mouseX
+  // 计算由中心点至 mouseX 的距离
   let lightX = mouseX - width / 2;
   let lightY = mouseY - height / 2;
-  
-  // red spotlight
-  // axis located at lightX, lightY, 500
-  // axis direction of light: 0, 0, -1
+
+  // 红色聚光
+  // 光的轴位置：lightX, lightY, 500
+  // 光的轴方向：0, 0, -1
   spotLight(255, 0, 0, lightX, lightY, 500, 0, 0, -1);
 
-  // rotate on X axis
+  // 绕 X 轴旋转
   rotateX(-PI/4);
-  // rotate on Y axis
+  // 绕 Y 轴旋转
   rotateY(PI/4);
-  
-  // place box on (0, 0, 0), size 100
+
+  // 将方块放置在 (0, 0, 0)，并设大小为 100
   box(100);
 }
