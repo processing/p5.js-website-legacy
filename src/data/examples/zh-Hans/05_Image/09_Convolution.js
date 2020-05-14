@@ -23,7 +23,9 @@ function preload() {
 function setup() {
   createCanvas(720, 400);
   img.loadPixels();
-  // p5.js NOTE: in the case of retina displays, set the PD to 1
+
+  // pixelDensity(1) for not scaling pixel density to display density
+  // for more information, check the reference of pixelDensity()
   pixelDensity(1);
 }
 
@@ -44,8 +46,8 @@ function draw() {
   for (let x = xstart; x < xend; x++) {
     for (let y = ystart; y < yend; y++ ) {
       let c = convolution(x, y, matrix, matrixsize, img);
-      // p5.js NOTE: The way the pixels array works in p5.js is slightly different than Processing. Instead of each pixel
-      // being a single value, their RGBA values are stored as seperate elements that we access individually.
+      
+      // retrieve the RGBA values from c and update pixels()
       let loc = (x + y*img.width) * 4;
       pixels[loc] = red(c);
       pixels[loc + 1] = green(c);
@@ -63,6 +65,7 @@ function convolution(x, y, matrix, matrixsize, img) {
   const offset = Math.floor(matrixsize / 2);
   for (let i = 0; i < matrixsize; i++){
     for (let j = 0; j < matrixsize; j++){
+      
       // What pixel are we testing
       const xloc = (x + i - offset);
       const yloc = (y + j - offset);
@@ -72,7 +75,7 @@ function convolution(x, y, matrix, matrixsize, img) {
       loc = constrain(loc, 0 , img.pixels.length - 1);
 
       // Calculate the convolution
-      // p5.js NOTE: same thing is going on here - we must access the RGB values individually
+      // retrieve RGB values
       rtotal += (img.pixels[loc]) * matrix[i][j];
       gtotal += (img.pixels[loc + 1]) * matrix[i][j];
       btotal += (img.pixels[loc + 2]) * matrix[i][j];
@@ -82,6 +85,7 @@ function convolution(x, y, matrix, matrixsize, img) {
   rtotal = constrain(rtotal, 0, 255);
   gtotal = constrain(gtotal, 0, 255);
   btotal = constrain(btotal, 0, 255);
+  
   // Return the resulting color
   return color(rtotal, gtotal, btotal);
-}
+} 
