@@ -1,9 +1,8 @@
 /*
  * @name Video Canvas
- * @description <p>Load a video with multiple formats and draw it to the canvas.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * at least one video file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * @description Load a video with multiple formats and draw it to the canvas.
+ * To run this example locally, you will need a running 
+ * <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.
  */
 let fingers;
 
