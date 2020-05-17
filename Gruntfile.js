@@ -82,7 +82,8 @@ module.exports = function(grunt) {
       pages: {
         options: {
           rtl: function() {
-            var rtlLangs = ['ar', 'fa', 'he', 'ur'];
+            // Add needed right-to-left language codes in the array below
+            var rtlLangs = [];
             return rtlLangs.includes(this.language);
           },
           expand: true,
