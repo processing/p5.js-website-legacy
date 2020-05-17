@@ -125,7 +125,7 @@
       "returns": "초록색값"
     },
     "hue": {
-      "description": "색상 또는 픽셀 배열로부터 색조를 추출합니다. 색조는 HSB와 HSL상 모두 존재합니다. 이 함수는 HSB 색상 객체를 사용할 경우(또는 HSB 색상 모드로 지정된 픽셀 배열을 사용할 경우) HSB로 표준화된 색조 값을 반환합니다. 기본값으로는 HSL로 표준화된 색조를 반환합니다. (단, 최대 색조가 별도로 지정되어있을 경우 다른 값을 반환합니다.)",
+      "description": "색상 또는 픽셀 배열로부터 색조를 추출합니다. 색조는 HSB와 HSL상 모두 존재합니다. 이 함수는 HSB 색상 객체를 사용할 경우(또는 HSB 색상 모드로 지정된 픽셀 배열을 사용할 경우) HSB로 표준화된 색조 값을 반환합니다. 기본값으로는 HSL로 표준화된 색조를 반환합니다. (단, 최대 색조를 별도 지정한 경우 다른 값을 반환합니다.)",
       "params": ["객체, 색상 요소 또는 CSS 색상"],
       "returns": "색조"
     },
@@ -749,143 +749,176 @@
 //DOM
     
   "p5.Element": {
-    "description": "",
-    "params": ["String: node DOM envolvente.",
-    "Objeto: puntero a instancia p5."],
-    "returns": "TODO"
+    "description": "캔버스, 그래픽 버퍼, 기타 HTML 요소를 비롯하여, 스케치에 추가된 모든 요소(element)들을 위한 기본 클래스입니다. p5.Element 클래스는 직접 호출되지 않지만, 그 객체는 createCanvas, createGraphics, createDiv, createImg, createInput 호출을 통해 생성됩니다.",
+    "params": ["문자열: 래핑된 DOM 노드",
+               "P5: p5 인스턴스에 대한 포인터 (선택 사항)"
+              ],
+    "fields": ["기본 HTML 요소로, 모든 일반 HTML 메소드를 호출."
+               ],
+    "methods": ["지정된 부모 클래스에 요소를 연결합니다. 요소의 컨테이너를 설정하는 방법입니다. 문자열 ID, DOM 노드, 또는 p5.Element를 허용합니다. 별도의 인수가 지정되지 않을 경우, 부모 노드가 반환됩니다. 캔버스 배치하는 다른 방법들은 <a href= 'https://github.com/processing/p5.js/wiki/Positioning-your-canvas'>이 위키 페이지</a>를 참고하세요.",
+                "요소의 ID를 설정합니다. 별도로 지정한 ID 인수가 없으면, 요소의 현재 ID를 반환합니다. 요소당 1개의 특정 id를 가질 수 있습니다. .class() 함수는 동일한 클래스 이름을 가진 여러 요소들을 식별하는 데에 사용됩니다.",
+                "사용자가 지정한 클래스를 요소에 더합니다. 별도로 지정한 클래스 인수가 없으면, 요소의 현재 클래스(들)를 포함하는 문자열을 반환합니다.",
+                ".mousePressed() 함수는 요소 위에서 마우스 버튼이 눌릴 때마다 한 번씩 호출됩니다. 터치 스크린 기반의 모바일 브라우저에서는 손가락 탭을 통해 이벤트가 발생합니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".doubleClicked() 함수는 요소 위에서 마우스 버튼을 빠르게 두 번 클릭할 때마다 한 번씩 호출됩니다. 요소에 행동 특정적 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".mouseWheel() 함수는 요소 위에서 마우스 휠을 스크롤 할 때마다 한 번싹 호출됩니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.<br> 이 함수에서는 콜백 함수를 인수로서 사용할 수 있습니다. 그 경우, 요소 위에서 휠 이벤트가 발생할 때마다 콜백 함수가 하나의 event 인수로서 전달됩니다. event.deltaY 속성은 마우스 휠이 위쪽으로 회전하거나 사용자로부터 멀어지면 음수값을 반환하고, 그 반대 방향에선 양수값을 반환합니다. event.deltaX 속성은 마우스 가로 휠 스크롤을 읽는다는 점을 제외하고 event.deltaY와 동일하게 작동합니다.",
+                ".mouseReleased() 함수는 요소 위에서 마우스 버튼을 놓을 때마다 한 번씩 호출됩니다. 터치 스크린 기반의 모바일 브라우저에서는 손가락 탭을 통해 이벤트가 발생합니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".mouseClicked() 함수는 요소 위에서 마우스 버튼을 클릭한 뒤 놓을 때마다 한 번씩 호출됩니다. 터치 스크린 기반의 모바일 브라우저에서는 손가락 탭을 통해 이벤트가 발생합니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".mouseMoved() 함수는 마우스가 요소 위에서 움직일 때마다 한 번씩 호출됩니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".mouseOver() 함수는 마우스가 요소 위에 올라올 때마다 한 번씩 호출됩니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".mouseOut() 함수는 마우스가 요소 위에서 벗어날 때마다 한 번씩 호출됩니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".touchStarted() 함수는 터치가 등록될 때마다 한 번씩 호출됩니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".touchMoved() 함수는 터치 움직임이 등록될 때마다 한 번씩 호출됩니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".touchEnded() 함수는 터치가 등록될 때마다 한 번씩 호출됩니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".dragOver() 함수는 요소 위에 파일을 드래그할 때마다 한 번씩 호출됩니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                ".dragLeave() 함수는 드래그된 파일이 요소 영역을 벗어날 때마다 한 번씩 호출됩니다. 요소에 이벤트 리스너를 연결하는 데에 사용됩니다.",
+                "요소에 특정 클래스를 추가합니다.",
+                "요소로부터 특정 클래스를 제거합니다.",
+                "요소에 이미 클래스가 설정되어 있는지 확인합니다.",
+                "요소 클래스를 토글합니다.",
+                "지정된 부모 클래스에 요소를 자식으로서 연결합니다. 문자열 ID, DOM 노드, 또는 p5.Element를 허용합니다. 별도의 인수가 지정되지 않을 경우, 자식 DOM 노드 배열이 반환됩니다. ",
+                "p5 Element를 수직으로, 수평으로, 또는 수직 및 수평으로 가운데 정렬합니다. 별도로 지정한 부모가 있는 경우 부모를 기준으로, 부모가 없는 경우 그 자신을 기준으로 합니다. 별도로 지정한 인수가 없으면 요소는 수직 및 수평으로 정렬됩니다.",
+                "사용자가 별도로 지정한 인수로서 요소의 내부 HTML을 설정하며, 기존의 모든 HTML를 대체합니다. 참(true)이 그 2번째 인수로서 포함된 경우, 기존의 모든 HTML을 대체하는 대신 새로운 HTML을 추가(append)합니다. 별도로 지정한 인수가 없으면 요소의 내부 HTML을 반환합니다.",
+                "요소의 위치를 설정합니다. 별도로 지정한 위치 유형 인수가 없는 경우, 화면창의 (0,0)을 기준으로 합니다. 기본적으로, 이 메소드를 통해 position:absolute와 left 및 top 스타일 속성을 설정합니다. 선택적으로, 3번째 인수를 통해 x 및 y 좌표의 <a href ='https://developer.mozilla.org/en-US/docs/Web/CSS/position'>위치 지정 체계</a>를 설정할 수 있습니다. 별도로 지정한 인수가 없으면 함수는 요소의 x와 y의 위치를 반환합니다.",
+                "별도 지정한 값(2번째 인수)으로 CSS 스타일 속성(1번째 인수)을 설정합니다. 1개의 인수만 지정할 경우, .style()은 주어진 속성의 값을 반환합니다. 그러나 이 인수를 CSS 구문('text-align:center')으로 작성할 경우, .style()은 CSS를 설정합니다.",
+                "사용자가 지정한 요소에 새 속성을 추가하거나, 요소의 기존 속성값을 변경합니다. 별도로 지정한 값이 없는 경우 주어진 속성의 값을 반환하고, 속성이 설정되지 않은 경우 null을 반환합니다. ",
+                "요소로부터 속성을 제거합니다.",
+                "별도로 지정한 인수가 없는 경우, 요소의 값을 반환하거나 설정합니다.",
+                "현재 요소를 보여줍니다. display:block로 스타일을 설정합니다.",
+                "현재 요소를 숨깁니다. display:none으로 스타일을 설정합니다.",
+                "요소의 너비와 높이를 설정합니다. AUTO는 한 번에 한 개의 수치를 조정하는 데에 쓰입니다. 별도로 지정한 인수가 없는 경우, 객체 속 요소의 너비와 높이를 반환합니다. 이미지 파일과 같이 불러오기가 필요한 요소의 경우, 불러오기가 완료된 후 함수를 호출하는 것을 권장합니다.",
+                "요소를 제거하고, 모든 미디어 스트림을 중지하며, 모든 리스너를 해제합니다.",
+                "요소에 드롭된 파일이 로드될 때마다 호출되는 콜백을 등록합니다. p5는 메모리에 드롭된 모든 파일을 로드하고 이를 p5.File 객체로서 콜백에 전달합니다. 동시에 여러 파일을 드롭할 경우, 콜백이 여러 번 호출됩니다. 선택적으로, raw 드롭 이벤트에 등록될 2번째 콜백을 전달할 수 있습니다. 이 경우, 콜백에 본래 DragEvent도 제공됩니다. 동시에 여러 파일을 드롭하면 2번째 콜백이 드롭당 한 번씩 발생하며, 1번째 콜백은 로드된 파일당 한 번씩 발생합니다.",
+               ]
   },
 
   "select": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "지정한 ID, 클래스, 또는 태그 이름(접두어 '#'로 ID를, '.'로 클래스 지정 가능, 태그는 별도의 접두어 없음)에 해당하는 요소를 페이지 내에서 검색하고, p5.Element를 반환합니다. 클래스나 태그의 이름이 2개 이상의 요소로 지정된 경우, 1번째 요소만 반환됩니다. DOM 노드는 .elt로 검섹할 수 있습니다. 아무 것도 검색되지 않을 경우 null을 반환합니다. 검색할 컨테이너를 별도로 지정할 수 있습니다.",
+    "params": ["문자열: 검색할 요소의 id, 클래스, 또는 태그 이름",
+               "문자열|p5.Element|HTML 요소: id, p5.Element, 또는 HTML 요소 내에서 검색(선택 사항)"],
+    "returns": "검색된 노드를 포함한 p5.Element"
   },
   "selectAll": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "지정한 클래스 또는 태그 이름('.'로 클래스 지정 가능, 태그는 별도의 접두어 없음)에 해당하는 요소를 페이지 내에서 검색하고, p5.Element 배열로 반환합니다. DOM 노드는 .elt로 검색할 수 있습니다. 아무 것도 검색되지 않을 경우 빈 배열을 반환합니다. 검색할 컨테이너를 별도로 지정할 수 있습니다.",
+    "params": ["문자열: 검색할 요소의 클래스 또는 태그 이름",
+               "문자열: id, p5.Element, 또는 HTML 요소 내에서 검색(선택 사항)"],
+    "returns": "검색된 노드를 포함한 p5.Element 배열"
   },
   "removeElements": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "createCanvase() 또는 createGraphics()로 생성된 캔버스와 그래픽을 제외하고, p5로 생성된 모든 요소를 제거합니다. 이벤트 핸들러 역시 제거되며, 요소가 DOM에서 제거됩니다.",
+    "params": "",
+    "returns": ""
   },
   "changed": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": ".changed() 함수는 요소값이 변경될 때 호출됩니다. 특정 요소의 이벤트 리스너와 연결하는 데에 사용됩니다.",
+    "params": ["함수|불리언: 요소값이 변경될 때 발생하는 함수. 거짓(false)이 전달되면 이전 실행 함수는 더이상 실행 불가"],
+    "returns": ""
   },
   "input": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": ".input() 함수는 요소가 사용자 입력을 감지할 때 호출됩니다. 입력 이벤트는 키 또는 슬라이더 요소의 변경을 감지합니다. 특정 요소의 이벤트 리스너와 연결하는 데에 사용됩니다.",
+    "params": ["함수|불리언: 요소가 사용자 입력을 감지할 때 발생하는 함수. 거짓(false)이 전달되면 이전 실행 함수는 더이상 실행 불가"],
+    "returns": ""
   },
   "createDiv": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "주어진 내부 HTML을 사용하여 DOM에 <div></div> 요소를 생성합니다.",
+    "params": ["문자열: 요소를 생성한 내부 HTML (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createP": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "주어진 내부 HTML을 사용하여 DOM에 <p></p> 요소를 생성합니다. 문단형 텍스트 작성시 사용됩니다.",
+    "params": ["문자열: 요소를 생성한 내부 HTML (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createSpan": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "주어진 내부 HTML을 사용하여 DOM에 <span></span> 요소를 생성합니다.",
+    "params": ["문자열: 요소를 생성한 내부 HTML (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createImg": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "주어진 src와 대체 텍스트(alt text)를 사용하여 DOM에 <img> 요소를 생성합니다.",
+    "params": ["문자열: 이미지의 src 또는 url 경로",
+               "문자열: 이미지가 로드되지 않을 경우 사용할 <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#Attributes'>대체 텍스트</a>. 빈 문자열(" ")로 이미지 숨기기 가능",
+               "문자열: img 요소의 <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin'>교차 출처 속성(crossOrigin property)</a>. '익명(anonymous)' 또는 '사용 자격 증명(use-credentials)'을 통해 교차 출처 권한이 있는 이미지를 검색하세요. 이는 캔버스에 이미지를 사용하기 위함이며, 빈 문자열(" ")이 전달된 경우 교차 출처 리소스 공유(CORS)는 사용되지 않습니다.",
+               "gkatn: 인수로 지정된 p5.Element가 이미지 데이터를 불러왔을 때 호출되는 콜백 함수 (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createA": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 하이퍼링크를 포함한 <a></a> 요소를 생성합니다.",
+    "params": ["문자열: 링크될 페이지 url",
+               "문자열: 화면에 보여질 링크 요소의 내부 HTML",
+               "문자열: 새로운 링크가 보여질 대상, _blank, _self, _parent, _top 중 지정 가능 (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createSlider": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 슬라이더<input></input> 요소를 생성합니다. .size() 함수로 슬라이더의 길이를 설정합니다.",
+    "params": ["숫자: 슬라이더의 최소값",
+               "숫자: 슬라이더의 최대값",
+               "숫자: 슬라이더의 기본값(선택 사항)",
+               "숫자: 슬라이더의 단위당 이동 크기(이동 크기가 0으로 지정된 경우, 슬라이더는 최소값과 최대값 사이를 부드럽게 이동합니다.)(선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createButton": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 <button></button> 요소를 생성합니다. .size() 함수로 버튼의 크기를 설정합니다. .mousePressed() 함수로 버튼이 클릭됐을 때의 행동을 지정합니다.",
+    "params": ["문자열: 버튼 위에 나타나는 레이블",
+               "문자열: 버튼값 (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createCheckbox": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 체크박스<input></input> 요소를 생성합니다. .checked() 함수를 통해 체크되었는지의 여부를 반환합니다.",
+    "params": ["문자열: 체크박스 위에 나타나는 레이블 (선택 사항)",
+               "불리언: 체크박스의 값: 체크는 참(true), 체크 해제는 거짓(false) (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createSelect": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 드롭다운 메뉴<select></select> 요소를 생성합니다. 이미 생성된 셀렉트 박스(select box)를 선택할 경우, p5.Element에 select-box 메소드를 지정하는 데에도 쓰입니다. 셀렉트 박스 생성 후, .option() 메소드로 선택지(option)를 설정할 수 있습니다. .selected() 메소드는 p5.Element 인스턴스인 현재 드롭다운 요소를 반환합니다. .selected() 메소드는 특정 선택지를 최초 페이지 로드시의 기본값으로서 설정할 수 있습니다. .disable() 메소드는 특정 선택지를 비활성화하고, 별도로 지정된 인수가 없는 경우엔 전체 드롭다운 요소를 비활성화 상태로 표시합니다.",
+    "params": ["불리언: 드롭다운이 여러 개의 선택지를 제공할 경우 참(true) (선택 사항)",
+               "객체: DOM 셀렉트 요소"],
+    "returns": "p5.Element"
   },
   "createRadio": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 라디오 버튼<input></input> 요소를 생성합니다. 라디오 버튼 생성 후, .option() 메소드로 옵션을 설정할 수 있습니다. .value() 메소드는 현재 선택된 옵션을 반환합니다.",
+    "params": ["문자열: 생성된 div와 input field 각각의 id 및 이름 (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createColorPicker": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 색상 입력을 위한 색상 추출(colorPicker) 요소를 생성합니다. .value() 메소드는 색상의 헥사(Hex) 문자열(#rrggbb)을 반환합니다. .color() 메소드는 현재 선택된 색상의 p5.Color 객체를 반환합니다.",
+    "params": ["문자열|p5.Color: 요소의 색상 기본값 (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createInput": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 텍스트 입력을 위한 <input></input> 요소를 생성합니다. .size() 함수로 상자의 크기를 설정합니다.",
+    "params": ["문자열: 입력 상자의 기본값 (선택 사항)",
+               "문자열: 텍스트 유형 (예: text, password 등) 기본값은 text (선택 사항)"],
+    "returns": "p5.Element: 생성된 노드를 담고있는 p5.Element에 대한 포인터"
   },
   "createFileInput": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "'파일(file)' 유형의 DOM에 <input></input> 요소를 생성합니다. 스케치에 사용할 로컬 파일을 선택할 수 있게 됩니다.",
+    "params": ["함수: 파일이 로드될 때의 콜백 함수 (선택 사항)",
+               "문자열: 여러 파일 선택 허용 (선택 사항)"],
+    "returns": "p5.Element: 생성된 DOM 요소를 담고있는 p5.Element에 대한 포인터"
   },
   "createVideo": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 간단한 오디오/비디오 재생을 위한 HTML5 <video> 요소를 생성합니다. 화면에 나타나기가 기본값이며, .hide()로 숨길 수 있습니다. video() 함수를 통해 캔버스에 그릴 수 있습니다. 1번째 매개 변수는 비디오 파일에 대한 단일 문자열 경로이거나, 또는 동일한 비디오 파일이 여러 개의 형식을 갖는 경우, 문자열 경로들의 배열로 지정됩니다. 특히, 다양한 파일 형식을 지정하여 여러 종류의 브라우저에서 재생될 수 있도록 하는 데에 용이합니다. 지원되는 파일 형식에 대한 자세한 내용은 <a href = 'https://developer.mozilla.org/en-US/docs/Web/Media/Formats'>이 페이지</a>를 참고하세요. ",
+    "params": ["문자열|문자열 배열[]: 비디오 파일 경로, 또는 경로들의 배열(여러 종류의 브라우저 지원)",
+               "함수: 브라우저의 미디어 재생가능 상태를 뜻하는, 'canplaythrough' 이벤트 발생시에 호출되는 함수. 추가 버퍼링 없이도, 미디어를 끝까지 재생할 수 있는 충분한 데이터가 로드된 것으로 평가. (선택 사항)"],
+    "returns": "p5.MediaElement: 비디오 p5.Element에 대한 포인터"
   },
   "createAudio": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "DOM에 간단한 오디오 재생을 위한 HTML5 <audio> 요소를 생성합니다. 1번째 매개 변수는 오디오 파일에 대한 단일 문자열 경로이거나, 또는 동일한 오디오 파일이 여러 개의 형식을 갖는 경우, 문자열 경로들의 배열로 지정됩니다. 특히, 다양한 파일 형식을 지정하여 여러 종류의 브라우저에서 재생될 수 있도록 하는 데에 용이합니다. 지원되는 파일 형식에 대한 자세한 내용은 <a href = 'https://developer.mozilla.org/en-US/docs/Web/Media/Formats'>이 페이지</a>를 참고하세요. ",
+    "params": ["문자열|문자열 배열[]: 오디오 파일 경로, 또는 경로들의 배열(여러 종류의 브라우저 지원)",
+               "함수: 브라우저의 미디어 재생가능 상태를 뜻하는, 'canplaythrough' 이벤트 발생시에 호출되는 함수. 추가 버퍼링 없이도, 미디어를 끝까지 재생할 수 있는 충분한 데이터가 로드된 것으로 평가. (선택 사항)"],
+    "returns": "p5.MediaElement: 오디오 p5.Element에 대한 포인터"
   },
   "VIDEO": {
     "description": "",
     "params": ["",
     ""],
-    "returns": "TODO"
+    "returns": ""
   },
   "AUDIO": {
     "description": "",
     "params": ["",
     ""],
-    "returns": "TODO"
+    "returns": ""
   },
   "createCapture": {
     "description": "",
@@ -919,7 +952,7 @@
     "params": ["숫자: 너비값",
                "숫자: 높이값",
                "상수: 사용할 렌더러, P2D 또는 WEBGL",
-               "P5: p5 인스턴스를 가리키는 포인터 (선택 사항)",
+               "P5: p5 인스턴스에 대한 포인터 (선택 사항)",
     ""],
     "methods": ["그래픽 버퍼 객체로 자동 재설정되지 않은 특정값들(예: 레퍼런스 중 변형(Transform) 또는 라이트(Light) 항목에 해당하는 함수들로서 지정된 값들). 이 메소드를 draw() 함수 안에서 호출하면, 기본 캔버스의 행위를 복제합니다.",
                "페이지에서 그래픽 객체를 제거하고 이 객체에 연결된 모든 소스들을 연결 해제합니다."]
@@ -1153,6 +1186,61 @@
     },
 
 // Data > Array Functions
+    
+    "storeItem":{
+        "description":"",
+        "params":["",
+                  ""],
+        "returns":""
+    },
+    "getItem":{
+        "description":"",
+        "params":["",
+                  ""],
+        "returns":""
+    },
+    "clearStorage":{
+        "description":"",
+        "params":["",
+                  ""],
+        "returns":""
+    },
+    "removeItem":{
+        "description":"",
+        "params":["",
+                  ""],
+        "returns":""
+    },
+      
+      
+// Data > Dictionary
+      
+    "createStringDict":{
+        "description":"",
+        "params":["",
+                  ""],
+        "returns":""
+    },
+    "createNumberDict":{
+        "description":"",
+        "params":["",
+                  ""],
+        "returns":""
+    },
+    "p5.TypedDict":{
+        "description":"",
+        "params":["",
+                  ""],
+        "returns":""
+    },
+    "p5.NumberDict":{
+        "description":"",
+        "params":["",
+                  ""],
+        "returns":""
+    },
+
+// Data > Array Functions
       
     "append": {
       "description": "弃用：append() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push'>array.push(value)</a>。<br><br>在数组的尾端增加一个值。将增加数组的一个大小。映射到 Array.push()。",
@@ -1211,6 +1299,11 @@
                  "整数：提取元素数"],
       "returns": "数组：提取出来的元素数组"
     },
+      
+      
+// Data > Conversion
+      
+      
     "float": {
       "description": "将一个字符串转换成其浮点值。字符串内内容必须是数字，不然将返回 NaN（不是数字）。比如说，float(\"1234.56\") 将返回 1234.56，但 float(\"giraffe\") 将返回 NaN。<br><br>当给予一数组的值时，将返回一个等同大小的浮点数组。",
       "params": ["字符串：该解析的浮点字符串"],
@@ -1264,6 +1357,12 @@
                  "数组：该解析的值"],
       "returns": "数字：该十六进制值的整数值"
     },
+      
+      
+      
+// Data > String Functions
+      
+      
     "join": {
       "description": "将一数组的字符串合成一个字符串，每一个元素由 separator 参数定义的字符分隔开。如果要连接整数或浮点数数组，它们必须先使用 nf() 或 nfs() 转换成字符串。",
       "params": ["数组：该连接的字符串",
@@ -2284,13 +2383,6 @@
       "methods": ["Wrapper de las funciones gl.uniform. Como almacenamos información de uniform en el shader, la podemos usar para revisar los datos provistos y llamar a la función apropiada."]
     }
   },
-    "p5.Image": {
-    "loadPixels": {
-      "description": "blah",
-      "params": ["Numero: blah",
-                 "Numero: blah"],
-      "returns": "TODO"
-    }
-  }
+
   
 }
