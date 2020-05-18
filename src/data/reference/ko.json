@@ -910,39 +910,60 @@
   },
   "VIDEO": {
     "description": "",
-    "params": ["",
-    ""],
+    "params": [""],
     "returns": ""
   },
   "AUDIO": {
     "description": "",
-    "params": ["",
-    ""],
+    "params": [""],
     "returns": ""
   },
   "createCapture": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "웹캠의 오디오/비디오 피드를 담는 <video> 요소를 생성합니다. 이 요소는 캔버스와는 별개로 작동합니다. '화면에 나타내기'가 기본값으로 주어지며, .hide()를 사용하여 화면으로부터 숨길 수 있습니다. image() 함수를 사용하여 피드를 캔버스에 그릴 수 있습니다. loadedmetadata 속성을 사용하여 요소가 완전히 로드된 시점을 감지할 수 있습니다. (2번째 예제 참고)<br><br> 피드의 구체적인 속성은 제약 조건(Constraints) 객체를 전달할 수 있습니다. 속성 및 제약 조건 객체와 관련해서는 <a href = 'https://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'>W3C 사양</a>을 참고하세요. 모든 브라우저가 이 기능을 지원하지 않는 점에 유의하세요.<br><br>보안 정보: 최신 브라우저 보안 사양은 createCapture() 이면의 getUserMedia() 메소드가 로컬 또는 HTTPS에서 코드 실행시에만 작동할 것을 요구합니다. 자세한 사항은 <a href = 'https://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https'>여기</a>와 <a href = 'https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia'>여기</a>서 확인하세요. ",
+    "params": ["문자열|상수|객체: 캡쳐 유형, VIDEO 또는 AUDIO 중 하나로 지정 가능. 별도의 매개 변수가 지정되지 않을 경우 기본값으로 둘 다 또는 제약 조건 객체",
+               "함수: 스트림 로드 완료 후 1번 호출되는 함수 (선택 사항)"],
+    "returns": ""
   },
   "createElement": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "지정된 콘텐츠를 지닌 DOM에 태그된 요소를 생성합니다.",
+    "params": ["문자열: 새로운 요소의 태그",
+               "문자열: 요소 안에 삽입될 HTML 콘텐츠 (선택 사항)"],
+    "returns": ""
   },
   "p5.MediaElement": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "오디오/비디오 처리를 위해 p5.Element를 확장합니다. p5.Element의 메소드 뿐 아니라, 미디어 제어를 위한 메소드도 포함합니다. p5.MediaElements는 직접 호출되지 않지만, createVideo, createAudio, CreateCapture 호출을 통해 생성됩니다.",
+    "params": ["문자열: 래핑된 DOM 노드"],
+    "fields": ["미디어 요소 소스 경로"],
+    "methods": ["HTML5 미디어 요소를 재생합니다.",
+               "HTML5 미디어 요소를 중지합니다. (현재 시간을 0으로 설정)",
+               "HTML5 미디어 요소를 일시정지합니다.",
+               "HTML5 미디어 요소의 반복을 참(true)로 설정하고, 재생 시작합니다.",
+               "HTML5 미디어 요소의 반복을 거짓(false)으로 설정합니다. 종료 시점에 도달하면 요소가 중지합니다.",
+               "HTML5 미디어 요소 자동재생 여부 설정",
+               "HTML5 미디어 요소의 볼륨을 설정합니다. 별도로 지정한 인수가 없으면, 현재 볼륨을 반환합니다.",
+               "별도로 지정한 인수가 없으면, 요소의 현재 재생 속도를 반환하빈다. 속도 매개 변수는 2.0일 때 2배속으로, 0.5일 때 0.5배속으로, -1일 때 정상 속도로 역재생합니다. (모든 브라우저가 역재생을 지원하지 않으며, 일부 지원 브라우저에서도 부드럽게 재생되지 않을 수 있습니다.)",
+               "별도로 지정한 인수가 없을 경우, 요소의 현재 시간을 반환합니다. 인수가 지정될 경우, 요소의 현재 시간이 해당 인수로 설정됩니다.",
+               "HTML5 미디어 요소의 지속 시간을 반환합니다.",
+               "오디오/비디오 요소가 종료 시점에 도달할 때 호출할 이벤트를 예약합니다. 요소가 반복하는 경우 호출되지 않습니다. 요소는 oneded 콜백에 인수로 전달됩니다.",
+               "요소가 출력한 오디오를 특정 audioNode나 p5.sound 객체로 보냅니다. 요소가 없는 경우, p5의 마스터 출력에 연결합니다. 모든 연결은 .disconnect() 메소드로 제거할 수 있습니다. p5.sound.js 애드온 라이브러리로 이러한 방법을 사용할 수 있습니다.",
+               "마스터 출력을 비롯하여 모든 웹 오디오 라우팅을 분리합니다. 사용 예: 오디오 효과를 통해 출력을 다시 라우팅할 때",
+               "웹 브라우저가 지정한 기본 미디어 요소(MediaElement) 컨트롤을 나타냅니다.",
+               "기본 미디어 요소(MediaElement) 컨트롤을 숨깁니다.",
+               "오디오/비디오와 같은 미디어 요소(MediaElement)가 재생 큐 지점에 도달할 때 발생할 이벤트를 예약합니다. 콜백 함수, 콜백이 발생할 시간(초 단위), 콜백에 대한 선택적 매개 변수를 허용합니다. 1번째 매개 변수는 시간(time)을, 2번째 매개 변수는 param을 콜백 함수에 전달합니다.",
+               "ID를 기반으로 콜백을 제거합니다. ID는 addCue 메소드로 반환됩니다.",
+               "addCue 메소드로 예약된 모든 콜백을 제거합니다."],
+    "returns": ""
   },
   "p5.File": {
-    "description": "",
-    "params": ["",
-    ""],
-    "returns": "TODO"
+    "description": "파일을 위한 기본 클래스입니다. Element.drop()과 createFileInput()에 사용됩니다.",
+    "params": "파일: 래핑된 파일",
+    "fields": ["기본 파일 객체. 모든 일반 File 메소드를 호출할 수 있습니다.",
+              "파일 유형 (이미지, 텍스트 등)",
+              "파일 하위 유형 (주로 jpg, png, xml 등의 파일 확장자)",
+              "파일명",
+              "파일 크기",
+              "이미지 데이터를 담는 URL 문자열"],
+    "returns": ""
   },
     
 //Rendering
@@ -1188,27 +1209,24 @@
 // Data > Array Functions
     
     "storeItem":{
-        "description":"",
-        "params":["",
-                  ""],
+        "description":"로컬 저장소에 값을 키 이름(key name)으로 저장합니다. 로컬 저장소는 브라우저에 저장되며, 브라우징 세션과 페이지를 다시 불러오는 사이에 유지됩니다. 키(key)는 변수명과 동일하게 지정될 수 있으나, 반드시 그럴 필요는 없습니다. 저장된 항목(item)을 가져오려면 <a href = 'https://p5js.org/reference/#/p5/getItem'>getItem</a>을 참조하세요.<br><br>비밀번호나 개인 정보와같이 민감한 데이터는 로컬 저장소에 저장되면 안됩니다.",
+        "params":["문자열:",
+                  "문자열|숫자|객체|불리언|p5.Color|p5.Vector:"],
         "returns":""
     },
     "getItem":{
-        "description":"",
-        "params":["",
-                  ""],
-        "returns":""
+        "description":"storeItem()로 저장한 항목(item)의 값을 로컬 저장소로부터 반환합니다.",
+        "params":["문자열: 로컬 저장소에 저장시 사용할 이름"],
+        "returns":"숫자|객체|문자열|불리언|p5.Color|p5.Vector: 저장된 항목의 값"
     },
     "clearStorage":{
-        "description":"",
-        "params":["",
-                  ""],
+        "description":"현재 영역에서 storeItem()으로 설정된 모든 로컬 저장소 항목(item)을 제거합니다.",
+        "params":"",
         "returns":""
     },
     "removeItem":{
-        "description":"",
-        "params":["",
-                  ""],
+        "description":"storeItem()으로 저장된 항목(item)을 제거합니다.",
+        "params":["문자열"],
         "returns":""
     },
       
@@ -1216,40 +1234,57 @@
 // Data > Dictionary
       
     "createStringDict":{
-        "description":"",
-        "params":["",
-                  ""],
-        "returns":""
+        "description":"키-값(key-value) 쌍 또는 사용자가 지정한 객체를 사용하여 p5.StringDict의 새로운 인스턴스를 생성합니다.",
+        "params":["문자열:",
+                  "문자열:"
+                  "객체: 객체"],
+        "returns":"p5.StringDict:"
     },
     "createNumberDict":{
-        "description":"",
-        "params":["",
-                  ""],
-        "returns":""
+        "description":"키-값(key-value) 쌍 또는 사용자가 지정한 객체를 사용하여 p5.NumberDict의 새로운 인스턴스를 생성합니다.",
+        "params":["숫자:",
+                  "숫자",
+                  "객체: 객체",
+                 ],
+        "returns":"p5.NumberDict:"
     },
     "p5.TypedDict":{
-        "description":"",
-        "params":["",
-                  ""],
+        "description":"모든 p5.Dictionary 유형을 위한 기본 클래스 입니다. 사용자가 지정한 사전(Dictionary) 클래스는 이 클래스를 상속할 수 있습니다.",
+        "methods":["사전 안에 현재 저장된 키-값(key-value) 쌍의 개수를 반환합니다.",
+                  "지정된 키(key)가 사전 안에 존재할 경우 참(true)을, 그렇지 않으면 거짓(false)를 반환합니다.",
+                  "지정된 키에 저장된 값을 반환합니다.",
+                  "지정된 키가 사전 안에 존재할 경우 연관된 값을 반환합니다. 그렇지 않으면 새로운 키-값 쌍이 추가됩니다.",
+                  "새로운 키-값 쌍을 사전 안에 생성합니다.",
+                  "기존에 저장된 모든 키-값 쌍들을 사전으로부터 제거합니다.",
+                  "특정 키에 저장된 키-값 쌍을 사전으로부터 제거합니다.",
+                  "Dictionary에 현재 저장된 항목들의 로그를 콘솔창에 출력합니다.",
+                  "로컬 다운로드를 위해 사전을 CSV 파일로 변환합니다.",
+                  "로컬 다운로드를 위해 사전을 JSON 파일로 변환합니다."],
         "returns":""
     },
     "p5.NumberDict":{
-        "description":"",
-        "params":["",
-                  ""],
+        "description":"숫자를 위한 간단한 사전 클래스<br>p5.TypedDict를 확장합니다.",
+        "params":["특정 키에 현재 저장된 값에 사용자가 지정한 숫자를 더하고, 그 결과값은 사전 안에 저장되어있던 기존값을 대체합니다.",
+                  "특정 키에 현재 저장된 값에서 사용자가 지정한 숫자를 빼고, 그 결과값은 사전 안에 저장되어있던 기존값을 대체합니다.",
+                  "특정 키에 현재 저장된 값에 사용자가 지정한 숫자를 곱하고, 그 결과값은 사전 안에 저장되어있던 기존값을 대체합니다.",
+                  "특정 키에 현재 저장된 값을 사용자가 지정한 숫자로 나누고, 그 몫은 사전 안에 저장되어있던 기존값을 대체합니다.",
+                  "사전 안에 현재 저장된 값들 중 가장 낮은 숫자를 반환합니다.",
+                  "사전 안에 현재 저장된 값들 중 가장 높은 숫자를 반환합니다.",
+                  "사전에서 사용된 키들 중 가장 낮은 키를 반환합니다.",
+                  "사전에서 사용된 키들 중 가장 높은 키를 반환합니다."],
         "returns":""
     },
 
 // Data > Array Functions
       
     "append": {
-      "description": "弃用：append() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push'>array.push(value)</a>。<br><br>在数组的尾端增加一个值。将增加数组的一个大小。映射到 Array.push()。",
-      "params": ["数组：该附加到的数组",
-                 "任何：该附加进数组的元素"],
-      "returns": ""
+      "description": "사용 불가: append()는 더이상 사용 불가하며, p5의 추후 버전에서 제거됩니다. <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push'>array.push(value)</a>를 대신 사용하세요.<br><br>배열의 끝에 값을 추가하여, 그 길이를 1씩 확장합니다. Array.push()에 매핑합니다.",
+      "params": ["배열: 추가할 배열",
+                 "전부: 배열에 추가될 모든 것"],
+      "returns": "추가된 배열"
     },
     "arrayCopy": {
-      "description": "弃用：arrayCopy() 已被弃用并将会在未来的 p5 版本中移除。<br><br>复制一个数组（或该数组的一部分）去另外一个数组。src 数组将会被复制去 dst 数组，开端位置由 srcPosition 参数定义并复制进由 dstPosition 定义的位置。该复制的元素数量由 length 参数定义。注意在复制元素时该元素将覆盖终点数组原有的元素。如果想要添加元素，请使用 use concat()。<br><br>简化版本将只使用两个参数：arrayCopy(src, dst) 将复制整个数组去另一个相同大小的数组。这等同于使用 arrayCopy(src, 0, dst, 0, src.length)。<br><br>使用这函数将比使用 for 循环数组内每一个元素并一一复制来的更有效率。",
+      "description": "사용 불가: copyArray()는 더이상 사용 불가하며, p5의 추후 버전에서 제거됩니다.<br>배열(또는 그 일부)을 다른 배열에 복사합니다. src 배열이 dst 배열에 복사되며, srcPosition으로 지정된 위치에서 시작하여 dstPosition으로 지정된 위치를 향합니다. 복사할 요소의 개수는 배열의 길이로 결정됩니다. 값을 복사하면 대상 배열의 기존값을 덮어씁니다. 덮어쓰기없이 값을 추가하려면 concat()을 사용하세요.<br>",
       "params": ["数组：原数组",
                  "数字：在原数组内的开端指数",
                  "数组：终点数组",
@@ -1258,42 +1293,42 @@
       "returns": ""
     },
     "concat": {
-      "description": "弃用：concat() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat'>arr1.concat(arr2)</a>。<br><br>串接两个数组，映射到 Array.concat()。将不会修改原有数组。",
+      "description": "사용 불가: concat()은 더이상 사용 불가하며, p5의 추후 버전에서 제거됩니다. <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat'>arr1.concat(arr2)</a>를 대신 사용하세요.<br><br>串接两个数组，映射到 Array.concat()。将不会修改原有数组。",
       "params": ["数组：串接的第一个数组",
                  "数组：串接的第二个数组"],
       "returns": "数组：串接后的数组"
     },
     "reverse": {
-      "description": "弃用：reverse() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse'>array.reverse()</a>。<br><br>倒转数组内元素的次序，映射到 Array.reverse()。",
+      "description": "사용 불가: reverse()는 더이상 사용 불가하며, p5의 추후 버전에서 제거됩니다.<a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse'>array.reverse()</a>를 대신 사용하세요.<br><br>倒转数组内元素的次序，映射到 Array.reverse()。",
       "params": ["数组：该倒转的数组"],
       "returns": ""
     },
     "shorten": {
-      "description": "弃用：shorten() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop'>array.pop()</a>。<br><br>将数组减少一个元素并返回缩短后的数组，映射到 Array.pop()。",
+      "description": "사용 불가: shorten()은 더이상 사용 불가하며, p5의 추후 버전에서 제거됩니다. <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop'>array.pop()</a>를 대신 사용하세요.<br><br>将数组减少一个元素并返回缩短后的数组，映射到 Array.pop()。",
       "params": ["数组：该缩短的数组"],
       "returns": "数组：缩短后的数组"
     },
     "shuffle": {
-      "description": "弃用：shuffle() 已被弃用并将会在未来的 p5 版本中移除。请参考<a hreh='https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array'>使用 Javascript 混洗数组</a>（英文页面）。<br><br>随机排列数组内的元素。使用 Fisher-Yates 混洗函数。",
+      "description": "사용 불가: shuffle()은 더이상 사용 불가하며, p5의 추후 버전에서 제거됩니다. <a hreh='https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array'>使用 Javascript 混洗数组</a>를 대신 사용하세요.<br><br><a href = 'https://bost.ocks.org/mike/shuffle/'>피셔-예이츠(Fisher-Yates) 셔플 알고리즘</a>을 구현합니다.",
       "params": ["数组：该混洗的数组",
                  "布尔值：修改所给予的数组"],
       "returns": "数组：混洗后的数组"
     },
     "sort": {
-      "description": "弃用：sort() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort'>array.sort()</a>。<br><br>将一个含有数字的数组有最小到最大值重新排列，或将一个含有文字的数组依字母顺序排列。原数组将不会被修改，而将会返回重新排列后的数组。count 参数定义该排列的元素量。比如说，如果数组内有 12 个元素而 count 被设为 5，只有数组内前五个元素将会被排列。",
+      "description": "사용 불가: sort()는 더이상 사용 불가하며, p5의 추후 버전에서 제거됩니다.请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort'>array.sort()</a>를 대신 사용하세요. <br><br>将一个含有数字的数组有最小到最大值重新排列，或将一个含有文字的数组依字母顺序排列。原数组将不会被修改，而将会返回重新排列后的数组。count 参数定义该排列的元素量。比如说，如果数组内有 12 个元素而 count 被设为 5，只有数组内前五个元素将会被排列。",
       "params": ["数组：该排列的数组",
                  "整数：该排列的元素数，由 0 开始"],
       "returns": ""
     },
     "splice": {
-      "description": "弃用：splice() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice'>array.splice()</a>。<br><br>在一个原有的数组内添加一个值或另一数组的值。第一个参数定义该修改的数组，而第二个参数定义该添加的资料。第三个参数为该添加元素的位置的数组指数。（记得数组指数从零开始，因此第一个位置为 0，而第二的位置为 1 等等。）",
+      "description": "사용 불가: splice()는 더이상 사용 불가하며, p5의 추후 버전에서 제거됩니다.请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice'>array.splice()</a>를 대신 사용하세요.<br><br>在一个原有的数组内添加一个值或另一数组的值。第一个参数定义该修改的数组，而第二个参数定义该添加的资料。第三个参数为该添加元素的位置的数组指数。（记得数组指数从零开始，因此第一个位置为 0，而第二的位置为 1 等等。）",
       "params": ["数组：拼接进的数组",
                  "任何：欲拼接进数组的值",
                  "整数：数组内该添加该元素的位置"],
       "returns": ""
     },
     "subset": {
-      "description": "弃用：subset() 已被弃用并将会在未来的 p5 版本中移除。请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice'>array.slice()</a>。<br><br>从一个现有的数组中提取一数组的元素。list 参数定义该复制提取元素的数组，而 start 及 count 参数定义该提取哪一些元素。如果没有提供 count 参数，那将会提取数组由开头到结尾的元素。在定义 start 参数时，记得数组第一个指数为 0。这函数将不会修改原数组。",
+      "description": "弃用：subset()은 더이상 사용 불가하며, p5의 추후 버전에서 제거됩니다. 请改用 <a href='https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice'>array.slice()</a>를 대신 사용하세요.<br><br>从一个现有的数组中提取一数组的元素。list 参数定义该复制提取元素的数组，而 start 及 count 参数定义该提取哪一些元素。如果没有提供 count 参数，那将会提取数组由开头到结尾的元素。在定义 start 参数时，记得数组第一个指数为 0。这函数将不会修改原数组。",
       "params": ["数组：该提取元素的数组",
                  "整数：开始位置",
                  "整数：提取元素数"],
@@ -1305,29 +1340,29 @@
       
       
     "float": {
-      "description": "将一个字符串转换成其浮点值。字符串内内容必须是数字，不然将返回 NaN（不是数字）。比如说，float(\"1234.56\") 将返回 1234.56，但 float(\"giraffe\") 将返回 NaN。<br><br>当给予一数组的值时，将返回一个等同大小的浮点数组。",
-      "params": ["字符串：该解析的浮点字符串"],
-      "returns": "数字：该字符串的浮点值"
+      "description": "문자열을 실수(float), 즉 부동 소수점 숫자형 표현으로 변환합니다. 이 때, 문자열의 구문은 숫자 형식과 유사해야 합니다. 그렇지 않으면 NaN(숫자 아님)이 반환됩니다. 예컨대, float (\"1234.56\")은 1234.56으로 연산되지만, float (\"giraffe\")는 NaN을 반환합니다.<br>전달된 배열과 길이가 동일한 실수 배열이 반환됩니다.",
+      "params": ["문자열: 구문 분석할 실수 문자열"],
+      "returns": "숫자: 문자열의 부동 소수점 숫자형 표현"
     },
     "int": {
-      "description": "转换一个布尔值、字符串或浮点值成其整数值。当给予一数组的值时，将返回一个等同大小的整数数组。",
-      "params": ["字符串|布尔值|数字：该解析的值",
-                 "整数：该转换成的基数",
-                 "数组：该解析的值"],
-      "returns": "数字：该值的整数值"
+      "description": "불리언(boolean), 문자열(string), 실수(float)를 정수(int)형 표현으로 변환합니다. 전달된 배열과 길이가 동일한 정수 배열이 반환됩니다.",
+      "params": ["문자열|불리언|숫자: 구문 분석할 값",
+                 "정수: 기수로 변환 (기본값: 10) (선택 사항)",
+                 "배열: 구문 분석할 값"],
+      "returns": "숫자: 값의 정수형 표현"
     },
     "str": {
-      "description": "转换一个布尔值、字符串或数字成其字符串值。当给予一数组的值时，将返回一个等同大小的字符串数组。",
-      "params": ["字符串|布尔值|数字|数组：该解析的值"],
-      "returns": "字符串：该值的字符串值"
+      "description": "불리언(boolean), 문자열(string), 또는 숫자를 문자열 표현으로 변환합니다. 전달된 배열과 길이가 동일한 문자열 배열이 반환됩니다.",
+      "params": ["문자열|불리언|숫자: 구문 분석할 값"],
+      "returns": "숫자: 값의 문자열 표현"
     },
     "boolean": {
-      "description": "转换一个数字或字符串成其布尔值。在数字上，任何非零的值（无论正负）都将转换为 true，而零将转换为 false。在字符串上，\"true\" 将转换成 true，而任何其他值都会转换成 false。当给予一数组的数字或字符串时，将返回一个等同大小的布尔值数组。",
-      "params": ["字符串|布尔值|数字|数组：该解析的值"],
-      "returns": "布尔值：该值的布尔值"
+      "description": "불리언(boolean)은 자바스크립트에서 지정한 7개의 <a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values'>기본 데이터 유형</a> 중 하나입니다. 불리언은 참(true) 또는 거짓(false)으로 값을 나타냅니다.<br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type'>MDN Entry</a>에서 발췌: 불리언은 논리적 개체를 나타내며 참(true) 또는 거짓(false)이라는 두 개의 값만 갖습니다.",
+      "params": [""],
+      "returns": ""
     },
     "byte": {
-      "description": "转换一个数字、代表数字的字符串或布尔值成其字节值.一个字节只能是一个介于 -128 与 127 之间的整数，因此如果在这范围外的值被转换时，它将会绕回相对的字节值。当给予一数组的数字、字符串或布尔值时，将返回一个等同大小的字节数组。",
+      "description": "숫자, 숫자의 문자열 표현, 또는 불리언을 바이트 표현으로 변환합니다. 바이트는 -128과 127 사이의 정수이므로, 이 범위를 벗어난 값은 상응하는 바이트 표현에 래핑됩니다. 숫자, 문자열 또는 부울 값의 배열이 전달되면 길이가 같은 바이트 배열이 반환됩니다.,
       "params": ["字符串|布尔值|数字：该解析的值",
                  "数组：该解析的值"],
       "returns": "数字：该值的字节值"
