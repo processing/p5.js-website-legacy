@@ -1405,65 +1405,65 @@
       "returns": "문자열: 결합된 문자열"
     },
     "match": {
-      "description": "이 함수는 정규 표현식을 텍스트로 적용하고, 매치하는 그룹(괄호 안 요소들)을 문자열 배열로 반환합니다.일치하는 내용이 없는 경우, null을 반환합니다. 그룹이 정규 표현식으로 지정되지 않지만 시퀀스가 일치하는 경우, 길이가 1인 배열(일치하는 텍스트가 배열의 첫번째 요소인 배열)을 반환합니다.<br><br>이 함수를 사용할 때, 결과값이 null인지의 여부를 확인하세요. 결과가 null이면 시퀀스도 일치하지 않는다는 뜻입니다. 시퀀스가 일치하는 경우 배열이 반환됩니다.<br><br> (괄호 속 요소들이 지정한) 그룹이 정규식 표현일 경우, 각각의 내용들이 배열로 반환됩니다. 일치하는 정규식 표현의 요소[0]는 일치하는 모든 문자열을 반환하는데, 이 경우 일치하는 그룹은 요소[1](첫 번째 그룹이 [1], 두번째 그룹이[2])에서 시작합니다.",
+      "description": "이 함수는 정규 표현식을 텍스트로 적용하고, 매치하는 그룹(괄호 안 요소들) 리스트를 문자열 배열로 반환합니다. 매치하는 내용이 없는 경우, null을 반환합니다. 정규 표현식에 그룹이 지정되지 않지만 시퀀스가 일치하는 경우, 길이가 1인 배열(일치하는 텍스트가 배열의 첫번째 요소인 배열)을 반환합니다.<br><br>match() 함수 사용시, 결과값이 null인지를 잘 확인하세요. 결과가 null이면 시퀀스도 일치하지 않는다는 뜻입니다. 시퀀스가 일치하는 경우, 배열이 반환됩니다.<br><br>그룹(괄호들로 지정)이 정규식 표현인 경우, 각각의 내용들이 배열로 반환됩니다. 매치하는 정규식 표현의 요소[0]는 모든 매칭 문자열을 반환하는데, 이 경우 매칭 그룹은 요소[1](첫 번째 그룹은 [1], 두번째 그룹은 [2])에서 시작합니다.",
       "params": ["문자열: 검색할 문자열",
                  "문자열: 매칭에 사용될 정규식 표현"],
       "returns": "검색된 문자열들의 배열"
     },
     "matchAll": {
-      "description": "这函数可被用来在一段文字上应用正则表达式，并将返回含有符合表达式的组合（在括号内的元素）的二维字符串数组。如果没找到任何匹配组合，将返回 null。如果正则表达式内没有定义任何组合，但有搜寻到匹配序列，仍然将返回一个二维数组，但第二维度数组的大小将为一。<br><br>使用此函数时，先查看结果是否为 null。如果结果为 null，那表示该段文字没有匹配序列。如果有找到匹配序列，将返回一个二维数组。<br><br>如果正则表达式内有组合（由括号定义），那个别内容将会以数组的形式返回。假设有一个有计算其变量 i 的循环，正则表达式匹配返回的元素 [i][0] 将会是整个匹配的字符串，而匹配组合将从元素 [i][1] 开始（第一组为 [i][1]、第二组为 [i][2] 等）。",
-      "params": ["字符串：在此字符串内搜寻",
-                 "字符串：用于搜寻的正则表达式"],
-      "returns": "字符串[]：搜寻到的二维字符串数组"
+      "description": "이 함수는 정규 표현식을 텍스트로 적용하고, 매치하는 그룹(괄호 안 요소들)의 리스트를 2차원 문자열 배열로 반환합니다. 매치하는 내용이 없는 경우, null을 반환합니다. 정규 표현식에 그룹이 지정되지 않지만 시퀀스가 일치하는 경우, 2차원 배열이 반환되지만 2번째 차원의 길이는 1이 됩니다.<br><br>matchAll() 함수 사용시, 결과값이 null인지를 잘 확인하세요. 결과가 null이면 시퀀스도 일치하지 않는다는 뜻입니다. 시퀀스가 일치하는 경우, 2D 배열이 반환됩니다.<br><br>그룹(괄호들로 지정)이 정규식 표현인 경우, 각각의 내용들이 배열로 반환됩니다. 카운터 변수 i가 있는 반복문을 가정할 때, 매칭되는 정규식의 [i][0] 요소는 모든 매칭 문자열을 반환하고, 매칭 그룹은 [i][1](첫 번째 그룹은 [i][1], 두번째 그룹은 [i][2], ...)에서 시작합니다.",
+      "params": ["문자열: 검색할 문자열",
+                 "문자열: 매칭에 사용될 정규식 표현"],
+      "returns": "검색된 문자열들의 2D 배열"
     },
     "nf": {
-      "description": "用于将数字格式化成字符串的辅助函数。此函数有两个版本：一个用于格式化浮点数，另一个用于格式化整数。参数 left 及 right 的值必须是正整数。",
-      "params": ["数字|字符串：该格式化的数字",
-                 "整数|字符串：小数点左边的位数",
-                 "整数|字符串：小数点右边的位数",
-                 "数组：该格式化的数字"],
-      "returns": "字符串：格式化后的字符串"
+      "description": "숫자를 문자열로 형식화하는 기능으로, 실수(float) 형식과 정수(int) 형식의 두 가지 버전이 있습니다. 매개 변수로는 각각 자릿수(digit), 소수점 기준 왼쪽 자릿수(left), 소수점 기준 오른쪽 자릿수(right)를 지정할 수 있으며, 이 매개 변수 값들은 항상 양의 정수여야 합니다. <br> 참고: left와 right 매개 변수 사용시, 그 값이 현재 숫자의 자릿수 길이보다 클 경우 자릿수를 맞추기 위해 매개 변수에 0이 붙는 점에 유의하세요. 예를 들어, 현재 숫자가 123.2이고 전달된 left 매개 변수가 4인 경우, 그 길이가 num의 정수 부분인 123의 길이(즉, 3)보다 큽니다. 이 경우, 0123.2가 반환됩니다. right 매개 변수의 경우에도 마찬가지로 값이 3인 정수 123.200이 반환됩니다.",
+      "params": ["숫자|문자열: 형식화할 숫자",
+                 "정수|문자열: 소수점 기준 왼쪽의 자릿수(선택 사항)",
+                 "정수|문자열: 소수점 기준 오른쪽의 자릿수(선택 사항)",
+                 "배열: 형식화할 숫자들"],
+      "returns": "문자열: 형식화된 문자열"
     },
     "nfc": {
-      "description": "用于将数字格式化成字符串并在适当的地方添加逗号以示意 1000 位的辅助函数。此函数有两个版本：一个用于格式化整数，另一个用于格式化一数组的整数。参数 right 的值必须是正整数。",
-      "params": ["数字|字符串：该格式化的数字",
-                 "整数|字符串：小数点左边的位数",
-                 "整数|字符串：小数点右边的位数",
-                 "数组：该格式化的数字"],
-      "returns": "字符串：格式化后的字符串"
+      "description": "숫자를 문자열로 형식화하고 1000을 단위로 표시하기 위해 쉼표를 배치하는 기능입니다. 크게 두 가지 버전이 제공되는데, 하나는 정수(int)를 형식화하는 것이고, 다른 하나는 정수 배열을 형식화합니다. 매개 변수의 값들은 항상 양의 정수여야 합니다.",
+      "params": ["숫자|문자열: 형식화할 숫자",
+                 "정수|문자열: 소수점 기준 오른쪽의 자릿수(선택 사항)",
+                 "배열: 형식화할 숫자들"],
+      "returns": "문자열: 형식화된 문자열"
     },
     "nfp": {
-      "description": "用于将数字格式化成字符串的辅助函数。与 nf() 相似但会在正数前加个 \"+\" 号而在负数前加个 \"-\" 号。此函数有两个版本：一个用于格式化浮点数，另一个用于格式化整数。参数 left 及 right 的值必须是正整数。",
-      "params": ["数字|字符串：该格式化的数字",
-                 "整数|字符串：小数点右边的位数",
-                 "数组：该格式化的数字"],
-      "returns": "字符串：格式化后的字符串"
+      "description": "숫자를 문자열로 형식화하는 기능입니다. nf()와 유사하나, 양수 앞에 '+'를, 음수 앞에 '-' 기호를 추가합니다. 실수(float) 형식과 정수(int) 형식의 두 가지 버전이 있습니다. 매개 변수 중, 소수점 기준 왼쪽 자릿수(left)와 소수점 기준 오른쪽 자릿수(right)의 값은 항상 양의 정수여야 합니다.",
+      "params": ["숫자: 형식화할 숫자",
+                 "정수: 소수점 기준 왼쪽의 자릿수(선택 사항)",
+                 "정수: 소수점 기준 오른쪽의 자릿수(선택 사항)",
+                 "숫자 배열[]: 형식화할 숫자들"],
+      "returns": "문자열: 형식화된 문자열"
     },
     "nfs": {
-      "description": "用于将数字格式化成字符串的辅助函数。与 nf() 相似但会在正数前加个 \" \"（空格）而在负数前加个 \"-\" 号。此函数有两个版本：一个用于格式化浮点数，另一个用于格式化整数。参数 left 及 right 的值必须是正整数。",
-      "params": ["数字：该格式化的数字",
-                 "整数：小数点左边的位数",
-                 "整数：小数点右边的位数",
-                 "数组：该格式化的数字"],
-      "returns": "字符串：格式化后的字符串"
+      "description": "숫자를 문자열로 형식화하는 기능입니다. nf()와 유사하나, '-' 기호가 붙은 음수와 정렬할 경우를 위해 '_(공백)' 기호를 양수 앞에 추가합니다. nfs()는 주로 음수가 아닌 숫자의 자릿수에 음수를 맞출 때 사용됩니다. (명확한 이해를 위해 예제를 참고하세요.) 실수(float) 형식과 정수(int) 형식의 두 가지 버전이 있습니다. 매개 변수 중, 자릿수(digit), 소수점 기준 왼쪽 자릿수(left)와 소수점 기준 오른쪽 자릿수(right)의 값은 항상 양의 정수여야 합니다. (IMP): 정렬 결과는 사용자의 타입페이스에 따라 달라집니다. 참고: left와 right 매개 변수 사용시, 그 값이 현재 숫자의 자릿수 길이보다 클 경우 자릿수를 맞추기 위해 매개 변수에 0이 붙는 점에 유의하세요. 예를 들어, 현재 숫자가 123.2이고 전달된 left 매개 변수가 4인 경우, 그 길이가 num의 정수 부분인 123의 길이(즉, 3)보다 큽니다. 이 경우, 0123.2가 반환됩니다. right 매개 변수의 경우에도 마찬가지로 값이 3인 정수 123.200이 반환됩니다.",
+      "params": ["숫자: 형식화할 숫자",
+                 "정수: 소수점 기준 왼쪽의 자릿수(선택 사항)",
+                 "정수: 소수점 기준 오른쪽의 자릿수(선택 사항)",
+                 "배열: 형식화할 숫자들"],
+      "returns": "문자열: 형식화된 문자열"
     },
     "split": {
-      "description": "split() 函数映射到 String.split()，它使用一个字符或字符串为分隔号以将另一个字符串拆分成多个部分。delim 参数定义用于标示各个部分之间边界的字符或字符串。将返回一个含有各个部分的字符串数组。<br><br>splitTokens() 函数也与此函数相似，不过它将使用一系列字符以拆分字符串而不是使用特别定义的单一字符或字符串。",
-      "params": ["字符串：还拆分的字符串",
-                 "字符串：用于分隔资料的字符串"],
-      "returns": "字符串[]：字符串数组"
+      "description": "split() 함수는 String.split()에 매핑되며, 구분 기호를 사용하여 문자 또는 문자열을 분할합니다. 분리 문자(delim) 매개 변수는 분할 경계를 나타낼 기호를 지정합니다. 각 조각들을 포함한 문자열 배열이 반환됩니다.<br>splitTokens() 역시 비슷하게 작동하나, 특정 문자나 시퀀스 대신 여러 개의 분리 문자를 분할한다는 점에서 다릅니다.",
+      "params": ["문자열: 분할될 문자열",
+                 "문자열: 데이터 분할에 쓰이는 문자열"],
+      "returns": "문자열 배열[]： 문자열들의 배열"
     },
     "splitTokens": {
-      "description": "splitTokens() 函数将在一个或多个字符（或 “tokens”）所标示的地方拆分一个字符串。delim 参数将定义用于标示各个部分之间边界的字符或字符串。<br><br>如果 delim 参数没有被定义，此函数将使用任何空白字符拆分。空白字符包括制表符（\\t）、换行符（\\n）、回车符（\\r）、新页符（\\f）及空格。",
-      "params": ["字符串：还拆分的字符串",
-                 "字符串：用于分隔资料的字符串列"],
-      "returns": "字符串[]：字符串数组"
+      "description": "splitTokens() 함수는 일명 '토큰(token)'이라 불리는, 하나 이상의 분리 문자를 사용하여 문자열을 분할합니다. <br><br> 분리 문자(delim) 매개 변수를 지정하지 않는 경우, 공백 문자를 사용하여 분할합니다. 공백 문자는 탭(\\t), 줄바꾸기(\\n), 캐리지 반환(CR: Carriage Return)(\\r), 폼 피드(FF: Form Feed)(\\f), 그리고 공백을 포함합니다.",
+      "params": ["문자열: 분할될 문자열",
+                 "문자열: 데이터 분할에 쓰이는 문자열"],
+      "returns": "문자열 배열[]：문자열들의 배열"
     },
     "trim": {
-      "description": "从一个字符串的前端及后端删除空白字符。除了一般的空白字符如空格、回车及制表符之外，这函数也将删除 Unicode “nbsp” 字符。",
-      "params": ["字符串：该修剪的字符串",
-                 "数组：该修剪的字符串数组"],
-      "returns": "字符串：修剪后的字符串"
+      "description": "문자열 앞뒤의 공백 문자를 제거합니다. 공백, 캐리지 반환(CR: Carriage Return), 탭과 같은 표준 공백 문자 외에, 유니코드 'nbsp' 문자도 제거합니다.",
+      "params": ["문자열: 트리밍될 문자열",
+                 "배열: 트리밍될 문자열 배열"],
+      "returns": "문자열: 트리밍된 문자열"
     },
 
 
@@ -1471,77 +1471,83 @@
 // Events > Accleration
       
     "deviceOrientation": {
-      "description": "deviceOrientation 系统变量将会储存设备的旋转方向。此变量的值可以是 ‘landscape’ 或 ‘portrait’。如果没有资料可用他会被定义成 ‘undefined’。LANDSCAPE 或 PORTRAIT。",
+      "description": "시스템 변수 deviceOrientation는 기기의 방향을 담습니다. 변수값은 LANDSCAPE(가로) 또는 PORTRAIT(세로)로 설정가능합니다. 사용 가능한 데이터가 없는 경우, '정의되지 않음(undefined)로 설정됩니다.",
       "returns": ""
     },
     "accelerationX": {
-      "description": "accelerationX 系统变量将会储存设备的 x 轴加速度。值的单位为每平方秒米。",
+      "description": "시스템 변수 accelerationX는 기기의 x축상 가속도값을 담습니다. 값은 초당 미터 제곱으로 표기됩니다.",
       "returns": ""
     },
     "accelerationY": {
-      "description": "accelerationY 系统变量将会储存设备的 y 轴加速度。值的单位为每平方秒米。",
+      "description": "시스템 변수 accelerationY는 기기의 y축상 가속도값을 담습니다. 값은 초당 미터 제곱으로 표기됩니다.",
       "returns": ""
     },
     "accelerationZ": {
-      "description": "accelerationZ 系统变量将会储存设备的 z 轴加速度。值的单位为每平方秒米。",
+      "description": "시스템 변수 accelerationZ는 기기의 z축상 가속도값을 담습니다. 값은 초당 미터 제곱으로 표기됩니다.",
       "returns": ""
     },
     "pAccelerationX": {
-      "description": "pAccelerationX 系统变量将会储存上一个影格该设备的 x 轴加速度。值的单位为每平方秒米。",
+      "description": "시스템 변수 pAccelerationX는 기기의 직전 프레임부터 현재 프레임까지의 x축상 가속도값을 담습니다. 값은 초당 미터 제곱으로 표기됩니다.",
       "returns": ""
     },
     "pAccelerationY": {
-      "description": "pAccelerationY 系统变量将会储存上一个影格该设备的 y 轴加速度。值的单位为每平方秒米。",
+      "description": "시스템 변수 pAccelerationY는 기기의 직전 프레임부터 현재 프레임까지의 y축상 가속도값을 담습니다. 값은 초당 미터 제곱으로 표기됩니다.",
       "returns": ""
     },
     "pAccelerationZ": {
-      "description": "pAccelerationZ 系统变量将会储存上一个影格该设备的 z 轴加速度。值的单位为每平方秒米。",
+      "description": "시스템 변수 pAccelerationZ는 기기의 직전 프레임부터 현재 프레임까지의 z축상 가속도값을 담습니다. 값은 초당 미터 제곱으로 표기됩니다.",
       "returns": ""
     },
     "rotationX": {
-      "description": "rotationX 系统变量将会储存设备在 x 轴的旋转角度。值介于 0 与 +/-180 度之间。<br><br>注意：旋转的顺序很重要，比如说，如果同时使用它们必须依 Z-X-Y 的顺序调用或可能会有难以预料的行为。",
+      "description": "시스템 변수 rotationX는 기기의 x축상 회전값을 담습니다. 스케치의 angleMode()가 DEGREES로 설정된 경우 값의 범위는 -180부터 180까지이고, RADIANS로 설정된 경우 -PI부터 PI까지입니다.<br><br>참고: rotation 함수를 호출하는 순서에 유의하세요. 여러 축에 대한 회전 함수를 동시에 사용할 경우, 반드시 Z-X-Y 순서로 호출해야 합니다. 그렇지 않으면 예기지 못한 결과가 발생할 수 있습니다.",
       "returns": ""
     },
     "rotationY": {
-      "description": "rotationY 系统变量将会储存设备在 y 轴的旋转角度。值介于 0 与 +/-90 度之间。<br><br>注意：旋转的顺序很重要，比如说，如果同时使用它们必须依 Z-X-Y 的顺序调用或可能会有难以预料的行为。",
+      "description": "시스템 변수 rotationY는 기기의 y축상 회전값을 담습니다. 스케치의 angleMode()가 DEGREES로 설정된 경우 값의 범위는 -90부터 90까지이고, RADIANS로 설정된 경우 -PI/2부터 PI/2까지입니다.<br><br>참고: rotation 함수를 호출하는 순서에 유의하세요. 여러 축에 대한 회전 함수를 동시에 사용할 경우, 반드시 Z-X-Y 순서로 호출해야 합니다. 그렇지 않으면 예기지 못한 결과가 발생할 수 있습니다.",
       "returns": ""
     },
     "rotationZ": {
-      "description": "rotationZ 系统变量将会储存设备在 z 轴的旋转角度。值介于 0 与 359 度之间。<br><br>与 rotationX 及 rotationY 不同的是，这变量只能在有内建指南针的设备使用。<br><br>注意：旋转的顺序很重要，比如说，如果同时使用它们必须依 Z-X-Y 的顺序调用或可能会有难以预料的行为。",
+      "description": "시스템 변수 rotationZ는 기기의 z축상 회전값을 담습니다. 스케치의 angleMode()가 DEGREES로 설정된 경우 값의 범위는 0부터 360까지이고, RADIANS로 설정된 경우 0부터 2*PI까지입니다.<br><br>rotationX 및 rotationY와는 달리, 이 변수는 나침반이 내장된 기기에 한해 사용가능합니다.<br><br>참고: rotation 함수를 호출하는 순서에 유의하세요. 여러 축에 대한 회전 함수를 동시에 사용할 경우, 반드시 Z-X-Y 순서로 호출해야 합니다. 그렇지 않으면 예기지 못한 결과가 발생할 수 있습니다.",
       "returns": ""
     },
     "pRotationX": {
-      "description": "pRotationX 系统变量将会储存上一个影格该设备在 x 轴的旋转角度。值介于 0 与 +/-180 度之间。<br><br>pRotationX 可以和 rotationX 一起使用以找出设备 x 轴的旋转方向。",
+      "description": "시스템 변수 pRotationX는 기기의 직전 프레임부터 현재 프레임까지의 x축상 회전값을 담습니다. 스케치의 angleMode()가 DEGREES로 설정된 경우 값의 범위는 -180부터 180까지이고, RADIANS로 설정된 경우 -PI부터 PI까지입니다.<br><br>pRotationX와 rotationX를 함께 사용하여 기기의 x축상 회전 방향을 정할 수 있습니다.",
       "returns": ""
     },
     "pRotationY": {
-      "description": "pRotationY 系统变量将会储存上一个影格该设备在 y 轴的旋转角度。值介于 0 与 +/-90 度之间。<br><br>pRotationY 可以和 rotationY 一起使用以找出设备 y 轴的旋转方向。",
+      "description": "시스템 변수 pRotationY는 기기의 직전 프레임부터 현재 프레임까지의 y축상 회전값을 담습니다. 스케치의 angleMode()가 DEGREES로 설정된 경우 값의 범위는 -90부터 90까지이고, RADIANS로 설정된 경우 -PI/2부터 PI/2까지입니다.<br><br>pRotationY와 rotationY를 함께 사용하여 기기의 y축상 회전 방향을 정할 수 있습니다.",
       "returns": ""
     },
     "pRotationZ": {
-      "description": "pRotationZ 系统变量将会储存上一个影格该设备在 z 轴的旋转角度。值介于 0 与 359 度之间。<br><br>pRotationZ 可以和 rotationZ 一起使用以找出设备 z 轴的旋转方向。",
+      "description": "시스템 변수 pRotationZ는 기기의 직전 프레임부터 현재 프레임까지의 z축상 회전값을 담습니다. 스케치의 angleMode()가 DEGREES로 설정된 경우 값의 범위는 -90부터 90까지이고, RADIANS로 설정된 경우 0부터 2*PI까지입니다.<br><br>pRotationZ와 rotationZ를 함께 사용하여 기기의 z축상 회전 방향을 정할 수 있습니다.",
       "returns": ""
     },
+    "turnAxis":{
+      "description":"장치가 회전시, deviceTurned() 메소드를 트리거하는 축을 turnAxis 변수에 저장합니다. turnAxis 변수는 deviceTurned() 함수가 지정한 범위 내에서만 정의됩니다.",
+      "returns":""
+    },
+      
+      
     "setMoveThreshold": {
-      "description": "setMoveThreshold() 函数可用来设置 deviceMoved() 函数的移动阈值。默认阈值为 0.5。",
-      "params": ["数字：阈值"],
+      "description": "setMoveThreshold() 함수로 deviceMoved() 함수의 이동 임계값을 설정합니다. 기본 임계값은 0.5입니다.",
+      "params": ["숫자: 임계값"],
       "returns": ""
     },
     "setShakeThreshold": {
-      "description": "setShakeThreshold() 函数可用来设置 deviceShaken() 函数的摇动阈值。默认阈值为 30。",
+      "description": "setShakeThreshold() 함수로 deviceShaken() 함수의 이동 임계값을 설정합니다. 기본 임계값은 30입니다.",
       "params": ["数字：阈值"],
       "returns": ""
     },
     "deviceMoved": {
-      "description": "deviceMoved() 函数将在设备在 X、Y 或 Z 轴被移动多过阈值时被调用。默认阈值为 0.5。",
+      "description": "deviceMoved() 함수는 장치가 X,Y,Z 축을 따라 임계값 이상으로 이동할 때 호출됩니다. 기본 임계값은 0.5입니다. 임계값은 setMoveThreshold()로 변경할 수 있습니다.",
       "returns": ""
     },
     "deviceTurned": {
-      "description": "deviceTurned() 函数将在设备被连续旋转多过 90 度时被调用。<br><br>触发 deviceTurned() 的旋转轴将被储存在 turnAxis 变量中。deviceTurned() 函数能被锁定在 X、Y 或 Z 以确保只有所定义的轴会导致函数被调用，您只需比较 turnAxis 变量和 'X'、'Y' 或 'Z' 字符串。",
+      "description": "deviceTurned() 함수는 기기가 90도 이상을 계속해서 회전할 때 호출됩니다.<br>deviceTurned() 메소드를 트리거하는 축이 turnAxis 변수에 저장됩니다. turnAxis 변수를 X,Y,Z와 비교하여, 메소드를 트리거할 축을 정하고 해당 설정을 잠글 수 있습니다.",
       "returns": ""
     },
     "deviceShaken": {
-      "description": "deviceShaken() 函数将在设备的 accelerationX 及 accelerationY 加速度值改变超过阈值。默认阈值为 30。",
+      "description": "deviceShaken() 함수는 accelerationX와 accelerationY의 전체 가속도 변화량이 임계값보다 클 때 호출됩니다. 기본 임계값은 30입니다. 임계값은 setShakeThreshold()로 변경할 수 있습니다.",
       "returns": ""
     },
       
@@ -1550,33 +1556,33 @@
       
       
     "keyIsPressed": {
-      "description": "keyIsPressed 布尔系统变量将会在任何键被按下时为真（true）而没键被按下时为假（false）。",
+      "description": "불리언 시스템 변수 keyIsPressed입니다. 자판키를 누르면 참(true)을, 누르지 않을 때 거짓(false)을 반환합니다.",
       "returns": ""
     },
     "key": {
-      "description": "key 系统变量将会储存上一个被键入的键盘键值。以获得正确的大小写，最好在 keyTyped() 内使用。至于非 ASCII 值的键，请使用 keyCode 变量。",
+      "description": "시스템 변수 key는 가장 마지막으로 입력된 자판키값을 담습니다. keyTyped() 함수를 통해 대소문자를 반영할 수 있습니다. ASCII 자판키가 아닌 경우, keyCode 변수를 사용하세요.",
       "returns": ""
     },
     "keyCode": {
-      "description": "keyCode 变量可用来探测特别键如 BACKSPACE、DELETE、ENTER、RETURN、TAB、ESCAPE、SHIFT、CONTROL、OPTION、ALT、UP_ARROW、DOWN_ARROW、LEFT_ARROW、RIGHT_ARROW 是否被按下。您也可以使用特别网站如 <a href='http://keycode.info/'>keycode.info</a> 以找出自定义键的 keyCode。",
+      "description": "다음의 keyCode 변수로 특수키 입력을 감지할 수 있습니다: BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. <a href='http://keycode.info/'>keycode.info</a>에서 원하는 자판키의 keyCode를 확인할 수 있습니다.",
       "returns": ""
     },
     "keyPressed": {
-      "description": "keyPressed() 函数将会在每一次任何键被按下时被调用。被按下的键的 keyCode 将被储存在 keyCode 变量内。<br><br>对于非 ASCII 值的键，请使用 keyCode 变量。您能查看 keyCode 是否等于 BACKSPACE、DELETE、ENTER、RETURN、TAB、ESCAPE、SHIFT、CONTROL、OPTION、ALT、UP_ARROW、DOWN_ARROW、LEFT_ARROW、RIGHT_ARROW。<br><br>至于 ASCII 键值它们的值会被储存在 key 变量内。不过，它并不会分辨大小写。因此，建议使用 keyTyped() 以读取 key 变量，因为其大小写在这里会被分辨出来。<br><br>取决于操作系统如何处理按键重复，按住一个键可能使 keyTyped() （及 keyReleased()）被调用多过一次。重复的速度应操作系统及该电脑的设置而定。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "description": "keyPressed() 함수는 자판을 누를 때마다 한 번씩 호출됩니다. 누른 키의 keyCode는 keyCode 변수에 저장됩니다. <br><br>ASCII 자판키가 아닌 경우, keyCode 변수를 사용하세요. keyCode가 BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW에 해당하는지의 여부를 확인할 수 있습니다.<br><br>ASCII 자판키의 경우, 가장 마지막으로 누른 자판키값이 key 변수에 저장되나, 대소문자가 구분되지 않습니다. 대소문자 구분을 원할 경우, keyTyped()를 통해 key 변수를 받을 수 있습니다.<br><br>컴퓨터 운영 체제의 자판키 입력 반복 처리 방식으로 인해, 자판키를 계속 누르면 keyTyped()를 여러 번 호출하는 경우가 발생할 수 있습니다. 반복 속도는 운영 체제와 컴퓨터 구성 방식마다 다릅니다.<br><br>자판키 입력을 통한 이벤트 발생이 브라우저 기본값으로 설정되어있는 경우, 메소드 말미에 \"return false\"를 넣어 브라우저 기본값 이벤트 발생을 방지할 수 있습니다.",
       "returns": ""
     },
     "keyReleased": {
-      "description": "keyReleased() 函数将会在每一次任何键被释放时被调用。请查看 key 及 keyCode 以知更多详情。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "description": "keyReleased() 함수는 자판을 놓을 때마다 한 번씩 호출됩니다. 자세한 내용은 <a href='https://p5js.org/reference/#/p5/key'>key</a>와 <a href='https://p5js.org/reference/#/p5/keyCode'>keyCode</a>를 참고하세요.<br><br>자판키 입력을 통한 이벤트 발생이 브라우저 기본값으로 설정되어있는 경우, 메소드 말미에 \"return false\"를 넣어 브라우저 기본값 이벤트 발생을 방지할 수 있습니다.",
       "returns": ""
     },
     "keyTyped": {
-      "description": "keyTyped() 函数将会在每一次任何键被按下时被调用，可是会忽略操作键如 Ctrl、Shift 及 Alt。被按下的键的 keyCode 将被储存在 keyCode 变量内。<br><br>取决于操作系统如何处理按键重复，按住一个键可能使 keyTyped() （及 keyReleased()）被调用多过一次。重复的速度应操作系统及该电脑的设置而定。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "description": "keyTyped() 함수는 자판을 누를 때마다 한번씩 호출되지만, 백스페이즈, 딜리트, 컨트롤, 쉬프트, 알트키는 무시됩니다. 언급된 자판키 입력 감지를 원할 경우, keyPressed() 함수를 사용하면 됩니다. 가장 마지막으로 입력된 자판키값이 key 변수에 저장됩니다.<br><br>컴퓨터 운영 체제의 자판키 입력 반복 처리 방식으로 인해, 자판키를 계속 누르면 keyTyped()를 여러 번 호출하는 경우가 발생할 수 있습니다. (keyReleased()도 마찬가지 입니다.) 반복 속도는 운영 체제와 컴퓨터 구성 방식마다 다릅니다.<br><br>자판키 입력을 통한 이벤트 발생이 브라우저 기본값으로 설정되어있는 경우, 메소드 말미에 \"return false\"를 넣어 브라우저 기본값 이벤트 발생을 방지할 수 있습니다.",
       "returns": ""
     },
     "keyIsDown": {
-      "description": "keyIsDown() 函数将查看被提供的键是否正被按下。它能在当您需要使用多个不同的键同时用来移动一个物件时使用（如将一个图像往斜移动）。您能给予任何代表该键的 keyCode 会任何<a href='http://p5js.org/zh-Hans/reference/#p5/keyCode'>此页</a>的 keyCode 变量名为参数。",
-      "params": ["数字：该查看的键"],
-      "returns": ""
+      "description": "keyIsDown() 함수는 키가 현재 내려가있는지, 즉 눌리는지의 여부를 확인합니다. 이미지를 대각선으로 움직일 때처럼, 동시에 여러 자판키가 객체의 이동 방향에 영향을 주도록 설정할 때 사용됩니다. <a href='http://p5js.org/zh-Hans/reference/#p5/keyCode'>여기</a>에 나열된 keyCode 변수 이름이나 keyCode 숫자를 넣을 수 있습니다.",
+      "params": "숫자: 확인할 자판키",
+      "returns": "자판을 눌렀는지 아닌지의 여부"
     },
       
       
