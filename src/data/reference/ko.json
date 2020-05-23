@@ -1809,9 +1809,9 @@
       "returns": ""
     },
     "filter": {
-      "description": "在画布上使用过滤器。<br><br>预设选择为：<br><br>THRESHOLD 将图像转换成黑与白像素，取决于它们是否高于或低于所定义的 level 参数值。参数值必须在 0.0（黑色）与 1.0（白色）之间。如果并没有提供参数的话，默认将设为 0.5。<br><br>GRAY 将图像内的颜色转换成灰阶色。不使用任何参数。<br><br>OPAQUE 设置所有透明度值成完全不透明。不使用任何参数。<br><br>INVERT 设置每个像素成其反值。不使用任何参数。<br><br>POSTERIZE 将限制每个图像的彩色通道至参数所定义的颜色数。参数值可以介于 2 至 255 之间，但是效果会在较低值是比较明显。<br><br>BLUR 将使用 level 参数所定义的模糊度执行高斯模糊。如果没有提供参数，模糊度为高斯模糊半径为 1。越大的值越模糊。<br><br>ERODE 减少亮区。不使用任何参数。<br><br>DILATE 增加亮区。不使用任何参数。",
-      "params": ["常量：THRESHOLD、GRAY、OPAQUE、INVERT、POSTERIZE、BLUR、ERODE、DILATE 或 BLUR。",
-                 "数字：每个过滤器独有的可选性参数，请看以上"],
+      "description": "캔버스에 필터를 적용합니다.<br><br>GRAY: 이미지의 모든 색상을 그레이 스케일로 변환합니다. 별도의 매개 변수를 사용하지 않습니다.<br><br>OPAQUE: 알파 채널을 완전히 불투명하게 설정합니다. 별도의 매개 변수를 사용하지 않습니다.<br><br>INVERT: 각 픽셀을 그 역의 값으로 설정합니다. 별도의 매개 변수를 사용하지 않습니다.<br><br>POSTERIZE: 이미지의 각 채널을 매개 변수로 지정한 색상 수로 제한합니다. 매개 변수는 2부터 255사이의 값으로 설정 가능하나, 낮은 범위에서 가장 두드러진 결과를 볼 수 있습니다.<br><br>BLUR: 블러 범위를 설정하는 level 매개 변수를 사용하여 가우시안 블러를 실행합니다. 별도의 매개 변수를 지정하지 않으면, 반경 1의 가우시안 블러와 동일한 효과가 됩니다. 값이 클수록 흐림 정도가 증가합니다.<br><br>ERODE: 밝은 영역을 줄입니다. 별도의 매개 변수를 사용하지 않습니다.<br><br>DILATE: 밝은 영역을 증가시킵니다. 별도의 매개 변수를 사용하지 않습니다.<br><br>WebGL 모드에서는 filter()가 작동하지 않으나, 커스텀 셰이더를 사용하여 유사한 효과를 얻을 수 있습니다. 아담 페리스(Adam Ferriss)가 작성한 <a href='https://github.com/aferriss/p5jsShaderExamples'>셰이더 예제</a> 중, filter()와 유사한 효과를 나타내는 예제들이 있으니 참고하세요.",
+      "params": ["상수: THRESHOLD, GRAY, OPAQUE, INVERT, POSTERIZE, BLUR, ERODE, DILATE, BLUR 중 하나. 각 필터에 대한 문서는 Filters.js를 참조.",
+                 "숫자: 각 필터 고유의 선택적 매개 변수 (선택 사항)"],
       "returns": ""
     },
     "get": {
