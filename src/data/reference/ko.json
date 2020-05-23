@@ -1588,80 +1588,88 @@
       
 // Events > Mouse
       
-      
+    "movedX": {
+      "description": "movedX 변수는 직전 프레임 이후의 마우스 수평 이동을 담습니다.",
+      "returns": ""
+    },
+    "movedX": {
+      "description": "movedY 변수는 직전 프레임 이후의 마우스 수직 이동을 담습니다.",
+      "returns": ""
+    },
     "mouseX": {
-      "description": "mouseX 系统变量将会储存当时的鼠标相对于画布 (0, 0) 位置的的横向位置。如果使用的是触动而不是滑鼠的话，mouseX 将会储存上一个触动点的 x 值。",
+      "description": "시스템 변수 mouseX는 캔버스 (0,0)에 대한 마우스의 현재 수평 위치를 담습니다. 2D상 (0,0)은 좌측 상단, WebGL상에서는 (-너비/2, 높이/2)를 의미합니다. 마우스 입력 대신 터치가 사용될 경우, mouseX는 가장 마지막 터치 지점의 x좌표값을 담습니다.",
       "returns": ""
     },
     "mouseY": {
-      "description": "mouseY 系统变量将会储存当时的鼠标相对于画布 (0, 0) 位置的的直向位置。如果使用的是触动而不是滑鼠的话，mouseY 将会储存上一个触动点的 y 值。",
+      "description": "시스템 변수 mouseY는 캔버스 (0,0)에 대한 마우스의 현재 수직 위치를 담습니다. 2D상 (0,0)은 좌측 상단, WebGL상에서는 (-너비/2, 높이/2)를 의미합니다. 마우스 입력 대신 터치가 사용될 경우, mouseY는 가장 마지막 터치 지점의 y좌표값을 담습니다.",
       "returns": ""
     },
     "pmouseX": {
-        "description": "pmouseX 系统变量将会储存上一个影格鼠标或触动点相对于画布 (0, 0) 位置的的横向位置。",
+        "description": "시스템 변수 pmouseX는 직전 프레임에서의 캔버스 (0,0)에 대한 마우스 및 터치 수평 위치를 담습니다. 2D상 (0,0)은 좌측 상단, WebGL상에서는 (-너비/2, 높이/2)를 의미합니다. 참고: pmouseX는 매 터치 이벤트가 시작할 때마다 현재의 mouseX값으로 리셋됩니다.",
         "returns": ""
     },
     "pmouseY": {
-      "description": "pmouseY 系统变量将会储存上一个影格鼠标或触动点相对于画布 (0, 0) 位置的的直向位置。",
+      "description": "시스템 변수 pmouseY는 직전 프레임에서의 캔버스 (0,0)에 대한 마우스 및 터치 수직 위치를 담습니다. 2D상 (0,0)은 좌측 상단, WebGL상에서는 (-너비/2, 높이/2)를 의미합니다. 참고: pmouseY는 매 터치 이벤트가 시작할 때마다 현재의 mouseY값으로 리셋됩니다.",
       "returns": ""
     },
     "winMouseX": {
-      "description": "winMouseX 系统变量将会储存当时鼠标相对于窗口 (0, 0) 位置的横向位置。",
+      "description": "시스템 변수 winMouseX는 캔버스 (0,0)에 대한 마우스의 현재 수평 위치를 담습니다.",
       "returns": ""
     },
     "winMouseY": {
-      "description": "winMouseY 系统变量将会储存当时鼠标相对于窗口 (0, 0) 位置的直向位置。",
+      "description": "시스템 변수 winMouseY는 캔버스 (0,0)에 대한 마우스의 현재 수직 위치를 담습니다.",
       "returns": ""
     },
     "pwinMouseX": {
-      "description": "pwinMouseX 系统变量将会储存上一个影格鼠标相对于窗口 (0, 0) 位置的横向位置。",
+      "description": "시스템 변수 pwinMouseX는 직전 프레임에서의 캔버스 (0,0)에 대한 마우스 수평 위치를 담습니다. 2D상 (0,0)은 좌측 상단, WebGL상에서는 (-너비/2, 높이/2)를 의미합니다. 참고: pwinMouseX는 매 터치 이벤트가 시작할 때마다 현재의 winMouseX값으로 리셋됩니다.",
       "returns": ""
     },
     "pwinMouseY": {
-      "description": "pwinMouseY 系统变量将会储存上一个影格鼠标相对于窗口 (0, 0) 位置的直向位置。",
+      "description": "시스템 변수 pwinMouseY는 직전 프레임에서의 캔버스 (0,0)에 대한 마우스 수직 위치를 담습니다. 2D상 (0,0)은 좌측 상단, WebGL상에서는 (-너비/2, 높이/2)를 의미합니다. 참고: pwinMouseY는 매 터치 이벤트가 시작할 때마다 현재의 winMouseY값으로 리셋됩니다.",
       "returns": ""
     },
     "mouseButton": {
-      "description": "p5 将自动记录滑鼠键是否被按下及哪个键被按下。mouseButton 系统变量的值可能是 LEFT、RIGHT 或 CENTER，取决于上一个被按下的滑鼠键。请注意：不同的浏览器可能记录不同的 mouseButton 值。",
+      "description": "p5는 마우스 버튼을 눌렀는 지의 여부와 어떤 버튼을 눌렀는지를 자동으로 추적합니다. 시스템 변수 mouseButton의 값은 마지막으로 누른 버튼에 따라 LEFT, RIGHT, 또는 CENTER로 처리됩니다. 경고: 브라우저에 따라 마우스 버튼을 다르게 추적할 수 있습니다.",
       "returns": ""
     },
     "mouseIsPressed": {
-      "description": "mouseIsPressed 系统变量将会在滑鼠键被按下时为真（true），而没按下时为假（false）。",
+      "description": "불리언 시스템 변수 mouseIsPressed는 마우스가 눌렸을 경우 참(true)이고 그렇지 않을 경우 거짓(false)로 처리됩니다.",
       "returns": ""
     },
     "mouseMoved": {
-      "description": "mouseMoved() 函数将在每次鼠标移动而滑鼠键没有被按下的时候被调用。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "description": "mouseMoved() 함수는 마우스 버튼이 눌리지 않은 상태에서 움직일 때마다 한 번씩 호출됩니다.<br>마우스 입력을 통한 이벤트 발생이 브라우저 기본값으로 설정되어있는 경우, 메소드 말미에 \"return false\"를 넣어 브라우저 기본값 이벤트 발생을 방지할 수 있습니다.",
       "returns": ""
     },
     "mouseDragged": {
-      "description": "mouseDragged() 函数将在每次鼠标移动及滑鼠键正被按下的时候被调用。如果 mouseDragged() 函数并未有被定义，touchMoved() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "description": "mouseDragged() 함수는 마우스 버튼이 눌린 상태에서 움직일 때마다 한 번씩 호출됩니다. mouseDragged() 함수가 정의되지 않고, touchMoved() 함수가 정의된 경우, 후자가 대신 호출됩니다.<br>마우스 입력을 통한 이벤트 발생이 브라우저 기본값으로 설정되어있는 경우, 메소드 말미에 \"return false\"를 넣어 브라우저 기본값 이벤트 발생을 방지할 수 있습니다.",
       "returns": ""
     },
     "mousePressed": {
-      "description": "mousePressed() 函数将在每次滑鼠键被按下时被调用。mouseButton 函数（请参考其文献）可以被用来探测哪一个滑鼠键刚被按下。如果 mousePressed() 函数并未有被定义，touchStarted() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "description": "mousePressed() 함수는 마우스 버튼이 눌릴 때마다 한 번씩 호출됩니다. 이 때, mouseButton 변수(관련 레퍼런스 참고)를 통해 어떤 마우스 버튼이 눌렸는지 확인할 수 있습니다. mousePressed() 함수가 정의되지 않고, touchStarted() 함수가 정의된 경우, 후자가 대신 호출됩니다.<br>마우스 입력을 통한 이벤트 발생이 브라우저 기본값으로 설정되어있는 경우, 메소드 말미에 \"return false\"를 넣어 브라우저 기본값 이벤트 발생을 방지할 수 있습니다.",
       "returns": ""
     },
     "mouseReleased": {
-      "description": "mouseReleased() 函数将在每次滑鼠键被释放时被调用。如果 mouseReleased() 函数并未有被定义，touchEnded() 函数有被定义的话将会被调用。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "description": "mouseReleased() 함수는 마우스 버튼이 놓일 때마다 한 번씩 호출됩니다. mouseReleased() 함수가 정의되지 않고, touchEnded() 함수가 정의된 경우, 후자가 대신 호출됩니다.<br>마우스 입력을 통한 이벤트 발생이 브라우저 기본값으로 설정되어있는 경우, 메소드 말미에 \"return false\"를 넣어 브라우저 기본값 이벤트 발생을 방지할 수 있습니다.",
       "returns": ""
     },
     "mouseClicked": {
-      "description": "mouseClicked() 函数将在滑鼠键被按下然后被释放后被调用。<br><br>不同浏览器处理滑鼠点击的方式不大一样，所以这函数只有在滑鼠左键被点击时才保证会被触发。如果想要处理其他滑鼠键的点击或释放事件，请参考 mousePressed() 或 mouseReleased()。<br><br>不同浏览器可能有不同附属于个别滑鼠事件的行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
+      "description": "mouseClicked() 함수는 마우스 버튼이 눌리고 놓일 때마다 한 번씩 호출됩니다.<br>이 함수는 마우스 왼쪽 버튼을 클릭할 때 실행되며, 브라우저마다 마우스 클릭을 다르게 처리하는 점에 유의하세요. 클릭하거나 놓을 여타 마우스 버튼을 처리하려면 mousePressed() 또는 mouseReleased()를 참고하세요.<br>마우스 입력을 통한 이벤트 발생이 브라우저 기본값으로 설정되어있는 경우, 메소드 말미에 \"return false\"를 넣어 브라우저 기본값 이벤트 발생을 방지할 수 있습니다.",
       "returns": ""
     },
     "doubleClicked": {
-      "description": "doubleClicked() 函数将在 dblclick 事件被触发式被调用，dblclick 时间是 DOM L3 规范的一部分。doubleClicked 将在滑鼠键（通常为左键）连续两次在同样一个元素上点击时被触发。以知更多详情请参考 Mozilla 的参考文献：<a href='https://developer.mozilla.org/en-US/docs/Web/Events/dblclick'>https://developer.mozilla.org/en-US/docs/Web/Events/dblclick</a>。"
+      "description": "doubleClicked() 함수는 이벤트 리스너가 DOM L3 사양 중 하나인 더블 클릭(dbclick)을 감지할 때마다 실행됩니다. doubleClicked 이벤트는 포인팅 장치의 버튼(보통, 마우스 기본 버튼)을 특정 요소 위에서 두 번 연속 클릭시 시작합니다. dbclick 이벤트에 대한 자세한 정보는 <a href='https://developer.mozilla.org/en-US/docs/Web/Events/dblclick'>Mozilla 문서</a>에서 확인하세요.",
+      "params":"객체: MouseEvent 콜백 인수 (선택 사항)"
     },
     "mouseWheel": {
-      "description": "mouseWheel() 函数将在每次直向滑鼠滚轮事件被触发式被调用，可以由实际的滑鼠滚轮或摸板触发。<br><br>event.delta 属性将返回滑鼠滚轮所滚动的量。这值可以是正数或负数，取决于滚动的方向（在 OS X 如果启用“自然”滚屏方向，正反方向将相反）。",
-      "returns": ""
+      "description": "mouseWheel() 함수는 실제 마우스 휠 또는 터치 패드상의 수직 마우스 휠 이벤트를 감지할 때마다 실행됩니다. <br><br>event.delta 속성은 마우스 휠이 스크롤된 양을 값으로 반환합니다. 값은 스크롤 방향에 따라 양수 또는 음수 부호와 함께 표기됩니다. ('자연' 스크롤이 활성화된 OS X의 경우, 부호가 반전됩니다.)<br><br>마우스 입력을 통한 이벤트 발생이 브라우저 기본값으로 설정되어있는 경우, 메소드 말미에 \"return false\"를 넣어 브라우저 기본값 이벤트 발생을 방지할 수 있습니다.<br><br> 현재 Safari의 경우 'wheel' 이벤트를 지원하는 관계로, 메소드에 \"return false\"를 포함해야 함수가 예상대로 작동할 수 있습니다.",
+      "params":"객체: WheelEvent 콜백 인수 (선택 사항)"
     },
     "requestPointerLock": {
-      "description": "",
+      "description": "requestPointerLock() 함수는 포인터를 현재 위치로 잠그고 숨깁니다. movedX와 movedY를 사용하여 draw() 함수의 마지막 호출 이후에 마우스가 이동한 값을 가져올 수 있습니다.<br><br>모든 브라우저가 이 기능을 지원하지는 않습니다.<br><br>이 함수를 사용하면 마우스를 특정 방향으로 계속 움직여도 화면 밖으로 벗어나지 않도록 처리할 수 있습니다. 1인칭 시점 구현 등에 용이합니다.",
       "returns": ""
     },
     "exitPointerLock": {
-      "description": "",
+      "description": "exitPointerLock() 함수는 이전에 설정된 <a href ='https://p5js.org/reference/#/p5/requestPointerLock'>포인터 잠금</a>을 종료합니다. UI 요소 활성화 등을 위해 사용됩니다.",
       "returns": ""
     },
       
@@ -2300,6 +2308,162 @@
       
       
 // Lights, Camera > Interaction
+    "orbitControl":{
+        
+    },
+    "debugMode":{
+        
+    },
+    "noDebugMode":{
+        
+    },
+// Lights, Camera > Lights
+      
+    "ambientLight": {
+      "description": "使用所定义的颜色创造一个环境光。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值，需在被定义的范围内",
+                 "数字：蓝彩值或亮度值，需在被定义的范围内",
+                 "数字：",
+                 "字符串：颜色字符串",
+                 "数字：灰阶值",
+                 "数字[]：一个有红、绿、蓝及透明度值的数组",
+                 "p5.Color：环境光色"],
+      "returns": ""
+    },
+      
+    "specularColor":{
+        
+    },
+
+    "directionalLight": {
+      "description": "使用所定义的颜色及方向创造一个定向光。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值",
+                 "数字：蓝彩值或亮度值",
+                 "p5.Vector：光的方向",
+                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值",
+                 "数字：x 轴方向",
+                 "数字：y 轴方向",
+                 "数字：z 轴方向"],
+      "returns": ""
+    },
+    "pointLight": {
+      "description": "使用所定义的颜色及灯光位置创造一个点光源。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值",
+                 "数字：蓝彩值或亮度值",
+                 "数字：x 轴方向",
+                 "数字：y 轴方向",
+                 "数字：z 轴方向",
+                 "p5.Vector：光的方向",
+                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
+      "returns": ""
+    },
+      
+    "lights":{
+        
+    },
+    "lightFalloff": {
+      
+    },
+    "spotLight": {
+      
+    },
+    "noLights": {
+      
+    },
+      
+      
+// Lights, Camera > Material
+      
+    "loadShader": {
+      "description": "从所定义的顶点及片断着色器文件路径加载自定的着色器。着色器是在背景异步加载的，因此此函数应该在 preload() 内使用。<br><br>现在为止有三种主要的着色器种类。只要相对的参数有在着色器内被定义，p5 将会自动提供相对的顶点、法线、颜色及灯光属性。",
+      "params": ["字符串：存有顶点着色器源代码的文件的路径",
+                 "字符串：存有片断着色器源代码的文件的路径"],
+      "returns": "p5.Shader：由所定义的顶点及片断着色器所创造的着色器物件"
+    },
+    "createShader": {
+      "description": "",
+      "params": ["字符串：顶点着色器的源代码",
+                 "字符串：片断着色器的源代码"],
+      "returns": "p5.Shader：由所定义的顶点及片断着色器所创造的着色器物件"
+    },
+    "shader": {
+      "description": "shader() 函数让其使用者提供自定的着色器以用于在 WEBGL 模式下渲染形状。使用这能使用 loadShader() 加载自定义的着色器。",
+      "params": ["p5.Shader：欲用于渲染形状用的 p5.Shader"]
+    },
+      
+    "resetShader":{
+        
+    },
+      
+    "normalMaterial": {
+      "description": "形状的法线材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "returns": ""
+    },
+    "texture": {
+      "description": "形状的纹理。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "params": ["p5.Image|p5.MediaElement|p5.Graphics：该渲染成纹理的二维图像"],
+      "returns": ""
+    },
+    "textureMode": {
+      "description": "形状的纹理。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "params": ["p5.Image|p5.MediaElement|p5.Graphics：该渲染成纹理的二维图像"],
+      "returns": ""
+    },
+    "textureWrap": {
+      "description": "形状的纹理。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "params": ["p5.Image|p5.MediaElement|p5.Graphics：该渲染成纹理的二维图像"],
+      "returns": ""
+    },
+      
+      
+      
+    "ambientMaterial": {
+      "description": "使用所给予颜色定义形状的环境材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值",
+                 "数字：蓝彩值或亮度值",
+                 "数字：透明度",
+                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
+      "returns": ""
+    },
+    "emissiveMaterial": {
+      "description": "使用所给予颜色定义形状的环境材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值",
+                 "数字：蓝彩值或亮度值",
+                 "数字：透明度",
+                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
+      "returns": ""
+    },
+    "specularMaterial": {
+      "description": "使用所给予颜色定义形状的镜面材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
+      "params": ["数字：红彩值或色调值，需在被定义的范围内",
+                 "数字：绿彩值或饱和度值",
+                 "数字：蓝彩值或亮度值",
+                 "数字：透明度",
+                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
+      "returns": ""
+    },
+    "shininess": {
+      "description": "TODO",
+      "returns": "p5: 该 p5 物件"
+    },
+    "p5.Geometry": {
+      "description": "TODO",
+      "returns": "p5: 该 p5 物件"
+    },
+    "p5.Shader": {
+      "description": "Clase Shader para el modo WEBGL",
+      "params": ["p5.RendererGL: una instancia de p5.RendererGL que servirá de contexto GL para este nuevo p5.Shader",
+      "String: código fuente para el vertex shader (en forma de string)",
+      "String: código fuente para el fragment shader (en forma de string)"],
+      "methods": ["Wrapper de las funciones gl.uniform. Como almacenamos información de uniform en el shader, la podemos usar para revisar los datos provistos y llamar a la función apropiada."]
+    },
+   
+//Lights, Camera > Camera
       
     "camera": {
       "description": "定义在一个三维绘图内相机的位置。此函数的行为与 gluLookAt 相似，不过它会覆盖原有的模型视图矩阵而不会在原有的模型视图上添加任何变形。当没有给予任何参数时，此函数将定义默认相机为 camera(0, 0, (height/2.0) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, 1, 0);",
@@ -2332,98 +2496,21 @@
                  "数字：相机视锥的远平面"],
       "returns": ""
     },
-    "ambientLight": {
-      "description": "使用所定义的颜色创造一个环境光。",
-      "params": ["数字：红彩值或色调值，需在被定义的范围内",
-                 "数字：绿彩值或饱和度值，需在被定义的范围内",
-                 "数字：蓝彩值或亮度值，需在被定义的范围内",
-                 "数字：",
-                 "字符串：颜色字符串",
-                 "数字：灰阶值",
-                 "数字[]：一个有红、绿、蓝及透明度值的数组",
-                 "p5.Color：环境光色"],
-      "returns": ""
+      
+    "frustrum":{
+        
     },
-
-    "directionalLight": {
-      "description": "使用所定义的颜色及方向创造一个定向光。",
-      "params": ["数字：红彩值或色调值，需在被定义的范围内",
-                 "数字：绿彩值或饱和度值",
-                 "数字：蓝彩值或亮度值",
-                 "p5.Vector：光的方向",
-                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值",
-                 "数字：x 轴方向",
-                 "数字：y 轴方向",
-                 "数字：z 轴方向"],
-      "returns": ""
+    "createCamera":{
+        
     },
-    "pointLight": {
-      "description": "使用所定义的颜色及灯光位置创造一个点光源。",
-      "params": ["数字：红彩值或色调值，需在被定义的范围内",
-                 "数字：绿彩值或饱和度值",
-                 "数字：蓝彩值或亮度值",
-                 "数字：x 轴方向",
-                 "数字：y 轴方向",
-                 "数字：z 轴方向",
-                 "p5.Vector：光的方向",
-                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
-      "returns": ""
+    "p5.Camera":{
+        
     },
-    "loadShader": {
-      "description": "从所定义的顶点及片断着色器文件路径加载自定的着色器。着色器是在背景异步加载的，因此此函数应该在 preload() 内使用。<br><br>现在为止有三种主要的着色器种类。只要相对的参数有在着色器内被定义，p5 将会自动提供相对的顶点、法线、颜色及灯光属性。",
-      "params": ["字符串：存有顶点着色器源代码的文件的路径",
-                 "字符串：存有片断着色器源代码的文件的路径"],
-      "returns": "p5.Shader：由所定义的顶点及片断着色器所创造的着色器物件"
-    },
-    "createShader": {
-      "description": "",
-      "params": ["字符串：顶点着色器的源代码",
-                 "字符串：片断着色器的源代码"],
-      "returns": "p5.Shader：由所定义的顶点及片断着色器所创造的着色器物件"
-    },
-    "shader": {
-      "description": "shader() 函数让其使用者提供自定的着色器以用于在 WEBGL 模式下渲染形状。使用这能使用 loadShader() 加载自定义的着色器。",
-      "params": ["p5.Shader：欲用于渲染形状用的 p5.Shader"]
-    },
-    "normalMaterial": {
-      "description": "形状的法线材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
-      "returns": ""
-    },
-    "texture": {
-      "description": "形状的纹理。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
-      "params": ["p5.Image|p5.MediaElement|p5.Graphics：该渲染成纹理的二维图像"],
-      "returns": ""
-    },
-    "ambientMaterial": {
-      "description": "使用所给予颜色定义形状的环境材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
-      "params": ["数字：红彩值或色调值，需在被定义的范围内",
-                 "数字：绿彩值或饱和度值",
-                 "数字：蓝彩值或亮度值",
-                 "数字：透明度",
-                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
-      "returns": ""
-    },
-    "specularMaterial": {
-      "description": "使用所给予颜色定义形状的镜面材料。您可在此<a href='https://p5js.org/zh-Hans/examples/3d-materials.html'>范例</a>查看所有可用的材料。",
-      "params": ["数字：红彩值或色调值，需在被定义的范围内",
-                 "数字：绿彩值或饱和度值",
-                 "数字：蓝彩值或亮度值",
-                 "数字：透明度",
-                 "数字[]|字符串|p5.Color：颜色数组、CSS 颜色字符串或 p5.Color 颜色值"],
-      "returns": ""
-    },
-    "p5.RendererGL": {
-      "description": "TODO",
-      "returns": "p5: 该 p5 物件"
-    },
-    "p5.Shader": {
-      "description": "Clase Shader para el modo WEBGL",
-      "params": ["p5.RendererGL: una instancia de p5.RendererGL que servirá de contexto GL para este nuevo p5.Shader",
-      "String: código fuente para el vertex shader (en forma de string)",
-      "String: código fuente para el fragment shader (en forma de string)"],
-      "methods": ["Wrapper de las funciones gl.uniform. Como almacenamos información de uniform en el shader, la podemos usar para revisar los datos provistos y llamar a la función apropiada."]
+    "setCamera":{
+        
     }
-  },
+      
+  }
 
   
 }
