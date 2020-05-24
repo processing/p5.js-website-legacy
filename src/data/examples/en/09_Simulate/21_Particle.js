@@ -38,14 +38,15 @@ class Particle {
 
 // this function creates the connections(lines)
 // between particles which are less than a certain distance apart
-  joinParticles(paraticles) {
-    particles.forEach(element =>{
+  joinParticles(idx) {
+    for (let i = idx; i < particles.length; i++) {
+      let element = particles[i];
       let dis = dist(this.x,this.y,element.x,element.y);
       if(dis<85) {
-        stroke('rgba(255,255,255,0.04)');
+        stroke('rgba(255,255,255,0.08)');
         line(this.x,this.y,element.x,element.y);
       }
-    });
+    }
   }
 }
 
@@ -64,6 +65,6 @@ function draw() {
   for(let i = 0;i<particles.length;i++) {
     particles[i].createParticle();
     particles[i].moveParticle();
-    particles[i].joinParticles(particles.slice(i));
+    particles[i].joinParticles(i);
   }
 }
