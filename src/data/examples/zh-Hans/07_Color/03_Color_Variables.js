@@ -1,7 +1,7 @@
 /*
- * @name Color Variables
- * @description (Homage to Albers.) This example creates variables for colors
- * that may be referred to in the program by a name, rather than a number.
+ * @name 颜色变量
+ * @description (向 Albers 致敬。) 此范例为颜色们建立了变量。
+ * 这样它们可以在程序中以名字指代，而非数字。
  */
 function setup() {
   createCanvas(710, 400);
@@ -12,8 +12,8 @@ function setup() {
   let middle = color(204, 153, 0);
   let outside = color(153, 51, 0);
 
-  // These statements are equivalent to the statements above.
-  // Programmers may use the format they prefer.
+  // 以下语句与上面的语句等效。
+  // 程序员可以选择他们喜欢的格式。
   //let inside = color('#CC6600');
   //let middle = color('#CC9900');
   //let outside = color('#993300');

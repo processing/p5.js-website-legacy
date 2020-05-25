@@ -6,7 +6,7 @@
  */
 
 function setup() {
-  createCanvas(720, 400);
+  createCanvas(720, 560);
   noStroke();
   noLoop();
 }

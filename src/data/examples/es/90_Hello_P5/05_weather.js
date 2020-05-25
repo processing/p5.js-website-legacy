@@ -2,9 +2,6 @@
  * @name Clima
  * @frame 720,280
  * @description Este ejemplo usa datos de clima en formato JSON desde apixu.com.
- * Necesitarás incluir la
- * <a href="http://p5js.org/reference/#/libraries/p5.dom"> biblioteca p5.dom</a>
- * a este ejemplo para que corra en tu máquina.
 */
 
 // un vector de dirección de viento

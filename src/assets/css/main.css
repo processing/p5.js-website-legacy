@@ -32,11 +32,9 @@
   color: #ED225D !important;
 }
 
-
 #home .button_box a:hover {
   color: #FFFFFF !important;
 }
-
 
 #lockup>a {
   position: relative;
@@ -71,6 +69,96 @@
   left: 0;
   z-index: -2;
 }
+
+/* <======== Styling for responsive menu bar ========> */
+
+@media screen and (max-width: 780px) {
+  .sidebar-menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .4s ease-out;
+    overflow: hidden;
+  }
+
+  .sidebar-menu-nav-element {
+    width: 91vw;
+  }
+
+  .sidebar-menu a {
+    display: block;
+    text-align: center;
+    padding-bottom: 0.11em;
+    border-bottom: 0.11em dashed transparent;
+  }
+
+  .sidebar-menu-icon {
+    top: 2rem;
+    cursor: pointer;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+    margin-bottom: 5rem;
+  }
+  
+  .sidebar-menu-icon .sidebar-nav-icon {
+    background: #ED225D;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .4s ease-out;
+    width: 18px;
+  }
+  
+  .sidebar-menu-icon .sidebar-nav-icon:before,
+  .sidebar-menu-icon .sidebar-nav-icon:after {
+    background: #ED225D;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .4s ease-out;
+    width: 100%;
+  }
+  
+  .sidebar-menu-icon .sidebar-nav-icon:before {
+    top: 5px;
+  }
+  
+  .sidebar-menu-icon .sidebar-nav-icon:after {
+    top: -5px;
+  }
+  
+  .sidebar-menu-btn {
+    display: none;
+  }
+
+  .sidebar-menu-btn:checked ~ .sidebar-menu {
+    max-height: 475px;
+  }
+
+  .sidebar-menu-btn:checked ~ .sidebar-menu-icon .sidebar-nav-icon {
+    background: transparent;
+  }
+  
+  .sidebar-menu-btn:checked ~ .sidebar-menu-icon .sidebar-nav-icon:before {
+    transform: rotate(-45deg);
+    top:0;
+  }
+  
+  .sidebar-menu-btn:checked ~ .sidebar-menu-icon .sidebar-nav-icon:after {
+    transform: rotate(45deg);
+    top:0;
+  }
+
+}
+
+.sidebar-menu-btn {
+  display: none;
+}
+
+
+/* <=================================================> */
 
 #home-sketch-frame {
   position: fixed;
@@ -138,6 +226,7 @@
   padding: 0.4em;
   margin: 0 1.75em 0 0;
   width: 18.65em;
+  float: left;
   color: #333 !important;
   height: 7.45em;
   position: relative;
@@ -285,7 +374,6 @@
   margin-bottom: 2em;
 }
 
-
 /*
   //////////////////////////////////////////////////
     REFERENCE
@@ -303,10 +391,6 @@
 .reference-group h3 {
   font-size: 1em;
   font-family: "Montserrat", sans-serif;
-  margin-top: 0.5em;
-}
-
-#reference-page ul {
   margin-top: 0.5em;
 }
 
@@ -357,6 +441,14 @@ div.reference-subgroup {
   margin: 1em 0 0 0;
 }
 
+#item ul {
+  margin-top: 0.5em;
+}
+
+#item li {
+  margin-bottom: 1em;
+}
+
 .description {
   clear: both;
   display: block;
@@ -371,7 +463,8 @@ div.reference-subgroup {
 
 .paramname {
   display: inline-block;
-  width: 8em;
+  min-width: 25%;
+  margin-right: 1%;
   font-size: 1.2em;
 }
 
@@ -383,8 +476,16 @@ div.reference-subgroup {
 .paramtype {
   display: inline-block;
   font-size: 1.2em;
-  width: 20em;
+  width: 73%;
   vertical-align: top;
+}
+
+#library-page .group-name{
+  display: inline-block;
+}
+
+#library-page .group-name:hover  {
+  color: #ED225D;
 }
 
 
@@ -769,8 +870,6 @@ textarea {
   //////////////////////////////////////////////////
 */
 
-#contribute-container {}
-
 #contribute-item {
   font-size: .75em;
   text-align: left;
@@ -791,11 +890,10 @@ textarea {
 }
 
 .container {
-  /*
-    width: 100px;*/
+  /* width: 100px;*/
   height: 100px;
   position: relative;
-  margin-top: 1.5em; /* temp promo */
+  /* margin-top: 1.5em; temp promo */
 }
 
 #navi,
@@ -830,6 +928,10 @@ h3.contribute-title {
   position: relative;
 }
 
+.label .nounderline img{
+  margin: .5em 0 0 0
+}
+
 .label h3 {
   color: white;
   position: absolute;
@@ -844,6 +946,14 @@ h3.contribute-title {
 h3 {
   font-size: 1.33em;
   margin: 1em 0 0 0;
+}
+
+.label .nounderline img {
+  height: fit-content;
+}
+
+#learn-page .info {
+  display: inline-block;
 }
 
 #exampleDisplay,
@@ -1068,6 +1178,255 @@ img.gallery-img {
   color: #AFAFAF;
   font-size: 1em;
   margin: 0px !important;
+}
+
+/*
+  //////////////////////////////////////////////////
+    SHOWCASE
+  //////////////////////////////////////////////////
+*/
+#featuring {
+  margin-bottom: 1em;
+}
+
+#showcase-page .showcase-intro h1 {
+  font: italic 900 14.5vw "Montserrat", sans-serif;
+  color: #ED225D;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+#showcase-page .showcase-intro p {
+  font: 400 1.4rem "Montserrat", sans-serif;
+  line-height: 1.5em;
+}
+
+#showcase-page .showcase-featured h2,
+#showcase-page .project-page h2{
+  font: italic 900 2rem "Montserrat", sans-serif;
+  color: #ED225D;
+  letter-spacing: 0.05rem;
+}
+
+#showcase-page ul.left-column,
+#showcase-page ul.right-column, 
+#showcase-page ul.project-tags,
+#showcase-page ul.links {
+  list-style: none;
+}
+
+#showcase-page img[alt] {
+  font-size: 0.9rem;
+}
+
+#showcase-page .showcase-featured {
+  margin-top: 15%;
+}
+
+#showcase-page .showcase-featured h3.title {
+  font: italic 900 1rem "Montserrat", sans-serif;
+}
+
+#showcase-page .showcase-featured p.credit {
+  font: 500 1rem "Montserrat", sans-serif;
+}
+
+#showcase-page .showcase-featured p.description {
+  font-size: 1em;
+  margin-bottom: 3rem;
+}
+
+#showcase-page .nominate {
+  margin-top: 1.5em;
+  display: inline-block;
+}
+
+#showcase-page .nominate a,
+#showcase-page .nominate a:visited {
+  padding: 0.4em 0.5em;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border: solid #ED225D 2px;
+  box-shadow: 4px 4px 0 #ED225D;
+  
+  font: 1.5rem "Montserrat", sans-serif;
+  color: #ED225D;
+  letter-spacing: 0.02rem;
+  transition: all 0.3s;
+}
+
+@media (max-width: 500px) {	
+  #showcase-page .nominate a,
+  #showcase-page .nominate a:visited {
+    padding: 0.4em 0.3em;
+    font: 1.3rem "Montserrat", sans-serif;
+  }	
+}
+
+#showcase-page .nominate a:hover {
+  top: 4px;
+  left: 4px;
+  box-shadow: none;
+}
+
+#showcase-page .showcase-featured a, #showcase-page .showcase-featured a:visited {
+  font-size: 1.2rem;
+  color: #ED225D;
+  letter-spacing: 0.02rem;
+  line-height: 1.5;
+}
+
+#showcase-page .showcase-featured a::after {
+	content: " →";
+}
+
+#showcase-page .showcase-featured .no-arrow-link::after {
+	content: " ";
+}
+
+#showcase-page .showcase-featured .no-arrow-link:hover {
+  text-decoration: none;
+  padding: none;
+  border: none;
+}
+
+.project-info {
+  margin-top: 1em;
+}
+
+#showcase-page ul.project-tags {
+  /*display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-top: -0.2em;
+  margin-bottom: 2em;
+  */
+  display: none;
+}
+
+#showcase-page ul.project-tags li {
+  margin: 5px;
+}
+
+#showcase-page .tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border: dashed #69ffe3;
+  border-radius: 27px;
+
+  font: 0.7rem "Montserrat", sans-serif;
+  color: #333;
+}
+
+/*
+  //////////////////////////////////////////////////
+    SHOWCASE - FEATURED PROJECT PAGE
+  //////////////////////////////////////////////////
+*/
+
+/* Link style for mobile and tablet screens (no :hover state) */
+/*
+@media (max-width: 991.98px){
+  #showcase-page .project-page a, #showcase-page .project-page a:visited {
+    color:#ED225D;
+    text-decoration: none;
+    padding-bottom: 0.11em;
+    border-bottom: 0.11em dashed;
+    border-bottom-color: #ED225D;
+    transition: border-bottom 30ms linear;
+  }
+}
+*/
+
+#showcase-page .project-page h2 {
+  line-height: 1.4;
+}
+
+@media (min-width: 720px) {
+
+  /* for desktop/tablet:
+   *   - two columns, one each for resources & authors
+   *   - indent answer paragraphs in q & a
+   */
+
+  #showcase-page .showcase-intro h1 {
+    font: italic 900 6.35vw "Montserrat", sans-serif;
+  }
+
+  #showcase-page .showcase-intro p {
+    line-height: 1.75em;
+  }
+
+  #showcase-page .project-metadata {
+    display: flex;
+  }
+
+  #showcase-page .project-resources {
+    margin-left: 3.0rem;
+  }
+
+  #showcase-page .project-a {
+    width: 90%;
+    float: right;
+    display: inline-block;
+    clear: both;
+  }
+
+  #showcase-page .half-image {
+    width: 48%;
+  }
+
+}
+
+#showcase-page .project-metadata {
+  margin-top: 3%;
+}
+
+#showcase-page .project-metadata section h3 {
+  color: #ED225D;
+  font: bold italic 1.0rem "Montserrat", sans-serif;
+}
+
+#showcase-page .project-resources ul.links {
+  font: 500 .7rem "Montserrat", sans-serif;
+  letter-spacing: 0.01rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+#showcase-page .project-credit {
+  font: italic bold 1.25rem "Montserrat", sans-serif;
+}
+
+#showcase-page .project-credit p {
+  margin: 0.5rem 0;
+}
+
+#showcase-page .note {
+  font-size: 0.7rem;
+}
+
+#showcase-page .creator-from {
+  font-size: 0.7rem;
+}
+
+#showcase-page .project-q {
+  margin-left: 0%;
+  display: inline-block;
+  clear: both;
+  /*
+  font-size: 1.2rem;
+  font-weight: 900;
+  */
+  font: 900 1.2rem 'Montserrat', sans-serif;
+  line-height: 1.5;
+}
+
+#showcase-page code {
+  font-size: 1.1rem;
 }
 
 
@@ -1383,6 +1742,10 @@ ul {
   list-style: none;
 }
 
+ol {
+  font-size: 1.2em;
+}
+
 li {
   margin: 0;
   padding: 0;
@@ -1394,6 +1757,10 @@ ul.list_view {
   list-style: disc;
   list-style-position: outside;
   font-size: 1.2em;
+}
+
+ol ul.list_view {
+  font-size: 1em;
 }
 
 ul.inside {
@@ -1641,10 +2008,10 @@ footer {
   display: inline-block;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 780px) {
   .container {
     width: 49em !important;
-    margin: 11.5em auto; /* temp promo, normally 10em */
+    margin: 10em auto; /* temp promo, 11.5em */
   }
   main {
     width: 36em;
@@ -1655,9 +2022,9 @@ footer {
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 780px) {
   .container {
-    margin: 11.5em auto; /* temp promo, normally 10em */
+    margin: 10em auto; /* temp promo, 11.5em */
     width: 100%;
     padding: 0.8em 0 0 0;
     height: auto;
@@ -1683,7 +2050,7 @@ footer {
   }
   #i18n-btn {
     position: absolute;
-    top: 4.0em; /* temp promo, normally 2.5em */
+    top: 2.5em; /* temp promo, 4.0em */
     right: 1em;
   }
   #i18n-btn a {
@@ -1780,9 +2147,7 @@ footer {
   .column.group-name {
     margin-bottom: 1em;
   }
-  #library-page .group-name:hover {
-    color: #ED225D;
-  }
+
   #library-page .group-name {
     margin: 2em 0 0.5em 0;
   }
@@ -1799,7 +2164,7 @@ footer {
 }
 
 
-@media (max-width: 719px) {
+@media (max-width: 780px) {
   .tagline {
     display: none !important;
   }
@@ -1838,16 +2203,19 @@ footer {
   #menu {
     margin: 6em 0 0.5em 0;
     font-size: 1.3em;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
   #menu li {
-    display: inline;
+    display: inline-block;
   }
+
+  #menu li:nth-last-child(1) a::after{
+    content:"";
+  }
+
+  #menu li a::after {
+    content: ",";
+  }
+  
   #contribute-item:first-child {
     margin-left: 0px;
   }
@@ -1870,8 +2238,9 @@ footer {
   }
   pre[class*="language-"] {
     padding: 0.5em 0.5em;
-    width: 14em;
+    width: 100vw;
   }
+
   code {
     word-wrap: break-word;
     word-break: break-all;
@@ -1915,6 +2284,9 @@ footer {
   footer {
     font-size: 0.5em;
   }
+  .paramtype {
+    width: 96%;
+  }
 }
 
 @media (max-width:400px) {
@@ -1928,14 +2300,34 @@ footer {
 
 iframe {
   border: none;
+  width: 100%;
+}
+
+.iframe-container {
+  overflow: hidden;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
 }
 
 .cnv_div {
-  /* This ensures that all canvases from example code snippets are only
-   * the width of their actual canvases, rather than the width of
-   * the entire page, potentially obscuring the example code and
-   * preventing it from being selected. */
-  display: inline-block;
+  /* This ensures that all canvases and additional html elements (if any) from
+   * the example code snippets are only 100px wide rather than covering the 
+   * entire page, which potentially obscures the example code. */
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.cnv_div > * {
+  width: 100px;
+  height: auto;
 }
 
 
@@ -2042,15 +2434,15 @@ iframe {
 
 #get-started-page #asterisk-design-element,
 #community-page #asterisk-design-element {
-  top: -30%;
-  right: -40%;
-  height: 44em;
-  width: 44em;
-  -webkit-transform: rotate(9deg);
-  -moz-transform: rotate(9deg);
-  -ms-transform: rotate(9deg);
-  -o-transform: rotate(9deg);
-  transform: rotate(9deg);
+  top: 10%;
+  right: -20%;
+  height: 30em;
+  width: 30em;
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  transform: rotate(2deg);
 }
 
 #reference-page #asterisk-design-element,
@@ -2077,10 +2469,26 @@ iframe {
   transition: border-bottom 30ms linear;
   width: 13em;
 }
-.email-octopus-form-row-subscribe button, .email-octopus-form-row-hp {
+
+.email-octopus-form-row-hp {
   position: absolute;
   left: -5000px;
 }
+
+.email-octopus-form-row button {
+  border: 1px solid #ED225D;
+  color: #ED225D;
+  padding: 0.4em 0.6em;
+  margin: 1em 0 0 0;
+  font-family: "Montserrat", sans-serif;
+  display: block;
+}
+
+.email-octopus-form-row button:hover {
+  background-color: #ED225D;
+  color: white;
+}
+
 .email-octopus-email-address::-webkit-input-placeholder { color:#ABABAB; }
 .email-octopus-email-address::-moz-placeholder { color:#ABABAB; }
 .email-octopus-email-address:-moz-placeholder { color:#ABABAB; }
@@ -2088,7 +2496,12 @@ iframe {
 
 @media (min-width: 720px) {
   .email-octopus-email-address {
-    width: 20em;
+    width: 16em;
   }
 
+  .email-octopus-form-row button {
+    margin: 0;
+    margin-left: 0.5em;
+    display: inline;
+  }
 }

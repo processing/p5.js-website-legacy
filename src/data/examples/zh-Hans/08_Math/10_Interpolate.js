@@ -1,11 +1,9 @@
 /*
- * @name Linear Interpolation
+ * @name 线性插值
  * @frame 720, 400
- * @description Move the mouse across the screen and the symbol will follow.
- * Between drawing each frame of the animation, the ellipse moves part
- * of the distance (0.05) from its current position toward the cursor using
- * the lerp() function.
- * This is the same as the Easing under input only with lerp() instead..
+ * @description 在屏幕上移动鼠标，圆会跟着移动。
+ * 在动画绘制的每一帧之间，lerp() 函数会使圆从其当前位置向光标移动一部分距离（0.05）。
+ * 这和在 Input 中的 <a href ="https://p5js.org/zh-Hans/examples/input-easing.html">Easing</a> 范例一样，只是使用了 lerp() 函数。
  */
 
 let x = 0;
@@ -19,12 +17,11 @@ function setup() {
 function draw() {
   background(51);
 
-  // lerp() calculates a number between two numbers at a specific increment.
-  // The amt parameter is the amount to interpolate between the two values
-  // where 0.0 equal to the first point, 0.1 is very near the first point, 0.5
-  // is half-way in between, etc.
+  // lerp() 函数计算在特定增量下两个数值之间的数字
+  // amt 参数为两个值之间的插值量
+  // 0.0 为第一个值，0.1 为非常接近第一个值，0.5 为两者之间，等等
 
-  // Here we are moving 5% of the way to the mouse location each frame
+  // 这里我们每帧移动 5% 至鼠标的距离
   x = lerp(x, mouseX, 0.05);
   y = lerp(y, mouseY, 0.05);
 

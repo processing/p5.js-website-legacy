@@ -1,9 +1,6 @@
 /*
  * @name Arrojar
- * @description  Toma un archivo de imagen y arrójalo sobre el lienzo para mostrarlo.
- * <p><em><span class="small"> Para correr este ejemplo localmente, necesitarás la
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
- *, al menos un archivo de imagen.</span></em></p>
+ * @description Toma un archivo de imagen y arrójalo sobre el lienzo para mostrarlo.
  */
 
 function setup() {

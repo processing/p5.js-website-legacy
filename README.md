@@ -46,7 +46,6 @@ Once you've setup the site, type `npm run watch` to run the website. This should
 
 If you've contributed to this website (or any other part of the p5.js project), add yourself [here](https://github.com/processing/p5.js#contributors). Instructions to do this can be found at the bottom of the section.
 
- 
 ## Etc
 * [Instructions for contributing to website translation/internationalization](https://github.com/processing/p5.js-website/blob/master/contributor_docs/i18n_contribution.md)
 * [Introducción a p5.js](https://github.com/processing/p5.js-getting-started-es) - The repository for the book and PDF production of [Introducción a p5.js](http://p5js.org/books/).
