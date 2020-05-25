@@ -89,10 +89,109 @@
 
       <h1>入门</h1>
 
-      <p>本页面将引导您设置一个 p5.js 项目并制作您第一个绘图。 如果您想要使用全新的  <a href="https://editor.p5js.org" target="_blank">p5.js 编辑器</a> 开始的话，您可以跳到 <a href="#sketch">您的第一个绘图</a>.
+      <p>This page walks you through setting up a p5.js project and making your first sketch. The easiest way to start is using the  <a href="https://editor.p5js.org" target="_blank">p5.js editor</a>, you can open the web editor and can scroll down to  <a href="#sketch">Your First Sketch</a>. If you would like to work on the the desktop version of p5.js you can scroll down to <a href="#settingUp">downloading instructions</a>.
       </p>
 
-      <h2 class="start-element tutorial-btn" id="download">下载及文件格局</h2>
+
+
+      <h2 class="start-element tutorial-btn" id="sketch">Your First Sketch</h2>
+
+      <div class="info">
+        <h3 class="sr-only">Code snippet with ellipse</h3>
+        <p>In the <a href='https://editor.p5js.org/'>p5.js web editor</a> you should see the following code:</p>
+
+<pre><code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+}
+
+</code></pre>
+        <p>After the <code class="language-javascript">background(220);</code> include the following line of code: <code class="language-javascript">ellipse(50,50,80,80);</code>.</p>
+
+        <p>Now your code should like this: </p>
+        <h3 class="sr-only">Code snippet with ellipse</h3>
+
+<pre><code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  ellipse(50,50,80,80);
+}
+
+</code></pre>
+        <p>The line you just added draws an ellipse, with its center 50 pixels over from the left and 50 pixels down from the top, with a width and height of 80 pixels.</p>
+        <p>On the editor press play to see your code in action!</p>
+        <h3 class="sr-only">Note for screenreader users</h3>
+        <p>If you are using a screen reader, you must either turn on the accessible outputs in the p5 online editor, outside the editor you must add the accessibility library in your html. To learn more visit <a href="../learn/p5-screen-reader.html" target="_blank">using p5 with a screen reader tutorial.</a>
+        </p>
+        <p>If you've typed everything correctly, you'll see this appear in the display window:</p>
+
+        <img src="../../assets/img/get-started/first-sketch.png" alt='canvas has a circle of width and height 50 at position 80 x and 80 y'/>
+
+        <p>If you don't see anything,  the editor may be having trouble understanding what you’ve typed. If this happens, make sure that you've copied the example code exactly: the numbers should be contained within parentheses and have commas between each of them, the line should end with a semicolon, and ellipse has to be spelled correctly.</p>
+
+        <p>One of the most difficult things about getting started with programming is that you have to be very specific about the syntax. The browser isn't always smart enough to know what you mean, and can be quite fussy about the placement of punctuation. You'll get used to it with a little practice. In the bottom left of your screen you will find the console section. Here, you can see messages from the editor with details about any errors it encounters.</p>
+
+        <h3 class="sr-only">Code snippet with interaction</h3>
+        <p>Next, we'll skip ahead to a sketch that's a little more exciting. Modify the last example to try this:</p>
+
+<pre><code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  if (mouseIsPressed) {
+    fill(0);
+  } else {
+    fill(255);
+  }
+  ellipse(mouseX, mouseY, 80, 80);
+}
+</code></pre>
+
+        <p>This program creates a canvas that is 400 pixels wide and 400 pixels high, and then starts drawing white circles at the position of the mouse. When a mouse button is pressed, the circle color changes to black. Run the code, move the mouse, and click to experience it.
+        </p>
+
+        <img src="../../assets/img/get-started/first-sketch2.png" alt='canvas has multiple circles drawn on it following the path of the mouse'/>
+      </div>
+
+      <h2 class="start-element tutorial-btn" id="next">下一步</h2>
+
+      <div class='info'>
+        <ul class="list_view">
+          <li>Check out the <a href="../learn/">learn page</a> and <a href="../examples">examples page</a> for more.</li>
+          
+          <li>Watch <a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA">The Coding Train</a> and <a href="https://www.kadenze.com/courses/introduction-to-programming-for-the-visual-arts-with-p5-js/info">Kadenze</a> video tutorials.</li>
+
+          <li>View the <a href="../reference/"> reference</a> for full documentation. </li>
+          <li>If you wish to use p5 with a screenreader, check out the <a href="../learn/p5-screen-reader.html">p5 with a screenreader tutorial</a>.</li>
+          <li>If you have used Processing in the past, read the <a href='https://github.com/processing/p5.js/wiki/Processing-transition'>Processing transition tutorial</a> to learn how to convert from Processing to p5.js, and the main differences between them.</li>
+
+        </ul>
+      </div>
+
+      <h2 class="start-element tutorial-btn" id="settingUp">Setting up p5.js with an editor on your own computer</h2>
+
+      <div class="info">
+        <p>您可以使用任何
+          <a href='https://zh.wikipedia.org/wiki/%E6%BA%90%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8' target="_blank">
+            代码编程器</a>
+            。以下为设置
+            <a href="http://www.sublimetext.com/2" target="_blank"> Sublime Text 2</a>
+            的步骤。其他不错的代码编程器包括<a href='http://brackets.io/' target=_blank>Brackets</a> 和<a href='https://atom.io/' target=_blank>Atom</a>. 如果您使用荧幕阅读器但不使用 p5 Editor，您可考虑使用  <a href="https://notepad-plus-plus.org/">Notepad++</a>  或 
+            <a href="https://www.eclipse.org/ide/" target="_blank">Eclipse</a>.
+        </p>
+      </div>  
+
+      <h3 class="start-element tutorial-btn" id="download">Downloading a copy of the p5.js library</h3>
 
       <div class="info">
         <p>最简易的起点是使用
@@ -103,19 +202,22 @@
         <p>查看 index.html 您可以发现其中有个 p5.js 的链接。如果您想要使用极简化的档案（以加速网页加载的速度），将链接档案名改为 p5.min.js</p>
 
         <pre><code class="language-markup">&lt;script src="../p5.min.js">&lt;/script></code></pre>
+      </div>
 
+      <h3 class="start-element tutorial-btn" id="hosted">Using a hosted version of the p5.js library</h3>
+      <div class="info">
         <p>另外，您也可以选择链接去网络上的 p5.js 文档。所有 p5.js 版本都被上载到多个 CDN (Content Delivery Network) 上，您可在此链接参考所有 p5.js 版本：
-          <a target="_blank" href="https://cdnjs.com/libraries/p5.js">
+          <a target="_blank" href="https://cdn.jsdelivr.net/npm/p5/lib/">
             p5.js CDN</a>。接下来您只需要将链接改为：
         </p>
 
-        <pre class='p5-replace'><code class="language-markup">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/[p5_version]/p5.js">&lt;/script></code></pre>
+        <pre class='p5-replace'><code class="language-markup">&lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script></code></pre>
 
         <p>一个极简但完整的 HTML 档案如下：</p>
 
         <pre class='p5-replace'><code class="language-markup">&lt;html>
   &lt;head>
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/[p5_version]/p5.js">&lt;/script>
+    &lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script>
     &lt;script src="sketch.js">&lt;/script>
   &lt;/head>
   &lt;body>
@@ -124,20 +226,8 @@
 
         <p>您也可以使用以下来自 <a href='https://codepen.io/p5js/pen/wreBKy'>codepen</a>的模版。</p>
       </div>
-
-      <h2 class="start-element tutorial-btn" id="environment">编程环境</h2>
-
+      <h3 class="start-element tutorial-btn" id="environment">编程环境</h3>
       <div class="info">
-        <p>您可以使用任何
-          <a href='https://zh.wikipedia.org/wiki/%E6%BA%90%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8' target="_blank">
-            代码编程器</a>
-            。以下为设置
-            <a href="http://www.sublimetext.com/2" target="_blank"> Sublime Text 2</a>
-            的步骤。其他不错的代码编程器包括<a href='http://brackets.io/' target=_blank>Brackets</a>, <a href='https://atom.io/' target=_blank>Atom</a> 和
-            <a href='http://openprocessing.org' target=_blank>OpenProcessing</a>. 如果您使用荧幕阅读器但不使用 p5 Editor，您可考虑使用  <a href="https://notepad-plus-plus.org/">Notepad++</a>  或 
-            <a href="https://www.eclipse.org/ide/" target="_blank">Eclipse</a>.
-        </p>
-
         <p>
           开启 Sublime。选择 File 目录项目然后选择 Open... 接着在对话框中选择含有您的 .html 及 .js 档案的文件夹。在窗口左边的文件栏您应该能看到文件夹的名字在最上方而往下都是该文件夹里面所含的档案。
         </p>
@@ -153,80 +243,7 @@
         </p>
       </div>
 
-      <h2 class="start-element tutorial-btn" id="sketch">您的第一个绘图</h2>
-
-      <div class="info">
-        <p>如果您使用过 Processing，可参考<a href='https://github.com/processing/p5.js/wiki/Processing-transition'>Processing 过度教程（英文页面）</a>.</p>
-        
-        <h3 class="sr-only">Code snippet with ellipse</h3>
-        <p>在代码编程器内输入：</p>
-
-<pre><code class="language-javascript">
-function setup() {
-
-}
-
-function draw() {
-  ellipse(50, 50, 80, 80);
-}
-</code></pre>
-
-        <p>这一行代码表示〝在离左边 50 像素及里上边 50 像素的位置画个高度和宽度都为 80 像素的椭圆形〞。</p>
-
-        <p>保存该绘图的档案并刷新您浏览器的页面，这时如果您成功输入以上范例，您会在浏览器内看到如下页面：</p>
-
-
-        <h3 class="sr-only">Note for screenreader users</h3>
-        <p>如果您使用荧幕阅读器，您需要在 p5 网上编辑器内开启无障碍输出（accessible outputs），或不使用该编辑器的话您则需要在您的 HTML 文件内添加无障碍程式库。以了解更多关于<a href="../learn/p5-screen-reader.html" target="_blank">使用 p5 及荧幕阅读器的相关资讯请点击这里</a>
-          ，而如果您想知道更多关于<a href="https://github.com/processing/p5.accessibility" target="_blank">无障碍编程程式库请点击这里。</a>.
-        </p>
-
-        <img src="../../assets/img/get-started/first-sketch.png" alt='画布上 x 坐标 80 及 y 坐标 80 的位置上有个宽度及高度都为 50 的圆形'/>
-
-        <p>如果您没看见任何东西，这可能表示在输入代码时出现了错误。这时您需要确保您所输入的代码和以上范例完全相同无误：数字必须被输入在括号内，他们之间也该由逗号分开，而行列尾端也该有个分号。</p>
-
-        <p>刚起步编程其中一个比较难的部分是您必须非常注意编程语言的语法，网页浏览器通常没办法猜出您想要表达的意思并时常会挑剔编程码标点符号的位置。只要多加练习您自然也会习惯该语法。取决于您使用的网页浏览器，您能开启 JavaScript "console"（控制台）查看错误信息。比如说 Chrome 您能在 View > Developer > JavaScript Console 目录项目中开启控制台。</p>
-
-        <h3 class="sr-only">Code snippet with interaction</h3>
-        <p>接下来，我们可以编写一个更有趣的绘图。删除上一个范例的所有代码然后输入以下：</p>
-
-<pre><code class="language-javascript">
-function setup() {
-  createCanvas(640, 480);
-}
-
-function draw() {
-  if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
-  }
-  ellipse(mouseX, mouseY, 80, 80);
-}
-</code></pre>
-
-        <p>这程式会制作一个 640 像素宽 480 像素高的画布，然后在鼠标的位置画白色圆圈。当您按下滑鼠按钮时，圆圈将会变为黑色。现在您可以试着移动滑鼠及点击滑鼠按钮。
-        </p>
-
-        <img src="../../assets/img/get-started/first-sketch2.png" alt='画布上有多个沿着鼠标移动路径画出的圆形'/>
-      </div>
-
-      <h2 class="start-element tutorial-btn" id="next">下一步</h2>
-
-      <div class='info'>
-        <ul class="list_view">
-          <li>参阅<a href='https://github.com/processing/p5.js/wiki/Processing-transition'>Processing 过度教程（英文页面）</a>以了解如何将 Processing 绘图转换为 p5.js 绘图以及它们之间的差别。</li>
-
-          <li>查看<a href="../reference/">参考文献</a>以更深入了解各个功能。 </li>
-
-          <li>浏览<a href="../learn/">学习</a>及<a href="../examples">范例</a>页面以了解更多。</li>
-          <li>如果您想要将 p5 及荧幕阅读器一起使用，您可以参考<a href="../learn/p5-screen-reader.html">p5 及荧幕阅读器教程</a>.</li>
-        </ul>
-      </div>
-
-      <div>这教程一部分源自于《 Getting Started with p5.js 》，作者为 Lauren McCarthy、Casey Reas 及 Ben Fry， O'Reilly / Make。著作权 © 2015。版权所有。</div>
-
-
+      <div>Parts of this tutorial were adapted from the book, Getting Started with p5.js, by Lauren McCarthy, Casey Reas, and Ben Fry, O'Reilly / Make 2015. Copyright © 2015. All rights reserved. Last modified at the p5.js 2019 Contributors Conference.</div>
 
       <script>
         $.getJSON('../download/version.json', function(data) {

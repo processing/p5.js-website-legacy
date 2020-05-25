@@ -88,10 +88,109 @@
 
       <h1>Empezar</h1>
 
-      <p>Esta página te guía a través del proceso de configuración de un proyecto con p5.js y hacer tu primer bosquejo. Si quieres probar el nuevo  <a href="https://editor.p5js.org" target="_blank">Editor de p5.js</a>, puedes ir a <a href="#sketch">Tu primer bosquejo</a>.
+      <p>This page walks you through setting up a p5.js project and making your first sketch. The easiest way to start is using the  <a href="https://editor.p5js.org" target="_blank">p5.js editor</a>, you can open the web editor and can scroll down to  <a href="#sketch">Your First Sketch</a>. If you would like to work on the the desktop version of p5.js you can scroll down to <a href="#settingUp">downloading instructions</a>.
       </p>
 
-      <h2 class="start-element tutorial-btn" id="download">Descarga y configuración de archivos</h2>
+
+
+      <h2 class="start-element tutorial-btn" id="sketch">Your First Sketch</h2>
+
+      <div class="info">
+        <h3 class="sr-only">Code snippet with ellipse</h3>
+        <p>In the <a href='https://editor.p5js.org/'>p5.js web editor</a> you should see the following code:</p>
+
+<pre><code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+}
+
+</code></pre>
+        <p>After the <code class="language-javascript">background(220);</code> include the following line of code: <code class="language-javascript">ellipse(50,50,80,80);</code>.</p>
+
+        <p>Now your code should like this: </p>
+        <h3 class="sr-only">Code snippet with ellipse</h3>
+
+<pre><code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  ellipse(50,50,80,80);
+}
+
+</code></pre>
+        <p>The line you just added draws an ellipse, with its center 50 pixels over from the left and 50 pixels down from the top, with a width and height of 80 pixels.</p>
+        <p>On the editor press play to see your code in action!</p>
+        <h3 class="sr-only">Note for screenreader users</h3>
+        <p>If you are using a screen reader, you must either turn on the accessible outputs in the p5 online editor, outside the editor you must add the accessibility library in your html. To learn more visit <a href="../learn/p5-screen-reader.html" target="_blank">using p5 with a screen reader tutorial.</a>
+        </p>
+        <p>If you've typed everything correctly, you'll see this appear in the display window:</p>
+
+        <img src="../../assets/img/get-started/first-sketch.png" alt='canvas has a circle of width and height 50 at position 80 x and 80 y'/>
+
+        <p>If you don't see anything,  the editor may be having trouble understanding what you’ve typed. If this happens, make sure that you've copied the example code exactly: the numbers should be contained within parentheses and have commas between each of them, the line should end with a semicolon, and ellipse has to be spelled correctly.</p>
+
+        <p>One of the most difficult things about getting started with programming is that you have to be very specific about the syntax. The browser isn't always smart enough to know what you mean, and can be quite fussy about the placement of punctuation. You'll get used to it with a little practice. In the bottom left of your screen you will find the console section. Here, you can see messages from the editor with details about any errors it encounters.</p>
+
+        <h3 class="sr-only">Code snippet with interaction</h3>
+        <p>Next, we'll skip ahead to a sketch that's a little more exciting. Modify the last example to try this:</p>
+
+<pre><code class="language-javascript">
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  if (mouseIsPressed) {
+    fill(0);
+  } else {
+    fill(255);
+  }
+  ellipse(mouseX, mouseY, 80, 80);
+}
+</code></pre>
+
+        <p>This program creates a canvas that is 400 pixels wide and 400 pixels high, and then starts drawing white circles at the position of the mouse. When a mouse button is pressed, the circle color changes to black. Run the code, move the mouse, and click to experience it.
+        </p>
+
+        <img src="../../assets/img/get-started/first-sketch2.png" alt='canvas has multiple circles drawn on it following the path of the mouse'/>
+      </div>
+
+      <h2 class="start-element tutorial-btn" id="next">¿Qué viene después?</h2>
+
+      <div class='info'>
+        <ul class="list_view">
+          <li>Check out the <a href="../learn/">learn page</a> and <a href="../examples">examples page</a> for more.</li>
+          
+          <li>Watch <a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA">The Coding Train</a> and <a href="https://www.kadenze.com/courses/introduction-to-programming-for-the-visual-arts-with-p5-js/info">Kadenze</a> video tutorials.</li>
+
+          <li>View the <a href="../reference/"> reference</a> for full documentation. </li>
+          <li>If you wish to use p5 with a screenreader, check out the <a href="../learn/p5-screen-reader.html">p5 with a screenreader tutorial</a>.</li>
+          <li>If you have used Processing in the past, read the <a href='https://github.com/processing/p5.js/wiki/Processing-transition'>Processing transition tutorial</a> to learn how to convert from Processing to p5.js, and the main differences between them.</li>
+
+        </ul>
+      </div>
+
+      <h2 class="start-element tutorial-btn" id="settingUp">Setting up p5.js with an editor on your own computer</h2>
+
+      <div class="info">
+        <p>Puedes usar el 
+          <a href='https://es.wikipedia.org/wiki/Editor_de_codigo_fuente' target="_blank">
+             editor de código </a>
+            que prefieras. Las instrucciones para usar y configurar  
+            <a href="http://www.sublimetext.com/2" target="_blank"> Sublime Text 2</a>
+             están incluidas a continuación, otras buenas opciones de editores incluyen <a href='http://brackets.io/' target=_blank>Brackets</a>  y <a href='https://atom.io/' target=_blank>Atom</a>. Si estás utilizando un lector de pantalla y no usas el editor de p5, te recomendamos usar  <a href="https://notepad-plus-plus.org/">Notepad++</a>  o 
+            <a href="https://www.eclipse.org/ide/" target="_blank">Eclipse</a>.
+        </p>
+      </div>  
+
+      <h3 class="start-element tutorial-btn" id="download">Downloading a copy of the p5.js library</h3>
 
       <div class="info">
         <p>La manera más simple de empezar es usando el ejemplo en blanco incluido en
@@ -102,19 +201,22 @@
         <p>Si revisas el archivo index.html, te darás cuenta que tiene un enlace al archivo p5.js. Si estás buscando usar la versión reducida (comprimida para que las páginas carguen más rápidamente), cambia el enlace a p5.min.js.</p>
 
         <pre><code class="language-markup">&lt;script src="../p5.min.js">&lt;/script></code></pre>
+      </div>
 
+      <h3 class="start-element tutorial-btn" id="hosted">Using a hosted version of the p5.js library</h3>
+      <div class="info">
         <p>De forma alternativa, puedes enlazar a un archivo p5.js alojado en línea. Todas las versiones de p5.js están almacenadas en un CDN (Content Delivery Network). Puedes ver un historial de estas versiones aquí: 
-          <a target="_blank" href="https://cdnjs.com/libraries/p5.js">
+          <a target="_blank" href="https://cdn.jsdelivr.net/npm/p5/lib/">
             p5.js CDN</a>. En este caso, puedes cambiar el enlace a: 
         </p>
 
-        <pre class='p5-replace'><code class="language-markup">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/[p5_version]/p5.js">&lt;/script></code></pre>
+        <pre class='p5-replace'><code class="language-markup">&lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script></code></pre>
 
         <p>Una página HTML de ejemplo podría verse así:</p>
 
         <pre class='p5-replace'><code class="language-markup">&lt;html>
   &lt;head>
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/[p5_version]/p5.js">&lt;/script>
+    &lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script>
     &lt;script src="sketch.js">&lt;/script>
   &lt;/head>
   &lt;body>
@@ -123,20 +225,8 @@
 
         <p>También puedes empezar con esta plantilla de  <a href='https://codepen.io/p5js/pen/wreBKy'>codepen</a>.</p>
       </div>
-
-      <h2 class="start-element tutorial-btn" id="environment">Ambiente</h2>
-
+      <h3 class="start-element tutorial-btn" id="environment">Ambiente</h3>
       <div class="info">
-        <p>Puedes usar el 
-          <a href='https://es.wikipedia.org/wiki/Editor_de_codigo_fuente' target="_blank">
-             editor de código </a>
-            que prefieras. Las instrucciones para usar y configurar  
-            <a href="http://www.sublimetext.com/2" target="_blank"> Sublime Text 2</a>
-             están incluidas a continuación, otras buenas opciones de editores incluyen <a href='http://brackets.io/' target=_blank>Brackets</a>, <a href='https://atom.io/' target=_blank>Atom</a>  y 
-            <a href='http://openprocessing.org' target=_blank>OpenProcessing</a>. Si estás utilizando un lector de pantalla y no usas el editor de p5, te recomendamos usar  <a href="https://notepad-plus-plus.org/">Notepad++</a>  o 
-            <a href="https://www.eclipse.org/ide/" target="_blank">Eclipse</a>.
-        </p>
-
         <p>
           Abre Sublime. Despliega el menú File (archivo) y elige Open... (abrir) y selecciona el directorio donde se encuentran tus archivos html y js. En la barra lateral izquierda, podrás ver ahora el nombre del directorio en la parte superior, y a continuación una lista con los archivos contenidos en el directorio.
         </p>
@@ -152,80 +242,7 @@
         </p>
       </div>
 
-      <h2 class="start-element tutorial-btn" id="sketch">Tu primer bosquejo</h2>
-
-      <div class="info">
-        <p>Los usuarios de Processing pueden revisar el <a href='https://github.com/processing/p5.js/wiki/Transici%C3%B3n-desde-Processing'>Tutorial de transición desde Processing</a>.</p>
-        
-        <h3 class="sr-only">Code snippet with ellipse</h3>
-        <p>En tu editor, escribe lo siguiente:</p>
-
-<pre><code class="language-javascript">
-function setup() {
-
-}
-
-function draw() {
-  ellipse(50, 50, 80, 80);
-}
-</code></pre>
-
-        <p>Esta línea de código significa "dibuja una elipse, con su centro 50 pixeles a la derecha del borde izquierdo y 50 pixeles abajo del borde superior, con un ancho y un alto de 80 pixeles".</p>
-
-        <p>Graba tu bosquejo y refresca la página en tu navegador. Si has escrito todo correctamente, verás esto:</p>
-
-
-        <h3 class="sr-only">Note for screenreader users</h3>
-        <p>Si estás utilizando un lector de pantalla debes activar los bosquejos accessibles en el editor p5 en línea, o fuera del editor debes agregar la librería de accessibilidad en tu html. Para aprender a utilizar <a href="../learn/p5-screen-reader.html" target="_blank">p5 con un lector de pantalla</a>
-           y para aprender más sobre la <a href="https://github.com/processing/p5.accessibility" target="_blank">librería de accesibilidad</a>.
-        </p>
-
-        <img src="../../assets/img/get-started/first-sketch.png" alt='la canvas tiene un círculo de alto y ancho 50 en la posición 80x y 80y'/>
-
-        <p>Si no lo escribiste correctamente, podría no aparecer nada. Si esto ocurre, asegúrate de haber copiado el código del ejemplo de manera correcta: los números deben estar contenidos dentro de paréntesis y tener comas entre cada uno de ellos, y la línea debe terminar con un punto y coma.</p>
-
-        <p>Una de las cosas más difíciles de empezar a programar es que debes ser muy prolijo con el uso de la sintaxis. El navegador no es siempre lo suficientemente inteligente como para saber lo que quieres decir, y puede ser muy exigente con la puntuación. Te acostumbrarás a esto con un poco de práctica. Dependiendo del navegador que utilices, puedes ver los errores al revisar la "consola" de JavaScript. En Chrome, por ejemplo, esto está bajo Ver > Desarrollador > Consola JavaScript.</p>
-
-        <h3 class="sr-only">Code snippet with interaction</h3>
-        <p>A continuación, haremos un bosquejo más interesante. Borra el texto del ejemplo anterior y prueba este: </p>
-
-<pre><code class="language-javascript">
-function setup() {
-  createCanvas(640, 480);
-}
-
-function draw() {
-  if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
-  }
-  ellipse(mouseX, mouseY, 80, 80);
-}
-</code></pre>
-
-        <p>Este programa crea una ventana con un ancho de 640 pixeles y una altura de 480 pixeles, y luego empieza a dibujar círculos blancos según la posición del ratón. Cuando presionas un botón del ratón, el color del círculo cambia a negro. Explicaremos más adelante los detalles acerca de los elementos de este programa. Por ahora ejecuta el código, mueve el ratón, y haz click para probarlo.
-        </p>
-
-        <img src="../../assets/img/get-started/first-sketch2.png" alt='la canvas tiene múltiples circulos dibujados sobre ella al seguiendo el camino del movimiento del ratón'/>
-      </div>
-
-      <h2 class="start-element tutorial-btn" id="next">¿Qué viene después?</h2>
-
-      <div class='info'>
-        <ul class="list_view">
-          <li>Lee el <a href='https://github.com/processing/p5.js/wiki/Transici%C3%B3n-desde-Processing'>tutorial de transición desde Processing</a> para aprender cómo convertir de Processing a p5.js y sobre las mayores diferencias entre ellos.</li>
-
-          <li>Revisa la <a href="../reference/"> referencia</a> para ver la documentación completa. </li>
-
-          <li>Revisa las páginas de <a href="../learn/">aprender</a> y <a href="../examples">ejemplos</a> para aprender más.</li>
-          <li>Si deseas usar p5 con un lector de pantalla, revisa <a href="../learn/p5-screen-reader.html">el tutorial p5 con lector de pantalla</a>.</li>
-        </ul>
-      </div>
-
-      <div>Partes de este tutorial fueron adaptados del libro Getting Started with p5.js, por Lauren McCarthy, Casey Reas y Ben Fry, O'Reilly / Make. Copyright © 2015. Todos los derechos reservados.</div>
-
-
+      <div>Parts of this tutorial were adapted from the book, Getting Started with p5.js, by Lauren McCarthy, Casey Reas, and Ben Fry, O'Reilly / Make 2015. Copyright © 2015. All rights reserved. Last modified at the p5.js 2019 Contributors Conference.</div>
 
       <script>
         $.getJSON('../download/version.json', function(data) {
