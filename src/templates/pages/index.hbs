@@ -2,20 +2,18 @@
 title: home
 slug: /
 ---
-<div id="home-page">
-  {{> sidebar}}
-
-  <div class="column-span">
+<div class="column-span">
+	<div id="home-page">
     <main id="home">
-
-      <form id="search" method="get" action="https://www.google.com/search">
-        <input type="hidden" name="as_sitesearch" value="p5js.org" >
-        <input id="search_button" type="submit" aria-label="Search" class='sr-only'>
-        <input tabindex="1" id='search_field' type="text" size="20" placeholder="Search p5js.org" name="q" >
-        <label class="sr-only" for="search_field">Search p5js.org</label>
-      </form>
-
-      <h1>{{#i18n "p1xh1"}}{{/i18n}}</h1>
+      <div class="hello">
+        <h1>{{#i18n "p1xh1"}}{{/i18n}}</h1>
+        <form id="search" method="get" action="https://www.google.com/search">
+          <input type="hidden" name="as_sitesearch" value="p5js.org">
+          <input id="search_button" type="submit" aria-label="Search" class='sr-only'>
+          <input tabindex="1" id='search_field' type="text" size="20" placeholder="Search p5js.org" name="q">
+          <label class="sr-only" for="search_field">Search p5js.org</label>
+        </form>
+      </div>
       <p style="margin-top:1em">{{#i18n "p1x1"}}{{/i18n}}</p>
       <p>{{#i18n "p1x2"}}{{/i18n}}</p>
       <a href="https://editor.p5js.org"><span class='button_box'>{{#i18n "start-creating"}}{{/i18n}}</span></a>

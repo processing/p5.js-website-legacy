@@ -81,6 +81,11 @@ module.exports = function(grunt) {
     assemble: {
       pages: {
         options: {
+          rtl: function() {
+            // Add needed right-to-left language codes in the array below
+            var rtlLangs = [];
+            return rtlLangs.includes(this.language);
+          },
           expand: true,
           flatten: true,
           assets: '<%= config.dist %>/assets',

@@ -636,8 +636,9 @@ form {
   color: #666;
 }
 
-#search {
-  float: right;
+.hello {
+  display: flex;
+  justify-content: space-between;
 }
 
 #search .twitter-typeahead .tt-dropdown-menu {
@@ -1192,7 +1193,6 @@ img.gallery-img {
 #showcase-page .showcase-intro h1 {
   font: italic 900 14.5vw "Montserrat", sans-serif;
   color: #ED225D;
-  text-align: left;
   text-transform: uppercase;
 }
 
@@ -2031,7 +2031,7 @@ footer {
     min-height: 100%;
     background-color: rgba(51, 51, 51, 0.0);
   }
-  #home-page {
+  .two-columns {
     display: flex;
     flex-wrap: row;
   }
@@ -2051,7 +2051,7 @@ footer {
   #i18n-btn {
     position: absolute;
     top: 2.5em; /* temp promo, 4.0em */
-    right: 1em;
+    margin: 0 1em;
   }
   #i18n-btn a {
     font-family: "Montserrat", sans-serif;
@@ -2197,7 +2197,6 @@ footer {
   .column-span {
     margin: 0 1em 0 1em;
     padding: 0;
-    float: left;
   }
   #menu.top_menu,
   #menu {
@@ -2503,5 +2502,23 @@ iframe {
     margin: 0;
     margin-left: 0.5em;
     display: inline;
+  }
+}
+
+/* ======= Right-to-left modifications ======== */
+
+html.rtl #lockup {
+  left: auto;
+  right: 1.25em;
+}
+
+html.rtl #home-page #asterisk-design-element {
+  right: auto;
+  left: 20%;
+}
+
+@media screen and (max-width: 719px) {
+  html.rtl .sidebar-menu-icon {
+    float: left
   }
 }
