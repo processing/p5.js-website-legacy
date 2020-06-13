@@ -43,7 +43,7 @@ The overall HTML template is a [handlebars](https://handlebarsjs.com/) file, whi
 - The main [Showcase page](https://p5js.org/showcase/) is ["index.hbs"](https://github.com/processing/p5.js-website/blob/master/src/templates/pages/showcase/index.hbs)
 - Each [project feature page](https://p5js.org/showcase/featuring/roni-cantor.html) is under the ["featuring" folder](https://github.com/processing/p5.js-website/tree/master/src/templates/pages/showcase/featuring) as "creatorFirstName-lastName.hbs" (if a project has 1 creator) or "collaborator1FirstName-collaborator2FirstName.hbs" (if a project has multiple creators)
 
-![](images/hbslocated.png)
+![](assets/showcase_documentation_images/hbslocated.png)
 
 - Each file starts with this [YAML front matter](https://assemble.io/docs/YAML-front-matter.html) as metadata: title: showcase, slug: showcase/featuring/
 - More information on YAML and how it relates to i18n can be seen [here](https://github.com/guillemontecinos/itp_fall_2018_open_source_studio/blob/master/final_project/i18n_contribution.md), basically i18n is how multiple language support is added and it's why the content for the website consists of handlebars (hbs files), and YAML (yml files).
@@ -57,7 +57,7 @@ The [YAML files](https://github.com/processing/p5.js-website/tree/master/src/dat
 
 and consist of en.yml, es.yml, and zh-Hans.yml. For now any data that is added to the en.yml can be added in the original untranslated text to the other yml files until it gets translated.
 
-![](images/yamllocated.png)
+![](assets/showcase_documentation_images/yamllocated.png)
 
 How the YAML works in conjunction with handlebars is basically that the content in YAML is organized into key value pairs. The keys, the font in blue are what are put into the handlebars file through the following format:
 
@@ -67,11 +67,11 @@ Then these handlebars files are assembled into a HTML page with the value (orang
 
 **YAML File (key in blue, value in orange):**
 
-![](images/ex1.1.png)
+![](assets/showcase_documentation_images/ex1.1.png)
 
 **Handlebars File:**
 
-![](images/ex1.2.png)
+![](assets/showcase_documentation_images/ex1.2.png)
 
 ## How to add a new entry
 1. Create a new handlebars file by naming it "creatorFirstName-lastName.hbs" (if a project has 1 creator) or "collaborator1FirstName-collaborator2FirstName.hbs" (if a project has multiple creators)
@@ -98,7 +98,7 @@ The general code for a new entry is seen below:
 </div>
 ```
 Below, the dotted line is around what a singular showcase entry is
-![](images/showcaseentry.png)
+![](assets/showcase_documentation_images/showcaseentry.png)
 
 
 In conjunction with this step in the YAML file, add the necessary key value pairs under showcase.
