@@ -1,7 +1,7 @@
 /*
- * @name Copy() method
+ * @name Copy() 函数
  * @frame 600,400
- * @description 一个如何使用copy（）方法模拟为图像着色的示例。
+ * @description 一个如何使用 copy() 函数模拟为图像着色的范例。
  */
 let draft, ready;
 function preload() {
