@@ -132,9 +132,9 @@ module.exports = function(grunt) {
           baseUrl: '<%= config.src %>/yuidoc-p5-theme-src/scripts/',
           mainConfigFile: '<%= config.src %>/yuidoc-p5-theme-src/scripts/config.js',
           name: 'main',
-          out: '<%= config.src %>/templates/pages/reference/assets/js/reference.js',
+          out: '<%= config.src %>/assets/js/reference.js',
           optimize: 'none',
-          generateSourceMaps: true,
+          generateSourceMaps: false,
           findNestedDependencies: true,
           wrap: true,
           paths: {
