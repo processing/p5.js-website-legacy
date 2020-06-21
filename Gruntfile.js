@@ -282,8 +282,8 @@ module.exports = function(grunt) {
           },
           {
             expand: true,
-            cwd: '<%= config.src %>/assets',
-            src: 'css/**/*',
+            cwd: '<%= config.dist %>/assets',
+            src: 'css/all.css',
             dest: '<%= config.src %>/offline-reference/'
           },
           {
