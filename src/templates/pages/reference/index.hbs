@@ -116,14 +116,14 @@ slug: reference/
         var name = routes[2];
         if (translations[obj] && translations[obj][name]) {
           var entry = translations[obj][name];
-          $('.description-text').html('<p>'+entry.description+'</p>');
+          $('.description-text').html('');
+          entry.description.forEach(function (p) {
+            $('.description-text').append('<p>' + p + '</p>');
+          });
           $('.returns').html(entry.returns);
-          $('.params').find('ul').each(function(i) {
-            if (i < entry.params.length) {
-              $(this).children('li').each(function(j){
-                $(this).children('.paramtype').html(entry.params[j]);
-              });
-            }
+          $('.params').find('ul').children('li').each(function () {
+            var paramname = $(this).children('.paramname').text();
+            $(this).children('.paramtype').html(entry.params[paramname]);
           });
         }
       }
