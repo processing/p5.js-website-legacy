@@ -11,7 +11,6 @@ const fs = require('fs').promises;
 const pkg = require('./package.json');
 
 module.exports = function(grunt) {
-
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
 
@@ -84,7 +83,7 @@ module.exports = function(grunt) {
           expand: true,
           flatten: true,
           assets: '<%= config.dist %>/assets',
-          helpers: ['<%= config.src %>/assets/js/translation.js', '<%= config.src %>/assets/js/cache-busting.js'],
+          helpers: ['helpers/translation.js', 'helpers/cache-busting.js'],
           layout: '<%= config.src %>/templates/layouts/default.hbs',
           data: [
             '<%= config.src %>/data/**/*.{json,yml}',
@@ -98,7 +97,7 @@ module.exports = function(grunt) {
           i18n: {
             languages: pkg.languages,
             templates: [
-              "<%= config.src %>/templates/pages/**/*.hbs",
+              '<%= config.src %>/templates/pages/**/*.hbs',
             ]
           },
           permalinks: {
@@ -106,7 +105,7 @@ module.exports = function(grunt) {
             patterns: [
               {
                 pattern: ':lang',
-                replacement: function () {
+                replacement: function() {
                   return this.language.toLowerCase() === 'en' ? '' : this.language;
                 }
               },
@@ -114,8 +113,8 @@ module.exports = function(grunt) {
                 pattern: ':base',
                 replacement: function () {
                   var check = this.basename.lastIndexOf(this.language.toLowerCase());
-                  if (check > -1){
-                    return this.basename.substring(0, check-1);
+                  if (check > -1) {
+                    return this.basename.substring(0, check - 1);
                   } else return this.basename;
                 }
               }
