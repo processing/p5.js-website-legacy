@@ -35,7 +35,7 @@ function getenJSON() {
     }
   }
 
-  fs.writeFile("en.json", JSON.stringify(enJSON, null, 2), (err) => {
+  fs.writeFile("src/data/reference/en.json", JSON.stringify(enJSON, null, 2), (err) => {
     if (err) {
       console.error(err);
       return;
