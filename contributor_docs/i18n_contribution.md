@@ -85,7 +85,7 @@ If you want to contribute with p5.js website translations, you are in the right 
 
     ```
     $ git fetch upstream
-    $ git merge upstream/master
+    $ git merge upstream/main
     ```
 
 2. Make changes only at files under the `src/` directory.
