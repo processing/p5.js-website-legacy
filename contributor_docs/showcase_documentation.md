@@ -1,21 +1,13 @@
 # Maintaining the p5.js Showcase Guide
 
-The p5.js [showcase](https://p5js.org/showcase/) can be maintained in the following way. Currently, contributors can nominate themselves through this [form](https://docs.google.com/forms/d/e/1FAIpQLSdY76NtZaVqpGi-g6wKvhbnlqC3GhCl2TAJ5vgMN-CyStIItQ/viewform?usp=send_form) which is a apart of the p5.js google drive. If you wish to be the maintainer/co-maintainer for the showcase for the year, please email (insert email here) for further directions and access to the form results.
+The p5.js [showcase](https://p5js.org/showcase/) can be maintained in the following way. Currently, contributors can nominate themselves through this [form](https://forms.gle/SKJdvBNKRo4o8Rh9A) which is a apart of the p5.js google drive. If you wish to be the maintainer/co-maintainer for the showcase for the year, please email cl2264@cornell.edu for further directions and access to the form results.
 
-The current maintainer is: (insert name)
-Past maintainers: (insert names), please contact them if you have questions!
+The current maintainer is: Connie Liu
+Past maintainers: Ashley Kang, please contact them if you have questions!
 
 The showcase information is hard coded in, that being said there is information that cannot be gained strictly from the form. The maintainer should email the nominee and have a q and a with them, which will also include getting any more relevant project links.
 
 NOTE: There should be a general understanding in HTML and CSS and using Github via the Terminal before following this tutorial.
-
-**The standard questions asked typically are:**
-- What are you up to? 
-- How did you use p5.js in this project? 
-- What's your favorite p5.js feature?
-- Did you face any challenges working on this project? 
-- What's a cool thing we should check out? 
-- Where can people learn more about you?
 
 ## Table of Contents
 
