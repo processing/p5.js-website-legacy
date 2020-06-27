@@ -10,17 +10,35 @@ function setup() {
 
 function draw() {
   background(0);
+  
+  // ambient light
+   ambientLight(0, 255/4, 0);
+  
+  // to set the light position,
+  // think of the world's coordinate as:
+  // -width/2,-height/2 -------- width/2,-height/2
+  //                |            |
+  //                |     0,0    |
+  //                |            |
+  // -width/2,height/2--------width/2,height/2
 
-  // Luz puntual naranja a la derecha
-  pointLight(150, 100, 0, 500, 0, 200);
+  // blue directional light from the left
+  directionalLight(0, 0, 255, -1, 0, 0);
 
-  // Luz direccional azul desde la izquierda
-  directionalLight(0, 102, 255, -1, 0, 0);
+  // calculate distance from center to mouseX
+  let lightX = mouseX - width / 2;
+  let lightY = mouseY - height / 2;
+  
+  // red spotlight
+  // axis located at lightX, lightY, 500
+  // axis direction of light: 0, 0, -1
+  spotLight(255, 0, 0, lightX, lightY, 500, 0, 0, -1);
 
-  // Foco amarillo desde el frente
-  pointLight(255, 255, 109, 0, 0, 300);
-
-  rotateY(map(mouseX, 0, width, 0, PI));
-  rotateX(map(mouseY, 0, height, 0, PI));
-  box(200);
+  // rotate on X axis
+  rotateX(-PI/4);
+  // rotate on Y axis
+  rotateY(PI/4);
+  
+  // place box on (0, 0, 0), size 100
+  box(100);
 }

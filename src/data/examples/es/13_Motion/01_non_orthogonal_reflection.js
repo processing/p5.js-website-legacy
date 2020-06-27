@@ -1,18 +1,18 @@
 /*
- * @name Non Orthogonal Reflection
+ * @name Reflejo no ortogonal
  * @frame 710,400 (optional)
- * @description This is a port by David Blitz of the "Reflection 1" example from processing.org/examples
+ * @description Este es un puerto de David Blitz del ejemplo "Reflection 1" en processing.org/examples
  */
 
-//Position of left hand side of floor
+//Posición del lado izquierdo del suelo
 let base1;
 
-//Position of right hand side of floor
+//Posición del lado derecho del suelo
 let base2;
-//Length of floor
+//La longitud del suelo
 //let baseLength;
 
-// Variables related to moving ball
+// Variables relacionadas con el movimiento de la bola
 let position;
 let velocity;
 let r = 6;
@@ -26,49 +26,49 @@ function setup() {
   base2 = createVector(width, height);
   //createGround();
 
-  //start ellipse at middle top of screen
+  //Empezar la elipse en el centro de la parte superior de la pantalla
   position = createVector(width / 2, 0);
 
-  //calculate initial random velocity
+  //Calcular la velocidad aleatoria inicial
   velocity = p5.Vector.random2D();
   velocity.mult(speed);
 }
 
 function draw() {
-  //draw background
+  //dibujar el fondo
   fill(0, 12);
   noStroke();
   rect(0, 0, width, height);
 
-  //draw base
+  //dibujar la base
   fill(200);
   quad(base1.x, base1.y, base2.x, base2.y, base2.x, height, 0, height);
 
-  //calculate base top normal
+  //calcular la normal a la base superior
   let baseDelta = p5.Vector.sub(base2, base1);
   baseDelta.normalize();
   let normal = createVector(-baseDelta.y, baseDelta.x);
   let intercept = p5.Vector.dot(base1, normal);
 
-  //draw ellipse
+  //dibujar elipse
   noStroke();
   fill(255);
   ellipse(position.x, position.y, r * 2, r * 2);
 
-  //move ellipse
+  //mover elipse
   position.add(velocity);
 
-  //normalized incidence vector
+  //vector de incidencia normalizado
   incidence = p5.Vector.mult(velocity, -1);
   incidence.normalize();
 
-  // detect and handle collision with base
+  // detectar y gestionar la colisión con la base
   if (p5.Vector.dot(normal, position) > intercept) {
-    //calculate dot product of incident vector and base top
+    //calcular el producto escalar del vector incidente y la parte superior de la base
     let dot = incidence.dot(normal);
 
-    //calculate reflection vector
-    //assign reflection vector to direction vector
+    //calcular el vector del reflejo
+    //asignar el vector de reflejo al vector de dirección
     velocity.set(
       2 * normal.x * dot - incidence.x,
       2 * normal.y * dot - incidence.y,
@@ -76,7 +76,7 @@ function draw() {
     );
     velocity.mult(speed);
 
-    // draw base top normal at collision point
+    // dibujar la base superior normal en el punto de colisión
     stroke(255, 128, 0);
     line(
       position.x,
@@ -87,23 +87,23 @@ function draw() {
   }
   //}
 
-  // detect boundary collision
-  // right
+  // detectar la colisión límite
+  // derecha
   if (position.x > width - r) {
     position.x = width - r;
     velocity.x *= -1;
   }
-  // left
+  // izquierda
   if (position.x < r) {
     position.x = r;
     velocity.x *= -1;
   }
-  // top
+  // arriba
   if (position.y < r) {
     position.y = r;
     velocity.y *= -1;
 
-    //randomize base top
+    //aleatorizar la parte superior de la base
     base1.y = random(height - 100, height);
     base2.y = random(height - 100, height);
   }

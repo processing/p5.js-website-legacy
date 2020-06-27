@@ -1,7 +1,7 @@
 /*
- * @name Mixture
+ * @name 混合光
  * @frame 710,400 (optional)
- * @description Display a box with three different kinds of lights.
+ * @description 展示一个有三种不同光的盒子。
  */
 function setup() {
   createCanvas(710, 400, WEBGL);
@@ -11,16 +11,33 @@ function setup() {
 function draw() {
   background(0);
 
-  // Orange point light on the right
-  pointLight(150, 100, 0, 500, 0, 200);
+  // 环境光
+   ambientLight(0, 255/4, 0);
 
-  // Blue directional light from the left
-  directionalLight(0, 102, 255, -1, 0, 0);
+  // 设置光的位置，可将坐标想成如下：
+  // -宽度/2,-高度/2 -------- 宽度/2,-高度/2
+  //              |            |
+  //              |     0,0    |
+  //              |            |
+  // -宽度/2,高度/2--------宽度/2,高度/2
 
-  // Yellow spotlight from the front
-  pointLight(255, 255, 109, 0, 0, 300);
+  // 左侧：蓝色定向光
+  directionalLight(0, 0, 255, -1, 0, 0);
 
-  rotateY(map(mouseX, 0, width, 0, PI));
-  rotateX(map(mouseY, 0, height, 0, PI));
-  box(200);
+  // 计算由中心点至 mouseX 的距离
+  let lightX = mouseX - width / 2;
+  let lightY = mouseY - height / 2;
+
+  // 红色聚光
+  // 光的轴位置：lightX, lightY, 500
+  // 光的轴方向：0, 0, -1
+  spotLight(255, 0, 0, lightX, lightY, 500, 0, 0, -1);
+
+  // 绕 X 轴旋转
+  rotateX(-PI/4);
+  // 绕 Y 轴旋转
+  rotateY(PI/4);
+
+  // 将方块放置在 (0, 0, 0)，并设大小为 100
+  box(100);
 }

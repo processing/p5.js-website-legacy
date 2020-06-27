@@ -1,9 +1,9 @@
 /*
- * @name Linear
+ * @name Lineal
  * @frame 720,400
- * @description Changing a variable to create a moving line.
- * When the line moves off the edge of the window,
- * the variable is set to 0, which places the line back at the bottom of the screen.
+ * @description Cambiar una variable para crear una línea en movimiento.
+ * Cuando la línea se mueve fuera del borde de la ventana,
+ * la variable se pone a 0, lo que coloca la línea de nuevo en la parte inferior de la pantalla.
  */
 
 let a;
