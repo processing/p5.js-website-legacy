@@ -4,7 +4,7 @@
  * 그리고, 그 결과물을 화면에 띄웁니다.
  * 웹 브라우저마다 파일 저장 위치가 다르기 때문에,
  * 프로세싱(Processing)의 예제와는 달리 saveJSON을 사용하지 않습니다.<br><br>
- * 다니엘 쉬프만(Daniel Shiffman)의 프로세싱(Processing)의 <a href="https://processing.org/examples/loadsavejson.html">LoadSaveJSON 예제</a> 참고
+ * 다니엘 쉬프만(Daniel Shiffman) 제작 프로세싱(Processing)의 <a href="https://processing.org/examples/loadsavejson.html">LoadSaveJSON 예제</a> 참고
  */
 
 // Bubble 클래스
