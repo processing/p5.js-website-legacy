@@ -135,7 +135,7 @@ p5.js-website/
     ],
     ```
 4. Duplicate `en.yml` - stored under `src/data/` - and name it `language_abbreviation.yml`. For example, when the Spanish version was created it was named `es.yml`. Check [How the website works](#how-the-website-works) and [File Structure](#file-structure) for further information.
-5. Duplicate `es.json` - stored under `src/data/reference/` - and name it `[language_abbreviation].json`.
+5. Duplicate `en.json` - stored under `src/data/reference/` - and name it `[language_abbreviation].json`.
 6. Duplicate `en` folder - stored under `src/data/examples` - and name it `language_abbreviation`.
 7. Add a new menu entry in [`src/templates/partials/i18n.hbs`](https://github.com/processing/p5.js-website/blob/main/src/templates/partials/i18n.hbs#L8) like so `<li><a href='#' lang='[language_abbreviation]' data-lang='[language_abbreviation]'>[language_name]</a></li>`.
 
@@ -200,9 +200,9 @@ In some cases, the text translated from the original .hbs file (written in HTML)
 
 * The reference works a bit differently. The pages are built in English based on the inline documentation in the p5.js source code. The English text is then swapped out with the appropriate translation using JS on the front-end.
 * The inline API documentation is automatically extracted from the p5.js repository using [YUIdoc](https://yui.github.io/yuidoc/) and saved in a [JSON file](https://github.com/processing/p5.js-website/blob/main/src/templates/pages/reference/data.json). 
-* The translation files are created from the data.json file, but have a different structure (i.e. [es.json](https://github.com/processing/p5.js-website/blob/main/src/data/reference/es.json)).
-* The top level keys in the JSON object correspond to the page headings, menu, footer, etc. You can see all the swaps in [this file](https://github.com/processing/p5.js-website/blob/main/src/templates/pages/reference/index.hbs#L60).
-* The "p5" key in the JSON object contains individual keys for each reference entry, indexed by variable/function/object name.
+* The translation files are created from the data.json file, but have a different structure (i.e. [en.json](https://github.com/processing/p5.js-website/blob/main/src/data/reference/en.json)).
+* The first few keys in the JSON object correspond to the page headings, menu, footer, etc. You can see all the swaps in [this file](https://github.com/processing/p5.js-website/blob/main/src/templates/pages/reference/index.hbs#L60).
+* The JSON object also contains a key for each p5 class (i.e. "p5.Color"), which holds information about the class itself and its methods and fields.
 * Any entries in the JSON object which are not filled in will be left in English when the page is loaded.
 * The translated versions of the JSON file need to be manually created and updated.
 * This is a somewhat hacky solution and not ideal. However, it comes from balancing the desire to have documentation directly in the source code, with the unwieldiness of having multiple languages of documentation inline. It will be our working solution until a better one is found.
