@@ -403,6 +403,12 @@ module.exports = function(grunt) {
     require('./i18n.js')(done);
   });
 
+  // generates the Reference en.json
+  grunt.registerTask('enJSONgenerator', function() {
+    var getenJSON = require('./getenJSON.js');
+    getenJSON();
+  });
+
   // runs tasks in order
   grunt.registerTask('build', [
     'update-version',
@@ -416,6 +422,7 @@ module.exports = function(grunt) {
     'file_append',
     'compress',
     'i18n',
+    'enJSONgenerator',
     'htmllint'
   ]);
 
