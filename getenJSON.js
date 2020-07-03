@@ -1,3 +1,7 @@
+/* 
+  This script generates the en.json file with the data from the data.json.
+  It's run by the Grunt task runner.
+*/
 function getenJSON() {
   var fs = require('fs');
   var data = fs.readFileSync('src/templates/pages/reference/data.json');
