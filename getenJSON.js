@@ -1,8 +1,10 @@
 function getenJSON() {
   var fs = require('fs');
-  var data = fs.readFileSync("src/templates/pages/reference/data.json");
+  var data = fs.readFileSync('src/templates/pages/reference/data.json');
   var dataJSON = JSON.parse(data);
-  var staticStrings = fs.readFileSync("src/templates/pages/reference/enJSONStaticStrings.json");
+  var staticStrings = fs.readFileSync(
+    'src/templates/pages/reference/staticStrings.json'
+  );
   var staticStringsJSON = JSON.parse(staticStrings);
   var enJSON = {};
 
@@ -27,22 +29,25 @@ function getenJSON() {
 
   // classitems: adds methods and properties to their respective class object
   for (var p5ItemIdx in dataJSON.classitems) {
-    var entry = dataJSON.classitems[p5ItemIdx];
+    var entry2 = dataJSON.classitems[p5ItemIdx];
     // only consider the items that have a name
-    if (entry.name) {
-      var itemObj = buildItemObj(entry);
-      enJSON[entry.class][entry.name] = itemObj;
+    if (entry2.name) {
+      var itemObj = buildItemObj(entry2);
+      enJSON[entry2.class][entry2.name] = itemObj;
     }
   }
 
-  fs.writeFile("src/data/reference/en.json", JSON.stringify(enJSON, null, 2), (err) => {
-    if (err) {
-      console.error(err);
-      return;
-    };
-  });
+  fs.writeFile(
+    'src/data/reference/en.json',
+    JSON.stringify(enJSON, null, 2),
+    err => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    }
+  );
 }
-
 
 function buildClassObj(p5Class) {
   var classObj = {};
@@ -60,7 +65,6 @@ function buildClassObj(p5Class) {
   }
   return classObj;
 }
-
 
 function buildItemObj(p5Item) {
   var itemObj = {};
@@ -87,12 +91,11 @@ function buildReturnObj(returns) {
   return returns.type + ': ' + getText(returns.description);
 }
 
-
 function buildParamsObj(params) {
   var paramsObj = {};
 
   params.forEach(p => {
-    descr = p.type;
+    var descr = p.type;
     if (p.description) {
       descr += ': ';
     }
@@ -115,8 +118,7 @@ function getOverloads(p5Item, itemObj) {
             itemObj['params'][p] = moreParams[p];
           }
         }
-      }
-      else {
+      } else {
         itemObj['params'] = moreParams;
       }
     }
@@ -126,12 +128,20 @@ function getOverloads(p5Item, itemObj) {
 
 // returns the 'clean' version of the input text
 function getText(str) {
-  return str.trim().replace(/<p>|<\/p>|<br>/g, '').replace(/\n|\s+/g, ' ').replace(/&#39;/g, '\'');
+  return str
+    .trim()
+    .replace(/<p>|<\/p>|<br>/g, '')
+    .replace(/\n|\s+/g, ' ');
 }
 
 // returns an array containing the 'clean' versions of the text in the <p> tags of the input text
 function getParagraphs(text) {
-  return text.trim().replace(/<\/p>|<br>/g, '').replace(/\n|\s+/g, ' ').replace(/&#39;/g, '\'').split(/<p>/).filter(x => x.length > 0);
+  return text
+    .trim()
+    .replace(/<\/p>|<br>/g, '')
+    .replace(/\n|\s+/g, ' ')
+    .split(/<p>/)
+    .filter(x => x.length > 0);
 }
 
 module.exports = getenJSON;
