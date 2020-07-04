@@ -1,24 +1,24 @@
 /*
- * @name Bounce
+ * @name Rebote
  * @frame 720,400
- * @description When the shape hits the edge of the window, it reverses its direction.
+ * @description Cuando la forma golpea el borde de la ventana, invierte su dirección.
  */
 
-let rad = 60; // Width of the shape
-let xpos, ypos; // Starting position of shape
+let rad = 60; // El ancho de la forma
+let xpos, ypos; // Posición inicial de la forma
 
-let xspeed = 2.8; // Speed of the shape
-let yspeed = 2.2; // Speed of the shape
+let xspeed = 2.8; // La velocidad de la forma
+let yspeed = 2.2; // La velocidad de la forma
 
-let xdirection = 1; // Left or Right
-let ydirection = 1; // Top to Bottom
+let xdirection = 1; // Izquierda o derecha
+let ydirection = 1; // De arriba a abajo
 
 function setup() {
   createCanvas(720, 400);
   noStroke();
   frameRate(30);
   ellipseMode(RADIUS);
-  // Set the starting position of the shape
+  // Establecer la posición de partida de la forma
   xpos = width / 2;
   ypos = height / 2;
 }
@@ -26,12 +26,12 @@ function setup() {
 function draw() {
   background(102);
 
-  // Update the position of the shape
+  // Actualizar la posición de la forma
   xpos = xpos + xspeed * xdirection;
   ypos = ypos + yspeed * ydirection;
 
-  // Test to see if the shape exceeds the boundaries of the screen
-  // If it does, reverse its direction by multiplying by -1
+  // Prueba para ver si la forma excede los límites de la pantalla
+  // Si lo hace, invierta su dirección multiplicando por -1
   if (xpos > width - rad || xpos < rad) {
     xdirection *= -1;
   }
@@ -39,6 +39,6 @@ function draw() {
     ydirection *= -1;
   }
 
-  // Draw the shape
+  // Dibuja la forma
   ellipse(xpos, ypos, rad, rad);
 }

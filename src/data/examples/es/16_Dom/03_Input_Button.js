@@ -1,9 +1,6 @@
 /*
  * @name Entrada y botón
- * @description Necesitarás incluir la
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">biblioteca p5.dom</a>
- * para que este ejemplo funcione en tu proyecto.<br><br>
- * Ingresa texto y haz click en el botón para ver cómo afecta al lienzo
+ * @description Ingresa texto y haz click en el botón para ver cómo afecta al lienzo
  */
 let input, button, greeting;
 

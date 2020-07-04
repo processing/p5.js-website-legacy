@@ -71,7 +71,7 @@
   java, location, Components, FileUtils */
 
 define('text',['module'], function (module) {
-    
+    'use strict';
 
     var text, fs, Cc, Ci, xpcIsWindows,
         progIds = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.4.0'],
@@ -447,9 +447,11 @@ define('text',['module'], function (module) {
     return text;
 });
 
-define('text!tpl/search.html',[],function () { return '<input type="text" class="<%=className%>" value="" placeholder="<%=placeholder%>">';});
 
-define('text!tpl/search_suggestion.html',[],function () { return '<p id="index-<%=idx%>" class="search-suggestion">\n\n  <strong><%=name%></strong>\n\n  <span class="small">\n    <% if (final) { %>\n    constant\n    <% } else if (itemtype) { %>\n    <%=itemtype%> \n    <% } %>\n\n    <% if (className) { %>\n    in <strong><%=className%></strong>\n    <% } %>\n\n    <% if (is_constructor) { %>\n    <strong><span class="glyphicon glyphicon-star"></span> constructor</strong>\n    <% } %>\n  </span>\n\n</p>';});
+define('text!tpl/search.html',[],function () { return '<h2 class="sr-only">search</h2>\n<form>\n  <input id="search_reference_field" type="text" class="<%=className%>" value="" placeholder="<%=placeholder%>" aria-label="search reference">\n  <label class="sr-only" for="search_reference_field">Search reference</label>\n</form>\n\n';});
+
+
+define('text!tpl/search_suggestion.html',[],function () { return '<p id="index-<%=idx%>" class="search-suggestion">\n\n  <strong><%=name%></strong>\n\n  <span class="small">\n    <% if (final) { %>\n    constant\n    <% } else if (itemtype) { %>\n    <%=itemtype%> \n    <% } %>\n\n    <% if (className) { %>\n    in <strong><%=className%></strong>\n    <% } %>\n\n    <% if (typeof is_constructor !== \'undefined\' && is_constructor) { %>\n    <strong><span class="glyphicon glyphicon-star"></span> constructor</strong>\n    <% } %>\n  </span>\n\n</p>';});
 
 /*!
  * typeahead.js 0.10.2
@@ -2170,9 +2172,9 @@ define('typeahead',[], function() {
             return this;
         };
     })();
-    
-    
-    
+
+
+
 //})(window.jQuery);
 
 
@@ -2194,7 +2196,7 @@ define('searchView',[
     init: function() {
       var tpl = _.template(searchTpl);
       var className = 'form-control input-lg';
-      var placeholder = 'Search the API';
+      var placeholder = 'Search reference';
       this.searchHtml = tpl({
         'placeholder': placeholder,
         'className': className
@@ -2256,9 +2258,9 @@ define('searchView',[
       });
 
       function select(selectedItem) {
-        var hash = App.router.getHash(selectedItem).replace('#', '');
+        var hash = App.router.getHash(selectedItem);//
         App.router.navigate(hash, {'trigger': true});
-        $input.blur();
+        $('#item').focus();
       }
     },
     /**
@@ -2283,7 +2285,7 @@ define('searchView',[
               'itemtype': item.itemtype,
               'name': item.name,
               'className': item.class,
-              'is_constructor': item.is_constructor,
+              'is_constructor': !!item.is_constructor,
               'final': item.final,
               'idx': i
             });
@@ -2300,7 +2302,8 @@ define('searchView',[
 
 });
 
-define('text!tpl/list.html',[],function () { return '<% _.each(groups, function(group){ %>\n  <h4 class="group-name" id="group-<%=group.name%>"><%=group.name%></h4>\n  <div class="reference-group clearfix main-ref-page">  \n  <% _.each(group.subgroups, function(subgroup, ind) { %>\n    <dl>\n    <% if (subgroup.name !== \'0\') { %>\n        <dt class="subgroup-<%=subgroup.name%>"><%=subgroup.name%></dt>\n    <% } %>\n    <% _.each(subgroup.items, function(item) { %>\n    <dd><a href="<%=item.hash%>" title="<%- striptags(item.description) %>"><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a></dd>\n    <% }); %>\n    </dl>\n  <% }); %>\n  </div>\n<% }); %>\n';});
+
+define('text!tpl/list.html',[],function () { return '<% _.each(groups, function(group){ %>\n  <div class="reference-group clearfix main-ref-page">  \n    <h2 class="group-name" id="group-<%=group.name%>" tab-index="-1"><%=group.name%></h2>\n    <div class="reference-subgroups clearfix main-ref-page">  \n    <% _.each(group.subgroups, function(subgroup, ind) { %>\n      <div class="reference-subgroup">\n        <% if (subgroup.name !== \'0\') { %>\n          <h3 id="<%=group.name%><%=ind%>" class="subgroup-name subgroup-<%=subgroup.name%>"><%=subgroup.name%></h3>\n        <% } %>\n        <ul aria-labelledby="<%=group.name%> <%=ind%>">\n        <% _.each(subgroup.items, function(item) { %>\n        <li><a href="<%=item.hash%>"><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a></li>\n        <% }); %>\n        </ul>\n      </div>\n    <% }); %>\n    </div>\n  </div>\n<% }); %>\n';});
 
 define('listView',[
   'App',
@@ -2335,7 +2338,8 @@ define('listView',[
         // module === group
         this.groups = {};
         _.each(items, function (item, i) {
-          if (item.file.indexOf('addons') === -1) { //addons don't get displayed on main page
+
+          if (!item.private && item.file.indexOf('addons') === -1) { //addons don't get displayed on main page
 
             var group = item.module || '_';
             var subgroup = item.submodule || '_';
@@ -2343,6 +2347,9 @@ define('listView',[
               subgroup = '0';
             }
             var hash = App.router.getHash(item);
+
+            // fixes broken links for #/p5/> and #/p5/>=
+            item.hash = item.hash.replace('>', '&gt;');
 
             // Create a group list
             if (!self.groups[group]) {
@@ -2360,7 +2367,11 @@ define('listView',[
               };
             }
 
-            if (item.file.indexOf('p5.') === -1) {
+            // hide the un-interesting constants
+            if (group === 'Constants' && !item.example)
+              return;
+
+            if (item.class === 'p5') {
 
               self.groups[group].subgroups[subgroup].items.push(item);
 
@@ -2396,6 +2407,9 @@ define('listView',[
         this.$el.html(listHtml);
       }
 
+      var renderEvent = new Event('reference-rendered');
+      window.dispatchEvent(renderEvent);
+
       return this;
     },
     /**
@@ -2430,11 +2444,14 @@ define('listView',[
 
 });
 
-define('text!tpl/item.html',[],function () { return '<h3><%=item.name%><% if (item.isMethod) { %>()<% } %></h3>\n\n<% if (item.example) { %>\n<div class="example">\n  <h4>Example</h4>\n\n\t<div class="example-content">\n    <%= item.example %>\n  </div>\n</div> \n<% } %>\n\n\n<div class="description">\n  <h4>Description</h4>\n  <p><%= item.description %></p>\n\n  <% if (item.module === \'p5.dom\') { %>\n    <p>This function requires you include the p5.dom library.  Add the following into the head of your index.html file:\n      <pre><code class="language-javascript">&lt;script language="javascript" type="text/javascript" src="path/to/p5.dom.js"&gt;&lt;/script&gt;</code></pre>\n    </p>\n  <% } %>\n  <% if (item.module === \'p5.sound\') { %>\n    <p>This function requires you include the p5.sound library.  Add the following into the head of your index.html file:\n      <pre><code class="language-javascript">&lt;script language="javascript" type="text/javascript" src="path/to/p5.sound.js"&gt;&lt;/script&gt;</code></pre>\n    </p>\n  <% } %>\n</div>\n\n\n<div>\n  <h4>Syntax</h4>\n  <p>\n    <% syntaxes.forEach(function(syntax) { %>\n    <pre><code class="language-javascript"><%= syntax %></code></pre>\n    <% }) %>\n  </p>\n</div>\n\n\n<% if (item.return) { %>\n<span class="returns-inline">\n  <span class="type"></span>\n</span>\n<% } %>\n\n<% if (item.deprecated) { %>\n<span class="flag deprecated"<% if (item.deprecationMessage) { %> title="<%=item.deprecationMessage%>"<% } %>>deprecated</span>\n<% } %>\n\n<% if (item.access) { %>\n<span class="flag <%=item.access%>"><%= item.access %></span>\n<% } %>\n\n<% if (item.final) { %>\n<span class="flag final">final</span>\n<% } %>\n\n<% if (item.static) { %>\n<span class="flag static">static</span>\n<% } %>\n\n<% if (item.chainable) { %>\n<span class="label label-success chainable">chainable</span>\n<% } %>\n\n<% if (item.async) { %>\n<span class="flag async">async</span>\n<% } %>\n\n<!--  <div class="meta">\n    {{#if overwritten_from}}\n    <p>Inherited from\n      <a href="#">\n        {{overwritten_from/class}}\n      </a>\n      {{#if foundAt}}\n      but overwritten in\n      {{/if}}\n      {{else}}\n      {{#if extended_from}}\n    <p>Inherited from\n      <a href="#">{{extended_from}}</a>:\n      {{else}}\n      {{#providedBy}}\n    <p>Provided by the <a href="../modules/{{.}}.html">{{.}}</a> module.</p>\n    {{/providedBy}}\n    <p>\n      {{#if foundAt}}\n      Defined in\n      {{/if}}\n      {{/if}}\n      {{/if}}\n      {{#if foundAt}}\n      <a href="{{foundAt}}">`{{{file}}}:{{{line}}}`</a>\n      {{/if}}\n    </p>\n\n    {{#if deprecationMessage}}\n    <p>Deprecated: {{deprecationMessage}}</p>\n    {{/if}}\n\n    {{#if since}}\n    <p>Available since {{since}}</p>\n    {{/if}}\n  </div>-->\n\n<% if (item.params) { %>\n<div class="params">\n  <h4>Parameters</h4>\n  <table>\n  <% for (var i=0; i<item.params.length; i++) { %>\n    <tr>\n    <td>\n    <% var p = item.params[i] %>\n    <% if (p.optional) { %>\n      <code class="language-javascript">[<%=p.name%>]</code>\n    <% } else { %>\n      <code class="language-javascript"><%=p.name%></code>\n    <% } %> \n    <%if (p.optdefault) { %>=<%=p.optdefault%><% } %>\n    </td>\n    <td>\n    <% if (p.type) { %>\n      <span class="param-type label label-info"><%=p.type%></span>: <%=p.description%></span> \n    <% } %>\n    <% if (p.multiple) {%>\n      <span class="flag multiple" title="This argument may occur one or more times.">multiple</span>\n    <% } %>\n    </td>\n    </tr>\n  <% } %>\n  </table>\n</div>\n<% } %>\n\n<% if (item.return) { %>\n<div>\n  <h4>Returns</h4>\n    <% if (item.return.type) { %>\n      <p><span class="param-type label label-info"><%=item.return.type%></span>: <%= item.return.description %></p>\n    <% } %>\n</div>\n<% } %>\n\n';});
 
-define('text!tpl/class.html',[],function () { return '\n<% if (is_constructor) { %>\n<div class="constructor">\n  <!--<h2>Constructor</h2>--> \n  <%=constructor%>\n</div>\n<% } %>\n\n<% var fields = _.filter(things, function(item) { return item.itemtype === \'property\' }); %>\n<% if (fields.length > 0) { %>\n  <h4>Fields</h4>\n  <p>\n    <% _.each(fields, function(item) { %>\n      <a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %> ><%=item.name%></a>: <%= item.description %>\n      <br>\n    <% }); %>\n  </p>\n<% } %>\n\n<% var methods = _.filter(things, function(item) { return item.itemtype === \'method\' }); %>\n<% if (methods.length > 0) { %>\n  <h4>Methods</h4>\n  <p>\n    <table>\n    <% _.each(methods, function(item) { %>\n      <tr>\n      <td><a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %>><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a></td><td><%= item.description %></td>\n      </tr>\n    <% }); %>\n    </table>\n  </p>\n<% } %>';});
+define('text!tpl/item.html',[],function () { return '<h2><%=item.name%><% if (item.isMethod) { %>()<% } %></h2>\n\n<% if (item.example) { %>\n<div class="example">\n  <h3 id="reference-example">Examples</h3>\n\n  <div class="example-content" data-alt="<%= item.alt %>">\n    <% _.each(item.example, function(example, i){ %>\n      <%= example %>\n    <% }); %>\n  </div>\n</div>\n<% } %>\n\n<div class="description">\n    \n  <h3 id="reference-description">Description</h3>\n\n  <% if (item.deprecated) { %>\n    <p>\n      Deprecated: <%=item.name%><% if (item.isMethod) { %>()<% } %> is deprecated and will be removed in a future version of p5. <% if (item.deprecationMessage) { %><%=item.deprecationMessage%><% } %>\n    </p>\n  <% } %>\n      \n\n  <span class=\'description-text\'><%= item.description %></span>\n\n  <% if (item.extends) { %>\n    <p><span id="reference-extends">Extends</span> <a href="/reference/#/<%=item.extends%>" title="<%=item.extends%> reference"><%=item.extends%></a></p>\n  <% } %>\n\n  <% if (item.module === \'p5.sound\') { %>\n    <p>This function requires you include the p5.sound library.  Add the following into the head of your index.html file:\n      <pre><code class="language-javascript">&lt;script src="path/to/p5.sound.js"&gt;&lt;/script&gt;</code></pre>\n    </p>\n  <% } %>\n\n  <% if (item.constRefs) { %>\n    <p>Used by:\n  <%\n      var refs = item.constRefs;\n      for (var i = 0; i < refs.length; i ++) {\n        var ref = refs[i];\n        var name = ref;\n        if (name.substr(0, 3) === \'p5.\') {\n          name = name.substr(3);\n        }\n  if (i !== 0) {\n          if (i == refs.length - 1) {\n            %> and <%\n          } else {\n            %>, <%\n          }\n        }\n        %><a href="./#/<%= ref.replace(\'.\', \'/\') %>"><%= name %>()</a><%\n      }\n  %>\n    </p>\n  <% } %>\n</div>\n\n<% if (isConstructor || !isClass) { %>\n\n<div>\n  <h3 id="reference-syntax">Syntax</h3>\n  <p>\n    <% syntaxes.forEach(function(syntax) { %>\n    <pre><code class="language-javascript"><%= syntax %></code></pre>\n    <% }) %>\n  </p>\n</div>\n\n\n<% if (item.params) { %>\n  <div class="params">\n    <h3 id="reference-parameters">Parameters</h3>\n    <ul aria-labelledby=\'reference-parameters\'>\n    <% for (var i=0; i<item.params.length; i++) { %>\n      <% var p = item.params[i] %>\n      <li>\n        <div class=\'paramname\'><%=p.name%></div>\n        <% if (p.type) { %>\n          <div class=\'paramtype\'>\n          <% var type = p.type.replace(/(p5\\.[A-Z][A-Za-z]*)/, \'<a href="#/$1">$1</a>\'); %>\n          <span class="param-type label label-info"><%=type%></span>: <%=p.description%>\n          <% if (p.optional) { %> (Optional)<% } %>\n          </div>\n        <% } %>\n      </li>\n    <% } %>\n    </ul>\n  </div>\n<% } %>\n\n<% if (item.return && item.return.type) { %>\n  <div>\n    <h3 id="reference-returns">Returns</h3>\n    <p class=\'returns\'><span class="param-type label label-info"><%=item.return.type%></span>: <%= item.return.description %></p>\n  </div>\n<% } %>\n\n<% } %>\n';});
 
-define('text!tpl/itemEnd.html',[],function () { return '<p>\n\n  <div class="meta">\n    <% if (item.class) { %>\n    <p>Class: \n    <strong><a href=\'#/<%=item.class%>\'><%=item.class%></a></strong></p>\n    <% } %>\n\n  </div>\n\n\n  <p class="ref-notice"> If you see any errors or have suggestions, <a href="https://github.com/processing/p5.js/issues">please let us know</a>.<p>\n\n  <a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px"/></a>\n\n  <% if (item.file && item.line) { %>\n  <p style="font-size: 0.75em">Find any typos or bugs? <code><%=item.name%><% if (item.isMethod) { %>()<% } %></code> is documented and defined in <a href="https://github.com/processing/p5.js/blob/master/<%= item.file %>#L<%= item.line %>" target="_blank" ><code><%= item.file %></code></a>. Please feel free to <a href="https://github.com/processing/p5.js/edit/master/<%= item.file %>#L<%= item.line %>" target="_blank" style="font-family: inherit">edit the file</a> and issue a pull request!</p>\n  <% } %>\n\n</p>\n';});
+
+define('text!tpl/class.html',[],function () { return '\n<% if (typeof constructor !== \'undefined\') { %>\n<div class="constructor">\n  <%=constructor%>\n</div>\n<% } %>\n\n<% let fields = _.filter(things, function(item) { return item.itemtype === \'property\' && item.access !== \'private\' }); %>\n<% if (fields.length > 0) { %>\n  <h3 id=\'reference-fields\'>Fields</h3>\n  <ul aria-labelledby=\'reference-fields\'>\n  <% _.each(fields, function(item) { %>\n    <li>\n      <div class=\'paramname\'><a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %>><%=item.name%></a></div>\n      <div class=\'paramtype\'><%= item.description %></div>\n    </li>\n  <% }); %>\n  </ul>\n<% } %>\n\n<% let methods = _.filter(things, function(item) { return item.itemtype === \'method\' && item.access !== \'private\' }); %>\n<% if (methods.length > 0) { %>\n  <h3 id=\'reference-methods\'>Methods</h3>\n  <ul aria-labelledby=\'reference-methods\'>\n    <% _.each(methods, function(item) { %>\n      <li>\n        <div class=\'paramname\'><a href="<%=item.hash%>" <% if (item.module !== module) { %>class="addon"<% } %>><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a></div>\n        <div class=\'paramtype\'><%= item.description %></div>\n      </li>\n    <% }); %>\n  </ul>\n<% } %>\n';});
+
+
+define('text!tpl/itemEnd.html',[],function () { return '\n<br><br>\n\n<div>\n<% if (item.file && item.line) { %>\n<span id="reference-error1">Notice any errors or typos?</span> <a href="https://github.com/processing/p5.js/issues"><span id="reference-contribute2">Please let us know.</span></a> <span id="reference-error3">Please feel free to edit</span> <a href="https://github.com/processing/p5.js/blob/<%= appVersion %>/<%= item.file %>#L<%= item.line %>" target="_blank" ><%= item.file %></a> <span id="reference-error5">and issue a pull request!</span>\n<% } %>\n</div>\n\n<a style="border-bottom:none !important;" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target=_blank><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="width:88px" alt="creative commons logo"/></a>\n<br><br>\n';});
 
 // Copyright (C) 2006 Google Inc.
 //
@@ -2466,7 +2483,7 @@ define('text!tpl/itemEnd.html',[],function () { return '<p>\n\n  <div class="met
  * <p>
  * Usage: <ol>
  * <li> include this source file in an html page via
- *   {@code <script type="text/javascript" src="/path/to/prettify.js"></script>}
+ *   {@code <script src="/path/to/prettify.js"></script>}
  * <li> define style rules.  See the example page for examples.
  * <li> mark the {@code <pre>} and {@code <code>} tags in your source with
  *    {@code class=prettyprint.}
@@ -2531,7 +2548,7 @@ var prettyPrint;
   // We use things that coerce to strings to make them compact when minified
   // and to defeat aggressive optimizers that fold large string constants.
   var FLOW_CONTROL_KEYWORDS = ["break,continue,do,else,for,if,return,while"];
-  var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS,"auto,case,char,const,default," + 
+  var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS,"auto,case,char,const,default," +
       "double,enum,extern,float,goto,inline,int,long,register,short,signed," +
       "sizeof,static,struct,switch,typedef,union,unsigned,void,volatile"];
   var COMMON_KEYWORDS = [C_KEYWORDS,"catch,class,delete,false,import," +
@@ -2648,8 +2665,8 @@ var prettyPrint;
    */
   var PR_NOCODE = 'nocode';
 
-  
-  
+
+
   /**
    * A set of tokens that can precede a regular expression literal in
    * javascript
@@ -2670,7 +2687,7 @@ var prettyPrint;
    * @const
    */
   var REGEXP_PRECEDER_PATTERN = '(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*';
-  
+
   // CAVEAT: this does not properly handle the case where a regular
   // expression immediately follows another since a regular expression may
   // have flags for case-sensitivity and the like.  Having regexp tokens
@@ -2687,7 +2704,7 @@ var prettyPrint;
    */
   function combinePrefixPatterns(regexs) {
     var capturedGroupIndex = 0;
-  
+
     var needToFoldCase = false;
     var ignoreCase = false;
     for (var i = 0, n = regexs.length; i < n; ++i) {
@@ -2701,7 +2718,7 @@ var prettyPrint;
         break;
       }
     }
-  
+
     var escapeCharToCodeUnit = {
       'b': 8,
       't': 9,
@@ -2710,7 +2727,7 @@ var prettyPrint;
       'f': 0xc,
       'r': 0xd
     };
-  
+
     function decodeEscape(charsetPart) {
       var cc0 = charsetPart.charCodeAt(0);
       if (cc0 !== 92 /* \\ */) {
@@ -2728,7 +2745,7 @@ var prettyPrint;
         return charsetPart.charCodeAt(1);
       }
     }
-  
+
     function encodeEscape(charCode) {
       if (charCode < 0x20) {
         return (charCode < 0x10 ? '\\x0' : '\\x') + charCode.toString(16);
@@ -2737,7 +2754,7 @@ var prettyPrint;
       return (ch === '\\' || ch === '-' || ch === ']' || ch === '^')
           ? "\\" + ch : ch;
     }
-  
+
     function caseFoldCharset(charSet) {
       var charsetParts = charSet.substring(1, charSet.length - 1).match(
           new RegExp(
@@ -2751,10 +2768,10 @@ var prettyPrint;
               'g'));
       var ranges = [];
       var inverse = charsetParts[0] === '^';
-  
+
       var out = ['['];
       if (inverse) { out.push('^'); }
-  
+
       for (var i = inverse ? 1 : 0, n = charsetParts.length; i < n; ++i) {
         var p = charsetParts[i];
         if (/\\[bdsw]/i.test(p)) {  // Don't muck with named groups.
@@ -2783,7 +2800,7 @@ var prettyPrint;
           }
         }
       }
-  
+
       // [[1, 10], [3, 4], [8, 12], [14, 14], [16, 16], [17, 17]]
       // -> [[1, 12], [14, 14], [16, 17]]
       ranges.sort(function (a, b) { return (a[0] - b[0]) || (b[1]  - a[1]); });
@@ -2797,7 +2814,7 @@ var prettyPrint;
           consolidatedRanges.push(lastRange = range);
         }
       }
-  
+
       for (var i = 0; i < consolidatedRanges.length; ++i) {
         var range = consolidatedRanges[i];
         out.push(encodeEscape(range[0]));
@@ -2809,7 +2826,7 @@ var prettyPrint;
       out.push(']');
       return out.join('');
     }
-  
+
     function allowAnywhereFoldCaseAndRenumberGroups(regex) {
       // Split into character sets, escape sequences, punctuation strings
       // like ('(', '(?:', ')', '^'), and runs of characters that do not
@@ -2828,12 +2845,12 @@ var prettyPrint;
               + ')',
               'g'));
       var n = parts.length;
-  
+
       // Maps captured group numbers to the number they will occupy in
       // the output or to -1 if that has not been determined, or to
       // undefined if they need not be capturing in the output.
       var capturedGroups = [];
-  
+
       // Walk over and identify back references to build the capturedGroups
       // mapping.
       for (var i = 0, groupIndex = 0; i < n; ++i) {
@@ -2855,7 +2872,7 @@ var prettyPrint;
           }
         }
       }
-  
+
       // Renumber groups and reduce capturing groups to non-capturing groups
       // where possible.
       for (var i = 1; i < capturedGroups.length; ++i) {
@@ -2877,13 +2894,13 @@ var prettyPrint;
           }
         }
       }
-  
+
       // Remove any prefix anchors so that the output will match anywhere.
       // ^^ really does mean an anchored match though.
       for (var i = 0; i < n; ++i) {
         if ('^' === parts[i] && '^' !== parts[i + 1]) { parts[i] = ''; }
       }
-  
+
       // Expand letters to groups to handle mixing of case-sensitive and
       // case-insensitive patterns if necessary.
       if (regex.ignoreCase && needToFoldCase) {
@@ -2903,10 +2920,10 @@ var prettyPrint;
           }
         }
       }
-  
+
       return parts.join('');
     }
-  
+
     var rewritten = [];
     for (var i = 0, n = regexs.length; i < n; ++i) {
       var regex = regexs[i];
@@ -2914,7 +2931,7 @@ var prettyPrint;
       rewritten.push(
           '(?:' + allowAnywhereFoldCaseAndRenumberGroups(regex) + ')');
     }
-  
+
     return new RegExp(rewritten.join('|'), ignoreCase ? 'gi' : 'g');
   }
 
@@ -2965,12 +2982,12 @@ var prettyPrint;
    */
   function extractSourceSpans(node, isPreformatted) {
     var nocode = /(?:^|\s)nocode(?:\s|$)/;
-  
+
     var chunks = [];
     var length = 0;
     var spans = [];
     var k = 0;
-  
+
     function walk(node) {
       var type = node.nodeType;
       if (type == 1) {  // Element
@@ -3000,9 +3017,9 @@ var prettyPrint;
         }
       }
     }
-  
+
     walk(node);
-  
+
     return {
       sourceCode: chunks.join('').replace(/\n$/, ''),
       spans: spans
@@ -3348,7 +3365,7 @@ var prettyPrint;
       // which are the following plus space, tab, and newline: { }
       // | & $ ; < >
       // ...
-      
+
       // A word beginning with # causes that word and all remaining
       // characters on that line to be ignored.
 
@@ -3429,9 +3446,9 @@ var prettyPrint;
   function numberLines(node, opt_startLineNum, isPreformatted) {
     var nocode = /(?:^|\s)nocode(?:\s|$)/;
     var lineBreak = /\r\n?|\n/;
-  
+
     var document = node.ownerDocument;
-  
+
     var li = document.createElement('li');
     while (node.firstChild) {
       li.appendChild(node.firstChild);
@@ -3439,7 +3456,7 @@ var prettyPrint;
     // An array of lines.  We split below, so this is initialized to one
     // un-split line.
     var listItems = [li];
-  
+
     function walk(node) {
       var type = node.nodeType;
       if (type == 1 && !nocode.test(node.className)) {  // Element
@@ -3474,7 +3491,7 @@ var prettyPrint;
         }
       }
     }
-  
+
     // Split a line after the given node.
     function breakAfter(lineEndNode) {
       // If there's nothing to the right, then we can skip ending the line
@@ -3484,7 +3501,7 @@ var prettyPrint;
         lineEndNode = lineEndNode.parentNode;
         if (!lineEndNode) { return; }
       }
-  
+
       function breakLeftOf(limit, copy) {
         // Clone shallowly if this node needs to be on both sides of the break.
         var rightSide = copy ? limit.cloneNode(false) : limit;
@@ -3506,9 +3523,9 @@ var prettyPrint;
         }
         return rightSide;
       }
-  
+
       var copiedListItem = breakLeftOf(lineEndNode.nextSibling, 0);
-  
+
       // Walk the parent chain until we reach an unattached LI.
       for (var parent;
            // Check nodeType since IE invents document fragments.
@@ -3518,19 +3535,19 @@ var prettyPrint;
       // Put it on the list of lines for later processing.
       listItems.push(copiedListItem);
     }
-  
+
     // Split lines while there are lines left to split.
     for (var i = 0;  // Number of lines that have been split so far.
          i < listItems.length;  // length updated by breakAfter calls.
          ++i) {
       walk(listItems[i]);
     }
-  
+
     // Make sure numeric indices show correctly.
     if (opt_startLineNum === (opt_startLineNum|0)) {
       listItems[0].setAttribute('value', opt_startLineNum);
     }
-  
+
     var ol = document.createElement('ol');
     ol.className = 'linenums';
     var offset = Math.max(0, ((opt_startLineNum - 1 /* zero index */)) | 0) || 0;
@@ -3545,7 +3562,7 @@ var prettyPrint;
       }
       ol.appendChild(li);
     }
-  
+
     node.appendChild(ol);
   }
   /**
@@ -3566,23 +3583,23 @@ var prettyPrint;
     var isIE8OrEarlier = /\bMSIE\s(\d+)/.exec(navigator.userAgent);
     isIE8OrEarlier = isIE8OrEarlier && +isIE8OrEarlier[1] <= 8;
     var newlineRe = /\n/g;
-  
+
     var source = job.sourceCode;
     var sourceLength = source.length;
     // Index into source after the last code-unit recombined.
     var sourceIndex = 0;
-  
+
     var spans = job.spans;
     var nSpans = spans.length;
     // Index into spans after the last span which ends at or before sourceIndex.
     var spanIndex = 0;
-  
+
     var decorations = job.decorations;
     var nDecorations = decorations.length;
     // Index into decorations after the last decoration which ends at or before
     // sourceIndex.
     var decorationIndex = 0;
-  
+
     // Remove all zero-length decorations.
     decorations[nDecorations] = sourceLength;
     var decPos, i;
@@ -3595,7 +3612,7 @@ var prettyPrint;
       }
     }
     nDecorations = decPos;
-  
+
     // Simplify decorations.
     for (i = decPos = 0; i < nDecorations;) {
       var startPos = decorations[i];
@@ -3609,9 +3626,9 @@ var prettyPrint;
       decorations[decPos++] = startDec;
       i = end;
     }
-  
+
     nDecorations = decorations.length = decPos;
-  
+
     var sourceNode = job.sourceNode;
     var oldDisplay;
     if (sourceNode) {
@@ -3623,11 +3640,11 @@ var prettyPrint;
       while (spanIndex < nSpans) {
         var spanStart = spans[spanIndex];
         var spanEnd = spans[spanIndex + 2] || sourceLength;
-  
+
         var decEnd = decorations[decorationIndex + 2] || sourceLength;
-  
+
         var end = Math.min(spanEnd, decEnd);
-  
+
         var textNode = spans[spanIndex + 1];
         var styledText;
         if (textNode.nodeType !== 1  // Don't muck with <BR>s or <LI>s
@@ -3655,9 +3672,9 @@ var prettyPrint;
             parentNode.insertBefore(textNode, span.nextSibling);
           }
         }
-  
+
         sourceIndex = end;
-  
+
         if (sourceIndex >= spanEnd) {
           spanIndex += 2;
         }
@@ -4087,7 +4104,7 @@ var prettyPrint;
   // function that does not conform to the AMD API.
   if (typeof define === "function" && define['amd']) {
     define("google-code-prettify", [], function () {
-      return PR; 
+      return PR;
     });
   }
 })();
@@ -4102,13 +4119,14 @@ define('itemView',[
   'text!tpl/itemEnd.html',
   // Tools
   'prettify'
-], function (App, itemTpl, classTpl, endTpl) {
+], function(App, itemTpl, classTpl, endTpl) {
+  'use strict';
 
-  
+  var appVersion = App.project.version || 'master';
 
   var itemView = Backbone.View.extend({
     el: '#item',
-    init: function () {
+    init: function() {
       this.$html = $('html');
       this.$body = $('body');
       this.$scrollBody = $('html, body'); // hack for Chrome/Firefox scroll
@@ -4122,20 +4140,30 @@ define('itemView',[
     getSyntax: function(isMethod, cleanItem) {
       var isConstructor = cleanItem.is_constructor;
       var syntax = '';
-      if (isConstructor) syntax += 'new ';
+      if (isConstructor) {
+        syntax += 'new ';
+      } else if (cleanItem.static && cleanItem.class) {
+        syntax += cleanItem.class + '.';
+      }
       syntax += cleanItem.name;
 
       if (isMethod || isConstructor) {
         syntax += '(';
         if (cleanItem.params) {
-          for (var i=0; i<cleanItem.params.length; i++) {
+          for (var i = 0; i < cleanItem.params.length; i++) {
             var p = cleanItem.params[i];
-            if (p.optional) syntax += '[';
+            if (p.optional) {
+              syntax += '[';
+            }
             syntax += p.name;
-            if (p.optdefault) syntax += '='+p.optdefault;
-            if (p.optional) syntax += ']';
-            if (i !== cleanItem.params.length-1) {
-              syntax += ',';
+            if (p.optdefault) {
+              syntax += '=' + p.optdefault;
+            }
+            if (p.optional) {
+              syntax += ']';
+            }
+            if (i !== cleanItem.params.length - 1) {
+              syntax += ', ';
             }
           }
         }
@@ -4154,13 +4182,15 @@ define('itemView',[
       var overloads = cleanItem.overloads || [cleanItem];
       return overloads.map(this.getSyntax.bind(this, isMethod));
     },
-    render: function (item) {
+    render: function(item) {
       if (item) {
-        var itemHtml = '',
-            cleanItem = this.clean(item),
-            isClass = item.hasOwnProperty('itemtype') ? 0 : 1,
-            collectionName = isClass ? 'Constructor' : this.capitalizeFirst(cleanItem.itemtype),
-            isConstructor = cleanItem.is_constructor;
+        var itemHtml = '';
+        var cleanItem = this.clean(item);
+        var isClass = item.hasOwnProperty('itemtype') ? 0 : 1;
+        var collectionName = isClass
+            ? 'Constructor'
+            : this.capitalizeFirst(cleanItem.itemtype),
+          isConstructor = cleanItem.is_constructor;
         cleanItem.isMethod = collectionName === 'Method';
 
         var syntaxes = this.getSyntaxes(cleanItem.isMethod, cleanItem);
@@ -4169,34 +4199,70 @@ define('itemView',[
 
         // Set item contents
         if (isClass) {
-          if (isConstructor) {
-            var constructor = this.tpl({
-              item: cleanItem,
-              syntaxes: syntaxes
-            });
-            cleanItem.constructor = constructor;
-          }
+          var constructor = this.tpl({
+            item: cleanItem,
+            isClass: true,
+            isConstructor: isConstructor,
+            syntaxes: syntaxes
+          });
+          cleanItem.constructor = constructor;
 
-          var contents = _.find(App.classes, function(c){ return c.name === cleanItem.name; });
+          var contents = _.find(App.classes, function(c) {
+            return c.name === cleanItem.name;
+          });
           cleanItem.things = contents.items;
 
           itemHtml = this.classTpl(cleanItem);
-
         } else {
+          cleanItem.constRefs =
+            item.module === 'Constants' && App.data.consts[item.name];
+
           itemHtml = this.tpl({
             item: cleanItem,
+            isClass: false,
+            isConstructor: false,
             syntaxes: syntaxes
           });
         }
 
-        itemHtml += this.endTpl({item:cleanItem});
+        itemHtml += this.endTpl({ item: cleanItem, appVersion: appVersion });
 
         // Insert the view in the dom
         this.$el.html(itemHtml);
 
-        renderCode();
+        renderCode(cleanItem.name);
+
+        // Set the document title based on the item name.
+        // If it is a method, add parentheses to the name
+        if (item.itemtype === 'method') {
+          App.pageView.appendToDocumentTitle(item.name + '()');
+        } else {
+          App.pageView.appendToDocumentTitle(item.name);
+        }
+
+        // Hook up alt-text for examples
+        setTimeout(function() {
+          var alts = $('.example-content')[0];
+          if (alts) {
+            alts = $(alts)
+              .data('alt')
+              .split('\n');
+
+            var canvases = $('.cnv_div');
+            for (var j = 0; j < alts.length; j++) {
+              if (j < canvases.length) {
+                $(canvases[j]).append(
+                  '<span class="sr-only">' + alts[j] + '</span>'
+                );
+              }
+            }
+          }
+        }, 1000);
         Prism.highlightAll();
       }
+
+      var renderEvent = new Event('reference-rendered');
+      window.dispatchEvent(renderEvent);
 
       return this;
     },
@@ -4205,7 +4271,7 @@ define('itemView',[
      * @param {object} item The item object.
      * @returns {object} Returns the same item object with urlencoded paths.
      */
-    clean: function (item) {
+    clean: function(item) {
       var cleanItem = item;
 
       if (cleanItem.hasOwnProperty('file')) {
@@ -4218,7 +4284,7 @@ define('itemView',[
      * @param {object} item Item object.
      * @returns {object} This view.
      */
-    show: function (item) {
+    show: function(item) {
       if (item) {
         this.render(item);
       }
@@ -4228,16 +4294,17 @@ define('itemView',[
       this.$el.show();
 
       this.scrollTop();
-      //window.scrollTo(0, 0); // LM
-
+      $('#item').focus();
       return this;
     },
     /**
      * Show a message if no item is found.
      * @returns {object} This view.
      */
-    nothingFound: function () {
-      this.$el.html("<p><br><br>Ouch. I am unable to find any item that match the current query.</p>");
+    nothingFound: function() {
+      this.$el.html(
+        '<p><br><br>Ouch. I am unable to find any item that match the current query.</p>'
+      );
       App.pageView.hideContentViews();
       this.$el.show();
 
@@ -4251,7 +4318,7 @@ define('itemView',[
       // Chrome scrolls 'body', Firefox scrolls 'html'
       var scroll = this.$body.scrollTop() > 0 || this.$html.scrollTop() > 0;
       if (scroll) {
-        this.$scrollBody.animate({'scrollTop': 0}, 600);
+        this.$scrollBody.animate({ scrollTop: 0 }, 600);
       }
     },
     /**
@@ -4259,16 +4326,16 @@ define('itemView',[
      * @param {string} str
      * @returns {string} Returns the string.
      */
-    capitalizeFirst: function (str) {
+    capitalizeFirst: function(str) {
       return str.substr(0, 1).toUpperCase() + str.substr(1);
     }
   });
 
   return itemView;
-
 });
 
-define('text!tpl/menu.html',[],function () { return '<p>\n  <small>\n    Can\'t find what you\'re looking for? You may want to check out\n    <a href="#/libraries/p5.dom">p5.dom</a> or\n    <a href="#/libraries/p5.sound">p5.sound</a>.\n  </small>\n</p>\n\n<% var i=0; %>\n<% var max=Math.floor(groups.length/4); %>\n<% var rem=groups.length%4; %>\n\n<% _.each(groups, function(group){ %>\n  <% var m = rem > 0 ? 1 : 0 %>\n  <% if (i === 0) { %>\n    <dl>\n  <% } %>\n  <dd><a href="#group-<%=group%>"><%=group%></a></dd>\n  <% if (i === (max+m-1)) { %>\n    </dl>\n  \t<% rem-- %>\n  \t<% i=0 %>\n  <% } else { %>\n  \t<% i++ %>\n  <% } %>\n<% }); %>';});
+
+define('text!tpl/menu.html',[],function () { return '<div>\n  <br>\n  <span id="reference-description1">Can\'t find what you\'re looking for? You may want to check out</span>\n  <a href="#/libraries/p5.sound">p5.sound</a>.<br><a href=\'https://p5js.org/offline-reference/p5-reference.zip\' target=_blank><span id="reference-description3">You can also download an offline version of the reference.</span></a>\n</div>\n\n<div id=\'collection-list-categories\'>\n<h2 class="sr-only" id="categories">Categories</h2>\n<% var i=0; %>\n<% var max=Math.floor(groups.length/4); %>\n<% var rem=groups.length%4; %>\n\n<% _.each(groups, function(group){ %>\n  <% var m = rem > 0 ? 1 : 0 %>\n  <% if (i === 0) { %>\n    <ul aria-labelledby="categories">\n    <% } %>\n    <li><a href="#group-<%=group%>"><%=group%></a></li>\n    <% if (i === (max+m-1)) { %>\n    </ul>\n  \t<% rem-- %>\n  \t<% i=0 %>\n  <% } else { %>\n  \t<% i++ %>\n  <% } %>\n<% }); %>\n</div>\n';});
 
 define('menuView',[
   'App',
@@ -4336,117 +4403,137 @@ define('menuView',[
 
 });
 
-define('text!tpl/library.html',[],function () { return '<h3><%= module.name %> library</h3>\n\n<p><%= module.description %></p>\n\n<div id="library-page" class="reference-group clearfix">  \n\n<% var t = 0; col = 0; %>\n\n<% _.each(groups, function(group){ %>\n  <% if (t == 0) { %> \n    <div class="column_<%=col%>">\n  <% } %>\n  <% if (group.name !== module.name && group.name !== \'p5\') { %>\n    <a href="<%=group.hash%>" <% if (group.module !== module.name) { %>class="core"<% } %>><h4 class="group-name <% if (t == 0) { %> first<%}%>"><%=group.name%></h4></a>\n  <% } %>\n  <% _.each(group.items, function(item) { %>\n    <a href="<%=item.hash%>" <% if (item.module !== module.name) { %>class="core"<% } %>><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a><br>\n    <% t++; %>\n  <% }); %>\n  <% if (t >= Math.floor(totalItems/4)) { col++; t = 0; %>\n    </div>\n  <% } %>\n<% }); %>\n</div>';});
 
-define('libraryView',[
-  'App',
-  // Templates
-  'text!tpl/library.html'
-], function (App, libraryTpl) {
+define('text!tpl/library.html',[],function () { return '<h3><%= module.name %> library</h3>\n\n<p><%= module.description %></p>\n\n<div id="library-page" class="reference-group clearfix">  \n\n<% var t = 0; col = 0; %>\n\n<% _.each(groups, function(group){ %>\n  <% if (t == 0) { %> \n    <div class="column_<%=col%>">\n  <% } %>\n  <% if (group.name !== module.name && group.name !== \'p5\') { %>\n    <% if (group.hash) { %> <a href="<%=group.hash%>" <% if (group.module !== module.name) { %>class="core"<% } %>><% } %>  \n    <h4 class="group-name <% if (t == 0) { %> first<%}%>"><%=group.name%></h4>\n    <% if (group.hash) { %> </a><br> <% } %>\n  <% } %>\n  <% _.each(group.items.filter(function(item) {return item.access !== \'private\'}), function(item) { %>\n    <a href="<%=item.hash%>" <% if (item.module !== module.name) { %>class="core"<% } %>><%=item.name%><% if (item.itemtype === \'method\') { %>()<%}%></a><br>\n    <% t++; %>\n  <% }); %>\n  <% if (t >= Math.floor(totalItems/4)) { col++; t = 0; %>\n    </div>\n  <% } %>\n<% }); %>\n</div>\n';});
 
-  var libraryView = Backbone.View.extend({
-    el: '#list',
-    events: {},
-    /**
-     * Init.
-     */
-    init: function () {
-      this.libraryTpl = _.template(libraryTpl);
+define(
+  'libraryView',[
+    'App',
+    // Templates
+    'text!tpl/library.html'
+  ],
+  function(App, libraryTpl) {
+    var libraryView = Backbone.View.extend({
+      el: '#list',
+      events: {},
+      /**
+       * Init.
+       */
+      init: function() {
+        this.libraryTpl = _.template(libraryTpl);
 
-      return this;
-    },
-    /**
-     * Render the list.
-     */
-    render: function (m, listCollection) {
-      if (m && listCollection) {
-        var self = this;
+        return this;
+      },
+      /**
+       * Render the list.
+       */
+      render: function(m, listCollection) {
+        if (m && listCollection) {
+          var self = this;
 
-        // Render items and group them by module
-        // module === group
-        this.groups = {};
-        _.each(m.items, function (item, i) {
-          var module = item.module || '_';
-          var group = item.class || '_';
-          var hash = App.router.getHash(item);
+          // Render items and group them by module
+          // module === group
+          this.groups = {};
+          _.each(m.items, function(item, i) {
+            var module = item.module || '_';
+            var group;
+            // Override default group with a selected category
+            // TODO: Overwriting with the first category might not be the best choice
+            // We might also want to have links for categories
+            if (item.category && item.category[0]) {
+              group = item.category[0];
+              // Populate item.hash
+              App.router.getHash(item);
 
-          var ind = hash.lastIndexOf('/');
-          hash = hash.substring(0, ind);
+              // Create a group list without link hash
+              if (!self.groups[group]) {
+                self.groups[group] = {
+                  name: group.replace('_', '&nbsp;'),
+                  module: module,
+                  hash: undefined,
+                  items: []
+                };
+              }
+            } else {
+              group = item.class || '_';
+              var hash = App.router.getHash(item);
 
-          // Create a group list
-          if (!self.groups[group]) {
-            self.groups[group] = {
-              name: group.replace('_', '&nbsp;'),
-              module: module,
-              hash: hash,
-              items: []
-            };
-          }
+              var ind = hash.lastIndexOf('/');
+              hash = hash.substring(0, ind);
 
+              // Create a group list
+              if (!self.groups[group]) {
+                self.groups[group] = {
+                  name: group.replace('_', '&nbsp;'),
+                  module: module,
+                  hash: hash,
+                  items: []
+                };
+              }
+            }
 
-          self.groups[group].items.push(item);
-        });
+            self.groups[group].items.push(item);
+          });
 
-        // Sort groups by name A-Z
-        self.groups = _.sortBy(self.groups, this.sortByName);
+          // Sort groups by name A-Z
+          self.groups = _.sortBy(self.groups, this.sortByName);
 
-        // Put the <li> items html into the list <ul>
-        var libraryHtml = self.libraryTpl({
-          'title': self.capitalizeFirst(listCollection),
-          'module': m.module,
-          'totalItems': m.items.length,
-          'groups': self.groups
-        });
+          // Put the <li> items html into the list <ul>
+          var libraryHtml = self.libraryTpl({
+            title: self.capitalizeFirst(listCollection),
+            module: m.module,
+            totalItems: m.items.length,
+            groups: self.groups
+          });
 
-        // Render the view
-        this.$el.html(libraryHtml);
+          // Render the view
+          this.$el.html(libraryHtml);
+        }
+
+        return this;
+      },
+      /**
+       * Show a list of items.
+       * @param {array} items Array of item objects.
+       * @returns {object} This view.
+       */
+      show: function(listGroup) {
+        if (App[listGroup]) {
+          this.render(App[listGroup], listGroup);
+        }
+        App.pageView.hideContentViews();
+
+        this.$el.show();
+
+        return this;
+      },
+      /**
+       * Helper method to capitalize the first letter of a string
+       * @param {string} str
+       * @returns {string} Returns the string.
+       */
+      capitalizeFirst: function(str) {
+        return str.substr(0, 1).toUpperCase() + str.substr(1);
+      },
+      /**
+       * Sort function (for the Array.prototype.sort() native method): from A to Z.
+       * @param {string} a
+       * @param {string} b
+       * @returns {Array} Returns an array with elements sorted from A to Z.
+       */
+      sortAZ: function(a, b) {
+        return a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase() ? 1 : -1;
+      },
+
+      sortByName: function(a, b) {
+        if (a.name === 'p5') return -1;
+        else return 0;
       }
+    });
 
-      return this;
-    },
-    /**
-     * Show a list of items.
-     * @param {array} items Array of item objects.
-     * @returns {object} This view.
-     */
-    show: function (listGroup) {
-      if (App[listGroup]) {
-        this.render(App[listGroup], listGroup);
-      }
-      App.pageView.hideContentViews();
-
-      this.$el.show();
-
-      return this;
-    },
-    /**
-     * Helper method to capitalize the first letter of a string
-     * @param {string} str
-     * @returns {string} Returns the string.
-     */
-    capitalizeFirst: function (str) {
-      return str.substr(0, 1).toUpperCase() + str.substr(1);
-    },
-    /**
-     * Sort function (for the Array.prototype.sort() native method): from A to Z.
-     * @param {string} a
-     * @param {string} b
-     * @returns {Array} Returns an array with elements sorted from A to Z.
-     */
-    sortAZ: function (a, b) {
-      return a.innerHTML.toLowerCase() > b.innerHTML.toLowerCase() ? 1 : -1;
-    },
-
-    sortByName: function (a, b) {
-      if (a.name === 'p5') return -1;
-      else return 0;
-    }
-
-  });
-
-  return libraryView;
-
-});
+    return libraryView;
+  }
+);
 
 define('pageView',[
   'App',
@@ -4458,6 +4545,9 @@ define('pageView',[
   'menuView',
   'libraryView'
 ], function(App, searchView, listView, itemView, menuView, libraryView) {
+
+  // Store the original title parts so we can substitue different endings.
+  var _originalDocumentTitle = window.document.title;
 
   var pageView = Backbone.View.extend({
     el: 'body',
@@ -4497,7 +4587,7 @@ define('pageView',[
         App.contentViews.push(App.listView);
       }
 
-      // Libary view
+      // Library view
       if (!App.libraryView) {
         App.libraryView = new libraryView();
         App.libraryView.init().render();
@@ -4522,6 +4612,18 @@ define('pageView',[
       });
 
       return this;
+    },
+    /**
+     * Append the supplied name to the first part of original document title.
+     * If no name is supplied, the title will reset to the original one.
+     */
+    appendToDocumentTitle: function(name){
+      if(name){
+        let firstTitlePart = _originalDocumentTitle.split(" | ")[0];
+        window.document.title = [firstTitlePart, name].join(" | ");
+      } else {
+        window.document.title = _originalDocumentTitle;
+      }
     }
   });
 
@@ -4533,7 +4635,7 @@ define('router',[
   'App'
 ], function(App) {
 
-   //
+  'use strict'; //
 
   var Router = Backbone.Router.extend({
 
@@ -4595,8 +4697,7 @@ define('router',[
     get: function(searchClass, searchItem) {
 
       // if looking for a library page, redirect
-      if ((searchClass === 'p5.dom' || searchClass === 'p5.sound')
-          && !searchItem) {
+      if (searchClass === 'p5.sound' && !searchItem) {
         window.location.hash = '/libraries/'+searchClass;
         return;
       }
@@ -4615,6 +4716,7 @@ define('router',[
           self.list();
         }
 
+        styleCodeLinks();
       });
     },
     /**
@@ -4629,7 +4731,7 @@ define('router',[
               classesCount = classes.length,
               itemsCount = items.length,
               className = searchClass ? searchClass.toLowerCase() : undefined,
-              itemName = searchItem ? searchItem.toLowerCase() : undefined,
+              itemName = searchItem ? searchItem : undefined,
               found;
 
       // Only search for a class, if itemName is undefined
@@ -4645,11 +4747,23 @@ define('router',[
         }
         // Search for a class item
       } else if (className && itemName) {
+        // Search case sensitively
         for (var i = 0; i < itemsCount; i++) {
           if (items[i].class.toLowerCase() === className &&
-            items[i].name.toLowerCase() === itemName) {
+            items[i].name === itemName) {
             found = items[i];
             break;
+          }
+        }
+
+        // If no match was found, fallback to search case insensitively
+        if(!found){
+          for (var i = 0; i < itemsCount; i++) {
+            if(items[i].class.toLowerCase() === className &&
+              items[i].name.toLowerCase() === itemName.toLowerCase()){
+              found = items[i];
+              break;
+            }
           }
         }
       }
@@ -4673,6 +4787,7 @@ define('router',[
         App.menuView.show(collection);
         App.menuView.update(collection);
         App.listView.show(collection);
+        styleCodeLinks();
       });
     },
     /**
@@ -4683,6 +4798,7 @@ define('router',[
       this.init(function() {
         App.menuView.hide();
         App.libraryView.show(collection.substring(3)); //remove p5.
+        styleCodeLinks();
       });
     },
     /**
@@ -4705,14 +4821,30 @@ define('router',[
        if (!item.hash) {
 
          // FIX TO INVISIBLE OBJECTS: DH (see also listView.js)
-         var clsFunc = '#/' + item.class + '.' + item.name;
-         var idx = clsFunc.lastIndexOf('.');
-         item.hash = clsFunc.substring(0,idx) + '/' + clsFunc.substring(idx+1);
+
+         if (item.class) {
+           var clsFunc = '#/' + item.class + '.' + item.name;
+           var idx = clsFunc.lastIndexOf('.');
+           item.hash = clsFunc.substring(0,idx) + '/' + clsFunc.substring(idx+1);
+         } else {
+          item.hash = '#/' + item.name;
+         }
        }
 
        return item.hash;
-     }
-   });
+    }
+  });
+
+
+  function styleCodeLinks() {
+    var links = document.getElementsByTagName("a");
+    for (var iLink = 0; iLink < links.length; iLink++) {
+      var link = links[iLink];
+      if (link.hash.startsWith('#/p5')) {
+        link.classList.add('code');
+      }
+    }
+  }
 
 
   // Get the router
@@ -4743,7 +4875,7 @@ require([
   './documented-method'], function(App, DocumentedMethod) {
 
   // Set collections
-  App.collections = ['allItems', 'classes', 'events', 'methods', 'properties', 'p5.sound', 'p5.dom'];
+  App.collections = ['allItems', 'classes', 'events', 'methods', 'properties', 'p5.sound'];
 
   // Get json API data
   var data = referenceData;
@@ -4767,9 +4899,6 @@ require([
     if (m.name == "p5.sound") {
       App.sound.module = m;
     }
-    else if (m.name == "p5.dom") {
-      App.dom.module = m;
-    }
   });
 
 
@@ -4778,7 +4907,7 @@ require([
 
   // Get classes
   _.each(classes, function(c, idx, array) {
-    if (c.is_constructor) {
+    if (!c.private) {
       App.classes.push(c);
     }
   });
@@ -4803,12 +4932,6 @@ require([
       if (el.module === "p5.sound") {
         App.sound.items.push(el);
       }
-      else if (el.module === "p5.dom" || el.module === 'DOM') {
-        if (el.class === 'p5.dom') {
-          el.class = 'p5';
-        }
-        App.dom.items.push(el);
-      }
     }
   });
 
@@ -4820,4 +4943,5 @@ require([
 });
 
 define("main", function(){});
+
 }());

@@ -1,7 +1,7 @@
 /*
- * @name Noise2D
+ * @name Ruido 2D
  * @frame 710,400 (optional)
- * @description Create a 2D noise with different parameters.
+ * @description Crear un ruido 2D con parámetros diferentes.
  *
  */
 
@@ -14,27 +14,27 @@ function setup() {
 
 function draw() {
   background(0);
-  // Draw the left half of image
+  // Dibujar la mitad izquierda de la imagen
   for (let y = 0; y < height - 30; y++) {
     for (let x = 0; x < width / 2; x++) {
-      // noiceDetail of the pixels octave count and falloff value
+      // noiceDetail (detalle del ruido) del número de octavas  y valor de caída de los píxeles
       noiseDetail(2, 0.2);
       noiseVal = noise((mouseX + x) * noiseScale, (mouseY + y) * noiseScale);
       stroke(noiseVal * 255);
       point(x, y);
     }
   }
-  // Draw the right half of image
+  // Dibujar la mitad derecha de la imagen
   for (let y = 0; y < height - 30; y++) {
     for (let x = width / 2; x < width; x++) {
-      // noiceDetail of the pixels octave count and falloff value
+      // noiceDetail (detalle del ruido) del número de octavas  y valor de caída de los píxeles
       noiseDetail(5, 0.5);
       noiseVal = noise((mouseX + x) * noiseScale, (mouseY + y) * noiseScale);
       stroke(noiseVal * 255);
       point(x, y);
     }
   }
-  //Show the details of two partitions
+  //Mostrar los detalles de las dos particiones
   textSize(18);
   fill(255, 255, 255);
   text('Noice2D with 2 octaves and 0.2 falloff', 10, 350);
