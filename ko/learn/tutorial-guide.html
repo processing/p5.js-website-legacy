@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=a7cc29">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=2f9853"></script>
+
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">Skip to content</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">언어 설정</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/ko/">
+          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+        <p class='tagline'>p5.js 커뮤니티는 Black Lives Matter와 연대합니다.</p>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">사이트 둘러보기</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/ko/">홈</a></li>
+        <li><a href="https://editor.p5js.org">에디터</a></li>
+        <li><a href="/ko/download/">다운로드</a></li>
+        <li><a href="/ko/download/support.html">기부하기</a></li>
+        <li><a href="/ko/get-started/">시작하기</a></li>
+        <li><a href="/ko/reference/">레퍼런스</a></li>
+        <li><a href="/ko/libraries/">라이브러리</a></li>
+        <li><a href="/ko/learn/">배우기</a></li>
+        <li><a href="/ko/examples/">예제</a></li>
+        <li><a href="/ko/books/">출판물</a></li>
+        <li><a href="/ko/community/">커뮤니티</a></li>
+        <li><a href="/ko/showcase/">쇼케이스</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">포럼</a></li>
+        <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+        <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main >
+
+      <h1>p5.js 튜토리얼 기여를 위한 가이드</h1>
+      <div class="attribution">
+        이 튜토리얼은 테가 브레인(Tega Brain)이 제작하였습니다.
+      </div>
+      <p>
+        p5.js 튜토리얼은 이에 열정을 느끼는 교육자와 모든 분들께 열려있습니다. p5.js 프로젝트는 보다 다양한 사람들을 위한 크리에이티브 코딩 및 오픈 소스 개발을 추구하며, 모든 개발 과정을 공개하는 것을 하나의 즐거운 과정으로 여깁니다. 현재까지 제작된 튜토리얼은 p5 학습, 프로그래밍 기술, 오픈소스 프로젝트 공헌 방법 등에 대한 내용을 다룹니다.
+      </p>
+      <p>
+        새로운 튜토리얼을 제안하거나, 튜토리얼 준비 및 기여에 대한 가이드라인 제작을 환영합니다.
+      </p>
+
+      <h2>커뮤니티 기여 시작하기:</h2>
+      <ul class="list_view">
+        <li>
+          우선, 제안하려는 튜토리얼이 현재 진행 중인 내용들과 겹치는 지의 여부를 이 <a href="https://docs.google.com/spreadsheets/d/1sh3IwcCUY4Bm8N4fRZw6CwSDdQmmXgY_awjVj-UC8mo/edit#gid=0">스프레드시트</a>
+          에서 확인하세요. 만약 제안하고자 하는 튜토리얼 주제가 현재 진행 중인 것이라면, 해당 주제의 마무리 작업 또는 p5.js 웹사이트상의 공개 작업에 참여할 수 있고 관련해서는 아래의 이메일로 연락주시면 감사하겠습니다. 
+        </li>
+        <li>
+          제안하려는 튜토리얼이 스프레드시트 리스트에 포함되지 않는다면, 튜토리얼에 대한 간략한 설명을 education@p5js.org로 보내주세요.
+        </li>
+      </ul>
+      <h2>p5.js 튜토리얼 온라인 공개 준비하기:</h2>
+      <p>
+        튜토리얼을 p5.js 웹사이트상 공개할 준비가 되었다면, 다음의 단계를 따라주세요.
+      </p>
+      <p>
+        튜토리얼 콘텐츠를 이 <a href="https://github.com/mayaman/p5js-website/blob/master/src/templates/pages/learn/test-tutorial.hbs">기본 구조</a>
+        에 따라 tutorial-name.hbs 파일로 변환해주세요. 콘텐츠에는 아래와 같은 헤더(header)가 반드시 포함되어야 합니다:
+      </p>
+      <img src="../../assets/learn/tutorial-guide/images/screenshot-1.png" alt="Screenshot">
+
+      <p>
+        튜토리얼을 포함한 폴더는 p5js 웹사이트 상 'tutorials' 폴더에 배치됩니다. index.hbs 파일은 <a href="/ko/learn/">p5.js 튜토리얼 랜딩 페이지</a>
+        에 해당하며, test-tutorial.hbs 파일은 테스트 튜토리얼입니다.
+      </p>
+      <p>
+        모든 콘텐츠는 페이지상
+       
+        &lt;section &gt; &lt;/section&gt;
+        태그에 포함되어야하며, &lt;h1&gt; 와 &lt;h2&gt; 태그, 그리고 &lt;p&gt; 문단 태그로서 문서 형식이 정의되어야 합니다. 형식 예시는 다음의 페이지에서 확인해보세요:  <a href="https://github.com/processing/p5.js-website/blob/main/src/templates/pages/learn/test-tutorial.hbs">테스트 튜토리얼</a></p>
+      <p>
+        튜토리얼이 이미지 파일을 포함할 경우, p5 웹사이트의 에셋(assets) 폴더에 배치됩니다. 파일 경로는 아래와 같이 src/assets/learn/test-tutorial/images에 해당합니다.
+      </p>
+      <img src="../../assets/learn/tutorial-guide/images/screenshot-2.png" alt="Screenshot">
+      <p>
+        페이지의 HTML에 형식을 맞추기 위해 다음의 태그를 사용하세요:
+      </p>
+       
+        <pre><code class="language-javascript">
+&lt;pre&gt;&lt;code class="language-javascript"&gt;
+Your code here!
+&lt;/code>&lt;/pre&gt;
+
+</code></pre>
+
+      <h2>웹페이지에 p5.js 스케치 올리기(embedding)</h2>
+      <p>
+        p5.js를 사용한다는 것은 튜토리얼 설명을 위해 예제에 각종 애니메이션, 인터랙션, 그리고 수정 기능을 포함할 수 있음을 뜻합니다. 이 경우, 튜토리얼 예제는 p5.js 스케치의 형태로 준비되어야하며, 튜토리얼 페이지상 다음의 두가지 방식으로 임베드될 수 있습니다.
+      </p>
+
+      <ol>
+        <li>
+          만약 튜토리얼 예제가 p5.js 웹페이지의<a href="http://p5js.org/reference/#/p5/ellipse">레퍼런스</a>와 같이 코드를 수정할 수 있는 형태라면, p5js 위젯을 사용하여 HTML 페이지에 임베드할 수 있습니다.<a href="https://toolness.github.io/p5.js-widget/">이 가이드</a>를 따라 위젯으로 p5js를 임베드하는 방법에 대해 알아보세요. 가이드는<a href="https://github.com/toolness">Toolness</a>가 작성하였습니다. 이러한 사례에 해당하는 튜토리얼이 작동하는 모습은 <a href="https://github.com/processing/p5.js-website/blob/main/src/templates/pages/learn/test-tutorial.hbs">테스트 튜토리얼 페이지</a>에서 확인할 수 있습니다.</li>
+        <li>
+          튜토리얼 예제가 애니메이션 그리고/또는 인터랙션을 포함하나 코드 수정 기능을 포함하지 않는다면, 다음과 같이 iframe을 사용하여 p5.js 스케치를 페이지상 임베드할 수 있습니다.
+        </li>
+      </ol>
+
+      <h2>iframe을 사용하여 p5 스케치 임베드하기</h2>
+
+      <p>
+        iframe은 한 페이지상 다른 페이지를 보기 위해 만드는 창문틀과도 같습니다. 이 창문틀을 따라 페이지상의 다른 내용들로부터 구분되는 셈이지요. 이 경우, p5.js 스케치를 포함한 index.html를 보여주는 창문틀의 역할을 합니다. 
+      </p>
+      <img src="https://github.com/tegacodes/p5.js-education/raw/master/images/iframe-2.jpg" alt="tutorialFileStructure" width="600">
+
+      <p>
+        스크린샷에 보이듯, p5 웹사이트 /src/assets/learn 폴더에 스케치의 이름을 딴 별도의 폴더를 새로이 생성하여 여러분의 튜토리얼용 p5 스케치를 올리세요. 이 경로를 통해 iframe에서 보여줄 모든 이미지와 p5 스케치가 저장됩니다.
+      </p>
+
+      <img src="../../assets/learn/tutorial-guide/images/screenshot-3.png" alt="Screenshot">
+
+<p>여러분의 p5 예제를 포함한 폴더의 하위에는 sketch.js 파일과 embed.html 파일이 반드시 있어야 합니다.</p>
+<img src="../../assets/learn/tutorial-guide/images/screenshot-4.png" alt="Screenshot">
+
+<p>embed.html 파일이 웹사이트의 p5 라이브러리와도 일치하는지를 확인하세요. 만약, 여러분의 파일 구조가 위와 같다면 p5.js 라이브러리 경로는 "../../../js/p5.min.js" 일것 입니다.</p>
+<p>그리고나면, 튜토리얼 콘텐츠를 담고 있는 .hbs 파일상 p5js index 파일을 iframe의 형태로 임베드할 수 있습니다. iframe 임베드를 위한 코드는 다음과 같습니다: </p>
+  <pre><code class="language-javascript">
+&lt;iframe src="http://p5js.org/assets/learn/tes-tutorial/embed.html" width="600" height="400"&gt;
+&lt;/iframe&gt;
+</code></pre>
+
+<p>iframe 서식 바꾸기:  </p>
+  <pre><code class="language-javascript">
+&lt;style&gt; iframe{ border: none; } &lt;/style&gt;
+</code></pre>
+
+<p>iframe을 이용한 무제 스케치 작동 확인하기: </p>
+<a href="http://staging.p5js.org/assets/learn/test-tutorial/embed.html">http://staging.p5js.org/assets/learn/test-tutorial/embed.html</a>
+
+<p>위의 스케치가 p5 site에 임베드된 모습:  </p>
+<a href="http://staging.p5js.org/learn/test-tutorial.html">http://staging.p5js.org/learn/test-tutorial.html</a>
+
+<p>한가지 주의해야할 점은, iframe의 사이즈는 반드시 직접 조정해야된다는 것입니다. 특히, 튜토리얼 콘텐츠의 크기가 규격화된 경우 그러합니다.</p>
+
+<p>또한, p5.js 라이브러리 파일 연결 링크는 튜토리얼 콘텐츠가 포함되어있는 .eps 페이지가 아닌, 스케치를 렌더링하는 별도의 html 페이지에 위치합니다. (이 경우, 해당 html 페이지의 명칭은 embed.html입니다.)</p>
+
+<p>p5.js 스케치를 임베드하는 방법에 대해 더 알고 싶다면 다음의 링크를 확인하세요: <a href="https://github.com/processing/p5.js/wiki/Embedding-p5.js">링크</a></p>
+<h2>마무리하기</h2>
+<p>앞서 언급된 메일을 통해 튜토리얼 콘텐츠 확인을 마쳤다면, p5.js-website repository를 Fork 하세요. 그리고 상기된 방법에 따라 콘텐츠를 준비하고 풀 리퀘스트(pull request)를 하여, 여러분의 기여 내용이 웹사이트에 공개될 수 있도록 하세요!</p>
+
+    <p>감사합니다!</p>
+
+  </main>
+
+  
+  <footer>
+    <h2 class="sr-only">크레딧</h2>
+    <p> p5.js는 로렌 맥카시 <a href='http://lauren-mccarthy.com' target="_blank">Lauren McCarthy</a> 가 창안하고 협력자 커뮤니티와 함께 개발하였습니다. 지원: 프로세싱 재단 <a href="http://processing.org/foundation/" target="_blank">Processing Foundation</a> 과 
+    <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>.  아이덴티티 및 그래픽 디자인: <a href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/ko/copyright.html">&copy; Info.</a></p>
+  </footer>
+
+</div> <!-- end column-span -->
+
+
+<!-- outside of column for footer to go across both -->
+
+<p class="clearfix"> &nbsp; </p>
+
+<object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+</object>
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="http://processing.org">Processing</a></li>
+        <li><a class="here" href="/ko/">p5.js</a></li>
+        <li><a href="http://py.processing.org/">Processing.py</a></li>
+        <li><a href="http://android.processing.org/">Processing for Android</a></li>
+        <li><a href="http://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+    
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+      <!-- <a id="promo-link" href="https://donorbox.org/supportpf2019-fundraising-campaign" target="_blank"><div id="promo">This season, we need your help! Click here to #SupportP5!</div></a> -->
+    </nav>    <script>
+    var langs = ["en","es","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>
