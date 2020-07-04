@@ -1,6 +1,6 @@
 /*
  * @name Partículas de humo
- * @description un puerto del ejemplo de sistema de partículas de humo de Dan Shiffman, originalmente para Processing. Crea partículas de humo :p
+ * @description Un puerto del ejemplo de sistema de partículas de humo de Dan Shiffman, originalmente para Processing. Crea partículas de humo :p
  */
 
 // textura de la partícula

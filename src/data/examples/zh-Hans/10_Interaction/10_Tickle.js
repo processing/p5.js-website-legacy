@@ -1,14 +1,14 @@
 /*
  * @name Tickle
- * @description The word "tickle" jitters when the cursor hovers over.
- * Sometimes, it can be tickled off the screen.
+ * @description "tickle" 这个单词会在光标移至它时抖动。
+ * 有时还会抖出屏幕。
  */
 let message = 'tickle',
   font,
-  bounds, // holds x, y, w, h of the text's bounding box
+  bounds, // 存储文本框的 x, y, w, h 值
   fontsize = 60,
   x,
-  y; // x and y coordinates of the text
+  y; // 文本的 x 和 y 坐标
 
 function preload() {
   font = loadFont('assets/SourceSansPro-Regular.otf');
@@ -17,11 +17,11 @@ function preload() {
 function setup() {
   createCanvas(710, 400);
 
-  // set up the font
+  // 设置字体
   textFont(font);
   textSize(fontsize);
 
-  // get the width and height of the text so we can center it initially
+  // 获取文本的宽度和高度，以便我们可以首先将其居中
   bounds = font.textBounds(message, 0, 0, fontsize);
   x = width / 2 - bounds.w / 2;
   y = height / 2 - bounds.h / 2;
@@ -30,12 +30,12 @@ function setup() {
 function draw() {
   background(204, 120);
 
-  // write the text in black and get its bounding box
+  // 写出黑色的文本并获取其文本框
   fill(0);
   text(message, x, y);
   bounds = font.textBounds(message, x, y, fontsize);
 
-  // check if the mouse is inside the bounding box and tickle if so
+  // 检查鼠标是否在文本框里；如果在文本框内，抖动文本
   if (
     mouseX >= bounds.x &&
     mouseX <= bounds.x + bounds.w &&

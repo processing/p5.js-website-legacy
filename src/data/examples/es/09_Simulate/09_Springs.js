@@ -1,10 +1,10 @@
 /*
- * @name Springs
+ * @name Resortes
  * @frame 710,400
- * @description Move the mouse over one of the circles and click to re-position.
- * When you release the mouse, it will snap back into position.
- * Each circle has a slightly different behavior.
- * (ported from https://processing.org/examples/springs.html)
+ * @description Mueve el ratón sobre uno de los círculos y haz clic para reposicionarlo.
+ * Cuando sueltes el ratón, se volverá a colocar en su posición.
+ * Cada círculo tiene un comportamiento ligeramente diferente.
+ * (puerto de https://processing.org/examples/springs.html)
  */
 let num = 3;
 let springs = [];
