@@ -112,6 +112,7 @@ function buildFolder(lang, inputRoot, outputRoot, folder) {
         var shortName = name.replace(' and ', '/');
         name = name.replace(spaceReg, '-');
         var outName = (folderName + '-' + name).toLowerCase().replace('_', '-');
+        outName = outName.replace(/[()]/g, '');
         var outputFile = outputRoot + outName + '.hbs';
         if (verbose) {
           console.log('outputFile', outputFile);
