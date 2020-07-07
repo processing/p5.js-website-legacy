@@ -1,6 +1,6 @@
 /*
  * @name 2D 노이즈
- * @frame 710,400 (optional)
+ * @frame 710,400 (선택 사항)
  * @description 여러 인수를 사용하여 2D 노이즈를 만들어보세요.
  *
  */
