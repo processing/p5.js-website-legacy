@@ -1,6 +1,6 @@
 /*
  * @name 배경 이미지
- * @description 이 예제는 배경 이미지를 불러오는 가장 빠른 방법을 소개합니다. This example presents the fastest way to load a
+ * @description 이 예제는 배경 이미지를 불러오는 가장 빠른 방법을 소개합니다.
  * 이미지 파일을 배경으로 쓰기 위해선, 이미지의 너비와 높이를 
  * 프로그램 화면 크기와 동일하게 맞추면 됩니다.
  * <p><em><span class="small"> 로컬 프로젝트에서 이 예제를 실행하려면, 이미지 파일을 준비하시고
