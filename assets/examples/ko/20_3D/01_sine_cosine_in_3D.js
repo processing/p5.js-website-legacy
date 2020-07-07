@@ -1,6 +1,6 @@
 /*
- * @name 3D속 싸인 코싸인
- * @description 싸인, 코싸인, 그리고 push / pop 함수는 3D에도 적용됩니다.
+ * @name 3D속 사인 코사인
+ * @description 사인, 코사인, 그리고 push / pop 함수는 3D에도 적용됩니다.
  */
 function setup() {
   createCanvas(710, 400, WEBGL);

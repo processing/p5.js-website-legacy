@@ -1,13 +1,13 @@
 /*
  * @name 3D 노이즈
- * @frame 710,400 (optional)
+ * @frame 710,400 (선택 사항)
  * @description 3D 노이즈를 사용하여 간단한 동적 텍스쳐를 만듭니다.
  */
 
 let noiseVal;
 //x를 0.01씩 증가
 let x_increment = 0.01;
-//draw()함수 사이클 마다 z를 0.02씩 증가
+//draw()함수 사이클마다 z를 0.02씩 증가
 let z_increment = 0.02;
 
 //Offset values
