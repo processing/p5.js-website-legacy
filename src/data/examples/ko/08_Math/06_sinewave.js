@@ -1,6 +1,6 @@
 /*
- * @name 싸인파
- * @description 간단한 싸인파를 만듭니다.
+ * @name 사인파
+ * @description 간단한 사인파를 만듭니다.
  * 다니엘 쉬프만(Daniel Shiffman)이 원본 제작.
  */
 
