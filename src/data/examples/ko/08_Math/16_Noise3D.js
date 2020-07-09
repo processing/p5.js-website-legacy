@@ -1,7 +1,7 @@
 /*
  * @name 3D 노이즈
  * @frame 710,400 (선택 사항)
- * @description 3D 노이즈를 사용하여 간단한 동적 텍스쳐를 만듭니다.
+ * @description 3D 노이즈를 사용하여 간단한 동적 텍스처를 만듭니다.
  */
 
 let noiseVal;

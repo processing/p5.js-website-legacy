@@ -1,7 +1,7 @@
 /*
  * @name 펜로즈 타일
  * @frame 710,400
- * @description 이 예제는 데이비드 블리츠(David Blitz)가 processing.org/examples의 "펜로즈 타일(Penrose Tile)" 예제에서 옮겨왔습니다.
+ * @description 이 예제는 데이비드 블리츠(David Blitz)가 processing.org/examples의 "펜로즈 타일(Penrose Tile)" 예제를 p5.js로 옮겨온 것입니다.
  */
 
 let ds;

@@ -1,8 +1,8 @@
 /*
  * @name 극좌표를 직교 좌표로
  * @description 극좌표(지름 r, 세타 theta)를 직교 좌표(x,y)로 변환
- * : x = rcos(theta) y = rsin(theta)
- * 다니엘 쉬프만(Daniel Shiffman)이 원본 제작.
+ * : x = rcos(theta) y = rsin(theta) 
+ * 원본 제작: 다니엘 쉬프만(Daniel Shiffman)
  */
 let r;
 

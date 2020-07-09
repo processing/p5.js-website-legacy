@@ -3,7 +3,7 @@
  * @description 재귀를 통해 나무와 같은 구조를 간단히 렌더링합니다.
  * 나뭇가지의 분기 각도는 마우스 수평 위치에 대한 함수로써 계산됩니다.
  * 마우스를 좌우로 움직혀 각도를 바꿔보세요.
- * 다니엘 쉬프만(Daniel Shiffman)의 프로세싱(Processing)을 위한 <a href="https://processing.org/examples/tree.html">재귀 나무 예제</a> 에서 옮겨왔습니다.
+ * 다니엘 쉬프만(Daniel Shiffman)의 프로세싱(Processing)을 위한 <a href="https://processing.org/examples/tree.html">재귀 나무 예제</a> 에서 p5.js로 옮겨왔습니다.
  */
 let theta;
 
