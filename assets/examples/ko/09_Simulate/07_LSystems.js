@@ -1,8 +1,8 @@
 /*
  * @name L-시스템
- * @description 이 스케치는 린덴마이어(Lindenmayer) 또는 (L-) 시스템을 기반으로 한 자동 드로잉을 보여줍니다.
+ * @description 이 스케치는 린덴마이어(Lindenmayer) 시스템(또는, L-시스템)을 기반으로 한 자동 드로잉을 보여줍니다.
  * L-시스템은 자연적, 기하학적, 또는 재밌는 "프랙탈형" 패턴을 만드는 제너레이티브 그래픽에 쓰입니다.<br>
- * 이 예제는 <a href='http://lukedubois.com/' target='_blank'>R. Luke DuBois</a>가 제작하였습니다.<br>
+ * 제작: <a href='http://lukedubois.com/' target='_blank'>R. Luke DuBois</a><br>
  * <a href='https://en.wikipedia.org/wiki/L-system'>https://en.wikipedia.org/wiki/L-system</a>
  */
 // 거북이:

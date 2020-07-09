@@ -1,8 +1,8 @@
 /*
  * @name 파도 만들기
- * @description 이 예제는 특정 위치에서 진동하는 파티클로 파도를 만드는 법을 설명합니다.
+ * @description 이 예제는 특정 위치에서 진동하는 파티클로 파도를 만드는 법을 다룹니다.
  * 마우스를 움직여 파도의 방향을 바꿔보세요.
- * 애티쉬 바티아(Aatish Bhatia) 기여, 댄 와이트(Dan Whyte) 제작 <a href="https://beesandbombs.tumblr.com/post/45513650541/orbiters">Orbiters</a>
+ * 기여: 애티쉬 바티아(Aatish Bhatia), 제작: 댄 와이트(Dan Whyte) <a href="https://beesandbombs.tumblr.com/post/45513650541/orbiters">Orbiters</a>
  * 로부터 영감을 받았습니다.
  */
 

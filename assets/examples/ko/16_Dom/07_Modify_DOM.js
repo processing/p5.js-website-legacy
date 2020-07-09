@@ -24,10 +24,10 @@ class DanceSpan {
 }
 
 function setup() {
-  // 이 단락은 윗 단의 주요 코드 블록의 부록으로 작성되었습니다.
-  // 아래의 코드들은 요소의 생성과 지정 기능을 각각 구분하고자 합니다.
-  // 지정된 요소들은 p5js로 생성될 필요가 없으며,
-  // 일반적인 HTML일 수 있습니다.
+  // 이 단락은 위의 주요 코드 블록의 부록으로서 작성됩니다.
+  // 아래의 코드들은 요소의 생성과 지정 기능을 구분합니다.
+  // 지정된 요소들은 p5js로 별도 생성될 필요가 없으며,
+  // 일반적인 HTML처럼 쓰일 수 있습니다.
   createP(
     'I learn in this Letter, that Don Peter of Aragon, ' +
       ' comes this night to Messina'

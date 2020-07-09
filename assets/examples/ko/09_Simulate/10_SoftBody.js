@@ -1,6 +1,6 @@
 /*
  * @name 소프트 바디
- * @description 이라 그린버그(Ira Greenberg) 원본 제작.
+ * @description 원본 제작: 이라 그린버그(Ira Greenberg)
  * <br><br>curveVertex() 와 curveTightness()를 사용한 소프트 바디 역학 시뮬레이션.
  */
 // 중심점
