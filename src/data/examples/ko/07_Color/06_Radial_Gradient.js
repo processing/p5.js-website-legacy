@@ -1,12 +1,6 @@
 /*
-<<<<<<< HEAD
  * @name 방사형 그래디언트
  * @description 동심원을 그려 한 색상이 다른 색상으로 퍼지는 듯한 효과를 만듭니다.
-=======
- * @name Radial Gradient
- * @description Draws a series of concentric circles to create a gradient
- * from one color to another.
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
  */
 let dim;
 

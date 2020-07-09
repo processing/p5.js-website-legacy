@@ -37,7 +37,7 @@ function setup() {
 function draw() {
   background(30);
 
-  // mouseX를 FFT 스펙트럼 범위(10Hz-22050Hz)에 해당하는 밴드패스 주파수에 맵핑하기
+  // mouseX를 FFT 스펙트럼 가청 범위(10Hz-22050Hz)에 해당하는 밴드패스 주파수에 맵핑하기
   filterFreq = map(mouseX, 0, width, 10, 22050);
 
   // mouseY를 울림/폭에 맵핑하기

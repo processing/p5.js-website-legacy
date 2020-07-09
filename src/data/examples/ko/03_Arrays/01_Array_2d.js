@@ -27,7 +27,7 @@ function draw() {
   background(0);
   // 이 함수에 내장된 반복문은 앞서 선언된 spacer변수에 따라 배열값 사이의 간격을 생성하게 됩니다.
   // 따라서, 이 함수로 그려진 것보다 더 많은 값이 배열에 있는 셈입니다.
-  // spacer 변수의 값을 변경하여 점들 간의 밀도를 조정해보세요.
+  // spacer변수의 값을 변경하여 점들 간의 밀도를 조정해보세요.
   for (let x = 0; x < width; x += spacer) {
     for (let y = 0; y < height; y += spacer) {
       stroke(distances[x][y]);

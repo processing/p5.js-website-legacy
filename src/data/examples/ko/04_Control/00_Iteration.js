@@ -1,6 +1,6 @@
 /*
  * @name for 반복문
- * @description "for"구조를 사용하여 반복 형식을 만듭니다.
+ * @description "for" 구조를 사용하여 반복 형식을 만듭니다.
  */
 let y;
 let num = 14;

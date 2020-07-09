@@ -1,5 +1,5 @@
 /*
- * @name 이동(Translate)
+ * @name 위치 이동(Translate)
  * @description translate() 함수는 객체를 화면 내 어떤 위치로든 이동하게 합니다.
  * 그 첫 번째 매개변수는 x축의 오프셋(offset)을,
  * 두 번째 매개변수는 y축의 오프셋을 지정합니다.

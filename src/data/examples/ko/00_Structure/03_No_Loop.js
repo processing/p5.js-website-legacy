@@ -1,15 +1,15 @@
 /*
  * @name 루프 해제
- * @description noLoop()함수는 draw()함수가 반복없이 단 한번만 실행되게 합니다.
+ * @description noLoop()함수는 draw()함수를 반복없이 단 한번만 실행되도록 합니다.
  * noLoop()를 호출하지 않는다면 draw()함수는 계속해서 반복 실행될 것입니다.
  */
 let y;
 
-// setup()함수 속 선언문은 프로그램 시작 시 한번 실행됩니다.
+// setup()함수 속 선언문은 프로그램 시작시 한번 실행됩니다.
 function setup() {
   // createCanvas가 그 첫 선언문입니다.
   createCanvas(720, 400);
-  stroke(255); // 선색을 흰색(255)으로 지정
+  stroke(255); // 윤곽선을 흰색(255)으로 지정
   noLoop();
 
   y = height * 0.5;
