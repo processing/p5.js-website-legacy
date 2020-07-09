@@ -1,6 +1,6 @@
 /*
- * @name Geometries
- * @description There are six 3D primitives in p5 now.
+ * @name 기하
+ * @description 현재 p5에는 여섯 개의 3D 기초 조형이 있습니다.
  */
 function setup() {
   createCanvas(710, 400, WEBGL);

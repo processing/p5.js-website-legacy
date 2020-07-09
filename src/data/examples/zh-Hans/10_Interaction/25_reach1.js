@@ -1,8 +1,8 @@
 /*
- * @name Reach 1
+ * @name 延伸 1
  * @frame 710,400
- * @description The arm follows the position of the mouse by calculating the
- * angles with atan2(). Based on code from Keith Peters.
+ * @description 手臂随鼠标的位置移动，使用 atan2() 计算角度。
+ * 基于 Keith Peters 的代码。
  */
 let segLength = 80,
   x,

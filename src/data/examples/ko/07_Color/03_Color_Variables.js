@@ -1,7 +1,7 @@
 /*
- * @name Color Variables
- * @description (Homage to Albers.) This example creates variables for colors
- * that may be referred to in the program by a name, rather than a number.
+ * @name 색상 변수
+ * @description (Albers에게 바칩니다.) 이 예제는 색상 조정을 위한 변수 생성 방법을 다룹니다.
+ * 이 때, 변수들은 숫자가 아닌 특정 명칭으로 지정됩니다.
  */
 function setup() {
   createCanvas(710, 400);
@@ -12,8 +12,8 @@ function setup() {
   let middle = color(204, 153, 0);
   let outside = color(153, 51, 0);
 
-  // These statements are equivalent to the statements above.
-  // Programmers may use the format they prefer.
+  // 아래의 변수 선언문은 위의 선언문들과 동일합니다.
+  // 둘 중 원하는 형식을 사용하면 됩니다.
   //let inside = color('#CC6600');
   //let middle = color('#CC9900');
   //let outside = color('#993300');

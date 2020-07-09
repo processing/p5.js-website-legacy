@@ -1,14 +1,13 @@
 /*
- * @name Array of Objects
- * @description Create a Jitter class, instantiate an array of objects
- * and move them around the screen.
+ * @name 物件数组
+ * @description 创建一个 Jitter 类，实例化多个物件，并且在屏幕上移动。
  */
 
-let bugs = []; // array of Jitter objects
+let bugs = []; // Jitter 物件的数组
 
 function setup() {
   createCanvas(710, 400);
-  // Create objects
+  // 创造物件
   for (let i = 0; i < 50; i++) {
     bugs.push(new Jitter());
   }
@@ -22,7 +21,7 @@ function draw() {
   }
 }
 
-// Jitter class
+// Jitter 类
 class Jitter {
   constructor() {
     this.x = random(width);

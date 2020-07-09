@@ -1,42 +1,42 @@
 /*
- * @name Noise3D
- * @frame 710,400 (optional)
- * @description Using 3D noise to create simple animated texture.
+ * @name 3D 노이즈
+ * @frame 710,400 (선택 사항)
+ * @description 3D 노이즈를 사용하여 간단한 동적 텍스쳐를 만듭니다.
  */
 
 let noiseVal;
-//Increment x by 0.01
+//x를 0.01씩 증가
 let x_increment = 0.01;
-//Increment z by 0.02 every draw() cycle
+//draw()함수 사이클마다 z를 0.02씩 증가
 let z_increment = 0.02;
 
 //Offset values
 let z_off, y_off, x_off;
 
 function setup() {
-  //Create the Canvas
+  //캔버스 만들기
   createCanvas(640, 360);
-  //Define frame rate
+  //프레임 속도 조정
   frameRate(20);
-  //Initial value of z_off
+  //z_off의 초기값
   z_off = 0;
 }
 
 function draw() {
   x_off = 0;
   y_off = 0;
-  //Make the background black
+  //배경을 검정색으로 설정
   background(0);
-  //Adjust the noice detail
+  //노이즈 디테일 조정
   noiseDetail(8, 0.65);
 
-  //For each x,y calculate noice value
+  //매 x,y마다 노이즈값 계산
   for (let y = 0; y < height; y++) {
     x_off += x_increment;
     y_off = 0;
 
     for (let x = 0; x < width; x++) {
-      //Calculate and Draw each pixel
+      //각 픽셀을 계산하고 그리기
       noiseVal = noise(x_off, y_off, z_off);
       stroke(noiseVal * 255);
       y_off += x_increment;

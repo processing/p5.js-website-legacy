@@ -1,7 +1,6 @@
 /*
- * @name Variables
- * @description Variables are used for storing values. In this example, change
- * the values of variables to affect the composition.
+ * @name 변수
+ * @description 변수는 값을 저장하기 위해 사용됩니다. 예제의 변수값을 바꿔 구성을 변형해보세요.
  */
 function setup() {
   createCanvas(720, 400);

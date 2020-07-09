@@ -1,6 +1,6 @@
 /*
- * @name Sine Cosine in 3D
- * @description Sine, cosine and push / pop could be applied in 3D as well.
+ * @name 3D속 사인 코사인
+ * @description 사인, 코사인, 그리고 push / pop 함수는 3D에도 적용됩니다.
  */
 function setup() {
   createCanvas(710, 400, WEBGL);

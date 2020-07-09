@@ -1,8 +1,8 @@
 /*
- * @name Reach 3
+ * @name 팔닿기 3
  * @frame 710,400
- * @description The arm follows the position of the ball by calculating the
- * angles with atan2(). Based on code from Keith Peters.
+ * @description 팔모양이 공의 위치를 따라다닙니다. 팔의 각도는 atan2()로 계산됩니다.
+ * 이 예제는 키스 피터스(Keith Peters)가 제작한 코드를 기반으로 합니다.
  */
 let numSegments = 8,
   x = [],
@@ -28,8 +28,8 @@ function setup() {
   stroke(255, 100);
   noFill();
 
-  x[x.length - 1] = width / 2; // Set base x-coordinate
-  y[x.length - 1] = height; // Set base y-coordinate
+  x[x.length - 1] = width / 2; // 기본 x좌표 설정
+  y[x.length - 1] = height; // 기본 y좌표 설정
 }
 
 function draw() {

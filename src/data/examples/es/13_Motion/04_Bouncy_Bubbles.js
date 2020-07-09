@@ -1,7 +1,7 @@
 /*
- * @name Bouncy Bubbles
+ * @name Burbujas Saltarinas
  * @frame 720,400
- * @description  based on code from Keith Peters. Multiple-object collision..
+ * @description  basado en el código de Keith Peters. Colisión de múltiples objetos...
  */
 
 let numBalls = 13;

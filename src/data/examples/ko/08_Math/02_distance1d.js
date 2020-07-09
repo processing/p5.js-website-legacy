@@ -1,7 +1,6 @@
 /*
- * @name Distance 1D
- * @description Move the mouse left and right to control
- * the speed and direction of the moving shapes.
+ * @name 1D 거리
+ * @description 마우스를 좌우로 움직여, 화면 속 도형의 움직임 속도와 방향을 조정해보세요.
  */
 let xpos1;
 let xpos2;

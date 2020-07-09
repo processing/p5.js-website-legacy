@@ -1,6 +1,6 @@
 /*
- * @name Iteration
- * @description Iteration with a "for" structure to construct repetitive forms.
+ * @name for 반복문
+ * @description "for"구조를 사용하여 반복 형식을 만듭니다.
  */
 let y;
 let num = 14;
@@ -10,7 +10,7 @@ function setup() {
   background(102);
   noStroke();
 
-  // Draw white bars
+  // 흰색 막대기들 그리기
   fill(255);
   y = 60;
   for (let i = 0; i < num / 3; i++) {
@@ -18,7 +18,7 @@ function setup() {
     y += 20;
   }
 
-  // Gray bars
+  // 회색 막대기들
   fill(51);
   y = 40;
   for (let i = 0; i < num; i++) {
@@ -31,7 +31,7 @@ function setup() {
     y += 20;
   }
 
-  // Thin lines
+  // 얇은 선들
   y = 45;
   fill(0);
   for (let i = 0; i < num - 1; i++) {

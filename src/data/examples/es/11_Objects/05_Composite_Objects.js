@@ -1,7 +1,7 @@
-/* @name Composite Objects
- * @description An object can include several other objects.
- * Creating such composite objects is a good way to use the principles
- * of modularity and build higher levels of abstraction within a program.
+/* @name Objetos Compuestos
+ * @description Un objeto puede incluir varios otros objetos.
+ * La creación de tales objetos compuestos es una buena manera de usar los principios
+ * de modularidad y construir niveles más altos de abstracción dentro de un programa.
  */
 let er1, er2;
 

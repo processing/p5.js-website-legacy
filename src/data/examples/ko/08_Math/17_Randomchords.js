@@ -1,35 +1,35 @@
 /*
- * @name Random Chords
- * @description Accumulates random chords of a circle. Each chord in translucent
- * so they accumulate to give the illusion of a shaded sphere.
- * Contributed by Aatish Bhatia, inspired by <a href ="http://inconvergent.net/">Anders Hoff</a>
+ * @name 랜덤 선들
+ * @description 원형을 그리는 무작위의 선들을 축적합니다.
+ * 불투명하게 처리된 선들이 축적될수록 마치 명암이 적용된 구처럼 보입니다.
+ * 애티쉬 바티아(Aatish Bhatia) 기여, <a href ="http://inconvergent.net/">앤더스 호프(Anders Hoff)</a>로부터 영감을 받음.
  */
 
 function setup() {
   createCanvas(400, 400);
   background(255, 255, 255);
 
-  // translucent stroke using alpha value
+  // 알파값을 활용하여 선의 불투명도 조정
   stroke(0, 0, 0, 15);
 }
 
 function draw() {
-  // draw two random chords each frame
+  // 매 프레임마다 두 개의 선을 무작위로 그린다
   randomChord();
   randomChord();
 }
 
 function randomChord() {
-  // find a random point on a circle
+  // 원형 위 점 하나를 무작위로 찾는다
   let angle1 = random(0, 2 * PI);
   let xpos1 = 200 + 200 * cos(angle1);
   let ypos1 = 200 + 200 * sin(angle1);
 
-  // find another random point on the circle
+  // 원형 위 또다른 점 하나를 무작위로 찾는다
   let angle2 = random(0, 2 * PI);
   let xpos2 = 200 + 200 * cos(angle2);
   let ypos2 = 200 + 200 * sin(angle2);
 
-  // draw a line between them
+  // 둘 사이에 선을 긋는다
   line(xpos1, ypos1, xpos2, ypos2);
 }

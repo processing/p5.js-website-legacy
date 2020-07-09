@@ -1,10 +1,11 @@
 /*
- * @name Directional
+ * @name 디렉셔널 라이트
  * @frame 710,400
- * @description Move the mouse to change the direction of the light.
- * Directional light comes from one direction and is stronger when hitting a
- * surface squarely and weaker if it hits at a a gentle angle. After hitting a
- * surface, a directional light scatters in all directions.
+ * @description 마우스를 움직여 조명의 방향을 바꿔보세요.
+ * 디렉셔널 라이트는 한 방향에서 비롯되며
+ * 표면에 직각으로 닿을 때 강한 빛을,
+ * 부드러운 각도로 닿았을 때 약한 빛을 보입니다. 
+ * 디렉셔널 라이트는 표면에 닿으면 그 빛이 모든 방향으로 흩어집니다.
  */
 const radius = 200;
 

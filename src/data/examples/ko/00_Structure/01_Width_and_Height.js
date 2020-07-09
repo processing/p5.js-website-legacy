@@ -1,8 +1,7 @@
 /*
- * @name Width and Height
- * @description The 'width' and 'height' variables contain the
- * width and height of the display window as defined in the createCanvas()
- * function.
+ * @name 너비와 높이
+ * @description '너비(width)'와 '높이(height)' 변수들은 createCanvas() 함수에 따라
+ * 정의된, 윈도우 화면의 너비 및 높이 값을 포함합니다.
  */
 function setup() {
   createCanvas(720, 400);

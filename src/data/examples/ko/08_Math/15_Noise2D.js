@@ -1,7 +1,7 @@
 /*
- * @name Noise2D
- * @frame 710,400 (optional)
- * @description Create a 2D noise with different parameters.
+ * @name 2D 노이즈
+ * @frame 710,400 (선택 사항)
+ * @description 여러 인수를 사용하여 2D 노이즈를 만들어보세요.
  *
  */
 
@@ -14,29 +14,29 @@ function setup() {
 
 function draw() {
   background(0);
-  // Draw the left half of image
+  // 이미지의 좌측 절반 그리기
   for (let y = 0; y < height - 30; y++) {
     for (let x = 0; x < width / 2; x++) {
-      // noiceDetail of the pixels octave count and falloff value
+      // noiceDetail, 픽셀 옥타브와 번짐 정도
       noiseDetail(2, 0.2);
       noiseVal = noise((mouseX + x) * noiseScale, (mouseY + y) * noiseScale);
       stroke(noiseVal * 255);
       point(x, y);
     }
   }
-  // Draw the right half of image
+  // 이미지의 우측 절반 그리기
   for (let y = 0; y < height - 30; y++) {
     for (let x = width / 2; x < width; x++) {
-      // noiceDetail of the pixels octave count and falloff value
+      // noiceDetail, 픽셀 옥타브와 번짐 정도
       noiseDetail(5, 0.5);
       noiseVal = noise((mouseX + x) * noiseScale, (mouseY + y) * noiseScale);
       stroke(noiseVal * 255);
       point(x, y);
     }
   }
-  //Show the details of two partitions
+  //두 화면의 디테일 구성하기
   textSize(18);
   fill(255, 255, 255);
-  text('Noice2D with 2 octaves and 0.2 falloff', 10, 350);
-  text('Noice2D with 1 octaves and 0.7 falloff', 330, 350);
+  text('2옥타브와 0.2 번짐 정도의 2D 노이즈', 10, 350);
+  text('1옥타브와 0.7 번짐 정도의 2D 노이즈', 330, 350);
 }

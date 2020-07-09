@@ -1,7 +1,7 @@
 /*
- * @name Penrose Tiles
+ * @name Baldosas de Penrose
  * @frame 710,400
- * @description This is a port by David Blitz of the "Penrose Tile" example from processing.org/examples
+ * @description Este es un puerto de David Blitz del ejemplo "Baldosa de Penrose" de processing.org/examples
  */
 
 let ds;
@@ -121,5 +121,3 @@ PenroseLSystem.prototype.render = function () {
     }
   }
 }
-
-
