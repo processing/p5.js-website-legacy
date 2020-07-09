@@ -2,7 +2,7 @@
  * @name 3D 기본 조형
  * @frame 720,400 (optional)
  * @description 3D 객체를 합성 공간 속에 수학적으로 배치하기.
- * box()와 sphere()함수는 최소 한 개의 매개변수를 사용하여 그 크기를 조정할 수 있습니다.
+ * box()와 sphere()함수는 최소 한 개의 매개변수를 사용하여 객체의 크기를 조정합니다.
  * 도형의 위치는 translate()함수를 통해 조정할 수 있습니다.
  */
 function setup() {

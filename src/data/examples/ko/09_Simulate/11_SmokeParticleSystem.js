@@ -1,5 +1,4 @@
 /*
-<<<<<<< HEAD
  * @name 연기 파티클
  * @description 다니엘 쉬프만(Dan Shiffman)이 프로세싱(Processing)을 위해 제작한
  * 연기 파티클 시스템(SmokeParticleSystem) 예제를 옮겨왔습니다.

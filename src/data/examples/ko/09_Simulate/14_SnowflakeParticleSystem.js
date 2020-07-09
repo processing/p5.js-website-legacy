@@ -2,7 +2,7 @@
  * @name 눈송이 파티클
  * @description 이 파티클 시스템은 마치 떨어지는 눈송이같은 모션을 시뮬레이션합니다.
  * 눈송이 파티클을 담는 객체 배열을 사용합니다.
- * 애티쉬 바티아(Aatish Bhatia) 기여.
+ * 기여: 애티쉬 바티아(Aatish Bhatia)
  */
 
 let snowflakes = []; // 눈송이 객체를 담는 배열

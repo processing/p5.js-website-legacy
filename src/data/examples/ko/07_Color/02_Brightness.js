@@ -1,6 +1,6 @@
 /*
  * @name 밝기
- * @description 다니엘 쉬프만(Dan Shiffman) 제작. 마우스와 각 픽셀 간의 거리값을 
+ * @description 제작: 다니엘 쉬프만(Dan Shiffman). 마우스와 각 픽셀 간의 거리값을 
  * 계산하여 이미지 일부의 밝기를 조정합니다. 
  * <p><em><span class="small"> 로컬 컴퓨터에서 이 예제를 실행하려면, 이미지 파일을 준비하시고
  * <a href="https://github.com/processing/p5.js/wiki/Local-server">로컬 서버</a>를 작동시키세요.</span></em></p>

@@ -16,7 +16,7 @@ function draw() {
   fill(0, 10);
   rect(0, 0, width, height);
 
-  //let n = random(0,width);  // 노이즈 대신 이 줄을 사용할 수 있습니다.
+  //let n = random(0,width);  // 노이즈 대신 이 코드를 사용할 수 있습니다.
 
   // xoff로 노이즈값을 지정하고
   // 화면의 너비에 따라 크기 조정

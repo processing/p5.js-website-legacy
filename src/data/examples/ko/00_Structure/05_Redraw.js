@@ -1,12 +1,12 @@
 /*
  * @name 다시 그리기
- * @description redraw()함수는 draw()함수를 다시 한번 실행합니다.
+ * @description redraw()함수는 draw()함수를 재실행합니다.
  * 이 예제에서 draw()는 마우스가 클릭될 때마다 매번 재실행됩니다.
  */
 
 let y;
 
-// setup()함수 속 선언문은 프로그램 시작 시 한번 실행됩니다.
+// setup()함수 속 선언문들은 프로그램 시작시 한번 실행됩니다.
 function setup() {
   createCanvas(720, 400);
   stroke(255);
