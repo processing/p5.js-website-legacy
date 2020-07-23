@@ -39,7 +39,7 @@ function getLibVersionDate($f) {
 
 function updateFiles() {
   global $lib_version;
-  $r = 'https://raw.githubusercontent.com/processing/p5.js-release/main/lib';
+  $r = 'https://raw.githubusercontent.com/lmccart/p5.js-release/master/lib';
   download($r.'/p5.min.js', '../assets/js/p5.min.js');
   download($r.'/addons/p5.dom.min.js', '../assets/js/p5.dom.min.js');
   download($r.'/addons/p5.sound.min.js', '../assets/js/p5.sound.min.js');
