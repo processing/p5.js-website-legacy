@@ -1,7 +1,7 @@
 /*
  * @name Weather
  * @frame 720,280
- * @description This example grabs JSON weather data from apixu.com.
+ * @description This example grabs JSON weather data from www.metaweather.com.
 */
 
 // A wind direction vector
@@ -11,9 +11,9 @@ let position;
 
 function setup() {
   createCanvas(720, 200);
-  // Request the data from apixu.com
-  let url = 'https://api.apixu.com/v1/current.json?key=513d8003c8b348f1a2461629162106&q=NYC';
-  loadJSON(url, gotWeather);
+  // Request the data from metaweather.com
+  let url = 'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/2459115/';
+  loadJSON(url,gotWeather);
   // Circle starts in the middle
   position = createVector(width/2, height/2);
   // wind starts as (0,0)
@@ -55,16 +55,17 @@ function draw() {
 }
 
 function gotWeather(weather) {
-  
+  let weather_today = weather.consolidated_weather[0]
   // Get the angle (convert to radians)
-  let angle = radians(Number(weather.current.wind_degree));
+  let angle = radians(Number(weather_today.wind_direction));
   // Get the wind speed
-  let windmag = Number(weather.current.wind_mph);
+  let windmag = Number(weather_today.wind_speed);
   
   // Display as HTML elements
-  let temperatureDiv = createDiv(floor(weather.current.temp_f) + '&deg;');
+  let temperatureDiv = createDiv(floor(weather_today.the_temp) + '&deg;C');
   let windDiv = createDiv("WIND " + windmag + " <small>MPH</small>");
   
   // Make a vector
   wind = p5.Vector.fromAngle(angle);
 }
+
