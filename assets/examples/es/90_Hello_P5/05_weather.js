@@ -1,7 +1,7 @@
 /*
  * @name Clima
  * @frame 720,280
- * @description Este ejemplo usa datos de clima en formato JSON desde apixu.com.
+ * @description Este ejemplo usa datos de clima en formato JSON desde www.metaweather.com.
 */
 
 // un vector de dirección de viento
@@ -11,8 +11,8 @@ let position;
 
 function setup() {
   createCanvas(720, 200);
-  // pedir datos a apixu.com
-  let url = 'https://api.apixu.com/v1/current.json?key=513d8003c8b348f1a2461629162106&q=NYC';
+  // pedir datos a metaweather.com
+  let url = 'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/2459115/';
   loadJSON(url, gotWeather);
   // el círculo empieza en el centro
   position = createVector(width/2, height/2);
@@ -57,14 +57,14 @@ function draw() {
 }
 
 function gotWeather(weather) {
-
+  let weather_today = weather.consolidated_weather[0]
   // obtener el ángulo (convertir a radianes)
-  let angle = radians(Number(weather.current.wind_degree));
+  let angle = radians(Number(weather_today.wind_direction));
   // obtener la velocidad del viento
-  let windmag = Number(weather.current.wind_mph);
+  let windmag = Number(weather_today.wind_speed);
 
   // mostrar como elementos HTML
-  let temperatureDiv = createDiv(floor(weather.current.temp_f) + '&deg;');
+  let temperatureDiv = createDiv(floor(weather_today.the_temp) + '&deg;C');
   let windDiv = createDiv("WIND " + windmag + " <small>MPH</small>");
 
   // hacer un vector
