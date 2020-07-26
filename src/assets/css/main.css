@@ -1448,36 +1448,68 @@ h2.featuring{
 /* ==========================================================================
    Teach Page
    ========================================================================== */
+#teach-page .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+#teach-page .active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+#teach-page .panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+
+
 
 
 #teach-page .teach-intro p {
-  font: 400 1.4rem "Montserrat", sans-serif;
+  font: 200 1.4rem "Montserrat", sans-serif;
   line-height: 1.5em;
 }
 
 #teach-page .teach-slider h2 {
-  font: 400 1.4rem "Montserrat", sans-serif;
+  font: 200 1.4rem "Montserrat", sans-serif;
   color: #ed225d;
   letter-spacing: 0.05rem;
 }
 
-.slider-title {
+#teach-page .teach-results {
   border-bottom: 4px dotted #ed225d;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  opacity: 1;
+  font: 400 1.4rem "Montserrat", sans-serif;
+  color: #ed225d;
+  line-height: 1.5em;
 }
 
 /* The slider itself */
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
+ -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
   width: 80%; /* Full-width */
-  height: 3px; /* Specified height */
-  background: #ed225d; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  height: 0px; /* Specified height */
+  background: transparent; /* Grey background */
+  border-bottom: 4px dotted #ed225d; /* Remove outline */
+  opacity: .3; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
+  outline: none;
 }
 
 /* Mouse-over effects */
@@ -1487,21 +1519,22 @@ h2.featuring{
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
+  /*-webkit-appearance: none; Override default look
+  appearance: none; */
   width: 20px; /* Set a specific slider handle width */
   height: 20px; /* Slider handle height */
-  background: #ed225d; /* Green background */
+  background: url('../img/asterisk-01.png'); /* Green background */
   cursor: pointer; /* Cursor on hover */
+  outline: none;
 }
 
 .slider::-moz-range-thumb {
   width: 10px; /* Set a specific slider handle width */
   height: 10px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
+  background: url('../img/asterisk-01.png'); /* Green background */
   cursor: pointer; /* Cursor on hover */
+  outline: none;
 }
-
 
 /* ==========================================================================
    Chrome Frame prompt
