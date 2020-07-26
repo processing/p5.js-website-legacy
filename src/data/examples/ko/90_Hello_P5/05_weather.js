@@ -1,7 +1,7 @@
 /*
  * @name 날씨
  * @frame 720,280
- * @description 이 예제는 apixu.com로부터 JSON 날씨 데이터를 받아옵니다.
+ * @description 이 예제는 www.metaweather.com로부터 JSON 날씨 데이터를 받아옵니다.
  * 로컬 프로젝트에서 이 예제를 실행하려면, 
  * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom 라이브러리</a>
  * 를 추가해야 됩니다.
@@ -14,8 +14,8 @@ let position;
 
 function setup() {
   createCanvas(720, 200);
-  // apixu.com에 데이터 요청하기
-  let url = 'https://api.apixu.com/v1/current.json?key=513d8003c8b348f1a2461629162106&q=NYC';
+  // www.metaweather.com에 데이터 요청하기
+  let url = 'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/2459115/';
   loadJSON(url, gotWeather);
   // 화면의 가운데에서 원그리기 시작
   position = createVector(width/2, height/2);
@@ -58,14 +58,14 @@ function draw() {
 }
 
 function gotWeather(weather) {
-  
+  let weather_today = weather.consolidated_weather[0]
   // 각도 받아오기 (래디언으로 변환)
-  let angle = radians(Number(weather.current.wind_degree));
+  let angle = radians(Number(weather_today.wind_direction));
   // 풍속 받아오기
-  let windmag = Number(weather.current.wind_mph);
+  let windmag = Number(weather_today.wind_speed);
   
   // HTML요소로 화면에 보이기
-  let temperatureDiv = createDiv(floor(weather.current.temp_f) + '&deg;');
+  let temperatureDiv = createDiv(floor(weather_today.the_temp) + '&deg;C');
   let windDiv = createDiv("WIND " + windmag + " <small>MPH</small>");
   
   // 벡터 생성하기
