@@ -41,7 +41,7 @@ function getenJSON() {
     }
   }
 
-  fs.writeFile(
+  fs.writeFileSync(
     'src/data/reference/en.json',
     JSON.stringify(enJSON, null, 2),
     err => {
