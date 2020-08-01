@@ -9,7 +9,7 @@ function setup(){
   createCanvas(720,400);
 }
 
-// x와 y의 매개 변수는 일반적으로 세타(theta)를 뜻하는 't' 또는 그 기호(θ)로 표기됩니다.
+// x와 y의 매개변수는 일반적으로 세타(theta)를 뜻하는 't' 또는 그 기호(θ)로 표기됩니다.
 let t = 0;
 function draw(){
   background('#fff');

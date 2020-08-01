@@ -1,4 +1,4 @@
-/**
+/*
  * @name 컨볼루션 리버브
  * @description <p>The p5.Convolver
  * p5.Convolver는 컨볼루션을 사용하여 실제 공간 사운드를 재현합니다. 

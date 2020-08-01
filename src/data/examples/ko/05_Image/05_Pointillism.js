@@ -1,7 +1,7 @@
 /*
  * @name 점묘법
- * @description 다니엘 쉬프만(Dan Shiffman) 제작. 마우스의 가로 위치는 점의 크기를 조정합니다. 
- * 픽셀에 따라 색칠된 원형(ellipse)으로 간단한 점묘법 효과를 만듭니다.
+ * @description 제작: 다니엘 쉬프만(Dan Shiffman). 마우스의 가로 위치는 점의 크기를 조정합니다. 
+ * 픽셀에 따라 색칠된 원형(ellipse)으로 간단한 점묘법 효과를 만듭니다. 
  * <p><em><span class="small"> 로컬 프로젝트에서 이 예제를 실행하려면, 이미지 파일을 준비하시고
  * <a href="https://github.com/processing/p5.js/wiki/Local-server">로컬 서버</a>를 작동시키세요.</span></em></p>
  */

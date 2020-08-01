@@ -29,7 +29,7 @@ class Module {
     }
   }
 
-  // 사용자가 정의한 메소드를 통해 오브젝트를 그립니다.
+  // 사용자가 정의한 메소드를 통해 객체를 그립니다.
   draw() {
     fill(255);
     ellipse(this.xOff + this.x, this.yOff + this.y, 6, 6);

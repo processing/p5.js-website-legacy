@@ -2,7 +2,7 @@
  * @name 멀티플 파티클 시스템
  * @description 마우스를 클릭한 위치에서 파티클이 폭발적으로 생성되도록 만들어보세요. <br> 매 폭발은 Particle 클래스의 하위 클래스인 Particles와 CrazyParticles
  * 의 한 인스턴스에 해당합니다. <br> 클래스 상속과 다형 사용에 대한 방법을 확인해보세요. <br>
- * 다니엘 쉬프만(Daniel Shiffman) 원본 제작.
+ * 원본 제작: 다니엘 쉬프만(Daniel Shiffman)
  */
 let systems;
 

@@ -32,11 +32,11 @@ If you want to contribute with p5.js website translations, you are in the right 
 1. Install node.js by following the instructions [here](https://nodejs.org/en/download/).
 2. [Fork](https://help.github.com/articles/fork-a-repo/) the p5.js-website repository to your Github account. Click the *Fork* button on the upper-right side of the p5.js-website Github repo. This will automatically open your fork repo on Github.
 
-  ![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/fork.png)
+  ![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/raw/main/contributor_docs/assets/fork.png)
 
 3. On your fork click the green *Clone or download* button. It will display a bar from where you can copy your `repo_URL`.
 
-  ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/clone.png)
+  ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/raw/main/contributor_docs/assets/clone.png)
 
 4. Open your command-line interface (CLI) and [clone](https://help.github.com/articles/cloning-a-repository/) your fork of the p5.js-website repository to `your_directory` on your laptop by typing:
     ```
@@ -99,7 +99,7 @@ If you want to contribute with p5.js website translations, you are in the right 
     ```
 
 5. Commit to your repository at your github account and create a new [Pull Request](https://github.com/processing/p5.js-website/wiki/Pull-requests). Click the *Pull Request* tab on your fork page and then click the green button *New Pull Request*.
-![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://raw.githubusercontent.com/processing/p5.js-website/master/contributor_docs/assets/pull_request.png)
+![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://raw.githubusercontent.com/processing/p5.js-website/main/contributor_docs/assets/pull_request.png)
 
 ## File Structure
 Under this repo there are two directories in which we have to focus:

@@ -2,7 +2,7 @@
  * @name 코흐 곡선
  * @description 간단한 코흐 곡선 즉, 눈송이형 프랙탈을 만듭니다.
  * 각각의 재귀 단계는 순차적으로 그려집니다.
- * 다니엘 쉬프만(Daniel Shiffman) 제작
+ * 제작: 다니엘 쉬프만(Daniel Shiffman)
  */
 
 let k;
@@ -112,25 +112,25 @@ class KochFractal {
     }
   }
 
-  // This is where the **MAGIC** happens
-  // Step 1: Create an empty arraylist
-  // Step 2: For every line currently in the arraylist
-  //   - calculate 4 line segments based on Koch algorithm
-  //   - add all 4 line segments into the new arraylist
-  // Step 3: Return the new arraylist and it becomes the list of line segments for the structure
+  // 이제부터 **마법**이 시작됩니다.
+  // 1단계: 빈 배열 목록을 새로 생성합니다.
+  // 2단계: 배열 목록에 현재 담긴 모든 선들에 대하여, 
+  //   - 코흐 알고리즘에 따라 선분 4개를 계산하고, 
+  //   - 이 4개의 선분들을 모두 새로운 배열 목록에 더합니다. 
+  // 3단계: 새로운 배열 목록이 반환되고, 이 새 목록은 전체 구조의 선분들에 대한 목록이 됩니다.
 
-  // As we do this over and over again, each line gets broken into 4 lines, which gets broken into 4 lines, and so on. . .
+  // 위의 단계를 반복하면, 모든 선들이 4개의 다른 선으로 분할되고, 또 그 선들은 다시 4개의 선들로 끊임없이 분할되는 식입니다.
   iterate(before) {
-    let now = [];    // Create emtpy list
+    let now = [];    // 빈 배열 생성하기
     for(let i = 0; i < this.lines.length; i++) {
       let l = this.lines[i];
-      // Calculate 5 koch p5.Vectors (done for us by the line object)
+      // 5개의 코흐 p5.Vector 계산 (선 객체를 통해 계산)
       let a = l.kochA();
       let b = l.kochB();
       let c = l.kochC();
       let d = l.kochD();
       let e = l.kochE();
-      // Make line segments between all the p5.Vectors and add them
+      // 모든 p5.Vector 사이에 선분을 만들고 추가하기
       now.push(new KochLine(a,b));
       now.push(new KochLine(b,c));
       now.push(new KochLine(c,d));

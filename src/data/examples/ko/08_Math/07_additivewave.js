@@ -1,11 +1,11 @@
 /*
  * @name 파형 추가
  * @description 두 개의 파형을 합쳐 좀 더 복잡한 파도 모양을 만듭니다.
- * 다니엘 쉬프만(Daniel Shiffman) 원본 제작.
+ * 원본 제작: 다니엘 쉬프만(Daniel Shiffman)
  */
 let xspacing = 8; // 각 타원 간 가로 거리
 let w; // 전체 파형의 너비
-let maxwaves = 4; // 더해진 파형들의 전체 갯수
+let maxwaves = 4; // 더해진 파형들의 전체 개수
 
 let theta = 0.0;
 let amplitude = new Array(maxwaves); // 파형의 높이
