@@ -24,7 +24,13 @@ const dataFileContents = fs.readFileSync(dataFilePath, {
   encoding: "utf-8",
 });
 
-const dataAsJson: Array<Object> = JSON.parse(dataFileContents)["classitems"];
+const classItemsAsJson: Array<Object> = JSON.parse(dataFileContents)["classitems"];
+const classesAsJsonRaw: Object = JSON.parse(dataFileContents)["classes"];
+const classesAsJson: Array<Object> = []
+for (const classEntry in classesAsJsonRaw) {
+  classesAsJson.push({...classesAsJsonRaw[classEntry], name: classEntry})
+}
+
 
 for (const propName of Object.getOwnPropertyNames(translationAsJson)) {
   if (
@@ -32,7 +38,7 @@ for (const propName of Object.getOwnPropertyNames(translationAsJson)) {
   ) {
     const paramsValues = translationAsJson[propName]["params"];
     // const newParamsKeys = lookup keys somehow
-    const dataEntry = dataAsJson.find((el) => el["name"] === propName);
+    const dataEntry = classItemsAsJson.find((el) => el["name"] === propName) ?? classesAsJson.find((el) => el["name"] === propName);
     if (!dataEntry) {
       console.warn(`no item with name: ${propName}`);
       continue;
@@ -49,11 +55,12 @@ for (const propName of Object.getOwnPropertyNames(translationAsJson)) {
 
     if (!paramsInfo) {
       console.warn(`no params info for ${propName}`);
+      // console.debug(dataEntry)
     }
     // const newParams = zip em up
     const newParams = {};
     for (let index = 0; index < paramsValues.length; index++) {
-      console.log(`${propName}-${index}`)
+      // console.log(`${propName}-${index}`)
       const pv = paramsValues[index];
       const pk = paramsInfo?.[index]?.["name"] ?? `UNKNOWN-PARAM-${index+1}`;
       newParams[pk] = pv;
