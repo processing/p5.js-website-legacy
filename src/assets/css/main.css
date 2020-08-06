@@ -1443,11 +1443,40 @@ h2.featuring{
 
 .slidecontainer {
   width: 100%; /* Width of the outside container */
-}
+}@
 
 /* ==========================================================================
    Teach Page
    ========================================================================== */
+
+
+#teach-page.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+#teach-page.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+#teach-page.slider-handle.custom {
+  background-image: url("../img/asterisk-01.png");
+
+  /* You can customize the handle and set a background image */
+}
+
+/* Or display content like unicode characters or fontawesome icons */
+#teach-page .slider-handle.custom::before {
+  line-height: 20px;
+  font-size: 20px;
+  content: '\2605'; /*unicode star character*/
+  color: #726204;
+}
+
+
 #teach-page .accordion {
   background-color: #eee;
   color: #444;

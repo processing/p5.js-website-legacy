@@ -6,12 +6,14 @@ slug: teach/
 <div id="teach-page">
 
   {{> sidebar}}
+	
 
  <main id="content" class="column-span">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="../../assets/js/teach.js"></script>
-
+	<script src="../../../teach.js"></script>
 	<script>
+
+
 	$(document).ready(function(){
 	  $("#myInput").on("keyup", function() {
 	    var value = $(this).val().toLowerCase();
@@ -20,23 +22,75 @@ slug: teach/
 	    });
 	  });
 	});
-	</script>
 
-	<script>
-	var acc = document.getElementsByClassName("accordion");
-	var i;
-	for (i = 0; i < acc.length; i++) {
-	  acc[i].addEventListener("click", function() {
-	    this.classList.toggle("active");
-	    var panel = this.nextElementSibling;
-	    if (panel.style.maxHeight) {
-	      panel.style.maxHeight = null;
-	    } else {
-	      panel.style.maxHeight = panel.scrollHeight + "px";
-	    }
-	  });
-	}
-	</script>
+</script>
+
+<script>
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+// <script>
+
+//   var acc = document.getElementsByClassName("accordion");
+//   var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+
+</script>
+
+
+
+<style>
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+
+<!--
+<input id="ex10" type="range" data-slider-handle="custom"/>
+
+<script>
+var slider = new Slider("#ex10", {});</script>
+
+<input id="ex6" type="" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="3"/>
+<span id="ex6CurrentSliderValLabel">Current Slider Value: <span id="ex6SliderVal">3</span></span>
+
+<script>
+
+$("#ex6").slider();
+$("#ex6").on("slide", function(slideEvt) {
+	$("#ex6SliderVal").text(slideEvt.value);
+});
+
+</script>
+-->
 
   	<section class= "teach-intro">
       <h1>{{#i18n "teach-title2"}}{{/i18n}}</h1>
@@ -52,14 +106,14 @@ slug: teach/
 		  <div class="slidecontainer"><input type="range" min="1" max="100" value="50" class="slider" id="slider2"></div>
 
     <button class="accordion">more</button>
-<div class="panel">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
+		<div class="panel">
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
 
 	</section>
 
 <h2 class = "teach-results">{{#i18n "teach-results"}}{{/i18n}}</h2>
-<p>Type something in the input field to search for a specific text inside the div element with id="myDIV":</p>
+<p>search</p>
 <input id="myInput" type="text" placeholder="Search..">
 
 <div id="myDIV">
