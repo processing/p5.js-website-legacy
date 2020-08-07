@@ -15,7 +15,6 @@
     HOMEPAGE
   //////////////////////////////////////////////////
 */
-
 .tagline {
   display: none;
 }
@@ -1441,362 +1440,21 @@ h2.featuring{
   font-size: 1.1rem;
 }
 
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-}
 
 /* ==========================================================================
    Teach Page
    ========================================================================== */
 
 
-@import url("https://fonts.googleapis.com/css?family=Hind+Madurai:300,600|Poppins:300&display=swap");
-
-:root {
-    --yellow: #ffd049;
-    --light-yellow: #fdf2d2;
-    --orange: #ffa929;
-    --light-gray: #e3e4e8;
-    --gray: #71738b;
-    --light-blue: #7a7c93;
-    --blue: #34385a;
-
-    --slider-handle-size: 14px;
-    --slider-handle-border-radius: 2px;
-    --slider-handle-margin-top: -4px;
-    --slider-track-height: 6px;
-    --slider-track-border-radius: 4px;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0 auto;
-}
-
-#teach-page #wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#teach-page #sliderContainer {
-    width: 100%;
-    max-width: 440px;
-
-    padding: 56px 40px;
-
-    border-radius: 40px;
-
-    box-shadow: 0px 8px 40px rgba(128, 128, 128, 0.15);
-}
-
-#teach-page #sliderContainer>div:first-child {
-    margin-bottom: 48px;
-}
-
-#teach-page.tick-slider-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 24px;
-}
-
-#teach-page.tick-slider-header>h5 {
-    margin: 0;
-
-    font-family: "Poppins", sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    color: var(--gray);
-}
-
-#teach-page.tick-slider {
-    position: relative;
-
-    width: 100%;
-}
-
-#teach-page.tick-slider-value-container {
-    position: relative;
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 12px;
-
-    font-family: "Hind Madurai", sans-serif;
-    font-size: 18px;
-    color: var(--gray);
-}
-
-#teach-page.tick-slider-value {
-    position: absolute;
-    top: 0;
-
-    font-weight: bold;
-
-    color: var(--blue);
-
-    border-radius: var(--slider-handle-border-radius);
-}
-
-#teach-page.tick-slider-value>div {
-    animation: bulge 0.3s ease-out;
-}
-
-#teach-page.tick-slider-background,
-#teach-page.tick-slider-progress,
-#teach-page.tick-slider-tick-container {
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-
-    height: var(--slider-track-height);
-
-    pointer-events: none;
-
-    border-radius: var(--slider-track-border-radius);
-
-    z-index: -1;
-}
-
-#teach-page.tick-slider-background {
-    width: 100%;
-    background-color: var(--light-gray);
-}
-
-#teach-page.tick-slider-progress {
-    background-color: var(--yellow);
-}
-
-#teach-page.tick-slider-tick-container {
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 calc(var(--slider-handle-size) / 2);
-}
-
-#teach-page.tick-slider-tick {
-    width: 2px;
-    height: 2px;
-
-    border-radius: 50%;
-
-    background-color: white;
-}
-
-#teach-page.tick-slider-label {
-    opacity: 0.85;
-    transition: opacity 0.1s ease;
-}
-
-#teach-page.tick-slider-label.hidden {
-    opacity: 0;
-}
-
-@keyframes bulge {
-    0% {
-        transform: scale(1);
-    }
-
-    25% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
-/*
-
-    REMOVE SLIDER STYLE DEFAULTS
-
-*/
-#teach-page input[type="range"] {
-    -webkit-appearance: none;
-
-    width: 100%;
-    height: 100%;
-
-    background: transparent;
-    outline: none;
-
-    margin: 5px 0;
-}
-
-#teach-page input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-
-    border: none;
-}
-
-#teach-page input[type="range"]:focus {
-    outline: none;
-}
-
-#teach-page input[type="range"]::-moz-focus-outer {
-    border: 0;
-}
-
-/*
-
-    HANDLE
-
-*/
-#teach-page input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-
-    width: var(--slider-handle-size);
-    height: var(--slider-handle-size);
-
-    background: var(--orange);
-
-    border-radius: var(--slider-handle-border-radius);
-
-    cursor: pointer;
-
-    margin-top: var(--slider-handle-margin-top);
-  
-    -webkit-transform: scale(1);
-    transform: scale(1);
-
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-#teach-page input[type="range"]:hover::-webkit-slider-thumb,
-#teach-page input[type="range"]:focus::-webkit-slider-thumb {
-    transform: scale(1.2);
-}
-
-#teach-page input[type="range"]::-moz-range-thumb {
-    -webkit-appearance: none;
-
-    width: var(--slider-handle-size);
-    height: var(--slider-handle-size);
-
-    background: var(--orange);
-
-    border: none;
-    border-radius: var(--slider-handle-border-radius);
-
-    cursor: pointer;
-
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-#teach-page input[type="range"]:hover::-moz-range-thumb,
-#teach-page input[type="range"]:focus::-moz-range-thumb {
-    transform: scale(1.2);
-}
-
-/*
-
-    TRACK
-
-*/
-
-#teach-page input[type="range"]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: var(--slider-track-height);
-
-    cursor: pointer;
-
-    background: none;
-
-    border-radius: var(--slider-track-border-radius);
-}
-
-#teach-page input[type="range"]::-moz-range-track {
-    width: 100%;
-    height: var(--slider-track-height);
-
-    cursor: pointer;
-
-    background: none;
-
-    border-radius: var(--slider-track-border-radius);
-}
-
-#teach-page input[type="range"]:focus::-webkit-slider-runnable-track {
-    background: none;
-}
-#teach-page input[type="range"]:active::-webkit-slider-runnable-track {
-    background: none;
-}
-/*til here is the slider*/
-
-#teach-page.accordion:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  font-size: 13px;
-  color: #777;
-  float: right;
-  margin-left: 5px;
-}
-
-#teach-page.active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
-}
-
-#teach-page.slider-handle.custom {
-  background-image: url("{{assets}}/img/asterisk-01.png");
-
-  /* You can customize the handle and set a background image */
-}
-
-/* Or display content like unicode characters or fontawesome icons */
-#teach-page .slider-handle.custom::before {
-  line-height: 20px;
-  font-size: 20px;
-  content: '\2605'; /*unicode star character*/
-  color: #726204;
-}
-
-
-#teach-page .accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-#teach-page .active, .accordion:hover {
-  background-color: #ccc;
-}
-
-/* Style the accordion panel. Note: hidden by default */
-#teach-page .panel {
-  padding: 0 18px;
-  background-color: white;
-  display: none;
-  overflow: hidden;
-}
-
-
-
-
-
-#teach-page .teach-intro p {
+/*#teach-page .teach-intro p {
   font: 200 1.4rem "Montserrat", sans-serif;
   line-height: 1.5em;
+}*/
+
+#teach-page.slidecontainer {
+  width: 100%; /* Width of the outside container */
 }
+
 
 #teach-page .teach-slider h2 {
   font: 200 1.4rem "Montserrat", sans-serif;
@@ -1818,7 +1476,7 @@ body {
 .slider {
  -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
-  width: 80%; /* Full-width */
+  width: 100%; /* Full-width */
   height: 0px; /* Specified height */
   background: transparent; /* Grey background */
   border-bottom: 4px dotted #ed225d; /* Remove outline */
@@ -1839,7 +1497,7 @@ body {
   appearance: none; */
   width: 20px; /* Set a specific slider handle width */
   height: 20px; /* Slider handle height */
-  background: url('../img/asterisk-01.png'); /* Green background */
+  background: url('{{assets}}/img/asterisk-01.png'); /* Green background */
   cursor: pointer; /* Cursor on hover */
   outline: none;
 }
@@ -1847,11 +1505,196 @@ body {
 .slider::-moz-range-thumb {
   width: 10px; /* Set a specific slider handle width */
   height: 10px; /* Slider handle height */
-  background: url('../img/asterisk-01.png'); /* Green background */
+  background: url('{{assets}}/img/asterisk-01.png'); /* Green background */
   cursor: pointer; /* Cursor on hover */
   outline: none;
 }
 
+/*Accordion Menu*/
+#teach-page .accordion {
+  background-color: white;
+  color: none;
+  cursor: pointer;
+  padding: 0px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+#teach-page .active, .accordion:hover {
+  background-color: white;
+}
+
+#teach-page .panel {
+  padding: 0px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+
+
+/*<!-- Labels below slider-->*/
+#teach-page  .range-labels {
+  margin: 30px;
+  width: 100%;
+  /*padding: 0*/;
+  list-style: none;
+}  
+.range-labels li {
+    position: relative;
+    float: left;
+    width: 12%;
+    text-align: center;
+    color: #ed225d;
+    font-size: 60%;
+    cursor: pointer;
+    margin: 0;
+    padding: 0 1% 1% 1%;
+    
+    &::before {
+      position: absolute;
+      top: -25px;
+      right: 0;
+      left: 10;
+      content: "";
+      margin: 0 auto;
+      width: 9px;
+      height: 9px;
+      background: #c8c8c8;
+      border-radius: 50%;
+    }
+  
+  
+  #teach-page.active {
+    color: #ed255d;
+  }
+  
+  #teach-page .selected::before {
+    background: #37adbf;
+  }
+  
+  #teach-page .range-labels.active.selected::before {
+    display: none;
+  }
+}
+
+
+
+/*submission button*/
+
+
+
+
+
+
+
+
+
+
+/*diversity checkbox*/
+#teach-page ul{
+  list-style: none;
+  display: inline-block;
+}
+
+#teach-page #filter-options li{
+  float: left;
+  margin-left: 10px;
+}
+
+#teach-page #filter-list{
+  display: block;
+}
+
+#teach-page label input[type=checkbox]:checked  :before {
+  background-color: #ed225d;
+  border-color: #ed225d;
+  color: #fff;
+}
+
+
+/*results modals*/
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: scroll; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: white;
+  margin: auto;
+  padding: 0;
+  border: 3px solid #ed225d;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: #ed225d;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #ffbfd1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: white; 
+  border: 3px #ed225d;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: white;
+  color: #ed225d;
+}
+
+
+
+
+
+  
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */

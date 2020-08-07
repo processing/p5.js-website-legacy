@@ -6,289 +6,246 @@ slug: teach/
 <div id="teach-page">
 
   {{> sidebar}}
-	
 
  <main id="content" class="column-span">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script src = "{{assets}}/js/teach.js"></script>
-
-
-<script>
-	$(document).ready(function(){
-	  $("#myInput").on("keyup", function() {
-	    var value = $(this).val().toLowerCase();
-	    $("#myDIV *").filter(function() {
-	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-	    });
-	  });
-	});
-
-</script>
-
-<script>
-	
-	
-function init() {
-    const sliders = document.getElementsByClassName("tick-slider-input");
-
-    for (let slider of sliders) {
-        slider.oninput = onSliderInput;
-
-        updateValue(slider);
-        updateValuePosition(slider);
-        updateLabels(slider);
-        updateProgress(slider);
-
-        setTicks(slider);
-    }
-}
-
-function onSliderInput(event) {
-    updateValue(event.target);
-    updateValuePosition(event.target);
-    updateLabels(event.target);
-    updateProgress(event.target);
-}
-
-function updateValue(slider) {
-    let value = document.getElementById(slider.dataset.valueId);
-
-    value.innerHTML = "<div>" + slider.value + "</div>";
-}
-
-function updateValuePosition(slider) {
-    let value = document.getElementById(slider.dataset.valueId);
-
-    const percent = getSliderPercent(slider);
-
-    const sliderWidth = slider.getBoundingClientRect().width;
-    const valueWidth = value.getBoundingClientRect().width;
-    const handleSize = slider.dataset.handleSize;
-
-    let left = percent * (sliderWidth - handleSize) + handleSize / 2 - valueWidth / 2;
-
-    left = Math.min(left, sliderWidth - valueWidth);
-    left = slider.value === slider.min ? 0 : left;
-
-    value.style.left = left + "px";
-}
-
-function updateLabels(slider) {
-    const value = document.getElementById(slider.dataset.valueId);
-    const minLabel = document.getElementById(slider.dataset.minLabelId);
-    const maxLabel = document.getElementById(slider.dataset.maxLabelId);
-
-    const valueRect = value.getBoundingClientRect();
-    const minLabelRect = minLabel.getBoundingClientRect();
-    const maxLabelRect = maxLabel.getBoundingClientRect();
-
-    const minLabelDelta = valueRect.left - (minLabelRect.left);
-    const maxLabelDelta = maxLabelRect.left - valueRect.left;
-
-    const deltaThreshold = 32;
-
-    if (minLabelDelta < deltaThreshold) minLabel.classList.add("hidden");
-    else minLabel.classList.remove("hidden");
-
-    if (maxLabelDelta < deltaThreshold) maxLabel.classList.add("hidden");
-    else maxLabel.classList.remove("hidden");
-}
-
-function updateProgress(slider) {
-    let progress = document.getElementById(slider.dataset.progressId);
-    const percent = getSliderPercent(slider);
-
-    progress.style.width = percent * 100 + "%";
-}
-
-function getSliderPercent(slider) {
-    const range = slider.max - slider.min;
-    const absValue = slider.value - slider.min;
-
-    return absValue / range;
-}
-
-function setTicks(slider) {
-    let container = document.getElementById(slider.dataset.tickId);
-    const spacing = parseFloat(slider.dataset.tickStep);
-    const sliderRange = slider.max - slider.min;
-    const tickCount = sliderRange / spacing + 1; // +1 to account for 0
-
-    for (let ii = 0; ii < tickCount; ii++) {
-        let tick = document.createElement("span");
-
-        tick.className = "tick-slider-tick";
-
-        container.appendChild(tick);
-    }
-}
-
-function onResize() {
-    const sliders = document.getElementsByClassName("tick-slider-input");
-
-    for (let slider of sliders) {
-        updateValuePosition(slider);
-    }
-}
-
-window.onload = init;
-window.addEventListener("resize", onResize);
-</script>
-
-
-
-<!--
-<input id="ex10" type="range" data-slider-handle="custom"/>
-
-<script>
-var slider = new Slider("#ex10", {});</script>
-
-<input id="ex6" type="" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="3"/>
-<span id="ex6CurrentSliderValLabel">Current Slider Value: <span id="ex6SliderVal">3</span></span>
-
-<script>
-
-$("#ex6").slider();
-$("#ex6").on("slide", function(slideEvt) {
-	$("#ex6SliderVal").text(slideEvt.value);
-});
-
-</script>
--->
-
   	<section class= "teach-intro">
       <h1>{{#i18n "teach-title2"}}{{/i18n}}</h1>
 
 	      <p>{{#i18n "teach-intro1"}}{{/i18n}}{{#i18n "teach-intro2"}}{{/i18n}}{{#i18n "teach-intro3"}}{{/i18n}}{{#i18n "teach-intro4"}}{{/i18n}}</p>
+	</section>
 
- 	<section class= "teach-slider">
-	  <h2>{{#i18n "teach-slider-title1"}}{{/i18n}}</h2>
-		<div class="slidecontainer"><input type="range" min="1" max="5" value="1" class="slider" id="slider1">
-		</div>
 
-	  <h2>{{#i18n "teach-slider-title2"}}{{/i18n}}</h2>
-		  <div class="slidecontainer"><input type="range" min="1" max="100" value="50" class="slider" id="slider2"></div>
 
-    <button class="accordion">more</button>
-		<div class="panel">
-		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+ 	<section id="filter-options" class= "teach-slider">
+
+
+	<!-- diversity checkboxes-->
+		<h2>Diversity</h2>
+			<p></p>
+			<ul>
+			  <li>
+			  	<input type="checkbox" value="filter_gender" data-filter_id="gender"> gender</li>
+			  <li><input type="checkbox" value="filter_race" data-filter_id="race"> race</li>
+			  <li><input type="checkbox" value="filter_ethnicity" data-filter_id="ethnicity"> ethnicity</li>
+			  <li><input type="checkbox" value="filter_language" data-filter_id="language"> language</li>
+			  <li><input type="checkbox" value="filter_yellow" data-filter_id="yellow">BIPOC</li>
+			</ul>
+
+
+	 	<button class="accordion"> 
+        search>></button>
+			<div class="panel">
+			 
+			  	  <h2>{{#i18n "teach-slider-title1"}}{{/i18n}}</h2>
+					<div class="slidecontainer"><input type="range" min="1" max="8" value="0" class="slider"><!-- id="slider1"-->
+						<ul class="range-labels">
+						  <li class="active selected">All</li>
+						  <li><label for="2014"><input id = "2014" type="checkbox" value="filter_2014" data-filter_id="2014" style ="visibility:hidden">'14</label></li>
+						  <li><input type="checkbox" value="filter_2015" data-filter_id="2015">'15</li>
+						  <li><input type="checkbox" value="filter_2016" data-filter_id="2016">'16</li>
+						  <li><input type="checkbox" value="filter_2017" data-filter_id="2017">'17</li>
+						  <li><input type="checkbox" value="filter_2018" data-filter_id="2018">'18</li>
+						  <li><input type="checkbox" value="filter_2019" data-filter_id="2019">'19</li>
+						  <li><input type="checkbox" value="filter_2020" data-filter_id="2020">'20</li>
+						</ul>
+					</div>
+
+				  <h2>{{#i18n "teach-slider-title2"}}{{/i18n}}</h2>
+					  <div class="slidecontainer"><input type="range" min="1" max="7" value="0" class="slider" id="slider2">
+						 <ul class="range-labels">
+						  <li class="active selected">All</li>
+						  <li><input type="checkbox" value="filter_africa" data-filter_id="africa">Africa</li>
+						  <li><input type="checkbox" value="filter_asia" data-filter_id="asia">Asia</li>
+						  <li><input type="checkbox" value="filter_oceania" data-filter_id="oceania">Oceania</li>
+						  <li><input type="checkbox" value="filter_europe" data-filter_id="europe">Europe</li>
+						  <li><input type="checkbox" value="filter_northAmerica" data-filter_id="northAmerica">North America</li>
+						  <li><input type="checkbox" value="filter_southAmerica" data-filter_id="southAmerica">South America</li>
+						  <li><input type="checkbox" value="filter_antartica" data-filter_id="antartica">Antartica</li>
+						</ul>
+					</div>
+
+				  <h2>Level</h2>
+					  <div class="slidecontainer"><input type="range" min="1" max="4" value="0" class="slider" id="slider3">
+						 <ul class="range-labels">
+						  <li class="active selected">All</li>
+						  <li><input type="checkbox" value="filter_begineer" data-filter_id="beginner">beginner</li>
+						  <li><input type="checkbox" value="filter_intermediate" data-filter_id="intermediate">intermediate</li>
+						  <li><input type="checkbox" value="filter_advanced" data-filter_id="advanced">advanced</li>
+						</ul>
+					</div>
+			</div>
+
+
+	<h2 class = "teach-results">{{#i18n "teach-results"}}{{/i18n}}</h2>
+		<div>
+			<ul id="filter-list">
+			  <li class="filter_gender">
+			    <button id ="result">QTV</button>
+			  </li>
+			  <li class="filter_race">
+			    <p>race</p>
+			  </li>
+			  <li class="filter_ethnicity filter_gender">
+			    <p>workshop blah</p>
+			  </li>
+			  <li class="filter_yellow">
+			    <p>workshop2</p>
+			  </li>
+			  <li class="filter_2014">
+			  	<p>1st workshop</p>
+			  </li>
+			</ul>
 		</div>
 
 	</section>
 
-<h2 class = "teach-results">{{#i18n "teach-results"}}{{/i18n}}</h2>
-<p>search</p>
-<input id="myInput" type="text" placeholder="Search..">
-
-<div id="myDIV">
-  <p><a href = "https://yinhwa.art"> I am a paragraph.</a></p>
-  <div>I am a div element inside div.</div>
-  <button>I am a button</button>
-  <button>Another button</button>
-  <p>Another paragraph.</p>
-
-        <div class="left-column">
-           <div class="label">
-            <a class="nounderline" href="{{root}}/reference/#/libraries/p5.sound" target="_blank">
-              <img alt="" src="{{assets}}/img/libraries/p5.sound.jpg"></a>
-              <h3>p5.sound</h3>
-            
-            <p>{{#i18n "p5.sound"}}{{/i18n}} {{#i18n "libraries-created-by" }}{{/i18n}}
-            <a href="https://www.jasonsigal.cc/"
-              target="_blank">Jason Sigal</a>
-          </p>
-          </div>
-        </div>
-
-        <div class="right-column">
-                    <div class="label">
-            <a class="nounderline" href="https://github.com/processing/p5.accessibility" target="_blank">
-              <img alt="" src="{{assets}}/img/libraries/p5.accessibility.jpg">
-              <h3>p5.accessibility</h3>
-            </a>
-          <p>{{#i18n "p5.accessibility"}}{{/i18n}} 
-          </p>
-        </div>
-        </div>
-
-</div>
-
-<!-- slider -->
-<div id="wrapper">
-    <div id="sliderContainer">
-        <div class="tick-slider">
-            <div class="tick-slider-header">
-                <h5><label for="weightSlider">Total weight</label></h5>
-                <h5>kg</h5>
-            </div>
-            <div class="tick-slider-value-container">
-                <div id="weightLabelMin" class="tick-slider-label">0</div>
-                <div id="weightLabelMax" class="tick-slider-label">40</div>
-                <div id="weightValue" class="tick-slider-value"></div>
-            </div>
-            <div class="tick-slider-background"></div>
-            <div id="weightProgress" class="tick-slider-progress"></div>
-            <div id="weightTicks" class="tick-slider-tick-container"></div>
-            <input
-                id="weightSlider"
-                class="tick-slider-input"
-                type="range"
-                min="0"
-                max="40"
-                step="5"
-                value="9"
-                data-tick-step="5"
-                data-tick-id="weightTicks"
-                data-value-id="weightValue"
-                data-progress-id="weightProgress"
-                data-handle-size="18"
-                data-min-label-id="weightLabelMin"
-                data-max-label-id="weightLabelMax"
-            />
-        </div>
-        <div class="tick-slider">
-            <div class="tick-slider-header">
-                <h5><label for="sizeSlider">Total size</label></h5>
-                <h5>cm</h5>
-            </div>
-            <div class="tick-slider-value-container">
-                <div id="sizeLabelMin" class="tick-slider-label">0</div>
-                <div id="sizeLabelMax" class="tick-slider-label">300</div>
-                <div id="sizeValue" class="tick-slider-value"></div>
-            </div>
-            <div class="tick-slider-background"></div>
-            <div id="sizeProgress" class="tick-slider-progress"></div>
-            <div id="sizeTicks" class="tick-slider-tick-container"></div>
-            <input
-                id="sizeSlider"
-                class="tick-slider-input"
-                type="range"
-                min="0"
-                max="300"
-                step="25"
-                value="150"
-                data-tick-step="25"
-                data-tick-id="sizeTicks"
-                data-value-id="sizeValue"
-                data-progress-id="sizeProgress"
-                data-handle-size="18"
-                data-min-label-id="sizeLabelMin"
-                data-max-label-id="sizeLabelMax"
-            />
-        </div>
-    </div>
-</div>
-
-
-<!-- Twitter link -->
-<a class="twitter" style="position: fixed; left: 20px; bottom: 20px; opacity: 0.2;" href="https://twitter.com/park_narrative" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72"><path fill="black" d="M67.812 16.141a26.246 26.246 0 0 1-7.519 2.06 13.134 13.134 0 0 0 5.756-7.244 26.127 26.127 0 0 1-8.313 3.176A13.075 13.075 0 0 0 48.182 10c-7.229 0-13.092 5.861-13.092 13.093 0 1.026.118 2.021.338 2.981-10.885-.548-20.528-5.757-26.987-13.679a13.048 13.048 0 0 0-1.771 6.581c0 4.542 2.312 8.551 5.824 10.898a13.048 13.048 0 0 1-5.93-1.638c-.002.055-.002.11-.002.162 0 6.345 4.513 11.638 10.504 12.84a13.177 13.177 0 0 1-3.449.457c-.846 0-1.667-.078-2.465-.231 1.667 5.2 6.499 8.986 12.23 9.09a26.276 26.276 0 0 1-16.26 5.606A26.21 26.21 0 0 1 4 55.976a37.036 37.036 0 0 0 20.067 5.882c24.083 0 37.251-19.949 37.251-37.249 0-.566-.014-1.134-.039-1.694a26.597 26.597 0 0 0 6.533-6.774z"></path></svg></a>
-
-
   </main>
+
+<!--modal-->
+	<div id="myModal" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <span class="close">&times;</span>
+	      <h2>Modal Header</h2>
+	    </div>
+	    <div class="modal-body">
+	      <p>Title</p>
+	      <p>Location & Venue hi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and youhi everyone this is inhwa yeom in from korean im fine thank you and you</p>
+	    </div>
+	    <div class="modal-footer">
+	      <h3>More Info</h3>
+	    </div>
+	  </div>
+
+	</div>
 
 
   {{> asterisk}}
 
-</div> 
+</div>
 
+
+<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+
+	// Get the button that opens the modal
+	var btn = document.getElementById("result");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+	    modal.style.display = "none";
+	  }
+	}
+</script>
+
+
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+	$("#filter-options :checkbox").click(function() 
+		{
+	       	$("#filter-list li").hide();
+	       	$("#filter-options :checkbox:checked").each(function() 
+	       	{
+	           $("." + $(this).val()).fadeIn();
+			});
+	       
+	        if($('#filter-options :checkbox').filter(':checked').length < 1) 
+	        {
+	        	$("#filter-list li").fadeIn();
+	        	
+	        }
+	        
+	    });
+	</script>
+	<script>
+	$(function() {
+    $(".slidecontainer").slider({
+      step: 3,
+      animate: 'slow',
+      stop: function(e, ui) {
+        if (ui.value > 0) {
+          $("#slider input[type='checkbox']").prop("checked", true);
+        }
+      }
+    });
+  });
+	</script>
+
+<!--slidercontainer design-->
+
+<script>
+var sheet = document.createElement('style'),  
+  $rangeInput = $('.slidecontainer input'),
+  prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
+
+document.body.appendChild(sheet);
+
+var getTrackStyle = function (el) {  
+  var curVal = el.value,
+      val = (curVal - 1) * 16.666666667,
+      style = '';
+  
+  $('.range-labels li').removeClass('active selected');
+  
+  var curLabel = $('.range-labels').find('li:nth-child(' + curVal + ')');
+  
+  curLabel.addClass('active selected');
+  curLabel.prevAll().addClass('selected');
+  
+ for (var i = 0; i < prefs.length; i++) {
+   /* style += '.slidecontainer {background: linear-gradient(to right, #ed225d 0%, #ed225d ' + val + '%, #fff ' + val + '%, #fff 100%)}';*/
+    style += '.slidecontainer input::-' + prefs[i] /*+ '{background: linear-gradient(to right, #37adbf 0%, #37adbf ' + val + '%, #b2b2b2 ' + val + '%, #b2b2b2 100%)}'*/;
+  }
+
+  return style;
+}
+
+$rangeInput.on('input', function () {
+  sheet.textContent = getTrackStyle(this);
+});
+
+$('.range-labels li').on('click', function () {
+  var index = $(this).index();
+  
+  $rangeInput.val(index + 1).trigger('input');
+  
+});
+</script>
+
+<!--accordion menu-->
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script> 
