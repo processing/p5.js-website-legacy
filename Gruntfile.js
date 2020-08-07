@@ -8,6 +8,7 @@
 
 const yaml = require('js-yaml');
 const fs = require('fs').promises;
+const fse = require('fs-extra');
 const pkg = require('./package.json');
 
 module.exports = function(grunt) {
@@ -351,6 +352,27 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+    shell: {
+      make_tmp_dir: {
+        command: 'mkdir -p tmp/p5.js'
+      },
+      clone_p5js_repo: {
+        command: 'git clone https://github.com/processing/p5.js .',
+        options: {
+          execOptions: {
+            cwd: 'tmp/p5.js'
+          }
+        }
+      },
+      generate_dataJSON: {
+        command: 'npm i && npm run grunt yui',
+        options: {
+          execOptions: {
+            cwd: 'tmp/p5.js'
+          }
+        }
+      }
     }
   });
 
@@ -377,6 +399,35 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-html');
+
+  grunt.registerTask('clone_p5js', [
+    'shell:make_tmp_dir',
+    'shell:clone_p5js_repo'
+  ]);
+
+  grunt.registerTask('generate_dataJSON', ['shell:generate_dataJSON']);
+
+  grunt.registerTask('move_dataJSON', function() {
+    const dataJSON_p5js = 'tmp/p5.js/docs/reference/data.json';
+    const dataJSON_p5jswebsite = 'src/templates/pages/reference/data.json';
+    // move the data.json from the cloned p5.js repository to the p5.js-website repository
+    fse.moveSync(dataJSON_p5js, dataJSON_p5jswebsite, { overwrite: true });
+    // delete the tmp folder that contained the p5.js repository
+    fse.removeSync('tmp/');
+  });
+
+  grunt.registerTask('generate_enJSON', function() {
+    const getenJSON = require('./getenJSON.js');
+    // generate and save the en.json
+    getenJSON();
+  });
+
+  grunt.registerTask('update-enJSON', [
+    'clone_p5js',
+    'generate_dataJSON',
+    'move_dataJSON',
+    'generate_enJSON'
+  ]);
 
   // multi-tasks: collections of other tasks
   grunt.registerTask('server', [
