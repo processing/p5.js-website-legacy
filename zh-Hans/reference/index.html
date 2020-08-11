@@ -171,17 +171,59 @@
         var routes = window.location.hash.split('/');
         var obj = routes[1];
         var name = routes[2];
-        if (translations[obj] && translations[obj][name]) {
-          var entry = translations[obj][name];
-          $('.description-text').html('<p>'+entry.description+'</p>');
-          $('.returns').html(entry.returns);
-          $('.params').find('ul').each(function(i) {
-            if (i < entry.params.length) {
-              $(this).children('li').each(function(j){
-                $(this).children('.paramtype').html(entry.params[j]);
+
+        // class page
+        if (routes.length == 2) {
+          var entry = translations[obj];
+          for (var k in entry) {
+            if (k == 'description') {
+              $('.description-text').html('');
+              entry.description.forEach(function (p) {
+                $('.description-text').append('<p>' + p + '</p>');
               });
             }
-          });
+            else if (k == 'params') {
+              $('.params').find('ul').children('li').each(function () {
+                var paramname = $(this).children('.paramname').text();
+                $(this).children('.paramtype').text(entry.params[paramname]);
+              });
+            }
+            else if (k == 'returns') {
+              $('.returns').text(entry.returns);
+            }
+            // fields and methods sections
+            else {
+              // field
+              $("[aria-labelledby='reference-fields']").children('li').each(function (i) {
+                var fieldName = $(this).children('.paramname').children('a').text();
+                $(this).children(':last').html('<p>' + entry[fieldName].description + '</p>');
+              });
+              // method
+              $("[aria-labelledby='reference-methods']").children('li').each(function (i) {
+                var method = $(this).find(':first').children('a').text();
+                // removes the brackets
+                var methodName = method.substring(0, method.length - 2);
+                $(this).find(':last').html('<p>' + entry[methodName].description + '</p>');
+              });
+            }
+          }
+        }
+
+        // method/field page
+        if (routes.length == 3) {
+          if (translations[obj] && translations[obj][name]) {
+            var entry = translations[obj][name];
+
+            $('.description-text').html('');
+            entry.description.forEach(function (p) {
+              $('.description-text').append('<p>' + p + '</p>');
+            });
+            $('.returns').html(entry.returns);
+            $('.params').find('ul').children('li').each(function () {
+              var paramname = $(this).children('.paramname').text();
+              $(this).children('.paramtype').html(entry.params[paramname]);
+            });
+          }
         }
       }
     }
