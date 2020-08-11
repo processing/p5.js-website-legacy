@@ -102,7 +102,7 @@ window.onload = function() {
       for (var i=0, l=langs.length; i < l; i++) {
         if (w.location.pathname.indexOf('/' + langs[i] + '/') !== -1) {
           if (can_store) {
-            window.localStorage.setItem('lang', new_lang);
+            window.localStorage.setItem('lang', langs[i]);
           }
           return langs[i];
         }
