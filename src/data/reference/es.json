@@ -95,11 +95,11 @@
         "Crea colores para ser almacenados en variables del tipo color. Los parámetros son interpretados como valores RGB o HSB, dependiendo del modo actual de color según colorMode)(). El modo por defecto es RGB con valores entre 0 y 255 y, por lo tanto, la función color(255, 204, 0) retorna un color amarillo brillante. Nota que si solo se provee un valor a la función color(), será interpretado como un valor en escala de grises. Añade un segundo valor, y será usado como transparencia alpha. Cuando se especifican tres valores, son interpretados como valores RGB o HSB. Al añadir un cuarto valor se aplica transparencia alpha. Si se provee solo un parámetro de tipo string, será interpretado como un string de color compatible con CSS.Los colores son almacenados como números o arreglos."
       ],
       "params": {
-        "v1": "Número|String: número especificando el valor entre blanco y negro.",
-        "v2": "Número: valor de alpha relativo al rango de color actual (por defecto es 0-100)",
-        "v3": "Número|String: valor de rojo o tinte relativo al rango de color actual, o un string de color",
-        "alpha": "Número: valor de verde o saturación relativo al rango de color actual",
-        "UNKNOWN-PARAM-5": "Número: valor de azul o brillo relativo al rango de color actual"
+        "gray": "Número|String: número especificando el valor entre blanco y negro.",
+        "alpha": "Número: valor de alpha relativo al rango de color actual (por defecto es 0-100)",
+        "v1": "Número|String: valor de rojo o tinte relativo al rango de color actual, o un string de color",
+        "v2": "Número: valor de verde o saturación relativo al rango de color actual",
+        "v3": "Número: valor de azul o brillo relativo al rango de color actual"
       },
       "returns": "Arreglo: color resultante"
     },
@@ -164,14 +164,14 @@
         "La función background() define el color usado como fondo del lienzo p5.js. El fondo por defecto es gris claro. Esta función es típicamente usada dentro de draw() para despejar o borrar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de setup() para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez."
       ],
       "params": {
-        "v1": "Color: cualquier valor creado con la función color()",
-        "v2": "Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-100)",
-        "v3": "colorstring: string de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex 3 dígitos, hex 6 dígitos",
-        "a": "Número: especifica un valor entre blanco y negro",
-        "UNKNOWN-PARAM-5": "Número: valor de rojo o hue (dependiendo del modo de color actual)",
-        "UNKNOWN-PARAM-6": "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-        "UNKNOWN-PARAM-7": "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-        "UNKNOWN-PARAM-8": "p5.Image: imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo)"
+        "color": "Color: cualquier valor creado con la función color()",
+        "a": "Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-100)",
+        "colorstring": "colorstring: string de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex 3 dígitos, hex 6 dígitos",
+        "gray": "Número: especifica un valor entre blanco y negro",
+        "v1": "Número: valor de rojo o hue (dependiendo del modo de color actual)",
+        "v2": "Número: valor de verde o saturación (dependiendo del modo de color actual)",
+        "v3": "Número: valor de azul o brillo (dependiendo del modo de color actual)",
+        "image": "p5.Image: imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo)"
       },
       "returns": "el objeto p5"
     },
@@ -308,8 +308,8 @@
         "tr": "Número: radio opcional de la esquina superior derecha.",
         "br": "Número: radio opcional de la esquina inferior derecha.",
         "bl": "Número: radio opcional de la esquina inferior izquierda.",
-        "UNKNOWN-PARAM-9": "Número:",
-        "UNKNOWN-PARAM-10": "Número:"
+        "detailX": "Número:",
+        "detailY": "Número:"
       },
       "returns": "el objeto p5"
     },
@@ -646,9 +646,8 @@
       "params": {
         "radius": "Número: radio del anillo completo",
         "tubeRadius": "Número: radio del tubo",
-        "detailX": "Número: radio z del círculo",
-        "detailY": "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24.",
-        "UNKNOWN-PARAM-5": "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16."
+        "detailX": "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 24.",
+        "detailY": "Número: opcional, número de segmentos, a mayor número de segmentos la geometría es más suave, por defecto es 16."
       },
       "returns": "el objeto p5"
     },
@@ -930,8 +929,7 @@
       ],
       "params": {
         "angle": "Ángulo: el ángulo de rotación, especificado en radianes o grados, dependiendo de angleMode()",
-        "axis": "Número: ángulo en radianes",
-        "UNKNOWN-PARAM-3": "p5.Vector|Arreglo: eje sobre el que se rota"
+        "axis": "p5.Vector|Arreglo: eje sobre el que se rota"
       },
       "returns": "el objeto p5"
     },
@@ -1145,11 +1143,7 @@
     "keyTyped": {
       "description": [
         "la función keyTyped es llamada cava vez que una tecla es presionada, excepto cuando son presionadas la steclas de acción como Ctrl, Shift y Alt, que son ignoradas. La tecla presionada más reciente será almacenada en la variable key. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método."
-      ],
-      "params": {
-        "UNKNOWN-PARAM-1": "Número: el valor umbral"
-      },
-      "returns": "el objeto p5"
+      ]
     },
     "keyIsDown": {
       "description": [
@@ -1385,18 +1379,18 @@
       ],
       "params": {
         "img": "p5.Image: la imagen a mostrar",
-        "dx": "Número: la coordenada x donde se ubicará la esquina superior de la imagen",
-        "dy": "Número: la coordenada y donde se ubicará la esquina superior de la imagen",
-        "dWidth": "Número: ancho de la imagen a dibujar",
-        "dHeight": "Número: altura de la imagen a dibujar",
-        "sx": "Número: la coordenada x en el lienzo de destino donde se ubicará la esquina superior izquierda de la imagen",
-        "sy": "Número: la coordenada y en el lienzo de destino donde se ubicará la esquina superior izquierda de la imagen",
-        "sWidth": "Número: ancho de la imagen a dibujar en el lienzo de destino",
-        "sHeight": "Número: altura de la imagen a dibujar en el lienzo de destino",
-        "UNKNOWN-PARAM-10": "Número: la coordenada x de la esquina superior izquierda del subrectángulo de la imagen original a dibujar en el lienzo de destino",
-        "UNKNOWN-PARAM-11": "Número: la coordenada y de la esquina superior izquierda del subrectángulo de la imagen original a dibujar en el lienzo de destino",
-        "UNKNOWN-PARAM-12": "Número: el ancho del subrectángulo de la imagen original a dibujar en el lienzo de destino",
-        "UNKNOWN-PARAM-13": "Número: la altura del subrectángulo de la imagen original a dibujar en el lienzo de destino"
+        "x": "Número: la coordenada x donde se ubicará la esquina superior de la imagen",
+        "y": "Número: la coordenada y donde se ubicará la esquina superior de la imagen",
+        "width": "Número: ancho de la imagen a dibujar",
+        "height": "Número: altura de la imagen a dibujar",
+        "dx": "Número: la coordenada x en el lienzo de destino donde se ubicará la esquina superior izquierda de la imagen",
+        "dy": "Número: la coordenada y en el lienzo de destino donde se ubicará la esquina superior izquierda de la imagen",
+        "dWidth": "Número: ancho de la imagen a dibujar en el lienzo de destino",
+        "dHeight": "Número: altura de la imagen a dibujar en el lienzo de destino",
+        "sx": "Número: la coordenada x de la esquina superior izquierda del subrectángulo de la imagen original a dibujar en el lienzo de destino",
+        "sy": "Número: la coordenada y de la esquina superior izquierda del subrectángulo de la imagen original a dibujar en el lienzo de destino",
+        "sWidth": "Número: el ancho del subrectángulo de la imagen original a dibujar en el lienzo de destino",
+        "sHeight": "Número: la altura del subrectángulo de la imagen original a dibujar en el lienzo de destino"
       },
       "returns": "el objeto p5"
     },
@@ -1483,10 +1477,10 @@
         "Retorna un arreglo de valores RGBA por cada pixel o toma una sección de una imagen. Si no especifican parámetros, se retorna la imagen entera. Usa los parámetros x e y para obtener el valor de un pixel. Toma una sección de la ventana mostrada si especificas los parámetros adicionales w y h. Cuando se obtiene una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el actual mode imagen definido por imageMode(). Si el pixel solicitado está fuera de la imagen, se retorna el valor [0, 0, 0, 255]. Para obtener los números escalados según los rangoes de color actuales y tomar en cuenta el modo de color según colorMode(), usa getColor() en vez de get(). Tomar el valor de un pixel con get(x, y) es fácil, pero no tan rápido como tomar los datos directamente desde pixels[]. La instrucción equivalente a get(x, y) usando pixels[] con densidad de pixeles d es  var off = (y width + x) d * 4; [pixels[off], pixels[off+1], pixels[off+2], pixels[off+3]]. Ver la referencia de pixels[] para mayor información."
       ],
       "params": {
-        "the": "Número: coordenada x del pixel",
-        "UNKNOWN-PARAM-2": "Número: coordenada y del pixel",
-        "UNKNOWN-PARAM-3": "Número: ancho",
-        "UNKNOWN-PARAM-4": "Número: altura"
+        "x": "Número: coordenada x del pixel",
+        "y": "Número: coordenada y del pixel",
+        "w": "Número: ancho",
+        "h": "Número: altura"
       },
       "returns": "Arreglo|p5.Image: valores de pixel en la posición (x, y) en formato arreglo RGBAs o p5.Image"
     },
@@ -1501,12 +1495,10 @@
         "Cambia el color de cualquier pixel, o pone una imagen directamente en la ventana. Los parámetros x e y especifican el pixel a cambiar y c especifica el valor del color. Puede ser un objeto p5.Color o un arreglo de pixeles RGBA. También puede ser un valor único en escala de grises. Cuando se define una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el modo actual de imagen según imageMode(). Después de usar set(), debes llamar a updatePixels()' para que tus cambios aparezcan. Esta función debería ser llamada una vez que todos los pixeles han sido definidos. Definir el color de un solo pixel con set(x, y) es fácil, pero es tan rápido como poner los datos directamente en el arreglo pixels[]. Definir los valores de pixels[] directamente puede ser complicado cuando se trabaja con un monitor retina, pero tendrá un mejor desempeño cuando muchos pixeles necesiten ser definidos directamente en cada iteración. Ver la referencia de pixels[] para mayor información."
       ],
       "params": {
-        "key": "Número: coordenada x del pixel",
-        "value": "Número: coordenada x del pixel",
-        "UNKNOWN-PARAM-3": "Número: coordenada y del pixel",
-        "UNKNOWN-PARAM-4": "Número|Arreglo|Objeto: inserta un valor en escala de grises | un arreglo de pixeles | un objeto p5.Color | un objeto p5.Image a copiar"
-      },
-      "returns": "el objeto p5"
+        "x": "Número: coordenada x del pixel",
+        "y": "Número: coordenada y del pixel",
+        "c": "Número|Arreglo|Objeto: inserta un valor en escala de grises | un arreglo de pixeles | un objeto p5.Color | un objeto p5.Image a copiar"
+      }
     },
     "updatePixels": {
       "example": "",
@@ -1620,9 +1612,9 @@
         "Graba una imagen, text, json, csv, wav o html. Hace que la descarga ocurra en el computador cliente. Notar que no es recomendado llamar a save() dentro de draw() si está en bucle, porque la función save() abrirá una ventana de diálogo en cada cuadro. El comportamiento por defecto es grabar el lienzo como una imagen. Puedes opcionalmente especificar un nombre de archivo. Por ejemplo: TODO. Alternativamente, el primer parámetro puede ser un puntero a un lienzo p5.Element, un arreglo de Strings, un arreglo de JSON, un objeto JSON, un p5.Table, un p5.Image, o un p5.SoundFile (requiere p5.sound). El segundo parámetro es el nombre del archivo (incluyendo la extensión). El tercer parámetro es para opciones específicas a este tipo de objeto. Este método grabará un archivo que se austa a los parámetros dados. Por ejemplo: TODO. "
       ],
       "params": {
-        "filename": "Objeto|String: si se provee un nombre de archivo, se grabará el lienzo como una imagen con la extensión png o jpg, dependiendo del nombre del archivo. Si se provee un objeto, se grabará dependiendo del objeto y el nombre del archivo (ver los ejemplos anteriores)",
-        "extension": "String: Si se provee un objeto como el primer parámetro, entonces el segundo parámetro indica el nombre del archivo, y debe incluir la extensión apropiada (ver los ejemplos anteriores).",
-        "UNKNOWN-PARAM-3": "Boolean|String: opciones adicionales depndiendo del tipo de archivo. Por ejemplo, cuando se graba un archivo JSON, true indica que la salida será optimizada según el tamaño del archivo, en vez de por legibilidad."
+        "objectOrFilename": "Objeto|String: si se provee un nombre de archivo, se grabará el lienzo como una imagen con la extensión png o jpg, dependiendo del nombre del archivo. Si se provee un objeto, se grabará dependiendo del objeto y el nombre del archivo (ver los ejemplos anteriores)",
+        "filename": "String: Si se provee un objeto como el primer parámetro, entonces el segundo parámetro indica el nombre del archivo, y debe incluir la extensión apropiada (ver los ejemplos anteriores).",
+        "options": "Boolean|String: opciones adicionales depndiendo del tipo de archivo. Por ejemplo, cuando se graba un archivo JSON, true indica que la salida será optimizada según el tamaño del archivo, en vez de por legibilidad."
       },
       "returns": "el objeto p5"
     },
@@ -2016,7 +2008,7 @@
       "params": {
         "min": "Número: el límite inferior (inclusivo)",
         "max": "Número: el límite superio (exclusivo)",
-        "UNKNOWN-PARAM-3": "Arreglo: el arreglo del cual se elige"
+        "choices": "Arreglo: el arreglo del cual se elige"
       },
       "returns": "Número: el número aleatorio o un elemento aleatorio de un conjunto de opciones"
     },
@@ -2419,10 +2411,9 @@
         "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
         "v2": "Número: opcional, valor de verde o saturación",
         "v3": "Número: opcional, valor de azul o brillo",
-        "x": "Número: opcional, valor de opacidad",
-        "y": "Número|p5.Vector: dirección del eje x o un p5.Vector",
-        "z": "Número: opcional, dirección del eje y",
-        "UNKNOWN-PARAM-7": "Número: opcional, dirección del eje z"
+        "x": "Número|p5.Vector: dirección del eje x o un p5.Vector",
+        "y": "Número: opcional, dirección del eje y",
+        "z": "Número: opcional, dirección del eje z"
       },
       "returns": "el objeto p5"
     },
@@ -2432,10 +2423,9 @@
         "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
         "v2": "Número: opcional, valor de verde o saturación",
         "v3": "Número: opcional, valor de azul o brillo",
-        "x": "Número: opcional, valor de opacidad",
-        "y": "Número|p5.Vector: dirección del eje x o un p5.Vector",
-        "z": "Número: opcional, dirección del eje y",
-        "UNKNOWN-PARAM-7": "Número: opcional, dirección del eje z"
+        "x": "Número|p5.Vector: dirección del eje x o un p5.Vector",
+        "y": "Número: opcional, dirección del eje y",
+        "z": "Número: opcional, dirección del eje z"
       },
       "returns": "p5: el objeto p5"
     },
@@ -2461,20 +2451,19 @@
       "params": {
         "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color), o arreglo de color, o String de color CSS",
         "v2": "Número: opcional, valor de verde o saturación",
-        "v3": "Número: opcional, valor de azul o brillo",
-        "UNKNOWN-PARAM-4": "Número: opcional, valor de opacidad"
+        "v3": "Número: opcional, valor de azul o brillo"
       },
       "returns": "p5: el objeto p5"
     },
     "specularMaterial": {
       "description": [
-        "Material espejo para geometría con un color dado. Puedes ver todos los posibles materiales en este ejemplo (TODO)."
+        "Material espejo para geometría con un color dado. Puedes ver todos los posibles materiales en este ejemplo."
       ],
       "params": {
         "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color), o arreglo de color, o String de color CSS",
         "v2": "Número: opcional, valor de verde o saturación",
         "v3": "Número: opcional, valor de azul o brillo",
-        "UNKNOWN-PARAM-4": "Número: opcional, valor de opacidad"
+        "alpha": "Número: opcional, valor de opacidad"
       },
       "returns": "p5: el objeto p5"
     }
@@ -2518,9 +2507,6 @@
     "description": [
       "XML es una representación de un objeto XML, capaz de procesar código XML. Usa loadXML() para cargar archivos externos XML y crear objetos XML"
     ],
-    "params": {
-      "UNKNOWN-PARAM-1": "String:"
-    },
     "returns": "p5.XML: el objeto p5.XML generado"
   },
   "p5.Vector": {
