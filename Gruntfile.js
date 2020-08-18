@@ -354,9 +354,6 @@ module.exports = function(grunt) {
       }
     },
     shell: {
-      make_tmp_dir: {
-        command: 'mkdir -p tmp/p5.js'
-      },
       clone_p5js_repo: {
         command: 'git clone https://github.com/processing/p5.js .',
         options: {
@@ -393,6 +390,7 @@ module.exports = function(grunt) {
     });
   });
 
+
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-assemble');
   grunt.loadNpmTasks('grunt-file-append');
@@ -400,10 +398,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-html');
 
-  grunt.registerTask('clone_p5js', [
-    'shell:make_tmp_dir',
-    'shell:clone_p5js_repo'
-  ]);
+  grunt.registerTask('make_tmp_dir', function() {
+    const tmp_path = 'tmp/p5.js';
+    fse.mkdirpSync(tmp_path);
+  });
+
+  grunt.registerTask('clone_p5js_repo', ['shell:clone_p5js_repo']);
 
   grunt.registerTask('generate_dataJSON', ['shell:generate_dataJSON']);
 
@@ -423,7 +423,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('update-enJSON', [
-    'clone_p5js',
+    'make_tmp_dir',
+    'clone_p5js_repo',
     'generate_dataJSON',
     'move_dataJSON',
     'generate_enJSON'
