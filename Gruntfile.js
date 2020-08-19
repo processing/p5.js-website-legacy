@@ -9,6 +9,7 @@
 const yaml = require('js-yaml');
 const fs = require('fs').promises;
 const fse = require('fs-extra');
+const git = require('simple-git');
 const pkg = require('./package.json');
 
 module.exports = function(grunt) {
@@ -354,16 +355,8 @@ module.exports = function(grunt) {
       }
     },
     shell: {
-      clone_p5js_repo: {
-        command: 'git clone https://github.com/processing/p5.js .',
-        options: {
-          execOptions: {
-            cwd: 'tmp/p5.js'
-          }
-        }
-      },
       generate_dataJSON: {
-        command: 'npm i && npm run grunt yui',
+        command: 'npm ci && npm run grunt yui',
         options: {
           execOptions: {
             cwd: 'tmp/p5.js'
@@ -403,7 +396,16 @@ module.exports = function(grunt) {
     fse.mkdirpSync(tmp_path);
   });
 
-  grunt.registerTask('clone_p5js_repo', ['shell:clone_p5js_repo']);
+  grunt.registerTask('clone_p5js_repo', async function() {
+    const done = this.async();
+    try {
+      await git().clone('https://github.com/processing/p5.js', 'tmp/p5.js');
+      done();
+    } catch (err) {
+      console.log('Failed to clone p5.js repository.');
+      throw new Error(err);
+    }
+  });
 
   grunt.registerTask('generate_dataJSON', ['shell:generate_dataJSON']);
 
