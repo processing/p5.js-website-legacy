@@ -3,9 +3,13 @@ const flat = require('flat');
 
 function fixParagraphStructure(originalJSONPath, translatedJSONPath) {
   const originalJSONFile = fs.readFileSync(originalJSONPath);
-  const originalJSON = flat.flatten(JSON.parse(originalJSONFile));
+  const originalJSON = flat.flatten(JSON.parse(originalJSONFile), {
+    delimiter: '/'
+  });
   const translJSONFile = fs.readFileSync(translatedJSONPath);
-  const translJSON = flat.flatten(JSON.parse(translJSONFile));
+  const translJSON = flat.flatten(JSON.parse(translJSONFile), {
+    delimiter: '/'
+  });
   const newTranslatedObj = {};
 
   for (var key in originalJSON) {
@@ -13,7 +17,7 @@ function fixParagraphStructure(originalJSONPath, translatedJSONPath) {
       newTranslatedObj[key] = translJSON[key];
     } else {
       let root = key.slice(0, key.length - 2);
-      if (root.endsWith('description') && root + '.0' in translJSON) {
+      if (root.endsWith('description') && root + '/0' in translJSON) {
         newTranslatedObj[key] = '';
       } else {
         newTranslatedObj[key] = originalJSON[key];
@@ -23,6 +27,10 @@ function fixParagraphStructure(originalJSONPath, translatedJSONPath) {
 
   fs.writeFileSync(
     translatedJSONPath,
-    JSON.stringify(flat.unflatten(newTranslatedObj), undefined, 2)
+    JSON.stringify(
+      flat.unflatten(newTranslatedObj, { delimiter: '/' }),
+      undefined,
+      2
+    )
   );
 }
