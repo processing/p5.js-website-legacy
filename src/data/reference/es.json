@@ -3506,13 +3506,13 @@
   },
   "p5.Color": {
     "description": [
-      "Each color stores the color mode and level maxes that was applied at the time of its construction. These are used to interpret the input arguments (at construction and later for that instance of color) and to format the output e.g. when <a href=\"#/p5/saturation\">saturation()</a> is requested. ",
-      "Internally, we store an array representing the ideal RGBA values in floating point form, normalized from 0 to 1. From this we calculate the closest screen color (RGBA levels from 0 to 255) and expose this to the renderer. ",
-      "We also cache normalized, floating point components of the color in various representations as they are calculated. This is done to prevent repeating a conversion that has already been performed."
+      "Cada color almacena el modo de color y los niveles máximos que se aplicaron en el momento de su construcción. Estos se utilizan para interpretar los argumentos de entrada (en la construcción y más tarde para esa instancia de color) y para formatear el output, p. ej. cuando se solicita la <a href=\"#/p5/saturation\">saturation()</a>. ",
+      "Internamente almacenamos una matriz que representa los valores ideales de RGBA en forma de coma flotante, normalizada de 0 a 1. A partir de esto, calculamos el color de pantalla más cercano (niveles de RGBA de 0 a 255) y lo exponemos al renderizador. ",
+      "También almacenamos en caché normalizado, componentes de coma flotante de color flotante del color en varias representaciones a medida que se calculan. Esto se hace para evitar repetir una conversión que ya se ha realizado."
     ],
     "setRed": {
       "description": [
-        "The setRed function sets the red component of a color. The range depends on your color mode, in the default RGB mode it's between 0 and 255."
+        "La función setRed establece el componente rojo de un color. El rango depende de su modo de color, en el modo RGB predeterminado está entre 0 y 255."
       ],
       "params": {
         "red": "Number: the new red value"
@@ -3520,7 +3520,7 @@
     },
     "setGreen": {
       "description": [
-        "The setGreen function sets the green component of a color. The range depends on your color mode, in the default RGB mode it's between 0 and 255."
+        "La función setGreen establece el componente verde de un color. El rango depende de su modo de color, en el modo RGB predeterminado está entre 0 y 255."
       ],
       "params": {
         "green": "Number: the new green value"
@@ -3528,7 +3528,7 @@
     },
     "setBlue": {
       "description": [
-        "The setBlue function sets the blue component of a color. The range depends on your color mode, in the default RGB mode it's between 0 and 255."
+        "La función setBlue establece el componente azul de un color. El rango depende de su modo de color, en el modo RGB predeterminado está entre 0 y 255."
       ],
       "params": {
         "blue": "Number: the new blue value"
@@ -3536,7 +3536,7 @@
     },
     "setAlpha": {
       "description": [
-        "The setAlpha function sets the transparency (alpha) value of a color. The range depends on your color mode, in the default RGB mode it's between 0 and 255."
+        "La función setAlpha establece el valor de transparencia (alfa) de un color. El rango depende de su modo de color, en el modo RGB predeterminado está entre 0 y 255."
       ],
       "params": {
         "alpha": "Number: the new alpha value"
@@ -3823,22 +3823,22 @@
   },
   "p5.Graphics": {
     "description": [
-      "Thin wrapper around a renderer, to be used for creating a graphics buffer object. Use this class if you need to draw into an off-screen graphics buffer. The two parameters define the width and height in pixels. The fields and methods for this class are extensive, but mirror the normal drawing API for p5."
+      "Contenedor fino alrededor de un renderizador, que se utilizará para crear un objeto de búfer de gráficos. Use esta clase si necesita dibujar en un búfer de gráficos fuera de la pantalla. Los dos parámetros definen el ancho y el alto en píxeles. Los campos y métodos para esta clase son extensos, pero reflejan la API de dibujo normal para p5."
     ],
     "params": {
-      "w": "Number: width",
-      "h": "Number: height",
-      "renderer": "Constant: the renderer to use, either P2D or WEBGL",
-      "pInst": "P5: (Optional) pointer to p5 instance"
+      "w": "Número: ancho",
+      "h": "Número: altura",
+      "renderer": "Constant: renderer el renderizador a utilizar, ya sea P2D o WEBGL",
+      "pInst": "P5: pointer a una instancia p5 (Opcional)"
     },
     "reset": {
       "description": [
-        "Resets certain values such as those modified by functions in the Transform category and in the Lights category that are not automatically reset with graphics buffer objects. Calling this in <a href='#/p5/draw'>draw()</a> will copy the behavior of the standard canvas."
+        "Restablece ciertos valores, como los modificados por funciones en la categoría Transformar y en la categoría Luces que no se restablecen automáticamente con objetos gráficos de búfer. Llamando a esto en <a href='#/p5/draw'>draw()</a> copiará el comportamiento del canvas estándar."
       ]
     },
     "remove": {
       "description": [
-        "Removes a Graphics object from the page and frees any resources associated with it."
+        "Elimina un objeto Graphics de la página y libera todos los recursos asociados con él."
       ]
     }
   },
@@ -3950,10 +3950,10 @@
     "description": ["A simple Dictionary class for Strings."]
   },
   "p5.NumberDict": {
-    "description": ["A simple Dictionary class for Numbers."],
+    "description": ["Una simple clase de Diccionario para Números."],
     "add": {
       "description": [
-        "Add the given number to the value currently stored at the given key. The sum then replaces the value previously stored in the Dictionary."
+        "Agregue el número dado al valor actualmente almacenado en la clave dada. La suma luego reemplaza el valor previamente almacenado en el Diccionario."
       ],
       "params": {
         "Key": "Number: for the value you wish to add to",
@@ -3971,7 +3971,7 @@
     },
     "mult": {
       "description": [
-        "Multiply the given number with the value currently stored at the given key. The product then replaces the value previously stored in the Dictionary."
+        "Resta el número dado del valor actualmente almacenado en la clave dada. La diferencia luego reemplaza el valor previamente almacenado en el Diccionario."
       ],
       "params": {
         "Key": "Number: for value you wish to multiply",
@@ -3980,7 +3980,7 @@
     },
     "div": {
       "description": [
-        "Divide the given number with the value currently stored at the given key. The quotient then replaces the value previously stored in the Dictionary."
+        "Divida el número dado con el valor actualmente almacenado en la clave dada. El cociente luego reemplaza el valor previamente almacenado en el Diccionario."
       ],
       "params": {
         "Key": "Number: for value you wish to divide",
@@ -3989,54 +3989,54 @@
     },
     "minValue": {
       "description": [
-        "Return the lowest number currently stored in the Dictionary."
+        "Devuelve el número más bajo actualmente almacenado en el Diccionario."
       ],
       "returns": "Number: "
     },
     "maxValue": {
       "description": [
-        "Return the highest number currently stored in the Dictionary."
+        "Devuelve el número más alto actualmente almacenado en el Diccionario."
       ],
       "returns": "Number: "
     },
     "minKey": {
       "description": [
-        "Return the lowest key currently used in the Dictionary."
+        "Devuelve la clave más baja utilizada actualmente en el Diccionario."
       ],
       "returns": "Number: "
     },
     "maxKey": {
       "description": [
-        "Return the highest key currently used in the Dictionary."
+        "Devuelve la clave más alta utilizada actualmente en el Diccionario."
       ],
       "returns": "Number: "
     }
   },
   "p5.MediaElement": {
     "description": [
-      "Extends <a href=\"#/p5.Element\">p5.Element</a> to handle audio and video. In addition to the methods of <a href=\"#/p5.Element\">p5.Element</a>, it also contains methods for controlling media. It is not called directly, but <a href=\"#/p5.MediaElement\">p5.MediaElement</a>s are created by calling <a href=\"#/p5/createVideo\">createVideo</a>, <a href=\"#/p5/createAudio\">createAudio</a>, and <a href=\"#/p5/createCapture\">createCapture</a>."
+      "Extiende <a href=\"#/p5.Element\">p5.Element</a> para manejar audio y video. Además de los métodos de <a href=\"#/p5.Element\">p5.Element</a>, también contiene métodos para controlar los medios. No se llama directamente, pero <a href=\"#/p5.MediaElement\">p5.MediaElement</a>s se crea llamando a <a href=\"#/p5/createVideo\">createVideo</a>, <a href=\"#/p5/createAudio\">createAudio</a> y <a href=\"#/p5/createCapture\">createCapture</a>."
     ],
     "params": {
-      "elt": "String: DOM node that is wrapped"
+      "elt": "String: nodo DOM que está envuelto"
     },
     "src": {
-      "description": ["Path to the media element source."],
+      "description": ["Ruta a la fuente del elemento multimedia."],
       "returns": "String: src"
     },
     "play": {
-      "description": ["Play an HTML5 media element."]
+      "description": ["Reproduce un elemento multimedia HTML5."]
     },
     "stop": {
       "description": [
-        "Stops an HTML5 media element (sets current time to zero)."
+        "Detiene un elemento multimedia HTML5 (establece la hora actual en cero)"
       ]
     },
     "pause": {
-      "description": ["Pauses an HTML5 media element."]
+      "description": ["Pausa un elemento multimedia HTML5."]
     },
     "loop": {
       "description": [
-        "Set 'loop' to true for an HTML5 media element, and starts playing."
+        "Establezca 'loop' en verdadero para un elemento multimedia HTML5 y comienza a reproducir."
       ]
     },
     "noLoop": {
@@ -4046,7 +4046,7 @@
     },
     "autoplay": {
       "description": [
-        "Set HTML5 media element to autoplay or not. If no argument is specified, by default it will autoplay."
+        "Establezca 'loop' en falso para un elemento multimedia HTML5. El elemento se detendrá cuando llegue al final."
       ],
       "params": {
         "shouldAutoplay": "Boolean: whether the element should autoplay"
@@ -4054,7 +4054,7 @@
     },
     "volume": {
       "description": [
-        "Sets volume for this HTML5 media element. If no argument is given, returns the current volume."
+        "Establece el volumen para este elemento multimedia HTML5. Si no se proporciona ningún argumento, devuelve el volumen actual."
       ],
       "returns": "Number: current volume",
       "params": {
@@ -4063,7 +4063,7 @@
     },
     "speed": {
       "description": [
-        "If no arguments are given, returns the current playback speed of the element. The speed parameter sets the speed where 2.0 will play the element twice as fast, 0.5 will play at half the speed, and -1 will play the element in normal speed in reverse.(Note that not all browsers support backward playback and even if they do, playback might not be smooth.)"
+        "Si no se dan argumentos, devuelve la velocidad de reproducción actual del elemento. El parámetro de velocidad establece la velocidad donde 2.0 reproducirá el elemento dos veces más rápido, 0.5 reproducirá a la mitad de la velocidad y -1 reproducirá el elemento a velocidad normal en reversa (tenga en cuenta que no todos los navegadores admiten la reproducción hacia atrás e incluso si lo hacen, la reproducción podría no ser fluido.)"
       ],
       "returns": "Number: current playback speed of the element",
       "params": {
@@ -4072,7 +4072,7 @@
     },
     "time": {
       "description": [
-        "If no arguments are given, returns the current time of the element. If an argument is given the current time of the element is set to it."
+        "Si no se dan argumentos, devuelve la hora actual del elemento. Si se proporciona un argumento, la hora actual del elemento se establece a la indicada."
       ],
       "returns": "Number: current time (in seconds)",
       "params": {
@@ -4080,12 +4080,12 @@
       }
     },
     "duration": {
-      "description": ["Returns the duration of the HTML5 media element."],
+      "description": ["Devuelve la duración del elemento multimedia HTML5."],
       "returns": "Number: duration"
     },
     "onended": {
       "description": [
-        "Schedule an event to be called when the audio or video element reaches the end. If the element is looping, this will not be called. The element is passed in as the argument to the onended callback."
+        "Programe un evento para ser llamado cuando el elemento de audio o video llegue al final. Si el elemento está looping, esto no se llamará. El elemento se pasa como argumento para el onended callback."
       ],
       "params": {
         "callback": "Function: function to call when the  soundfile has ended. The  media element will be passed  in as the argument to the  callback."
@@ -4093,8 +4093,8 @@
     },
     "connect": {
       "description": [
-        "Send the audio output of this element to a specified audioNode or p5.sound object. If no element is provided, connects to p5's main output. That connection is established when this method is first called. All connections are removed by the .disconnect() method. ",
-        "This method is meant to be used with the p5.sound.js addon library."
+        "Envíe la salida de audio de este elemento a un objeto audioNode o p5.sound especificado. Si no se proporciona ningún elemento, se conecta a la salida maestra de p5. Esa conexión se establece cuando este método se llama por primera vez. Todas las conexiones se eliminan mediante el método .disconnect (). ",
+        "Este método está destinado a ser utilizado con la biblioteca de complementos p5.sound.js."
       ],
       "params": {
         "audioNode": "AudioNode|Object: AudioNode from the Web Audio API, or an object from the p5.sound library"
@@ -4102,22 +4102,22 @@
     },
     "disconnect": {
       "description": [
-        "Disconnect all Web Audio routing, including to main output. This is useful if you want to re-route the output through audio effects, for example."
+        "Desconecta todo el enrutamiento de audio web, incluso a la salida maestra. Esto es útil si desea redirigir la salida a través de efectos de audio, por ejemplo."
       ]
     },
     "showControls": {
       "description": [
-        "Show the default MediaElement controls, as determined by the web browser."
+        "Muestra los controles de MediaElement predeterminados, según lo determine el navegador web."
       ]
     },
     "hideControls": {
-      "description": ["Hide the default mediaElement controls."]
+      "description": ["Ocultar los controles predeterminados de mediaElement."]
     },
     "addCue": {
       "description": [
-        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point. ",
-        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback. ",
-        "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
+        "Programe eventos para que se activen cada vez que un MediaElement (audio / video) llegue a un punto de referencia de reproducción. ",
+        "Acepta una función de devolución de llamada, un tiempo (en segundos) para activar el callback y un parámetro opcional para el callback. ",
+        "El tiempo pasará como primer parámetro a la función de callback, y param será el segundo parámetro."
       ],
       "returns": "Number: id ID of this cue,  useful for removeCue(id)",
       "params": {
@@ -4128,7 +4128,7 @@
     },
     "removeCue": {
       "description": [
-        "Remove a callback based on its ID. The ID is returned by the addCue method."
+        "Eliminar una devolución de llamada en función de su ID. La identificación es devuelta por el método addCue."
       ],
       "params": {
         "id": "Number: ID of the cue, as returned by addCue"
@@ -4136,7 +4136,7 @@
     },
     "clearCues": {
       "description": [
-        "Remove all of the callbacks that had originally been scheduled via the addCue method."
+        "Elimine todos los callbacks que originalmente se habían programado mediante el método addCue."
       ],
       "params": {
         "id": "Number: ID of the cue, as returned by addCue"
@@ -4177,36 +4177,36 @@
   },
   "p5.Image": {
     "description": [
-      "Creates a new <a href=\"#/p5.Image\">p5.Image</a>. A <a href=\"#/p5.Image\">p5.Image</a> is a canvas backed representation of an image. ",
-      "p5 can display .gif, .jpg and .png images. Images may be displayed in 2D and 3D space. Before an image is used, it must be loaded with the <a href=\"#/p5/loadImage\">loadImage()</a> function. The <a href=\"#/p5.Image\">p5.Image</a> class contains fields for the width and height of the image, as well as an array called <a href=\"#/p5.Image/pixels\">pixels[]</a> that contains the values for every pixel in the image. ",
-      "The methods described below allow easy access to the image's pixels and alpha channel and simplify the process of compositing. ",
-      "Before using the <a href=\"#/p5.Image/pixels\">pixels[]</a> array, be sure to use the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> method on the image to make sure that the pixel data is properly loaded."
+      "Crea un nuevo <a href=\"#/p5.Image\">p5.Image</a>. Un <a href=\"#/p5.Image\">p5.Image</a> es una representación de una imagen respaldada por un canvas. ",
+      "p5 puede mostrar imágenes .gif, .jpg y .png. Las imágenes pueden mostrarse en espacio 2D y 3D. Antes de usar una imagen, debe cargarse con la función <a href=\"#/p5/loadImage\">loadImage()</a>. La clase <a href=\"#/p5.Image\">p5.Image</a> contiene campos para el ancho y alto de la imagen, así como una matriz llamada <a href=\"#/p5.Image/pixels\">pixels[]</a> que contiene los valores para cada píxel en la imagen. ",
+      "Los métodos descritos a continuación permiten un fácil acceso a los píxeles de la imagen y al canal alfa y simplifican el proceso de composición. ",
+      "Antes de usar la matriz de <a href=\"#/p5.Image/pixels\">pixels[]</a>, asegúrese de usar el método <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> en la imagen para asegurarse de que los datos de píxeles estén cargados correctamente."
     ],
     "params": {
-      "width": "Number",
-      "height": "Number"
+      "width": "Número de ancho:",
+      "height": "Número de altura:"
     },
     "width": {
-      "description": ["Image width."]
+      "description": ["Ancho de la imagen."]
     },
     "height": {
-      "description": ["Image height."]
+      "description": ["Altura de imagen."]
     },
     "pixels": {
       "description": [
-        "Array containing the values for all the pixels in the display window. These values are numbers. This array is the size (include an appropriate factor for pixelDensity) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. Retina and other high density displays may have more pixels (by a factor of pixelDensity^2). For example, if the image is 100x100 pixels, there will be 40,000. With pixelDensity = 2, there will be 160,000. The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class=\"language-javascript\">let d = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  } }</code></pre> ",
-        "Before accessing this array, the data must loaded with the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> function. After the array data has been modified, the <a href=\"#/p5.Image/updatePixels\">updatePixels()</a> function must be run to update the changes."
+        "Matriz que contiene los valores para todos los píxeles en la ventana de visualización. Estos valores son números. Esta matriz es el tamaño (incluya un factor apropiado para la densidad de píxeles) de la ventana de visualización x4, que representa los valores R, G, B, A en orden para cada píxel, moviéndose de izquierda a derecha a través de cada fila, luego hacia abajo en cada columna. La retina y otras pantallas de alta densidad pueden tener más píxeles (por un factor de densidad de píxeles ^ 2). Por ejemplo, si la imagen es de 100x100 píxeles, habrá 40,000. Con pixelDensity = 2, habrá 160,000. Los primeros cuatro valores (índices 0-3) en la matriz serán los valores R, G, B, A del píxel en (0, 0). Los segundos cuatro valores (índices 4-7) contendrán los valores R, G, B, A del píxel en (1, 0). Más generalmente, para establecer valores para un píxel en (x, y): <pre><code class=\"language-javascript\">let d = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  } }</code></pre> ",
+        "Antes de acceder a esta matriz, los datos deben cargarse con la función <a href=\"#/p5.Image/loadPixels\">loadPixels()</a>. Después de que se hayan modificado los datos de la matriz, se debe ejecutar la función <a href=\"#/p5.Image/updatePixels\">updatePixels()</a> para actualizar los cambios."
       ]
     },
     "loadPixels": {
       "description": [
-        "Loads the pixels data for this image into the [pixels] attribute."
+        "Carga los datos de píxeles para esta imagen en el atributo [píxeles]."
       ]
     },
     "updatePixels": {
       "description": [
-        "Updates the backing canvas for this image with the contents of the [pixels] array. ",
-        "If this image is an animated GIF then the pixels will be updated in the frame that is currently displayed."
+        "Actualiza el canvas de respaldo para esta imagen con el contenido de la matriz [píxeles]. ",
+        "Si esta imagen es un GIF animado, los píxeles se actualizarán en el cuadro que se muestra actualmente"
       ],
       "params": {
         "x": "Integer: x-offset of the target update area for the  underlying canvas",
@@ -4217,8 +4217,8 @@
     },
     "get": {
       "description": [
-        "Get a region of pixels from an image. ",
-        "If no params are passed, the whole image is returned. If x and y are the only params passed a single pixel is extracted. If all params are passed a rectangle region is extracted and a <a href=\"#/p5.Image\">p5.Image</a> is returned."
+        "Obtiene una región de píxeles de una imagen. ",
+        "Si no se pasan parámetros, se devuelve toda la imagen. Si x e y son los únicos parámetros pasados, se extrae un solo píxel. Si se pasan todos los parámetros, se extrae una región rectangular y se devuelve un <a href=\"#/p5.Image\">p5.Image</a>."
       ],
       "returns": "p5.Image: the rectangle <a href=\"#/p5.Image\">p5.Image</a>",
       "params": {
@@ -4230,8 +4230,8 @@
     },
     "set": {
       "description": [
-        "Set the color of a single pixel or write an image into this <a href=\"#/p5.Image\">p5.Image</a>. ",
-        "Note that for a large number of pixels this will be slower than directly manipulating the pixels array and then calling <a href=\"#/p5.Image/updatePixels\">updatePixels()</a>."
+        "Establece el color de un solo píxel o escribe una imagen en este <a href=\"#/p5.Image\">p5.Image</a>. ",
+        "Tenga en cuenta que para una gran cantidad de píxeles esto será más lento que manipular directamente la matriz de píxeles y luego llamar a <a href=\"#/p5.Image/updatePixels\">updatePixels()</a>."
       ],
       "params": {
         "x": "Number: x-coordinate of the pixel",
@@ -4241,7 +4241,7 @@
     },
     "resize": {
       "description": [
-        "Resize the image to a new width and height. To make the image scale proportionally, use 0 as the value for the wide or high parameter. For instance, to make the width of an image 150 pixels, and change the height using the same proportion, use resize(150, 0)."
+        "Cambiar el tamaño de la imagen a un nuevo ancho y alto. Para hacer que la imagen escale proporcionalmente, use 0 como valor para el parámetro ancho o alto. Por ejemplo, para hacer que el ancho de una imagen sea de 150 píxeles y cambiar la altura con la misma proporción, use cambiar el tamaño (150, 0)."
       ],
       "params": {
         "width": "Number: the resized image width",
@@ -4250,7 +4250,7 @@
     },
     "copy": {
       "description": [
-        "Copies a region of pixels from one image to another. If no srcImage is specified this is used as the source. If the source and destination regions aren't the same size, it will automatically resize source pixels to fit the specified target region."
+        "Copia una región de píxeles de una imagen a otra. Si no se especifica srcImage, se usa como fuente. Si las regiones de origen y destino no son del mismo tamaño, automáticamente redimensionará los píxeles de origen para que se ajusten a la región de destino especificada."
       ],
       "params": {
         "srcImage": "p5.Image|p5.Element: source image",
@@ -4266,7 +4266,7 @@
     },
     "mask": {
       "description": [
-        "Masks part of an image from displaying by loading another image and using its alpha channel as an alpha channel for this image."
+        "Enmascara parte de una imagen para que no se muestre cargando otra imagen y usando su canal alfa como canal alfa para esta imagen."
       ],
       "params": {
         "srcImage": "p5.Image: source image"
@@ -4274,7 +4274,7 @@
     },
     "filter": {
       "description": [
-        "Applies an image filter to a <a href=\"#/p5.Image\">p5.Image</a>"
+        "Aplica un filtro de imagen a un <a href=\"#/p5.Image\">p5.Image</a>"
       ],
       "params": {
         "filterType": "Constant: either THRESHOLD, GRAY, OPAQUE, INVERT,  POSTERIZE, BLUR, ERODE, DILATE or BLUR.  See Filters.js for docs on  each available filter",
@@ -4283,7 +4283,7 @@
     },
     "blend": {
       "description": [
-        "Copies a region of pixels from one image to another, using a specified blend mode to do the operation."
+        "Copia una región de píxeles de una imagen a otra, utilizando un modo de blend específico para realizar la operación."
       ],
       "params": {
         "srcImage": "p5.Image: source image",
@@ -4300,7 +4300,7 @@
     },
     "save": {
       "description": [
-        "Saves the image to a file and force the browser to download it. Accepts two strings for filename and file extension Supports png (default), jpg, and gif  Note that the file will only be downloaded as an animated GIF if the p5.Image was loaded from a GIF file."
+        "Guarda la imagen en un archivo y obliga al navegador a descargarla. Acepta dos cadenas para nombre de archivo y extensión de archivo Admite png (predeterminado), jpg y gif  Tenga en cuenta que el archivo solo se descargará como un GIF animado si la p5.Image se cargó desde un archivo GIF."
       ],
       "params": {
         "filename": "String: give your file a name",
@@ -4308,37 +4308,37 @@
       }
     },
     "reset": {
-      "description": ["Starts an animated GIF over at the beginning state."]
+      "description": ["Inicia un GIF animado en el estado inicial."]
     },
     "getCurrentFrame": {
       "description": [
-        "Gets the index for the frame that is currently visible in an animated GIF."
+        "Obtiene el índice del marco que está visible actualmente en un GIF animado."
       ],
       "returns": "Number: The index for the currently displaying frame in animated GIF"
     },
     "setFrame": {
       "description": [
-        "Sets the index of the frame that is currently visible in an animated GIF"
+        "Establece el índice del marco que está visible actualmente en un GIF animado"
       ],
       "params": {
         "index": "Number: the index for the frame that should be displayed"
       }
     },
     "numFrames": {
-      "description": ["Returns the number of frames in an animated GIF"],
+      "description": ["Devuelve el número de fotogramas en un GIF animado"],
       "returns": "Number: "
     },
     "play": {
       "description": [
-        "Plays an animated GIF that was paused with <a href=\"#/p5.Image/pause\">pause()</a>"
+        "Reproduce un GIF animado que se detuvo con <a href=\"#/p5.Image/pause\">pause()</a>"
       ]
     },
     "pause": {
-      "description": ["Pauses an animated GIF."]
+      "description": ["Pausa un GIF animado."]
     },
     "delay": {
       "description": [
-        "Changes the delay between frames in an animated GIF. There is an optional second parameter that indicates an index for a specific frame that should have its delay modified. If no index is given, all frames will have the new delay."
+        "Cambia el retraso entre fotogramas en un GIF animado. Hay un segundo parámetro opcional que indica un índice para una trama específica que debería tener su retraso modificado. Si no se proporciona ningún índice, todos los cuadros tendrán el nuevo retraso."
       ],
       "params": {
         "d": "Number: the amount in milliseconds to delay between switching frames",
@@ -4383,18 +4383,18 @@
     },
     "columns": {
       "description": [
-        "An array containing the names of the columns in the table, if the \"header\" the table is loaded with the \"header\" parameter."
+        "Una matriz que contiene los nombres de las columnas en la tabla, si el \"header\" la tabla se carga con el parámetro \"header\"."
       ]
     },
     "rows": {
       "description": [
-        "An array containing the <a href=\"#/p5.Table\">p5.TableRow</a> objects that make up the rows of the table. The same result as calling <a href=\"#/p5/getRows\">getRows()</a>"
+        "Una matriz que contiene los objetos <a href=\"#/p5.Table\">p5.TableRow</a> que forman las filas de la tabla. El mismo resultado que llamar <a href=\"#/p5/getRows\">getRows()</a>"
       ]
     },
     "addRow": {
       "description": [
-        "Use <a href=\"#/p5/addRow\">addRow()</a> to add a new row of data to a <a href=\"#/p5.Table\">p5.Table</a> object. By default, an empty row is created. Typically, you would store a reference to the new row in a TableRow object (see newRow in the example above), and then set individual values using <a href=\"#/p5/set\">set()</a>. ",
-        "If a <a href=\"#/p5.TableRow\">p5.TableRow</a> object is included as a parameter, then that row is duplicated and added to the table."
+        "Use <a href=\"#/p5/addRow\">addRow()</a> para agregar una nueva fila de datos a un objeto <a href=\"#/p5.Table\">p5.Table</a>. Por defecto, se crea una fila vacía. Por lo general, almacenaría una referencia a la nueva fila en un objeto TableRow (consulte newRow en el ejemplo anterior) y luego establecería valores individuales usando <a href=\"#/p5/set\">set()</a>. ",
+        "Si se incluye un objeto <a href=\"#/p5.TableRow\">p5.TableRow</a> como parámetro, entonces esa fila se duplica y se agrega a la tabla."
       ],
       "returns": "p5.TableRow: the row that was added",
       "params": {
@@ -4402,14 +4402,14 @@
       }
     },
     "removeRow": {
-      "description": ["Removes a row from the table object."],
+      "description": ["Elimina una fila del objeto de tabla."],
       "params": {
         "id": "Integer: ID number of the row to remove"
       }
     },
     "getRow": {
       "description": [
-        "Returns a reference to the specified <a href=\"#/p5.TableRow\">p5.TableRow</a>. The reference can then be used to get and set values of the selected row."
+        "Devuelve una referencia al <a href=\"#/p5.TableRow\">p5.TableRow</a> especificado. La referencia se puede utilizar para obtener y establecer valores de la fila seleccionada."
       ],
       "returns": "p5.TableRow: <a href=\"#/p5.TableRow\">p5.TableRow</a> object",
       "params": {
@@ -4418,13 +4418,13 @@
     },
     "getRows": {
       "description": [
-        "Gets all rows from the table. Returns an array of <a href=\"#/p5.TableRow\">p5.TableRow</a>s."
+        "Obtiene todas las filas de la tabla. Devuelve una matriz de <a href=\"#/p5.TableRow\">p5.TableRow</a>s."
       ],
       "returns": "p5.TableRow[]: Array of <a href=\"#/p5.TableRow\">p5.TableRow</a>s"
     },
     "findRow": {
       "description": [
-        "Finds the first row in the Table that contains the value provided, and returns a reference to that row. Even if multiple rows are possible matches, only the first matching row is returned. The column to search may be specified by either its ID or title."
+        "Encuentra la primera fila de la tabla que contiene el valor proporcionado y devuelve una referencia a esa fila. Incluso si varias filas son posibles coincidencias, solo se devuelve la primera fila coincidente. La columna a buscar puede especificarse por su ID o título."
       ],
       "returns": "p5.TableRow: ",
       "params": {
@@ -4434,7 +4434,7 @@
     },
     "findRows": {
       "description": [
-        "Finds the rows in the Table that contain the value provided, and returns references to those rows. Returns an Array, so for must be used to iterate through all the rows, as shown in the example above. The column to search may be specified by either its ID or title."
+        "Encuentra las filas en la tabla que contienen el valor proporcionado y devuelve referencias a esas filas. Devuelve una matriz, por lo que debe usarse para recorrer en iteración todas las filas, como se muestra en el ejemplo anterior. La columna a buscar puede especificarse por su ID o título."
       ],
       "returns": "p5.TableRow[]: An Array of TableRow objects",
       "params": {
@@ -4444,7 +4444,7 @@
     },
     "matchRow": {
       "description": [
-        "Finds the first row in the Table that matches the regular expression provided, and returns a reference to that row. Even if multiple rows are possible matches, only the first matching row is returned. The column to search may be specified by either its ID or title."
+        "Encuentra la primera fila de la tabla que coincide con la expresión regular proporcionada y devuelve una referencia a esa fila. Incluso si varias filas son posibles coincidencias, solo se devuelve la primera fila coincidente. La columna a buscar puede especificarse por su ID o título."
       ],
       "returns": "p5.TableRow: TableRow object",
       "params": {
@@ -4454,7 +4454,7 @@
     },
     "matchRows": {
       "description": [
-        "Finds the rows in the Table that match the regular expression provided, and returns references to those rows. Returns an array, so for must be used to iterate through all the rows, as shown in the example. The column to search may be specified by either its ID or title."
+        "Encuentra las filas en la tabla que coinciden con la expresión regular proporcionada y devuelve referencias a esas filas. Devuelve una matriz, por lo que debe usarse para recorrer en iteración todas las filas, como se muestra en el ejemplo. La columna a buscar puede especificarse por su ID o título."
       ],
       "returns": "p5.TableRow[]: An Array of TableRow objects",
       "params": {
@@ -4464,7 +4464,7 @@
     },
     "getColumn": {
       "description": [
-        "Retrieves all values in the specified column, and returns them as an array. The column may be specified by either its ID or title."
+        "Recupera todos los valores en la columna especificada y los devuelve como una matriz. La columna se puede especificar por su ID o título."
       ],
       "returns": "Array: Array of column values",
       "params": {
@@ -4473,29 +4473,29 @@
     },
     "clearRows": {
       "description": [
-        "Removes all rows from a Table. While all rows are removed, columns and column titles are maintained."
+        "Elimina todas las filas de una tabla. Mientras se eliminan todas las filas, se mantienen las columnas y los títulos de las columnas."
       ]
     },
     "addColumn": {
       "description": [
-        "Use <a href=\"#/p5/addColumn\">addColumn()</a> to add a new column to a <a href=\"#/p5.Table\">Table</a> object. Typically, you will want to specify a title, so the column may be easily referenced later by name. (If no title is specified, the new column's title will be null.)"
+        "Use <a href=\"#/p5/addColumn\">addColumn()</a> para agregar una nueva columna a un objeto <a href=\"#/p5.Table\">Table</a>. Por lo general, querrá especificar un título, por lo que la columna puede ser referenciada fácilmente más tarde por su nombre. (Si no se especifica ningún título, el título de la nueva columna será nulo)."
       ],
       "params": {
         "title": "String: (Optional) title of the given column"
       }
     },
     "getColumnCount": {
-      "description": ["Returns the total number of columns in a Table."],
+      "description": ["Devuelve el número total de columnas en una tabla."],
       "returns": "Integer: Number of columns in this table"
     },
     "getRowCount": {
-      "description": ["Returns the total number of rows in a Table."],
+      "description": ["Devuelve el número total de filas en una tabla."],
       "returns": "Integer: Number of rows in this table"
     },
     "removeTokens": {
       "description": [
-        "Removes any of the specified characters (or \"tokens\"). ",
-        "If no column is specified, then the values in all columns and rows are processed. A specific column may be referenced by either its ID or title."
+        "Elimina cualquiera de los caracteres especificados (o \"tokens\"). ",
+        "Si no se especifica ninguna columna, se procesan los valores en todas las columnas y filas. Se puede hacer referencia a una columna específica por su ID o título."
       ],
       "params": {
         "chars": "String: String listing characters to be removed",
@@ -4504,7 +4504,7 @@
     },
     "trim": {
       "description": [
-        "Trims leading and trailing whitespace, such as spaces and tabs, from String table values. If no column is specified, then the values in all columns and rows are trimmed. A specific column may be referenced by either its ID or title."
+        "Recorta los espacios en blanco iniciales y finales, como los espacios y las pestañas, a partir de los valores de la tabla de cadenas. Si no se especifica ninguna columna, los valores en todas las columnas y filas se recortan. Se puede hacer referencia a una columna específica por su ID o título."
       ],
       "params": {
         "column": "String|Integer: (Optional) Column ID (number)  or name (string)"
@@ -4512,7 +4512,7 @@
     },
     "removeColumn": {
       "description": [
-        "Use <a href=\"#/p5/removeColumn\">removeColumn()</a> to remove an existing column from a Table object. The column to be removed may be identified by either its title (a String) or its index value (an int). removeColumn(0) would remove the first column, removeColumn(1) would remove the second column, and so on."
+        "Use <a href=\"#/p5/removeColumn\">removeColumn()</a> para eliminar una columna existente de un objeto Table. La columna que se eliminará puede identificarse por su título (una Cadena) o su valor de índice (un int). removeColumn (0) eliminaría la primera columna, removeColumn (1) eliminaría la segunda columna, y así sucesivamente."
       ],
       "params": {
         "column": "String|Integer: columnName (string) or ID (number)"
@@ -4520,7 +4520,7 @@
     },
     "set": {
       "description": [
-        "Stores a value in the Table's specified row and column. The row is specified by its ID, while the column may be specified by either its ID or title."
+        "Almacena un valor en la fila y columna especificadas de la tabla. La fila se especifica por su ID, mientras que la columna se puede especificar por su ID o título."
       ],
       "params": {
         "row": "Integer: row ID",
@@ -4530,7 +4530,7 @@
     },
     "setNum": {
       "description": [
-        "Stores a Float value in the Table's specified row and column. The row is specified by its ID, while the column may be specified by either its ID or title."
+        "Almacena un valor flotante en la fila y columna especificadas de la tabla. La fila se especifica por su ID, mientras que la columna se puede especificar por su ID o título."
       ],
       "params": {
         "row": "Integer: row ID",
@@ -4540,7 +4540,7 @@
     },
     "setString": {
       "description": [
-        "Stores a String value in the Table's specified row and column. The row is specified by its ID, while the column may be specified by either its ID or title."
+        "Almacena un valor de cadena en la fila y columna especificadas de la tabla. La fila se especifica por su ID, mientras que la columna se puede especificar por su ID o título."
       ],
       "params": {
         "row": "Integer: row ID",
@@ -4550,7 +4550,7 @@
     },
     "get": {
       "description": [
-        "Retrieves a value from the Table's specified row and column. The row is specified by its ID, while the column may be specified by either its ID or title."
+        "Recupera un valor de la fila y columna especificadas en la Tabla. La fila se especifica por su ID, mientras que la columna se puede especificar por su ID o título."
       ],
       "returns": "String|Number: ",
       "params": {
@@ -4560,7 +4560,7 @@
     },
     "getNum": {
       "description": [
-        "Retrieves a Float value from the Table's specified row and column. The row is specified by its ID, while the column may be specified by either its ID or title."
+        "Recupera un valor flotante de la fila y columna especificadas en la tabla. La fila se especifica por su ID, mientras que la columna se puede especificar por su ID o título."
       ],
       "returns": "Number: ",
       "params": {
@@ -4570,7 +4570,7 @@
     },
     "getString": {
       "description": [
-        "Retrieves a String value from the Table's specified row and column. The row is specified by its ID, while the column may be specified by either its ID or title."
+        "Recupera un valor de cadena de la fila y columna especificadas en la tabla. La fila se especifica por su ID, mientras que la columna se puede especificar por su ID o título."
       ],
       "returns": "String: ",
       "params": {
@@ -4580,7 +4580,7 @@
     },
     "getObject": {
       "description": [
-        "Retrieves all table data and returns as an object. If a column name is passed in, each row object will be stored with that attribute as its title."
+        "Recupera todos los datos de la tabla y los devuelve como un objeto. Si se pasa un nombre de columna, cada objeto de fila se almacenará con ese atributo como título."
       ],
       "returns": "Object: ",
       "params": {
@@ -4589,7 +4589,7 @@
     },
     "getArray": {
       "description": [
-        "Retrieves all table data and returns it as a multidimensional array."
+        "Recupera todos los datos de la tabla y los devuelve como una matriz multidimensional."
       ],
       "returns": "Array: "
     }
