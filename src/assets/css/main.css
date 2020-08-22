@@ -1475,7 +1475,6 @@ h2.featuring{
   flex-direction: row;
   flex-wrap: wrap;
   background-color: white;
-  font-color: #ed225d;
   color: none;
   cursor: pointer;
   padding: 0px;
@@ -1486,18 +1485,19 @@ h2.featuring{
   /*font-size: 15px;*/
   transition: 0.4s;
   font: 200 1.4rem "Montserrat", sans-serif;
-  color: #ed225d;
   letter-spacing: 0.05rem;
   /*border-bottom: 4px dotted #ed225d;
   padding-bottom: 10px;
   margin-bottom: 10px;*/
   opacity: 1;
-  color: #ed225d;
   line-height: 1.5em;
 }
 #teach-page div.teach-search-subgroup {
   width: 11em;
   margin-bottom: 1em;
+  font-color: #ed225d;
+  text-align: left;
+  font: 200 1.4rem "Montserrat", sans-serif;
 }
 
 /*nominate button*/
@@ -1634,7 +1634,7 @@ h2.featuring{
   font-size: .5em;
   margin: 0px;
 }
-h3.title{
+#teach-page h3.title{
   margin-top: 3em;
 }
 #teach-page label{
@@ -1645,6 +1645,55 @@ h3.title{
   font: 0.7rem "Montserrat", sans-serif;
   color: #333;
 }
+
+
+
+/*exlporein diversity*/
+
+#teach-page.perspective-text {
+  color: white;
+  font-family: montserrat;
+  font-size: 15px;
+  /*font-weight: 900;*/
+  letter-spacing: 0.2em;
+  border-line: #8px dotted;
+}
+
+#teach-page .perspective-line {
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  width: 100%
+}
+
+#teach-page .p {
+  margin: 0;
+  height: 50px;
+  line-height: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+#teach-page .perspective-line:nth-child(odd) {
+  transform: skew(60deg, 0deg) scaleY(0.667);
+}
+
+#teach-page.perspective-line:nth-child(even) {
+  transform: skew(0deg, 0deg) scaleY(1.337);
+}
+
+#teach-page.perspective-text:hover p {
+  transform: translate(0, -50px);
+}
+
+#teach-page.perspective-line:nth-child(1) {
+  left: 29px;
+}
+
+#teach-page.perspective-line:nth-child(2) {
+  left: 58px;
+  background: #ed225d;
+}
+
 
 
 
@@ -1787,14 +1836,6 @@ h3.title{
 
 
 
-/*submission button*/
-
-
-
-
-
-
-
 
 
 /*diversity checkbox*/
@@ -1917,6 +1958,85 @@ cursor: pointer; border-radius: 3px;float: right;
   background-color: white;
   color: #ed225d;
 }
+
+
+/*submission button*/
+#teach-page .nominate a,
+#teach-page .nominate a:visited {
+  padding: 0.4em 0.5em;
+  border-radius: 30px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border: solid #ed225d 2px;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 #ffe8e8;
+
+  font: 1.5rem "Montserrat", sans-serif;
+  color: #ed225d;
+  letter-spacing: 0.02rem;
+  transition: all 0.3s;
+}
+
+@media (max-width: 500px) {
+  #teach-page .nominate a,
+  #teach-page .nominate a:visited {
+    padding: 0.4em 0.3em;
+    font: 1.3rem "Montserrat", sans-serif;
+  }
+}
+
+#teach-page .nominate a:hover {
+  top: 4px;
+  left: 4px;  
+  box-shadow: none;
+}
+
+
+#teach-page .submit-btn {
+  width: 120px;
+  height: 50px;
+/* background-color: #fafafa; #ffe8e8*/
+  background-color: #fafafa;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  margin-left: 1em;
+  margin-right: 1em;  
+  cursor: pointer;
+  transition: all 0.3s;
+/*display: inline-block center;
+  padding: 6px 14px;
+  background-color: #ffe8e8;
+  border-radius: 27px;*/
+  font: 0.7rem "Montserrat", sans-serif;
+  box-shadow: 0px 100px 60px -17px rgba(237, 34, 93, 0.5);
+  box-shadow: 0px 100px 60px -17px rgba(237, 34, 93, 0.5);
+  box-shadow: 0px 20px 20px -17px rgba(237, 34, 93, 0.5);
+}
+
+
+
+#teach-page .submit-btn,
+#teach-page .submit-btn a:visited,
+#teach-page .submit-btn a:hover{
+      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
+      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
+      box-shadow: 0px 20px 15px -13px rgba(237, 34, 93, 0.57);      
+    }
+
+#teach-page .submit-title {
+      font-size: 1em;
+      font-family: "Montserrat", sans-serif;
+      background: linear-gradient(to right, #ed225d, #ed225d 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0px 10px 37px rgba(237, 34, 93, 0.6);
+    }
+
+
+
+
 
 
 
