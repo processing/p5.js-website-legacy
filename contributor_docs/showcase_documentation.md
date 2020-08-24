@@ -1,4 +1,9 @@
 # Maintaining the p5.js Showcase Guide
+**NOTE: The handlebars version of the p5.js showcase is deprecated and the showcase is no longer being maintained in the way described below.**
+
+**To see the new showcase click [here](https://showcase.p5js.org)**
+
+**To see the new documentation of the new showcase please click [here](https://github.com/connieliu0/p5.js-showcase/blob/master/showcase2020_documentation.md)**
 
 The p5.js [showcase](https://p5js.org/showcase/) can be maintained in the following way. Currently, contributors can nominate themselves through this [form](https://forms.gle/SKJdvBNKRo4o8Rh9A) which is a apart of the p5.js google drive. If you wish to be the maintainer/co-maintainer for the showcase for the year, please email cl2264@cornell.edu for further directions and access to the form results.
 
