@@ -1475,23 +1475,23 @@ h2.featuring{
     display: inline-block;
     border-radius: 25px;
     font: 0.7rem "Montserrat", sans-serif;
-    color: #aaaaaa; /*#ffbfd1;*/
+    color: #aaaaaa; 
     white-space: nowrap;
     margin: 3px 0px;
-    -webkit-touch-callout: none;
+    /*-webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;*/
     transition: all .3s;
     background: #fafafa;
-    /*background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
+    background: -webkit-linear-gradient(to bottom, white, #fafafa);
     /* Chrome 10-25, Safari 5.1-6 */
-    /*background: linear-gradient(to bottom, #fafafa, #ffe8e8);*/
-      box-shadow: 0px 20px 100px -17px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 60px -17px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 30px -15px rgba(237, 34, 93, 0.57);  
+    background: linear-gradient(to bottom, white, #fafafa);
+    box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.5);
+    box-shadow: 0px 100px 20px -17px rgba(237, 34, 93, 0.5);
+    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.5);
     /* fallback for old browsers 
     background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
      Chrome 10-25, Safari 5.1-6 
@@ -1515,20 +1515,17 @@ h2.featuring{
     font: 1.5rem "Montserrat", sans-serif;
     font-weight: 900;
     color: #333333;
-    border-radius: 25px;
+
     padding: 2px 2px 2px 2px; /*padding among labels*/
-      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 15px -13px rgba(237, 34, 93, 0.57);  
 }
 
 #teach-page ul.filters li label:hover {
-    color: #fff;
+    color: #aaaaaa;
     background: #ffe8e8;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #ffe8e8, #ed225d);
+    background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #ffe8e8, #ed225d);
+    background: linear-gradient(to bottom, #fafafa, #ffe8e8);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border: 2px #ed225d; /* onclick*/
       box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
@@ -1628,11 +1625,11 @@ h2.featuring{
     /*content: url(../img/asterisk-01.png);*/
     transition: .5s;    
     background: #fafafa;/*#ffe8e8;*/
-    border: solid white 1px;
+    /*border: solid white 1px;*/  
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #fafafa, white);
+    background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #fafafa, white);*/
+    background: linear-gradient(to bottom, #fafafa, #ffe8e8);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.5);
     box-shadow: 0px 100px 20px -17px rgba(237, 34, 93, 0.5);
@@ -1651,12 +1648,12 @@ h2.featuring{
   color: white;
   /*color: #ffbfd1;*/
   text-decoration: none;
-  
+
       background: -webkit-linear-gradient(to right #ffe8e8, #ed225d);
     /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #ffe8e8, #ed225d);
-  box-shadow: 0px 50px 60px -17px rgba(237, 34, 93, 0.9);
-  box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.9);
+  box-shadow: 0px 50px 60px -15px rgba(237, 34, 93, 0.9);
+  box-shadow: 0px 30px 30px -15px rgba(237, 34, 93, 0.9);
   box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.9);
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
@@ -1775,32 +1772,213 @@ h2.featuring{
 }
 
 #teach-page .modal-title{
-  font: 400 .8rem "Montserrat", sans-serif;
-  color: black;
+
+  margin-left: 1em;
+  margin-right: 1em;
+
+  font: 400 1rem "Montserrat", sans-serif;
+  color: #ed225d;
   line-height: 1.2em;
 
 }
-#teach-page .modal-body p{
-  margin: 0;
-  font-size: .83em;
-  height: 50px;
-  padding-top:20px;
 
-  font: 200 1.2rem "Times", sans-serif;
-  line-height: 1.5em;
+
+#teach-page .close {
+  position: relative;
+  color: #ffc7c7;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+  margin-right: .4em;
+  margin-top: .4em;
+  cursor:pointer;
+  
+}
+
+#teach-page .close:hover, .close:focus {
+  color: #ed225d;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*
+#teach-page body::-webkit-scrollbar{
+  z-index: 999999;
+}
+*/
+
+
+#teach-page .modal-footer label{
+  margin: 2px 2px;  
+padding: 5px 8px;
+   display: inline-block;
+    border-radius: 25px;
+    font: 0.7rem "Montserrat", sans-serif;
+    color: #aaaaaa; 
+    white-space: nowrap;
+    /*-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;*/
+ 
+ /* outline: none;
+  border:none;*/
+  color: white;
+
+/*  cursor: pointer;*/
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: #ffe8e8;
+    background: -webkit-linear-gradient(to bottom #ffe8e8, #ed225d);
+    background: linear-gradient(to bottom, #ffe8e8, #ed225d);
+
+/*    border: 2px #ed225d;*/
+    box-shadow: 0px 50px 60px -17px rgba(237, 34, 93, 0.9);
+    box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.9);
+    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.9);
+}
+/*
+#teach-page .writing img{
+  width: 30px;
+  height: 30px;
+}
+*/
+#teach-page .writing label{
+  margin-left: 1em;
+  margin-right: 1em;
+margin: 2px 2px;  
+padding: 5px 8px;
+   display: inline-block;
+    border-radius: 25px;
+    font: 0.7rem "Montserrat", sans-serif;
+    color: #aaaaaa; 
+    white-space: nowrap;
+    /*-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;*/
+ 
+ /* outline: none;
+  border:none;*/
+  color: white;
+
+/*  cursor: pointer;*/
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: #ffe8e8;
+    background: -webkit-linear-gradient(to bottom #ffe8e8, #ed225d);
+    background: linear-gradient(to bottom, #ffe8e8, #ed225d);
+
+/*    border: 2px #ed225d;*/
+    box-shadow: 0px 50px 60px -17px rgba(237, 34, 93, 0.9);
+    box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.9);
+    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.9);
+
+}
+
+/*modal scrollbar*/
+
+/* width */
+#teach-page .modal-body::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+}
+
+/* Track */
+#teach-page .modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+#teach-page .modal-body::-webkit-scrollbar-thumb {
+  background: #ffe8e8;
+}
+
+/* Handle on hover 
+#teach-page .modal-body::-webkit-scrollbar-thumb:hover {
+  background: #ffd7d7; 
+
+}*/
+
+
+
+#teach-page .writing{
+  margin-left: 2em;
+  margin-right:2em;
+}
+
+#teach-page .writing p.subtitle{
+
+  font: 200 .8rem "Montserrat", sans-serif;
+  color: #ed225d;
+  font-color: #ffe8e8;
+  line-height: 1.4em;
+  /*font-weight: bold;*/
+/*  margin-top: 0.8em;
+  margin-bottom: 0.8em;*/
+}
+
+/*
+#teach-page .writing-border{
+  border-bottom: 0.1em dashed #ffc7c7;
+}*/
+
+
+#teach-page .writing p{
+/*  margin-left: 2em;
+  margin-right:2em;*/
+  font: 400 .8rem "Times", sans-serif;
   color: black;
+  line-height: 1.4em;
 
+  /*border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);*/
+
+}
+
+#teach-page .writing span{
+/*  margin-left: 2em;*/
+  color: #ed225d;
+  font: 200 .8rem "Montserrat", sans-serif;
+  border-bottom: 0.1em solid #ed225d;
+
+}
+
+#teach-page .modal-header{
+/*  background-image: url(../img/asterisk-01.png);*/
+  margin-bottom: 0.8em;
+}
+
+/*#teach-page .modal-body{
+margin-left: 2em;
+/*margin-right: 2em;
+ margin-bottom: 0.8em;
+  /*height: 50px;
+  line-height: 1.5em;
+
+}*/
+
+#teach-page .modal-body p{
   border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);
 
+}
 
+#teach-page .modal-body:-webkit-scrollbar{
+  display: none;
 }
 
 
 #teach-page .modal-footer{
+
+  margin-bottom: 1em;
+ 
+/*  margin-left: 1em;
+  margin-right: 1em;
+
   font: 400 .8rem "Montserrat", sans-serif;
   color: black;
   line-height: 1.2em;
-
+*/
 }
 
 #teach-page .modal {
@@ -1816,62 +1994,60 @@ h2.featuring{
   box-sizing: border-box;
   background-color: rgba(255, 232, 232, 0.5); /* Fallback color */
 
-  overflow: hidden;
+  /*overflow: hidden;*/
 
 }
 
-#teach-page .results-section{
+/*#teach-page .results-section{
   overflow: hidden;
-}
+}*/
+
 #teach-page .modal-content{
-
-/*  padding: 0.4em;*/
-  top:10%;
-  width: 95%;
-  overflow: auto;
+  position: fixed;
+  
+  /*overflow: auto;*/
   /*height: 100%;*/
   background: #fafafa;
-  /*top: 8%;*/
-  /*bottom:5%;*/
-  /*left:2%;
-  right:2%;*/
+  /*top:2%;*/
+  left:2%;
+  right:2%;
+  bottom:2%;
+  margin: auto; /*keep centered*/
   /*overflow: auto;*/
-  position: relative;
-  margin:auto;
   border: 1.2px solid #ffe8e8;
-  /*max-width: 700px; /* Could be more or less, depending on screen size */
+  max-width: 740px; /* Could be more or less, depending on screen size */
   /*display:none;*/
-    box-shadow: 10px 100px 30px -17px rgba(237, 34, 93, 0.5);
+  box-shadow: 10px 100px 30px -17px rgba(237, 34, 93, 0.5);
   box-shadow: 10px 100px 20px -17px rgba(237, 34, 93, 0.5);
   box-shadow: 10px 20px 10px -17px rgba(237, 34, 93, 0.5);
+/*  overflow-y: initial !important*/
+}
+
+#teach-page .modal-body{
   
-}
-
-
-
-#teach-page .close {
-  color: #ffe8e8;
-  float: right;
-  font-size: 40px;
-  font-weight: bold;
-cursor:pointer;
+  margin: auto;
   
+/*  margin-top: 10%;*/
+  height: 600px;
+  width: 95%;
+  overflow-y: auto;
+
 }
-
-#teach-page .close:hover, .close:focus {
-  color: #ed225d;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
 
 #teach-page .results-wrapper{
-  
+  width:98%;
   outline: none;
     border: none;
     background: white;
-    border: 2px solid #ffe8e8;
+      background: #fafafa;/*#ffe8e8;*/
+    /*border: solid white 1px;*/  
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, white, #fafafa);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, white, #fafafa);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border: 1px solid #ffe8e8;
     box-shadow: 10px 100px 30px -17px rgba(237, 34, 93, 0.5);
     box-shadow: 10px 100px 20px -17px rgba(255, 232, 232, 0.5);
     box-shadow: 10px 20px 10px -17px rgba(237, 34, 93, 0.5);
@@ -1901,7 +2077,7 @@ cursor:pointer;
   margin-bottom: 0.8em;
   padding-bottom: .4em;
 
-  font: 400 .8rem "Montserrat", sans-serif;
+  font: 400 .8rem "Times", sans-serif;
   color: black;
   line-height: 1.2em;
 
