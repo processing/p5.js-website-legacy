@@ -493,8 +493,7 @@ div.reference-subgroup {
 .example-content .edit_space,
 .example-content pre {
   position: absolute !important;
-  top: 0.5em !important;
-  left: 120px !important;
+  top: 120px;
   padding-top: 0 !important;
   border: none !important;
 }
@@ -506,7 +505,7 @@ pre.norender {
 
 .example-content pre {
   margin-top: 0 !important;
-  width: 30.5em !important;
+  width: 30.5em;
 }
 
 .example-content .edit_space {
@@ -517,12 +516,6 @@ pre.norender {
   position: absolute !important;
   top: 0;
   left: 0;
-}
-
-.example_container pre {
-  top: 0;
-  left: 0;
-  width: 100%;
 }
 
 .example div {
@@ -573,10 +566,41 @@ pre.norender {
 
 .example_container {
   width: 36em;
+  min-height: 400px;
   border-top: 0.09em dashed;
   border-top-color: #333;
   padding-top: 0.5em;
+  margin-top: 2em;
+}
+.example_container:first-of-type {
   margin-top: 1em;
+}
+
+/*to make ref example responsive*/
+@media (max-width: 600px) {
+  .example-content pre {
+    top: calc(120px + 2em);
+  }
+  .example_container {
+    width: 100%;
+    min-height: 400px;
+  }
+
+  .example_container button {
+    top: 124px;
+  }
+
+  .edit_button {
+    left: 0;
+  }
+
+  .reset_button {
+    left: 2.58em;
+  }
+
+  .copy_button {
+    left: 5.91em;
+  }
 }
 
 form {
