@@ -1521,7 +1521,7 @@ h2.featuring{
 }
 
 #teach-page ul.filters li label:hover {
-    color: #aaaaaa;
+    color: #ed225d;
     background: #ffe8e8;
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
@@ -1720,7 +1720,7 @@ h2.featuring{
 
 /*Accordion Menu*/
 
-#teach-page .panel {
+#teach-page .filter-panel {
   padding: 0px;
   background-color: white;
   max-height: 0;
@@ -1747,7 +1747,7 @@ h2.featuring{
 
 /*exlpore in diversity*/
 
-#teach-page .panel p {
+#teach-page .filter-panel p {
   margin: 0;
   color: #333;
   font-size: .83em;
@@ -1783,6 +1783,65 @@ h2.featuring{
 
 }
 
+#teach-page ul.cases li.clear{
+  display: block;
+  clear: both;
+  margin-top: 1em;
+  margin-bottom: 1.2em;
+}
+
+#teach-page .writing img[alt] {
+  font: 0.6rem "Montserrat", sans-serif;
+  color: #bababa;
+}
+
+
+
+#teach-page .writing .speech{
+
+  margin-top: 1em;
+  font: 0.8rem "Montserrat", sans-serif;
+  color: #ed225d; 
+  position: relative;
+  /*max-width: 30em;*/
+  padding: 0.5em 0.8em; /*1.2em;*/
+  border-radius: 25px;
+  border-bottom: none;
+  /*box-shadow: 0 0.125rem 0.5rem #ffc7c7, 0 0.0625rem 0.125rem #ffc7c7;*/
+  margin-bottom: 2em;
+
+  background: #ffe8e8;/*#ffe8e8;*/
+    /*border: solid white 1px;*/  
+    /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
+    /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #fafafa, #ffe8e8);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: 0px 100px 30px -17px #ed225d;
+  box-shadow: 0px 100px 20px -17px #ed225d;
+  box-shadow: 0px 20px 10px -17px #ed225d;
+
+}
+#teach-page .img{
+  background-image: url({{assets}}/img/teach/priti-and-ajigh.jpg);
+}
+
+#teach-page .writing .speech::before {
+  margin-top: 1em;
+ 
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 100%;
+  left: 1.5em;
+  border: .5rem solid transparent;
+  border-top: none;
+
+  border-bottom-color: #ffe8e8;
+  filter: drop-shadow(0 -0.0625rem 0.0625rem #ffe8e8);
+  
+}
 
 #teach-page .close {
   position: relative;
@@ -1808,42 +1867,10 @@ h2.featuring{
 */
 
 
-#teach-page .modal-footer label{
-  margin: 2px 2px;  
-padding: 5px 8px;
-   display: inline-block;
-    border-radius: 25px;
-    font: 0.7rem "Montserrat", sans-serif;
-    color: #aaaaaa; 
-    white-space: nowrap;
-    /*-webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;*/
- 
- /* outline: none;
-  border:none;*/
-  color: white;
 
-/*  cursor: pointer;*/
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: #ffe8e8;
-    background: -webkit-linear-gradient(to bottom #ffe8e8, #ed225d);
-    background: linear-gradient(to bottom, #ffe8e8, #ed225d);
+#teach-page img{
+}
 
-/*    border: 2px #ed225d;*/
-    box-shadow: 0px 50px 60px -17px rgba(237, 34, 93, 0.9);
-    box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.9);
-    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.9);
-}
-/*
-#teach-page .writing img{
-  width: 30px;
-  height: 30px;
-}
-*/
 #teach-page .writing label{
   margin-left: 1em;
   margin-right: 1em;
@@ -1882,7 +1909,9 @@ padding: 5px 8px;
 
 /* width */
 #teach-page .modal-body::-webkit-scrollbar {
-  width: 8px;
+
+  width: 5px;
+  height: 5px;
   border-radius: 10px;
 }
 
@@ -1909,6 +1938,14 @@ padding: 5px 8px;
   margin-right:2em;
 }
 
+#teach-page .writing p.lead-name{
+  font: 200 1rem "Montserrat", sans-serif;
+  color: #ed225d;
+  font-color: #ed225d;
+  line-height: 1.4em;
+  border-bottom: 1.4em;
+}
+
 #teach-page .writing p.subtitle{
 
   font: 200 .8rem "Montserrat", sans-serif;
@@ -1929,7 +1966,7 @@ padding: 5px 8px;
 #teach-page .writing p{
 /*  margin-left: 2em;
   margin-right:2em;*/
-  font: 400 .8rem "Times", sans-serif;
+  font: 400 1rem "Times", sans-serif;
   color: black;
   line-height: 1.4em;
 
@@ -1937,13 +1974,15 @@ padding: 5px 8px;
 
 }
 
-#teach-page .writing span{
-/*  margin-left: 2em;*/
+#teach-page .writing span {
   color: #ed225d;
-  font: 200 .8rem "Montserrat", sans-serif;
-  border-bottom: 0.1em solid #ed225d;
+  font-weight: bold;
+  font-color: #ed225d;  
+  font: 200 1.6rem "Montserrat", sans-serif;
+  /*border-bottom: 0.1em solid #ed225d;*/
 
 }
+
 
 #teach-page .modal-header{
 /*  background-image: url(../img/asterisk-01.png);*/
@@ -1957,6 +1996,10 @@ margin-left: 2em;
   /*height: 50px;
   line-height: 1.5em;
 }*/
+#teach-page .modal-footer{
+/*  background-image: url(../img/asterisk-01.png);*/
+  margin-bottom: 0.8em;
+}
 
 #teach-page .modal-body p{
   border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);
@@ -1970,7 +2013,7 @@ margin-left: 2em;
 
 #teach-page .modal-footer{
 
-  margin-bottom: 1em;
+/*  margin-bottom: 1.5em;*/
  
 /*  margin-left: 1em;
   margin-right: 1em;
@@ -2008,10 +2051,11 @@ margin-left: 2em;
   /*overflow: auto;*/
   /*height: 100%;*/
   background: #fafafa;
-  /*top:2%;*/
-  left:2%;
-  right:2%;
-  bottom:2%;
+  top: 2%;
+  left: 2%;
+  right: 2%;
+  bottom: 2%;
+/*  bottom: 2%;*/
   margin: auto; /*keep centered*/
   /*overflow: auto;*/
   border: 1.2px solid #ffe8e8;
@@ -2028,7 +2072,7 @@ margin-left: 2em;
   margin: auto;
   
 /*  margin-top: 10%;*/
-  height: 600px;
+  height: 85%;
   width: 95%;
   overflow-y: auto;
 
@@ -2077,7 +2121,7 @@ margin-left: 2em;
   margin-bottom: 0.8em;
   padding-bottom: .4em;
 
-  font: 400 .8rem "Times", sans-serif;
+  font: 400 1rem "Times", sans-serif;
   color: black;
   line-height: 1.2em;
 
@@ -2086,7 +2130,7 @@ margin-left: 2em;
 }
 
 
-#teach-page .teach-results{
+#teach-page .heading{
 
     opacity: 1;
   font: 400 1.4rem "Montserrat", sans-serif;
@@ -2094,14 +2138,6 @@ margin-left: 2em;
   line-height: 1.2em;
   padding-bottom: .2em;
   }
-
-#teach-page .share{
-    opacity: 1;
-  font: 400 1.4rem "Montserrat", sans-serif;
-  color: #ed225d;
-  line-height: 1.2em;
-  padding-bottom: .2em;
-}
 
 
 /*results modals*/

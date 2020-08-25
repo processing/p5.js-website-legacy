@@ -11,7 +11,7 @@ slug: teach/
   	<section class= "teach-intro">
       <h1><a href="{{root}}/learn/">Learn</a> & {{#i18n "teach-title2"}}{{/i18n}}</h1>
 
-	      <p>{{#i18n "teach-intro1"}}{{/i18n}}{{#i18n "teach-intro2"}}{{/i18n}}{{#i18n "teach-intro3"}}{{/i18n}}{{#i18n "teach-intro4"}}{{/i18n}} Every teaching has its own unique goals, messages, conditions,  and environments. By documenting and sharing your teaching experiences on the p5.js website, we hope to better connect the p5.js learner and educator communities around the world.</p>
+	      <p>{{#i18n "teach-intro1"}}{{/i18n}}{{#i18n "teach-intro2"}}{{/i18n}}{{#i18n "teach-intro3"}}{{/i18n}}{{#i18n "teach-intro4"}}{{/i18n}} Every teaching has its own unique goals, messages, conditions, and environments. By documenting and sharing p5 workshops, classes, and materials, we hope to better connect the p5.js learner and educator communities around the world.</p>
 
 
 
@@ -26,29 +26,30 @@ slug: teach/
 	<section>
 
 		<div id="results"></div>
-			<h2 class = "teach-results">p5 teachings</h2> <!--{{#i18n "teach-results"}}{{/i18n}}-->
+			<h2 class = "heading">p5 teachings</h2> <!--{{#i18n "teach-results"}}{{/i18n}}-->
 				
 	<!--			<div class = "teach-search-subgroups">-->
 					<div class="search"><input type="checkbox" id="search"><label class="search-title"> Explore in Diversity >> </label></div>
 					
-						<div class="panel">
-						<br>		
-						  <ul class="filters">
+						<div class="filter-panel">
+						<br>	
+
+						  <ul class="filters" id="filters">
 						  	<li><p class = "title"> &#x1F33A; Inclusion : </p></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="gender" value="gender"><label for="gender">Gender</label></li>
-						    <li><input type="checkbox" id="race-ethnicity" value="race-ethnicity"><label for="race-ethnicity">Race & Ethnicity</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="language" value="language"><label for="language">Language</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="neuro-type" value="neuro-type"><label for="neuro-type">Neuro-type</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="ability" value="ability"><label for="ability">Ability</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="class" value="class"><label for="class">Class</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="religion" value="religion"><label for="religion">Religion</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="subculture" value="subculture"><label for="subculture">Subculture</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="political-opinion" value="political-opinion"><label for="political-opinion">Political Opinion</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="skill-level" value="skill-level"><label for="skill-level">Skill Level</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="occupation" value="occupation"><label for="occupation">Occupation</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="noCodeSnobs" value="noCodeSnobs"><label for="noCodeSnobs">#noCodeSnobs</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="newKidLove" value="newKidLove"><label for="newKidLove">#newKidLove</label></li>
-						    <li><input type="checkbox" name = "f1-inclusion" id="unassumeCore" value="unassumeCore"><label for="unassumeCore">#unassumeCore</label></li>
+						    <li><input type="checkbox" id="gender" value="gender"><label for="gender">Gender</label></li>
+						    <li><input type="checkbox" id="race-ethnicity" value="race-ethnicity"><label for="race-ethnicity">Race &#x0026; Ethnicity</label></li>
+						    <li><input type="checkbox" id="language" value="language"><label for="language">Language</label></li>
+						    <li><input type="checkbox" id="neuro-type" value="neuro-type"><label for="neuro-type">Neuro-type</label></li>
+						    <li><input type="checkbox" id="ability" value="ability"><label for="ability">Ability</label></li>
+						    <li><input type="checkbox" id="class" value="class"><label for="class">Class</label></li>
+						    <li><input type="checkbox" id="religion" value="religion"><label for="religion">Religion</label></li>
+						    <li><input type="checkbox" id="subculture" value="subculture"><label for="subculture">Subculture</label></li>
+						    <li><input type="checkbox" id="political-opinion" value="political-opinion"><label for="political-opinion">Political Opinion</label></li>
+						    <li><input type="checkbox" id="skill-level" value="skill-level"><label for="skill-level">Skill Level</label></li>
+						    <li><input type="checkbox" id="occupation" value="occupation"><label for="occupation">Occupation</label></li>
+						    <li><input type="checkbox" id="noCodeSnobs" value="noCodeSnobs"><label for="noCodeSnobs">#noCodeSnobs</label></li>
+						    <li><input type="checkbox" id="newKidLove" value="newKidLove"><label for="newKidLove">#newKidLove</label></li>
+						    <li><input type="checkbox" id="unassumeCore" value="unassumeCore"><label for="unassumeCore">#unassumeCore</label></li>
 						    <li><input type="checkbox" id="BlackLivesMatter" value="BlackLivesMatter"><label for="BlackLivesMatter">#BlackLivesMatter&#x1F5A4;</label></li>
 							
 
@@ -66,7 +67,7 @@ slug: teach/
 
 							<li class="clear"></li>
 							<li><p class = "title">&#x1F4C5; Year : </p></li>
-							<li><input type="checkbox" id="2013" value="2013"><label for="2013">~2013</label></li>
+							<li><input type="checkbox" id="b2013" value="b2013"><label for="b2013">~2013</label></li>
 							<li><input type="checkbox" id="2014" value="2014"><label for="2014">2014</label></li>
 						    <li><input type="checkbox" id="2015" value="2015"><label for="2015">2015</label></li>
 						    <li><input type="checkbox" id="2016" value="2016"><label for="2016">2016</label></li>
@@ -76,7 +77,7 @@ slug: teach/
 						    <li><input type="checkbox" id="2020" value="2020"><label for="2020">2020</label></li>
 
 							<li class="clear"></li>
-							<li><p class = "title">&#x1F469; Level of Difficulty : </p></li>
+							<li><p class = "title">&#x1F4CA; Level of Difficulty : </p></li>
 							<li><input type="checkbox" id="elementary" value="elementary"><label for="elementary">Elementary</label></li>
 							<li><input type="checkbox" id="intermediate" value="intermediate"><label for="intermediate">Intermediate</label></li>
 						    <li><input type="checkbox" id="advanced" value="advanced"><label for="advanced">Advanced</label></li>
@@ -93,92 +94,108 @@ slug: teach/
 						<div class="results" id="search-results">
 							<br>
 						<ul>
-				  		  <li class="items" data-category="gender"><a href="#a1" class="myBtn" >2019 "p5.js at l'Ubuntu Party !" Basile Pesin</a></li>
-				  		  <li class="items" data-category="gender"><a href="#a2" class="myBtn">2020 "Making The Thing that Makes the Thing&#x22EF;" Priti Pandurangan &#x0026; Ajith Ranka</a></li>
-						  <li class="items" data-category="gender"><a href="#a2" class="myBtn">2018, taller introducci??n a la programaci??n creativa con p5.js, Aar??n Montoya-Moraga</a></li>
-						  <li class="items" data-category="gender 2018"><a href="#a3" class="myBtn">2020, Workshop Title, Venue, Lead name</a></li>
-						  <li class="items" data-price="1" data-category="gender"><a href="#a3" class="myBtn" >2020, Introduction to generative painting, Dvorjak Bach Gogh hiroo my 2020, Workshop Title, Venue, Lead name</a></li>
-						  <li class="items" data-price="12000" data-category="gender">2020, Workshop Title, Venue, Lead name</li>
-						  <li class="items" data-price="13000" data-category="ethnicity">2020, Workshop Title, Venue, Lead name</li>
-						  <li class="items" data-price="14000" data-category="language ability">2020, Workshop Title, Venue, Lead name</li>
-						  <li class="items" data-price="12000" data-category="ability religion">2020, Workshop Title, Venue, Lead name</li>
-						  <li class="items" data-price="14000" data-category="religion">2020, Workshop Title, Venue, Lead name</li>
-						  <li class="items" data-price="16000" data-category="subculture">2020, Workshop Title, Venue, Lead name</li>
-						  <li class="items" data-price="20000" data-category="age"><a href="#a4" class="myBtn">2020, Workshop Title, Venue, Lead name</a></li>
+				  		  <li class="items" data-category="2019 europe gender race-ethnicity age skill-level BlackLivesMatter advanced"><a href="#item1" class="myBtn" >"p5.js &#x00E0; l'Ubuntu Party !", Basile Pesin</a></li>
+				  		  <li class="items" data-category="age skill-level occupation"><a href="#item2" class="myBtn">"Making The Thing that Makes the Thing: Exploring Generative Art &#x0026; Design with p5.js", Priti Pandurangan &#x0026; Ajith Ranka</a></li>
+						  <li class="items" data-category="gender"><a href="#a2" class="myBtn">CC Fest, Saber</a></li>
+						  <li class="items" data-category="gender 2018"><a href="#a3" class="myBtn"> Workshop Title, Venue, Lead name</a></li>
+						  <li class="items" data-category="gender"><a href="#a3" class="myBtn" >"Taller Introducci&#x00F3;n a la Programaci&#x00F3;n Creativa con p5.js", Aar&#x00F3;n Montoya-Moraga</a></li>
+						  <li class="items" data-category="gender">"Introduction to Generative Drawing", Adam Herst</li>
+						  <li class="items" data-category="ethnicity">Open Lecture "Creative Coding :2020", Shunsuke Takawo</li>
+						  <li class="items" data-category="language ability">"Creative Coding for Static Graphics", Shunsuke Takawo</li>
+						  <li class="items" data-category="ability religion">"Generative Typography", Dae In Chung</li>
+						  <li class="items" data-category="religion">"Machine Learning for the Web", Yining Shi</li>
+						  <li class="items" data-category="subculture">"Introduction to p5.js and JavaScript", Nico Reski</li>
+						  <li class="items" data-category="age"><a href="#a4" class="myBtn">"Digital Weaving &#x0026; Physical Computing Workshop Series", Qianqian Ye</a></li>
+						  <li class="items" data-category="age"><a href="#a4" class="myBtn">"Signing Coders", Taeyoon Choi</a></li>
 	    				</ul>
 						<br>
 						</div> 
 					</div>
 						<br>
 
-						<h2 class="share">Share your own experiences :</h2><button class="submit-btn" onclick= "window.open('https://docs.google.com/forms/d/e/1FAIpQLSei8yHX2BROMnMQeZT_tsSXJOH13TPRG6CB4GVHH1oL1hzkZg/viewform?usp=sf_link', '_blank')"> submit or recommend >> </button>
-					
-			   <br>
+						<h2 class="heading">Share your own experiences :</h2><button class="submit-btn" onclick= "window.open('https://docs.google.com/forms/d/e/1FAIpQLSei8yHX2BROMnMQeZT_tsSXJOH13TPRG6CB4GVHH1oL1hzkZg/viewform?usp=sf_link', '_blank')"> submit or recommend >> </button>
+					   <br><br>
 						
 
+		<!--modal box section-->
 		
-				<div id="myModal" class="modal">
-				  <div class="modal-content" id="a1"><div class="close"><span>&#215;</span></div>
+			<!--modal boxes-->
+
+			<div id="myModal" class="modal">
+
+				<!--modal box #1-->
+
+				  <div class="modal-content" id="item1"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "writing"><!--<img src="{{assets}}/img/asterisk-01.png">--><span>p5.js &#x00E0; l'Ubuntu Party !</span></li>
+				        	<li class = "writing"><!--<img src="{{assets}}/img/asterisk-01.png">--><span>Basile Pesin</span></li>
+				        	<li class = "writing"><!--<img src="{{assets}}/img/asterisk-01.png">--><p class = speech>"hihihihihi"</p></li>
+				            <li class = "writing"><p class = "subtitle">&#x1F4CD;&#x1F4C5; Venue &#x0026; Date<p><a href="https://ubuntu-paris.org/">2020 Ubuntu Party</a>, Cit&#x00E9; des Sciences et de l'Industrie, Paris</p><p>In-person workshop, 1 hour per session, with different participant each times.</p></li>  				
+				            <li class = "writing"><p class = "subtitle">Participants</p><p>Any age, including children and parents, young and older adults.
+				            </p></li>		            				
+				            <li class = "writing"><p class = "subtitle">&#x1F4CA; Level of Difficulty</p><p>Advanced</p></li>
+
+				            <li class = "writing"><p class = "subtitle">&#x1F3C1; Goal</p><p>To introduce a new public to programming through fun and compelling examples.</p></li>
+				            <li class = "writing"><p class="subtitle">&#x1F4DD; Method &#x0026; Materials</p><p>The students were using (Ubuntu) machines with the p5.js web editor.</p><p>I was teaching using a video projector as well as a board.</p><p>The exercises I gave where accessible through p5.js web-editor links available in <a href = "https://vertmo.github.io/ubuntu-party-p5/">Github</a>.</p></li>
+
+				            <li class = "clear"></li>
+				             <li class = "writing"><label>Gender</label><label>Race & Ethnicity</label><label>Age</label><label>Skill Level</label><label>#BlackLivesMatter&#x1F5A4;</label>
+				            </li>
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer">
+			            	<div>
+			            		<br>
+			            	</div>
+			            </div> 
+			        
+				  </div>
+
+				<!--modal box #2-->
+	
+				  <div class="modal-content" id="item2"><div class="close"><span>&#215;</span></div>
 			            <div class="modal-header">
 			            	<br>
 			               <!-- <h2 class="modal-title"></h2>--> 
 			            </div> 
 				        <div class="modal-body">
-				        	<ul>
+				        	<ul class= "cases">
 
-				        	<li class = "writing"><!--<img src="{{assets}}/img/asterisk-01.png">--><span>Title & Lead</span><p>"p5.js à l'Ubuntu Party !" by Basile Pesin</p></li>
-				            <li class = "writing"><span><!--&#x1F4CD;&#x1F4C5;-->Venue & Date</span><p> In-person workshop during the <a href="https://ubuntu-paris.org/">Ubuntu Party</a> in Paris, Cité des Sciences et de l'Industrie.</p><p>1 hour per session, with different participant each times.</p></li>  				
-				            <li class = "writing"><span>Participants</span><p>Any age, including children and parents, young and older adults.
+				        	<li class = "writing"><span>Making The Thing that Makes the Thing: Exploring Generative Art &#x0026; Design with p5.js</span></li>
+
+				        	<li class = "writing"><p class = "lead-name">Priti Pandurangan &#x0026; Ajith Ranka</p></li>
+
+				        	<li class = "writing"><label>Age</label><label>Skill Level</label><label>Occupation</label></li>
+				            <li class = "clear"></li>
+				            <li class = "writing"><img class="img" alt="A tryptich of images screenshot of a poster with red and yellow circles of letters from the word chillin against a blue tile background that changes perspective on a mobile device. At the top, there is a text input box to enter a message and download your own poster" src="{{assets}}/img/teach/priti-and-ajith.JPG"/></li>
+
+              				<li class = "clear"></li>
+				            <li class = "writing"><p class = "subtitle">Venue &#x0026; Date<p>&#x1F4CD; National Institute of Design, Bangalore</p><p>&#x1F4C5; 08/02/2020, 2:30~4:00 PM</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "writing"><p class = "subtitle">Participants</p><p>Our participants included art/design students & professionals, creative coding enthusiasts. We had close to 50 participants.
 				            </p></li>		            				
-				            <li class = "writing"><span>Level of Difficulty</span><p>Advanced</p></li>
+				            <li class = "clear"></li>
+				            <li class = "writing"><p class = "subtitle">Level of Difficulty</p><p>Priti: Intermediate &#x0026; Ajith: Advanced</p></li>
 
-				            <li class = "writing"><p class = "subtitle">&#x1F3C1; Goal</p><p>To introduce a new public to programming through fun and compelling examples.</p></li>
-				            <li class = "writing"><p class="subtitle">&#x1F4DD; Method &#x0026; Materials</p><p>The students were using (Ubuntu) machines with the p5.js web editor.</p><p>I was teaching using a video projector as well as a board.</p><p>The exercises I gave where accessible through p5.js web-editor links available in <a href = "https://vertmo.github.io/ubuntu-party-p5/">Github</a>.</p></li>		
-				             <li class = "writing"><label>gender</label><label>race & ethnicity</label><label>age</label><label>skill</label><label>level</label><label>#BlackLivesMatter&#x1F5A4;</label>
-				            </li>
+				            <li class = "clear"></li>
+				            <li class = "writing"><p class = "subtitle">Goal</p><p>To explore generative art &#x0026; design and recreate some classical works with p5.js.</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "writing"><p class="subtitle">&#x1F4DD; Method &#x0026; Materials</p><p>Materials: a <a href="https://musingswithcode.studio/generative-design-workshop">course page</a> linking to sketches on the p5 editor, an <a href="https://musingswithcode.studio/generative-design-workshop/explainers">interactive reference guide</a> to p5 basics.</p><p>Methods: In-person, collaborative, hands-on workshop.</p></li>		
+				    
 				         
 				            </ul>
 				        </div> 
-			            <div class="modal-footer"></div> 
+			            <div class="modal-footer"><div></div></div> 
 			        
 				  </div>
-
-				  <div class="modal-content" id="a2"><div class="close"><span>&#215;</span></div>
-			            <div class="modal-header">
-			            	<br>
-			               <!-- <h2 class="modal-title"></h2>--> 
-			            </div> 
-				        <div class="modal-body">
-				        	<ul>
-
-				        	<li class = "writing"><!--<img src="{{assets}}/img/asterisk-01.png">--><span>Title & Lead</span><p>"p5.js à l'Ubuntu Party !" by Basile Pesin</p></li>
-				            <li class = "writing"><span><!--&#x1F4CD;&#x1F4C5;-->Venue & Date</span><p> In-person workshop during the <a href="https://ubuntu-paris.org/">Ubuntu Party</a> in Paris, Cité des Sciences et de l'Industrie.</p><p>1 hour per session, with different participant each times.</p></li>  				
-				            <li class = "writing"><span>Participants</span><p>Any age, including children and parents, young and older adults.
-				            </p></li>		            				
-				            <li class = "writing"><span>Level of Difficulty</span><p>Advanced</p></li>
-
-				            <li class = "writing"><p class = "subtitle">&#x1F3C1; Goal</p><p>To introduce a new public to programming through fun and compelling examples.</p></li>
-				            <li class = "writing"><p class="subtitle">&#x1F4DD; Method &#x0026; Materials</p><p>The students were using (Ubuntu) machines with the p5.js web editor.</p><p>I was teaching using a video projector as well as a board.</p><p>The exercises I gave where accessible through p5.js web-editor links available in <a href = "https://vertmo.github.io/ubuntu-party-p5/">Github</a>.</p></li>		
-				             <li class = "writing"><label>gender</label><label>race & ethnicity</label><label>age</label><label>skill</label><label>level</label><label>#BlackLivesMatter&#x1F5A4;</label>
-				            </li>
-				         
-				            </ul>
-				        </div> 
-			            <div class="modal-footer"></div> 
-			        
-				  </div>
-
-
-
-
-
-
-
-
-
-
-
-				</div>
+				</div> <!--modal box end-->
 
 			
 
@@ -208,6 +225,18 @@ slug: teach/
 <script src="https://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
 
 
+<script>
+    $("#filters :checkbox").click(function() {
+
+       var re = new RegExp($("#filters :checkbox:checked").map(function() {
+                              return this.value;
+                           }).get().join("|") ); //.join("|")
+       $(".items").each(function() {
+          var $this = $(this);
+          $this[re.source!="" && re.test($this.attr("data-category")) ? "fadeIn" : "hide"]();
+       });
+    });
+</script>
 
 <!--modal box-->
 
@@ -229,37 +258,8 @@ $("body" ).on( "click",".close", function() {
 });
 
 </script>
-<!--
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-
--->
-<!--checkbox -->
+<!--checkbox -
 <script>
 
 
@@ -318,7 +318,7 @@ $( '.search-results' ).hide().filter( $filteredResults ).show();
 
 </script>
 
-
+-->
 
 <!--
 
@@ -401,7 +401,7 @@ $checks.change(function(){
 </script>
 
 -->
-<!--multi test slider-->
+<!--search accordion menu-->
 
 <script>
 
@@ -423,64 +423,3 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 </script>
-<!--
-<script>
-$(document).ready(function(){
-  // cache ref to all checkbox elements
-  var checkboxes = $('input:checkbox'),
-      // cache ref to results
-      results = $('#search-results'),
-      // cache ref to our list
-      listItems = $('.items > li'),
-      // cache amount ref
-      amount = $('#amount'),
-      // collection of selected checkbox elements
-      selectedItems = [],
-
-      };
-      
-  // render slider      
-  
-  checkboxes.on('change', function(){
-    var id = this.id;
-
-    if(this.checked){
-      // push the element vs the value
-      selectedItems.push(this.value);
-    }else{
-      // remove items on uncheck
-      selectedItems.splice(selectedItems.indexOf(this.value), 1);
-    }
-
-    updateList();
-     });
-
-
-
-  var updateList = function(){
-    // create map of values for joining
-    var selectedItemsValues = selectedItems.sort().join(' '),
-        // min value
-
-    // filter list items         
-    listItems.hide().filter(function(){
-      // get data attributes
-      var data = this.dataset;
-      // restrict list to price band and selections
-      return Number(data.price) > 0 && (selectedItems.length ? data.category.includes(selectedItemsValues) : true);
-    })
-    .show();
-
-    // count visible li only
-    var total = $('#search-results li:visible').length;
-
-    if(total === 0){
-      results.html('We did not find any matches. Maybe you can add your own experiences!');
-    }else{
-          results.html('We found ' + total + (total === 1 ? ' match' : ' matches' ) + '!');
-
-     }
- });
-</script>
--->
-
