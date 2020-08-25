@@ -1,0 +1,108 @@
+---
+title: teach
+slug: teach/
+---
+
+<div id="teach-page">
+
+  {{> sidebar}}
+
+ <main id="content" class="column-span">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="../../assets/js/teach.js"></script>
+
+	<script>
+	$(document).ready(function(){
+	  $("#myInput").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#myDIV *").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	});
+	</script>
+
+	<script>
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var panel = this.nextElementSibling;
+	    if (panel.style.maxHeight) {
+	      panel.style.maxHeight = null;
+	    } else {
+	      panel.style.maxHeight = panel.scrollHeight + "px";
+	    }
+	  });
+	}
+	</script>
+
+  	<section class= "teach-intro">
+      <h1>{{#i18n "teach-title2"}}{{/i18n}}</h1>
+
+	      <p>{{#i18n "teach-intro1"}}{{/i18n}}{{#i18n "teach-intro2"}}{{/i18n}}{{#i18n "teach-intro3"}}{{/i18n}}{{#i18n "teach-intro4"}}{{/i18n}}</p>
+
+ 	<section class= "teach-slider">
+	  <h2>{{#i18n "teach-slider-title1"}}{{/i18n}}</h2>
+		<div class="slidecontainer"><input type="range" min="1" max="5" value="1" class="slider" id="slider1">
+		</div>
+
+	  <h2>{{#i18n "teach-slider-title2"}}{{/i18n}}</h2>
+		  <div class="slidecontainer"><input type="range" min="1" max="100" value="50" class="slider" id="slider2"></div>
+
+    <button class="accordion">more</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+	</section>
+
+<h2 class = "teach-results">{{#i18n "teach-results"}}{{/i18n}}</h2>
+<p>Type something in the input field to search for a specific text inside the div element with id="myDIV":</p>
+<input id="myInput" type="text" placeholder="Search..">
+
+<div id="myDIV">
+  <p><a href = "https://yinhwa.art"> I am a paragraph.</a></p>
+  <div>I am a div element inside div.</div>
+  <button>I am a button</button>
+  <button>Another button</button>
+  <p>Another paragraph.</p>
+
+        <div class="left-column">
+           <div class="label">
+            <a class="nounderline" href="{{root}}/reference/#/libraries/p5.sound" target="_blank">
+              <img alt="" src="{{assets}}/img/libraries/p5.sound.jpg"></a>
+              <h3>p5.sound</h3>
+            
+            <p>{{#i18n "p5.sound"}}{{/i18n}} {{#i18n "libraries-created-by" }}{{/i18n}}
+            <a href="https://www.jasonsigal.cc/"
+              target="_blank">Jason Sigal</a>
+          </p>
+          </div>
+        </div>
+
+        <div class="right-column">
+                    <div class="label">
+            <a class="nounderline" href="https://github.com/processing/p5.accessibility" target="_blank">
+              <img alt="" src="{{assets}}/img/libraries/p5.accessibility.jpg">
+              <h3>p5.accessibility</h3>
+            </a>
+          <p>{{#i18n "p5.accessibility"}}{{/i18n}} 
+          </p>
+        </div>
+        </div>
+
+</div>
+
+	</section>
+    {{> footer}}
+
+
+  </main>
+
+
+  {{> asterisk}}
+
+</div> 
+
