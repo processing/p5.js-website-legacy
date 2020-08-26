@@ -51,7 +51,7 @@
 #menu.top_menu,
 #menu {
   list-style: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   width: 100%;
   margin: 0 0 1em 0;
   padding: 0;
@@ -113,7 +113,7 @@
   .sidebar-menu-icon .sidebar-nav-icon:before,
   .sidebar-menu-icon .sidebar-nav-icon:after {
     background: #ed225d;
-    content: "";
+    content: '';
     display: block;
     height: 100%;
     position: absolute;
@@ -206,7 +206,7 @@
   padding: 0.4em 0.6em;
   margin: 0.5em 0;
   color: #333 !important;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   display: inline-block;
 }
 
@@ -253,7 +253,7 @@
   border-bottom: 0.09em dashed;
   border-bottom-color: #ed225d;
   line-height: 1.2;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   display: block;
 }
 
@@ -375,6 +375,11 @@
   //////////////////////////////////////////////////
 */
 
+#reference-page {
+  margin-top: 3em; /*Language bar was hidden behind reference page*/
+  width: 100%; /*Sets width of reference page to 100% of container*/
+}
+
 #reference-page main h1 {
   float: left;
 }
@@ -385,7 +390,7 @@
 
 .reference-group h3 {
   font-size: 1em;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin-top: 0.5em;
 }
 
@@ -488,8 +493,7 @@ div.reference-subgroup {
 .example-content .edit_space,
 .example-content pre {
   position: absolute !important;
-  top: 0.5em !important;
-  left: 120px !important;
+  top: 120px;
   padding-top: 0 !important;
   border: none !important;
 }
@@ -501,7 +505,8 @@ pre.norender {
 
 .example-content pre {
   margin-top: 0 !important;
-  width: 30.5em !important;
+  max-height: 400px; /*In case of larger code Description pre gets overlaps description*/
+  width: 30.5em;
 }
 
 .example-content .edit_space {
@@ -514,12 +519,6 @@ pre.norender {
   left: 0;
 }
 
-.example_container pre {
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
 .example div {
   position: relative;
 }
@@ -530,7 +529,7 @@ pre.norender {
 }
 
 .edit_space button {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   color: #ccc;
   border: 1px solid rgba(200, 200, 200, 0.15);
@@ -558,7 +557,7 @@ pre.norender {
 
 .display_button {
   margin-bottom: 2em;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   color: #2d7bb6;
   border: 1px solid rgba(45, 123, 182, 0.25);
@@ -568,10 +567,45 @@ pre.norender {
 
 .example_container {
   width: 36em;
+  min-height: 500px;
   border-top: 0.09em dashed;
   border-top-color: #333;
   padding-top: 0.5em;
+  margin-top: 2em;
+}
+.example_container:first-of-type {
   margin-top: 1em;
+}
+
+/*to make ref example responsive*/
+@media (max-width: 600px) {
+  .example-content pre {
+    top: calc(120px + 2em);
+  }
+  .example_container {
+    width: 100%;
+    min-height: 510px;
+  }
+
+  .example_container button {
+    top: 124px;
+  }
+
+  .description {
+    margin-top: 3rem;
+  }
+
+  .edit_button {
+    left: 0;
+  }
+
+  .reset_button {
+    left: 2.58em;
+  }
+
+  .copy_button {
+    left: 5.91em;
+  }
 }
 
 form {
@@ -603,10 +637,10 @@ form {
   background: url(../img/search.png) 100% no-repeat;
 }
 
-#search input[type="text"],
-#search input[type="search"] {
+#search input[type='text'],
+#search input[type='search'] {
   border: 1px solid rgba(200, 200, 200, 0.5);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.25em;
   width: 9.75em;
 }
@@ -622,7 +656,7 @@ form {
   color: #ccc;
 }
 
-#search input[type="text"]:focus {
+#search input[type='text']:focus {
   color: #2d7bb6;
   outline-color: #2d7bb6;
   outline-width: 1px;
@@ -816,7 +850,7 @@ textarea {
 */
 
 .contribute-form {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .contribute-form input,
@@ -956,7 +990,6 @@ h3 {
   margin: 1em 0 0 0;
 }
 
-
 .bullet-list {
   padding: 0 0 0 40px;
   list-style: disc;
@@ -1048,7 +1081,7 @@ h3 {
   overflow: hidden;
   margin-top: 0.5em;
   color: #222;
-  font-family: inconsolatamedium, Consolas, Monaco, "Andale Mono", monospace;
+  font-family: inconsolatamedium, Consolas, Monaco, 'Andale Mono', monospace;
   font-size: 1em !important;
   background-color: #fff;
   line-height: 1em;
@@ -1196,20 +1229,20 @@ img.gallery-img {
 }
 
 #showcase-page .showcase-intro h1 {
-  font: italic 900 14.5vw "Montserrat", sans-serif;
+  font: italic 900 14.5vw 'Montserrat', sans-serif;
   color: #ed225d;
   text-align: left;
   text-transform: uppercase;
 }
 
 #showcase-page .showcase-intro p {
-  font: 400 1.4rem "Montserrat", sans-serif;
+  font: 400 1.4rem 'Montserrat', sans-serif;
   line-height: 1.5em;
 }
 
 #showcase-page .showcase-featured h2,
 #showcase-page .project-page h2 {
-  font: italic 900 2rem "Montserrat", sans-serif;
+  font: italic 900 2rem 'Montserrat', sans-serif;
   color: #ed225d;
   letter-spacing: 0.05rem;
 }
@@ -1230,16 +1263,16 @@ img.gallery-img {
 }
 
 #showcase-page .showcase-featured h3.title {
-  font: italic 900 1rem "Montserrat", sans-serif;
+  font: italic 900 1rem 'Montserrat', sans-serif;
 }
 
 #showcase-page .showcase-featured p.credit {
-  font: 500 1rem "Montserrat", sans-serif;
+  font: 500 1rem 'Montserrat', sans-serif;
 }
 
 #showcase-page .showcase-featured p.description {
   font-size: 1em;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 #showcase-page .nominate {
@@ -1256,7 +1289,7 @@ img.gallery-img {
   border: solid #ed225d 2px;
   box-shadow: 4px 4px 0 #ed225d;
 
-  font: 1.5rem "Montserrat", sans-serif;
+  font: 1.5rem 'Montserrat', sans-serif;
   color: #ed225d;
   letter-spacing: 0.02rem;
   transition: all 0.3s;
@@ -1266,7 +1299,7 @@ img.gallery-img {
   #showcase-page .nominate a,
   #showcase-page .nominate a:visited {
     padding: 0.4em 0.3em;
-    font: 1.3rem "Montserrat", sans-serif;
+    font: 1.3rem 'Montserrat', sans-serif;
   }
 }
 
@@ -1285,13 +1318,13 @@ img.gallery-img {
 }
 
 #showcase-page .showcase-featured a::after {
-  content: " →";
+  content: ' →';
 }
 #showcase-page .showcase-featured a.tag::after {
-  content: "";
+  content: '';
 }
 #showcase-page .showcase-featured .no-arrow-link::after {
-  content: " ";
+  content: ' ';
 }
 
 #showcase-page .showcase-featured .no-arrow-link:hover {
@@ -1304,35 +1337,35 @@ img.gallery-img {
   margin-top: 1em;
 }
 
-ul.project-tags a{
+ul.project-tags a {
   line-height: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  font-size: .5em;
+  font-size: 0.5em;
   margin: 0px;
 }
-h3.title{
+h3.title {
   margin-top: 3em;
 }
 #showcase-page ul.project-tags li {
   margin: 5px;
   display: inline-block;
 }
-h2.featuring{
+h2.featuring {
   margin-top: 0px;
 }
-#showcase-page a.tag{
+#showcase-page a.tag {
   display: inline-block;
   padding: 6px 14px;
   background-color: #ffe8e8;
   border-radius: 27px;
-  font: 0.7rem "Montserrat", sans-serif;
+  font: 0.7rem 'Montserrat', sans-serif;
   color: #333;
 }
-#showcase-page ul.project-tags li{
+#showcase-page ul.project-tags li {
   margin: 0px;
 }
 /*
@@ -1366,7 +1399,7 @@ h2.featuring{
    */
 
   #showcase-page .showcase-intro h1 {
-    font: italic 900 6.35vw "Montserrat", sans-serif;
+    font: italic 900 6.35vw 'Montserrat', sans-serif;
   }
 
   #showcase-page .showcase-intro p {
@@ -1400,18 +1433,18 @@ h2.featuring{
 
 #showcase-page .project-metadata section h3 {
   color: #ed225d;
-  font: bold italic 1rem "Montserrat", sans-serif;
+  font: bold italic 1rem 'Montserrat', sans-serif;
 }
 
 #showcase-page .project-resources ul.links {
-  font: 500 0.7rem "Montserrat", sans-serif;
+  font: 500 0.7rem 'Montserrat', sans-serif;
   letter-spacing: 0.01rem;
   line-height: 1.5;
   margin: 0.5rem 0;
 }
 
 #showcase-page .project-credit {
-  font: italic bold 1.25rem "Montserrat", sans-serif;
+  font: italic bold 1.25rem 'Montserrat', sans-serif;
 }
 
 #showcase-page .project-credit p {
@@ -1434,7 +1467,7 @@ h2.featuring{
   font-size: 1.2rem;
   font-weight: 900;
   */
-  font: 900 1.2rem "Montserrat", sans-serif;
+  font: 900 1.2rem 'Montserrat', sans-serif;
   line-height: 1.5;
 }
 
@@ -1462,7 +1495,8 @@ h2.featuring{
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-#teach-page .active, .accordion:hover {
+#teach-page .active,
+.accordion:hover {
   background-color: #ccc;
 }
 
@@ -1474,17 +1508,13 @@ h2.featuring{
   overflow: hidden;
 }
 
-
-
-
-
 #teach-page .teach-intro p {
-  font: 200 1.4rem "Montserrat", sans-serif;
+  font: 200 1.4rem 'Montserrat', sans-serif;
   line-height: 1.5em;
 }
 
 #teach-page .teach-slider h2 {
-  font: 200 1.4rem "Montserrat", sans-serif;
+  font: 200 1.4rem 'Montserrat', sans-serif;
   color: #ed225d;
   letter-spacing: 0.05rem;
 }
@@ -1494,22 +1524,22 @@ h2.featuring{
   padding-bottom: 10px;
   margin-bottom: 10px;
   opacity: 1;
-  font: 400 1.4rem "Montserrat", sans-serif;
+  font: 400 1.4rem 'Montserrat', sans-serif;
   color: #ed225d;
   line-height: 1.5em;
 }
 
 /* The slider itself */
 .slider {
- -webkit-appearance: none;  /* Override default CSS styles */
+  -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
   width: 80%; /* Full-width */
   height: 0px; /* Specified height */
   background: transparent; /* Grey background */
   border-bottom: 4px dotted #ed225d; /* Remove outline */
-  opacity: .3; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
+  opacity: 0.3; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
   outline: none;
 }
 
@@ -1555,12 +1585,12 @@ h2.featuring{
 /* always */
 
 @font-face {
-  font-family: "inconsolatamedium";
-  src: url("fonts/inconsolata.eot");
-  src: url("fonts/inconsolata.eot?#iefix") format("embedded-opentype"),
-    url("fonts/inconsolata.woff") format("woff"),
-    url("fonts/inconsolata.ttf") format("truetype"),
-    url("fonts/inconsolata.svg#inconsolatamedium") format("svg");
+  font-family: 'inconsolatamedium';
+  src: url('fonts/inconsolata.eot');
+  src: url('fonts/inconsolata.eot?#iefix') format('embedded-opentype'),
+    url('fonts/inconsolata.woff') format('woff'),
+    url('fonts/inconsolata.ttf') format('truetype'),
+    url('fonts/inconsolata.svg#inconsolatamedium') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -1582,7 +1612,7 @@ html {
 body {
   margin: 0;
   background-color: #fff;
-  font-family: "Times";
+  font-family: 'Times';
   font-weight: 400;
   line-height: 1.45;
   color: #333;
@@ -1668,7 +1698,7 @@ h5 {
   margin: 1.414em 0 0.5em 0;
   font-weight: inherit;
   line-height: 1.2;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
@@ -1689,7 +1719,7 @@ h2 {
 
 #backlink {
   margin: 1.2em 0.444em 0 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   float: right;
 }
 
@@ -1722,7 +1752,7 @@ h2 {
     rgba(116, 255, 183, 1) 0%,
     rgba(138, 255, 242, 1) 100%
   );
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #ed225d !important;
 }
 
@@ -1791,26 +1821,26 @@ h2 {
   margin-right: 0.25em;
 }
 
-#family form input[type="text"] {
+#family form input[type='text'] {
   visibility: hidden;
   width: 0;
   margin: 0;
   color: #333;
   border: 1px solid #3796d1;
-  font-family: "Roboto" !important;
+  font-family: 'Roboto' !important;
   font-weight: 400;
   font-size: 1em;
   transition: width 100ms;
   outline: none;
 }
 
-#family form.form__open input[type="text"] {
+#family form.form__open input[type='text'] {
   visibility: visible;
   width: 9.75em;
 }
 
-#family form input[type="submit"] {
-  background: url("../img/search.png") center center no-repeat;
+#family form input[type='submit'] {
+  background: url('../img/search.png') center center no-repeat;
   border: none;
   outline: none;
 }
@@ -1937,7 +1967,7 @@ p + img {
 #lockup p {
   color: #ed225d;
   font-size: 0.7em;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 0.5em 0 0 8.5em;
 }
 
@@ -1955,7 +1985,7 @@ p + img {
 .caption p {
   text-align: right;
   font-size: 0.7em;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   padding-top: 0.25em;
 }
 
@@ -1997,7 +2027,7 @@ footer {
 }
 
 .ir:before {
-  content: "";
+  content: '';
   display: block;
   width: 0;
   height: 150%;
@@ -2064,7 +2094,7 @@ footer {
 
 .clearfix:before,
 .clearfix:after {
-  content: " ";
+  content: ' ';
   /* 1 */
   display: table;
   /* 2 */
@@ -2152,11 +2182,11 @@ footer {
     right: 1em;
   }
   #i18n-btn a {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
   #menu {
     list-style: none;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0 0.75em 0 -1.85em;
     /* margin-right: 0.75em;  */
     width: 7.3em;
@@ -2229,7 +2259,7 @@ footer {
   }
 
   #collection-list-categories {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: row;
     margin: 1em 0 1.5em 0;
@@ -2282,7 +2312,7 @@ footer {
     margin-bottom: 1em;
   }
 
-  #search input[type="text"] {
+  #search input[type='text'] {
     width: 100%;
   }
 
@@ -2306,11 +2336,11 @@ footer {
   }
 
   #menu li:nth-last-child(1) a::after {
-    content: "";
+    content: '';
   }
 
   #menu li a::after {
-    content: ",";
+    content: ',';
   }
 
   #contribute-item:first-child {
@@ -2333,7 +2363,7 @@ footer {
     display: none !important;
     pointer-events: none;
   }
-  pre[class*="language-"] {
+  pre[class*='language-'] {
     padding: 0.5em 0.5em;
     width: 100vw;
   }
@@ -2416,7 +2446,7 @@ iframe {
 
 .cnv_div {
   /* This ensures that all canvases and additional html elements (if any) from
-   * the example code snippets are only 100px wide rather than covering the 
+   * the example code snippets are only 100px wide rather than covering the
    * entire page, which potentially obscures the example code. */
   display: inline-flex;
   flex-direction: column;
@@ -2488,7 +2518,7 @@ iframe {
   overflow: hidden;
   text-indent: -100%;
   background: transparent
-    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI4IDI4Ij48cGF0aCBkPSJNMTYuOSAxMC4zbDguNS0yLjYgMS43IDUuMiAtOC41IDIuOSA1LjMgNy41IC00LjQgMy4yIC01LjYtNy4zTDguNSAyNi4zbC00LjMtMy4zIDUuMy03LjJMMC45IDEyLjZsMS43LTUuMiA4LjYgMi44VjEuNGg1LjhWMTAuM3oiIHN0eWxlPSJmaWxsOiNFRDIyNUQ7c3Ryb2tlOiNFRDIyNUQiLz48L3N2Zz4=");
+    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI4IDI4Ij48cGF0aCBkPSJNMTYuOSAxMC4zbDguNS0yLjYgMS43IDUuMiAtOC41IDIuOSA1LjMgNy41IC00LjQgMy4yIC01LjYtNy4zTDguNSAyNi4zbC00LjMtMy4zIDUuMy03LjJMMC45IDEyLjZsMS43LTUuMiA4LjYgMi44VjEuNGg1LjhWMTAuM3oiIHN0eWxlPSJmaWxsOiNFRDIyNUQ7c3Ryb2tlOiNFRDIyNUQiLz48L3N2Zz4=');
   background-size: 0.33em;
 }
 
@@ -2575,7 +2605,7 @@ iframe {
   color: #ed225d;
   padding: 0.4em 0.6em;
   margin: 1em 0 0 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   display: block;
 }
 
