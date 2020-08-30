@@ -1446,127 +1446,67 @@ h2.featuring{
    Teach Page
    ========================================================================== */
 
-/* checkbox test */
-
-/*#teach-page .container {
-    
-    max-width: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
-    text-align: left;
-  
-}*/
-
-#teach-page a:hover {
-
+#teach-page .case-list a:hover {
   border-bottom: none;
-
 }
 
+#teach-page .heading {
+  font: 400 1.4rem "Montserrat", sans-serif;
+  color: black;
+  line-height: 1.2em;
+  padding-bottom: .4em;
+  border-bottom: 4px dotted #ed225d;
+}
 
-#teach-page ul.filters li{
+#teach-page h3.title{
+  margin-top: 3em;
+}
+
+/*search-filter label*/
+
+#teach-page .search-filter {
   display: inline;
-  list-style: none;
-  width: 100%;
-  
+}
+
+#teach-page .search-filter label {
+  display: inline-block;
+  font: italic 900 1rem "Montserrat", sans-serif;
+  padding: 6px 12px;
+  text-align: left;
+  white-space: nowrap;
+  color: #ed225d;
+  /*transition: .2s; */
+  margin-bottom: .6em;
+  margin-top: 1.2em;
+  border: 1px solid #ed225d;
+
+
+}
+
+#teach-page .search-filter label {
+  cursor: pointer;
 }
 
 
-#teach-page ul.filters li label{ /*the entire filter label design*/
-    display: inline-block;
-    border-radius: 25px;
-    font: 0.7rem "Montserrat", sans-serif;
-    color: #aaaaaa; 
-    white-space: nowrap;
-    margin: 3px 0px;
-    /*-webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;*/
-    transition: all .3s;
-    background: #fafafa;
-    background: -webkit-linear-gradient(to bottom, white, #fafafa);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, white, #fafafa);
-    box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 100px 20px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.5);
-    /* fallback for old browsers 
-    background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
-     Chrome 10-25, Safari 5.1-6 
-    background: linear-gradient(to bottom, #fafafa, #ffe8e8);
-     W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+#teach-page .search-filter label:hover {
+  color: white;
+  background-color: #ed225d;
 }
 
 
-  
-#teach-page ul.filters li label {
-    padding: 6px 12px;
-    cursor: pointer;
-}
-
-#teach-page ul.filters li label::before {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font: 1.5rem "Montserrat", sans-serif;
-    font-weight: 900;
-    color: #333333;
-
-    padding: 2px 2px 2px 2px; /*padding among labels*/
-}
-
-#teach-page ul.filters li label:hover {
-    color: #ed225d;
-    background: #ffe8e8;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #fafafa, #ffe8e8);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border: 2px #ed225d; /* onclick*/
-      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 15px -13px rgba(237, 34, 93, 0.57);   
-
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
-  }
-/*asterisk turns
-#teach-page ul.filters li input[type="checkbox"]:checked + label::before {
-    content: url(../img/asterisk.png);
-    transform: rotate(-360deg);
-    transition:.3s ease-in-out;
-}
-*/
-
-#teach-page ul.filters li input[type="checkbox"]:checked + label {
-    color: white;
-    background: #ffe8e8;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #ffe8e8, #ed225d);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #ffe8e8, #ed225d);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border: 2px #ed225d; /* onclick*/
-      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 15px -13px rgba(237, 34, 93, 0.57);   
-
-    
-}
-
-#teach-page ul.filters li input[type="checkbox"] {
+#teach-page .search-filter input[type="checkbox"] {
   display: absolute;
+}
+
+
+#teach-page .search-filter input[type="checkbox"] {
   position: absolute;
   opacity: 0;
 }
 
-#teach-page ul.filters p.title{
-  font: 0.83rem "Montserrat", sans-serif;
+
+#teach-page ul.filters p.filter-title {
+  font: 400 0.83rem "Montserrat", sans-serif;
   color: #ed225d;
   height: 50px;
   padding-top:20px;
@@ -1580,145 +1520,68 @@ h2.featuring{
 }
 
 
+
+
+#teach-page ul.filters li {
+  display: inline;
+  list-style: none;
+  width: 100%;
+}
+
+#teach-page ul.filters li label {
+    display: inline-block;
+    border-radius: 25px;
+    font: 200 0.7rem "Montserrat", sans-serif;
+    /*font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;*/
+
+    color: black;
+    white-space: nowrap;
+    margin: 3px 0px;
+    transition: .2s;
+    background: #fafafa;
+}
+
+#teach-page ul.filters li label {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#teach-page ul.filters li label::before {
+    display: inline-block;
+    padding: 2px 2px 2px 2px; /*padding among labels*/
+}
+
+#teach-page ul.filters li label:hover {
+    color: #ed225d;
+    background: #ffe8e8;
+    /*transform: translateY(2px);*/
+
+ }
+
+#teach-page ul.filters li input[type="checkbox"]:checked + label {
+    color: white;
+    background: #ed225d;
+
+}
+
+#teach-page ul.filters li input[type="checkbox"] {
+  display: absolute;
+  position: absolute;
+  opacity: 0;
+}
+
+
 #teach-page ul.filters li.clear{
   display: block;
   clear: both;
 
 }
-/*ul.ks-cboxtags li input[type="checkbox"]:focus + label {
-  border: 2px dotted #ffe8e8;
-}*/
 
 
-#teach-page p.search-explore-border{
-  border-bottom: 0.1em dashed #ffe8e8;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-
-}
-
-/*search title*/
-
-#teach-page .search-explore label{
-    padding: 6px 8px;
-    cursor: pointer;
-}
-
-#teach-page .search-explore label{
-
-  outline: none;
-    border: none;
-    text-align: left;
-    width: 98%;
-    display: inline-block;
-    font: .9rem "Montserrat", sans-serif;
-    color: #ed225d;
-    margin: 3px 0px;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    display: inline-block;
-    white-space: nowrap;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    border-radius: 25px;
-    /*content: url(../img/asterisk-01.png);*/
-    transition: .5s;    
-    background: #fafafa;/*#ffe8e8;*/
-    /*border: solid white 1px;*/  
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #fafafa, #ffe8e8);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 100px 20px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.5);
-
-
-}
-
-
-
-#teach-page .search-explore label:hover {
-  width:100%;
-  outline: none;
-  border:none;
-  display: inline-block;
-  color: white;
-  /*color: #ffbfd1;*/
-  text-decoration: none;
-
-      background: -webkit-linear-gradient(to right #ffe8e8, #ed225d);
-    /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ffe8e8, #ed225d);
-  box-shadow: 0px 50px 60px -15px rgba(237, 34, 93, 0.9);
-  box-shadow: 0px 30px 30px -15px rgba(237, 34, 93, 0.9);
-  box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.9);
-
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
-  }
-
-#teach-page .search-explore label {
-    cursor: pointer;
-}
-
-#teach-page .search-explore label::before{
-  outline: none;
-  border:none;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 900;
-    border-radius: 25px;
-    padding: 2px 2px 2px 2px; /*padding among labels*/
-    content: url(../img/asterisk.png);
-    
-    box-shadow: 0px 100px 60px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 20px 20px -17px rgba(237, 34, 93, 0.5);
-}
-
-#teach-page .search-explore input[type="checkbox"] {
-
-  position: absolute;
-  opacity: 0;
-}
-
-/*
-#teach-page .search-explore input[type="checkbox"]:checked + label::before {
-    content: url(../img/asterisk.png);
-    transform: rotate(-360deg);
-    transition:.3s ease-in-out;
-}*/
-
-#teach-page .search-explore input[type="checkbox"]:checked + label{
-  width: 100%;
-  outline: none;
-  border:none;
-  color: white;
-
-  cursor: pointer;
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: #ffe8e8;
-    background: -webkit-linear-gradient(to right #ffe8e8, #ed225d);
-    background: linear-gradient(to right, #ffe8e8, #ed225d);
-
-    border: 2px #ed225d;
-    box-shadow: 0px 50px 60px -17px rgba(237, 34, 93, 0.9);
-    box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.9);
-    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.9);
-
-}
-
-
-
-
-
-/*Accordion Menu*/
+/*Filter Panel*/
 
 #teach-page .filter-panel {
   padding: 0px;
@@ -1726,26 +1589,12 @@ h2.featuring{
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  margin-bottom: 0.8em;
+  padding-bottom: .4em;
 
 }
 
 
-
-#teach-page h3.title{
-  margin-top: 3em;
-}
-/*
-#teach-page label{
-
-  display: inline-block;
-  padding: 6px 14px;
-  background-color: #ffe8e8;
-  border-radius: 27px;
-  font: 0.7rem "Montserrat", sans-serif;
-  color: white;
-}
-
-/*exlpore in diversity*/
 
 #teach-page .filter-panel p {
   margin: 0;
@@ -1759,18 +1608,12 @@ h2.featuring{
 
  /*p5 workshop and class title*/
 #teach-page .teach-intro p {
-  font: 200 1.2rem "Times", sans-serif;
+  font: 400 1.2rem "Times", sans-serif;
   line-height: 1.5em;
 }
 
 
-
 /*modal box*/
-
-#teach-page .results li.case-list a {
- /* white-space: nowrap;
-  overflow: hidden;*/
-}
 
 #teach-page .modal-title{
 
@@ -1790,56 +1633,15 @@ h2.featuring{
   margin-bottom: 1.2em;
 }
 
-#teach-page .case iframe[alt] {
-  font: 0.6rem "Montserrat", sans-serif;
-  color: #bababa;
-}
 
-
-
-#teach-page .case .speech{
-
-  margin-top: 1em;
-  font: 0.8rem italic "Montserrat", sans-serif;
-  color: #aaaaaa; 
-  position: relative;
-  /*max-width: 30em;*/
-  padding: 0.5em 1.2em; /*1.2em;*/
-  border-radius: 25px;
-  border-bottom: none;
-  /*box-shadow: 0 0.125rem 0.5rem #ffc7c7, 0 0.0625rem 0.125rem #ffc7c7;*/
-  margin-bottom: 2em;
-
-  background: #fafafa;/*#ffe8e8;*/
-    /*border: solid white 1px;*/  
-    /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, white, #fafafa);
-    /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, white, #fafafa);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  box-shadow: 0px 100px 30px -17px #bababa;
-  box-shadow: 0px 100px 20px -17px #bababa;
-  box-shadow: 0px 20px 10px -17px #bababa;
-
-}
 #teach-page img{
   margin-bottom: 1.4em;
 }
 
-#teach-page .case .speech::before {
-  margin-top: 1em;
- 
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  bottom: 100%;
-  left: 1.5em;
-  border: .5em solid transparent;
-  border-top: none;
+#teach-page img[alt]{
+  font: 0.6rem "Montserrat", sans-serif;
+  color: #bababa;
 
-  border-bottom-color: white;
-  filter: drop-shadow(3px -3px 3px rgba(186, 186, 186, 0.4));
 }
 
 #teach-page .close {
@@ -1851,7 +1653,6 @@ h2.featuring{
   margin-right: .4em;
   margin-top: .4em;
   cursor:pointer;
-  
 }
 
 #teach-page .close:hover, .close:focus {
@@ -1859,54 +1660,23 @@ h2.featuring{
   text-decoration: none;
   cursor: pointer;
 }
-/*
-#teach-page body::-webkit-scrollbar{
-  z-index: 999999;
-}
-*/
-
-
-
-#teach-page img{
-}
 
 #teach-page .case label{
   margin-left: 1em;
   margin-right: 1em;
-margin: 2px 2px;  
-padding: 5px 8px;
-   display: inline-block;
-    border-radius: 25px;
-    font: 0.7rem "Montserrat", sans-serif;
-    color: #aaaaaa; 
-    white-space: nowrap;
-    /*-webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;*/
- 
- /* outline: none;
-  border:none;*/
+  margin: 2px 2px;  
+  padding: 5px 8px;
+  display: inline-block;
+  border-radius: 25px;
+  font: 0.7rem "Montserrat", sans-serif;
+  color: #aaaaaa; 
+  white-space: nowrap;
   color: white;
-
-/*  cursor: pointer;*/
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: #ffe8e8;
-    background: -webkit-linear-gradient(to bottom #ffe8e8, #ed225d);
-    background: linear-gradient(to bottom, #ffe8e8, #ed225d);
-
-/*    border: 2px #ed225d;*/
-    box-shadow: 0px 50px 60px -17px rgba(237, 34, 93, 0.9);
-    box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.9);
-    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.9);
-
+  background: #ed225d;
 }
 
 /*modal scrollbar*/
 
-/* width */
 #teach-page .modal-body::-webkit-scrollbar {
 
   width: 5px;
@@ -1914,119 +1684,108 @@ padding: 5px 8px;
   border-radius: 10px;
 }
 
-/* Track */
 #teach-page .modal-body::-webkit-scrollbar-track {
   background: #f1f1f1; 
 }
  
-/* Handle */
 #teach-page .modal-body::-webkit-scrollbar-thumb {
   background: #ffe8e8;
 }
 
-/* Handle on hover 
-#teach-page .modal-body::-webkit-scrollbar-thumb:hover {
-  background: #ffd7d7; 
-
-}*/
-
-
+/*modal contents*/
 
 #teach-page .case{
   margin-left: 2em;
   margin-right:2em;
 }
 
+#teach-page .case span {
+  color: #ed225d;
+  font-color: #ed225d;  
+  font: 900 1.4rem "Montserrat", sans-serif;
+}
+
+
 #teach-page .case p.lead-name{
-  font: 200 1rem "Montserrat", sans-serif;
+  font: 900 Italic 1.2rem "Montserrat", sans-serif;
   color: #ed225d;
   font-color: #ed225d;
   line-height: 1.4em;
   border-bottom: 1.4em;
 }
 
+#teach-page .case .speech{
+
+  position: relative;
+  font: 200 Italic .8rem "Montserrat", sans-serif;
+  color: black; /*#aaaaaa; */
+  background: #ffe8e8;
+  padding: 0.5em 1.2em;
+  border-radius: .4em;
+  border-bottom: none;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  
+
+}
+
+#teach-page .case .speech::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: #ffe8e8;
+  border-top: 0;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
 #teach-page .case p.subtitle{
 
-  font: 200 .8rem "Montserrat", sans-serif;
+  font: 400 1rem "Montserrat", sans-serif;
   color: #ed225d;
   font-color: #ffe8e8;
   line-height: 1.4em;
-  /*font-weight: bold;*/
-/*  margin-top: 0.8em;
-  margin-bottom: 0.8em;*/
+  border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);  
 }
 
-/*
-#teach-page .case-border{
-  border-bottom: 0.1em dashed #ffc7c7;
-}*/
-
-
 #teach-page .case p{
-/*  margin-left: 2em;
-  margin-right:2em;*/
   font: 400 1rem "Times", sans-serif;
   color: black;
   line-height: 1.4em;
 
-  /*border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);*/
-
-}
-
-#teach-page .case span {
-  color: #ed225d;
-  font-weight: bold;
-  font-color: #ed225d;  
-  font: 200 1.6rem "Montserrat", sans-serif;
-  /*border-bottom: 0.1em solid #ed225d;*/
-
-}
-
-
-#teach-page .modal-header{
-/*  background-image: url(../img/asterisk-01.png);*/
-  margin-bottom: 0.8em;
-}
-
-/*#teach-page .modal-body{
-margin-left: 2em;
-/*margin-right: 2em;
- margin-bottom: 0.8em;
-  /*height: 50px;
-  line-height: 1.5em;
-}*/
-#teach-page .modal-footer{
-/*  background-image: url(../img/asterisk-01.png);*/
-  margin-bottom: 0.8em;
-}
-
-#teach-page .modal-body p{
   border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);
 
 }
+
+#teach-page .modal-header{
+
+  margin-bottom: 0.8em;
+}
+
+
+#teach-page .modal-footer{
+
+  margin-bottom: 0.8em;
+}
+
+/*#teach-page .modal-body p{
+  border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);
+
+}*/
 
 #teach-page .modal-body:-webkit-scrollbar{
   display: none;
 }
 
 
-#teach-page .modal-footer{
-
-/*  margin-bottom: 1.5em;*/
- 
-/*  margin-left: 1em;
-  margin-right: 1em;
-
-  font: 400 .8rem "Montserrat", sans-serif;
-  color: black;
-  line-height: 1.2em;
-*/
-}
-
 #teach-page .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 100; /* Sit on top */
+  z-index: 100;
   width: 100%;
   height: 100%;
   top:0;
@@ -2036,30 +1795,18 @@ margin-left: 2em;
   box-sizing: border-box;
   background-color: rgba(255, 232, 232, 0.5); /* Fallback color */
 
-  /*overflow: hidden;*/
-
 }
-
-/*#teach-page .results-section{
-  overflow: hidden;
-}*/
 
 #teach-page .modal-content{
   position: fixed;
-  
-  /*overflow: auto;*/
-  /*height: 100%;*/
-  background: #fafafa;
+  background: white;
   top: 2%;
   left: 2%;
   right: 2%;
   bottom: 2%;
-/*  bottom: 2%;*/
   margin: auto; /*keep centered*/
-  /*overflow: auto;*/
   border: 1.2px solid #ffe8e8;
-  max-width: 740px; /* Could be more or less, depending on screen size */
-  /*display:none;*/
+  max-width: 740px; 
   box-shadow: 10px 100px 30px -17px rgba(237, 34, 93, 0.5);
   box-shadow: 10px 100px 20px -17px rgba(237, 34, 93, 0.5);
   box-shadow: 10px 20px 10px -17px rgba(237, 34, 93, 0.5);
@@ -2069,8 +1816,6 @@ margin-left: 2em;
 #teach-page .modal-body{
   
   margin: auto;
-  
-/*  margin-top: 10%;*/
   height: 85%;
   width: 95%;
   overflow-y: auto;
@@ -2078,22 +1823,18 @@ margin-left: 2em;
 }
 
 #teach-page .results-wrapper{
-  width:98%;
+  width: 100%;
   outline: none;
-    border: none;
-    background: white;
-      background: #fafafa;/*#ffe8e8;*/
-    /*border: solid white 1px;*/  
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, white, #fafafa);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, white, #fafafa);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    border: 1px solid #ffe8e8;
-    box-shadow: 10px 100px 30px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 10px 100px 20px -17px rgba(255, 232, 232, 0.5);
-    box-shadow: 10px 20px 10px -17px rgba(237, 34, 93, 0.5);
+  background: white;
+  /*background: white;
+  background: #fafafa;*/
+  /*border: solid white 1px;*/  
+  /*background: -webkit-linear-gradient(to bottom, white, #fafafa);
+  background: linear-gradient(to bottom, white, #fafafa);*/
+  /*border: 1px solid #ffe8e8;*/
+  /*box-shadow: 10px 100px 30px -17px rgba(237, 34, 93, 0.5);
+  box-shadow: 10px 100px 20px -17px rgba(255, 232, 232, 0.5);
+  box-shadow: 10px 20px 10px -17px rgba(237, 34, 93, 0.5);*/
 
 
 }
@@ -2105,141 +1846,17 @@ margin-left: 2em;
 
 }
 
-
-/*
-#teach-page .results ul{
-
-  width: 100%;
-}
-*/
-
 #teach-page .case-list{
 
-  margin-left: 1em;
-  margin-right: 1em;
   margin-bottom: 0.8em;
   padding-bottom: .4em;
 
-  font: 400 1rem "Times", sans-serif;
-  color: black;
+  font: 400 1.0rem "Times", sans-serif;
   line-height: 1.2em;
 
-  border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);
+  border-bottom: 0.1em dashed #ffe8e8;
  
 }
-
-
-#teach-page .heading{
-
-    opacity: 1;
-  font: 400 1.4rem "Montserrat", sans-serif;
-  color: #ed225d;
-  line-height: 1.2em;
-  padding-bottom: .2em;
-  }
-
-
-/*results modals*/
-/*submission button*/
-
-
-#teach-page .submit-btn{
-      padding: 6px 12px;
-    cursor: pointer;
-}
-
-
-#teach-page .submit-btn{
-    outline: none;
-    border: none;
-    text-align: left;
-    width: 98%;
-    display: inline-block;
-    font: .9rem "Montserrat", sans-serif;
-    color: #ed225d;
-    margin: 3px 0px;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    border-radius: 25px;
-    /*content: url(../img/asterisk-01.png);*/
-    transition: ease .5s;    
-    background: #ffe8e8;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #fafafa, #ffe8e8);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #fafafa, #ffe8e8);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 100px 20px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.5);
-
-}
-
-#teach-page .submit-btn:before{
-
-    outline: none;
-    border:none;
-
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 900;
-    border-radius: 25px;
-    padding: 2px 2px 2px 2px; /*padding among labels*/
-    content: url(../img/asterisk.png);
-
-      box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 100px 20px -17px rgba(237, 34, 93, 0.5);
-    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.5);
-}
-
-#teach-page .submit-btn:hover{
-
-    outline: none;
-    border: none;
-    width: 100%;
-    color: white;
-    background: #ed225d;
-    background: -webkit-linear-gradient(to right, #ffe8e8, #ed225d);
-    background: linear-gradient(to right, #ffe8e8, #ed225d);
-    box-shadow: 0px 100px 30px -17px rgba(237, 34, 93, 0.9);
-    box-shadow: 0px 100px 20px -17px rgba(237, 34, 93, 0.9);
-    box-shadow: 0px 20px 10px -17px rgba(237, 34, 93, 0.9);
-}
-
-
-/*@media (max-width: 500px) {
-
-#teach-page .submit-btn a:hover{
-
-  background-color: #fafafa; 
-  display: inline-block center;
-  padding: 6px 14px;
-  background-color: #ffe8e8;
-  border-radius: 27px;
-}
-
-}
-#teach-page .submit-btn,
-#teach-page .submit-btn a:visited{
-
-      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 35px -16px rgba(237, 34, 93, 0.57);
-      box-shadow: 0px 20px 15px -13px rgba(237, 34, 93, 0.57);      
-    }
-*/
-
-
-
-
-
 
 
 
