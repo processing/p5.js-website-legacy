@@ -15,7 +15,6 @@
     HOMEPAGE
   //////////////////////////////////////////////////
 */
-
 .tagline {
   display: none;
 }
@@ -1388,6 +1387,10 @@ h2.featuring {
 }
 */
 
+#showcase-page{
+  margin-top: 3em;
+}
+
 #showcase-page .project-page h2 {
   line-height: 1.4;
 }
@@ -1459,6 +1462,10 @@ h2.featuring {
   font-size: 0.7rem;
 }
 
+#showcase-page .qa-group{
+  margin-bottom: 2em;
+}
+
 #showcase-page .project-q {
   margin-left: 0%;
   display: inline-block;
@@ -1475,98 +1482,426 @@ h2.featuring {
   font-size: 1.1rem;
 }
 
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-}
 
 /* ==========================================================================
    Teach Page
    ========================================================================== */
-#teach-page .accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
+
+#teach-page .case-list a:hover {
+  border-bottom: none;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-#teach-page .active,
-.accordion:hover {
-  background-color: #ccc;
-}
-
-/* Style the accordion panel. Note: hidden by default */
-#teach-page .panel {
-  padding: 0 18px;
-  background-color: white;
-  display: none;
-  overflow: hidden;
-}
-
-#teach-page .teach-intro p {
-  font: 200 1.4rem 'Montserrat', sans-serif;
-  line-height: 1.5em;
-}
-
-#teach-page .teach-slider h2 {
-  font: 200 1.4rem 'Montserrat', sans-serif;
-  color: #ed225d;
-  letter-spacing: 0.05rem;
-}
-
-#teach-page .teach-results {
+#teach-page .heading {
+  font: 400 1.4rem "Montserrat", sans-serif;
+  color: black;
+  line-height: 1.2em;
+  padding-bottom: .4em;
   border-bottom: 4px dotted #ed225d;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  opacity: 1;
-  font: 400 1.4rem 'Montserrat', sans-serif;
+}
+
+#teach-page h3.title{
+  margin-top: 3em;
+}
+
+/*search-filter label*/
+
+#teach-page .search-filter {
+  display: inline;
+}
+
+#teach-page .search-filter label {
+  display: inline-block;
+  font: italic 900 1rem "Montserrat", sans-serif;
+  padding: 6px 12px;
+  text-align: left;
+  white-space: nowrap;
   color: #ed225d;
+  /*transition: .2s; */
+  margin-bottom: .6em;
+  margin-top: 1.2em;
+  border: 1px solid #ed225d;
+
+
+}
+
+#teach-page .search-filter label {
+  cursor: pointer;
+}
+
+
+#teach-page .search-filter label:hover {
+  color: white;
+  background-color: #ed225d;
+}
+
+
+#teach-page .search-filter input[type="checkbox"] {
+  display: absolute;
+}
+
+
+#teach-page .search-filter input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+
+#teach-page ul.filters p.filter-title {
+  font: 400 0.83rem "Montserrat", sans-serif;
+  color: #ed225d;
+  height: 50px;
+  padding-top:20px;
+  background: none;
+  background-color: none;
+  box-shadow: none;
+  display: inline-block;
+  border: none;
+  clear: both;
+
+}
+
+
+
+
+#teach-page ul.filters li {
+  display: inline;
+  list-style: none;
+  width: 100%;
+}
+
+#teach-page ul.filters li label {
+    display: inline-block;
+    border-radius: 25px;
+    font: 200 0.7rem "Montserrat", sans-serif;
+    /*font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;*/
+
+    color: black;
+    white-space: nowrap;
+    margin: 3px 0px;
+    transition: .2s;
+    background: #fafafa;
+}
+
+#teach-page ul.filters li label {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#teach-page ul.filters li label::before {
+    display: inline-block;
+    padding: 2px 2px 2px 2px; /*padding among labels*/
+}
+
+#teach-page ul.filters li label:hover {
+    color: #ed225d;
+    background: #ffe8e8;
+    /*transform: translateY(2px);*/
+
+ }
+
+#teach-page ul.filters li input[type="checkbox"]:checked + label {
+    color: white;
+    background: #ed225d;
+
+}
+
+#teach-page ul.filters li input[type="checkbox"] {
+  display: absolute;
+  position: absolute;
+  opacity: 0;
+}
+
+
+#teach-page ul.filters li.clear{
+  display: block;
+  clear: both;
+
+}
+
+
+/*Filter Panel*/
+
+#teach-page .filter-panel {
+  padding: 0px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  margin-bottom: 0.8em;
+  padding-bottom: .4em;
+
+}
+
+
+
+#teach-page .filter-panel p {
+  margin: 0;
+  color: #333;
+  font-size: .83em;
+  height: 50px;
+  padding-top:20px;
+  transition: all 0.5s ease-in-out;
+}
+
+
+ /*p5 workshop and class title*/
+#teach-page .teach-intro p {
+  font: 400 1.2rem "Times", sans-serif;
   line-height: 1.5em;
 }
 
-/* The slider itself */
-.slider {
-  -webkit-appearance: none; /* Override default CSS styles */
-  appearance: none;
-  width: 80%; /* Full-width */
-  height: 0px; /* Specified height */
-  background: transparent; /* Grey background */
-  border-bottom: 4px dotted #ed225d; /* Remove outline */
-  opacity: 0.3; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
-  transition: opacity 0.2s;
+
+/*modal box*/
+
+#teach-page .modal-title{
+
+  margin-left: 1em;
+  margin-right: 1em;
+
+  font: 400 1rem "Montserrat", sans-serif;
+  color: #ed225d;
+  line-height: 1.2em;
+
+}
+
+#teach-page ul.cases li.clear{
+  display: block;
+  clear: both;
+  margin-top: 1em;
+  margin-bottom: 1.2em;
+}
+
+
+#teach-page img{
+  margin-bottom: 1.4em;
+}
+
+#teach-page img[alt]{
+  font: 0.6rem "Montserrat", sans-serif;
+  color: #bababa;
+
+}
+
+#teach-page .close {
+  position: relative;
+  color: #ffc7c7;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+  margin-right: .4em;
+  margin-top: .4em;
+  cursor:pointer;
+}
+
+#teach-page .close:hover, .close:focus {
+  color: #ed225d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#teach-page .case label{
+  margin-left: 1em;
+  margin-right: 1em;
+  margin: 2px 2px;  
+  padding: 5px 8px;
+  display: inline-block;
+  border-radius: 25px;
+  font: 0.7rem "Montserrat", sans-serif;
+  color: #aaaaaa; 
+  white-space: nowrap;
+  color: white;
+  background: #ed225d;
+}
+
+/*modal scrollbar*/
+
+#teach-page .modal-body::-webkit-scrollbar {
+
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+}
+
+#teach-page .modal-body::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+#teach-page .modal-body::-webkit-scrollbar-thumb {
+  background: #ffe8e8;
+}
+
+/*modal contents*/
+
+#teach-page .case{
+  margin-left: 2em;
+  margin-right:2em;
+}
+
+#teach-page .case span {
+  color: #ed225d;
+  font-color: #ed225d;  
+  font: 900 1.4rem "Montserrat", sans-serif;
+}
+
+
+#teach-page .case p.lead-name{
+  font: 900 Italic 1.2rem "Montserrat", sans-serif;
+  color: #ed225d;
+  font-color: #ed225d;
+  line-height: 1.4em;
+  border-bottom: 1.4em;
+}
+
+#teach-page .case .speech{
+
+  position: relative;
+  font: 200 Italic .8rem "Montserrat", sans-serif;
+  color: black; /*#aaaaaa; */
+  background: #ffe8e8;
+  padding: 0.5em 1.2em;
+  border-radius: .4em;
+  border-bottom: none;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  
+
+}
+
+#teach-page .case .speech::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: #ffe8e8;
+  border-top: 0;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+#teach-page .case p.subtitle{
+
+  font: 400 1rem "Montserrat", sans-serif;
+  color: #ed225d;
+  font-color: #ffe8e8;
+  line-height: 1.4em;
+  border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);  
+}
+
+#teach-page .case p{
+  font: 400 1rem "Times", sans-serif;
+  color: black;
+  line-height: 1.4em;
+
+  border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);
+
+}
+
+#teach-page .modal-header{
+
+  margin-bottom: 0.8em;
+}
+
+
+#teach-page .modal-footer{
+
+  margin-bottom: 0.8em;
+}
+
+/*#teach-page .modal-body p{
+  border-bottom: 0.1em dashed rgba(237, 34, 93, 0.15);
+
+}*/
+
+#teach-page .modal-body:-webkit-scrollbar{
+  display: none;
+}
+
+
+#teach-page .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  right:0;
+  overflow: auto;
+  box-sizing: border-box;
+  background-color: rgba(255, 232, 232, 0.5); /* Fallback color */
+
+}
+
+#teach-page .modal-content{
+  position: fixed;
+  background: white;
+  top: 2%;
+  left: 2%;
+  right: 2%;
+  bottom: 2%;
+  margin: auto; /*keep centered*/
+  border: 1.2px solid #ffe8e8;
+  max-width: 740px; 
+  box-shadow: 10px 100px 30px -17px rgba(237, 34, 93, 0.5);
+  box-shadow: 10px 100px 20px -17px rgba(237, 34, 93, 0.5);
+  box-shadow: 10px 20px 10px -17px rgba(237, 34, 93, 0.5);
+/*  overflow-y: initial !important*/
+}
+
+#teach-page .modal-body{
+  
+  margin: auto;
+  height: 85%;
+  width: 95%;
+  overflow-y: auto;
+
+}
+
+#teach-page .results-wrapper{
+  width: 100%;
   outline: none;
+  background: white;
+  /*background: white;
+  background: #fafafa;*/
+  /*border: solid white 1px;*/  
+  /*background: -webkit-linear-gradient(to bottom, white, #fafafa);
+  background: linear-gradient(to bottom, white, #fafafa);*/
+  /*border: 1px solid #ffe8e8;*/
+  /*box-shadow: 10px 100px 30px -17px rgba(237, 34, 93, 0.5);
+  box-shadow: 10px 100px 20px -17px rgba(255, 232, 232, 0.5);
+  box-shadow: 10px 20px 10px -17px rgba(237, 34, 93, 0.5);*/
+
+
 }
 
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+#teach-page .results-wrapper ul li.case-list a.myBtn {
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  /*-webkit-appearance: none; Override default look
-  appearance: none; */
-  width: 20px; /* Set a specific slider handle width */
-  height: 20px; /* Slider handle height */
-  background: url('../img/asterisk-01.png'); /* Green background */
-  cursor: pointer; /* Cursor on hover */
-  outline: none;
+#teach-page .case-list{
+
+  margin-bottom: 0.8em;
+  padding-bottom: .4em;
+
+  font: 400 1.0rem "Times", sans-serif;
+  line-height: 1.2em;
+
+  border-bottom: 0.1em dashed #ffe8e8;
+ 
 }
 
-.slider::-moz-range-thumb {
-  width: 10px; /* Set a specific slider handle width */
-  height: 10px; /* Slider handle height */
-  background: url('../img/asterisk-01.png'); /* Green background */
-  cursor: pointer; /* Cursor on hover */
-  outline: none;
-}
 
+
+  
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */

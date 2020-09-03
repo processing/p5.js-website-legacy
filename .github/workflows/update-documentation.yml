@@ -1,0 +1,37 @@
+name: Update p5.js documentation
+
+on:
+  # This workflow is triggered by the p5.js repo on every new release.
+  repository_dispatch
+env:
+  # These are the tag name and the commit sha of the p5.js release.
+  P5JS_REF: ${{github.event.client_payload.ref}}
+  P5JS_SHA: ${{github.event.client_payload.sha}}
+
+jobs:
+  build:
+    name: Update p5.js documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v1
+      - name: Install Node.JS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Extract documentation from the p5.js repo
+        run: |
+          npm install
+          npm run grunt update-enJSON
+      - name: Get p5.js release info
+        id: p5js
+        run: |
+          echo ::set-output name=VERSION::${P5JS_REF/refs\/tags\//}
+          echo ::set-output name=SHA::${P5JS_SHA}
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          message: 'Update Reference files for p5.js ${{ steps.p5js.outputs.VERSION }} release (${{ steps.p5js.outputs.SHA }})'
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_COMMIT_TOKEN }}
