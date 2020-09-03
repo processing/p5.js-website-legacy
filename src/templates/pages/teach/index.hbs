@@ -1,0 +1,730 @@
+---
+title: teach
+slug: teach/
+---
+
+<div id="teach-page">
+
+  {{> sidebar}}
+
+ <main id="content" class="column-span">
+  	<section class= "teach-intro">
+      <h1>{{#i18n "teach-title2"}}{{/i18n}}</h1>
+
+	      <p>{{#i18n "teach-intro1"}}{{/i18n}}{{#i18n "teach-intro2"}}{{/i18n}}<a href="" onclick= "window.open('https://docs.google.com/forms/d/e/1FAIpQLSei8yHX2BROMnMQeZT_tsSXJOH13TPRG6CB4GVHH1oL1hzkZg/viewform?usp=sf_link', '_blank')">{{#i18n "teach-intro3"}}{{/i18n}}</a> {{#i18n "teach-intro4"}}{{/i18n}}</p>
+						
+    </section>
+
+	<section>
+
+		<div id="resources"></div>
+			<h2 class = "heading">{{#i18n "teach-heading"}}{{/i18n}}</h2> 
+			
+			<div class="search-filter">{{!-- <input type="checkbox" id="search-filter-checkbox" ><label for ="search-filter-checkbox"> Search  Filter</label> --}}<input type="checkbox"><label> {{#i18n "teach-search-filter"}}{{/i18n}} &#x2192;</label></div>
+
+     		<!-- search-results -->
+
+     		<div class="filter-panel">
+
+     			{{!-- <br> --}}
+							
+				<ul class="filters" id="filters">
+
+					<li><p class = "filter-title">&#x1F33A; {{#i18n "teach-filter1"}}{{/i18n}}</p></li>
+					<li><input type="checkbox" id="gender" value="gender"><label for="gender">{{#i18n "teach-filter1-label1"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="race-ethnicity" value="race-ethnicity"><label for="race-ethnicity">{{#i18n "teach-filter1-label2"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="language" value="language"><label for="language">{{#i18n "teach-filter1-label3"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="neuro-type" value="neuro-type"><label for="neuro-type">{{#i18n "teach-filter1-label4"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="ability" value="ability"><label for="ability">{{#i18n "teach-filter1-label5"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="class" value="class"><label for="class">{{#i18n "teach-filter1-label6"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="religion" value="religion"><label for="religion">{{#i18n "teach-filter1-label7"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="subculture" value="subculture"><label for="subculture">{{#i18n "teach-filter1-label8"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="political-opinion" value="political-opinion"><label for="political-opinion">{{#i18n "teach-filter1-label9"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="age" value="age"><label for="age">{{#i18n "teach-filter1-label10"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="skill-level" value="skill-level"><label for="skill-level">{{#i18n "teach-filter1-label11"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="occupation" value="occupation"><label for="occupation">{{#i18n "teach-filter1-label12"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="noCodeSnobs" value="noCodeSnobs"><label for="noCodeSnobs">{{#i18n "teach-filter1-label13"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="newKidLove" value="newKidLove"><label for="newKidLove">{{#i18n "teach-filter1-label14"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="unassumeCore" value="unassumeCore"><label for="unassumeCore">{{#i18n "teach-filter1-label15"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="BlackLivesMatter" value="BlackLivesMatter"><label for="BlackLivesMatter">{{#i18n "teach-filter1-label16"}}{{/i18n}}</label></li>
+							
+
+					<li class="clear"></li>
+					<li><p class = "filter-title">&#x1F4CD; {{#i18n "teach-filter2"}}{{/i18n}}</p></li>
+
+					<li><input type="checkbox" id="africa" value="africa"><label for="africa">{{#i18n "teach-filter2-label1"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="asia" value="asia"><label for="asia">{{#i18n "teach-filter2-label2"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="europe" value="europe"><label for="europe">{{#i18n "teach-filter2-label3"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="north-america" value="north-america"><label for="north-america">{{#i18n "teach-filter2-label4"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="oceania" value="oceania"><label for="oceania">{{#i18n "teach-filter2-label5"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="south-america" value="south-america"><label for="south-america">{{#i18n "teach-filter2-label6"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="virtual-online" value="virtual-online"><label for="virtual-online">{{#i18n "teach-filter2-label7"}}{{/i18n}} &#x1F310;</label></li>
+
+
+
+					<li class="clear"></li>
+					<li><p class = "filter-title">&#x1F4C5; {{#i18n "teach-filter3"}}{{/i18n}}</p></li>
+					<li><input type="checkbox" id="2014" value="2014"><label for="2014">~2014</label></li>
+					<li><input type="checkbox" id="2015" value="2015"><label for="2015">2015</label></li>
+					<li><input type="checkbox" id="2016" value="2016"><label for="2016">2016</label></li>
+					<li><input type="checkbox" id="2017" value="2017"><label for="2017">2017</label></li>
+					<li><input type="checkbox" id="2018" value="2018"><label for="2018">2018</label></li>
+					<li><input type="checkbox" id="2019" value="2019"><label for="2019">2019</label></li>
+					<li><input type="checkbox" id="2020" value="2020"><label for="2020">2020</label></li>
+
+					<li class="clear"></li>
+					<li><p class = "filter-title">&#x1F4CA; {{#i18n "teach-filter4"}}{{/i18n}}</p></li>
+					<li><input type="checkbox" id="elementary" value="elementary"><label for="elementary">{{#i18n "teach-filter4-label1"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="intermediate" value="intermediate"><label for="intermediate">{{#i18n "teach-filter4-label2"}}{{/i18n}}</label></li>
+					<li><input type="checkbox" id="advanced" value="advanced"><label for="advanced">{{#i18n "teach-filter4-label3"}}{{/i18n}}</label></li>
+				 </ul>
+
+						  <br>
+								
+
+			</div>
+												
+			<div class = "results-wrapper">
+
+				{{!-- <br> --}}
+						
+				<div class="results" id="search-results">
+					<ul>
+				  		<li class="case-list" data-category="2019 europe gender race-ethnicity age skill-level BlackLivesMatter advanced"><a href="#case1" class="caseBtn" >"{{#i18n "teach-case1-title"}}{{/i18n}}", {{#i18n "teach-case1-lead-name"}}{{/i18n}}</a></li>
+
+				  		 <li class="case-list" data-category="2020 asia age skill-level occupation elementary advanced"><a href="#case2" class="caseBtn">"Making The Thing that Makes the Thing: Exploring Generative Art &#x0026; Design with p5.js", Priti Pandurangan &#x0026; Ajith Ranka</a></li>
+
+						  <li class="case-list" data-category="2016 2019 2020 elementary intermediate advanced north-america gender race-ethnicity language neuro-type ability subculture occupation north-america"><a href="#case3" class="caseBtn">CC Fest (Creative Coding Festival), Saber</a></li>
+
+						  <li class="case-list" data-category="2018 virtual-online south-america gender race-ethnicity language neuro-type religion subculture age noCodeSnobs newKidLove unassumeCore elementary intermediate advanced"><a href="#case4" class="caseBtn" >"Taller Introducci&#x00F3;n a la Programaci&#x00F3;n Creativa con p5.js", Aar&#x00F3;n Montoya-Moraga</a></li>
+
+						  <li class="case-list" data-category="2020 north-america gender race-ethnicity class subculture age skill-level elementary"><a href="#case5" class="caseBtn" >"Introduction to Generative Drawing", Adam Herst</a></li>
+
+						  <li class="case-list" data-category="2020 asia virtual-online gender race-ethnicity language neuro-type Size skill-level ability class religion subculture political-opinion age skill-level occupation elementary"><a href="#case6" class="caseBtn" >Open Lecture "Creative Coding: 2020", Shunsuke Takawo</a></li>
+
+
+						  <li class="case-list" data-category="2020 asia gender race-ethnicity language neuro-type Size skill-level ability class religion subculture political-opinion age skill-level occupation intermediate"><a href="#case7" class="caseBtn" >"Creative Coding for Static Graphics", Shunsuke Takawo</a></li>
+
+						  <li class="case-list" data-category="2020 north-america virtual-online race-ethnicity language subculture skill-level"><a href="#case8" class="caseBtn" >"Generative Typography", Dae In Chung</a></li>
+
+						  <li class="case-list" data-category="2019 north-america gender race-ethnicity language age skill-level occupation noCodeSnobs new unassumeCore BlackLivesMatter elementary intermediate"><a href="#case9" class="caseBtn" >"Machine Learning for the Web", Yining Shi</a></li>
+
+
+						  <li class="case-list" data-category="europe virtual-online gender elementary"><a href="#case10" class="caseBtn" >"Introduction to p5.js and JavaScript", Nico Reski</a></li>
+
+						  <li class="case-list" data-category="2019 north-america gender race-ethnicity skill-level occupation"><a href="#case11" class="caseBtn">"Digital Weaving &#x0026; Physical Computing Workshop Series", Qianqian Ye &#x0026; Evelyn Masso</a></li>
+
+						  <li class="case-list" data-category="2015 2020 north-america asia gender race-ethnicity language neuro-type ability class skill-level"><a href="#case12" class="caseBtn">"Signing Coders", Taeyoon Choi</a></li>
+	    			</ul>
+						<br>
+				</div> 
+			</div>
+						
+
+						
+
+		<!--modal box section-->
+		
+			<!--modal boxes-->
+
+			<div id="caseModals" class="modal">
+
+				<!--modal box #1-->
+
+				  <div class="modal-content" id="case1"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case1-title"}}{{/i18n}}</span></li>
+				        	<li class = "case"><p class="lead-name">{{#i18n "teach-case1-lead-name"}}{{/i18n}}</p></li>
+
+				          	<li class = "clear"></li>
+				            <li class = "clear"></li>
+
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}<p><a href="https://ubuntu-paris.org/">{{#i18n "teach-case1-content1"}}{{/i18n}}</a>{{#i18n "teach-case1-content1-1"}}{{/i18n}}</p></li> 
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case1-content2"}}{{/i18n}}
+				            </p></li>		         
+
+				            <li class = "clear"></li>  				
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case1-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case1-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case1-content5"}}{{/i18n}}</p><p>{{#i18n "teach-case1-content5-1"}}{{/i18n}}<a href = "https://vertmo.github.io/ubuntu-party-p5/">GitHub</a>.</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label10"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label11"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label16"}}{{/i18n}}</label>
+				            </li>
+		             
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div> 
+			        
+				  </div>
+
+				<!--modal box #2-->
+	
+				  <div class="modal-content" id="case2"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case2-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case2-lead-name"}}{{/i18n}}</p></li>
+				        	
+				        	<li class = "clear"></li>
+             				<li class = "clear"></li>
+             				<li class = "case"><img src="https://drive.google.com/uc?id=1udID-B1qADY7QxDkYkAh6ZYX7D8BfrnD" alt=""></li>
+
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}<p>&#x1F4CD; {{#i18n "teach-case2-content1"}}{{/i18n}}</p><p>&#x1F4C5; {{#i18n "teach-case2-content1-1"}}{{/i18n}}</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case2-content2"}}{{/i18n}}
+				            </p></li>		            				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case2-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case2-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case2-content5"}}{{/i18n}}</p><p>{{#i18n "teach-case2-content5-1"}}{{/i18n}}<a href="https://musingswithcode.studio/generative-design-workshop">{{#i18n "teach-case2-content5-2"}}{{/i18n}}</a> {{#i18n "teach-case2-content5-3"}}{{/i18n}}<a href="https://musingswithcode.studio/generative-design-workshop/explainers">{{#i18n "teach-case2-content5-4"}}{{/i18n}}</a>{{#i18n "teach-case2-content5-5"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label11"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label12"}}{{/i18n}}</label></li>			    
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div>
+			        
+				  </div>
+				  <!--modal box #3-->
+	
+				  <div class="modal-content" id="case3"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case3-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case3-lead-name"}}{{/i18n}}</p></li>
+
+				        	<li class = "case"><p class = speech>"{{#i18n "teach-case3-speech"}}{{/i18n}}"</p></li>
+
+				        	<li class = "clear"></li>
+				        	<li class = "clear"></li>
+
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}</p><p>&#x1F4CD;{{#i18n "teach-case3-content1"}}{{/i18n}}&#x1F310;</p><p>&#x1F4C5;{{#i18n "teach-case3-content1-1"}}{{/i18n}}</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case3-content2"}}{{/i18n}}
+				            </p></li>		            				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case3-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case3-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case3-content5"}}{{/i18n}}</p><p>&#x1F517; <a href="https://http://ccfest.rocks/lessons">{{#i18n "teach-case3-content5-1"}}{{/i18n}}</a>{{#i18n "teach-case3-content5-2"}}{{/i18n}}</p><p>&#x1F4F8; <a href="http://ccfest.rocks/pictures">{{#i18n "teach-case3-content5-3"}}{{/i18n}}</a></li>
+
+              				<!--<li class = "case"><iframe src="http://ccfest.rocks/pictures" height= "200" alt="Pictures of CC Fest"></iframe></li>-->
+
+				            <li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label3"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label4"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label5"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label8"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label12"}}{{/i18n}}</label></li>	
+				    
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div>
+			        
+				  </div>
+
+				  <!--modal box #4-->
+	
+				  <div class="modal-content" id="case4"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case4-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case4-lead-name"}}{{/i18n}}</p></li>
+
+				        	<li class = "case"><p class = speech>"{{#i18n "teach-case4-speech"}}{{/i18n}}&#x1F495; "</p></li>
+
+				        	<li class = "clear"></li>
+              				<li class = "clear"></li>
+              				<li class = "case"><img src="https://miro.medium.com/max/1000/1*OIn_NKGuKyto9-_h6CAmmw.jpeg" alt="Eighteen people sitting at a shared table with their computers, learning p5.js."></li>
+
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}</p><p>&#x1F4CD; {{#i18n "teach-case4-content1"}}{{/i18n}} &#x1F310;</p><p>&#x1F4C5;{{#i18n "teach-case4-content1-1"}}{{/i18n}}</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case4-content2"}}{{/i18n}}
+				            </p></li>		            				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case4-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case4-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case4-content5"}}{{/i18n}}<a href="https://github.com/montoyamoraga/workshop-p5js-pluscode-2018">{{#i18n "teach-case4-content5-1"}}{{/i18n}}</a>{{#i18n "teach-case4-content5-2"}}{{/i18n}}</p><p>&#x1F517; <a href="https://medium.com/processing-foundation/code-electronic-art-festival-2018-argentina-803d3ca8092c">{{#i18n "teach-case4-content5-3"}}{{/i18n}}</a>{{#i18n "teach-case4-content5-4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label3"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label4"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label7"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label8"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label10"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label13"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label14"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label15"}}{{/i18n}}</label></li>
+				    
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div> 
+			        
+				  </div>
+
+				  <!--modal box #5-->
+	
+				  <div class="modal-content" id="case5"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			               <!-- <h2 class="modal-title"></h2>--> 
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case5-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case5-lead-name"}}{{/i18n}}</p></li>
+
+				        	<li class = "case"><p class = speech>"{{#i18n "teach-case5-speech"}}{{/i18n}}"</p></li>
+
+				            <li class = "clear"></li>
+              				<li class = "clear"></li>
+
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}</p><p>&#x1F4CD; <a href="https://interaccess.org/studio">{{#i18n "teach-case5-content1"}}{{/i18n}}</a>{{#i18n "teach-case5-content1-1"}}{{/i18n}}</p><p>{{#i18n "teach-case5-content1-2"}}{{/i18n}}</p><p>&#x1F4C5;{{#i18n "teach-case5-content1-3"}}{{/i18n}}</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case5-content2"}}{{/i18n}}
+				            </p></li>		            				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case5-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case5-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class="subtitle">&#x1F4DD;{{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case5-content5"}}{{/i18n}}</p><p>&#x1F517;<a href="https://interaccess.org/event/2019/processing-community-day-generative-drawing">{{#i18n "teach-case5-content5-1"}}{{/i18n}}</a></p><p>&#x1F517;<a href="https://adamherst.art/introduction_to_generative_drawing_letter.pdf">{{#i18n "teach-case5-content5-2"}}{{/i18n}}</a></p><p>&#x1F517;<a href="https://adamherst.art/introduction_to_generative_drawing_letter.pdf">{{#i18n "teach-case5-content5-3"}}{{/i18n}}</a></p></li>		
+
+				    		<li class = "clear"></li>
+				        	<li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label6"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label8"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label10"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label11"}}{{/i18n}}</label></li>
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div>
+			        
+				  </div>
+
+				  <!--modal box #6-->
+	
+				  <div class="modal-content" id="case6"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			               <!-- <h2 class="modal-title"></h2>--> 
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case6-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case6-lead-name"}}{{/i18n}}</p></li>
+
+				        	<li class = "case"><p class = speech>"{{#i18n "teach-case6-speech"}}{{/i18n}}"</p></li>
+
+				        	<li class = "clear"></li>
+				          	<li class = "clear"></li>	
+				          	<li class = "case"><img src="https://lh3.googleusercontent.com/pw/ACtC-3eYswa6tJH5pvfvvAAfXQJO71ncsdgpwDBvbPAL-qcwnLkkpuoAVpggOb2-LYSLqo0Htd8cgnv5i8yLJg6Wh7J_rW2MMy6y8XZRznRByjj2mGJHf8XFmDI-8W6mH7urrEQC2tyUMF1HWaamLTNBqmIyeQ=w1560-h878-no?authuser=0" alt=""></li>
+
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}</p><p>&#x1F4CD;{{#i18n "teach-case6-content1"}}{{/i18n}}&#x1F310;</p><p>&#x1F4C5;{{#i18n "teach-case6-content1-1"}}{{/i18n}}</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case6-content2"}}{{/i18n}}
+				            </p></li>		            				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case6-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case6-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				          
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case6-content5"}}{{/i18n}}</p><p>&#x1F517; <a href="https://paper.dropbox.com/doc/Day1-1-p5.js-i15dvmUETr4ef1xnydzru">{{#i18n "teach-case6-content5-1"}}{{/i18n}}</a><p>&#x1F517; <a href="https://youtu.be/aS5CvADPdk0">{{#i18n "teach-case6-content5-2"}}{{/i18n}}</a>, <a href="https://youtu.be/ZCO-8CubifI">{{#i18n "teach-case6-content5-3"}}{{/i18n}}</a>, <a href="https://youtu.be/nbcckC5iwIcsyllabus">{{#i18n "teach-case6-content5-4"}}{{/i18n}}</a>{{#i18n "teach-case6-content5-5"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label3"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label4"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label5"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label6"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label7"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label8"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label9"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label10"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label11"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label12"}}{{/i18n}}</label></li>
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div>
+			        
+				  </div>
+
+				  <!--modal box #7-->
+	
+				  <div class="modal-content" id="case7"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			               <!-- <h2 class="modal-title"></h2>--> 
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case7-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case7-lead-name"}}{{/i18n}}</p></li>
+
+				        	<li class = "case"><p class = speech>"{{#i18n "teach-case7-speech"}}{{/i18n}}"</p></li>
+
+				        	<li class = "clear"></li>
+				        	<li class = "clear"></li>
+				        	<li class = "case"><img src="https://uc6d9323e0272069edcf30e9c501.previews.dropboxusercontent.com/p/thumb/AA5dvRUhxkQ9wLU6mHcrEmLvXnV7gbapPG2PvVf5K8K9ktlC59RCtvbSCP7YfEgPcFtnsgQekujWSD8iEfc6UT2pouzLdZUElblXhh9wg_b2UKDU-OO1u8VaiuC91g73tQX9S9mTHIgvm4h_Jw9-P4F6-iyjqBz57CvFWhilM5CpNbiPIjVRX6NsMkSYA3IexYreShT6Bt2hOWnorsocCsaafJiAd3cZbplWnGiuZmCn5R7BJ4u770YRjqX-AKh6AaoOb3kZHwBBnPQSU7zxiHqZbrWirjwLprw5D5UKW4bMI6We85Yn8cDPlJ6CktIqwpepAhdRi7scaxLxGnpIE4XjnoxK6T1jHkWZXGkvPplV1qlvrC7qz2jTY1_cULKcAcV8F-I-xvAL5I0n3rRHCZqr/p.jpeg?fv_content=true&size_mode=5" alt=""></li>
+
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}</p><p>&#x1F4CD;{{#i18n "teach-case7-content1"}}{{/i18n}}</p><p>&#x1F4C5;{{#i18n "teach-case7-content1-1"}}{{/i18n}}</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case7-content2"}}{{/i18n}}
+				            </p></li>		            				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case7-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case7-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				          
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case7-content5"}}{{/i18n}}</p><p>&#x1F517; <a href="https://paper.dropbox.com/doc/--A6IUdC5pD_0QfbWt1PQ5u~PiAg-Fk8qxFWjaJWeH1cAc8FT0">{{#i18n "teach-case7-content5-1"}}{{/i18n}}</a></p></li>	
+
+				            <li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label3"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label4"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label5"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label6"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label7"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label8"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label9"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label10"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label11"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label12"}}{{/i18n}}</label></li>
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div>
+			        
+				  </div>
+
+				  <!--modal box #8-->
+	
+				  <div class="modal-content" id="case8"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			               <!-- <h2 class="modal-title"></h2>--> 
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case8-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case8-lead-name"}}{{/i18n}}</p></li>
+
+				        	<li class = "clear"></li>
+				        	<li class = "clear"></li>
+				        	<li class = "case"><img src="https://drive.google.com/uc?id=1TqcLurMLFioe8EcoJGtdK9_gs9bZ5odW" alt=""></li>
+
+            	            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}</p><p>&#x1F4CD;{{#i18n "teach-case8-content1"}}{{/i18n}}&#x1F310;</p><p>&#x1F4C5;{{#i18n "teach-case8-content1-1"}}{{/i18n}}</p></li>  
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case8-content2"}}{{/i18n}}
+				            </p></li>		            				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case8-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case8-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				          
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case8-content5"}}{{/i18n}}</p><p>{{#i18n "teach-case8-content5-1"}}{{/i18n}}</p><p>&#x1F517; <a href="https://drive.google.com/drive/folders/15aFXijbqworOoLpc0fD283YOgi7UIHMA?usp=sharing">{{#i18n "teach-case8-content5-2"}}{{/i18n}}</a></p></li>	
+
+				            <li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label3"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label8"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label11"}}{{/i18n}}</label></li>
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div> 
+			        
+				  </div>
+
+
+				  <!--modal box #9-->
+	
+				  <div class="modal-content" id="case9"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			               <!-- <h2 class="modal-title"></h2>--> 
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case9-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case9-lead-name"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+              				<li class = "clear"></li>
+              				<li class = "case"><img src="https://drive.google.com/uc?id=1pO3s4lraBwtLcZoCIeHGVncuwtzHqN6o" alt=""></li>
+
+              			    <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}</p><p>&#x1F4CD;{{#i18n "teach-case9-content1"}}{{/i18n}}</p><p>&#x1F4C5;{{#i18n "teach-case9-content1-1"}}{{/i18n}}</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case9-content2"}}{{/i18n}}
+				            </p></li>		            				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case9-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case9-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				          
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case9-content5"}}{{/i18n}}<a href="https://github.com/yining1023/machine-learning-for-the-web">{{#i18n "teach-case9-content5-1"}}{{/i18n}}</a>{{#i18n "teach-case9-content5-2"}}{{/i18n}}</p><p>{{#i18n "teach-case9-content5-3"}}{{/i18n}}</p></li>	
+
+				            <li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label3"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label10"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label11"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label12"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label13"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label14"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label15"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label16"}}{{/i18n}}</label></li>
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div>
+			        
+				  </div>
+
+				  <!--modal box #10-->
+	
+				  <div class="modal-content" id="case10"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			               <!-- <h2 class="modal-title"></h2>--> 
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case10-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case10-lead-name"}}{{/i18n}}</p></li>
+
+				        	<li class = "clear"></li>
+				        	<li class = "clear"></li>
+
+              			    <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}<p>&#x1F4CD;{{#i18n "teach-case10-content1"}}{{/i18n}}</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case10-content3"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case10-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				          
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case10-content5"}}{{/i18n}}</p><p>&#x1F517; <a href="https://reski.nicoversity.com/ws_cc_p5js_introduction.html">{{#i18n "teach-case10-content5-1"}}{{/i18n}}</a>{{#i18n "teach-case10-content5-2"}}{{/i18n}}</p></li>	
+
+				            <li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label></li>
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div>
+			        
+				  </div>
+
+				  <!--modal box #11-->
+	
+				  <div class="modal-content" id="case11"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			               <!-- <h2 class="modal-title"></h2>--> 
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case11-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case11-lead-name"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "clear"></li>
+				            <li class = "case"><img src="https://drive.google.com/uc?id=1QXtrew8S2YQ-_6R0H1FhwiEJj9_LLcpU" alt=""></li>
+
+
+              			    <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}</p><p>&#x1F4CD;{{#i18n "teach-case11-content1"}}{{/i18n}}</p><p>&#x1F4C5;{{#i18n "teach-case11-content101"}}{{/i18n}}</p></li>  		
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case11-content2"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case11-content3"}}{{/i18n}}
+				            </p></li>		
+				            
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case11-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case11-content5"}}{{/i18n}}</p><p>{{#i18n "teach-case11-content5-1"}}{{/i18n}}</p><p>&#x1F517; <a href="https://docs.google.com/presentation/d/1gJ67aKVGydSNoeUraS7U_QevcnOuxnSFQ_4640Qlifo/edit?usp=sharing">{{#i18n "teach-case11-content5-2"}}{{/i18n}}</a>, <a href="https://docs.google.com/presentation/d/1nuje9-j_o5HbCoxXR_EJhAYmSEjTQOkAHmBsuKRlwwA/edit?usp=sharing">{{#i18n "teach-case11-content5-3"}}{{/i18n}}</a></p><p>&#x1F517; <a href="https://womenscenterforcreativework.com/events/digital-weaving-physical-computing/">{{#i18n "teach-case11-content5-4"}}{{/i18n}}</a>{{#i18n "teach-case11-content5-5"}}{{/i18n}}</p></li>
+
+							<li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label11"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label12"}}{{/i18n}}</label></li>
+				         
+				            </ul>
+				        </div> 
+			            <div class="modal-footer"></div>
+			        
+				  </div>
+
+  				  <!--modal box #12-->
+	
+				  <div class="modal-content" id="case12"><div class="close"><span>&#215;</span></div>
+			            <div class="modal-header">
+			            	<br>
+			               <!-- <h2 class="modal-title"></h2>--> 
+			            </div> 
+				        <div class="modal-body">
+				        	<ul class= "cases">
+
+				        	<li class = "case"><span>{{#i18n "teach-case12-title"}}{{/i18n}}</span></li>
+
+				        	<li class = "case"><p class = "lead-name">{{#i18n "teach-case12-lead-name"}}{{/i18n}}</p></li>
+
+				        	<li class = "case"><p class = speech>"{{#i18n "teach-case12-speech"}}{{/i18n}}"</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "clear"></li>
+
+				            <li class = "case"><img src="http://taeyoonchoi.com/wp-content/uploads/2016/04/day1-7852-768x512.jpg" alt=""></li>
+
+              			    <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle1"}}{{/i18n}}</p><p>&#x1F4CD; {{#i18n "teach-case12-content1"}}{{/i18n}}</p><p>{{#i18n "teach-case12-content1-1"}}{{/i18n}}</p></li>  				
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle2"}}{{/i18n}}</p><p>{{#i18n "teach-case12-content2"}}{{/i18n}}
+				            </p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle3"}}{{/i18n}}</p><p>{{#i18n "teach-case12-content3"}}{{/i18n}}</p></li>		
+				            
+				            <li class = "clear"></li>
+				            <li class = "case"><p class = "subtitle">{{#i18n "teach-case-subtitle4"}}{{/i18n}}</p><p>{{#i18n "teach-case12-content4"}}{{/i18n}}</p></li>
+
+				            <li class = "clear"></li>
+				            <li class = "case"><p class="subtitle">&#x1F4DD; {{#i18n "teach-case-subtitle5"}}{{/i18n}}</p><p>{{#i18n "teach-case12-content5"}}{{/i18n}}</p><p>&#x1F517; <a href="http://taeyoonchoi.com/soft-care/signing-coders/">{{#i18n "teach-case12-content5-1"}}{{/i18n}}</a></p><p>&#x1F4F8; <a href="http://taeyoonchoi.com/soft-care/signing-coders/signing-coders-1/">{{#i18n "teach-case12-content5-2"}}{{/i18n}}</a></p></li>
+
+							<li class = "clear"></li>
+				            <li class = "case"><label>{{#i18n "teach-filter1-label1"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label2"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label3"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label4"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label5"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label6"}}{{/i18n}}</label><label>{{#i18n "teach-filter1-label11"}}{{/i18n}}</label></li>
+				         
+
+
+				            </ul>
+				        
+				        </div> 
+			            <div class="modal-footer"></div>
+			        
+				  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+			</div> <!--modal boxes end-->
+
+			
+			
+
+	</section>
+
+
+	<!--modal-->
+
+
+    {{> footer}}
+
+  </main>
+
+  {{> asterisk}}
+
+</div>
+
+
+<!--jquery script-->
+
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="https://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+
+
+<!--filter search-->
+
+
+<script>
+    $("#filters :checkbox").click(function() {
+
+       var re = new RegExp($("#filters :checkbox:checked").map(function() {
+                              return this.value;
+                           }).get().join("|") ); //.join("|")
+       $(".case-list").each(function() {
+          var $this = $(this);
+          $this[re.source!="" && re.test($this.attr("data-category")) ? "fadeIn" : "hide"]();
+       });
+    });
+</script>
+
+
+<!--modal box-->
+
+
+<script>
+$(document).on('click','.caseBtn',function(){
+	var openModal =  $(this).attr('href');
+	$('#caseModals').hide();
+	$('.modal-content').hide();
+	
+	$('#caseModals').fadeIn();
+	$(openModal).fadeIn();
+  return false;
+});
+
+$("body" ).on( "click",".close", function() {
+  	$('#caseModals').hide();
+	$('.modal-content').hide();
+});
+
+</script>
+
+<!--search accordion menu-->
+
+<script>
+
+
+var acc = document.getElementsByClassName("search-filter");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+
+  });
+}
+</script>
