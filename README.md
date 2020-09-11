@@ -31,7 +31,7 @@ Once you've setup the site, type `npm run watch` to run the website. This should
   * `data/` – translation files
   * `templates/`
     * `layouts/` – default.hbs is main page template
-    * `pages/` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout.
+    * `pages/` – Contains each of the pages of the p5 site, these get inserted in `{{> body }}` tag of default layout. Note that for some pages (ex: learn, teach, and libraries) the hbs files are built from ejs files in the `data/` folder. When this is the case, you will find a README file inside that page's folder with notes about how this works.
     * `partials/` – These are reusable pieces that can get added to any page or layout, they correspond to other `{{> filename }}` tags in the pages or default layout.
 * `dist/` – Where the rendered files are stored, this gets generated via `grunt server` but does not get added to pull requests as it is auto-built online.
 * `Gruntfile.js` – This file contains all the tasks for using assemble and YAML to generate the final, static site. It uses the taskrunner [grunt](http://gruntjs.com/).
