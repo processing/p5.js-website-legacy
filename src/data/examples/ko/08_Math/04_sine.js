@@ -1,5 +1,5 @@
 /*
- * @name 싸인
+ * @name 사인
  * @description sin() 함수로 도형의 크기를 부드럽게 조정합니다.
  */
 let diameter;
