@@ -291,6 +291,27 @@ textarea {
   font-size: 0.7em;
 }
 
+#skip-to-content {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 5;
+  background-color: #ed225d;
+  color: white;
+  width: auto;
+  height: 50px;
+  border: none;
+  outline-style: none;
+  text-align: center;
+  font-size: 25px;
+  padding: 5px;
+  opacity: 0;
+}
+
+#skip-to-content:focus {
+  opacity: 1;
+}
+
 /*
   //////////////////////////////////////////////////
     DOWNLOAD PAGE
@@ -436,11 +457,6 @@ textarea {
     REFERENCE
   //////////////////////////////////////////////////
 */
-
-#reference-page {
-  margin-top: 3em; /*Language bar was hidden behind reference page*/
-  width: 100%; /*Sets width of reference page to 100% of container*/
-}
 
 #reference-page main h1 {
   float: left;
@@ -692,27 +708,6 @@ form {
   pointer-events: all;
 }
 
-#skip-to-content {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 5;
-  background-color: #ed225d;
-  color: white;
-  width: auto;
-  height: 50px;
-  border: none;
-  outline-style: none;
-  text-align: center;
-  font-size: 25px;
-  padding: 5px;
-  opacity: 0;
-}
-
-#skip-to-content:focus {
-  opacity: 1;
-}
-
 #search_button {
   background: url(../img/search.png) 100% no-repeat;
 }
@@ -924,18 +919,8 @@ h3 {
   right: 0;
   bottom: 0;
   z-index: 1000;
-  /*display: none;*/
   border: none;
 }
-
-/*#popupExampleFrame #exampleFrame {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-}*/
 
 #exampleDisplay button {
   color: #2d7bb6;
@@ -1808,9 +1793,6 @@ p {
 
 #menu li a:link,
 #menu li a:visited,
-
-/*#menu li a:focus:link,*/
-
 #menu li a:focus:active,
 #menu li a:focus:hover {
   color: #ed225d;
