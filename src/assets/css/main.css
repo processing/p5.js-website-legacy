@@ -550,31 +550,31 @@ div.reference-subgroup {
 
 /* EXAMPLES IN REF */
 
-.example-content .edit_space,
-.example-content pre {
-  position: absolute !important;
+.example div {
+  position: relative;
+}
+
+.example-content .example_code {
+  position: absolute;
   top: 0.5em;
   left: 120px;
-  padding-top: 0 !important;
-  border: none !important;
-}
-
-pre.norender {
-  left: 0px !important;
-  margin-left: 0 !important;
-}
-
-.example-content pre {
-  margin-top: 0 !important;
+  padding-top: 0;
+  margin-top: 0;
+  border: none;
   width: 30.5em;
 }
 
+.example-content .example_code.norender {
+  left: 0px;
+  margin-left: 0;
+}
+
 .example-content .edit_space {
-  margin: -0.5em 0 0 -0.5em !important;
-  width: 100%;
-  position: absolute !important;
+  position: absolute;
   top: 0;
   left: 0;
+  margin-top: -0.5em;
+  width: 100%;
   pointer-events: none;
 }
 
@@ -589,35 +589,28 @@ pre.norender {
   pointer-events: none;
 }
 
-.example-content .edit_space .edit_area {
-  position: absolute;
-  top: 0.5em;
-  left: 120px;
-  width: 30.5em;
-  display: none;
-}
-
-.example div {
-  position: relative;
-}
-
-.example_container button {
-  margin-top: 0.25em;
-}
-
-.edit_space button {
+.example-content .edit_space ul li button {
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   color: #ccc;
   border: 1px solid rgba(200, 200, 200, 0.15);
   background: transparent;
   outline: none;
+  margin-top: 0.25em;
 }
 
-.example_container button:hover,
-.example_container.editing button {
+.example-content .edit_space ul li button:hover,
+.example_container.editing ul li button {
   color: #2d7bb6;
   border-color: rgba(45, 123, 182, 0.25);
+}
+
+.example-content .edit_space .edit_area {
+  position: absolute;
+  top: 0.5em;
+  left: 120px;
+  width: 30.5em;
+  display: none;
 }
 
 .display_button {
@@ -630,14 +623,15 @@ pre.norender {
   outline: none;
 }
 
-.example_container {
+.example-content .example_container {
   width: 36em;
   border-top: 0.09em dashed;
   border-top-color: #333;
   padding-top: 0.5em;
   margin-top: 2em;
 }
-.example_container:first-of-type {
+
+.example-content .example_container:first-of-type {
   margin-top: 1em;
 }
 

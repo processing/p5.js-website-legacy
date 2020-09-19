@@ -44,7 +44,8 @@ var renderCode = function(exampleName) {
     if (isRef) {
       $(sketchContainer).prepend('<h4 id="example'+i+'" class="sr-only">'+exampleName+' example '+i+'</h4>');
       var pre = document.createElement('pre');
-      pre.className = 'ref';
+      pre.classList.add('ref');
+      pre.classList.add('example_code');
       pre.appendChild(sketchNode);
       sketchContainer.appendChild(pre);
       sketchContainer.className = 'example_container';
