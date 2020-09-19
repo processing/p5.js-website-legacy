@@ -284,7 +284,6 @@ var renderCode = function(exampleName) {
         instances[i] = myp5;
       }, 100);
     });
-
   }
 
 };
