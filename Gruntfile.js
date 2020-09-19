@@ -169,8 +169,8 @@ module.exports = function(grunt) {
       dist: {
         src: [
           '<%= config.src %>/assets/css/normalize.css',
-          '<%= config.src %>/assets/css/main.css',
-          '<%= config.src %>/assets/css/prism.css'
+          '<%= config.src %>/assets/css/prism.css',
+          '<%= config.src %>/assets/css/main.css'
         ],
         dest: '<%= config.dist %>/assets/css/all.css'
       }
