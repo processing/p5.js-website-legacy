@@ -488,6 +488,10 @@ div.reference-subgroup {
   color: #afafaf;
 }
 
+#item {
+  width: 100%;
+}
+
 #item h2 {
   margin: 0.777em 0 0 0;
   font-size: 1.444em;
@@ -555,13 +559,13 @@ div.reference-subgroup {
 }
 
 .example-content .example_code {
-  position: absolute;
-  top: 0.5em;
-  left: 120px;
+  position: relative;
+  left: 1em;
   padding-top: 0;
   margin-top: 0;
   border: none;
   width: 30.5em;
+  max-width: 100%;
 }
 
 .example-content .example_code.norender {
@@ -625,10 +629,14 @@ div.reference-subgroup {
 
 .example-content .example_container {
   width: 36em;
+  max-width: 100%;
   border-top: 0.09em dashed;
   border-top-color: #333;
   padding-top: 0.5em;
   margin-top: 2em;
+  min-height: 120px;
+  height: calc(100% * 1.1 + 20px);
+  display: flex;
 }
 
 .example-content .example_container:first-of-type {
@@ -637,12 +645,15 @@ div.reference-subgroup {
 
 /*to make ref example responsive*/
 @media (max-width: 600px) {
-  .example-content pre {
-    top: calc(120px + 2em);
+  .example-content .example_code {
+    left: 0;
   }
-  .example_container {
+
+  .example-content .example_container {
     width: 100%;
-    min-height: 510px;
+    min-height: 220px;
+    height: calc(100% * 1.1 + 120px);
+    display: block;
   }
 
   .example_container button {
@@ -1980,6 +1991,7 @@ h2 {
   margin: 0 0 0 1em;
   padding: 0;
   float: left;
+  max-width: 100%;
 }
 
 .method_description p {
@@ -2443,8 +2455,8 @@ footer {
     left: 1em;
   }
   .column-span {
-    margin: 0 1em 0 1em;
-    padding: 0;
+    margin:0;
+    padding: 0 1em;
     float: left;
   }
   #menu.top_menu,

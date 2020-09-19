@@ -55,7 +55,6 @@ var renderCode = function(exampleName) {
       }
     }
 
-
     // remove start and end lines
     var runnable = sketch.textContent.replace(/^\s+|\s+$/g, '');
     var rows = sketch.textContent.split('\n').length;
@@ -71,7 +70,7 @@ var renderCode = function(exampleName) {
       var cnv = document.createElement('div');
       cnv.className = 'cnv_div';
       if (isRef) {
-        sketchContainer.appendChild(cnv);
+        sketchContainer.prepend(cnv);
       } else {
         sketchContainer.parentNode.insertBefore(cnv, sketchContainer);
       }
@@ -276,19 +275,12 @@ var renderCode = function(exampleName) {
       }
     }
 
-    $( document ).ready(function() {
+    $(document).ready(function() {
 
       registerHashChange();
 
       setTimeout(function() {
         var myp5 = new _p5(s, cnv);
-        $( ".example-content" ).find('div').each(function() {
-          $this = $( this );
-          var pre = $this.find('pre')[0];
-          if (pre) {
-            $this.height( Math.max($(pre).height()*1.1, 100) + 20 );
-          }
-        });
         instances[i] = myp5;
       }, 100);
     });
