@@ -85,16 +85,41 @@ var renderCode = function(exampleName) {
       edit_area.value = runnable;
       edit_area.rows = rows;
       edit_area.cols = 62;
-      edit_area.style.position = 'absolute'
-      edit_area.style.top = '4px';
-      edit_area.style.left = '13px';
+      edit_area.classList.add('edit_area');
       edit_space.appendChild(edit_area);
-      edit_area.style.display = 'none';
       enableTab(edit_area);
 
       //add buttons
       let button_space = document.createElement('ul');
       edit_space.appendChild(button_space);
+
+      let copy_button = document.createElement('button');
+      copy_button.value = 'copy';
+      copy_button.innerHTML = 'copy';
+      copy_button.id = 'copy'+i;
+      copy_button.setAttribute('aria-labelledby', copy_button.id+' example'+i);
+      copy_button.className = 'copy_button';
+      copy_button.onclick = function() {
+        setMode(sketch, 'edit');
+        edit_area.select();
+        document.execCommand('copy');
+      };
+      let copy_li = button_space.appendChild(document.createElement('li'));
+      copy_li.appendChild(copy_button);
+
+      let reset_button = document.createElement('button');
+      reset_button.value = 'reset';
+      reset_button.innerHTML = 'reset';
+      reset_button.id = 'reset'+i;
+      reset_button.setAttribute('aria-labelledby', reset_button.id+' example'+i);
+      reset_button.className = 'reset_button';
+      reset_button.onclick = function() {
+        edit_area.value = orig_sketch.textContent;
+        setMode(sketch, 'run');
+      };
+      let reset_li = button_space.appendChild(document.createElement('li'));
+      reset_li.appendChild(reset_button);
+
       let edit_button = document.createElement('button');
       edit_button.value = 'edit';
       edit_button.innerHTML = 'edit';
@@ -110,33 +135,6 @@ var renderCode = function(exampleName) {
       };
       let edit_li = button_space.appendChild(document.createElement('li'));
       edit_li.appendChild(edit_button);
-
-      let reset_button = document.createElement('button');
-      reset_button.value = 'reset';
-      reset_button.innerHTML = 'reset';
-      reset_button.id = 'reset'+i;
-      reset_button.setAttribute('aria-labelledby', reset_button.id+' example'+i);
-      reset_button.className = 'reset_button';
-      reset_button.onclick = function() {
-        edit_area.value = orig_sketch.textContent;
-        setMode(sketch, 'run');
-      };
-      let reset_li = button_space.appendChild(document.createElement('li'));
-      reset_li.appendChild(reset_button);
-
-      let copy_button = document.createElement('button');
-      copy_button.value = 'copy';
-      copy_button.innerHTML = 'copy';
-      copy_button.id = 'copy'+i;
-      copy_button.setAttribute('aria-labelledby', copy_button.id+' example'+i);
-      copy_button.className = 'copy_button';
-      copy_button.onclick = function() {
-        setMode(sketch, 'edit');
-        edit_area.select();
-        document.execCommand('copy');
-      };
-      let copy_li = button_space.appendChild(document.createElement('li'));
-      copy_li.appendChild(copy_button);
 
 
       function setMode(sketch, m) {

@@ -553,7 +553,8 @@ div.reference-subgroup {
 .example-content .edit_space,
 .example-content pre {
   position: absolute !important;
-  top: 120px;
+  top: 0.5em;
+  left: 120px;
   padding-top: 0 !important;
   border: none !important;
 }
@@ -565,18 +566,35 @@ pre.norender {
 
 .example-content pre {
   margin-top: 0 !important;
-  max-height: 400px; /*In case of larger code Description pre gets overlaps description*/
   width: 30.5em;
 }
 
 .example-content .edit_space {
   margin: -0.5em 0 0 -0.5em !important;
-}
-
-.example_container .edit_space {
+  width: 100%;
   position: absolute !important;
   top: 0;
   left: 0;
+  pointer-events: none;
+}
+
+.example-content .edit_space * {
+  pointer-events: auto;
+}
+
+.example-content .edit_space ul {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  pointer-events: none;
+}
+
+.example-content .edit_space .edit_area {
+  position: absolute;
+  top: 0.5em;
+  left: 120px;
+  width: 30.5em;
+  display: none;
 }
 
 .example div {
@@ -584,8 +602,7 @@ pre.norender {
 }
 
 .example_container button {
-  position: absolute;
-  top: 0.25em;
+  margin-top: 0.25em;
 }
 
 .edit_space button {
@@ -603,18 +620,6 @@ pre.norender {
   border-color: rgba(45, 123, 182, 0.25);
 }
 
-.edit_button {
-  left: 21.42em;
-}
-
-.reset_button {
-  left: 24em;
-}
-
-.copy_button {
-  left: 27.33em;
-}
-
 .display_button {
   margin-bottom: 2em;
   font-family: 'Montserrat', sans-serif;
@@ -627,7 +632,6 @@ pre.norender {
 
 .example_container {
   width: 36em;
-  min-height: 500px;
   border-top: 0.09em dashed;
   border-top-color: #333;
   padding-top: 0.5em;
@@ -787,63 +791,6 @@ a.code.addon {
     CONTRIBUTORS FORM
   //////////////////////////////////////////////////
 */
-
-.contribute-form {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.contribute-form input,
-textarea {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 5px;
-  font-size: 14px;
-}
-
-.contribute-form textarea {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 5px;
-  font-size: 14px;
-  width: 350px;
-}
-
-.contribute-form #form-help {
-  font-size: small;
-  color: #ababab;
-}
-
-.contribute-form #required-asterisk {
-  color: #ec245e;
-}
-
-.contribute-form #input-title {
-  font-size: medium;
-  margin-top: 15px;
-}
-
-.contribute-form #hide-message {
-  display: none;
-}
-
-.contribute-button {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
-  margin-bottom: 0;
-  font-size: medium;
-  border: 1px solid transparent;
-}
-
-.contribution-info li {
-  margin-bottom: 2px;
-  margin-left: 20px;
-  font-size: medium;
-}
-
-.contribution-info ul {
-  margin-bottom: 15px;
-}
 
 /*
   //////////////////////////////////////////////////
