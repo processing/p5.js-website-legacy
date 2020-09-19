@@ -950,113 +950,113 @@ h3 {
   order: 3;
 }
 
-#exampleFrame {
+#exampleDisplay #exampleFrame {
   height: 22em;
   order: 2;
 }
 
-#exampleEditor {
+#exampleDisplay #exampleEditor {
   height: 500em;
   width: 710px;
   overflow: hidden;
   margin-top: 0.5em;
   color: #222;
   font-family: 'Inconsolata', consolas, monospace;
-  font-size: 1em !important;
+  font-size: 1em;
   background-color: #fff;
   line-height: 1em;
   order: 4;
 }
 
-.ace_info {
-  background-color: #d7e5f5 !important;
+#exampleDisplay #exampleEditor .ace_gutter-cell {
+  background-image: none;
+  padding-left: 10px;
+  overflow: hidden;
+  background-color: #afafaf;
 }
 
-.ace_warning {
-  background-color: #ffd700 !important;
-  color: #ffffff !important;
+#exampleDisplay #exampleEditor .ace_gutter-cell.ace_info {
+  background-color: #d7e5f5;
 }
 
-.ace_error {
-  background-color: #ff6347 !important;
-  color: #ffffff !important;
+#exampleDisplay #exampleEditor .ace_gutter-cell.ace_warning {
+  background-color: #ffd700;
+  color: #ffffff;
+}
+
+#exampleDisplay #exampleEditor .ace_gutter-cell.ace_error {
+  background-color: #ff6347;
+  color: #ffffff;
 }
 
 /* property, tag, boolean,
    number, function-name, constant,
    symbol */
 
-.ace_numeric,
-.ace_tag {
-  color: #dc3787 !important;
+#exampleDisplay #exampleEditor .ace_numeric,
+#exampleDisplay #exampleEditor .ace_tag {
+  color: #dc3787;
   /* not p5 pink, but related */
 }
 
 /* atrule, attr-value, keyword,
    class-name */
 
-.ace_type,
-.ace_class,
-.ace_attribute-name {
-  color: #704f21 !important;
+#exampleDisplay #exampleEditor .ace_type,
+#exampleDisplay #exampleEditor .ace_class,
+#exampleDisplay #exampleEditor .ace_attribute-name {
+  color: #704f21;
   /* darker brown */
 }
 
 /* selector, attr-name,
 function, builtin */
 
-.ace_function,
-.ace_keyword,
-.ace_support {
-  color: #00a1d3 !important;
+#exampleDisplay #exampleEditor .ace_function,
+#exampleDisplay #exampleEditor .ace_keyword,
+#exampleDisplay #exampleEditor .ace_support {
+  color: #00a1d3;
   /* not p5 blue, but related */
 }
 
 /* comment, block-comment, prolog,
    doctype, cdata */
 
-.ace_comment {
-  color: #a0a0a0 !important;
+#exampleDisplay #exampleEditor .ace_comment {
+  color: #a0a0a0;
   /* light gray */
 }
 
 /* operator, entity, url,
 variable */
 
-.ace_string {
-  color: #a67f59 !important;
+#exampleDisplay #exampleEditor .ace_string {
+  color: #a67f59;
   /* og coy a67f59 a light brown */
 }
 
-.ace_operator {
-  color: #333 !important;
+#exampleDisplay #exampleEditor .ace_operator {
+  color: #333;
 }
 
 /* regex, important */
 
-.ace_regexp {
-  color: #e90 !important;
+#exampleDisplay #exampleEditor .ace_regexp {
+  color: #e90;
   /* og coy e90 orange */
 }
 
-.ace-gutter {
-  color: #333 !important;
+#exampleDisplay #exampleEditor .ace-gutter {
+  color: #333;
 }
 
-.ace-gutter-layer {
-  color: #333 !important;
+#exampleDisplay #exampleEditor .ace-gutter-layer {
+  color: #333;
 }
 
-.ace_folding-enabled {
+#exampleDisplay #exampleEditor .ace_folding-enabled {
   width: 10px !important;
-  color: #333 !important;
-}
-
-.ace_gutter-cell {
-  background-image: none !important;
-  padding-left: 10px !important;
-  overflow: hidden !important;
-  background-color: #afafaf !important;
+  color: #333;
 }
 
 .attribution {
@@ -1988,10 +1988,6 @@ h2 {
 
 main {
   padding: 0;
-  /*
-    margin:0 auto;
-    clear:both;
-    */
 }
 
 .spacer {
