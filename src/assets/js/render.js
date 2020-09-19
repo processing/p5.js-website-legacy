@@ -156,11 +156,6 @@ var renderCode = function(exampleName) {
           $('.example_container').each(function (ind, con) {
             $(con).css('opacity', 1.0);
             $(con).removeClass('editing');
-            $this = $(this);
-            var pre = $this.find('pre')[0];
-            if (pre) {
-              $this.height(Math.max($(pre).height(), 100) + 20);
-            }
           });
           runCode(sketch, true, i);
         }
