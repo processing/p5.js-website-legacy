@@ -64,14 +64,14 @@
   "Camera": "카메라",
   "p5": {
     "description": [
-      "This is the p5 instance constructor. ",
-      "A p5 instance holds all the properties and methods related to a p5 sketch. It expects an incoming sketch closure and it can also take an optional node parameter for attaching the generated p5 canvas to a node. The sketch closure takes the newly created p5 instance as its sole argument and may optionally set <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on it for running a sketch. ",
-      "A p5 sketch can run in \"global\" or \"instance\" mode: \"global\" - all properties and methods are attached to the window \"instance\" - all properties and methods are bound to this p5 object"
+      "p5 인스턴스 생성자 입니다.",
+      "p5 인스턴스는 p5 스케치와 관련된 모든 속성과 메소드를 보유합니다. 도래할 스케치 클로저(closure)를 예상하고, 생성된 p5 캔버스를 노드에 연결하기 위해 선택적으로 노드 매개변수를 취할 수 있습니다. 스케치 클로저는 새로이 생성된 p5 인스턴스를 유일한 인수로 취하며, 또 선택적으로, 스케치 실행을 위해 <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, 그리고/또는 <a href=\"#/p5/draw\">draw()</a> 속성을 담을 수 있습니다.",
+      "p5 스케치는 \"전역\" 또는 \"인스턴스\" 모드에서 실행됩니다: \"전역 모드\" - 모든 속성과 메소드가 윈도우에 속함 \"인스턴스 모드\" - 모든 속성과 메소드가 특정 p5 객체에 구속됨"
     ],
-    "returns": "P5: a p5 instance",
+    "returns": "P5: p5 인스턴스",
     "params": {
-      "sketch": "Function: a closure that can set optional <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on the  given p5 instance",
-      "node": "HTMLElement: (Optional) element to attach canvas to"
+      "sketch": "함수: 주어진 p5 인스턴스에 선택적으로 <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, 그리고/또는 <a href=\"#/p5/draw\">draw()</a> 속성을 설정할 수 있는 클로저",
+      "node": "HTMLElement: (선택 사항) 캔버스에 속할 요소"
     },
     "alpha": {
       "description": ["픽셀 배열로부터 알파값을 추출합니다."],
@@ -250,17 +250,17 @@
     },
     "erase": {
       "description": [
-        "All drawing that follows <a href=\"#/p5/erase\">erase()</a> will subtract from the canvas.Erased areas will reveal the web page underneath the canvas.Erasing can be canceled with <a href=\"#/p5/noErase\">noErase()</a>. ",
-        "Drawing done with <a href=\"#/p5/image\">image()</a> and <a href=\"#/p5/background\"> background()</a> in between <a href=\"#/p5/erase\">erase()</a> and <a href=\"#/p5/noErase\">noErase()</a> will not erase the canvas but works as usual."
+        "<a href=\"#/p5/erase\">erase()</a> 함수의 영향을 받는 모든 드로잉을 캔버스로부터 지웁니다. 지워진 영역은 캔버스 이면의 웹 페이지 화면을 드러냅니다. 이러한 지우기 행위는 <a href=\"#/p5/noErase\">noErase()</a>로 취소할 수 있습니다. ",
+        "<a href=\"#/p5/erase\">erase()</a> 함수와 <a href=\"#/p5/noErase\">noErase()</a> 함수 사이에서 <a href=\"#/p5/image\">image()</a>나 <a href=\"#/p5/background\">background()</a>로 그려진 드로잉은 캔버스에서 지워지지 않습니다."
       ],
       "params": {
-        "strengthFill": "Number: (Optional) A number (0-255) for the strength of erasing for a shape's fill.  This will default to 255 when no argument is given, which  is full strength.",
-        "strengthStroke": "Number: (Optional) A number (0-255) for the strength of erasing for a shape's stroke.  This will default to 255 when no argument is given, which  is full strength."
+        "strengthFill": "(선택 사항) 숫자: 도형의 면을 지우는 강도로서의 (0부터 255사이) 숫자. 별도 지정한 숫자가 없는 경우, 최고 강도인 255가 기본값으로 적용",
+        "strengthStroke": "(선택 사항) 숫자: (Optional) 도형의 테두리를 지우는 강도로서의 (0부터 255사이) 숫자. 별도 지정한 숫자가 없는 경우, 최고 강도인 255가 기본값으로 적용"
       }
     },
     "noErase": {
       "description": [
-        "Ends erasing that was started with <a href=\"#/p5/erase\">erase()</a>. The <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/stroke\">stroke()</a>, and <a href=\"#/p5/blendMode\">blendMode()</a> settings will return to what they were prior to calling <a href=\"#/p5/erase\">erase()</a>."
+        "<a href=\"#/p5/erase\">erase()</a>의 지우기 행위를 중단합니다. <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/stroke\">stroke()</a>, 그리고 <a href=\"#/p5/blendMode\">blendMode()</a> 함수로 설정된 사항들은 <a href=\"#/p5/erase\">erase()</a> 함수가 호출되기 전의 상태로 돌아갑니다."
       ]
     },
     "arc": {
@@ -294,12 +294,12 @@
     },
     "circle": {
       "description": [
-        "Draws a circle to the screen. A circle is a simple closed shape.It is the set of all points in a plane that are at a given distance from a given point, the centre.This function is a special case of the ellipse() function, where the width and height of the ellipse are the same. Height and width of the ellipse correspond to the diameter of the circle. By default, the first two parameters set the location of the centre of the circle, the third sets the diameter of the circle."
+        "화면에 원을 그립니다. 원은 닫힌 도형으로, 중심점으로부터 주어진 거리에있는 모든 점들의 집합입니다.이 함수는 높이와 너비가 다른 타원을 그려내는 ellipse() 함수와는 달리, 너비와 높이가 모두 동일한 원을 그립니다. 이 경우, 높이와 너비는 원의 지름과 같습니다. 기본값으로, 처음 두 매개변수는 원의 중심 위치를 설정하고, 세 번째 매개 변수는 원의 지름을 설정합니다."
       ],
       "params": {
-        "x": "Number: x-coordinate of the centre of the circle.",
-        "y": "Number: y-coordinate of the centre of the circle.",
-        "d": "Number: diameter of the circle."
+        "x": "숫자: 원 중심점의 x좌표",
+        "y": "숫자: 원 중심점의 y좌표",
+        "d": "숫자: 원의 지름"
       }
     },
     "line": {
@@ -1164,7 +1164,7 @@
     },
     "p5": {
       "description": [
-        "p5() 생성자로 전역 모드 대신 인스턴스 모드를 활성화할 수 있습니다. 이는 고급 활용 사례에 해당합니다. 간단한 설명과 예제가 아래에 포함되어 있습니다. 자세한 내용은 다니엘 쉬프만(Dan Shiffman)의 Coding Train 비디오 튜토리얼 또는 이 페이지를 참조하세요. <br><br> 기본값으로, 모든 p5.js 함수들은 전역 네임스페이스에 속합니다. (즉, 화면창 객체에 구속됩니다.) 이는, p5.js 함수들을 ellipse(), fill()과 같은 이름으로 불러올 수 있음을 뜻합니다. 하지만, 이러한 방식은 자바스크립트의 여타 (동기식 또는 비동기식) 라이브러리를 사용하거나 긴 코딩을 작성할 때 다소 불편할 수 있습니다. 따라서, p5.js는 인스턴스 모드를 통해 이 문제를 해결할 수 있는 방법을 지원합니다. 인스턴스 모드에서는 모든 p5 함수의 전역 네임 스페이스를 오염시키는 대신, 이를 단일 변수에 구속되게 만듭니다.<br><br>선택적으로, 캔버스나 다른 요소에 추가할 두 번째 인수로서 기본 컨테이너를 지정할 수 있습니다. HTML상 요소의 id나 노드 자체를 추가(append)할 수 있습니다.<br><br>이처럼 인스턴스를 만들면, 단일 웹페이지에 두 개 이상의 p5 스케치를 사용할 수 있게 됩니다. 각각의 고유한 설정 변수에 의거하기 때문입니다. 물론, 전역 모드에서도 iframe 기능을 이용하면 복수의 스케치를 웹페이지에 사용할 수 있습니다.",
+        "p5() 생성자로 전역 모드 대신 인스턴스 모드를 활성화할 수 있습니다. 이는 고급 활용 사례에 해당합니다. 간단한 설명과 예제가 아래에 있습니다. 자세한 내용은 다니엘 쉬프만(Dan Shiffman)의 <a target=\"blank\" href=\"https://www.youtube.com/watch?v=Su792jEauZg&feature=youtu.be\">코딩 트레인(Coding Train) 비디오 튜토리얼</a> 또는 <a target=\"blank\" href=\"https://github.com/processing/p5.js/wiki/p5.js-overview#instantiation--namespace\">이 페이지</a>를 참조하세요. <br><br> 기본값으로, 모든 p5.js 함수들은 전역 네임스페이스에 속합니다. (즉, 화면창 객체에 구속됩니다.) 이는, p5.js 함수들을 ellipse(), fill()과 같은 이름으로 불러올 수 있음을 뜻합니다. 하지만, 이러한 방식은 자바스크립트의 여타 (동기식 또는 비동기식) 라이브러리를 사용하거나 긴 코딩을 작성할 때 다소 불편할 수 있습니다. 따라서, p5.js는 인스턴스 모드를 통해 이 문제를 해결할 수 있는 방법을 지원합니다. 인스턴스 모드에서는 모든 p5 함수의 전역 네임 스페이스를 오염시키는 대신, 이를 단일 변수에 구속되게 만듭니다.<br><br>선택적으로, 캔버스나 다른 요소에 추가할 두 번째 인수로서 기본 컨테이너를 지정할 수 있습니다. HTML상 요소의 id나 노드 자체를 추가(append)할 수 있습니다.<br><br>이처럼 인스턴스를 만들면, 단일 웹페이지에 두 개 이상의 p5 스케치를 사용할 수 있게 됩니다. 각각의 고유한 설정 변수에 의거하기 때문입니다. 물론, 전역 모드에서도 iframe 기능을 이용하면 복수의 스케치를 웹페이지에 사용할 수 있습니다.",
         "",
         "",
         ""
