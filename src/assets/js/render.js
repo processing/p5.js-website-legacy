@@ -1,16 +1,15 @@
 var renderCode = function(exampleName) {
-
   var _p5 = p5;
   var instances = [];
   var selector = 'example';
   var examples = document.getElementsByClassName(selector);
-  if (examples.length > 0) {
 
+  if (examples.length > 0) {
     var sketches = examples[0].getElementsByTagName('code');
     var sketches_array = Array.prototype.slice.call(sketches);
     var i = 0;
     sketches_array.forEach(function(s) {
-      var rc = (s.parentNode.className.indexOf('norender') === -1);
+      var rc = s.parentNode.className.indexOf('norender') === -1;
       setupCode(s, rc, i);
       runCode(s, rc, i);
       i++;
@@ -19,32 +18,32 @@ var renderCode = function(exampleName) {
 
   function enableTab(el) {
     el.onkeydown = function(e) {
-      if (e.keyCode === 9) { // tab was pressed
+      if (e.keyCode === 9) {
+        // tab was pressed
         // get caret position/selection
         var val = this.value,
-            start = this.selectionStart,
-            end = this.selectionEnd;
+          start = this.selectionStart,
+          end = this.selectionEnd;
         // set textarea value to: text before caret + tab + text after caret
         this.value = val.substring(0, start) + '  ' + val.substring(end);
         // put caret at right position again
         this.selectionStart = this.selectionEnd = start + 2;
         // prevent the focus lose
         return false;
-
       }
     };
   }
 
   function setupCode(sketch, rc, i) {
-
     var isRef = sketch.parentNode.tagName !== 'PRE';
-    var sketchNode =  isRef ? sketch : sketch.parentNode;
+    var sketchNode = isRef ? sketch : sketch.parentNode;
     var sketchContainer = sketchNode.parentNode;
 
     if (isRef) {
       $(sketchContainer).prepend('<h4 id="example'+i+'" class="sr-only">'+exampleName+' example '+i+'</h4>');
       var pre = document.createElement('pre');
-      pre.className = 'ref';
+      pre.classList.add('ref');
+      pre.classList.add('example_code');
       pre.appendChild(sketchNode);
       sketchContainer.appendChild(pre);
       sketchContainer.className = 'example_container';
@@ -54,12 +53,9 @@ var renderCode = function(exampleName) {
       }
     }
 
-
     // remove start and end lines
     var runnable = sketch.textContent.replace(/^\s+|\s+$/g, '');
     var rows = sketch.textContent.split('\n').length;
-
-    // var h = Math.max(sketch.offsetHeight, 100) + 25;
 
     // store original sketch
     var orig_sketch = document.createElement('div');
@@ -70,7 +66,7 @@ var renderCode = function(exampleName) {
       var cnv = document.createElement('div');
       cnv.className = 'cnv_div';
       if (isRef) {
-        sketchContainer.appendChild(cnv);
+        sketchContainer.prepend(cnv);
       } else {
         sketchContainer.parentNode.insertBefore(cnv, sketchContainer);
       }
@@ -85,50 +81,19 @@ var renderCode = function(exampleName) {
       edit_area.value = runnable;
       edit_area.rows = rows;
       edit_area.cols = 62;
-      edit_area.style.position = 'absolute'
-      edit_area.style.top = '4px';
-      edit_area.style.left = '13px';
+      edit_area.classList.add('edit_area');
       edit_space.appendChild(edit_area);
-      edit_area.style.display = 'none';
       enableTab(edit_area);
 
       //add buttons
       let button_space = document.createElement('ul');
       edit_space.appendChild(button_space);
-      let edit_button = document.createElement('button');
-      edit_button.value = 'edit';
-      edit_button.innerHTML = 'edit';
-      edit_button.id = 'edit'+i;
-      edit_button.setAttribute('aria-labelledby', edit_button.id+' example'+i);
-      edit_button.className = 'edit_button';
-      edit_button.onclick = function(e) {
-        if (edit_button.innerHTML === 'edit') { // edit
-          setMode(sketch, 'edit');
-        } else { // run
-          setMode(sketch, 'run');
-        }
-      };
-      let edit_li = button_space.appendChild(document.createElement('li'));
-      edit_li.appendChild(edit_button);
-
-      let reset_button = document.createElement('button');
-      reset_button.value = 'reset';
-      reset_button.innerHTML = 'reset';
-      reset_button.id = 'reset'+i;
-      reset_button.setAttribute('aria-labelledby', reset_button.id+' example'+i);
-      reset_button.className = 'reset_button';
-      reset_button.onclick = function() {
-        edit_area.value = orig_sketch.textContent;
-        setMode(sketch, 'run');
-      };
-      let reset_li = button_space.appendChild(document.createElement('li'));
-      reset_li.appendChild(reset_button);
 
       let copy_button = document.createElement('button');
       copy_button.value = 'copy';
       copy_button.innerHTML = 'copy';
-      copy_button.id = 'copy'+i;
-      copy_button.setAttribute('aria-labelledby', copy_button.id+' example'+i);
+      copy_button.id = 'copy' + i;
+      copy_button.setAttribute('aria-labelledby', copy_button.id + ' example' + i);
       copy_button.className = 'copy_button';
       copy_button.onclick = function() {
         setMode(sketch, 'edit');
@@ -138,6 +103,36 @@ var renderCode = function(exampleName) {
       let copy_li = button_space.appendChild(document.createElement('li'));
       copy_li.appendChild(copy_button);
 
+      let reset_button = document.createElement('button');
+      reset_button.value = 'reset';
+      reset_button.innerHTML = 'reset';
+      reset_button.id = 'reset' + i;
+      reset_button.setAttribute('aria-labelledby', reset_button.id + ' example' + i);
+      reset_button.className = 'reset_button';
+      reset_button.onclick = function() {
+        edit_area.value = orig_sketch.textContent;
+        setMode(sketch, 'run');
+      };
+      let reset_li = button_space.appendChild(document.createElement('li'));
+      reset_li.appendChild(reset_button);
+
+      let edit_button = document.createElement('button');
+      edit_button.value = 'edit';
+      edit_button.innerHTML = 'edit';
+      edit_button.id = 'edit' + i;
+      edit_button.setAttribute('aria-labelledby', edit_button.id + ' example' + i);
+      edit_button.className = 'edit_button';
+      edit_button.onclick = function(e) {
+        if (edit_button.innerHTML === 'edit') {
+          // edit
+          setMode(sketch, 'edit');
+        } else {
+          // run
+          setMode(sketch, 'run');
+        }
+      };
+      let edit_li = button_space.appendChild(document.createElement('li'));
+      edit_li.appendChild(edit_button);
 
       function setMode(sketch, m) {
         if (m === 'edit') {
@@ -155,14 +150,9 @@ var renderCode = function(exampleName) {
           edit_button.innerHTML = 'edit';
           edit_area.style.display = 'none';
           sketch.textContent = edit_area.value;
-          $('.example_container').each(function (ind, con) {
+          $('.example_container').each(function(ind, con) {
             $(con).css('opacity', 1.0);
             $(con).removeClass('editing');
-            $this = $(this);
-            var pre = $this.find('pre')[0];
-            if (pre) {
-              $this.height(Math.max($(pre).height(), 100) + 20);
-            }
           });
           runCode(sketch, true, i);
         }
@@ -171,7 +161,6 @@ var renderCode = function(exampleName) {
   }
 
   function runCode(sketch, rc, i) {
-
     if (instances[i]) {
       instances[i].remove();
     }
@@ -192,11 +181,13 @@ var renderCode = function(exampleName) {
       }
       cnv.innerHTML = '';
 
-      var s = function( p ) {
-        var fxns = ['setup', 'draw', 'preload', 'mousePressed', 'mouseReleased',
+      var s = function(p) {
+        var fxns = [
+          'setup', 'draw', 'preload', 'mousePressed', 'mouseReleased',
           'mouseMoved', 'mouseDragged', 'mouseClicked', 'mouseWheel',
           'touchStarted', 'touchMoved', 'touchEnded',
-          'keyPressed', 'keyReleased', 'keyTyped'];
+          'keyPressed', 'keyReleased', 'keyTyped'
+        ];
         var _found = [];
         // p.preload is an empty function created by the p5.sound library in order to use the p5.js preload system
         // to load AudioWorklet modules before a sketch runs, even if that sketch doesn't have its own preload function.
@@ -243,7 +234,7 @@ var renderCode = function(exampleName) {
             with (p) {
               eval(runnable);
             }
-          }
+          };
         } else {
           // Actually runs the code to get functions into scope.
           with (p) {
@@ -263,9 +254,9 @@ var renderCode = function(exampleName) {
     }
 
     //if (typeof prettyPrint !== 'undefined') prettyPrint();
-    if (typeof Prism !== 'undefined'){
-      Prism.highlightAll()
-    };
+    if (typeof Prism !== 'undefined') {
+      Prism.highlightAll();
+    }
 
     // when a hash is changed, remove all the sounds,
     // even tho the p5 sketch has been disposed.
@@ -274,26 +265,16 @@ var renderCode = function(exampleName) {
         for (var i = 0; i < instances.length; i++) {
           instances[i].remove();
         }
-      }
+      };
     }
 
-    $( document ).ready(function() {
-
+    $(document).ready(function() {
       registerHashChange();
 
       setTimeout(function() {
         var myp5 = new _p5(s, cnv);
-        $( ".example-content" ).find('div').each(function() {
-          $this = $( this );
-          var pre = $this.find('pre')[0];
-          if (pre) {
-            $this.height( Math.max($(pre).height()*1.1, 100) + 20 );
-          }
-        });
         instances[i] = myp5;
       }, 100);
     });
-
   }
-
 };
