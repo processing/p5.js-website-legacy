@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/processing/p5.js-website.svg?branch=master)](https://travis-ci.com/processing/p5.js-website)
 
-# p5js website
+# p5js amazing website
 
 ## How To Contribute
 
