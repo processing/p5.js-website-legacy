@@ -7,15 +7,15 @@
  * para definir el color y el tamaño de un círculo.
  */
 function setup() {
-  createCanvas(640, 400);
+  createCanvas(720, 400);
   noStroke();
 }
 
 function draw() {
   background(0);
-  // Escala el valor de mouseX de 0 a 640 a un rango entre 0 y 175
+  // Escala el valor de mouseX de 0 a 720 a un rango entre 0 y 175
   let c = map(mouseX, 0, width, 0, 175);
-  // Escala el valor de mouseX de 0 a 640 a un rango entre 40 y 300
+  // Escala el valor de mouseX de 0 a 720 a un rango entre 40 y 300
   let d = map(mouseX, 0, width, 40, 300);
   fill(255, c, 0);
   ellipse(width/2, height/2, d, d);
