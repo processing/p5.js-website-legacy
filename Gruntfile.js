@@ -349,7 +349,8 @@ module.exports = function(grunt) {
           ignore: [
             /^This document appears to be written in English/,
             /^Bad value “https:/,
-            /^Consider adding a “lang” attribute to the “html”/
+            /^Consider adding a “lang” attribute to the “html”/,
+            /^Attribute “paypalexpress” not allowed on element “script” at this point./
           ]
         }
       }
