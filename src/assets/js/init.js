@@ -88,7 +88,7 @@ window.onload = function() {
     var tmp = w.navigator.languages && w.navigator.languages[0]
       || w.navigator.language || w.navigator.userLanguage;
     tmp = tmp.split('-')[0];
-    for (var i=0, l=langs; i < l; i++) {
+    for (var i=0, l=langs.length; i < l; i++) {
       if (tmp == langs[i]) {
         return langs[i];
       }
