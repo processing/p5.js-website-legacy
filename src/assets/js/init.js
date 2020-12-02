@@ -163,6 +163,10 @@ window.onload = function() {
   var evt_type = typeof document.addEventListener !== 'undefined' ? 'click' : 'onclick';
   var click_action = function(e) {
     var new_lang = this.getAttribute('data-lang');
+    //loc is defined second time below because while navigating from /reference/ to /reference/#/p5/displayWidth
+    //the page is not refreshing, so even if the page navigates properly to /reference/#/p5/displayWidth
+    //the window.location.hash remains empty
+    loc = String(window.location.pathname + window.location.hash);
     if (new_lang == 'en') {
       for (var j = 0; j < langs.length; j++) {
         if (langs[j] != 'en') {
