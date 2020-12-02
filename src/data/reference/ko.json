@@ -5696,7 +5696,7 @@
   },
   "p5.MonoSynth": {
     "description": [
-      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthetisers should be built inheriting from this class."
+      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthesizers should be built inheriting from this class."
     ],
     "play": {
       "description": [
@@ -5893,7 +5893,7 @@
       "SoundFile object with a path to a file.  ",
       "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
       "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
-      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatability, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
+      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatibility, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
     ],
     "params": {
       "path": "String|Array: path to a sound file (String). Optionally,  you may include multiple file formats in  an array. Alternately, accepts an object  from the HTML5 File API, or a p5.File.",
@@ -6299,7 +6299,7 @@
   "p5.Signal": {
     "description": [
       "p5.Signal is a constant audio-rate signal used by p5.Oscillator and p5.Envelope for modulation math.  ",
-      "This is necessary because Web Audio is processed on a seprate clock. For example, the p5 draw loop runs about 60 times per second. But the audio clock must process samples 44100 times per second. If we want to add a value to each of those samples, we can't do it in the draw loop, but we can do it by adding a constant-rate audio signal.</p.  ",
+      "This is necessary because Web Audio is processed on a separate clock. For example, the p5 draw loop runs about 60 times per second. But the audio clock must process samples 44100 times per second. If we want to add a value to each of those samples, we can't do it in the draw loop, but we can do it by adding a constant-rate audio signal.</p.  ",
       "This class mostly functions behind the scenes in p5.sound, and returns a Tone.Signal from the Tone.js library by Yotam Mann. If you want to work directly with audio signals for modular synthesis, check out <a href='http://bit.ly/1oIoEng' target=_'blank'>tone.js.</a>"
     ],
     "returns": "Tone.Signal: A Signal object from the Tone.js library",
@@ -6850,7 +6850,7 @@
   },
   "p5.Reverb": {
     "description": [
-      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has paramters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution. ",
+      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has parameters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution. ",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "process": {
@@ -6980,7 +6980,7 @@
     ],
     "params": {
       "steps": "Number: (Optional) Steps in the part",
-      "tatums": "Number: (Optional) Divisions of a beat, e.g. use 1/4, or 0.25 for a quater note (default is 1/16, a sixteenth note)"
+      "tatums": "Number: (Optional) Divisions of a beat, e.g. use 1/4, or 0.25 for a quarter note (default is 1/16, a sixteenth note)"
     },
     "setBPM": {
       "description": [
@@ -7192,7 +7192,7 @@
   },
   "p5.Compressor": {
     "description": [
-      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on indivudal sound sources in addition to the master output. ",
+      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on individual sound sources in addition to the master output. ",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "compressor": {
@@ -7215,7 +7215,7 @@
     },
     "set": {
       "description": [
-        "Set the paramters of a compressor."
+        "Set the parameters of a compressor."
       ],
       "params": {
         "attack": "Number: The amount of time (in seconds) to reduce the gain by 10dB,  default = .003, range 0 - 1",
