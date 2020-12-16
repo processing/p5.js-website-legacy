@@ -199,6 +199,16 @@ window.onload = function() {
   }
 
   // =================================================
+  // Checking hash in URL
+  // this function runs when the DOM is ready, i.e. when the document has been parsed
+  setTimeout(function() {
+    if (location.hash) {
+      location.href = location.hash;
+    }
+  }, 1000);
+  
+
+  // =================================================
   // Chinese spacing
   if (window.pangu) {
     pangu.spacingPage();
