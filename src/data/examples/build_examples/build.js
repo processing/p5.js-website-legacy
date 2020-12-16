@@ -3,7 +3,7 @@ var verbose = false;
 // now load the modules we need
 var ejs = require('ejs'); // library for turning .ejs templates into .html files
 var fs = require('fs'); // node.js library for reading and writing files
-var path = require('upath'); // platform indepedent file paths
+var path = require('upath'); // platform independent file paths
 
 // make sure EJS is configured to use curly braces for templates
 // ejs.open = '<%';
