@@ -1,4 +1,4 @@
-##Automated Reference update
+## Automated Reference update
 
 The p5.js documentation needs to be updated every time a new p5.js release gets published.
 This process is done by the `update-enJSON` [grunt task](https://github.com/processing/p5.js-website/blob/main/Gruntfile.js). 
@@ -16,6 +16,6 @@ Every time a new p5.js release gets published, the update-p5jswebsite workflow (
 
 When the update-documentation workflow commits the updated Reference files, the commit message will show both the p5.js release tag and the commit's sha.
 
-###Notes:
+### Notes:
 - For the repository_dispatch event of the update-p5jswebsite workflow, [this GitHub action](https://github.com/peter-evans/repository-dispatch) was used.
 - In order for the update-p5jswebsite workflow to trigger the update-documentation workflow, **it requires a repo scoped Personal Access Token created on a user with write access to the p5.js-website repository**. The Personal Access Token needs to be stored as secret in the p5.js repository.
