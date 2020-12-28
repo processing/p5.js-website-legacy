@@ -5,6 +5,7 @@ const copyToClipboard = (element)=> {
     el.setAttribute('readonly', '');
     el.style.position = 'absolute';
     el.style.left = '-9999px';
+    el.setAttribute('aria-hidden','true');
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
