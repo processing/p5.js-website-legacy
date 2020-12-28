@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
     <title tabindex="1">get started | p5.js</title>
-    <link rel="stylesheet" href="/assets/css/all.css?v=bcf43a">
+    <link rel="stylesheet" href="/assets/css/all.css?v=69fbed">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
 
@@ -84,7 +84,7 @@
 
       <h1>Get Started</h1>
 
-      <p>This page walks you through setting up a p5.js project and making your first sketch. The easiest way to start is using the  <a href="https://editor.p5js.org" target="_blank">p5.js editor</a>, you can open the web editor and can scroll down to  <a href="#sketch">Your First Sketch</a>. If you would like to work on the the desktop version of p5.js you can scroll down to <a href="#settingUp">downloading instructions</a>.
+      <p>This page walks you through setting up a p5.js project and making your first sketch. The easiest way to start is using the  <a href="https://editor.p5js.org" target="_blank">p5.js editor</a>, you can open the web editor and can scroll down to  <a href="#sketch">Your First Sketch</a>. If you would like to work on the the desktop version of p5.js you can scroll down to <a href="#settingUp">downloading instructions,</a>.
       </p>
 
 
@@ -95,7 +95,7 @@
         <h3 class="sr-only">Code snippet with ellipse</h3>
         <p>In the <a href='https://editor.p5js.org/'>p5.js web editor</a> you should find the following code:</p>
 
-<pre><code class="language-javascript">
+<pre id="first-sketch1"><code class="language-javascript">
 function setup() {
   createCanvas(400, 400);
 }
@@ -105,12 +105,15 @@ function draw() {
 }
 
 </code></pre>
+        <div class="edit_space">
+          <button id="copy_sketch1" class="copy_button">Copy</button>
+        </div>
         <p>After <code class="language-javascript">background(220);</code> include this line of code: <code class="language-javascript">ellipse(50,50,80,80);</code>.</p>
 
         <p>Now your code should be like this: </p>
         <h3 class="sr-only">Code snippet with ellipse</h3>
 
-<pre><code class="language-javascript">
+<pre id="first-sketch2"><code class="language-javascript">
 function setup() {
   createCanvas(400, 400);
 }
@@ -121,7 +124,10 @@ function draw() {
 }
 
 </code></pre>
-        <p>The line you just added draws an ellipse, with its center 50 pixels over from the left and 50 pixels down from the top, with a width and height of 80 pixels.</p>
+        <div class="edit_space">
+          <button id="copy_sketch2" class="copy_button">Copy</button>
+        </div>
+        <p style="margin-top: 1.5em;">The line you just added draws an ellipse, with its center 50 pixels over from the left and 50 pixels down from the top, with a width and height of 80 pixels.</p>
         <p>On the editor press play to display your code in action!</p>
         <h3 class="sr-only">Note for screenreader users</h3>
         <p>If you are using a screen reader, you must turn on the accessible outputs in the p5 online editor, outside the editor you must add the accessibility library in your html. To learn more visit<a href="../learn/p5-screen-reader.html" target="_blank">using p5 with a screen reader tutorial.</a>
@@ -137,7 +143,7 @@ function draw() {
         <h3 class="sr-only">Code snippet with interaction</h3>
         <p>Next, we'll skip ahead to a sketch that's a little more exciting. Modify the last example to try this:</p>
 
-<pre><code class="language-javascript">
+<pre id="first-sketch3"><code class="language-javascript">
 function setup() {
   createCanvas(400, 400);
 }
@@ -151,8 +157,10 @@ function draw() {
   ellipse(mouseX, mouseY, 80, 80);
 }
 </code></pre>
-
-        <p>This program creates a canvas that is 400 pixels wide and 400 pixels high, and then starts drawing white circles at the position of the mouse. When a mouse button is pressed, the circle color changes to black. Run the code, move the mouse, and click to experience it.
+        <div class="edit_space">
+          <button id="copy_sketch3" class="copy_button">Copy</button>
+        </div>
+        <p style="margin-top: 1.5em;">This program creates a canvas that is 400 pixels wide and 400 pixels high, and then starts drawing white circles at the position of the mouse. When a mouse button is pressed, the circle color changes to black. Run the code, move the mouse, and click to experience it.
         </p>
 
         <img src="../assets/img/get-started/first-sketch2.png" alt='canvas has multiple circles drawn on it following the path of the mouse'/>
@@ -203,7 +211,10 @@ function draw() {
 
         <p>If you look in index.html, you'll notice that it links to the file p5.js. If you would like to use the minified version (compressed for faster page loading), change the link to p5.min.js.</p>
 
-        <pre><code class="language-markup">&lt;script src="../p5.min.js">&lt;/script></code></pre>
+        <pre id="markup1"><code class="language-markup">&lt;script src="../p5.min.js">&lt;/script></code></pre>
+        <div class="edit_space">
+          <button id="copy_p5_script" class="copy_button">Copy</button>
+        </div>
       </div>
 
       <h3 class="start-element tutorial-btn" id="hosted">Using a hosted version of the p5.js library</h3>
@@ -213,11 +224,13 @@ function draw() {
             p5.js CDN</a>. In this case you can change the link to:
         </p>
 
-        <pre class='p5-replace'><code class="language-markup">&lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script></code></pre>
-
+        <pre id="cdn-link" class='p5-replace'><code class="language-markup">&lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script></code></pre>
+        <div class="edit_space">
+          <button id="copy_p5_link" class="copy_button">Copy</button>
+        </div>
         <p>A sample HTML page might look like this:</p>
 
-        <pre class='p5-replace'><code class="language-markup">
+        <pre id="sample-html" class='p5-replace'><code class="language-markup">
 &lt;html&gt;
   &lt;head&gt;
     &lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script&gt;
@@ -229,7 +242,9 @@ function draw() {
   &lt;/body&gt;
 &lt;/html&gt;
         </code></pre>
-
+      <div class="edit_space">
+          <button id="copy_p5_html" class="copy_button">Copy</button>
+      </div>
       </div>
       <h3 class="start-element tutorial-btn" id="environment">Environment</h3>
       <div class="info">
@@ -259,9 +274,7 @@ function draw() {
             $(this).html(html);
           });
         });
-
       </script>
-
     </main>
 
     
@@ -284,8 +297,8 @@ function draw() {
   
   <object type="image/svg+xml" data="../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
   </object>
-
 </div><!-- end id="get-started-page"  -->
+<script src="/../assets/js/get-started.js"></script>
 
 
     </div> <!-- close class='container'-->

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
     <title tabindex="1">get started | p5.js</title>
-    <link rel="stylesheet" href="/assets/css/all.css?v=bcf43a">
+    <link rel="stylesheet" href="/assets/css/all.css?v=69fbed">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
 
@@ -95,7 +95,7 @@
         <h3 class="sr-only">Bloque de código con elipse</h3>
         <p>En el <a href='https://editor.p5js.org/'>editor web p5.js</a> vas encontrar el siguiente código:</p>
 
-<pre><code class="language-javascript">
+<pre id="first-sketch1"><code class="language-javascript">
 function setup() {
   createCanvas(400, 400);
 }
@@ -105,12 +105,15 @@ function draw() {
 }
 
 </code></pre>
+        <div class="edit_space">
+          <button id="copy_sketch1" class="copy_button">Copy</button>
+        </div>
         <p>Despúes de <code class="language-javascript">background(220);</code> incluye esta línea de código: <code class="language-javascript">ellipse(50,50,80,80);</code>.</p>
 
         <p>Ahora tu código debe estar así: </p>
         <h3 class="sr-only">Bloque de código con elipse</h3>
 
-<pre><code class="language-javascript">
+<pre id="first-sketch2"><code class="language-javascript">
 function setup() {
   createCanvas(400, 400);
 }
@@ -121,7 +124,10 @@ function draw() {
 }
 
 </code></pre>
-        <p>La línea que acabas de agreagar dibuja una elipse, con su centro a 50 píxeles del borde izquierdo y 50 píxeles del borde superior del bosquejo, con un ancho y un alto de 80 píxeles.</p>
+        <div class="edit_space">
+          <button id="copy_sketch2" class="copy_button">Copy</button>
+        </div>
+        <p style="margin-top: 1.5em;">La línea que acabas de agreagar dibuja una elipse, con su centro a 50 píxeles del borde izquierdo y 50 píxeles del borde superior del bosquejo, con un ancho y un alto de 80 píxeles.</p>
         <p>¡En el editor presiona play para ejecutar el código!</p>
         <h3 class="sr-only">Nota para usuarios de lectores de pantalla</h3>
         <p>Si estas utilizando un lector de pantalla, tienes que activar las salidas accesibles en el editor, fuera del editor tienes que agregar la biblioteca de accesibilidad a tu html. Para aprender más visita el <a href="../learn/p5-screen-reader.html" target="_blank"> tutorial usando p5 con un lector de pantalla.</a>
@@ -137,7 +143,7 @@ function draw() {
         <h3 class="sr-only">Bloque de código con Interacción</h3>
         <p>Ahora, vamos a crear un bosquejo que es un poco más interesante. Modica el ejemplo anterior para probar lo siguiente:</p>
 
-<pre><code class="language-javascript">
+<pre id="first-sketch3"><code class="language-javascript">
 function setup() {
   createCanvas(400, 400);
 }
@@ -151,8 +157,10 @@ function draw() {
   ellipse(mouseX, mouseY, 80, 80);
 }
 </code></pre>
-
-        <p>Este programa crea un canvas que es de 400 píxeles de ancho y 400 píxeles de alto, y luego empieza a dibujar círculos blancos en la posición del ratón. Cuando algún botón del ratón es presionado, el color del círculo cambia a negro. Ejecuta el código, mueve el cursor, y has click para experimentarlo.
+        <div class="edit_space">
+          <button id="copy_sketch3" class="copy_button">Copy</button>
+        </div>
+        <p style="margin-top: 1.5em;">Este programa crea un canvas que es de 400 píxeles de ancho y 400 píxeles de alto, y luego empieza a dibujar círculos blancos en la posición del ratón. Cuando algún botón del ratón es presionado, el color del círculo cambia a negro. Ejecuta el código, mueve el cursor, y has click para experimentarlo.
         </p>
 
         <img src="../../assets/img/get-started/first-sketch2.png" alt='canvas tiene múltiples círculos dibujados que siguen los movimientos del cursor'/>
@@ -203,7 +211,10 @@ function draw() {
 
         <p>Si revisas el archivo index.html, te darás cuenta que tiene un enlace al archivo p5.js. Si estás buscando usar la versión reducida (comprimida para que las páginas carguen más rápidamente), cambia el enlace a p5.min.js.</p>
 
-        <pre><code class="language-markup">&lt;script src="../p5.min.js">&lt;/script></code></pre>
+        <pre id="markup1"><code class="language-markup">&lt;script src="../p5.min.js">&lt;/script></code></pre>
+        <div class="edit_space">
+          <button id="copy_p5_script" class="copy_button">Copy</button>
+        </div>
       </div>
 
       <h3 class="start-element tutorial-btn" id="hosted">Utiliza una versión alojada de la biblioteca p5.js</h3>
@@ -213,11 +224,13 @@ function draw() {
             p5.js CDN</a>. En este caso, puedes cambiar el enlace a: 
         </p>
 
-        <pre class='p5-replace'><code class="language-markup">&lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script></code></pre>
-
+        <pre id="cdn-link" class='p5-replace'><code class="language-markup">&lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script></code></pre>
+        <div class="edit_space">
+          <button id="copy_p5_link" class="copy_button">Copy</button>
+        </div>
         <p>Una página HTML de ejemplo podría verse así:</p>
 
-        <pre class='p5-replace'><code class="language-markup">
+        <pre id="sample-html" class='p5-replace'><code class="language-markup">
 &lt;html&gt;
   &lt;head&gt;
     &lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script&gt;
@@ -229,7 +242,9 @@ function draw() {
   &lt;/body&gt;
 &lt;/html&gt;
         </code></pre>
-
+      <div class="edit_space">
+          <button id="copy_p5_html" class="copy_button">Copy</button>
+      </div>
       </div>
       <h3 class="start-element tutorial-btn" id="environment">Ambiente</h3>
       <div class="info">
@@ -259,9 +274,7 @@ function draw() {
             $(this).html(html);
           });
         });
-
       </script>
-
     </main>
 
     
@@ -284,8 +297,8 @@ function draw() {
   
   <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
   </object>
-
 </div><!-- end id="get-started-page"  -->
+<script src="/../../assets/js/get-started.js"></script>
 
 
     </div> <!-- close class='container'-->

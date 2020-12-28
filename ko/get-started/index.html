@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
     <title tabindex="1">get started | p5.js</title>
-    <link rel="stylesheet" href="/assets/css/all.css?v=bcf43a">
+    <link rel="stylesheet" href="/assets/css/all.css?v=69fbed">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
 
@@ -95,7 +95,7 @@
         <h3 class="sr-only">타원과 코드 스니펫</h3>
         <p>기존 프로세싱 사용자라면 다음의 페이지를 읽어보세요: <a href='https://github.com/processing/p5.js/wiki/Processing-transition'>프로세싱 스케치를 p5.js로 변환하기 튜토리얼</a> 에디터에 다음을 입력하세요:</p>
 
-<pre><code class="language-javascript">
+<pre id="first-sketch1"><code class="language-javascript">
 function setup() {
   createCanvas(400, 400);
 }
@@ -105,12 +105,15 @@ function draw() {
 }
 
 </code></pre>
+        <div class="edit_space">
+          <button id="copy_sketch1" class="copy_button">Copy</button>
+        </div>
         <p>After <code class="language-javascript">background(220);</code>위의 코드를 설명하자면 다음과 같습니다: "좌측 상단 모서리로부터 아래로 50px, 오른쪽으로 50px 떨어진 점을 중심으로 타원을 그린다. 타원의 너비와 높이는 모두 80px로 한다." <code class="language-javascript">ellipse(50,50,80,80);</code>.</p>
 
         <p>스케치를 저장한 뒤 브라우저를 새로고침하면, 입력한 코드에 문제가 없는 한, 다음과 같은 화면을 볼 수 있습니다:</p>
         <h3 class="sr-only">타원과 코드 스니펫</h3>
 
-<pre><code class="language-javascript">
+<pre id="first-sketch2"><code class="language-javascript">
 function setup() {
   createCanvas(400, 400);
 }
@@ -121,7 +124,10 @@ function draw() {
 }
 
 </code></pre>
-        <p>주의: 스크린 리더를 사용하는 경우, p5 웹에디터에서 접근성 모드 출력(Accessible Outputs)을 활성화해야 합니다. 별도의 에디터를 사용하는 경우, 접근성 라이브러리를 html 파일에 추가해야 합니다. 자세한 설명은 다음 링크를 참조하세요: </p>
+        <div class="edit_space">
+          <button id="copy_sketch2" class="copy_button">Copy</button>
+        </div>
+        <p style="margin-top: 1.5em;">주의: 스크린 리더를 사용하는 경우, p5 웹에디터에서 접근성 모드 출력(Accessible Outputs)을 활성화해야 합니다. 별도의 에디터를 사용하는 경우, 접근성 라이브러리를 html 파일에 추가해야 합니다. 자세한 설명은 다음 링크를 참조하세요: </p>
         <p>스크린 리더에서 p5를 사용하는 방법</p>
         <h3 class="sr-only">스크린리더 사용자를 위한 참고 사항</h3>
         <p><a href="../learn/p5-screen-reader.html" target="_blank">접근성 라이브러리란?.</a>
@@ -137,7 +143,7 @@ function draw() {
         <h3 class="sr-only">인터랙션과 코드 스니펫</h3>
         <p>이제 프로그램은 폭 640px, 높이 480px의 캔버스를 생성하고, 마우스 커서 위치에서 흰 원을 그리기 시작합니다. 마우스 버튼을 누르고 있을 때는 원의 색이 검정색으로 바뀝니다. 마우스 위치에 대한 설명은 나중에 더 하기로 하고, 지금은 마우스를 움직이고 클릭하며 스케치의 변화를 살펴보세요.</p>
 
-<pre><code class="language-javascript">
+<pre id="first-sketch3"><code class="language-javascript">
 function setup() {
   createCanvas(400, 400);
 }
@@ -151,8 +157,10 @@ function draw() {
   ellipse(mouseX, mouseY, 80, 80);
 }
 </code></pre>
-
-        <p>캔버스 위의 마우스 궤적을 따라 여러 개의 원이 그려집니다:
+        <div class="edit_space">
+          <button id="copy_sketch3" class="copy_button">Copy</button>
+        </div>
+        <p style="margin-top: 1.5em;">캔버스 위의 마우스 궤적을 따라 여러 개의 원이 그려집니다:
         </p>
 
         <img src="../../assets/img/get-started/first-sketch2.png" alt='캔버스 위의 마우스 궤적을 따라 여러 개의 원이 그려집니다.'/>
@@ -203,7 +211,10 @@ function draw() {
 
         <p>그 중 index.html 파일에는 p5.js 링크가 적혀있습니다. 불러오는 시간을 단축하려면, p5.js 링크를 그 간략 버전인 p5.min.js로 아래와 같이 변경하면 됩니다. </p>
 
-        <pre><code class="language-markup">&lt;script src="../p5.min.js">&lt;/script></code></pre>
+        <pre id="markup1"><code class="language-markup">&lt;script src="../p5.min.js">&lt;/script></code></pre>
+        <div class="edit_space">
+          <button id="copy_p5_script" class="copy_button">Copy</button>
+        </div>
       </div>
 
       <h3 class="start-element tutorial-btn" id="hosted">호스팅된 p5.js 라이브러리 사용하기</h3>
@@ -213,11 +224,13 @@ function draw() {
             p5.js CDN</a>. 링크를 다음과 같이 변경해보세요:
         </p>
 
-        <pre class='p5-replace'><code class="language-markup">&lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script></code></pre>
-
+        <pre id="cdn-link" class='p5-replace'><code class="language-markup">&lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script></code></pre>
+        <div class="edit_space">
+          <button id="copy_p5_link" class="copy_button">Copy</button>
+        </div>
         <p>아래는 HTML 페이지 샘플입니다:</p>
 
-        <pre class='p5-replace'><code class="language-markup">
+        <pre id="sample-html" class='p5-replace'><code class="language-markup">
 &lt;html&gt;
   &lt;head&gt;
     &lt;script src="https://cdn.jsdelivr.net/npm/p5@[p5_version]/lib/p5.js">&lt;/script&gt;
@@ -229,7 +242,9 @@ function draw() {
   &lt;/body&gt;
 &lt;/html&gt;
         </code></pre>
-
+      <div class="edit_space">
+          <button id="copy_p5_html" class="copy_button">Copy</button>
+      </div>
       </div>
       <h3 class="start-element tutorial-btn" id="environment">개발 환경</h3>
       <div class="info">
@@ -259,9 +274,7 @@ function draw() {
             $(this).html(html);
           });
         });
-
       </script>
-
     </main>
 
     
@@ -284,8 +297,8 @@ function draw() {
   
   <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
   </object>
-
 </div><!-- end id="get-started-page"  -->
+<script src="/../../assets/js/get-started.js"></script>
 
 
     </div> <!-- close class='container'-->
