@@ -12,6 +12,8 @@ const fse = require('fs-extra');
 const git = require('simple-git');
 const pkg = require('./package.json');
 const update_i18n = require('./updatei18nFiles.js');
+const mozjpeg = require('imagemin-mozjpeg');
+const pngquant = require('imagemin-pngquant');
 
 module.exports = function(grunt) {
   require('time-grunt')(grunt);
@@ -151,7 +153,8 @@ module.exports = function(grunt) {
     imagemin: {
       images: {
         options: {
-          optimizationLevel: 2
+          optimizationLevel: 2,
+          use: [mozjpeg(),pngquant()] //plugins for jpeg & png image compression
         },
         files: [{
           expand: true,
