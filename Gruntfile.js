@@ -154,7 +154,7 @@ module.exports = function(grunt) {
       images: {
         options: {
           optimizationLevel: 2,
-          use: [mozjpeg(),pngquant()] //plugins for jpeg & png image compression
+          use: [mozjpeg({quality: 70}), pngquant()] //plugins for jpeg & png image compression
         },
         files: [{
           expand: true,
