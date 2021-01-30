@@ -22,7 +22,7 @@ function draw() {
 }
 
 class Spin {
-  constructor(x,y,s) {
+  constructor(x, y, s) {
     this.x = x;
     this.y = y;
     this.speed = s;
@@ -36,7 +36,7 @@ class Spin {
 
 class SpinArm extends Spin {
   constructor(x, y, s) {
-    super(x,y,s)
+    super(x, y, s)
   }
 
   display() {
@@ -53,7 +53,7 @@ class SpinArm extends Spin {
 
 class SpinSpots extends Spin {
   constructor(x, y, s, d) {
-    super(x,y,s)
+    super(x, y, s)
     this.dim = d;
   }
 
