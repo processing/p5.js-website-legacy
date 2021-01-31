@@ -27,7 +27,7 @@ class Spin {
     this.speed = s;
     this.angle = 0.0;
   }
-  
+
   update() {
     this.angle += this.speed;
   }
