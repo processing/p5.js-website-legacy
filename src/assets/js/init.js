@@ -88,7 +88,7 @@ window.onload = function() {
     var tmp = w.navigator.languages && w.navigator.languages[0]
       || w.navigator.language || w.navigator.userLanguage;
     tmp = tmp.split('-')[0];
-    for (var i=0, l=langs; i < l; i++) {
+    for (var i = 0; i < langs.length; i++) {
       if (tmp == langs[i]) {
         return langs[i];
       }
@@ -99,7 +99,7 @@ window.onload = function() {
 
   var get_loc_lang = function(w) {
     if ((w.location.pathname == '/') === false) {
-      for (var i=0, l=langs.length; i < l; i++) {
+      for (var i = 0; i < langs.length; i++) {
         if (w.location.pathname.indexOf('/' + langs[i] + '/') !== -1) {
           if (can_store) {
             window.localStorage.setItem('lang', langs[i]);
@@ -149,7 +149,7 @@ window.onload = function() {
   var els = document.getElementsByClassName('js-lang');
   var el = null;
   if (window.lang != 'en') {
-    for (var i=0, l=els.length; i < l; i++) {
+    for (var i = 0; i < els.length; i++) {
       el = els[i];
       el.innerHTML = el.getAttribute('data-' + window.lang);
     }
@@ -163,14 +163,18 @@ window.onload = function() {
   var evt_type = typeof document.addEventListener !== 'undefined' ? 'click' : 'onclick';
   var click_action = function(e) {
     var new_lang = this.getAttribute('data-lang');
+    //loc is defined second time below because while navigating from /reference/ to /reference/#/p5/displayWidth
+    //the page is not refreshing, so even if the page navigates properly to /reference/#/p5/displayWidth
+    //the window.location.hash remains empty
+    loc = String(window.location.pathname + window.location.hash);
     if (new_lang == 'en') {
-      for (var j=0, l=langs.length; j < l; j++) {
+      for (var j = 0; j < langs.length; j++) {
         if (langs[j] != 'en') {
           loc = loc.replace('\/' + langs[j] + '\/', '/');
         }
       }
     } else {
-      for (var j=0, l=langs.length; j < l; j++) {
+      for (var j = 0; j < langs.length; j++) {
         loc = loc.replace('\/' + langs[j] + '\/', '/');
       }
       loc = '/' + new_lang + loc;
@@ -180,7 +184,7 @@ window.onload = function() {
     }
     window.location = loc;
   };
-  for (var i=0, l=btns.length; i < l; i++) {
+  for (var i = 0; i < btns.length; i++) {
     var btn_lang = btns[i].getAttribute('data-lang');
     if (loc_lang == btn_lang) {
       $(btns[i]).addClass('disabled');
@@ -193,6 +197,16 @@ window.onload = function() {
       }
     }
   }
+
+  // =================================================
+  // Checking hash in URL
+  // this function runs when the DOM is ready, i.e. when the document has been parsed
+  setTimeout(function() {
+    if (location.hash) {
+      location.href = location.hash;
+    }
+  }, 1000);
+  
 
   // =================================================
   // Chinese spacing

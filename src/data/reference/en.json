@@ -392,7 +392,7 @@
     },
     "triangle": {
       "description": [
-        "Draws a trangle to the canvas. A triangle is a plane created by connecting three points. The first two arguments specify the first point, the middle two arguments specify the second point, and the last two arguments specify the third point."
+        "Draws a triangle to the canvas. A triangle is a plane created by connecting three points. The first two arguments specify the first point, the middle two arguments specify the second point, and the last two arguments specify the third point."
       ],
       "params": {
         "x1": "Number: x-coordinate of the first point",
@@ -425,7 +425,7 @@
       "description": [
         "Modifies the location from which rectangles are drawn by changing the way in which parameters given to <a href=\"#/p5/rect\">rect()</a> are interpreted. ",
         "The default mode is CORNER, which interprets the first two parameters as the upper-left corner of the shape, while the third and fourth parameters are its width and height. ",
-        "rectMode(CORNERS) interprets the first two parameters as the location of one of the corner, and the third and fourth parameters as the location of the diagonally opposite corner. Note, the rectangle is drawn between the coordinates, so it is not neccesary that the first corner be the upper left corner. ",
+        "rectMode(CORNERS) interprets the first two parameters as the location of one of the corner, and the third and fourth parameters as the location of the diagonally opposite corner. Note, the rectangle is drawn between the coordinates, so it is not necessary that the first corner be the upper left corner. ",
         "rectMode(CENTER) interprets the first two parameters as the shape's center point, while the third and fourth parameters are its width and height. ",
         "rectMode(RADIUS) also uses the first two parameters as the shape's center point, but uses the third and fourth parameters to specify half of the shapes's width and height respectively. ",
         "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
@@ -578,7 +578,7 @@
         "a": "Number: coordinate of first control point",
         "b": "Number: coordinate of first point on the curve",
         "c": "Number: coordinate of second point on the curve",
-        "d": "Number: coordinate of second conrol point",
+        "d": "Number: coordinate of second control point",
         "t": "Number: value between 0 and 1"
       }
     },
@@ -709,12 +709,12 @@
     },
     "DEGREES": {
       "description": [
-        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprates and calculates angles (either DEGREES or RADIANS)."
+        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprets and calculates angles (either DEGREES or RADIANS)."
       ]
     },
     "RADIANS": {
       "description": [
-        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprates and calculates angles (either RADIANS or DEGREES)."
+        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprets and calculates angles (either RADIANS or DEGREES)."
       ]
     },
     "CORNER": {},
@@ -1028,7 +1028,7 @@
     "function": {
       "description": [
         "Creates and names a <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions\">function</a>. A <a href=\"#/p5/function\">function</a> is a set of statements that perform a task. ",
-        "Optionally, functions can have parameters. <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Parameter\">Parameters</a> are variables that are scoped to the function, that can be assigned a value when calling the function.Multiple parameters can be given by seperating them with commmas. ",
+        "Optionally, functions can have parameters. <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Parameter\">Parameters</a> are variables that are scoped to the function, that can be assigned a value when calling the function.Multiple parameters can be given by separating them with commas. ",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function\">the MDN entry</a>: Declares a function with the specified parameters."
       ]
     },
@@ -1072,7 +1072,7 @@
     "for": {
       "description": [
         "<a href=\"#/p5/for\">for</a> creates a loop that is useful for executing one section of code multiple times. ",
-        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are seperated by ; (semi-colon).In case of an empty expression, only a semi-colon is written. ",
+        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are separated by ; (semi-colon).In case of an empty expression, only a semi-colon is written. ",
         "The code inside of the loop body (in between the curly braces) is executed between the evaluation of the second and third expression. ",
         "As with any loop, it is important to ensure that the loop can 'exit', or that the test condition will eventually evaluate to false. The test condition with a <a href=\"#/p5/for\">for</a> loop is the second expression detailed above. Ensuring that this expression can eventually become false ensures that your loop doesn't attempt to run an infinite amount of times, which can crash your browser. ",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for\">the MDN entry</a>: Creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once."
@@ -1219,7 +1219,7 @@
     "rotate": {
       "description": [
         "Rotates a shape by the amount specified by the angle parameter. This function accounts for <a href=\"#/p5/angleMode\">angleMode</a>, so angles can be entered in either RADIANS or DEGREES. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI). All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again. ",
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI). All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again. ",
         "Technically, <a href=\"#/p5/rotate\">rotate()</a> multiplies the current transformation matrix by a rotation matrix. This function can be further controlled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>."
       ],
       "params": {
@@ -1230,7 +1230,7 @@
     "rotateX": {
       "description": [
         "Rotates a shape around X axis by the amount specified in angle parameter. The angles can be entered in either RADIANS or DEGREES. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Number: the angle of rotation, specified in radians  or degrees, depending on current angleMode"
@@ -1239,7 +1239,7 @@
     "rotateY": {
       "description": [
         "Rotates a shape around Y axis by the amount specified in angle parameter. The angles can be entered in either RADIANS or DEGREES. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Number: the angle of rotation, specified in radians  or degrees, depending on current angleMode"
@@ -1249,7 +1249,7 @@
       "description": [
         "Rotates a shape around Z axis by the amount specified in angle parameter. The angles can be entered in either RADIANS or DEGREES. ",
         "This method works in WEBGL mode only. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Number: the angle of rotation, specified in radians  or degrees, depending on current angleMode"
@@ -5711,7 +5711,7 @@
   },
   "p5.MonoSynth": {
     "description": [
-      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthetisers should be built inheriting from this class."
+      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthesizers should be built inheriting from this class."
     ],
     "play": {
       "description": [
@@ -5908,7 +5908,7 @@
       "SoundFile object with a path to a file.  ",
       "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
       "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
-      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatability, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
+      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatibility, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
     ],
     "params": {
       "path": "String|Array: path to a sound file (String). Optionally,  you may include multiple file formats in  an array. Alternately, accepts an object  from the HTML5 File API, or a p5.File.",
@@ -6314,7 +6314,7 @@
   "p5.Signal": {
     "description": [
       "p5.Signal is a constant audio-rate signal used by p5.Oscillator and p5.Envelope for modulation math.  ",
-      "This is necessary because Web Audio is processed on a seprate clock. For example, the p5 draw loop runs about 60 times per second. But the audio clock must process samples 44100 times per second. If we want to add a value to each of those samples, we can't do it in the draw loop, but we can do it by adding a constant-rate audio signal.</p.  ",
+      "This is necessary because Web Audio is processed on a separate clock. For example, the p5 draw loop runs about 60 times per second. But the audio clock must process samples 44100 times per second. If we want to add a value to each of those samples, we can't do it in the draw loop, but we can do it by adding a constant-rate audio signal.</p.  ",
       "This class mostly functions behind the scenes in p5.sound, and returns a Tone.Signal from the Tone.js library by Yotam Mann. If you want to work directly with audio signals for modular synthesis, check out <a href='http://bit.ly/1oIoEng' target=_'blank'>tone.js.</a>"
     ],
     "returns": "Tone.Signal: A Signal object from the Tone.js library",
@@ -6865,7 +6865,7 @@
   },
   "p5.Reverb": {
     "description": [
-      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has paramters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution. ",
+      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has parameters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution. ",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "process": {
@@ -6995,7 +6995,7 @@
     ],
     "params": {
       "steps": "Number: (Optional) Steps in the part",
-      "tatums": "Number: (Optional) Divisions of a beat, e.g. use 1/4, or 0.25 for a quater note (default is 1/16, a sixteenth note)"
+      "tatums": "Number: (Optional) Divisions of a beat, e.g. use 1/4, or 0.25 for a quarter note (default is 1/16, a sixteenth note)"
     },
     "setBPM": {
       "description": [
@@ -7207,7 +7207,7 @@
   },
   "p5.Compressor": {
     "description": [
-      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on indivudal sound sources in addition to the master output. ",
+      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on individual sound sources in addition to the master output. ",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "compressor": {
@@ -7230,7 +7230,7 @@
     },
     "set": {
       "description": [
-        "Set the paramters of a compressor."
+        "Set the parameters of a compressor."
       ],
       "params": {
         "attack": "Number: The amount of time (in seconds) to reduce the gain by 10dB,  default = .003, range 0 - 1",
@@ -7362,7 +7362,7 @@
   },
   "p5.Gain": {
     "description": [
-      "A gain node is usefull to set the relative volume of sound. It's typically used to build mixers."
+      "A gain node is useful to set the relative volume of sound. It's typically used to build mixers."
     ],
     "setInput": {
       "description": [
