@@ -7,10 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' # If this is running on the "main" branch
     steps:
-      # a lot of these steps are duplicates from the above job
-      # but it feels safer to keep these two jobs separate
     - uses: actions/checkout@v2
     - name: Use Node.js
       uses: actions/setup-node@v1
