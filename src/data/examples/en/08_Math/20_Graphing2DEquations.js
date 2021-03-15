@@ -1,7 +1,7 @@
 /**
  * @name Graphing 2D Equations
  * @frame 710, 400
- * @description Graphics the following equation: sin(n*cos(r) + 5*theta) where n is a function of horizontal mouse location. Original by Daniel Shiffman
+ * @description Graphics the following equation: sin(n cos(r) + 5θ) where n is a function of horizontal mouse location. Original by Daniel Shiffman
  */
 function setup() {
   createCanvas(710, 400);
@@ -43,6 +43,7 @@ function draw() {
       pixels[index + 1] = green(bw);
       pixels[index + 2] = blue(bw);
       pixels[index + 3] = alpha(bw);
+
       y += dy;
     }
     x += dx;
