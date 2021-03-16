@@ -1,7 +1,8 @@
 /* 
  * @name Weight Line
  * @frame 710,400
- * @description contributed by <b>Prof WM Harris</b> using the random function with events to color/weight a line<br/>
+ * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
+   <b>Prof WM Harris,</b></a> using the random function with events to color/weight a line<br/>
   <b>How</b> to use the random function with events to color/ weight a line
 	dependent on mouse location, lmb clicks, character key types, and
 	random key releases.<br/>
