@@ -4,7 +4,7 @@
  * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
    <b>Prof WM Harris,</b></a> using the random function with events to color/weight a line<br/>
   <b>How</b> to use the random function with events to color/ weight a line
-	dependent on mouse location, lmb clicks, character key types, and
+	dependent on mouse location, left mouse button clicks, character key types, and
 	random key releases.<br/>
   <b>Functions</b> are created for both the canvas set up as well as the creation of
 	the line. Depending on the action taken by the user the line can
