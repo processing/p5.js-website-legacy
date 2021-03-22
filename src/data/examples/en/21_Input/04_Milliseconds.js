@@ -1,7 +1,7 @@
 /*
  * @name Milliseconds
  * @description A millisecond is 1/1000 of a second. Processing keeps track of the number of milliseconds a 
- * program has run. By modifying this number with the modulo(%) operator, different patterns in time are created.
+ * program has run. By modifying this number with the modulo(%) operator, different patterns in time are created. (ported from https://processing.org/examples/milliseconds.html)
  */
 
 let scale;
