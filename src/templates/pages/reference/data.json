@@ -2,7 +2,7 @@
     "project": {
         "name": "p5",
         "description": "[![npm version](https://badge.fury.io/js/p5.svg)](https://www.npmjs.com/package/p5)",
-        "version": "1.2.0",
+        "version": "1.3.1",
         "url": "https://github.com/processing/p5.js#readme"
     },
     "files": {
@@ -1107,7 +1107,7 @@
             "namespaces": {},
             "module": "DOM",
             "file": "src/dom/dom.js",
-            "line": 3487,
+            "line": 3490,
             "description": "<p>The web is much more than just canvas and the DOM functionality makes it easy to interact\nwith other HTML5 objects, including text, hyperlink, image, input, video,\naudio, and webcam.\nThere is a set of creation methods, DOM manipulation methods, and\nan extended <a href=\"#/p5.Element\">p5.Element</a> that supports a range of HTML elements. See the\n<a href='https://github.com/processing/p5.js/wiki/Beyond-the-canvas'>\nbeyond the canvas tutorial</a> for a full overview of how this addon works.</p>\n<p>See <a href='https://github.com/processing/p5.js/wiki/Beyond-the-canvas'>tutorial: beyond the canvas</a>\nfor more info on how to use this library.</a></p>\n",
             "requires": [
                 "p5"
@@ -2132,7 +2132,7 @@
             "submodule": "DOM",
             "namespace": "",
             "file": "src/dom/dom.js",
-            "line": 2331,
+            "line": 2334,
             "description": "<p>Extends <a href=\"#/p5.Element\">p5.Element</a> to handle audio and video. In addition to the methods\nof <a href=\"#/p5.Element\">p5.Element</a>, it also contains methods for controlling media. It is not\ncalled directly, but <a href=\"#/p5.MediaElement\">p5.MediaElement</a>s are created by calling <a href=\"#/p5/createVideo\">createVideo</a>,\n<a href=\"#/p5/createAudio\">createAudio</a>, and <a href=\"#/p5/createCapture\">createCapture</a>.</p>\n",
             "is_constructor": 1,
             "params": [
@@ -2155,7 +2155,7 @@
             "submodule": "DOM",
             "namespace": "",
             "file": "src/dom/dom.js",
-            "line": 3487,
+            "line": 3490,
             "description": "<p>Base class for a file.\nUsed for Element.drop and createFileInput.</p>\n",
             "is_constructor": 1,
             "params": [
@@ -4652,8 +4652,8 @@
                 },
                 {
                     "name": "detail",
-                    "description": "<p>optional parameter for WebGL mode only. This is to\n                        specify the number of vertices that makes up the\n                        perimeter of the arc. Default value is 25.</p>\n",
-                    "type": "Number",
+                    "description": "<p>optional parameter for WebGL mode only. This is to\n                        specify the number of vertices that makes up the\n                        perimeter of the arc. Default value is 25. Won't\n                        draw a stroke for a detail of more than 50.</p>\n",
+                    "type": "Integer",
                     "optional": true
                 }
             ],
@@ -4668,8 +4668,8 @@
         },
         {
             "file": "src/core/shape/2d_primitives.js",
-            "line": 231,
-            "description": "<p>Draws an ellipse (oval) to the screen. By default, the first two parameters\nset the location of the center of the ellipse, and the third and fourth\nparameters set the shape's width and height. If no height is specified, the\nvalue of width is used for both the width and height. If a negative height or\nwidth is specified, the absolute value is taken.</p>\n<p>An ellipse with equal width and height is a circle.The origin may be changed\nwith the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function.</p>\n",
+            "line": 232,
+            "description": "<p>Draws an ellipse (oval) to the screen. By default, the first two parameters\nset the location of the center of the ellipse, and the third and fourth\nparameters set the shape's width and height. If no height is specified, the\nvalue of width is used for both the width and height. If a negative height or\nwidth is specified, the absolute value is taken.</p>\n<p>An ellipse with equal width and height is a circle. The origin may be changed\nwith the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function.</p>\n",
             "itemtype": "method",
             "name": "ellipse",
             "chainable": 1,
@@ -4682,7 +4682,7 @@
             "submodule": "2D Primitives",
             "overloads": [
                 {
-                    "line": 231,
+                    "line": 232,
                     "params": [
                         {
                             "name": "x",
@@ -4709,7 +4709,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 258,
+                    "line": 259,
                     "params": [
                         {
                             "name": "x",
@@ -4733,8 +4733,9 @@
                         },
                         {
                             "name": "detail",
-                            "description": "<p>number of radial sectors to draw (for WebGL mode)</p>\n",
-                            "type": "Integer"
+                            "description": "<p>optional parameter for WebGL mode only. This is to\n                        specify the number of vertices that makes up the\n                        perimeter of the ellipse. Default value is 25. Won't\n                        draw a stroke for a detail of more than 50.</p>\n",
+                            "type": "Integer",
+                            "optional": true
                         }
                     ]
                 }
@@ -4742,7 +4743,7 @@
         },
         {
             "file": "src/core/shape/2d_primitives.js",
-            "line": 271,
+            "line": 275,
             "description": "<p>Draws a circle to the screen. A circle is a simple closed shape. It is the set\nof all points in a plane that are at a given distance from a given point,\nthe centre. This function is a special case of the ellipse() function, where\nthe width and height of the ellipse are the same. Height and width of the\nellipse correspond to the diameter of the circle. By default, the first two\nparameters set the location of the centre of the circle, the third sets the\ndiameter of the circle.</p>\n",
             "itemtype": "method",
             "name": "circle",
@@ -4774,7 +4775,7 @@
         },
         {
             "file": "src/core/shape/2d_primitives.js",
-            "line": 335,
+            "line": 339,
             "description": "<p>Draws a line (a direct path between two points) to the screen. If called with\nonly 4 parameters, it will draw a line in 2D with a default width of 1 pixel.\nThis width can be modified by using the <a href=\"#/p5/strokeWeight\">\nstrokeWeight()</a> function. A line cannot be filled, therefore the <a\nhref=\"#/p5/fill\">fill()</a> function will not affect the color of a line. So to\ncolor a line, use the <a href=\"#/p5/stroke\">stroke()</a> function.</p>\n",
             "itemtype": "method",
             "name": "line",
@@ -4788,7 +4789,7 @@
             "submodule": "2D Primitives",
             "overloads": [
                 {
-                    "line": 335,
+                    "line": 339,
                     "params": [
                         {
                             "name": "x1",
@@ -4814,7 +4815,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 371,
+                    "line": 375,
                     "params": [
                         {
                             "name": "x1",
@@ -4853,7 +4854,7 @@
         },
         {
             "file": "src/core/shape/2d_primitives.js",
-            "line": 396,
+            "line": 400,
             "description": "<p>Draws a point, a coordinate in space at the dimension of one pixel.\nThe first parameter is the horizontal value for the point, the second\nparam is the vertical value for the point. The color of the point is\nchanged with the <a href=\"#/p5/stroke\">stroke()</a> function. The size of the point\ncan be changed with the <a href=\"#/p5/strokeWeight\">strokeWeight()</a> function.</p>\n",
             "itemtype": "method",
             "name": "point",
@@ -4867,7 +4868,7 @@
             "submodule": "2D Primitives",
             "overloads": [
                 {
-                    "line": 396,
+                    "line": 400,
                     "params": [
                         {
                             "name": "x",
@@ -4889,7 +4890,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 446,
+                    "line": 450,
                     "params": [
                         {
                             "name": "coordinate_vector",
@@ -4903,7 +4904,7 @@
         },
         {
             "file": "src/core/shape/2d_primitives.js",
-            "line": 474,
+            "line": 478,
             "description": "<p>Draws a quad on the canvas. A quad is a quadrilateral, a four sided polygon. It is\nsimilar to a rectangle, but the angles between its edges are not\nconstrained to ninety degrees. The first pair of parameters (x1,y1)\nsets the first vertex and the subsequent pairs should proceed\nclockwise or counter-clockwise around the defined shape.\nz-arguments only work when quad() is used in WEBGL mode.</p>\n",
             "itemtype": "method",
             "name": "quad",
@@ -4917,7 +4918,7 @@
             "submodule": "2D Primitives",
             "overloads": [
                 {
-                    "line": 474,
+                    "line": 478,
                     "params": [
                         {
                             "name": "x1",
@@ -4975,7 +4976,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 504,
+                    "line": 508,
                     "params": [
                         {
                             "name": "x1",
@@ -5056,7 +5057,7 @@
         },
         {
             "file": "src/core/shape/2d_primitives.js",
-            "line": 548,
+            "line": 552,
             "description": "<p>Draws a rectangle on the canvas. A rectangle is a four-sided closed shape with\nevery angle at ninety degrees. By default, the first two parameters set\nthe location of the upper-left corner, the third sets the width, and the\nfourth sets the height. The way these parameters are interpreted, may be\nchanged with the <a href=\"#/p5/rectMode\">rectMode()</a> function.</p>\n<p>The fifth, sixth, seventh and eighth parameters, if specified,\ndetermine corner radius for the top-left, top-right, lower-right and\nlower-left corners, respectively. An omitted corner radius parameter is set\nto the value of the previously specified radius value in the parameter list.</p>\n",
             "itemtype": "method",
             "name": "rect",
@@ -5070,7 +5071,7 @@
             "submodule": "2D Primitives",
             "overloads": [
                 {
-                    "line": 548,
+                    "line": 552,
                     "params": [
                         {
                             "name": "x",
@@ -5121,7 +5122,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 599,
+                    "line": 603,
                     "params": [
                         {
                             "name": "x",
@@ -5162,7 +5163,7 @@
         },
         {
             "file": "src/core/shape/2d_primitives.js",
-            "line": 614,
+            "line": 618,
             "description": "<p>Draws a square to the screen. A square is a four-sided shape with every angle\nat ninety degrees, and equal side size. This function is a special case of the\nrect() function, where the width and height are the same, and the parameter\nis called \"s\" for side size. By default, the first two parameters set the\nlocation of the upper-left corner, the third sets the side size of the square.\nThe way these parameters are interpreted, may be changed with the <a\nhref=\"#/p5/rectMode\">rectMode()</a> function.</p>\n<p>The fourth, fifth, sixth and seventh parameters, if specified,\ndetermine corner radius for the top-left, top-right, lower-right and\nlower-left corners, respectively. An omitted corner radius parameter is set\nto the value of the previously specified radius value in the parameter list.</p>\n",
             "itemtype": "method",
             "name": "square",
@@ -5218,7 +5219,7 @@
         },
         {
             "file": "src/core/shape/2d_primitives.js",
-            "line": 703,
+            "line": 707,
             "description": "<p>Draws a triangle to the canvas. A triangle is a plane created by connecting\nthree points. The first two arguments specify the first point, the middle two\narguments specify the second point, and the last two arguments specify the\nthird point.</p>\n",
             "itemtype": "method",
             "name": "triangle",
@@ -6288,7 +6289,19 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 10,
+            "line": 9,
+            "description": "<p>Version of this p5.js.</p>\n",
+            "itemtype": "property",
+            "name": "VERSION",
+            "type": "String",
+            "final": 1,
+            "class": "p5",
+            "module": "Constants",
+            "submodule": "Constants"
+        },
+        {
+            "file": "src/core/constants.js",
+            "line": 18,
             "description": "<p>The default, two-dimensional renderer.</p>\n",
             "itemtype": "property",
             "name": "P2D",
@@ -6300,7 +6313,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 16,
+            "line": 24,
             "description": "<p>One of the two render modes in p5.js: P2D (default renderer) and WEBGL\nEnables 3D render by introducing the third dimension: Z</p>\n",
             "itemtype": "property",
             "name": "WEBGL",
@@ -6312,7 +6325,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 25,
+            "line": 33,
             "itemtype": "property",
             "name": "ARROW",
             "type": "String",
@@ -6323,7 +6336,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 30,
+            "line": 38,
             "itemtype": "property",
             "name": "CROSS",
             "type": "String",
@@ -6334,7 +6347,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 35,
+            "line": 43,
             "itemtype": "property",
             "name": "HAND",
             "type": "String",
@@ -6345,7 +6358,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 40,
+            "line": 48,
             "itemtype": "property",
             "name": "MOVE",
             "type": "String",
@@ -6356,7 +6369,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 45,
+            "line": 53,
             "itemtype": "property",
             "name": "TEXT",
             "type": "String",
@@ -6367,7 +6380,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 50,
+            "line": 58,
             "itemtype": "property",
             "name": "WAIT",
             "type": "String",
@@ -6378,7 +6391,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 58,
+            "line": 66,
             "description": "<p>HALF_PI is a mathematical constant with the value\n1.57079632679489661923. It is half the ratio of the\ncircumference of a circle to its diameter. It is useful in\ncombination with the trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "HALF_PI",
@@ -6394,7 +6407,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 76,
+            "line": 84,
             "description": "<p>PI is a mathematical constant with the value\n3.14159265358979323846. It is the ratio of the circumference\nof a circle to its diameter. It is useful in combination with\nthe trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "PI",
@@ -6410,7 +6423,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 94,
+            "line": 102,
             "description": "<p>QUARTER_PI is a mathematical constant with the value 0.7853982.\nIt is one quarter the ratio of the circumference of a circle to\nits diameter. It is useful in combination with the trigonometric\nfunctions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "QUARTER_PI",
@@ -6426,7 +6439,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 112,
+            "line": 120,
             "description": "<p>TAU is an alias for TWO_PI, a mathematical constant with the\nvalue 6.28318530717958647693. It is twice the ratio of the\ncircumference of a circle to its diameter. It is useful in\ncombination with the trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "TAU",
@@ -6442,7 +6455,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 130,
+            "line": 138,
             "description": "<p>TWO_PI is a mathematical constant with the value\n6.28318530717958647693. It is twice the ratio of the\ncircumference of a circle to its diameter. It is useful in\ncombination with the trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "TWO_PI",
@@ -6458,7 +6471,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 148,
+            "line": 156,
             "description": "<p>Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which\np5.js interprates and calculates angles (either DEGREES or RADIANS).</p>\n",
             "itemtype": "property",
             "name": "DEGREES",
@@ -6473,7 +6486,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 162,
+            "line": 170,
             "description": "<p>Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which\np5.js interprates and calculates angles (either RADIANS or DEGREES).</p>\n",
             "itemtype": "property",
             "name": "RADIANS",
@@ -6488,7 +6501,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 180,
+            "line": 188,
             "itemtype": "property",
             "name": "CORNER",
             "type": "String",
@@ -6499,7 +6512,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 185,
+            "line": 193,
             "itemtype": "property",
             "name": "CORNERS",
             "type": "String",
@@ -6510,7 +6523,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 190,
+            "line": 198,
             "itemtype": "property",
             "name": "RADIUS",
             "type": "String",
@@ -6521,7 +6534,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 195,
+            "line": 203,
             "itemtype": "property",
             "name": "RIGHT",
             "type": "String",
@@ -6532,7 +6545,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 200,
+            "line": 208,
             "itemtype": "property",
             "name": "LEFT",
             "type": "String",
@@ -6543,7 +6556,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 205,
+            "line": 213,
             "itemtype": "property",
             "name": "CENTER",
             "type": "String",
@@ -6554,7 +6567,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 210,
+            "line": 218,
             "itemtype": "property",
             "name": "TOP",
             "type": "String",
@@ -6565,7 +6578,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 215,
+            "line": 223,
             "itemtype": "property",
             "name": "BOTTOM",
             "type": "String",
@@ -6576,7 +6589,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 220,
+            "line": 228,
             "itemtype": "property",
             "name": "BASELINE",
             "type": "String",
@@ -6588,7 +6601,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 226,
+            "line": 234,
             "itemtype": "property",
             "name": "POINTS",
             "type": "Number",
@@ -6600,7 +6613,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 232,
+            "line": 240,
             "itemtype": "property",
             "name": "LINES",
             "type": "Number",
@@ -6612,7 +6625,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 238,
+            "line": 246,
             "itemtype": "property",
             "name": "LINE_STRIP",
             "type": "Number",
@@ -6624,7 +6637,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 244,
+            "line": 252,
             "itemtype": "property",
             "name": "LINE_LOOP",
             "type": "Number",
@@ -6636,7 +6649,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 250,
+            "line": 258,
             "itemtype": "property",
             "name": "TRIANGLES",
             "type": "Number",
@@ -6648,7 +6661,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 256,
+            "line": 264,
             "itemtype": "property",
             "name": "TRIANGLE_FAN",
             "type": "Number",
@@ -6660,7 +6673,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 262,
+            "line": 270,
             "itemtype": "property",
             "name": "TRIANGLE_STRIP",
             "type": "Number",
@@ -6672,7 +6685,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 268,
+            "line": 276,
             "itemtype": "property",
             "name": "QUADS",
             "type": "String",
@@ -6683,7 +6696,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 273,
+            "line": 281,
             "itemtype": "property",
             "name": "QUAD_STRIP",
             "type": "String",
@@ -6695,7 +6708,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 279,
+            "line": 287,
             "itemtype": "property",
             "name": "TESS",
             "type": "String",
@@ -6707,7 +6720,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 285,
+            "line": 293,
             "itemtype": "property",
             "name": "CLOSE",
             "type": "String",
@@ -6718,7 +6731,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 290,
+            "line": 298,
             "itemtype": "property",
             "name": "OPEN",
             "type": "String",
@@ -6729,7 +6742,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 295,
+            "line": 303,
             "itemtype": "property",
             "name": "CHORD",
             "type": "String",
@@ -6740,7 +6753,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 300,
+            "line": 308,
             "itemtype": "property",
             "name": "PIE",
             "type": "String",
@@ -6751,7 +6764,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 305,
+            "line": 313,
             "itemtype": "property",
             "name": "PROJECT",
             "type": "String",
@@ -6763,7 +6776,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 311,
+            "line": 319,
             "itemtype": "property",
             "name": "SQUARE",
             "type": "String",
@@ -6775,7 +6788,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 317,
+            "line": 325,
             "itemtype": "property",
             "name": "ROUND",
             "type": "String",
@@ -6786,7 +6799,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 322,
+            "line": 330,
             "itemtype": "property",
             "name": "BEVEL",
             "type": "String",
@@ -6797,7 +6810,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 327,
+            "line": 335,
             "itemtype": "property",
             "name": "MITER",
             "type": "String",
@@ -6808,7 +6821,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 334,
+            "line": 342,
             "itemtype": "property",
             "name": "RGB",
             "type": "String",
@@ -6819,7 +6832,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 339,
+            "line": 347,
             "description": "<p>HSB (hue, saturation, brightness) is a type of color model.\nYou can learn more about it at\n<a href=\"https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html\">HSB</a>.</p>\n",
             "itemtype": "property",
             "name": "HSB",
@@ -6831,7 +6844,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 348,
+            "line": 356,
             "itemtype": "property",
             "name": "HSL",
             "type": "String",
@@ -6842,7 +6855,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 355,
+            "line": 363,
             "description": "<p>AUTO allows us to automatically set the width or height of an element (but not both),\nbased on the current height and width of the element. Only one parameter can\nbe passed to the <a href=\"/#/p5.Element/size\">size</a> function as AUTO, at a time.</p>\n",
             "itemtype": "property",
             "name": "AUTO",
@@ -6854,7 +6867,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 365,
+            "line": 373,
             "itemtype": "property",
             "name": "ALT",
             "type": "Number",
@@ -6865,7 +6878,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 371,
+            "line": 379,
             "itemtype": "property",
             "name": "BACKSPACE",
             "type": "Number",
@@ -6876,7 +6889,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 376,
+            "line": 384,
             "itemtype": "property",
             "name": "CONTROL",
             "type": "Number",
@@ -6887,7 +6900,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 381,
+            "line": 389,
             "itemtype": "property",
             "name": "DELETE",
             "type": "Number",
@@ -6898,7 +6911,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 386,
+            "line": 394,
             "itemtype": "property",
             "name": "DOWN_ARROW",
             "type": "Number",
@@ -6909,7 +6922,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 391,
+            "line": 399,
             "itemtype": "property",
             "name": "ENTER",
             "type": "Number",
@@ -6920,7 +6933,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 396,
+            "line": 404,
             "itemtype": "property",
             "name": "ESCAPE",
             "type": "Number",
@@ -6931,7 +6944,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 401,
+            "line": 409,
             "itemtype": "property",
             "name": "LEFT_ARROW",
             "type": "Number",
@@ -6942,7 +6955,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 406,
+            "line": 414,
             "itemtype": "property",
             "name": "OPTION",
             "type": "Number",
@@ -6953,7 +6966,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 411,
+            "line": 419,
             "itemtype": "property",
             "name": "RETURN",
             "type": "Number",
@@ -6964,7 +6977,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 416,
+            "line": 424,
             "itemtype": "property",
             "name": "RIGHT_ARROW",
             "type": "Number",
@@ -6975,7 +6988,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 421,
+            "line": 429,
             "itemtype": "property",
             "name": "SHIFT",
             "type": "Number",
@@ -6986,7 +6999,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 426,
+            "line": 434,
             "itemtype": "property",
             "name": "TAB",
             "type": "Number",
@@ -6997,7 +7010,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 431,
+            "line": 439,
             "itemtype": "property",
             "name": "UP_ARROW",
             "type": "Number",
@@ -7008,7 +7021,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 438,
+            "line": 446,
             "itemtype": "property",
             "name": "BLEND",
             "type": "String",
@@ -7020,7 +7033,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 444,
+            "line": 452,
             "itemtype": "property",
             "name": "REMOVE",
             "type": "String",
@@ -7032,7 +7045,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 450,
+            "line": 458,
             "itemtype": "property",
             "name": "ADD",
             "type": "String",
@@ -7044,7 +7057,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 458,
+            "line": 466,
             "itemtype": "property",
             "name": "DARKEST",
             "type": "String",
@@ -7055,7 +7068,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 463,
+            "line": 471,
             "itemtype": "property",
             "name": "LIGHTEST",
             "type": "String",
@@ -7067,7 +7080,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 469,
+            "line": 477,
             "itemtype": "property",
             "name": "DIFFERENCE",
             "type": "String",
@@ -7078,7 +7091,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 474,
+            "line": 482,
             "itemtype": "property",
             "name": "SUBTRACT",
             "type": "String",
@@ -7089,7 +7102,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 479,
+            "line": 487,
             "itemtype": "property",
             "name": "EXCLUSION",
             "type": "String",
@@ -7100,7 +7113,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 484,
+            "line": 492,
             "itemtype": "property",
             "name": "MULTIPLY",
             "type": "String",
@@ -7111,7 +7124,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 489,
+            "line": 497,
             "itemtype": "property",
             "name": "SCREEN",
             "type": "String",
@@ -7122,7 +7135,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 494,
+            "line": 502,
             "itemtype": "property",
             "name": "REPLACE",
             "type": "String",
@@ -7134,7 +7147,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 500,
+            "line": 508,
             "itemtype": "property",
             "name": "OVERLAY",
             "type": "String",
@@ -7145,7 +7158,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 505,
+            "line": 513,
             "itemtype": "property",
             "name": "HARD_LIGHT",
             "type": "String",
@@ -7156,7 +7169,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 510,
+            "line": 518,
             "itemtype": "property",
             "name": "SOFT_LIGHT",
             "type": "String",
@@ -7167,7 +7180,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 515,
+            "line": 523,
             "itemtype": "property",
             "name": "DODGE",
             "type": "String",
@@ -7179,7 +7192,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 521,
+            "line": 529,
             "itemtype": "property",
             "name": "BURN",
             "type": "String",
@@ -7191,7 +7204,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 529,
+            "line": 537,
             "itemtype": "property",
             "name": "THRESHOLD",
             "type": "String",
@@ -7202,7 +7215,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 534,
+            "line": 542,
             "itemtype": "property",
             "name": "GRAY",
             "type": "String",
@@ -7213,7 +7226,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 539,
+            "line": 547,
             "itemtype": "property",
             "name": "OPAQUE",
             "type": "String",
@@ -7224,7 +7237,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 544,
+            "line": 552,
             "itemtype": "property",
             "name": "INVERT",
             "type": "String",
@@ -7235,7 +7248,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 549,
+            "line": 557,
             "itemtype": "property",
             "name": "POSTERIZE",
             "type": "String",
@@ -7246,7 +7259,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 554,
+            "line": 562,
             "itemtype": "property",
             "name": "DILATE",
             "type": "String",
@@ -7257,7 +7270,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 559,
+            "line": 567,
             "itemtype": "property",
             "name": "ERODE",
             "type": "String",
@@ -7268,7 +7281,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 564,
+            "line": 572,
             "itemtype": "property",
             "name": "BLUR",
             "type": "String",
@@ -7279,7 +7292,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 571,
+            "line": 579,
             "itemtype": "property",
             "name": "NORMAL",
             "type": "String",
@@ -7290,7 +7303,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 576,
+            "line": 584,
             "itemtype": "property",
             "name": "ITALIC",
             "type": "String",
@@ -7301,7 +7314,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 581,
+            "line": 589,
             "itemtype": "property",
             "name": "BOLD",
             "type": "String",
@@ -7312,7 +7325,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 586,
+            "line": 594,
             "itemtype": "property",
             "name": "BOLDITALIC",
             "type": "String",
@@ -7323,7 +7336,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 598,
+            "line": 606,
             "itemtype": "property",
             "name": "LINEAR",
             "type": "String",
@@ -7334,7 +7347,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 603,
+            "line": 611,
             "itemtype": "property",
             "name": "QUADRATIC",
             "type": "String",
@@ -7345,7 +7358,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 608,
+            "line": 616,
             "itemtype": "property",
             "name": "BEZIER",
             "type": "String",
@@ -7356,7 +7369,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 613,
+            "line": 621,
             "itemtype": "property",
             "name": "CURVE",
             "type": "String",
@@ -7367,7 +7380,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 620,
+            "line": 628,
             "itemtype": "property",
             "name": "STROKE",
             "type": "String",
@@ -7378,7 +7391,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 625,
+            "line": 633,
             "itemtype": "property",
             "name": "FILL",
             "type": "String",
@@ -7389,7 +7402,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 630,
+            "line": 638,
             "itemtype": "property",
             "name": "TEXTURE",
             "type": "String",
@@ -7400,7 +7413,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 635,
+            "line": 643,
             "itemtype": "property",
             "name": "IMMEDIATE",
             "type": "String",
@@ -7411,7 +7424,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 643,
+            "line": 651,
             "itemtype": "property",
             "name": "IMAGE",
             "type": "String",
@@ -7422,7 +7435,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 651,
+            "line": 659,
             "itemtype": "property",
             "name": "NEAREST",
             "type": "String",
@@ -7433,7 +7446,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 656,
+            "line": 664,
             "itemtype": "property",
             "name": "REPEAT",
             "type": "String",
@@ -7444,7 +7457,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 661,
+            "line": 669,
             "itemtype": "property",
             "name": "CLAMP",
             "type": "String",
@@ -7455,7 +7468,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 666,
+            "line": 674,
             "itemtype": "property",
             "name": "MIRROR",
             "type": "String",
@@ -7466,7 +7479,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 673,
+            "line": 681,
             "itemtype": "property",
             "name": "LANDSCAPE",
             "type": "String",
@@ -7477,7 +7490,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 678,
+            "line": 686,
             "itemtype": "property",
             "name": "PORTRAIT",
             "type": "String",
@@ -7488,7 +7501,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 688,
+            "line": 696,
             "itemtype": "property",
             "name": "GRID",
             "type": "String",
@@ -7499,7 +7512,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 694,
+            "line": 702,
             "itemtype": "property",
             "name": "AXES",
             "type": "String",
@@ -7510,7 +7523,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 700,
+            "line": 708,
             "itemtype": "property",
             "name": "LABEL",
             "type": "String",
@@ -7521,7 +7534,7 @@
         },
         {
             "file": "src/core/constants.js",
-            "line": 705,
+            "line": 713,
             "itemtype": "property",
             "name": "FALLBACK",
             "type": "String",
@@ -7752,6 +7765,14 @@
             "description": "<p>The <a href=\"#/p5/windowResized\">windowResized()</a> function is called once\nevery time the browser window is resized. This is a good place to resize the\ncanvas or do any other adjustments to accommodate the new window size.</p>\n",
             "itemtype": "method",
             "name": "windowResized",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "<p>optional Event callback argument.</p>\n",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
             "example": [
                 "\n<div class=\"norender\"><code>\nfunction setup() {\n  createCanvas(windowWidth, windowHeight);\n}\n\nfunction draw() {\n  background(0, 100, 200);\n}\n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n</code></div>"
             ],
@@ -7762,7 +7783,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 475,
+            "line": 476,
             "description": "<p>System variable that stores the width of the drawing canvas. This value\nis set by the first parameter of the <a href=\"#/p5/createCanvas\">createCanvas()</a> function.\nFor example, the function call createCanvas(320, 240) sets the width\nvariable to the value 320. The value of width defaults to 100 if\n<a href=\"#/p5/createCanvas\">createCanvas()</a> is not used in a program.</p>\n",
             "itemtype": "property",
             "name": "width",
@@ -7774,7 +7795,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 487,
+            "line": 488,
             "description": "<p>System variable that stores the height of the drawing canvas. This value\nis set by the second parameter of the <a href=\"#/p5/createCanvas\">createCanvas()</a> function. For\nexample, the function call createCanvas(320, 240) sets the height\nvariable to the value 240. The value of height defaults to 100 if\n<a href=\"#/p5/createCanvas\">createCanvas()</a> is not used in a program.</p>\n",
             "itemtype": "property",
             "name": "height",
@@ -7786,7 +7807,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 499,
+            "line": 500,
             "description": "<p>If argument is given, sets the sketch to fullscreen or not based on the\nvalue of the argument. If no argument is given, returns the current\nfullscreen state. Note that due to browser restrictions this can only\nbe called on user input, for example, on mouse press like the example\nbelow.</p>\n",
             "itemtype": "method",
             "name": "fullscreen",
@@ -7812,7 +7833,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 549,
+            "line": 550,
             "description": "<p>Sets the pixel scaling for high pixel density displays. By default\npixel density is set to match display density, call pixelDensity(1)\nto turn this off. Calling <a href=\"#/p5/pixelDensity\">pixelDensity()</a> with no arguments returns\nthe current pixel density of the sketch.</p>\n",
             "itemtype": "method",
             "name": "pixelDensity",
@@ -7826,7 +7847,7 @@
             "submodule": "Environment",
             "overloads": [
                 {
-                    "line": 549,
+                    "line": 550,
                     "params": [
                         {
                             "name": "val",
@@ -7837,7 +7858,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 585,
+                    "line": 586,
                     "params": [],
                     "return": {
                         "description": "current pixel density of the sketch",
@@ -7848,7 +7869,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 604,
+            "line": 605,
             "description": "<p>Returns the pixel density of the current display the sketch is running on.</p>\n",
             "itemtype": "method",
             "name": "displayDensity",
@@ -7866,7 +7887,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 659,
+            "line": 660,
             "description": "<p>Gets the current URL. Note: when using the\np5 Editor, this will return an empty object because the sketch\nis embedded in an iframe. It will work correctly if you view the\nsketch using sketch the edtior's present or share URLs.</p>\n",
             "itemtype": "method",
             "name": "getURL",
@@ -7884,7 +7905,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 690,
+            "line": 691,
             "description": "<p>Gets the current URL path as an array. Note: when using the\np5 Editor, this will return an empty object because the sketch\nis embedded in an iframe. It will work correctly if you view the\nsketch using sketch the edtior's present or share URLs.</p>\n",
             "itemtype": "method",
             "name": "getURLPath",
@@ -7902,7 +7923,7 @@
         },
         {
             "file": "src/core/environment.js",
-            "line": 712,
+            "line": 713,
             "description": "<p>Gets the current URL params as an Object. Note: when using the\np5 Editor, this will return an empty object because the sketch\nis embedded in an iframe. It will work correctly if you view the\nsketch using sketch the edtior's present or share URLs.</p>\n",
             "itemtype": "method",
             "name": "getURLParams",
@@ -8479,7 +8500,7 @@
         },
         {
             "file": "src/core/p5.Renderer.js",
-            "line": 365,
+            "line": 344,
             "description": "<p>Helper fxn to check font type (system or otf)</p>\n",
             "class": "p5.Renderer",
             "module": "Rendering",
@@ -8487,7 +8508,7 @@
         },
         {
             "file": "src/core/p5.Renderer.js",
-            "line": 417,
+            "line": 396,
             "description": "<p>Helper fxn to measure ascent and descent.\nAdapted from <a href=\"http://stackoverflow.com/a/25355178\">http://stackoverflow.com/a/25355178</a></p>\n",
             "class": "p5.Renderer",
             "module": "Rendering",
@@ -9123,7 +9144,7 @@
         },
         {
             "file": "src/core/transform.js",
-            "line": 167,
+            "line": 168,
             "description": "<p>Replaces the current matrix with the identity matrix.</p>\n",
             "itemtype": "method",
             "name": "resetMatrix",
@@ -9138,7 +9159,7 @@
         },
         {
             "file": "src/core/transform.js",
-            "line": 192,
+            "line": 193,
             "description": "<p>Rotates a shape by the amount specified by the angle parameter. This\nfunction accounts for <a href=\"#/p5/angleMode\">angleMode</a>, so angles\ncan be entered in either RADIANS or DEGREES.</p>\n<p>Objects are always rotated around their relative position to the\norigin and positive numbers rotate objects in a clockwise direction.\nTransformations apply to everything that happens after and subsequent\ncalls to the function accumulates the effect. For example, calling\nrotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI).\nAll tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again.</p>\n<p>Technically, <a href=\"#/p5/rotate\">rotate()</a> multiplies the current transformation matrix\nby a rotation matrix. This function can be further controlled by\nthe <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>.</p>\n",
             "itemtype": "method",
             "name": "rotate",
@@ -9166,7 +9187,7 @@
         },
         {
             "file": "src/core/transform.js",
-            "line": 231,
+            "line": 232,
             "description": "<p>Rotates a shape around X axis by the amount specified in angle parameter.\nThe angles can be entered in either RADIANS or DEGREES.</p>\n<p>Objects are always rotated around their relative position to the\norigin and positive numbers rotate objects in a clockwise direction.\nAll tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again.</p>\n",
             "itemtype": "method",
             "name": "rotateX",
@@ -9188,7 +9209,7 @@
         },
         {
             "file": "src/core/transform.js",
-            "line": 267,
+            "line": 268,
             "description": "<p>Rotates a shape around Y axis by the amount specified in angle parameter.\nThe angles can be entered in either RADIANS or DEGREES.</p>\n<p>Objects are always rotated around their relative position to the\norigin and positive numbers rotate objects in a clockwise direction.\nAll tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again.</p>\n",
             "itemtype": "method",
             "name": "rotateY",
@@ -9210,7 +9231,7 @@
         },
         {
             "file": "src/core/transform.js",
-            "line": 303,
+            "line": 304,
             "description": "<p>Rotates a shape around Z axis by the amount specified in angle parameter.\nThe angles can be entered in either RADIANS or DEGREES.</p>\n<p>This method works in WEBGL mode only.</p>\n<p>Objects are always rotated around their relative position to the\norigin and positive numbers rotate objects in a clockwise direction.\nAll tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again.</p>\n",
             "itemtype": "method",
             "name": "rotateZ",
@@ -9232,7 +9253,7 @@
         },
         {
             "file": "src/core/transform.js",
-            "line": 341,
+            "line": 342,
             "description": "<p>Increases or decreases the size of a shape by expanding or contracting\nvertices. Objects always scale from their relative origin to the\ncoordinate system. Scale values are specified as decimal percentages.\nFor example, the function call scale(2.0) increases the dimension of a\nshape by 200%.</p>\n<p>Transformations apply to everything that happens after and subsequent\ncalls to the function multiply the effect. For example, calling scale(2.0)\nand then scale(1.5) is the same as scale(3.0). If <a href=\"#/p5/scale\">scale()</a> is called\nwithin <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when the loop begins again.</p>\n<p>Using this function with the z parameter is only available in WEBGL mode.\nThis function can be further controlled with <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>.</p>\n",
             "itemtype": "method",
             "name": "scale",
@@ -9246,7 +9267,7 @@
             "submodule": "Transform",
             "overloads": [
                 {
-                    "line": 341,
+                    "line": 342,
                     "params": [
                         {
                             "name": "s",
@@ -9269,7 +9290,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 385,
+                    "line": 386,
                     "params": [
                         {
                             "name": "scales",
@@ -9283,7 +9304,7 @@
         },
         {
             "file": "src/core/transform.js",
-            "line": 415,
+            "line": 416,
             "description": "<p>Shears a shape around the x-axis by the amount specified by the angle\nparameter. Angles should be specified in the current angleMode.\nObjects are always sheared around their relative position to the origin\nand positive numbers shear objects in a clockwise direction.</p>\n<p>Transformations apply to everything that happens after and subsequent\ncalls to the function accumulates the effect. For example, calling\nshearX(PI/2) and then shearX(PI/2) is the same as shearX(PI).\nIf <a href=\"#/p5/shearX\">shearX()</a> is called within the <a href=\"#/p5/draw\">draw()</a>,\nthe transformation is reset when the loop begins again.</p>\n<p>Technically, <a href=\"#/p5/shearX\">shearX()</a> multiplies the current\ntransformation matrix by a rotation matrix. This function can be further\ncontrolled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a> functions.</p>\n",
             "itemtype": "method",
             "name": "shearX",
@@ -9305,7 +9326,7 @@
         },
         {
             "file": "src/core/transform.js",
-            "line": 454,
+            "line": 455,
             "description": "<p>Shears a shape around the y-axis the amount specified by the angle\nparameter. Angles should be specified in the current angleMode. Objects\nare always sheared around their relative position to the origin and\npositive numbers shear objects in a clockwise direction.</p>\n<p>Transformations apply to everything that happens after and subsequent\ncalls to the function accumulates the effect. For example, calling\nshearY(PI/2) and then shearY(PI/2) is the same as shearY(PI). If\n<a href=\"#/p5/shearY\">shearY()</a> is called within the <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when\nthe loop begins again.</p>\n<p>Technically, <a href=\"#/p5/shearY\">shearY()</a> multiplies the current transformation matrix by a\nrotation matrix. This function can be further controlled by the\n<a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a> functions.</p>\n",
             "itemtype": "method",
             "name": "shearY",
@@ -9327,7 +9348,7 @@
         },
         {
             "file": "src/core/transform.js",
-            "line": 493,
+            "line": 494,
             "description": "<p>Specifies an amount to displace objects within the display window.\nThe x parameter specifies left/right translation, the y parameter\nspecifies up/down translation.</p>\n<p>Transformations are cumulative and apply to everything that happens after\nand subsequent calls to the function accumulates the effect. For example,\ncalling translate(50, 0) and then translate(20, 0) is the same as\ntranslate(70, 0). If <a href=\"#/p5/translate\">translate()</a> is called within <a href=\"#/p5/draw\">draw()</a>, the\ntransformation is reset when the loop begins again. This function can be\nfurther controlled by using <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>.</p>\n",
             "itemtype": "method",
             "name": "translate",
@@ -9341,7 +9362,7 @@
             "submodule": "Transform",
             "overloads": [
                 {
-                    "line": 493,
+                    "line": 494,
                     "params": [
                         {
                             "name": "x",
@@ -9363,7 +9384,7 @@
                     "chainable": 1
                 },
                 {
-                    "line": 546,
+                    "line": 547,
                     "params": [
                         {
                             "name": "vector",
@@ -11043,7 +11064,7 @@
                 "type": "String"
             },
             "example": [
-                "\n<div><code class='norender'>\nlet myDiv = createDiv('I like pandas.');\nmyDiv.style('font-size', '18px');\nmyDiv.style('color', '#ff0000');\n</code></div>\n<div><code class='norender'>\nlet col = color(25, 23, 200, 50);\nlet button = createButton('button');\nbutton.style('background-color', col);\nbutton.position(10, 10);\n</code></div>\n<div><code class='norender'>\nlet myDiv;\nfunction setup() {\n  background(200);\n  myDiv = createDiv('I like gray.');\n  myDiv.position(20, 20);\n}\n\nfunction draw() {\n  myDiv.style('font-size', mouseX + 'px');\n}\n</code></div>"
+                "\n<div><code class='norender'>\nlet myDiv = createDiv('I like pandas.');\nmyDiv.style('font-size', '18px');\nmyDiv.style('color', '#ff0000');\nmyDiv.position(0, 0);\n</code></div>\n<div><code class='norender'>\nlet col = color(25, 23, 200, 50);\nlet button = createButton('button');\nbutton.style('background-color', col);\nbutton.position(0, 0);\n</code></div>\n<div><code class='norender'>\nlet myDiv, fontSize;\nfunction setup() {\n  background(200);\n  myDiv = createDiv('I like gray.');\n  myDiv.position(0, 0);\n  myDiv.style('z-index', 10);\n}\n\nfunction draw() {\n  fontSize = min(mouseX, 90);\n  myDiv.style('font-size', fontSize + 'px');\n}\n</code></div>"
             ],
             "class": "p5.Element",
             "module": "DOM",
@@ -11064,7 +11085,7 @@
                     }
                 },
                 {
-                    "line": 1877,
+                    "line": 1880,
                     "params": [
                         {
                             "name": "property",
@@ -11087,7 +11108,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1934,
+            "line": 1937,
             "description": "<p>Adds a new attribute or changes the value of an existing attribute\n on the specified element. If no value is specified, returns the\n value of the given attribute, or null if attribute is not set.</p>\n",
             "itemtype": "method",
             "name": "attribute",
@@ -11103,7 +11124,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 1934,
+                    "line": 1937,
                     "params": [],
                     "return": {
                         "description": "value of attribute",
@@ -11111,7 +11132,7 @@
                     }
                 },
                 {
-                    "line": 1949,
+                    "line": 1952,
                     "params": [
                         {
                             "name": "attr",
@@ -11130,7 +11151,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 1978,
+            "line": 1981,
             "description": "<p>Removes an attribute on the specified element.</p>\n",
             "itemtype": "method",
             "name": "removeAttribute",
@@ -11151,7 +11172,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2023,
+            "line": 2026,
             "description": "<p>Either returns the value of the element if no arguments\ngiven, or sets the value of the element.</p>\n",
             "itemtype": "method",
             "name": "value",
@@ -11167,7 +11188,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 2023,
+                    "line": 2026,
                     "params": [],
                     "return": {
                         "description": "value of the element",
@@ -11175,7 +11196,7 @@
                     }
                 },
                 {
-                    "line": 2053,
+                    "line": 2056,
                     "params": [
                         {
                             "name": "value",
@@ -11189,7 +11210,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2069,
+            "line": 2072,
             "description": "<p>Shows the current element. Essentially, setting display:block for the style.</p>\n",
             "itemtype": "method",
             "name": "show",
@@ -11203,7 +11224,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2087,
+            "line": 2090,
             "description": "<p>Hides the current element. Essentially, setting display:none for the style.</p>\n",
             "itemtype": "method",
             "name": "hide",
@@ -11217,7 +11238,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2103,
+            "line": 2106,
             "description": "<p>Sets the width and height of the element. AUTO can be used to\n only adjust one dimension at a time. If no arguments are given, it\n returns the width and height of the element in an object. In case of\n elements which need to be loaded, such as images, it is recommended\n to call the function after the element has finished loading.</p>\n",
             "itemtype": "method",
             "name": "size",
@@ -11233,7 +11254,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 2103,
+                    "line": 2106,
                     "params": [],
                     "return": {
                         "description": "the width and height of the element in an object",
@@ -11241,7 +11262,7 @@
                     }
                 },
                 {
-                    "line": 2127,
+                    "line": 2130,
                     "params": [
                         {
                             "name": "w",
@@ -11261,7 +11282,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2184,
+            "line": 2187,
             "description": "<p>Removes the element, stops all media streams, and deregisters all listeners.</p>\n",
             "itemtype": "method",
             "name": "remove",
@@ -11274,7 +11295,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2222,
+            "line": 2225,
             "description": "<p>Registers a callback that gets called every time a file that is\ndropped on the element has been loaded.\np5 will load every dropped file into memory and pass it as a p5.File object to the callback.\nMultiple files dropped at the same time will result in multiple calls to the callback.</p>\n<p>You can optionally pass a second callback which will be registered to the raw\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/drop\">drop</a> event.\nThe callback will thus be provided the original\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/DragEvent\">DragEvent</a>.\nDropping multiple files at the same time will trigger the second callback once per drop,\nwhereas the first callback will trigger for each loaded file.</p>\n",
             "itemtype": "method",
             "name": "drop",
@@ -11302,7 +11323,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2354,
+            "line": 2357,
             "description": "<p>Path to the media element source.</p>\n",
             "itemtype": "property",
             "name": "src",
@@ -11319,7 +11340,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2420,
+            "line": 2423,
             "description": "<p>Play an HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "play",
@@ -11333,7 +11354,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2484,
+            "line": 2487,
             "description": "<p>Stops an HTML5 media element (sets current time to zero).</p>\n",
             "itemtype": "method",
             "name": "stop",
@@ -11347,7 +11368,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2548,
+            "line": 2551,
             "description": "<p>Pauses an HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "pause",
@@ -11361,7 +11382,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2610,
+            "line": 2613,
             "description": "<p>Set 'loop' to true for an HTML5 media element, and starts playing.</p>\n",
             "itemtype": "method",
             "name": "loop",
@@ -11375,7 +11396,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2666,
+            "line": 2669,
             "description": "<p>Set 'loop' to false for an HTML5 media element. Element will stop\nwhen it reaches the end.</p>\n",
             "itemtype": "method",
             "name": "noLoop",
@@ -11389,7 +11410,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2732,
+            "line": 2735,
             "description": "<p>Set HTML5 media element to autoplay or not. If no argument is specified, by\ndefault it will autoplay.</p>\n",
             "itemtype": "method",
             "name": "autoplay",
@@ -11411,7 +11432,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2799,
+            "line": 2802,
             "description": "<p>Sets volume for this HTML5 media element. If no argument is given,\nreturns the current volume.</p>\n",
             "itemtype": "method",
             "name": "volume",
@@ -11427,7 +11448,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 2799,
+                    "line": 2802,
                     "params": [],
                     "return": {
                         "description": "current volume",
@@ -11435,7 +11456,7 @@
                     }
                 },
                 {
-                    "line": 2872,
+                    "line": 2875,
                     "params": [
                         {
                             "name": "val",
@@ -11449,7 +11470,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2885,
+            "line": 2888,
             "description": "<p>If no arguments are given, returns the current playback speed of the\nelement. The speed parameter sets the speed where 2.0 will play the\nelement twice as fast, 0.5 will play at half the speed, and -1 will play\nthe element in normal speed in reverse.(Note that not all browsers support\nbackward playback and even if they do, playback might not be smooth.)</p>\n",
             "itemtype": "method",
             "name": "speed",
@@ -11465,7 +11486,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 2885,
+                    "line": 2888,
                     "params": [],
                     "return": {
                         "description": "current playback speed of the element",
@@ -11473,7 +11494,7 @@
                     }
                 },
                 {
-                    "line": 2957,
+                    "line": 2960,
                     "params": [
                         {
                             "name": "speed",
@@ -11487,7 +11508,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 2974,
+            "line": 2977,
             "description": "<p>If no arguments are given, returns the current time of the element.\nIf an argument is given the current time of the element is set to it.</p>\n",
             "itemtype": "method",
             "name": "time",
@@ -11503,7 +11524,7 @@
             "submodule": "DOM",
             "overloads": [
                 {
-                    "line": 2974,
+                    "line": 2977,
                     "params": [],
                     "return": {
                         "description": "current time (in seconds)",
@@ -11511,7 +11532,7 @@
                     }
                 },
                 {
-                    "line": 3019,
+                    "line": 3022,
                     "params": [
                         {
                             "name": "time",
@@ -11525,7 +11546,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3033,
+            "line": 3036,
             "description": "<p>Returns the duration of the HTML5 media element.</p>\n",
             "itemtype": "method",
             "name": "duration",
@@ -11542,7 +11563,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3155,
+            "line": 3158,
             "description": "<p>Schedule an event to be called when the audio or video\nelement reaches the end. If the element is looping,\nthis will not be called. The element is passed in\nas the argument to the onended callback.</p>\n",
             "itemtype": "method",
             "name": "onended",
@@ -11563,14 +11584,14 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3186,
+            "line": 3189,
             "class": "p5.MediaElement",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3188,
+            "line": 3191,
             "description": "<p>Send the audio output of this element to a specified audioNode or\np5.sound object. If no element is provided, connects to p5's main\noutput. That connection is established when this method is first called.\nAll connections are removed by the .disconnect() method.</p>\n<p>This method is meant to be used with the p5.sound.js addon library.</p>\n",
             "itemtype": "method",
             "name": "connect",
@@ -11587,7 +11608,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3237,
+            "line": 3240,
             "description": "<p>Disconnect all Web Audio routing, including to main output.\nThis is useful if you want to re-route the output through\naudio effects, for example.</p>\n",
             "itemtype": "method",
             "name": "disconnect",
@@ -11597,14 +11618,14 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3252,
+            "line": 3255,
             "class": "p5.MediaElement",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3254,
+            "line": 3257,
             "description": "<p>Show the default MediaElement controls, as determined by the web browser.</p>\n",
             "itemtype": "method",
             "name": "showControls",
@@ -11617,7 +11638,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3285,
+            "line": 3288,
             "description": "<p>Hide the default mediaElement controls.</p>\n",
             "itemtype": "method",
             "name": "hideControls",
@@ -11630,14 +11651,14 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3314,
+            "line": 3317,
             "class": "p5.MediaElement",
             "module": "DOM",
             "submodule": "DOM"
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3325,
+            "line": 3328,
             "description": "<p>Schedule events to trigger every time a MediaElement\n(audio/video) reaches a playback cue point.</p>\n<p>Accepts a callback function, a time (in seconds) at which to trigger\nthe callback, and an optional parameter for the callback.</p>\n<p>Time will be passed as the first parameter to the callback function,\nand param will be the second parameter.</p>\n",
             "itemtype": "method",
             "name": "addCue",
@@ -11672,7 +11693,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3388,
+            "line": 3391,
             "description": "<p>Remove a callback based on its ID. The ID is returned by the\naddCue method.</p>\n",
             "itemtype": "method",
             "name": "removeCue",
@@ -11692,7 +11713,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3430,
+            "line": 3433,
             "description": "<p>Remove all of the callbacks that had originally been scheduled\nvia the addCue method.</p>\n",
             "itemtype": "method",
             "name": "clearCues",
@@ -11712,7 +11733,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3496,
+            "line": 3499,
             "description": "<p>Underlying File object. All normal File methods can be called on this.</p>\n",
             "itemtype": "property",
             "name": "file",
@@ -11722,7 +11743,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3508,
+            "line": 3511,
             "description": "<p>File type (image, text, etc.)</p>\n",
             "itemtype": "property",
             "name": "type",
@@ -11732,7 +11753,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3514,
+            "line": 3517,
             "description": "<p>File subtype (usually the file extension jpg, png, xml, etc.)</p>\n",
             "itemtype": "property",
             "name": "subtype",
@@ -11742,7 +11763,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3520,
+            "line": 3523,
             "description": "<p>File name</p>\n",
             "itemtype": "property",
             "name": "name",
@@ -11752,7 +11773,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3526,
+            "line": 3529,
             "description": "<p>File size</p>\n",
             "itemtype": "property",
             "name": "size",
@@ -11762,7 +11783,7 @@
         },
         {
             "file": "src/dom/dom.js",
-            "line": 3533,
+            "line": 3536,
             "description": "<p>URL string containing either image data, the text contents of the file or\na parsed object if file is JSON and p5.XML if XML</p>\n",
             "itemtype": "property",
             "name": "data",
@@ -12116,6 +12137,14 @@
             "description": "<p>The <a href=\"#/p5/keyPressed\">keyPressed()</a> function is called once every time a key is pressed. The\nkeyCode for the key that was pressed is stored in the <a href=\"#/p5/keyCode\">keyCode</a> variable.</p>\n<p>For non-ASCII keys, use the keyCode variable. You can check if the keyCode\nequals BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL,\nOPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW.</p>\n<p>For ASCII keys, the key that was pressed is stored in the key variable. However, it\ndoes not distinguish between uppercase and lowercase. For this reason, it\nis recommended to use <a href=\"#/p5/keyTyped\">keyTyped()</a> to read the key variable, in which the\ncase of the variable will be distinguished.</p>\n<p>Because of how operating systems handle key repeats, holding down a key\nmay cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The\nrate of repeat is set by the operating system and how each computer is\nconfigured.<br><br>\nBrowsers may have different default\nbehaviors attached to various key events. To prevent any default\nbehavior for this event, add \"return false\" to the end of the method.</p>\n",
             "itemtype": "method",
             "name": "keyPressed",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "<p>optional KeyboardEvent callback argument.</p>\n",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
             "example": [
                 "\n<div>\n<code>\nlet value = 0;\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction keyPressed() {\n  if (value === 0) {\n    value = 255;\n  } else {\n    value = 0;\n  }\n}\n</code>\n</div>\n<div>\n<code>\nlet value = 0;\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction keyPressed() {\n  if (keyCode === LEFT_ARROW) {\n    value = 255;\n  } else if (keyCode === RIGHT_ARROW) {\n    value = 0;\n  }\n}\n</code>\n</div>\n<div class=\"norender\">\n<code>\nfunction keyPressed() {\n  // Do something\n  return false; // prevent any default behaviour\n}\n</code>\n</div>"
             ],
@@ -12126,10 +12155,18 @@
         },
         {
             "file": "src/events/keyboard.js",
-            "line": 189,
+            "line": 190,
             "description": "<p>The <a href=\"#/p5/keyReleased\">keyReleased()</a> function is called once every time a key is released.\nSee <a href=\"#/p5/key\">key</a> and <a href=\"#/p5/keyCode\">keyCode</a> for more information.<br><br>\nBrowsers may have different default\nbehaviors attached to various key events. To prevent any default\nbehavior for this event, add \"return false\" to the end of the method.</p>\n",
             "itemtype": "method",
             "name": "keyReleased",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "<p>optional KeyboardEvent callback argument.</p>\n",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
             "example": [
                 "\n<div>\n<code>\nlet value = 0;\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction keyReleased() {\n  if (value === 0) {\n    value = 255;\n  } else {\n    value = 0;\n  }\n  return false; // prevent any default behavior\n}\n</code>\n</div>"
             ],
@@ -12140,10 +12177,18 @@
         },
         {
             "file": "src/events/keyboard.js",
-            "line": 241,
+            "line": 243,
             "description": "<p>The <a href=\"#/p5/keyTyped\">keyTyped()</a> function is called once every time a key is pressed, but\naction keys such as Backspace, Delete, Ctrl, Shift, and Alt are ignored. If you are trying to detect\na keyCode for one of these keys, use the <a href=\"#/p5/keyPressed\">keyPressed()</a> function instead.\nThe most recent key typed will be stored in the key variable.</p>\n<p>Because of how operating systems handle key repeats, holding down a key\nwill cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The\nrate of repeat is set by the operating system and how each computer is\nconfigured.<br><br>\nBrowsers may have different default behaviors attached to various key\nevents. To prevent any default behavior for this event, add \"return false\"\nto the end of the method.</p>\n",
             "itemtype": "method",
             "name": "keyTyped",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "<p>optional KeyboardEvent callback argument.</p>\n",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
             "example": [
                 "\n<div>\n<code>\nlet value = 0;\nfunction draw() {\n  fill(value);\n  rect(25, 25, 50, 50);\n}\nfunction keyTyped() {\n  if (key === 'a') {\n    value = 255;\n  } else if (key === 'b') {\n    value = 0;\n  }\n  // uncomment to prevent any default behavior\n  // return false;\n}\n</code>\n</div>"
             ],
@@ -12154,7 +12199,7 @@
         },
         {
             "file": "src/events/keyboard.js",
-            "line": 295,
+            "line": 298,
             "description": "<p>The onblur function is called when the user is no longer focused\non the p5 element. Because the keyup events will not fire if the user is\nnot focused on the element we must assume all keys currently down have\nbeen released.</p>\n",
             "class": "p5",
             "module": "Events",
@@ -12162,7 +12207,7 @@
         },
         {
             "file": "src/events/keyboard.js",
-            "line": 305,
+            "line": 308,
             "description": "<p>The <a href=\"#/p5/keyIsDown\">keyIsDown()</a> function checks if the key is currently down, i.e. pressed.\nIt can be used if you have an object that moves, and you want several keys\nto be able to affect its behaviour simultaneously, such as moving a\nsprite diagonally. You can put in any number representing the keyCode of\nthe key, or use any of the variable <a href=\"#/p5/keyCode\">keyCode</a> names listed\n<a href=\"http://p5js.org/reference/#p5/keyCode\">here</a>.</p>\n",
             "itemtype": "method",
             "name": "keyIsDown",
@@ -12822,7 +12867,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 153,
+            "line": 162,
             "description": "<p>Helper function for loading GIF-based images</p>\n",
             "class": "p5",
             "module": "Image",
@@ -12830,7 +12875,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 260,
+            "line": 269,
             "description": "<p>Draw an image to the p5.js canvas.</p>\n<p>This function can be used with different numbers of parameters. The\nsimplest use requires only three parameters: img, x, and y—where (x, y) is\nthe position of the image. Two more parameters can optionally be added to\nspecify the width and height of the image.</p>\n<p>This function can also be used with all eight Number parameters. To\ndifferentiate between all these parameters, p5.js uses the language of\n\"destination rectangle\" (which corresponds to \"dx\", \"dy\", etc.) and \"source\nimage\" (which corresponds to \"sx\", \"sy\", etc.) below. Specifying the\n\"source image\" dimensions can be useful when you want to display a\nsubsection of the source image instead of the whole thing. Here's a diagram\nto explain further:\n<img src=\"assets/drawImage.png\"></img></p>\n",
             "itemtype": "method",
             "name": "image",
@@ -12843,7 +12888,7 @@
             "submodule": "Loading & Displaying",
             "overloads": [
                 {
-                    "line": 260,
+                    "line": 269,
                     "params": [
                         {
                             "name": "img",
@@ -12875,7 +12920,7 @@
                     ]
                 },
                 {
-                    "line": 347,
+                    "line": 356,
                     "params": [
                         {
                             "name": "img",
@@ -12930,7 +12975,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 430,
+            "line": 439,
             "description": "<p>Sets the fill value for displaying images. Images can be tinted to\nspecified colors or made transparent by including an alpha value.</p>\n<p>To apply transparency to an image without affecting its color, use\nwhite as the tint color and specify an alpha value. For instance,\ntint(255, 128) will make an image 50% transparent (assuming the default\nalpha range of 0-255, which can be changed with <a href=\"#/p5/colorMode\">colorMode()</a>).</p>\n<p>The value for the gray parameter must be less than or equal to the current\nmaximum value as specified by <a href=\"#/p5/colorMode\">colorMode()</a>. The default maximum value is\n255.</p>\n",
             "itemtype": "method",
             "name": "tint",
@@ -12943,7 +12988,7 @@
             "submodule": "Loading & Displaying",
             "overloads": [
                 {
-                    "line": 430,
+                    "line": 439,
                     "params": [
                         {
                             "name": "v1",
@@ -12969,7 +13014,7 @@
                     ]
                 },
                 {
-                    "line": 501,
+                    "line": 510,
                     "params": [
                         {
                             "name": "value",
@@ -12979,7 +13024,7 @@
                     ]
                 },
                 {
-                    "line": 506,
+                    "line": 515,
                     "params": [
                         {
                             "name": "gray",
@@ -12995,7 +13040,7 @@
                     ]
                 },
                 {
-                    "line": 512,
+                    "line": 521,
                     "params": [
                         {
                             "name": "values",
@@ -13005,7 +13050,7 @@
                     ]
                 },
                 {
-                    "line": 518,
+                    "line": 527,
                     "params": [
                         {
                             "name": "color",
@@ -13018,7 +13063,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 528,
+            "line": 537,
             "description": "<p>Removes the current fill value for displaying images and reverts to\ndisplaying images with their original hues.</p>\n",
             "itemtype": "method",
             "name": "noTint",
@@ -13032,7 +13077,7 @@
         },
         {
             "file": "src/image/loading_displaying.js",
-            "line": 592,
+            "line": 601,
             "description": "<p>Set image mode. Modifies the location from which images are drawn by\nchanging the way in which parameters given to <a href=\"#/p5/image\">image()</a> are interpreted.\nThe default mode is imageMode(CORNER), which interprets the second and\nthird parameters of <a href=\"#/p5/image\">image()</a> as the upper-left corner of the image. If\ntwo additional parameters are specified, they are used to set the image's\nwidth and height.</p>\n<p>imageMode(CORNERS) interprets the second and third parameters of <a href=\"#/p5/image\">image()</a>\nas the location of one corner, and the fourth and fifth parameters as the\nopposite corner.</p>\n<p>imageMode(CENTER) interprets the second and third parameters of <a href=\"#/p5/image\">image()</a>\nas the image's center point. If two additional parameters are specified,\nthey are used to set the image's width and height.</p>\n",
             "itemtype": "method",
             "name": "imageMode",
@@ -19608,6 +19653,12 @@
                             "name": "ns",
                             "description": "<p>values to parse</p>\n",
                             "type": "Array"
+                        },
+                        {
+                            "name": "radix",
+                            "description": "",
+                            "type": "Integer",
+                            "optional": true
                         }
                     ],
                     "return": {
@@ -19619,7 +19670,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 87,
+            "line": 88,
             "description": "<p>Converts a boolean, string or number to its string representation.\nWhen an array of values is passed in, then an array of strings of the same\nlength is returned.</p>\n",
             "itemtype": "method",
             "name": "str",
@@ -19643,7 +19694,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 113,
+            "line": 114,
             "description": "<p>Converts a number or string to its boolean representation.\nFor a number, any non-zero value (positive or negative) evaluates to true,\nwhile zero evaluates to false. For a string, the value \"true\" evaluates to\ntrue, while any other value evaluates to false. When an array of number or\nstring values is passed in, then a array of booleans of the same length is\nreturned.</p>\n",
             "itemtype": "method",
             "name": "boolean",
@@ -19667,7 +19718,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 145,
+            "line": 146,
             "description": "<p>Converts a number, string representation of a number, or boolean to its byte\nrepresentation. A byte can be only a whole number between -128 and 127, so\nwhen a value outside of this range is converted, it wraps around to the\ncorresponding byte representation. When an array of number, string or boolean\nvalues is passed in, then an array of bytes the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "byte",
@@ -19683,7 +19734,7 @@
             "submodule": "Conversion",
             "overloads": [
                 {
-                    "line": 145,
+                    "line": 146,
                     "params": [
                         {
                             "name": "n",
@@ -19697,7 +19748,7 @@
                     }
                 },
                 {
-                    "line": 167,
+                    "line": 168,
                     "params": [
                         {
                             "name": "ns",
@@ -19714,7 +19765,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 181,
+            "line": 182,
             "description": "<p>Converts a number or string to its corresponding single-character\nstring representation. If a string parameter is provided, it is first\nparsed as an integer and then translated into a single-character string.\nWhen an array of number or string values is passed in, then an array of\nsingle-character strings of the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "char",
@@ -19730,7 +19781,7 @@
             "submodule": "Conversion",
             "overloads": [
                 {
-                    "line": 181,
+                    "line": 182,
                     "params": [
                         {
                             "name": "n",
@@ -19744,7 +19795,7 @@
                     }
                 },
                 {
-                    "line": 200,
+                    "line": 201,
                     "params": [
                         {
                             "name": "ns",
@@ -19761,7 +19812,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 215,
+            "line": 216,
             "description": "<p>Converts a single-character string to its corresponding integer\nrepresentation. When an array of single-character string values is passed\nin, then an array of integers of the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "unchar",
@@ -19777,7 +19828,7 @@
             "submodule": "Conversion",
             "overloads": [
                 {
-                    "line": 215,
+                    "line": 216,
                     "params": [
                         {
                             "name": "n",
@@ -19791,7 +19842,7 @@
                     }
                 },
                 {
-                    "line": 231,
+                    "line": 232,
                     "params": [
                         {
                             "name": "ns",
@@ -19808,7 +19859,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 244,
+            "line": 245,
             "description": "<p>Converts a number to a string in its equivalent hexadecimal notation. If a\nsecond parameter is passed, it is used to set the number of characters to\ngenerate in the hexadecimal notation. When an array is passed in, an\narray of strings in hexadecimal notation of the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "hex",
@@ -19824,7 +19875,7 @@
             "submodule": "Conversion",
             "overloads": [
                 {
-                    "line": 244,
+                    "line": 245,
                     "params": [
                         {
                             "name": "n",
@@ -19844,7 +19895,7 @@
                     }
                 },
                 {
-                    "line": 264,
+                    "line": 265,
                     "params": [
                         {
                             "name": "ns",
@@ -19867,7 +19918,7 @@
         },
         {
             "file": "src/utilities/conversion.js",
-            "line": 294,
+            "line": 295,
             "description": "<p>Converts a string representation of a hexadecimal number to its equivalent\ninteger value. When an array of strings in hexadecimal notation is passed\nin, an array of integers of the same length is returned.</p>\n",
             "itemtype": "method",
             "name": "unhex",
@@ -19883,7 +19934,7 @@
             "submodule": "Conversion",
             "overloads": [
                 {
-                    "line": 294,
+                    "line": 295,
                     "params": [
                         {
                             "name": "n",
@@ -19897,7 +19948,7 @@
                     }
                 },
                 {
-                    "line": 310,
+                    "line": 311,
                     "params": [
                         {
                             "name": "ns",
@@ -28091,35 +28142,35 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/2d_primitives.js:231"
+            "line": " src/core/shape/2d_primitives.js:232"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/2d_primitives.js:271"
+            "line": " src/core/shape/2d_primitives.js:275"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/2d_primitives.js:335"
+            "line": " src/core/shape/2d_primitives.js:339"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/2d_primitives.js:396"
+            "line": " src/core/shape/2d_primitives.js:400"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/2d_primitives.js:474"
+            "line": " src/core/shape/2d_primitives.js:478"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/2d_primitives.js:548"
+            "line": " src/core/shape/2d_primitives.js:552"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/2d_primitives.js:614"
+            "line": " src/core/shape/2d_primitives.js:618"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/shape/2d_primitives.js:703"
+            "line": " src/core/shape/2d_primitives.js:707"
         },
         {
             "message": "unknown tag: alt",
@@ -28223,23 +28274,23 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:58"
+            "line": " src/core/constants.js:66"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:76"
+            "line": " src/core/constants.js:84"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:94"
+            "line": " src/core/constants.js:102"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:112"
+            "line": " src/core/constants.js:120"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:130"
+            "line": " src/core/constants.js:138"
         },
         {
             "message": "unknown tag: alt",
@@ -28291,35 +28342,35 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:499"
+            "line": " src/core/environment.js:500"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:549"
+            "line": " src/core/environment.js:550"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/core/environment.js:585"
+            "line": " src/core/environment.js:586"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/core/environment.js:604"
+            "line": " src/core/environment.js:605"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:604"
+            "line": " src/core/environment.js:605"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:659"
+            "line": " src/core/environment.js:660"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:690"
+            "line": " src/core/environment.js:691"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/environment.js:712"
+            "line": " src/core/environment.js:713"
         },
         {
             "message": "replacing incorrect tag: function with method",
@@ -28551,39 +28602,39 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/transform.js:167"
+            "line": " src/core/transform.js:168"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/transform.js:192"
+            "line": " src/core/transform.js:193"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/transform.js:231"
+            "line": " src/core/transform.js:232"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/transform.js:267"
+            "line": " src/core/transform.js:268"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/transform.js:303"
+            "line": " src/core/transform.js:304"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/transform.js:341"
+            "line": " src/core/transform.js:342"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/transform.js:415"
+            "line": " src/core/transform.js:416"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/transform.js:454"
+            "line": " src/core/transform.js:455"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/transform.js:493"
+            "line": " src/core/transform.js:494"
         },
         {
             "message": "unknown tag: alt",
@@ -28623,11 +28674,11 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/dom/dom.js:2222"
+            "line": " src/dom/dom.js:2225"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/dom/dom.js:2732"
+            "line": " src/dom/dom.js:2735"
         },
         {
             "message": "unknown tag: alt",
@@ -28707,15 +28758,15 @@
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/keyboard.js:189"
+            "line": " src/events/keyboard.js:190"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/keyboard.js:241"
+            "line": " src/events/keyboard.js:243"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/events/keyboard.js:305"
+            "line": " src/events/keyboard.js:308"
         },
         {
             "message": "unknown tag: alt",
@@ -28835,23 +28886,23 @@
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/image/loading_displaying.js:243"
+            "line": " src/image/loading_displaying.js:252"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:260"
+            "line": " src/image/loading_displaying.js:269"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:430"
+            "line": " src/image/loading_displaying.js:439"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:528"
+            "line": " src/image/loading_displaying.js:537"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/image/loading_displaying.js:592"
+            "line": " src/image/loading_displaying.js:601"
         },
         {
             "message": "unknown tag: alt",
@@ -29779,11 +29830,11 @@
         },
         {
             "message": "Missing item type\nHelper fxn to check font type (system or otf)",
-            "line": " src/core/p5.Renderer.js:365"
+            "line": " src/core/p5.Renderer.js:344"
         },
         {
             "message": "Missing item type\nHelper fxn to measure ascent and descent.\nAdapted from http://stackoverflow.com/a/25355178",
-            "line": " src/core/p5.Renderer.js:417"
+            "line": " src/core/p5.Renderer.js:396"
         },
         {
             "message": "Missing item type\np5.Renderer2D\nThe 2D graphics canvas renderer class.\nextends p5.Renderer",
@@ -29851,15 +29902,15 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:3186"
+            "line": " src/dom/dom.js:3189"
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:3252"
+            "line": " src/dom/dom.js:3255"
         },
         {
             "message": "Missing item type",
-            "line": " src/dom/dom.js:3314"
+            "line": " src/dom/dom.js:3317"
         },
         {
             "message": "Missing item type\n_updatePAccelerations updates the pAcceleration values",
@@ -29867,11 +29918,11 @@
         },
         {
             "message": "Missing item type\nThe onblur function is called when the user is no longer focused\non the p5 element. Because the keyup events will not fire if the user is\nnot focused on the element we must assume all keys currently down have\nbeen released.",
-            "line": " src/events/keyboard.js:295"
+            "line": " src/events/keyboard.js:298"
         },
         {
             "message": "Missing item type\nThe _areDownKeys function returns a boolean true if any keys pressed\nand a false if no keys are currently pressed.\n\nHelps avoid instances where multiple keys are pressed simultaneously and\nreleasing a single key will then switch the\nkeyIsPressed property to true.",
-            "line": " src/events/keyboard.js:381"
+            "line": " src/events/keyboard.js:384"
         },
         {
             "message": "Missing item type\nThis module defines the filters for use with image buffers.\n\nThis module is basically a collection of functions stored in an object\nas opposed to modules. The functions are destructive, modifying\nthe passed in canvas rather than creating a copy.\n\nGenerally speaking users of this module will use the Filters.apply method\non a canvas to create an effect.\n\nA number of functions are borrowed/adapted from\nhttp://www.html5rocks.com/en/tutorials/canvas/imagefilters/\nor the java processing implementation.",
@@ -29883,51 +29934,51 @@
         },
         {
             "message": "Missing item type\nReturns a 32 bit number containing ARGB data at ith pixel in the\n1D array containing pixels data.",
-            "line": " src/image/filters.js:44"
+            "line": " src/image/filters.js:60"
         },
         {
             "message": "Missing item type\nModifies pixels RGBA values to values contained in the data object.",
-            "line": " src/image/filters.js:65"
+            "line": " src/image/filters.js:81"
         },
         {
             "message": "Missing item type\nReturns the ImageData object for a canvas\nhttps://developer.mozilla.org/en-US/docs/Web/API/ImageData",
-            "line": " src/image/filters.js:85"
+            "line": " src/image/filters.js:101"
         },
         {
             "message": "Missing item type\nReturns a blank ImageData object.",
-            "line": " src/image/filters.js:105"
+            "line": " src/image/filters.js:121"
         },
         {
             "message": "Missing item type\nApplys a filter function to a canvas.\n\nThe difference between this and the actual filter functions defined below\nis that the filter functions generally modify the pixel buffer but do\nnot actually put that data back to the canvas (where it would actually\nupdate what is visible). By contrast this method does make the changes\nactually visible in the canvas.\n\nThe apply method is the method that callers of this module would generally\nuse. It has been separated from the actual filters to support an advanced\nuse case of creating a filter chain that executes without actually updating\nthe canvas in between everystep.",
-            "line": " src/image/filters.js:120"
+            "line": " src/image/filters.js:136"
         },
         {
             "message": "Missing item type\nConverts the image to black and white pixels depending if they are above or\nbelow the threshold defined by the level parameter. The parameter must be\nbetween 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used.\n\nBorrowed from http://www.html5rocks.com/en/tutorials/canvas/imagefilters/",
-            "line": " src/image/filters.js:173"
+            "line": " src/image/filters.js:189"
         },
         {
             "message": "Missing item type\nConverts any colors in the image to grayscale equivalents.\nNo parameter is used.\n\nBorrowed from http://www.html5rocks.com/en/tutorials/canvas/imagefilters/",
-            "line": " src/image/filters.js:207"
+            "line": " src/image/filters.js:223"
         },
         {
             "message": "Missing item type\nSets the alpha channel to entirely opaque. No parameter is used.",
-            "line": " src/image/filters.js:230"
-        },
-        {
-            "message": "Missing item type\nSets each pixel to its inverse value. No parameter is used.",
             "line": " src/image/filters.js:246"
         },
         {
+            "message": "Missing item type\nSets each pixel to its inverse value. No parameter is used.",
+            "line": " src/image/filters.js:262"
+        },
+        {
             "message": "Missing item type\nLimits each channel of the image to the number of colors specified as\nthe parameter. The parameter can be set to values between 2 and 255, but\nresults are most noticeable in the lower ranges.\n\nAdapted from java based processing implementation",
-            "line": " src/image/filters.js:261"
+            "line": " src/image/filters.js:277"
         },
         {
             "message": "Missing item type\nreduces the bright areas in an image",
-            "line": " src/image/filters.js:293"
+            "line": " src/image/filters.js:309"
         },
         {
             "message": "Missing item type\nincreases the bright areas in an image",
-            "line": " src/image/filters.js:380"
+            "line": " src/image/filters.js:396"
         },
         {
             "message": "Missing item type\nThis module defines the p5 methods for the <a href=\"#/p5.Image\">p5.Image</a> class\nfor drawing images to the main display canvas.",
@@ -29935,15 +29986,15 @@
         },
         {
             "message": "Missing item type\nHelper function for loading GIF-based images",
-            "line": " src/image/loading_displaying.js:153"
+            "line": " src/image/loading_displaying.js:162"
         },
         {
             "message": "Missing item type\nValidates clipping params. Per drawImage spec sWidth and sHight cannot be\nnegative or greater than image intrinsic width and height",
-            "line": " src/image/loading_displaying.js:243"
+            "line": " src/image/loading_displaying.js:252"
         },
         {
             "message": "Missing item type\nApply the current tint color to the input image, return the resulting\ncanvas.",
-            "line": " src/image/loading_displaying.js:556"
+            "line": " src/image/loading_displaying.js:565"
         },
         {
             "message": "Missing item type\nThis module defines the <a href=\"#/p5.Image\">p5.Image</a> class and P5 methods for\ndrawing images to the main display canvas.",
@@ -30035,7 +30086,7 @@
         },
         {
             "message": "Missing item type\nDraw a line given two points",
-            "line": " src/webgl/3d_primitives.js:1391"
+            "line": " src/webgl/3d_primitives.js:1393"
         },
         {
             "message": "Missing item type\nParse OBJ lines into model. For reference, this is what a simple model of a\nsquare might look like:\n\nv -0.5 -0.5 0.5\nv -0.5 -0.5 -0.5\nv -0.5 0.5 -0.5\nv -0.5 0.5 0.5\n\nf 4 3 2 1",

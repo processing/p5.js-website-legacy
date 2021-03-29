@@ -709,6 +709,11 @@
         "v": "数字：顶点的纹理 v 坐标"
       }
     },
+    "VERSION": {
+      "description": [
+        "Version of this p5.js."
+      ]
+    },
     "P2D": {
       "description": [
         "The default, two-dimensional renderer."
@@ -934,7 +939,10 @@
     "windowResized": {
       "description": [
         "windowResized() 函数将在每次浏览器窗口缩放时被调用。这是个适合缩放画布及或任何其他调整以符合新的窗口大小的地方。"
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional Event callback argument."
+      }
     },
     "width": {
       "description": [
@@ -1745,18 +1753,27 @@
         "",
         "",
         ""
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyReleased": {
       "description": [
         "keyReleased() 函数将会在每一次任何键被释放时被调用。请查看 key 及 keyCode 以知更多详情。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。"
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyTyped": {
       "description": [
         "keyTyped() 函数将会在每一次任何键被按下时被调用，可是会忽略操作键如 Ctrl、Shift 及 Alt。被按下的键的 keyCode 将被储存在 keyCode 变量内。<br><br>取决于操作系统如何处理按键重复，按住一个键可能使 keyTyped() （及 keyReleased()）被调用多过一次。重复的速度应操作系统及该电脑的设置而定。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
         ""
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyIsDown": {
       "description": [
