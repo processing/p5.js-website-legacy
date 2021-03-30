@@ -442,8 +442,11 @@ module.exports = function(grunt) {
   grunt.registerTask('move_dataJSON', function() {
     const dataJSON_p5js = 'tmp/p5.js/docs/reference/data.json';
     const dataJSON_p5jswebsite = 'src/templates/pages/reference/data.json';
-    // move the data.json from the cloned p5.js repository to the p5.js-website repository
+    const dataJSONmin_p5js = 'tmp/p5.js/docs/reference/data.min.json';
+    const dataJSONmin_p5jswebsite = 'src/templates/pages/reference/data.min.json';
+    // move the data.json files from the cloned p5.js repository to the p5.js-website repository
     fse.moveSync(dataJSON_p5js, dataJSON_p5jswebsite, { overwrite: true });
+    fse.moveSync(dataJSONmin_p5js, dataJSONmin_p5jswebsite, { overwrite: true });
     // delete the tmp folder that contained the p5.js repository
     fse.removeSync('tmp/');
   });

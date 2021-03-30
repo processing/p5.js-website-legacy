@@ -709,6 +709,11 @@
         "v": "Number: (Optional) the vertex's texture v-coordinate"
       }
     },
+    "VERSION": {
+      "description": [
+        "Version of this p5.js."
+      ]
+    },
     "P2D": {
       "description": [
         "The default, two-dimensional renderer."
@@ -934,7 +939,10 @@
     "windowResized": {
       "description": [
         "La función windowResized() es llamada cada vez que la ventana del navegador cambia de tamaño. Es un buen lugar para cambiar las dimensiones del lienzo o hacer cualquier otro ajuste necesario para acomodar las nuevas dimensiones de la ventana."
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional Event callback argument."
+      }
     },
     "width": {
       "description": [
@@ -1745,18 +1753,27 @@
         "",
         "",
         ""
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyReleased": {
       "description": [
         "La función keyReleased() es llamada una vez cada vez que una tecla es soltada. Ver key y keyCode para más información. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método."
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyTyped": {
       "description": [
         "la función keyTyped es llamada cava vez que una tecla es presionada, excepto cuando son presionadas la steclas de acción como Ctrl, Shift y Alt, que son ignoradas. La tecla presionada más reciente será almacenada en la variable key. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
         ""
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyIsDown": {
       "description": [
