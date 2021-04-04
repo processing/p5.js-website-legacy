@@ -13,6 +13,7 @@
   "reference-parameters": "Parameters",
   "reference-syntax": "Syntax",
   "reference-returns": "Returns",
+  "Environment": "Environment",
   "Color": "Color",
   "Color Conversion": "Color Conversion",
   "Creating & Reading": "Creating & Reading",
@@ -23,7 +24,6 @@
   "Curves": "Curves",
   "Vertex": "Vertex",
   "Constants": "Constants",
-  "Environment": "Environment",
   "Structure": "Structure",
   "DOM": "DOM",
   "Rendering": "Rendering",
@@ -72,6 +72,47 @@
     "params": {
       "sketch": "Function: a closure that can set optional <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on the  given p5 instance",
       "node": "HTMLElement: (Optional) element to attach canvas to"
+    },
+    "describe": {
+      "description": [
+        "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed. ",
+        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "<code class=\"language-javascript\">describe(text, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users."
+      ],
+      "params": {
+        "text": "String: description of the canvas",
+        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+      }
+    },
+    "describeElement": {
+      "description": [
+        "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed. ",
+        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users."
+      ],
+      "params": {
+        "name": "String: name of the element",
+        "text": "String: description of the element",
+        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+      }
+    },
+    "textOutput": {
+      "description": [
+        "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\"). ",
+        "<code class=\"language-javascript\">textOutput()</code> and <code class=\"language-javascript\">texOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">textOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+      ],
+      "params": {
+        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+      }
+    },
+    "gridOutput": {
+      "description": [
+        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape. A brief description of the canvas is available before the table output. This description includes: color of the background, size of the canvas, number of objects, and object types (example: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). The grid describes the content spatially, each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: \"orange ellipse\"). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, and area are described (example: \"orange ellipse location=top left area=1%\") is also available. ",
+        "<code class=\"language-javascript\">gridOutput()</code> and <code class=\"language-javascript\">gridOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">gridOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+      ],
+      "params": {
+        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+      }
     },
     "alpha": {
       "description": [
@@ -288,25 +329,25 @@
         "start": "Number: angle to start the arc, specified in radians",
         "stop": "Number: angle to stop the arc, specified in radians",
         "mode": "Constant: (Optional) optional parameter to determine the way of drawing  the arc. either CHORD, PIE or OPEN",
-        "detail": "Number: (Optional) optional parameter for WebGL mode only. This is to  specify the number of vertices that makes up the  perimeter of the arc. Default value is 25."
+        "detail": "Integer: (Optional) optional parameter for WebGL mode only. This is to  specify the number of vertices that makes up the  perimeter of the arc. Default value is 25. Won't  draw a stroke for a detail of more than 50."
       }
     },
     "ellipse": {
       "description": [
         "Draws an ellipse (oval) to the screen. By default, the first two parameters set the location of the center of the ellipse, and the third and fourth parameters set the shape's width and height. If no height is specified, the value of width is used for both the width and height. If a negative height or width is specified, the absolute value is taken. ",
-        "An ellipse with equal width and height is a circle.The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function."
+        "An ellipse with equal width and height is a circle. The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function."
       ],
       "params": {
         "x": "Number: x-coordinate of the center of ellipse.",
         "y": "Number: y-coordinate of the center of ellipse.",
         "w": "Number: width of the ellipse.",
         "h": "Number: (Optional) height of the ellipse.",
-        "detail": "Integer: number of radial sectors to draw (for WebGL mode)"
+        "detail": "Integer: (Optional) optional parameter for WebGL mode only. This is to  specify the number of vertices that makes up the  perimeter of the ellipse. Default value is 25. Won't  draw a stroke for a detail of more than 50."
       }
     },
     "circle": {
       "description": [
-        "Draws a circle to the screen. A circle is a simple closed shape.It is the set of all points in a plane that are at a given distance from a given point, the centre.This function is a special case of the ellipse() function, where the width and height of the ellipse are the same. Height and width of the ellipse correspond to the diameter of the circle. By default, the first two parameters set the location of the centre of the circle, the third sets the diameter of the circle."
+        "Draws a circle to the screen. A circle is a simple closed shape. It is the set of all points in a plane that are at a given distance from a given point, the centre. This function is a special case of the ellipse() function, where the width and height of the ellipse are the same. Height and width of the ellipse correspond to the diameter of the circle. By default, the first two parameters set the location of the centre of the circle, the third sets the diameter of the circle."
       ],
       "params": {
         "x": "Number: x-coordinate of the centre of the circle.",
@@ -351,6 +392,8 @@
         "y3": "Number: the y-coordinate of the third point",
         "x4": "Number: the x-coordinate of the fourth point",
         "y4": "Number: the y-coordinate of the fourth point",
+        "detailX": "Integer: (Optional) number of segments in the x-direction",
+        "detailY": "Integer: (Optional) number of segments in the y-direction",
         "z1": "Number: the z-coordinate of the first point",
         "z2": "Number: the z-coordinate of the second point",
         "z3": "Number: the z-coordinate of the third point",
@@ -425,9 +468,9 @@
       "description": [
         "Modifies the location from which rectangles are drawn by changing the way in which parameters given to <a href=\"#/p5/rect\">rect()</a> are interpreted. ",
         "The default mode is CORNER, which interprets the first two parameters as the upper-left corner of the shape, while the third and fourth parameters are its width and height. ",
-        "rectMode(CORNERS) interprets the first two parameters as the location of one of the corner, and the third and fourth parameters as the location of the diagonally opposite corner. Note, the rectangle is drawn between the coordinates, so it is not necessary that the first corner be the upper left corner. ",
+        "rectMode(CORNERS) interprets the first two parameters as the location of one of the corners, and the third and fourth parameters as the location of the diagonally opposite corner. Note, the rectangle is drawn between the coordinates, so it is not neccesary that the first corner be the upper left corner. ",
         "rectMode(CENTER) interprets the first two parameters as the shape's center point, while the third and fourth parameters are its width and height. ",
-        "rectMode(RADIUS) also uses the first two parameters as the shape's center point, but uses the third and fourth parameters to specify half of the shapes's width and height respectively. ",
+        "rectMode(RADIUS) also uses the first two parameters as the shape's center point, but uses the third and fourth parameters to specify half of the shape's width and height respectively. ",
         "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
@@ -578,7 +621,7 @@
         "a": "Number: coordinate of first control point",
         "b": "Number: coordinate of first point on the curve",
         "c": "Number: coordinate of second point on the curve",
-        "d": "Number: coordinate of second control point",
+        "d": "Number: coordinate of second conrol point",
         "t": "Number: value between 0 and 1"
       }
     },
@@ -666,6 +709,11 @@
         "v": "Number: (Optional) the vertex's texture v-coordinate"
       }
     },
+    "VERSION": {
+      "description": [
+        "Version of this p5.js."
+      ]
+    },
     "P2D": {
       "description": [
         "The default, two-dimensional renderer."
@@ -709,12 +757,12 @@
     },
     "DEGREES": {
       "description": [
-        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprets and calculates angles (either DEGREES or RADIANS)."
+        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprates and calculates angles (either DEGREES or RADIANS)."
       ]
     },
     "RADIANS": {
       "description": [
-        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprets and calculates angles (either RADIANS or DEGREES)."
+        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprates and calculates angles (either RADIANS or DEGREES)."
       ]
     },
     "CORNER": {},
@@ -816,6 +864,8 @@
     "PORTRAIT": {},
     "GRID": {},
     "AXES": {},
+    "LABEL": {},
+    "FALLBACK": {},
     "print": {
       "description": [
         "The <a href=\"#/p5/print\">print()</a> function writes to the console area of your browser. This function is often helpful for looking at the data a program is producing. This function creates a new line of text for each call to the function. Individual elements can be separated with quotes (\"\") and joined with the addition operator (+). ",
@@ -889,7 +939,10 @@
     "windowResized": {
       "description": [
         "The <a href=\"#/p5/windowResized\">windowResized()</a> function is called once every time the browser window is resized. This is a good place to resize the canvas or do any other adjustments to accommodate the new window size."
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional Event callback argument."
+      }
     },
     "width": {
       "description": [
@@ -926,19 +979,19 @@
     },
     "getURL": {
       "description": [
-        "Gets the current URL."
+        "Gets the current URL. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using sketch the edtior's present or share URLs."
       ],
       "returns": "String: url"
     },
     "getURLPath": {
       "description": [
-        "Gets the current URL path as an array."
+        "Gets the current URL path as an array. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using sketch the edtior's present or share URLs."
       ],
       "returns": "String[]: path components"
     },
     "getURLParams": {
       "description": [
-        "Gets the current URL params as an Object."
+        "Gets the current URL params as an Object. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using sketch the edtior's present or share URLs."
       ],
       "returns": "Object: URL params"
     },
@@ -1028,7 +1081,7 @@
     "function": {
       "description": [
         "Creates and names a <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions\">function</a>. A <a href=\"#/p5/function\">function</a> is a set of statements that perform a task. ",
-        "Optionally, functions can have parameters. <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Parameter\">Parameters</a> are variables that are scoped to the function, that can be assigned a value when calling the function.Multiple parameters can be given by separating them with commas. ",
+        "Optionally, functions can have parameters. <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Parameter\">Parameters</a> are variables that are scoped to the function, that can be assigned a value when calling the function.Multiple parameters can be given by seperating them with commmas. ",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function\">the MDN entry</a>: Declares a function with the specified parameters."
       ]
     },
@@ -1072,7 +1125,7 @@
     "for": {
       "description": [
         "<a href=\"#/p5/for\">for</a> creates a loop that is useful for executing one section of code multiple times. ",
-        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are separated by ; (semi-colon).In case of an empty expression, only a semi-colon is written. ",
+        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are seperated by ; (semi-colon).In case of an empty expression, only a semi-colon is written. ",
         "The code inside of the loop body (in between the curly braces) is executed between the evaluation of the second and third expression. ",
         "As with any loop, it is important to ensure that the loop can 'exit', or that the test condition will eventually evaluate to false. The test condition with a <a href=\"#/p5/for\">for</a> loop is the second expression detailed above. Ensuring that this expression can eventually become false ensures that your loop doesn't attempt to run an infinite amount of times, which can crash your browser. ",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for\">the MDN entry</a>: Creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once."
@@ -1089,6 +1142,7 @@
     "createCanvas": {
       "description": [
         "Creates a canvas element in the document, and sets the dimensions of it in pixels. This method should be called only once at the start of setup. Calling <a href=\"#/p5/createCanvas\">createCanvas</a> more than once in a sketch will result in very unpredictable behavior. If you want more than one drawing canvas you could use <a href=\"#/p5/createGraphics\">createGraphics</a> (hidden by default but it can be shown). ",
+        "Important note: in 2D mode (i.e. when <code>p5.Renderer</code> is not set) the origin (0,0) is positioned at the top left of the screen. In 3D mode (i.e. when <code>p5.Renderer</code> is set to <code>WEBGL</code>), the origin is positioned at the center of the canvas. See <a href=\"https://github.com/processing/p5.js/issues/1545\">this issue</a> for more information. ",
         "The system variables width and height are set by the parameters passed to this function. If <a href=\"#/p5/createCanvas\">createCanvas()</a> is not used, the window will be given a default size of 100x100 pixels. ",
         "For more ways to position the canvas, see the <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'> positioning the canvas</a> wiki page."
       ],
@@ -1127,7 +1181,7 @@
     },
     "blendMode": {
       "description": [
-        "Blends the pixels in the display window according to the defined mode. There is a choice of the following modes to blend the source pixels (A) with the ones of pixels already in the display window (B): <ul> <li><code>BLEND</code> - linear interpolation of colours: C = A\\*factor + B. <b>This is the default blending mode.</b></li> <li><code>ADD</code> - sum of A and B</li> <li><code>DARKEST</code> - only the darkest colour succeeds: C = min(A\\*factor, B).</li> <li><code>LIGHTEST</code> - only the lightest colour succeeds: C = max(A\\*factor, B).</li> <li><code>DIFFERENCE</code> - subtract colors from underlying image.</li> <li><code>EXCLUSION</code> - similar to <code>DIFFERENCE</code>, but less extreme.</li> <li><code>MULTIPLY</code> - multiply the colors, result will always be darker.</li> <li><code>SCREEN</code> - opposite multiply, uses inverse values of the colors.</li> <li><code>REPLACE</code> - the pixels entirely replace the others and don't utilize alpha (transparency) values.</li> <li><code>REMOVE</code> - removes pixels from B with the alpha strength of A.</li> <li><code>OVERLAY</code> - mix of <code>MULTIPLY</code> and <code>SCREEN </code>. Multiplies dark values, and screens light values. <em>(2D)</em></li> <li><code>HARD_LIGHT</code> - <code>SCREEN</code> when greater than 50% gray, <code>MULTIPLY</code> when lower. <em>(2D)</em></li> <li><code>SOFT_LIGHT</code> - mix of <code>DARKEST</code> and <code>LIGHTEST</code>. Works like <code>OVERLAY</code>, but not as harsh. <em>(2D)</em> </li> <li><code>DODGE</code> - lightens light tones and increases contrast, ignores darks. <em>(2D)</em></li> <li><code>BURN</code> - darker areas are applied, increasing contrast, ignores lights. <em>(2D)</em></li> <li><code>SUBTRACT</code> - remainder of A and B <em>(3D)</em></li> </ul>  ",
+        "Blends the pixels in the display window according to the defined mode. There is a choice of the following modes to blend the source pixels (A) with the ones of pixels already in the display window (B): <ul> <li><code>BLEND</code> - linear interpolation of colours: C = A*factor + B. <b>This is the default blending mode.</b></li> <li><code>ADD</code> - sum of A and B</li> <li><code>DARKEST</code> - only the darkest colour succeeds: C = min(A*factor, B).</li> <li><code>LIGHTEST</code> - only the lightest colour succeeds: C = max(A*factor, B).</li> <li><code>DIFFERENCE</code> - subtract colors from underlying image.</li> <li><code>EXCLUSION</code> - similar to <code>DIFFERENCE</code>, but less extreme.</li> <li><code>MULTIPLY</code> - multiply the colors, result will always be darker.</li> <li><code>SCREEN</code> - opposite multiply, uses inverse values of the colors.</li> <li><code>REPLACE</code> - the pixels entirely replace the others and don't utilize alpha (transparency) values.</li> <li><code>REMOVE</code> - removes pixels from B with the alpha strength of A.</li> <li><code>OVERLAY</code> - mix of <code>MULTIPLY</code> and <code>SCREEN </code>. Multiplies dark values, and screens light values. <em>(2D)</em></li> <li><code>HARD_LIGHT</code> - <code>SCREEN</code> when greater than 50% gray, <code>MULTIPLY</code> when lower. <em>(2D)</em></li> <li><code>SOFT_LIGHT</code> - mix of <code>DARKEST</code> and <code>LIGHTEST</code>. Works like <code>OVERLAY</code>, but not as harsh. <em>(2D)</em> </li> <li><code>DODGE</code> - lightens light tones and increases contrast, ignores darks. <em>(2D)</em></li> <li><code>BURN</code> - darker areas are applied, increasing contrast, ignores lights. <em>(2D)</em></li> <li><code>SUBTRACT</code> - remainder of A and B <em>(3D)</em></li> </ul>  ",
         "<em>(2D)</em> indicates that this blend mode <b>only</b> works in the 2D renderer. <em>(3D)</em> indicates that this blend mode <b>only</b> works in the WEBGL renderer."
       ],
       "params": {
@@ -1142,7 +1196,7 @@
     "noLoop": {
       "description": [
         "Stops p5.js from continuously executing the code within <a href=\"#/p5/draw\">draw()</a>. If <a href=\"#/p5/loop\">loop()</a> is called, the code in <a href=\"#/p5/draw\">draw()</a> begins to run continuously again. If using <a href=\"#/p5/noLoop\">noLoop()</a> in <a href=\"#/p5/setup\">setup()</a>, it should be the last line inside the block. ",
-        "When <a href=\"#/p5/noLoop\">noLoop()</a> is used, it's not possible to manipulate or access the screen inside event handling functions such as <a href=\"#/p5/mousePressed\">mousePressed()</a> or <a href=\"#/p5/keyPressed\">keyPressed()</a>. Instead, use those functions to call <a href=\"#/p5/redraw\">redraw()</a> or <a href=\"#/p5/loop\">loop()</a>, which will run <a href=\"#/p5/draw\">draw()</a>, which can update the screen properly. This means that when <a href=\"#/p5/noLoop\">noLoop()</a> has been called, no drawing can happen, and functions like <a href=\"#/p5/saveFrame\">saveFrame()</a> or <a href=\"#/p5/loadPixels\">loadPixels()</a> may not be used. ",
+        "When <a href=\"#/p5/noLoop\">noLoop()</a> is used, it's not possible to manipulate or access the screen inside event handling functions such as <a href=\"#/p5/mousePressed\">mousePressed()</a> or <a href=\"#/p5/keyPressed\">keyPressed()</a>. Instead, use those functions to call <a href=\"#/p5/redraw\">redraw()</a> or <a href=\"#/p5/loop\">loop()</a>, which will run <a href=\"#/p5/draw\">draw()</a>, which can update the screen properly. This means that when <a href=\"#/p5/noLoop\">noLoop()</a> has been called, no drawing can happen, and functions like <a href=\"#/p5/saveFrames\">saveFrames()</a> or <a href=\"#/p5/loadPixels\">loadPixels()</a> may not be used. ",
         "Note that if the sketch is resized, <a href=\"#/p5/redraw\">redraw()</a> will be called to update the sketch, even after <a href=\"#/p5/noLoop\">noLoop()</a> has been specified. Otherwise, the sketch would enter an odd state until <a href=\"#/p5/loop\">loop()</a> was called. ",
         "Use <a href=\"#/p5/isLooping\">isLooping()</a> to check current state of loop()."
       ]
@@ -1203,7 +1257,7 @@
         "<img style=\"max-width: 150px\" src=\"assets/transformation-matrix.png\" alt=\"The transformation matrix used when applyMatrix is called\"/> </blockquote>"
       ],
       "params": {
-        "a": "Number: numbers which define the 2x3 matrix to be multiplied",
+        "a": "Number|Array: numbers which define the 2x3 matrix to be multiplied, or an array of numbers",
         "b": "Number: numbers which define the 2x3 matrix to be multiplied",
         "c": "Number: numbers which define the 2x3 matrix to be multiplied",
         "d": "Number: numbers which define the 2x3 matrix to be multiplied",
@@ -1219,7 +1273,7 @@
     "rotate": {
       "description": [
         "Rotates a shape by the amount specified by the angle parameter. This function accounts for <a href=\"#/p5/angleMode\">angleMode</a>, so angles can be entered in either RADIANS or DEGREES. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI). All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again. ",
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI). All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again. ",
         "Technically, <a href=\"#/p5/rotate\">rotate()</a> multiplies the current transformation matrix by a rotation matrix. This function can be further controlled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>."
       ],
       "params": {
@@ -1230,7 +1284,7 @@
     "rotateX": {
       "description": [
         "Rotates a shape around X axis by the amount specified in angle parameter. The angles can be entered in either RADIANS or DEGREES. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Number: the angle of rotation, specified in radians  or degrees, depending on current angleMode"
@@ -1239,7 +1293,7 @@
     "rotateY": {
       "description": [
         "Rotates a shape around Y axis by the amount specified in angle parameter. The angles can be entered in either RADIANS or DEGREES. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Number: the angle of rotation, specified in radians  or degrees, depending on current angleMode"
@@ -1249,7 +1303,7 @@
       "description": [
         "Rotates a shape around Z axis by the amount specified in angle parameter. The angles can be entered in either RADIANS or DEGREES. ",
         "This method works in WEBGL mode only. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Number: the angle of rotation, specified in radians  or degrees, depending on current angleMode"
@@ -1396,7 +1450,7 @@
     },
     "createDiv": {
       "description": [
-        "Creates a <div></div> element in the DOM with given inner HTML."
+        "Creates a <code>&lt;div&gt;&lt;/div&gt;</code> element in the DOM with given inner HTML."
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1405,8 +1459,7 @@
     },
     "createP": {
       "description": [
-        "Creates a ",
-        " element in the DOM with given inner HTML. Used for paragraph length text."
+        "Creates a <code>&lt;p&gt;&lt;/p&gt;</code> element in the DOM with given inner HTML. Used for paragraph length text."
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1415,7 +1468,7 @@
     },
     "createSpan": {
       "description": [
-        "Creates a <span></span> element in the DOM with given inner HTML."
+        "Creates a <code>&lt;span&gt;&lt;/span&gt;</code> element in the DOM with given inner HTML."
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1424,7 +1477,7 @@
     },
     "createImg": {
       "description": [
-        "Creates an <img> element in the DOM with given src and alternate text."
+        "Creates an <code>&lt;img&gt;</code> element in the DOM with given src and alternate text."
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1436,7 +1489,7 @@
     },
     "createA": {
       "description": [
-        "Creates an <a></a> element in the DOM for including a hyperlink."
+        "Creates an <code>&lt;a&gt;&lt;/a&gt;</code> element in the DOM for including a hyperlink."
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1447,7 +1500,7 @@
     },
     "createSlider": {
       "description": [
-        "Creates a slider <input></input> element in the DOM. Use .size() to set the display length of the slider."
+        "Creates a slider <code>&lt;input&gt;&lt;/input&gt;</code> element in the DOM. Use .size() to set the display length of the slider."
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1459,7 +1512,7 @@
     },
     "createButton": {
       "description": [
-        "Creates a <button></button> element in the DOM. Use .size() to set the display size of the button. Use .mousePressed() to specify behavior on press."
+        "Creates a <code>&lt;button&gt;&lt;/button&gt;</code> element in the DOM. Use .size() to set the display size of the button. Use .mousePressed() to specify behavior on press."
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1469,7 +1522,7 @@
     },
     "createCheckbox": {
       "description": [
-        "Creates a checkbox <input></input> element in the DOM. Calling .checked() on a checkbox returns if it is checked or not"
+        "Creates a checkbox <code>&lt;input&gt;&lt;/input&gt;</code> element in the DOM. Calling .checked() on a checkbox returns if it is checked or not"
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1479,7 +1532,7 @@
     },
     "createSelect": {
       "description": [
-        "Creates a dropdown menu <select></select> element in the DOM. It also helps to assign select-box methods to <a href=\"#/p5.Element\">p5.Element</a> when selecting existing select box. <ul> <li><code>.option(name, [value])</code> can be used to set options for the select after it is created.</li> <li><code>.value()</code> will return the currently selected option.</li> <li><code>.selected()</code> will return current dropdown element which is an instance of <a href=\"#/p5.Element\">p5.Element</a></li> <li><code>.selected(value)</code> can be used to make given option selected by default when the page first loads.</li> <li><code>.disable()</code> marks whole of dropdown element as disabled.</li> <li><code>.disable(value)</code> marks given option as disabled</li> </ul>"
+        "Creates a dropdown menu <code>&lt;select&gt;&lt;/select&gt;</code> element in the DOM. It also helps to assign select-box methods to <a href=\"#/p5.Element\">p5.Element</a> when selecting existing select box. <ul> <li><code>.option(name, [value])</code> can be used to set options for the select after it is created.</li> <li><code>.value()</code> will return the currently selected option.</li> <li><code>.selected()</code> will return current dropdown element which is an instance of <a href=\"#/p5.Element\">p5.Element</a></li> <li><code>.selected(value)</code> can be used to make given option selected by default when the page first loads.</li> <li><code>.disable()</code> marks whole of dropdown element as disabled.</li> <li><code>.disable(value)</code> marks given option as disabled</li> </ul>"
       ],
       "returns": "p5.Element: ",
       "params": {
@@ -1508,7 +1561,7 @@
     },
     "createInput": {
       "description": [
-        "Creates an <input></input> element in the DOM for text input. Use .<a href=\"#/p5.Element/size\">size()</a> to set the display length of the box."
+        "Creates an <code>&lt;input&gt;&lt;/input&gt;</code> element in the DOM for text input. Use .<a href=\"#/p5.Element/size\">size()</a> to set the display length of the box."
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1518,7 +1571,7 @@
     },
     "createFileInput": {
       "description": [
-        "Creates an <input></input> element in the DOM of type 'file'. This allows users to select local files for use in a sketch."
+        "Creates an <code>&lt;input&gt;&lt;/input&gt;</code> element in the DOM of type 'file'. This allows users to select local files for use in a sketch."
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created DOM element",
       "params": {
@@ -1528,7 +1581,7 @@
     },
     "createVideo": {
       "description": [
-        "Creates an HTML5 <video> element in the DOM for simple playback of audio/video. Shown by default, can be hidden with .<a href=\"#/p5.Element/hide\">hide()</a> and drawn into canvas using <a href=\"#/p5/image\">image()</a>. The first parameter can be either a single string path to a video file, or an array of string paths to different formats of the same video. This is useful for ensuring that your video can play across different browsers, as each supports different formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this page</a> for further information about supported formats."
+        "Creates an HTML5 <code>&lt;video&gt;</code> element in the DOM for simple playback of audio/video. Shown by default, can be hidden with .<a href=\"#/p5.Element/hide\">hide()</a> and drawn into canvas using <a href=\"#/p5/image\">image()</a>. The first parameter can be either a single string path to a video file, or an array of string paths to different formats of the same video. This is useful for ensuring that your video can play across different browsers, as each supports different formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this page</a> for further information about supported formats."
       ],
       "returns": "p5.MediaElement: pointer to video <a href=\"#/p5.Element\">p5.Element</a>",
       "params": {
@@ -1538,7 +1591,7 @@
     },
     "createAudio": {
       "description": [
-        "Creates a hidden HTML5 <audio> element in the DOM for simple audio playback. The first parameter can be either a single string path to a audio file, or an array of string paths to different formats of the same audio. This is useful for ensuring that your audio can play across different browsers, as each supports different formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this page for further information about supported formats</a>."
+        "Creates a hidden HTML5 <code>&lt;audio&gt;</code> element in the DOM for simple audio playback. The first parameter can be either a single string path to a audio file, or an array of string paths to different formats of the same audio. This is useful for ensuring that your audio can play across different browsers, as each supports different formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this page for further information about supported formats</a>."
       ],
       "returns": "p5.MediaElement: pointer to audio <a href=\"#/p5.Element\">p5.Element</a>",
       "params": {
@@ -1550,7 +1603,7 @@
     "AUDIO": {},
     "createCapture": {
       "description": [
-        "Creates a new HTML5 <video> element that contains the audio/video feed from a webcam. The element is separate from the canvas and is displayed by default. The element can be hidden using .<a href=\"#/p5.Element/hide\">hide()</a>. The feed can be drawn onto the canvas using <a href=\"#/p5/image\">image()</a>. The loadedmetadata property can be used to detect when the element has fully loaded (see second example). ",
+        "Creates a new HTML5 <code>&lt;video&gt;</code> element that contains the audio/video feed from a webcam. The element is separate from the canvas and is displayed by default. The element can be hidden using .<a href=\"#/p5.Element/hide\">hide()</a>. The feed can be drawn onto the canvas using <a href=\"#/p5/image\">image()</a>. The loadedmetadata property can be used to detect when the element has fully loaded (see second example). ",
         "More specific properties of the feed can be passing in a Constraints object. See the <a href='http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'> W3C spec</a> for possible properties. Note that not all of these are supported by all browsers. ",
         "<em>Security note</em>: A new browser security specification requires that getUserMedia, which is behind <a href=\"#/p5/createCapture\">createCapture()</a>, only works when you're running the code locally, or on HTTPS. Learn more <a href='http://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https'>here</a> and <a href='https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia'>here</a>."
       ],
@@ -1700,18 +1753,27 @@
         "For non-ASCII keys, use the keyCode variable. You can check if the keyCode equals BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. ",
         "For ASCII keys, the key that was pressed is stored in the key variable. However, it does not distinguish between uppercase and lowercase. For this reason, it is recommended to use <a href=\"#/p5/keyTyped\">keyTyped()</a> to read the key variable, in which the case of the variable will be distinguished. ",
         "Because of how operating systems handle key repeats, holding down a key may cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The rate of repeat is set by the operating system and how each computer is configured. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyReleased": {
       "description": [
         "The <a href=\"#/p5/keyReleased\">keyReleased()</a> function is called once every time a key is released. See <a href=\"#/p5/key\">key</a> and <a href=\"#/p5/keyCode\">keyCode</a> for more information. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyTyped": {
       "description": [
         "The <a href=\"#/p5/keyTyped\">keyTyped()</a> function is called once every time a key is pressed, but action keys such as Backspace, Delete, Ctrl, Shift, and Alt are ignored. If you are trying to detect a keyCode for one of these keys, use the <a href=\"#/p5/keyPressed\">keyPressed()</a> function instead. The most recent key typed will be stored in the key variable. ",
         "Because of how operating systems handle key repeats, holding down a key will cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The rate of repeat is set by the operating system and how each computer is configured. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyIsDown": {
       "description": [
@@ -1916,7 +1978,7 @@
     "loadImage": {
       "description": [
         "Loads an image from a path and creates a <a href=\"#/p5.Image\">p5.Image</a> from it. ",
-        "The image may not be immediately available for rendering If you want to ensure that the image is ready before doing anything with it, place the <a href=\"#/p5/loadImage\">loadImage()</a> call in <a href=\"#/p5/preload\">preload()</a>. You may also supply a callback function to handle the image when it's ready. ",
+        "The image may not be immediately available for rendering. If you want to ensure that the image is ready before doing anything with it, place the <a href=\"#/p5/loadImage\">loadImage()</a> call in <a href=\"#/p5/preload\">preload()</a>. You may also supply a callback function to handle the image when it's ready. ",
         "The path to the image should be relative to the HTML file that links in your sketch. Loading an image from a URL or other remote location may be blocked due to your browser's built-in security. ",
         "You can also pass in a string of a base64 encoded image as an alternative to the file path. Remember to add \"data:image/png;base64,\" in front of the string."
       ],
@@ -2500,8 +2562,8 @@
       ],
       "returns": "Number: the random number",
       "params": {
-        "mean": "Number: the mean",
-        "sd": "Number: the standard deviation"
+        "mean": "Number: (Optional) the mean",
+        "sd": "Number: (Optional) the standard deviation"
       }
     },
     "acos": {
@@ -2680,10 +2742,10 @@
     },
     "textFont": {
       "description": [
-        "Sets the current font that will be drawn with the <a href=\"#/p5/text\">text()</a> function. ",
+        "Sets the current font that will be drawn with the <a href=\"#/p5/text\">text()</a> function. If textFont() is called without any argument, it will return the current font if one has been set already. If not, it will return the name of the default font as a string. If textFont() is called with a font to use, it will return the p5 object. ",
         "<b>WEBGL</b>: Only fonts loaded via <a href=\"#/p5/loadFont\">loadFont()</a> are supported."
       ],
-      "returns": "Object: the current font",
+      "returns": "Object: the current font / p5 Object",
       "params": {
         "font": "Object|String: a font loaded via <a href=\"#/p5/loadFont\">loadFont()</a>, or a String representing a <a href=\"https://mzl.la/2dOw8WD\">web safe font</a> (a font that is generally available across all systems)",
         "size": "Number: (Optional) the font size to use"
@@ -4378,7 +4440,7 @@
     },
     "mask": {
       "description": [
-        "Masks part of an image from displaying by loading another image and using its alpha channel as an alpha channel for this image."
+        "Masks part of an image from displaying by loading another image and using its alpha channel as an alpha channel for this image. Masks are cumulative, one applied to an image object, they cannot be removed."
       ],
       "params": {
         "srcImage": "p5.Image: source image"
@@ -4386,10 +4448,19 @@
     },
     "filter": {
       "description": [
-        "Applies an image filter to a <a href=\"#/p5.Image\">p5.Image</a>"
+        "Applies an image filter to a <a href=\"#/p5.Image\">p5.Image</a> ",
+        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used. ",
+        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used. ",
+        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used. ",
+        "INVERT Sets each pixel to its inverse value. No parameter is used. ",
+        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges. ",
+        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur. ",
+        "ERODE Reduces the light areas. No parameter is used. ",
+        "DILATE Increases the light areas. No parameter is used. ",
+        "filter() does not work in WEBGL mode. A similar effect can be achieved in WEBGL mode using custom shaders. Adam Ferriss has written a <a href=\"https://github.com/aferriss/p5jsShaderExamples\" target='_blank'>selection of shader examples</a> that contains many of the effects present in the filter examples."
       ],
       "params": {
-        "filterType": "Constant: either THRESHOLD, GRAY, OPAQUE, INVERT,  POSTERIZE, BLUR, ERODE, DILATE or BLUR.  See Filters.js for docs on  each available filter",
+        "filterType": "Constant: either THRESHOLD, GRAY, OPAQUE, INVERT,  POSTERIZE, ERODE, DILATE or BLUR.  See Filters.js for docs on  each available filter",
         "filterParam": "Number: (Optional) an optional parameter unique  to each filter, see above"
       }
     },
@@ -5107,7 +5178,11 @@
       "description": [
         "Normalize the vector to length 1 (make it a unit vector)."
       ],
-      "returns": "p5.Vector: normalized <a href=\"#/p5.Vector\">p5.Vector</a>"
+      "returns": "p5.Vector: normalized <a href=\"#/p5.Vector\">p5.Vector</a>",
+      "params": {
+        "v": "p5.Vector: the vector to normalize",
+        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
+      }
     },
     "limit": {
       "description": [
@@ -5131,12 +5206,22 @@
       ],
       "returns": "Number: the angle of rotation"
     },
+    "setHeading": {
+      "description": [
+        "Rotate the vector to a specific angle (only 2D vectors), magnitude remains the same"
+      ],
+      "params": {
+        "angle": "Number: the angle of rotation"
+      }
+    },
     "rotate": {
       "description": [
         "Rotate the vector by an angle (only 2D vectors), magnitude remains the same"
       ],
       "params": {
-        "angle": "Number: the angle of rotation"
+        "angle": "Number: the angle of rotation",
+        "v": "p5.Vector",
+        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
       }
     },
     "angleBetween": {
@@ -5266,10 +5351,56 @@
     "description": [
       "This class describes a camera for use in p5's <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5\"> WebGL mode</a>. It contains camera position, orientation, and projection information necessary for rendering a 3D scene. ",
       "New p5.Camera objects can be made through the <a href=\"#/p5/createCamera\">createCamera()</a> function and controlled through the methods described below. A camera created in this way will use a default position in the scene and a default perspective projection until these properties are changed through the various methods available. It is possible to create multiple cameras, in which case the current camera can be set through the <a href=\"#/p5/setCamera\">setCamera()</a> method. ",
-      "Note: The methods below operate in two coordinate systems: the 'world' coordinate system describe positions in terms of their relationship to the origin along the X, Y and Z axes whereas the camera's 'local' coordinate system describes positions from the camera's point of view: left-right, up-down, and forward-backward. The <a href=\"#/p5.Camera/move\">move()</a> method, for instance, moves the camera along its own axes, whereas the <a href=\"#/p5.Camera/setPosition\">setPosition()</a> method sets the camera's position in world-space."
+      "Note: The methods below operate in two coordinate systems: the 'world' coordinate system describe positions in terms of their relationship to the origin along the X, Y and Z axes whereas the camera's 'local' coordinate system describes positions from the camera's point of view: left-right, up-down, and forward-backward. The <a href=\"#/p5.Camera/move\">move()</a> method, for instance, moves the camera along its own axes, whereas the <a href=\"#/p5.Camera/setPosition\">setPosition()</a> method sets the camera's position in world-space. ",
+      "The camera object propreties <code>eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ</code> which describes camera position, orientation, and projection are also accessible via the camera object generated using <a href=\"#/p5/createCamera\">createCamera()</a>"
     ],
     "params": {
       "rendererGL": "RendererGL: instance of WebGL renderer"
+    },
+    "eyeX": {
+      "description": [
+        "camera position value on x axis"
+      ]
+    },
+    "eyeY": {
+      "description": [
+        "camera position value on y axis"
+      ]
+    },
+    "eyeZ": {
+      "description": [
+        "camera position value on z axis"
+      ]
+    },
+    "centerX": {
+      "description": [
+        "x coordinate representing center of the sketch"
+      ]
+    },
+    "centerY": {
+      "description": [
+        "y coordinate representing center of the sketch"
+      ]
+    },
+    "centerZ": {
+      "description": [
+        "z coordinate representing center of the sketch"
+      ]
+    },
+    "upX": {
+      "description": [
+        "x component of direction 'up' from camera"
+      ]
+    },
+    "upY": {
+      "description": [
+        "y component of direction 'up' from camera"
+      ]
+    },
+    "upZ": {
+      "description": [
+        "z component of direction 'up' from camera"
+      ]
     },
     "perspective": {
       "description": [
@@ -5711,7 +5842,7 @@
   },
   "p5.MonoSynth": {
     "description": [
-      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthesizers should be built inheriting from this class."
+      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthetisers should be built inheriting from this class."
     ],
     "play": {
       "description": [
@@ -5908,7 +6039,7 @@
       "SoundFile object with a path to a file.  ",
       "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
       "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
-      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatibility, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
+      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatability, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
     ],
     "params": {
       "path": "String|Array: path to a sound file (String). Optionally,  you may include multiple file formats in  an array. Alternately, accepts an object  from the HTML5 File API, or a p5.File.",
@@ -6314,7 +6445,7 @@
   "p5.Signal": {
     "description": [
       "p5.Signal is a constant audio-rate signal used by p5.Oscillator and p5.Envelope for modulation math.  ",
-      "This is necessary because Web Audio is processed on a separate clock. For example, the p5 draw loop runs about 60 times per second. But the audio clock must process samples 44100 times per second. If we want to add a value to each of those samples, we can't do it in the draw loop, but we can do it by adding a constant-rate audio signal.</p.  ",
+      "This is necessary because Web Audio is processed on a seprate clock. For example, the p5 draw loop runs about 60 times per second. But the audio clock must process samples 44100 times per second. If we want to add a value to each of those samples, we can't do it in the draw loop, but we can do it by adding a constant-rate audio signal.</p.  ",
       "This class mostly functions behind the scenes in p5.sound, and returns a Tone.Signal from the Tone.js library by Yotam Mann. If you want to work directly with audio signals for modular synthesis, check out <a href='http://bit.ly/1oIoEng' target=_'blank'>tone.js.</a>"
     ],
     "returns": "Tone.Signal: A Signal object from the Tone.js library",
@@ -6865,7 +6996,7 @@
   },
   "p5.Reverb": {
     "description": [
-      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has parameters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution. ",
+      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has paramters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution. ",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "process": {
@@ -6995,7 +7126,7 @@
     ],
     "params": {
       "steps": "Number: (Optional) Steps in the part",
-      "tatums": "Number: (Optional) Divisions of a beat, e.g. use 1/4, or 0.25 for a quarter note (default is 1/16, a sixteenth note)"
+      "tatums": "Number: (Optional) Divisions of a beat, e.g. use 1/4, or 0.25 for a quater note (default is 1/16, a sixteenth note)"
     },
     "setBPM": {
       "description": [
@@ -7207,7 +7338,7 @@
   },
   "p5.Compressor": {
     "description": [
-      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on individual sound sources in addition to the master output. ",
+      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on indivudal sound sources in addition to the master output. ",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "compressor": {
@@ -7230,7 +7361,7 @@
     },
     "set": {
       "description": [
-        "Set the parameters of a compressor."
+        "Set the paramters of a compressor."
       ],
       "params": {
         "attack": "Number: The amount of time (in seconds) to reduce the gain by 10dB,  default = .003, range 0 - 1",
@@ -7362,7 +7493,7 @@
   },
   "p5.Gain": {
     "description": [
-      "A gain node is useful to set the relative volume of sound. It's typically used to build mixers."
+      "A gain node is usefull to set the relative volume of sound. It's typically used to build mixers."
     ],
     "setInput": {
       "description": [

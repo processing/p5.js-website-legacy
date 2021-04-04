@@ -13,6 +13,7 @@
   "reference-parameters": "参数",
   "reference-syntax": "语法",
   "reference-returns": "返回",
+  "Environment": "环境",
   "Color": "颜色",
   "Color Conversion": "Color Conversion",
   "Creating & Reading": "创造及读取",
@@ -23,7 +24,6 @@
   "Curves": "弧形",
   "Vertex": "顶点",
   "Constants": "常量",
-  "Environment": "环境",
   "Structure": "结构",
   "DOM": "DOM",
   "Rendering": "渲染",
@@ -72,6 +72,47 @@
     "params": {
       "sketch": "Function: a closure that can set optional <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on the  given p5 instance",
       "node": "HTMLElement: (Optional) element to attach canvas to"
+    },
+    "describe": {
+      "description": [
+        "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed. ",
+        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "<code class=\"language-javascript\">describe(text, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users."
+      ],
+      "params": {
+        "text": "String: description of the canvas",
+        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+      }
+    },
+    "describeElement": {
+      "description": [
+        "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed. ",
+        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users."
+      ],
+      "params": {
+        "name": "String: name of the element",
+        "text": "String: description of the element",
+        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+      }
+    },
+    "textOutput": {
+      "description": [
+        "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\"). ",
+        "<code class=\"language-javascript\">textOutput()</code> and <code class=\"language-javascript\">texOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">textOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+      ],
+      "params": {
+        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+      }
+    },
+    "gridOutput": {
+      "description": [
+        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape. A brief description of the canvas is available before the table output. This description includes: color of the background, size of the canvas, number of objects, and object types (example: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). The grid describes the content spatially, each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: \"orange ellipse\"). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, and area are described (example: \"orange ellipse location=top left area=1%\") is also available. ",
+        "<code class=\"language-javascript\">gridOutput()</code> and <code class=\"language-javascript\">gridOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">gridOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+      ],
+      "params": {
+        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+      }
     },
     "alpha": {
       "description": [
@@ -351,6 +392,8 @@
         "y3": "数字：第四个点的 y 坐标",
         "x4": "数字：",
         "y4": "数字：",
+        "detailX": "Integer: (Optional) number of segments in the x-direction",
+        "detailY": "Integer: (Optional) number of segments in the y-direction",
         "z1": "数字：第二个点的 x 坐标",
         "z2": "数字：第三个点的 y 坐标",
         "z3": "数字：",
@@ -666,6 +709,11 @@
         "v": "数字：顶点的纹理 v 坐标"
       }
     },
+    "VERSION": {
+      "description": [
+        "Version of this p5.js."
+      ]
+    },
     "P2D": {
       "description": [
         "The default, two-dimensional renderer."
@@ -816,6 +864,8 @@
     "PORTRAIT": {},
     "GRID": {},
     "AXES": {},
+    "LABEL": {},
+    "FALLBACK": {},
     "print": {
       "description": [
         "print() 函数将写入浏览器的控制台区。这函数适用于查看程式生成的资料。这函数每一次被调用将创造新的一行字串。个别元素可使用引号（\"\"）分隔并使用加号（+）连接在一起。",
@@ -889,7 +939,10 @@
     "windowResized": {
       "description": [
         "windowResized() 函数将在每次浏览器窗口缩放时被调用。这是个适合缩放画布及或任何其他调整以符合新的窗口大小的地方。"
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional Event callback argument."
+      }
     },
     "width": {
       "description": [
@@ -1090,7 +1143,8 @@
       "description": [
         "在文件内创造一个画布元素，并以像素定义其大小。这函数只应该在 setup() 开始时被调用一次。在同一个绘图里调用 createCanvas 多过一次将造成难以预料的行为。如果你想要使用多过一个绘图画布您可以使用 createGraphics（默认上会被隐藏可是可以被显示）。<br><br>给予这函数的宽度和高度参数将被用来定义 width 和 height 系统变量。如果 createCanvas() 没有被使用，画布将会被给予默认大小 100x100。<br><br>以知更多放置画布的方法，请参考<a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'>画布放置维基</a>（英文页面）。",
         "",
-        ""
+        "",
+        "For more ways to position the canvas, see the <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'> positioning the canvas</a> wiki page."
       ],
       "returns": "p5.Renderer：",
       "params": {
@@ -1405,8 +1459,7 @@
     },
     "createP": {
       "description": [
-        "Creates a ",
-        " element in the DOM with given inner HTML. Used for paragraph length text."
+        "Creates a "
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1700,18 +1753,27 @@
         "",
         "",
         ""
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyReleased": {
       "description": [
         "keyReleased() 函数将会在每一次任何键被释放时被调用。请查看 key 及 keyCode 以知更多详情。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。"
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyTyped": {
       "description": [
         "keyTyped() 函数将会在每一次任何键被按下时被调用，可是会忽略操作键如 Ctrl、Shift 及 Alt。被按下的键的 keyCode 将被储存在 keyCode 变量内。<br><br>取决于操作系统如何处理按键重复，按住一个键可能使 keyTyped() （及 keyReleased()）被调用多过一次。重复的速度应操作系统及该电脑的设置而定。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
         ""
-      ]
+      ],
+      "params": {
+        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+      }
     },
     "keyIsDown": {
       "description": [
@@ -4377,7 +4439,16 @@
     },
     "filter": {
       "description": [
-        "Applies an image filter to a <a href=\"#/p5.Image\">p5.Image</a>"
+        "Applies an image filter to a <a href=\"#/p5.Image\">p5.Image</a>",
+        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used. ",
+        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used. ",
+        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used. ",
+        "INVERT Sets each pixel to its inverse value. No parameter is used. ",
+        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges. ",
+        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur. ",
+        "ERODE Reduces the light areas. No parameter is used. ",
+        "DILATE Increases the light areas. No parameter is used. ",
+        "filter() does not work in WEBGL mode. A similar effect can be achieved in WEBGL mode using custom shaders. Adam Ferriss has written a <a href=\"https://github.com/aferriss/p5jsShaderExamples\" target='_blank'>selection of shader examples</a> that contains many of the effects present in the filter examples."
       ],
       "params": {
         "filterType": "Constant: either THRESHOLD, GRAY, OPAQUE, INVERT,  POSTERIZE, BLUR, ERODE, DILATE or BLUR.  See Filters.js for docs on  each available filter",
@@ -5092,7 +5163,11 @@
       "description": [
         "Normalize the vector to length 1 (make it a unit vector)."
       ],
-      "returns": "p5.Vector: normalized <a href=\"#/p5.Vector\">p5.Vector</a>"
+      "returns": "p5.Vector: normalized <a href=\"#/p5.Vector\">p5.Vector</a>",
+      "params": {
+        "v": "p5.Vector: the vector to normalize",
+        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
+      }
     },
     "limit": {
       "description": [
@@ -5116,12 +5191,22 @@
       ],
       "returns": "Number: the angle of rotation"
     },
+    "setHeading": {
+      "description": [
+        "Rotate the vector to a specific angle (only 2D vectors), magnitude remains the same"
+      ],
+      "params": {
+        "angle": "Number: the angle of rotation"
+      }
+    },
     "rotate": {
       "description": [
         "Rotate the vector by an angle (only 2D vectors), magnitude remains the same"
       ],
       "params": {
-        "angle": "Number: the angle of rotation"
+        "angle": "Number: the angle of rotation",
+        "v": "p5.Vector",
+        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
       }
     },
     "angleBetween": {
@@ -5251,10 +5336,56 @@
     "description": [
       "This class describes a camera for use in p5's <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5\"> WebGL mode</a>. It contains camera position, orientation, and projection information necessary for rendering a 3D scene. ",
       "New p5.Camera objects can be made through the <a href=\"#/p5/createCamera\">createCamera()</a> function and controlled through the methods described below. A camera created in this way will use a default position in the scene and a default perspective projection until these properties are changed through the various methods available. It is possible to create multiple cameras, in which case the current camera can be set through the <a href=\"#/p5/setCamera\">setCamera()</a> method. ",
-      "Note: The methods below operate in two coordinate systems: the 'world' coordinate system describe positions in terms of their relationship to the origin along the X, Y and Z axes whereas the camera's 'local' coordinate system describes positions from the camera's point of view: left-right, up-down, and forward-backward. The <a href=\"#/p5.Camera/move\">move()</a> method, for instance, moves the camera along its own axes, whereas the <a href=\"#/p5.Camera/setPosition\">setPosition()</a> method sets the camera's position in world-space."
+      "Note: The methods below operate in two coordinate systems: the 'world' coordinate system describe positions in terms of their relationship to the origin along the X, Y and Z axes whereas the camera's 'local' coordinate system describes positions from the camera's point of view: left-right, up-down, and forward-backward. The <a href=\"#/p5.Camera/move\">move()</a> method, for instance, moves the camera along its own axes, whereas the <a href=\"#/p5.Camera/setPosition\">setPosition()</a> method sets the camera's position in world-space.",
+      "The camera object propreties <code>eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ</code> which describes camera position, orientation, and projection are also accessible via the camera object generated using <a href=\"#/p5/createCamera\">createCamera()</a>"
     ],
     "params": {
       "rendererGL": "RendererGL: instance of WebGL renderer"
+    },
+    "eyeX": {
+      "description": [
+        "camera position value on x axis"
+      ]
+    },
+    "eyeY": {
+      "description": [
+        "camera position value on y axis"
+      ]
+    },
+    "eyeZ": {
+      "description": [
+        "camera position value on z axis"
+      ]
+    },
+    "centerX": {
+      "description": [
+        "x coordinate representing center of the sketch"
+      ]
+    },
+    "centerY": {
+      "description": [
+        "y coordinate representing center of the sketch"
+      ]
+    },
+    "centerZ": {
+      "description": [
+        "z coordinate representing center of the sketch"
+      ]
+    },
+    "upX": {
+      "description": [
+        "x component of direction 'up' from camera"
+      ]
+    },
+    "upY": {
+      "description": [
+        "y component of direction 'up' from camera"
+      ]
+    },
+    "upZ": {
+      "description": [
+        "z component of direction 'up' from camera"
+      ]
     },
     "perspective": {
       "description": [
