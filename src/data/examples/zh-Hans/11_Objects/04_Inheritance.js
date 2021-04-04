@@ -20,7 +20,7 @@ function draw() {
   spots.display();
 }
 
-class SpinArm {
+class Spin {
   constructor(x, y, s) {
     this.x = x;
     this.y = y;
@@ -30,6 +30,12 @@ class SpinArm {
 
   update() {
     this.angle += this.speed;
+  }
+}
+
+class SpinArm extends Spin {
+  constructor(x, y, s) {
+    super(x, y, s)
   }
 
   display() {
@@ -44,17 +50,10 @@ class SpinArm {
   }
 }
 
-class SpinSpots {
+class SpinSpots extends Spin {
   constructor(x, y, s, d) {
-    this.x = x;
-    this.y = y;
-    this.speed = s;
+    super(x, y, s)
     this.dim = d;
-    this.angle = 0.0;
-  }
-
-  update() {
-    this.angle += this.speed;
   }
 
   display() {

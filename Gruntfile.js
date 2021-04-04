@@ -8,7 +8,12 @@
 
 const yaml = require('js-yaml');
 const fs = require('fs').promises;
+const fse = require('fs-extra');
+const git = require('simple-git');
 const pkg = require('./package.json');
+const update_i18n = require('./updatei18nFiles.js');
+const mozjpeg = require('imagemin-mozjpeg');
+const pngquant = require('imagemin-pngquant');
 
 module.exports = function(grunt) {
   require('time-grunt')(grunt);
@@ -148,7 +153,8 @@ module.exports = function(grunt) {
     imagemin: {
       images: {
         options: {
-          optimizationLevel: 2
+          optimizationLevel: 2,
+          use: [mozjpeg({quality: 70}), pngquant()] //plugins for jpeg & png image compression
         },
         files: [{
           expand: true,
@@ -167,8 +173,8 @@ module.exports = function(grunt) {
       dist: {
         src: [
           '<%= config.src %>/assets/css/normalize.css',
-          '<%= config.src %>/assets/css/main.css',
-          '<%= config.src %>/assets/css/prism.css'
+          '<%= config.src %>/assets/css/prism.css',
+          '<%= config.src %>/assets/css/main.css'
         ],
         dest: '<%= config.dist %>/assets/css/all.css'
       }
@@ -347,8 +353,19 @@ module.exports = function(grunt) {
           ignore: [
             /^This document appears to be written in English/,
             /^Bad value “https:/,
-            /^Consider adding a “lang” attribute to the “html”/
+            /^Consider adding a “lang” attribute to the “html”/,
+            /^Attribute “paypalexpress” not allowed on element “script” at this point./
           ]
+        }
+      }
+    },
+    shell: {
+      generate_dataJSON: {
+        command: 'npm ci && npm run grunt yui',
+        options: {
+          execOptions: {
+            cwd: 'tmp/p5.js'
+          }
         }
       }
     }
@@ -371,12 +388,79 @@ module.exports = function(grunt) {
     });
   });
 
+  // runs the updateJSON() function from update18nFiles.js
+  // is run by the update-translation-files workflow every time one of them is modified
+  grunt.registerTask('update-json-i18n-files', function() {
+    const JSONfiles_URL = 'src/data/reference/';
+    const lang = pkg.languages.filter(v => v !== 'en');
+    lang.forEach(langCode => {
+      update_i18n.updateJSON(
+        JSONfiles_URL + 'en.json',
+        JSONfiles_URL + langCode + '.json'
+      );
+    });
+  });
+
+  // runs the updateYAML() function from update18nFiles.js
+  // is run by the update-translation-files workflow every time one of them is modified
+  grunt.registerTask('update-yaml-i18n-files', function() {
+    const YAMLfiles_URL = 'src/data/';
+    const lang = pkg.languages.filter(v => v !== 'en');
+    lang.forEach(langCode => {
+      update_i18n.updateYAML(
+        YAMLfiles_URL + 'en.yml',
+        YAMLfiles_URL + langCode + '.yml'
+      );
+    });
+  });
+
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-assemble');
   grunt.loadNpmTasks('grunt-file-append');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-html');
+
+  grunt.registerTask('make_tmp_dir', function() {
+    const tmp_path = 'tmp/p5.js';
+    fse.mkdirpSync(tmp_path);
+  });
+
+  grunt.registerTask('clone_p5js_repo', async function() {
+    const done = this.async();
+    try {
+      await git().clone('https://github.com/processing/p5.js', 'tmp/p5.js');
+      done();
+    } catch (err) {
+      console.log('Failed to clone p5.js repository.');
+      throw new Error(err);
+    }
+  });
+
+  grunt.registerTask('generate_dataJSON', ['shell:generate_dataJSON']);
+
+  grunt.registerTask('move_dataJSON', function() {
+    const dataJSON_p5js = 'tmp/p5.js/docs/reference/data.json';
+    const dataJSON_p5jswebsite = 'src/templates/pages/reference/data.json';
+    // move the data.json from the cloned p5.js repository to the p5.js-website repository
+    fse.moveSync(dataJSON_p5js, dataJSON_p5jswebsite, { overwrite: true });
+    // delete the tmp folder that contained the p5.js repository
+    fse.removeSync('tmp/');
+  });
+
+  grunt.registerTask('generate_enJSON', function() {
+    const getenJSON = require('./getenJSON.js');
+    // generate and save the en.json
+    getenJSON();
+  });
+
+  grunt.registerTask('update-enJSON', [
+    'make_tmp_dir',
+    'clone_p5js_repo',
+    'generate_dataJSON',
+    'move_dataJSON',
+    'generate_enJSON'
+  ]);
 
   // multi-tasks: collections of other tasks
   grunt.registerTask('server', [

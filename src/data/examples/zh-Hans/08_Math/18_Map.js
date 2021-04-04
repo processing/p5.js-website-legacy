@@ -5,15 +5,15 @@
  * 此范例中，鼠标的 x 坐标（ 0-360 之间的数字）将被缩放为新数值，用于设定圆的颜色和大小。
  */
 function setup() {
-  createCanvas(640, 400);
+  createCanvas(720, 400);
   noStroke();
 }
 
 function draw() {
   background(0);
-  // 将 mouseX 的数值从 0-640 缩放至 0-175 的范围内
+  // 将 mouseX 的数值从 0-720 缩放至 0-175 的范围内
   let c = map(mouseX, 0, width, 0, 175);
-  // 将 mouseX 的数值从 0-640 to 缩放至 40-300 的范围内
+  // 将 mouseX 的数值从 0-720 to 缩放至 40-300 的范围内
   let d = map(mouseX, 0, width, 40, 300);
   fill(255, c, 0);
   ellipse(width/2, height/2, d, d);

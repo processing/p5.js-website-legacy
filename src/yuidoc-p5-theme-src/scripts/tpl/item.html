@@ -13,7 +13,7 @@
 <% } %>
 
 <div class="description">
-    
+
   <h3 id="reference-description">Description</h3>
 
   <% if (item.deprecated) { %>
@@ -21,7 +21,7 @@
       Deprecated: <%=item.name%><% if (item.isMethod) { %>()<% } %> is deprecated and will be removed in a future version of p5. <% if (item.deprecationMessage) { %><%=item.deprecationMessage%><% } %>
     </p>
   <% } %>
-      
+
 
   <span class='description-text'><%= item.description %></span>
 
@@ -61,11 +61,11 @@
 
 <% if (isConstructor || !isClass) { %>
 
-<div>
+<div class="syntax">
   <h3 id="reference-syntax">Syntax</h3>
   <p>
     <% syntaxes.forEach(function(syntax) { %>
-    <pre><code class="language-javascript"><%= syntax %></code></pre>
+    <pre class="language-javascript"><%= syntax %></pre>
     <% }) %>
   </p>
 </div>
