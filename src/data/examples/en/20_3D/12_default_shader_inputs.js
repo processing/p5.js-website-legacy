@@ -1,6 +1,7 @@
 /*
- * @name Default Shader Attributes
- * @description <p>p5 provides kjfsdk attributes akjlfa</p>
+ * @name Default Shader Inputs
+ * @description
+ * <p>p5 provides ... attributes ...</p>
  * <p>
  *   <span>• <b>aPosition</b></span><br>
  *     <span>&nbsp;&nbsp;◦ long description here</span><br>
@@ -10,8 +11,19 @@
  *     <span>&nbsp;&nbsp;◦ long description here</span><br>
  *   <span>• <b>aMaterialColor</b></span><br>
  *     <span>&nbsp;&nbsp;◦ long description here</span><br>
- * </p>
- * <p>To learn more about using shaders in p5.js: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a></p>
+ * </p><br>
+ * <p>p5 provides ... uniforms ...</p>
+ * <p>
+ *   <span>• <b>uViewMatrix</b></span><br>
+ *     <span>&nbsp;&nbsp;◦ long description here</span><br>
+ *   <span>• <b>uProjectionMatrix</b></span><br>
+ *     <span>&nbsp;&nbsp;◦ long description here</span><br>
+ *   <span>• <b>uModelViewMatrix</b></span><br>
+ *     <span>&nbsp;&nbsp;◦ long description here</span><br>
+ *   <span>• <b>uNormalMatrix</b></span><br>
+ *     <span>&nbsp;&nbsp;◦ long description here</span><br>
+ * </p><br>
+ * <p>To learn more about using shaders in p5.js: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a></p><br>
  */
 
  // this variable will hold our shader object
