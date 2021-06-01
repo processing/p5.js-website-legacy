@@ -6,16 +6,16 @@
  * <p>
  *   <span>• <b>aPosition</b></span><br>
  *     <span>&nbsp;&nbsp;◦ <span class="small">Type: </span><i>vec3</i> (x, y, z)</span><br>
- *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>position associated with a vertex</span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>Position associated with a vertex</span><br>
  *   <span>• <b>aTexCoord</b></span><br>
  *     <span>&nbsp;&nbsp;◦ <span class="small">Type: </span><i>vec2</i> (x, y)</span><br>
- *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>texture coordinates associated with a vertex</span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>Texture coordinates associated with a vertex</span><br>
  *   <span>• <b>aNormal</b></span><br>
  *     <span>&nbsp;&nbsp;◦ <span class="small">Type: </span><i>vec3</i> (x, y, z)</span><br>
- *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>normal associated with vertex</span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>Normal associated with vertex</span><br>
  *   <span>• <b>aMaterialColor</b></span><br>
  *     <span>&nbsp;&nbsp;◦ <span class="small">Type: </span><i>vec4</i> (r, g, b, a)</span><br>
- *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>color associated with a vertex</span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>Color associated with a vertex</span><br>
  *   <span>• <b>The following attribute names are reserved:</b></span><br>
  *     <span>&nbsp;&nbsp;◦ aAmbientColor</span><br>
  * </p><br>
@@ -23,19 +23,21 @@
  * <p>
  *   <span>• <b>uViewMatrix</b></span><br>
  *     <span>&nbsp;&nbsp;◦ <span class="small">Type: </span><i>mat4</i> (4x4 matrix)</span><br>
- *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>defines attributes about the camera?? such as position and focal length</span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>Contains information about the current camera such as position and rotation. Used to ?</span><br>
  *   <span>• <b>uProjectionMatrix</b></span><br>
  *     <span>&nbsp;&nbsp;◦ <span class="small">Type: </span><i>mat4</i> (4x4 matrix)</span><br>
- *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>used to convert 3D world coordinates into screen </span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>Contains information about the current projection such as near and far clipping planes. Used to convert 3D world coordinates into 2D screen coordinates</span><br>
  *   <span>• <b>uModelViewMatrix</b></span><br>
  *     <span>&nbsp;&nbsp;◦ <span class="small">Type: </span><i>mat4</i> (4x4 matrix)</span><br>
- *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>combination of the model and view matrices</span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>Combination of the model and view matrices. Used to ?</span><br>
+  *   <span>• <b>uModelViewProjectionMatrix</b></span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Type: </span><i>mat4</i> (4x4 matrix)</span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>Combination of the model, view, and projection matrices. Used to ?</span><br>
  *   <span>• <b>uNormalMatrix</b></span><br>
  *     <span>&nbsp;&nbsp;◦ <span class="small">Type: </span><i>mat3</i> (3x3 matrix)</span><br>
- *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>the transpose inverse of the model matrix. Typically used in lighting calculations</span><br>
+ *     <span>&nbsp;&nbsp;◦ <span class="small">Description: </span>Transpose inverse of the model matrix. Typically used in lighting calculations</span><br>
  *   <span>• <b>The following uniform names are reserved:</b></span><br>
- *     <span>&nbsp;&nbsp;◦ uViewport</span><br>
- *     <span>&nbsp;&nbsp;◦ uPerspective</span><br>
+ *     <span>&nbsp;&nbsp;◦ uStrokeWeight</span><br>
  * </p><br>
  * <p>To learn more about using shaders in p5.js see <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a></p><br>
  */
