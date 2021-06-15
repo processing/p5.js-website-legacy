@@ -1,5 +1,5 @@
 /*
- * @name Text Rotation 
+ * @name Text Rotation
  * @description Draws letters to the screen and rotates them at different angles.
  *  (ported from https://processing.org/examples/textrotation.html) 
  */
