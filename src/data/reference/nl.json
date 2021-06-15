@@ -3637,15 +3637,6 @@
       "Internally, we store an array representing the ideal RGBA values in floating point form, normalized from 0 to 1. From this we calculate the closest screen color (RGBA levels from 0 to 255) and expose this to the renderer. ",
       "We also cache normalized, floating point components of the color in various representations as they are calculated. This is done to prevent repeating a conversion that has already been performed."
     ],
-    "toString": {
-      "description": [
-        "This function returns the color formatted as a string. This can be useful for debugging, or for using p5.js with other libraries."
-      ],
-      "returns": "String: the formatted string",
-      "params": {
-        "format": "String: (Optional) How the color string will be formatted. Leaving this empty formats the string as rgba(r, g, b, a). '#rgb' '#rgba' '#rrggbb' and '#rrggbbaa' format as hexadecimal color codes. 'rgb' 'hsb' and 'hsl' return the color formatted in the specified color mode. 'rgba' 'hsba' and 'hsla' are the same as above but with alpha channels. 'rgb%' 'hsb%' 'hsl%' 'rgba%' 'hsba%' and 'hsla%' format as percentages."
-      }
-    },
     "setRed": {
       "description": [
         "The setRed function sets the red component of a color. The range depends on your color mode, in the default RGB mode it's between 0 and 255."
@@ -5026,12 +5017,6 @@
       "description": [
         "The z component of the vector"
       ]
-    },
-    "toString": {
-      "description": [
-        "Returns a string representation of a vector v by calling String(v) or v.toString(). This method is useful for logging vectors in the console."
-      ],
-      "returns": "String: "
     },
     "set": {
       "description": [
