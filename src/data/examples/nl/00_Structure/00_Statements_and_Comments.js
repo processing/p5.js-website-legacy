@@ -1,18 +1,24 @@
 /*
- * @name Comments and Statements
- * @description Statements are the elements that make up programs. The ";" (semi-colon) symbol is used to end statements. It is called the "statement  * terminator". Comments are used for making notes to help people better understand programs. A comment begins with two forward slashes ("//"). (ported from https://processing.org/examples/statementscomments.html)
+ * @name Commentaren en Statements
+ * @description Statements zijn de bouwstenen waaruit programmas zijn gemaakt.
+ * Een ";" (punt-comma) symbool is gebruikt om een statement te beëindigen. Dit
+ * wordt de "statement terminator" genoemd. Commentaren worden gebruikt voor
+ * notities die mensen wellicht helpen om de broncode van programma's beter te
+ * begrijpen. Een commentaar begint met twee voorwaartse schuine streepjes
+ * ("//"). (ported from
+ * https://processing.org/examples/statementscomments.html)
  */
-// The createCanvas function is a statement that tells the computer 
-// how large to make the window.
-// Each function statement has zero or more parameters. 
-// Parameters are data passed into the function
-// and are used as values for telling the computer what to do.
+// De createCanvas() functie is een statement die instructies aan de computer
+// geeft voor hoe groot het canvas moet zijn.  Een functie heeft nul of meer
+// parameters.  Parameters zijn gegevens die worden doorgegeven om in de
+// functie te gebruiken, en worden wellicht gebruikt om instructies aan de
+// computer te geven.
 function setup() {
    createCanvas(710, 400);
 }
 
-// The background function is a statement that tells the computer
-// which color (or gray value) to make the background of the display window 
+// De background() functie is een statement die instructies aan de computer
+// geeft voor het vullen van de achtergrond van het canvas in een bepaalde kleur.
 function draw() {
    background(204, 153, 0);
 }
