@@ -1,11 +1,11 @@
 /*
- * @name Coordinates
- * @description All shapes drawn to the screen have a position that is
- * specified as a coordinate. All coordinates are measured as the distance from
- * the origin in units of pixels. The origin [0, 0] is the coordinate in the
- * upper left of the window and the coordinate in the lower right is [width-1,
- * height-1].
- */
+  * @name निर्देशांक
+  * @description स्क्रीन पर खींची गई सभी आकृतियों में एक स्थिति होती है जो है
+  * एक समन्वय के रूप में निर्दिष्ट। सभी निर्देशांकों को से दूरी के रूप में मापा जाता है
+  * पिक्सेल की इकाइयों में उत्पत्ति। मूल [0, 0] में निर्देशांक है
+  * खिड़की के ऊपरी बाएँ और निचले दाएँ में निर्देशांक [चौड़ाई -1,
+  * ऊंचाई -1]।
+  */
 function setup() {
   // Sets the screen to be 720 pixels wide and 400 pixels high
   createCanvas(720, 400);

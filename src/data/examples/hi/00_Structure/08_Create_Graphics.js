@@ -1,9 +1,9 @@
 /*
- * @name Create Graphics
- * @description Creates and returns a new p5.Renderer object. Use this
- * class if you need to draw into an off-screen graphics buffer. The two parameters
- * define the width and height in pixels.
- */
+  * @name ग्राफिक्स बनाएं
+  * @description एक नया p5.Renderer ऑब्जेक्ट बनाता और लौटाता है। इस का उपयोग करें
+  * वर्ग यदि आपको ऑफ-स्क्रीन ग्राफिक्स बफर में आकर्षित करने की आवश्यकता है। दो पैरामीटर
+  * पिक्सल में चौड़ाई और ऊंचाई को परिभाषित करें।
+  */
 
 let pg;
 

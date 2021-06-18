@@ -1,9 +1,9 @@
 /*
- *@name Functions
- *@description The drawTarget() function makes it easy to draw many distinct
- *targets. Each call to drawTarget() specifies the position, size, and number of
- *rings for each target.
- */
+  *@name कार्य
+  *@description DrawTarget () फ़ंक्शन कई अलग-अलग आकर्षित करना आसान बनाता है
+  *लक्ष्य। DrawTarget () के लिए प्रत्येक कॉल की स्थिति, आकार और संख्या निर्दिष्ट करता है
+  * प्रत्येक लक्ष्य के लिए बजता है।
+  */
 
 function setup() {
   createCanvas(720, 400);
