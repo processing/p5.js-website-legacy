@@ -1,7 +1,7 @@
 /*
- * @name Iteration
- * @description Iteration with a "for" structure to construct repetitive forms.
- */
+  * @name पुनरावृत्ति
+  * @description पुनरावृत्ति रूपों के निर्माण के लिए "के लिए" संरचना के साथ पुनरावृत्ति।
+  */
 let y;
 let num = 14;
 
@@ -10,7 +10,7 @@ function setup() {
   background(102);
   noStroke();
 
-  // Draw white bars
+  // सफेद सलाखों को ड्रा करें
   fill(255);
   y = 60;
   for (let i = 0; i < num / 3; i++) {
@@ -18,7 +18,7 @@ function setup() {
     y += 20;
   }
 
-  // Gray bars
+  // ग्रे बार
   fill(51);
   y = 40;
   for (let i = 0; i < num; i++) {
@@ -31,7 +31,7 @@ function setup() {
     y += 20;
   }
 
-  // Thin lines
+  // पतली रेखाएं
   y = 45;
   fill(0);
   for (let i = 0; i < num - 1; i++) {

@@ -1,12 +1,12 @@
 /*
- * @name Pointillism
- * @description By Dan Shiffman. Mouse horizontal location controls size of
- * dots. Creates a simple pointillist effect using ellipses colored according
- * to pixels in an image.
- * <p><em><span class="small"> To run this example locally, you will need an
- * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
- * local server</a>.</span></em></p>
- */
+  * @name पॉइंटिलिज्म
+  * @description डैन शिफमैन द्वारा। माउस क्षैतिज स्थान का आकार नियंत्रित करता है
+  * डॉट्स। रंग के अनुसार दीर्घवृत्त का उपयोग करके एक साधारण पॉइंटिलिस्ट प्रभाव बनाता है
+  * एक छवि में पिक्सेल के लिए।
+  * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको एक की आवश्यकता होगी
+  * छवि फ़ाइल, और चल रही <a href="https://github.com/processing/p5.js/wiki/Local-server">
+  * स्थानीय सर्वर</a>.</span></em></p>
+  */
 let img;
 let smallPoint, largePoint;
 

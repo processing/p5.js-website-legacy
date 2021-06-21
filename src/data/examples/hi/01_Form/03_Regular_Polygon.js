@@ -1,10 +1,10 @@
 /*
- * @name Regular Polygon
- * @description What is your favorite? Pentagon? Hexagon? Heptagon? No?
- * What about the icosagon? The polygon() function created for this example is
- * capable of drawing any regular polygon. Try placing different numbers into
- * the polygon() function calls within draw() to explore.
- */
+  * @name नियमित बहुभुज
+  * @description आपका पसंदीदा क्या है? पेंटागन? षट्भुज? हेप्टागन? नहीं न?
+  *आइकोसैगन के बारे में क्या? इस उदाहरण के लिए बनाया गया polygon() फ़ंक्शन है
+  * किसी भी नियमित बहुभुज को खींचने में सक्षम। अलग-अलग नंबरों को रखने का प्रयास करें Try
+  * polygon() फ़ंक्शन कॉल के भीतर draw() का पता लगाने के लिए।
+  */
 function setup() {
   createCanvas(720, 400);
 }

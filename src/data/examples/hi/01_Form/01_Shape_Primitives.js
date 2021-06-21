@@ -1,12 +1,12 @@
 /*
- * @name Shape Primitives
- * @description The basic shape primitive functions are triangle(),
- * rect(), quad(), ellipse(), and arc(). Squares are made with rect()
- * and circles are made with ellipse(). Each of these functions requires
- * a number of parameters to determine the shape's position and size.
- */
+  * @name शेप प्रिमिटिव्स
+  * @description मूल आकार के आदिम कार्य triangle() हैं,
+  * rect(), quad(), ellipse(), और arc()। वर्ग रेक्ट के साथ बने होते हैं ()
+  * और ellipse() से बनाए जाते हैं। इन कार्यों में से प्रत्येक की आवश्यकता है
+  * आकार की स्थिति और आकार निर्धारित करने के लिए कई पैरामीटर।
+  */
 function setup() {
-  // Sets the screen to be 720 pixels wide and 400 pixels high
+  // स्क्रीन को 720 पिक्सल चौड़ा और 400 पिक्सल ऊंचा सेट करता है
   createCanvas(720, 400);
   background(0);
   noStroke();

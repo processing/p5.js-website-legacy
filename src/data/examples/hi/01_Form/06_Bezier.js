@@ -1,10 +1,10 @@
 /*
- * @name Bezier
- * @description The first two parameters for the bezier() function specify the
- * first point in the curve and the last two parameters specify the last point.
- * The middle parameters set the control points that define the shape of the
- * curve.
- */
+  * @name बेज़ियर
+  * @description bezier() फ़ंक्शन के लिए पहले दो पैरामीटर निर्दिष्ट करते हैं
+  * वक्र में पहला बिंदु और अंतिम दो पैरामीटर अंतिम बिंदु निर्दिष्ट करते हैं।
+  * मध्य पैरामीटर नियंत्रण बिंदु निर्धारित करते हैं जो आकार को परिभाषित करते हैं
+  * वक्र।
+  */
 function setup() {
   createCanvas(720, 400);
   stroke(255);

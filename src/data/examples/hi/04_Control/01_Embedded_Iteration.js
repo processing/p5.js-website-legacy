@@ -1,7 +1,7 @@
 /*
- * @name Embedded Iteration
- * @description Embedding "for" structures allows repetition in two dimensions.
- */
+* @name एंबेडेड इटरेशन
+* @description "के लिए" संरचनाओं को एम्बेड करना दो आयामों में पुनरावृत्ति की अनुमति देता है।
+*/
 function setup() {
   createCanvas(720, 360);
   background(0);

@@ -1,8 +1,8 @@
 /*
- * @name Variables
- * @description Variables are used for storing values. In this example, change
- * the values of variables to affect the composition.
- */
+  * @name चर
+  * @description वेरिएबल्स का उपयोग वैल्यू स्टोर करने के लिए किया जाता है। इस उदाहरण में, बदलें
+  * रचना को प्रभावित करने के लिए चर के मान।
+  */
 function setup() {
   createCanvas(720, 400);
   background(0);

@@ -1,14 +1,14 @@
 /*
- * @name Variable Scope
- * @description Variables have a global or function "scope". For example,
- * variables declared within either the setup() or draw() functions may be
- * only used in these functions. Global variables, variables declared outside
- * of setup() and draw(), may be used anywhere within the program. If a function
- * variable is declared with the same name as a global variable, the program
- * will use the function variable to make its calculations within the current
- * scope.
- */
-let a = 80; // Create a global variable "a"
+  * @name परिवर्तनीय दायरा
+  * @description वेरिएबल्स का एक ग्लोबल या फंक्शन "स्कोप" होता है। उदाहरण के लिए,
+  * या तो setup() या draw() फ़ंक्शन के भीतर घोषित चर हो सकते हैं
+  * केवल इन कार्यों में उपयोग किया जाता है। वैश्विक चर, बाहर घोषित चर
+  * setup() और draw(), कार्यक्रम के भीतर कहीं भी इस्तेमाल किया जा सकता है। यदि एक समारोह
+  * वैरिएबल को ग्लोबल वैरिएबल के समान नाम से घोषित किया जाता है, प्रोग्राम
+  * वर्तमान के भीतर अपनी गणना करने के लिए फ़ंक्शन चर का उपयोग करेगा
+  * गुंजाइश।
+  */
+let a = 80; // एक वैश्विक चर "ए" बनाएं
 
 function setup() {
   createCanvas(720, 400);
@@ -18,31 +18,31 @@ function setup() {
 }
 
 function draw() {
-  // Draw a line using the global variable "a"
+  // वैश्विक चर "ए" का उपयोग करके एक रेखा खींचें
   line(a, 0, a, height);
 
-  // Use a local variable a in for loop
+  // लूप के लिए स्थानीय चर a का उपयोग करें
   for (let a = 120; a < 200; a += 3) {
     line(a, 0, a, height);
   }
 
-  // Make a call to the custom function drawAnotherLine()
+  // कस्टम फ़ंक्शन को कॉल करें drawAnotherLine ()
   drawAnotherLine();
 
-  // Make a call to the custom function drawYetAnotherLine()
+  // कस्टम फ़ंक्शन पर कॉल करें drawYetAnotherLine ()
   drawYetAnotherLine();
 }
 
 function drawAnotherLine() {
-  // Create a new variable "a" local to this function
+  // इस फ़ंक्शन के लिए एक नया चर "ए" स्थानीय बनाएं
   let a = 320;
-  // Draw a line using the local variable "a"
+  // स्थानीय चर "ए" का उपयोग करके एक रेखा खींचें
   line(a, 0, a, height);
 }
 
 function drawYetAnotherLine() {
-  // Because no new local variable "a" is set,
-  // this line draws using the original global
-  // variable "a" which is set to the value 20.
+   // क्योंकि कोई नया स्थानीय चर "ए" सेट नहीं है,
+   // यह रेखा मूल वैश्विक का उपयोग करके खींची गई है
+   // चर "ए" जो मान 20 पर सेट है। 
   line(a + 3, 0, a + 3, height);
 }

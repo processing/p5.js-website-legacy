@@ -1,9 +1,9 @@
 /*
- * @name Star
- * @description The star() function created for this example is capable of
- * drawing a wide range of different forms. Try placing different numbers
- * into the star() function calls within draw() to explore.
- */
+  * @name स्टार
+  * @description इस उदाहरण के लिए बनाया गया star() फ़ंक्शन सक्षम है
+  * विभिन्न रूपों की एक विस्तृत श्रृंखला को चित्रित करना। अलग-अलग नंबर रखने की कोशिश करें
+  * star() फ़ंक्शन कॉल में draw() का पता लगाने के लिए
+*/
 function setup() {
   createCanvas(720, 400);
 }

@@ -1,12 +1,12 @@
 /*
- * @name Alpha Mask
- * @description Loads a "mask" for an image to specify the transparency in
- * different parts of the image. The two images are blended together using
- * the mask() method of p5.Image.
- * <p><em><span class="small"> To run this example locally, you will need two
- * image files, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
- * local server</a>.</span></em></p>
- */
+  * @name अल्फा मास्क
+  * @description में पारदर्शिता निर्दिष्ट करने के लिए एक छवि के लिए "मास्क" लोड करता है
+  * छवि के विभिन्न भाग। दो छवियों को एक साथ मिश्रित कर रहे हैं
+  * mask() p5.Image की विधि।
+  * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको दो की आवश्यकता होगी
+  * छवि फ़ाइलें, और चल रहे <a href="https://github.com/processing/p5.js/wiki/Local-server">
+  * स्थानीय सर्वर</a>.</span></em></p>
+  */
 let img;
 let imgMask;
 
