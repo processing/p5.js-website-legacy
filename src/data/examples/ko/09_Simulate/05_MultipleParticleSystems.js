@@ -60,7 +60,6 @@ Particle.prototype.display = function () {
 };
 
 // 파티클이 여전히 쓸만한가요?
->>>>>>> cf3314557fcd084720a3cbca0fa45ce5ce151753
 Particle.prototype.isDead = function () {
   if (this.lifespan < 0) {
     return true;

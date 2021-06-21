@@ -1,13 +1,13 @@
 /*
- * @name Rollover
+ * @name 롤오버 (Rollover)
  * @description Roll over the colored squares in the center of the image to change the color of the outside rectangle.
  * <br><br><span class="small"><em>This example is ported from the <a href="https://processing.org/examples/rollover.html"> Rollover example</a>
  * on the Processing website</em></span>
  */
-let squareX, squareY;  // Position of square button
-let circleX, circleY;  // Position of circle button
-let squareSize = 90;   // Width/height of square
-let circleSize = 93;   // Diameter of circle
+let squareX, squareY;  // 정사각형 버튼의 위치
+let circleX, circleY;  // 원형 버튼의 위치
+let squareSize = 90;   // 정사각형의 너비와 높이
+let circleSize = 93;   // 원의 지름
 
 let squareColor;
 let circleColor;

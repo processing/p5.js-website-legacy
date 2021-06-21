@@ -1,8 +1,6 @@
 /*
  * @name 복수의 조명들
  * @description 한 스케치 위에 여러 종류의 조명을 사용할 수 있습니다.
- * @name Multiple Lights
- * @description All types of lights could be used in one sketch.
  */
 function setup() {
   createCanvas(710, 400, WEBGL);

@@ -6,33 +6,33 @@
   "reference-contribute2": "여기로 알려주세요.",
   "reference-error1": "오타나 버그를 발견했다면",
   "reference-error3": "p5.js에 기여하고 싶다면, ",
-  "reference-error5": "에 풀 리퀘스트(pull request) 해주세요!",
+  "reference-error5": "에 풀 요청(pull request) 해주세요!",
   "reference-example": "예제",
   "reference-description": "설명",
   "reference-extends": "확장",
   "reference-parameters": "변수",
   "reference-syntax": "문법",
   "reference-returns": "반환",
-  "Environment": "환경 설정",
+  "Environment": "화면 환경",
   "Color": "색상",
-  "Color Conversion": "Color Conversion",
+  "Color Conversion": "색상 변환",
   "Creating & Reading": "만들기 & 읽기",
   "Setting": "설정하기",
   "Shape": "도형",
   "2D Primitives": "2D 기본 조형",
-  "Attributes": "설정 속성",
+  "Attributes": "도형 속성",
   "Curves": "곡선",
-  "Vertex": "꼭지점",
+  "Vertex": "꼭짓점",
   "Constants": "상수",
   "Structure": "구조",
   "DOM": "DOM",
   "Rendering": "렌더링",
-  "Foundation": "Foundation",
+  "Foundation": "기초",
   "Transform": "변형",
   "Data": "데이터",
   "LocalStorage": "LocalStorage",
   "Dictionary": "사전",
-  "Events": "이벤트",
+  "Events": "상태변화 인식",
   "Acceleration": "가속도",
   "Keyboard": "키보드",
   "Mouse": "마우스",
@@ -71,7 +71,7 @@
     "returns": "P5: p5 인스턴스",
     "params": {
       "sketch": "함수: 주어진 p5 인스턴스에 선택적으로 <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, 그리고/또는 <a href=\"#/p5/draw\">draw()</a> 속성을 설정할 수 있는 클로저",
-      "node": "HTMLElement: (선택 사항) 캔버스에 속할 요소"
+      "node": "HTML Element: (선택 사항) 캔버스에 속할 요소"
     },
     "describe": {
       "description": [
@@ -80,7 +80,7 @@
         "<code class=\"language-javascript\">describe(text, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users."
       ],
       "params": {
-        "text": "String: description of the canvas",
+        "text": "문자열: 켄버스의 설명",
         "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
       }
     },
@@ -510,7 +510,7 @@
     },
     "bezier": {
       "description": [
-        "화면에 3차 베지어 곡선을 그립니다. 베지어 곡선은 일련의 고정점 및 제어점들로 정의됩니다. 처음 두 매개변수는 1번째 고정점을, 마지막 두 매개변수는 마지막 고정점을 지정합니다. 중간의 두 매개변수는 두 개의 제어점을 지정하며, 이는 곧 곡선의 모양을 정의하게 됩니다. 여기서 제어점은 그 자신을 향해 곡선을 당기는 역할을 합니다. <br><br> 베지어 곡선은 프랑스 출신 자동차 엔지니어인 피에르 베지어(Pierre Bezier)가 개발하였으며, 컴퓨터 그래픽상 부드럽게 경사진 곡선을 정의하는 데에 주로 사용됩니다. curve()도 참고하세요.",
+        "화면에 3차 베지에 곡선을 그립니다. 베지에 곡선은 일련의 고정점 및 제어점들로 정의됩니다. 처음 두 매개변수는 1번째 고정점을, 마지막 두 매개변수는 마지막 고정점을 지정합니다. 중간의 두 매개변수는 두 개의 제어점을 지정하며, 이는 곧 곡선의 모양을 정의하게 됩니다. 여기서 제어점은 그 자신을 향해 곡선을 당기는 역할을 합니다. <br><br> 베지에 곡선은 프랑스 출신 자동차 엔지니어인 피에르 베지에(Pierre Bezier)가 개발하였으며, 컴퓨터 그래픽상 부드럽게 경사진 곡선을 정의하는 데에 주로 사용됩니다. curve()도 참고하세요.",
         ""
       ],
       "params": {
@@ -530,7 +530,7 @@
     },
     "bezierDetail": {
       "description": [
-        "베지어 곡선들의 해상도를 설정합니다. <br>기본값은 20입니다.<br>이 함수는 WebGL 렌더러용으로만 사용되며, 기본 캔버스 렌더러에서는 이 함수를 사용하지 않습니다.",
+        "베지에 곡선들의 해상도를 설정합니다. <br>기본값은 20입니다.<br>이 함수는 WebGL 렌더러용으로만 사용되며, 기본 캔버스 렌더러에서는 이 함수를 사용하지 않습니다.",
         ""
       ],
       "params": {
@@ -539,9 +539,9 @@
     },
     "bezierPoint": {
       "description": [
-        "점 a, b, c, d로 정의된 베지어 곡선에서 위치 t를 계산합니다. 매개변수 a와 d는 각각 곡선의 1번째 점과 마지막 점에, b와 c는 제어점에 해당합니다. 마지막 매개변수인 t는 0과 1사이에서 표현됩니다. 함수는 먼저 x좌표를 호출한 다음, y좌표를 호출하여 위치 t를 찾게됩니다."
+        "점 a, b, c, d로 정의된 베지에 곡선에서 위치 t를 계산합니다. 매개변수 a와 d는 각각 곡선의 1번째 점과 마지막 점에, b와 c는 제어점에 해당합니다. 마지막 매개변수인 t는 0과 1사이에서 표현됩니다. 함수는 먼저 x좌표를 호출한 다음, y좌표를 호출하여 위치 t를 찾게됩니다."
       ],
-      "returns": "숫자: 위치 t에 해당하는 베지어 곡선의 값",
+      "returns": "숫자: 위치 t에 해당하는 베지에 곡선의 값",
       "params": {
         "a": "숫자: 곡선의 1번째 점 좌표값",
         "b": "숫자: 1번째 제어점 좌표값",
@@ -643,7 +643,7 @@
     },
     "bezierVertex": {
       "description": [
-        "베지어 곡선의 꼭지점 좌표를 지정합니다. bezierVertex()은 매 호출마다 베지어 곡선의 제어점 2개와 고정점 1개의 위치를 정의하고, 이 새로운 선분을 선 또는 도형에 더합니다. bezierVertex()는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 6개의 매개변수가, 3D 모드에서는 9개의 매개변수(z좌표값 포함)가 필요합니다.<br><br>beginShape() 함수 안에 작성된 bezierVertex()를 호출하기에 앞서, vertex() 함수를 bezierVertex() 윗줄에 작성하여 곡선의 1번째 고정점을 설정해야 합니다. bezierVertex() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다.",
+        "베지에 곡선의 꼭지점 좌표를 지정합니다. bezierVertex()은 매 호출마다 베지에 곡선의 제어점 2개와 고정점 1개의 위치를 정의하고, 이 새로운 선분을 선 또는 도형에 더합니다. bezierVertex()는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 6개의 매개변수가, 3D 모드에서는 9개의 매개변수(z좌표값 포함)가 필요합니다.<br><br>beginShape() 함수 안에 작성된 bezierVertex()를 호출하기에 앞서, vertex() 함수를 bezierVertex() 윗줄에 작성하여 곡선의 1번째 고정점을 설정해야 합니다. bezierVertex() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다.",
         ""
       ],
       "params": {
@@ -685,7 +685,7 @@
     },
     "quadraticVertex": {
       "description": [
-        "2차 베지어 곡선의 꼭지점 좌표를 지정합니다. quadraticVertex()은 매 호출마다 베지어 곡선의 제어점 1개와 고정점 1개의 위치를 정의하고, 이 새로운 선분을 선 또는 도형에 더합니다. beginShape() 함수 안에 작성된 quadraticVertex()를 호출하기에 앞서, vertex() 함수를 quadraticVertex() 윗줄에 작성하여 곡선의 1번째 고정점을 설정해야 합니다. quadraticVertex()는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 6개의 매개변수가, 3D 모드에서는 9개의 매개변수(z좌표값 포함)가 필요합니다.<br><br>quadraticVertex() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다.",
+        "2차 베지에 곡선의 꼭지점 좌표를 지정합니다. quadraticVertex()은 매 호출마다 베지에 곡선의 제어점 1개와 고정점 1개의 위치를 정의하고, 이 새로운 선분을 선 또는 도형에 더합니다. beginShape() 함수 안에 작성된 quadraticVertex()를 호출하기에 앞서, vertex() 함수를 quadraticVertex() 윗줄에 작성하여 곡선의 1번째 고정점을 설정해야 합니다. quadraticVertex()는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 6개의 매개변수가, 3D 모드에서는 9개의 매개변수(z좌표값 포함)가 필요합니다.<br><br>quadraticVertex() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다.",
         ""
       ],
       "params": {
