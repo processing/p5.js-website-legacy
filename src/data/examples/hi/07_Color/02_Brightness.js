@@ -1,10 +1,10 @@
 /*
- * @name Brightness
- * @description By Dan Shiffman. This program adjusts the brightness of a part
- * of the image by calculating the distance of each pixel to the mouse.
- * <p><em><span class="small"> To run this example locally, you will need
- * at least an image file and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
- */
+  * @name चमक
+  * @description डैन शिफमैन द्वारा। यह प्रोग्राम एक हिस्से की चमक को समायोजित करता है
+  * माउस से प्रत्येक पिक्सेल की दूरी की गणना करके छवि का।
+  * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको आवश्यकता होगी
+  * कम से कम एक छवि फ़ाइल और चल रहे <a href="https://github.com/processing/p5.js/wiki/Local-server">स्थानीय सर्वर</a>।</span></em> </p>
+  */
 let img;
 
 function preload() {

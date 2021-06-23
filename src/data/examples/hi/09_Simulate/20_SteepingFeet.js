@@ -1,15 +1,15 @@
 /*
- * @name Stepping Feet Illusion
- * @description Stepping feet illusion is a very famous psychological experiment
- * Both the bricks will appear to move at different speed
- * even though they are moving at the same speed.
- * Click the mouse inside Canvas to confirm that
- * they are moving at the same speed.
- * Contributed by Sagar Arora.
- */
+  * @name स्टेपिंग फीट इल्यूजन
+  * @description कदम बढ़ाना भ्रम एक बहुत प्रसिद्ध मनोवैज्ञानिक प्रयोग है
+  * दोनों ईंटें अलग-अलग गति से चलती दिखाई देंगी
+  *भले ही वे एक ही गति से आगे बढ़ रहे हों।
+  * यह पुष्टि करने के लिए कैनवास के अंदर माउस क्लिक करें
+  *वे उसी गति से आगे बढ़ रहे हैं।
+  * सागर अरोड़ा द्वारा योगदान दिया गया।
+  */
 
-// this class describes the structure
-// and movents of the brick
+// यह वर्ग संरचना का वर्णन करता है
+// और ईंट की चाल
 class Brick{
   constructor(bc, y){
     this.brickColor = bc;
@@ -17,19 +17,19 @@ class Brick{
     this.xPos = 0;
   }
 
-  // this function creates the brick
+  // यह फ़ंक्शन ईंट बनाता है
   createBrick(){
     fill(this.brickColor);
     rect(this.xPos, this.yPos, 100, 50);
   }
 
-  // this function sets the speed
-  // of movement of the brick to 1
+  // यह फ़ंक्शन गति निर्धारित करता है
+   // ईंट की गति 1 . तक
   setSpeed(){
     this.xSpeed = 1;
   }
 
-  // this function set the bricks in motion
+  // यह फ़ंक्शन ईंटों को गति में सेट करता है
   moveBrick(){
     this.xPos+=this.xSpeed;
     if(this.xPos+100 >= width || this.xPos <= 0){
@@ -45,8 +45,8 @@ function setup() {
   createP("are moving at same speed or not").style('color','#ffffff');
 }
 
-// creating two bricks of 
-// colors white and black
+// की दो ईंटें बनाना
+// रंग सफेद और काला
 let brick1 = new Brick("white",100);
 let brick2 = new Brick("black",250);
 
@@ -68,8 +68,8 @@ function draw () {
   brick2.moveBrick();
 }
 
-// this function creates the black and
-// white bars across the screen
+// यह फ़ंक्शन काला बनाता है और
+// स्क्रीन पर सफेद पट्टियां
 function createBars() {
   let len = 12;
   for(let i = 0;i<width/len;i++){

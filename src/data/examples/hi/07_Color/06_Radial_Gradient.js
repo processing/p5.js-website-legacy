@@ -1,8 +1,8 @@
 /*
- * @name Radial Gradient
- * @description Draws a series of concentric circles to create a gradient
- * from one color to another.
- */
+  * @name रेडियल ग्रेडिएंट
+  * @description एक ढाल बनाने के लिए संकेंद्रित वृत्तों की एक श्रृंखला बनाता है
+  * एक रंग से दूसरे रंग में।
+  */
 let dim;
 
 function setup() {

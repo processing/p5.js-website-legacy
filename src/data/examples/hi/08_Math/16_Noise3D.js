@@ -1,42 +1,42 @@
 /*
- * @name Noise3D
- * @frame 710,400 (optional)
- * @description Using 3D noise to create simple animated texture.
- */
+  * @name Noise3D
+  * @frame 710,400 (वैकल्पिक)
+  * @description सरल एनिमेटेड बनावट बनाने के लिए 3D शोर का उपयोग करना।
+  */
 
 let noiseVal;
-//Increment x by 0.01
+// वृद्धि x 0.01
 let x_increment = 0.01;
-//Increment z by 0.02 every draw() cycle
+// प्रत्येक draw() चक्र में ०.०२ से z बढ़ाएँ
 let z_increment = 0.02;
 
-//Offset values
+// ऑफसेट मान
 let z_off, y_off, x_off;
 
 function setup() {
-  //Create the Canvas
+  // कैनवास बनाएं
   createCanvas(640, 360);
-  //Define frame rate
+  // फ्रेम दर को परिभाषित करें
   frameRate(20);
-  //Initial value of z_off
+  // z_off का प्रारंभिक मान
   z_off = 0;
 }
 
 function draw() {
   x_off = 0;
   y_off = 0;
-  //Make the background black
+  // बैकग्राउंड को काला करें
   background(0);
-  //Adjust the noice detail
+  // नोटिस विवरण समायोजित करें
   noiseDetail(8, 0.65);
 
-  //For each x,y calculate noice value
+  // प्रत्येक x, y के लिए नोइस मान की गणना करें
   for (let y = 0; y < height; y++) {
     x_off += x_increment;
     y_off = 0;
 
     for (let x = 0; x < width; x++) {
-      //Calculate and Draw each pixel
+      // प्रत्येक पिक्सेल की गणना और ड्रा करें
       noiseVal = noise(x_off, y_off, z_off);
       stroke(noiseVal * 255);
       y_off += x_increment;

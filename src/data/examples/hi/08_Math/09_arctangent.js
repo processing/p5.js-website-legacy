@@ -1,7 +1,7 @@
 /*
- * @name Arctangent
- * @description Move the mouse to change the direction of the eyes.<br>The atan2() function computes the angle from each eye to the cursor.
- */
+  * @name आर्कटिक
+  * @description आंखों की दिशा बदलने के लिए माउस ले जाएं।<br>atan2() फ़ंक्शन प्रत्येक आंख से कर्सर तक के कोण की गणना करता है।
+  */
 let e1, e2, e3;
 
 function setup() {

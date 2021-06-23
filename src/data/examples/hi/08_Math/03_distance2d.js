@@ -1,9 +1,9 @@
 /*
- * @name Distance 2D
- * @description Move the mouse across the image to obscure
- * and reveal the matrix. Measures the distance from the mouse
- * to each circle and sets the size proportionally.
- */
+  * @name दूरी 2डी
+  * @description छवि पर माउस को अस्पष्ट करने के लिए ले जाएं
+  * और मैट्रिक्स प्रकट करें। माउस से दूरी मापता है
+  * प्रत्येक सर्कल के लिए और आनुपातिक रूप से आकार निर्धारित करता है।
+  */
 let max_distance;
 
 function setup() {

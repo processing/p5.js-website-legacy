@@ -1,18 +1,18 @@
 /*
- * @name Bubble Sort
- * @description Sorts the randomly distributed bars 
- * according to their height in ascending order
- * while simulating the whole sorting process.
- * Took references from Coding Challenge by The Coding Train.
- */
+  * @name बबल सॉर्ट
+  * @description बेतरतीब ढंग से वितरित बार को क्रमबद्ध करता है
+  *ऊंचाई के अनुसार आरोही क्रम में
+  * पूरी छँटाई प्रक्रिया का अनुकरण करते हुए।
+  * द कोडिंग ट्रेन द्वारा कोडिंग चैलेंज से संदर्भ लिया।
+  */
 
 let values = [];
 let i = 0;
 let j = 0;
 
-// The statements in the setup() function
-// execute once when the program begins
-// The array is filled with random values in setup() function.
+// सेटअप () फ़ंक्शन में बयान
+// प्रोग्राम शुरू होने पर एक बार निष्पादित करें
+// सरणी सेटअप () फ़ंक्शन में यादृच्छिक मानों से भरी हुई है।
 function setup() {
   createCanvas(720, 400);
   for(let i = 0;i<width/8;i++){
@@ -20,19 +20,19 @@ function setup() {
   }
 }
 
-// The statements in draw() function are executed until the
-// program is stopped. Each statement is executed in
-// sequence and after the last line is read, the first
-// line is executed again.
+// ड्रा () फ़ंक्शन में स्टेटमेंट तब तक निष्पादित होते हैं जब तक
+// प्रोग्राम बंद कर दिया गया है। प्रत्येक कथन को निष्पादित किया जाता है
+// अनुक्रम और अंतिम पंक्ति पढ़ने के बाद, पहला
+// लाइन को फिर से निष्पादित किया जाता है।
 function draw() {
   background(220);
   bubbleSort();
   simulateSorting();
 }
 
-// The bubbleSort() function sorts taking 8 elements of the array
-// per frame. The algorithm behind this function is 
-// bubble sort.
+// बबलसॉर्ट () फ़ंक्शन सरणी के 8 तत्वों को लेता है
+// प्रति फ्रेम। इस फ़ंक्शन के पीछे एल्गोरिथम है
+// बुलबुले की तरह।
 function bubbleSort() {
   for(let k = 0;k<8;k++){
     if(i<values.length){
@@ -54,10 +54,10 @@ function bubbleSort() {
   }
 }
 
-// The simulateSorting() function helps in animating
-// the whole bubble sort algorithm
-// by drawing the rectangles using values
-// in the array as the length of the rectangle.
+// सिम्युलेटसॉर्टिंग () फ़ंक्शन एनिमेट करने में मदद करता है
+// पूरे बबल सॉर्ट एल्गोरिथ्म
+// मानों का उपयोग करके आयतों को खींचकर
+// सरणी में आयत की लंबाई के रूप में।
 function simulateSorting(){
   for(let i = 0;i<values.length;i++){
     stroke(100, 143, 143);

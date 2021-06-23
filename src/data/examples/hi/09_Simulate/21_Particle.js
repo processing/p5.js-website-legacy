@@ -1,16 +1,16 @@
 /*
- * @name Particles
- * @description There is a light-weight JavaScript library named
- * particle.js which creates a very pleasing particle system.
- * This is an attempt to recreate that particle system using p5.js.
- * Inspired by Particle.js, contributed by Sagar Arora.
- */
+  * @name कण
+  * @description नाम की एक हल्की-फुल्की जावास्क्रिप्ट लाइब्रेरी है
+  * कण.जेएस जो एक बहुत ही मनभावन कण प्रणाली बनाता है।
+  * यह p5.js का उपयोग करके उस कण प्रणाली को फिर से बनाने का एक प्रयास है।
+  * Particle.js से प्रेरित, सागर अरोड़ा द्वारा योगदान।
+  */
 
 
-// this class describes the properties of a single particle.
+// यह वर्ग एक कण के गुणों का वर्णन करता है।
 class Particle {
-// setting the co-ordinates, radius and the
-// speed of a particle in both the co-ordinates axes.
+// निर्देशांक, त्रिज्या और सेट करना
+// दोनों निर्देशांक अक्षों में एक कण की गति।
   constructor(){
     this.x = random(0,width);
     this.y = random(0,height);
@@ -19,14 +19,14 @@ class Particle {
     this.ySpeed = random(-1,1.5);
   }
 
-// creation of a particle.
+// एक कण का निर्माण।
   createParticle() {
     noStroke();
     fill('rgba(200,169,169,0.5)');
     circle(this.x,this.y,this.r);
   }
 
-// setting the particle in motion.
+// कण को ​​गति में सेट करना।
   moveParticle() {
     if(this.x < 0 || this.x > width)
       this.xSpeed*=-1;
@@ -36,8 +36,8 @@ class Particle {
     this.y+=this.ySpeed;
   }
 
-// this function creates the connections(lines)
-// between particles which are less than a certain distance apart
+// यह फ़ंक्शन कनेक्शन बनाता है (लाइनें)
+// कणों के बीच जो एक निश्चित दूरी से कम दूरी पर हैं
   joinParticles(paraticles) {
     particles.forEach(element =>{
       let dis = dist(this.x,this.y,element.x,element.y);
@@ -49,7 +49,7 @@ class Particle {
   }
 }
 
-// an array to add multiple particles
+// कई कणों को जोड़ने के लिए एक सरणी
 let particles = [];
 
 function setup() {

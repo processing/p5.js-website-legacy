@@ -1,9 +1,9 @@
 /*
- * @name Relativity
- * @description Each color is perceived in relation to other colors. The top
- * and bottom bars each contain the same component colors, but a different
- * display order causes individual colors to appear differently.
- */
+  * @name सापेक्षता
+  * @description प्रत्येक रंग अन्य रंगों के संबंध में माना जाता है। चोटी
+  * और नीचे की सलाखों में प्रत्येक में समान घटक रंग होते हैं, लेकिन एक अलग
+  * डिस्प्ले ऑर्डर के कारण अलग-अलग रंग अलग-अलग दिखाई देते हैं।
+  */
 let a, b, c, d, e;
 
 function setup() {
@@ -14,7 +14,7 @@ function setup() {
   c = color(42, 106, 105);
   d = color(165, 89, 20);
   e = color(146, 150, 127);
-  noLoop(); // Draw only one time
+  noLoop(); // केवल एक बार ड्रा करें
 }
 
 function draw() {

@@ -1,8 +1,8 @@
 /*
- * @name Multiple Particle Systems
- * @description Click the mouse to generate a burst of particles at mouse location.<br>Each burst is one instance of a particle system with Particles and CrazyParticles (a subclass of Particle).<br>Note use of Inheritance and Polymorphism here.<br>
- * Original by Daniel Shiffman.
- */
+  * @name मल्टीपल पार्टिकल सिस्टम
+  * @description माउस स्थान पर कणों का एक विस्फोट उत्पन्न करने के लिए माउस पर क्लिक करें।<br>प्रत्येक फट कण और क्रेज़ीपार्टिकल्स (कण का एक उपवर्ग) के साथ एक कण प्रणाली का एक उदाहरण है।<br>यहां वंशानुक्रम और बहुरूपता के उपयोग पर ध्यान दें। <br>
+  * डैनियल शिफमैन द्वारा मूल।
+  */
 let systems;
 
 function setup() {
@@ -30,7 +30,7 @@ function mousePressed() {
   systems.push(p);
 }
 
-// A simple Particle class
+// एक साधारण कण वर्ग
 let Particle = function(position) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
@@ -43,14 +43,14 @@ Particle.prototype.run = function() {
   this.display();
 };
 
-// Method to update position
+// स्थिति को अद्यतन करने की विधि
 Particle.prototype.update = function(){
   this.velocity.add(this.acceleration);
   this.position.add(this.velocity);
   this.lifespan -= 2;
 };
 
-// Method to display
+// प्रदर्शित करने की विधि
 Particle.prototype.display = function () {
   stroke(200, this.lifespan);
   strokeWeight(2);
@@ -58,7 +58,7 @@ Particle.prototype.display = function () {
   ellipse(this.position.x, this.position.y, 12, 12);
 };
 
-// Is the particle still useful?
+// क्या कण अभी भी उपयोगी है?
 Particle.prototype.isDead = function () {
   if (this.lifespan < 0) {
     return true;
@@ -73,7 +73,7 @@ let ParticleSystem = function (position) {
 };
 
 ParticleSystem.prototype.addParticle = function () {
-  // Add either a Particle or CrazyParticle to the system
+  // सिस्टम में या तो एक कण या क्रेजीपार्टिकल जोड़ें
   if (int(random(0, 2)) == 0) {
     p = new Particle(this.origin);
   }
@@ -93,42 +93,42 @@ ParticleSystem.prototype.run = function () {
   }
 };
 
-// A subclass of Particle
+// कण का एक उपवर्ग
 
 function CrazyParticle(origin) {
-  // Call the parent constructor, making sure (using Function#call)
-  // that "this" is set correctly during the call
+   // सुनिश्चित करें कि पैरेंट कंस्ट्रक्टर को कॉल करें (फ़ंक्शन # कॉल का उपयोग करके)
+   // कि "यह" कॉल के दौरान सही ढंग से सेट है  
   Particle.call(this, origin);
 
-  // Initialize our added properties
+  // हमारे जोड़े गए गुणों को प्रारंभ करें
   this.theta = 0.0;
 };
 
-// Create a Crazy.prototype object that inherits from Particle.prototype.
-// Note: A common error here is to use "new Particle()" to create the
-// Crazy.prototype. That's incorrect for several reasons, not least
-// that we don't have anything to give Particle for the "origin"
-// argument. The correct place to call Particle is above, where we call
-// it from Crazy.
-CrazyParticle.prototype = Object.create(Particle.prototype); // See note below
+// एक क्रेजी.प्रोटोटाइप ऑब्जेक्ट बनाएं जो पार्टिकल.प्रोटोटाइप से विरासत में मिले।
+// नोट: यहां एक सामान्य त्रुटि "नया कण ()" बनाने के लिए उपयोग करना है
+// क्रेजी.प्रोटोटाइप। यह कई कारणों से गलत है, कम से कम
+// कि हमारे पास "मूल" के लिए कण देने के लिए कुछ भी नहीं है
+// बहस। पार्टिकल को कॉल करने का सही स्थान ऊपर है, जहां हम कॉल करते हैं
+// यह पागल से।
+CrazyParticle.prototype = Object.create(Particle.prototype); // नीचे दिए गए नोट देखें
 
-// Set the "constructor" property to refer to CrazyParticle
+// क्रेजीपार्टिकल को संदर्भित करने के लिए "कन्स्ट्रक्टर" संपत्ति सेट करें
 CrazyParticle.prototype.constructor = CrazyParticle;
 
-// Notice we don't have the method run() here; it is inherited from Particle
+// ध्यान दें कि हमारे पास यहां रन () विधि नहीं है; यह कण से विरासत में मिला है
 
-// This update() method overrides the parent class update() method
+// यह अद्यतन () विधि मूल वर्ग अद्यतन () विधि को ओवरराइड करती है
 CrazyParticle.prototype.update=function() {
   Particle.prototype.update.call(this);
-  // Increment rotation based on horizontal velocity
+  // क्षैतिज वेग के आधार पर वृद्धि रोटेशन
   this.theta += (this.velocity.x * this.velocity.mag()) / 10.0;
 }
 
-// This display() method overrides the parent class display() method
+// यह डिस्प्ले () मेथड पैरेंट क्लास डिस्प्ले () मेथड को ओवरराइड करता है
 CrazyParticle.prototype.display=function() {
-  // Render the ellipse just like in a regular particle
+  // एक नियमित कण की तरह ही दीर्घवृत्त को प्रस्तुत करें
   Particle.prototype.display.call(this);
-  // Then add a rotating line
+  // फिर एक घूर्णन रेखा जोड़ें
   push();
   translate(this.position.x, this.position.y);
   rotate(this.theta);

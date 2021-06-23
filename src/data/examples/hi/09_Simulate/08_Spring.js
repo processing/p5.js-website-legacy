@@ -1,9 +1,9 @@
 /*
- * @name Spring
- * @frame 710, 400
- * @description Click, drag, and release the horizontal bar to start the spring.
- */
-// Spring drawing constants for top bar
+  * @name वसंत
+  * @frame 710, 400
+  * @description वसंत शुरू करने के लिए क्षैतिज पट्टी पर क्लिक करें, खींचें और छोड़ें।
+  */
+// शीर्ष बार के लिए स्प्रिंग ड्राइंग स्थिरांक
 let springHeight = 32,
     left,
     right,
@@ -12,17 +12,17 @@ let springHeight = 32,
     over = false,
     move = false;
 
-// Spring simulation constants
-let M = 0.8,  // Mass
-    K = 0.2,  // Spring constant
-    D = 0.92, // Damping
-    R = 150;  // Rest position
+// स्प्रिंग सिमुलेशन स्थिरांक
+let M = 0.8,  // द्रव्यमान
+    K = 0.2,  // वसंत निरंतर
+    D = 0.92, // भिगोना
+    R = 150;  // स्थिति को विश्राम दें
 
-// Spring simulation variables
-let ps = R,   // Position
-    vs = 0.0, // Velocity
-    as = 0,   // Acceleration
-    f = 0;    // Force
+// स्प्रिंग सिमुलेशन चर
+let ps = R,   // पद
+    vs = 0.0, // वेग
+    as = 0,   // त्वरण
+    f = 0;    // बल
 
 function setup() {
   createCanvas(710, 400);
@@ -39,12 +39,12 @@ function draw() {
 }
 
 function drawSpring() {
-  // Draw base
+  // ड्रा बेस
   fill(0.2);
   let baseWidth = 0.5 * ps + -8;
   rect(width / 2 - baseWidth, ps + springHeight, width / 2 + baseWidth, height);
 
-  // Set color and draw top bar
+ // रंग सेट करें और शीर्ष पट्टी बनाएं
   if (over || move) {
     fill(255);
   } else {
@@ -55,26 +55,26 @@ function drawSpring() {
 }
 
 function updateSpring() {
-  // Update the spring position
+  // वसंत की स्थिति को अपडेट करें
   if ( !move ) {
     f = -K * ( ps - R ); // f=-ky
-    as = f / M;          // Set the acceleration, f=ma == a=f/m
-    vs = D * (vs + as);  // Set the velocity
-    ps = ps + vs;        // Updated position
+    as = f / M;          // त्वरण सेट करें, f=ma == a=f/m
+    vs = D * (vs + as);  // वेग सेट करें
+    ps = ps + vs;        // अद्यतन स्थिति
   }
 
   if (abs(vs) < 0.1) {
     vs = 0.0;
   }
 
-  // Test if mouse if over the top bar
+  // परीक्षण करें कि क्या माउस शीर्ष बार पर है
   if (mouseX > left && mouseX < right && mouseY > ps && mouseY < ps + springHeight) {
     over = true;
   } else {
     over = false;
   }
 
-  // Set and constrain the position of top bar
+  // शीर्ष बार की स्थिति को सेट और विवश करें
   if (move) {
     ps = mouseY - springHeight / 2;
     ps = constrain(ps, minHeight, maxHeight);

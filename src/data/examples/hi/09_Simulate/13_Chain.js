@@ -1,8 +1,8 @@
 /*
- * @name Chain
- * @description One mass is attached to the mouse position and the other is attached the position of the other mass. The gravity in the environment pulls down on both.
- * Ported from the Processing Examples page.
- */
+  * @name चैन
+  * @description एक द्रव्यमान माउस की स्थिति से जुड़ा होता है और दूसरा दूसरे द्रव्यमान की स्थिति से जुड़ा होता है। वातावरण में गुरुत्वाकर्षण दोनों को नीचे खींचता है।
+  * प्रसंस्करण उदाहरण पृष्ठ से पोर्ट किया गया।
+  */
 let s1, s2;
 let gravity = 9.0;
 let mass = 2.0;
@@ -10,7 +10,7 @@ let mass = 2.0;
 function setup() {
   createCanvas(720, 400);
   fill(255, 126);
-  // Inputs: x, y, mass, gravity
+  // इनपुट: x, y, द्रव्यमान, गुरुत्वाकर्षण
   s1 = new Spring2D(0.0, width / 2, mass, gravity);
   s2 = new Spring2D(0.0, width / 2, mass, gravity);
 }
@@ -24,9 +24,9 @@ function draw() {
 }
 
 function Spring2D(xpos, ypos, m, g) {
-  this.x = xpos;// The x- and y-coordinates
+  this.x = xpos;  // x- और y-निर्देशांक
   this.y = ypos;
-  this.vx = 0; // The x- and y-axis velocities
+  this.vx = 0;   // x- और y-अक्ष वेग
   this.vy = 0;
   this.mass = m;
   this.gravity = g;

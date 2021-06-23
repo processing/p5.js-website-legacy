@@ -1,9 +1,9 @@
 /*
- * @name Hue
- * @description Hue is the color reflected from or transmitted through an
- * object and is typically referred to as the name of the color (red, blue,
- * yellow, etc.) Move the cursor vertically over each bar to alter its hue.
- */
+  * @name ह्यू
+  * @description Hue वह रंग है जो a . से परावर्तित या प्रसारित होता है
+  * वस्तु और आमतौर पर रंग के नाम के रूप में जाना जाता है (लाल, नीला,
+  * पीला, आदि।) रंग बदलने के लिए कर्सर को प्रत्येक बार पर लंबवत ले जाएं।
+  */
 const barWidth = 20;
 let lastBar = -1;
 

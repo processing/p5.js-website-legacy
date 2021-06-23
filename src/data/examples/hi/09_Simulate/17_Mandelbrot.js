@@ -1,8 +1,8 @@
 /*
- * @name The Mandelbrot Set
- * @description Simple rendering of the Mandelbrot set.
- * Based on Daniel Shiffman's <a href="https://processing.org/examples/mandelbrot.html">Mandelbrot Example</a> for Processing.
- */
+  * @name मंडेलब्रॉट सेत
+  * @description मैंडलब्रॉट सेट का सरल प्रतिपादन।
+  * प्रोसेसिंग के लिए डेनियल शिफमैन के <a href="https://processing.org/examples/mandelbrot.html">Mandelbrot उदाहरण</a> पर आधारित।
+  */
 
 function setup() {
   createCanvas(710, 400);
@@ -13,41 +13,41 @@ function setup() {
 function draw() {
   background(0);
 
-  // Establish a range of values on the complex plane
-  // A different range will allow us to "zoom" in or out on the fractal
+   // जटिल तल पर मूल्यों की एक श्रृंखला स्थापित करें
+   // एक अलग रेंज हमें फ्रैक्टल पर "ज़ूम" करने की अनुमति देगा
 
-  // It all starts with the width, try higher or lower values
+   // यह सब चौड़ाई से शुरू होता है, उच्च या निम्न मानों का प्रयास करें
   const w = 4;
   const h = (w * height) / width;
 
-  // Start at negative half the width and height
+  // चौड़ाई और ऊंचाई के नकारात्मक आधे से शुरू करें
   const xmin = -w/2;
   const ymin = -h/2;
 
-  // Make sure we can write to the pixels[] array.
-  // Only need to do this once since we don't do any other drawing.
+ // सुनिश्चित करें कि हम पिक्सल [] सरणी में लिख सकते हैं।
+ // केवल एक बार ऐसा करने की आवश्यकता है क्योंकि हम कोई अन्य ड्राइंग नहीं करते हैं।
   loadPixels();
 
-  // Maximum number of iterations for each point on the complex plane
+  // जटिल विमान पर प्रत्येक बिंदु के लिए पुनरावृत्तियों की अधिकतम संख्या
   const maxiterations = 100;
 
-  // x goes from xmin to xmax
+  // x xmin से xmax तक जाता है
   const xmax = xmin + w;
-  // y goes from ymin to ymax
+  // y ymin से ymax . तक जाता है
   const ymax = ymin + h;
 
-  // Calculate amount we increment x,y for each pixel
+ // गणना करें कि हम प्रत्येक पिक्सेल के लिए x, y में वृद्धि करते हैं
   const dx = (xmax - xmin) / (width);
   const dy = (ymax - ymin) / (height);
 
-  // Start y
+  // प्रारंभ करें
   let y = ymin;
   for (let j = 0; j < height; j++) {
-    // Start x
+    // एक्स शुरू करें
     let x = xmin;
     for (let i = 0; i < width; i++) {
 
-      // Now we test, as we iterate z = z^2 + cm does z tend towards infinity?
+     // अब हम परीक्षण करते हैं, जैसा कि हम z = z^2 + cm को पुनरावृत्त करते हैं, क्या z अनंत की ओर जाता है?
       let a = x;
       let b = y;
       let n = 0;
@@ -57,22 +57,22 @@ function draw() {
         const twoab = 2.0 * a * b;
         a = aa - bb + x;
         b = twoab + y;
-        // Infinty in our finite world is simple, let's just consider it 16
+        // हमारी सीमित दुनिया में अनंत सरल है, आइए इसे 16 . पर विचार करें
         if (dist(aa, bb, 0, 0) > 16) {
-          break;  // Bail
+          break;  // टूटना
         }
         n++;
       }
 
-      // We color each pixel based on how long it takes to get to infinity
-      // If we never got there, let's pick the color black
+      // हम प्रत्येक पिक्सेल को इस आधार पर रंगते हैं कि अनंत तक पहुंचने में कितना समय लगता है
+       // अगर हम वहां कभी नहीं पहुंचे, तो आइए काले रंग को चुनें
       const pix = (i+j*width)*4;
       const norm = map(n, 0, maxiterations, 0, 1);
       let bright = map(sqrt(norm), 0, 1, 0, 255);
       if (n == maxiterations) {
         bright = 0;
       } else {
-        // Gosh, we could make fancy colors here if we wanted
+        // भगवान, अगर हम चाहते तो हम यहाँ फैंसी रंग बना सकते थे
         pixels[pix + 0] = bright;
         pixels[pix + 1] = bright;
         pixels[pix + 2] = bright;
