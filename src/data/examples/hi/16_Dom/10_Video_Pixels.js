@@ -1,11 +1,11 @@
 /*
- * @name Video Pixels
- * @frame 320,240
- * @description <p>Load a video, manipulate its pixels and draw to canvas.
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * at least one video file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
- */
+  * @name वीडियो पिक्सल
+  * @frame 320,240
+  * @description <p>वीडियो लोड करें, उसके पिक्सल में हेरफेर करें और कैनवास पर ड्रा करें।
+  * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको इसकी आवश्यकता होगी
+  * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom लाइब्रेरी</a>
+  * कम से कम एक वीडियो फ़ाइल, और एक चालू <a href="https://github.com/processing/p5.js/wiki/Local-server">स्थानीय सर्वर</a>।</span></em </p>
+  */
 let fingers;
 
 function setup() {

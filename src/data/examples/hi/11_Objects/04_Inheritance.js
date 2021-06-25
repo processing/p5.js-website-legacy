@@ -1,10 +1,10 @@
-/* @name Inheritance
- * @description A class can be defined using another class as a
- * foundation. In object-oriented programming terminology, one class can
- * inherit fields and methods from another. An object that inherits from
- * another is called a subclass, and the object it inherits from is called
- * a superclass. A subclass extends the superclass.
- */
+/*  @name वंशानुक्रम
+  * @description एक वर्ग को दूसरे वर्ग का उपयोग करके परिभाषित किया जा सकता है a
+  * नींव। वस्तु-उन्मुख प्रोग्रामिंग शब्दावली में, एक वर्ग कर सकता है
+  * फ़ील्ड और विधियों को दूसरे से प्राप्त करें। एक वस्तु जो विरासत में मिलती है
+  * दूसरे को उपवर्ग कहा जाता है, और जिस वस्तु से इसे विरासत में मिला है उसे कहा जाता है
+  * एक सुपरक्लास। एक उपवर्ग सुपरक्लास का विस्तार करता है।
+  */
 let spots, arm;
 
 function setup() {

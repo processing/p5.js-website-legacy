@@ -1,14 +1,14 @@
 /*
- * @name Array of Objects
- * @description Create a Jitter class, instantiate an array of objects
- * and move them around the screen.
- */
+  * @name वस्तुओं की सरणी
+  * @description एक जिटर क्लास बनाएं, वस्तुओं की एक सरणी को इंस्टेंट करें
+  * और उन्हें स्क्रीन के चारों ओर ले जाएँ।
+  */
 
-let bugs = []; // array of Jitter objects
+let bugs = []; // जिटर ऑब्जेक्ट्स की सरणी
 
 function setup() {
   createCanvas(710, 400);
-  // Create objects
+  // ऑब्जेक्ट बनाएं
   for (let i = 0; i < 50; i++) {
     bugs.push(new Jitter());
   }
@@ -22,7 +22,7 @@ function draw() {
   }
 }
 
-// Jitter class
+// जिटर क्लास
 class Jitter {
   constructor() {
     this.x = random(width);

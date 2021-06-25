@@ -1,8 +1,8 @@
 /*
- * @name Instantiation
- * @description Create a p5 instance, which keeps all variables
- * out of the global scope of your page.
- */
+  * @name इंस्टेंटेशन
+  * @description एक p5 इंस्टेंस बनाएं, जो सभी वेरिएबल को बनाए रखता है
+  * आपके पेज के वैश्विक दायरे से बाहर।
+  */
 let sketch = function(p) {
   let x = 100;
   let y = 100;

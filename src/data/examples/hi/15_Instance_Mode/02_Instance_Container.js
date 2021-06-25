@@ -1,15 +1,15 @@
 /*
- * @norender
- * @name Instance Container
- * @description Optionally, you can specify a default container for the canvas
- * and any other elements to append to with a second argument. You can give the
- * ID of an element in your html, or an html node itself.
- *
- * Here are three different options for selecting a container
- * DOM element. All DOM elements (canvas, buttons, divs, etc) created by p5
- * will be attached to the DOM element specified as the second argument to the
- * p5() call.
- */
+  * @norender
+  * @name इंस्टेंस कंटेनर
+  * @description वैकल्पिक रूप से, आप कैनवास के लिए एक डिफ़ॉल्ट कंटेनर निर्दिष्ट कर सकते हैं
+  * और किसी अन्य तत्व को दूसरे तर्क के साथ जोड़ने के लिए। आप दे सकते हैं
+  * आपके html में किसी तत्व की आईडी, या स्वयं एक html नोड।
+  *
+  * कंटेनर चुनने के लिए यहां तीन अलग-अलग विकल्प दिए गए हैं
+  * डोम तत्व। p5 द्वारा बनाए गए सभी DOM तत्व (कैनवास, बटन, डिव, आदि)
+  * को दूसरे तर्क के रूप में निर्दिष्ट DOM तत्व से जोड़ा जाएगा
+  * p5 () कॉल।
+  */
 <!-- pass in the ID of the container element -->
 <!DOCTYPE html>
 <head>

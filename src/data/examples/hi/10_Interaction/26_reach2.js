@@ -1,9 +1,9 @@
 /*
- * @name Reach 2
- * @frame 710,400
- * @description The arm follows the position of the mouse by calculating the
- * angles with atan2(). Based on code from Keith Peters.
- */
+  * @name रीच 2
+  * @frame 710,400
+  * @description हाथ की गणना करके माउस की स्थिति का अनुसरण करता है
+  * atan2 () के साथ कोण। कीथ पीटर्स के कोड के आधार पर।
+  */
 let numSegments = 10,
   x = [],
   y = [],
@@ -23,8 +23,8 @@ function setup() {
   strokeWeight(20);
   stroke(255, 100);
 
-  x[x.length - 1] = width / 2; // Set base x-coordinate
-  y[x.length - 1] = height; // Set base y-coordinate
+  x[x.length - 1] = width / 2; // बेस एक्स-कोऑर्डिनेट सेट करें
+  y[x.length - 1] = height; // आधार y- निर्देशांक सेट करें
 }
 
 function draw() {

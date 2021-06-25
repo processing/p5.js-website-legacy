@@ -1,17 +1,17 @@
 /*
- * @name Multiple Objects
- * @description Create a Jitter class, instantiate multiple objects,
- * and move it around the screen.
- */
+  * @name वस्तुओं का नाम दें
+  * @description एक जिटर क्लास बनाएं, कई ऑब्जेक्ट्स को इंस्टेंट करें,
+  * और इसे स्क्रीन के चारों ओर ले जाएँ।
+  */
 
-let bug1; // Declare objects
+let bug1; // वस्तुओं की घोषणा करें
 let bug2;
 let bug3;
 let bug4;
 
 function setup() {
   createCanvas(710, 400);
-  // Create object
+  // ऑब्जेक्ट बनाएं
   bug1 = new Jitter();
   bug2 = new Jitter();
   bug3 = new Jitter();
@@ -30,7 +30,7 @@ function draw() {
   bug4.display();
 }
 
-// Jitter class
+// जिटर क्लास
 class Jitter {
   constructor() {
     this.x = random(width);

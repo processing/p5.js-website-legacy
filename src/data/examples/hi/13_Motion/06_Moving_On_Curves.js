@@ -1,21 +1,21 @@
 /*
- * @name Moving On Curves
- * @frame 720,400
- * @description In this example, the circles moves along the curve y = x^4.
- * Click the mouse to have it move to a new position.
- */
+  * @name मूविंग ऑन कर्व्स
+  * @frame 720,400
+  * @description इस उदाहरण में, वृत्त वक्र y = x^4 के अनुदिश चलते हैं।
+  * माउस को नई स्थिति में ले जाने के लिए उस पर क्लिक करें।
+  */
 
-let beginX = 20.0; // Initial x-coordinate
-let beginY = 10.0; // Initial y-coordinate
-let endX = 570.0; // Final x-coordinate
-let endY = 320.0; // Final y-coordinate
-let distX; // X-axis distance to move
-let distY; // Y-axis distance to move
-let exponent = 4; // Determines the curve
-let x = 0.0; // Current x-coordinate
-let y = 0.0; // Current y-coordinate
-let step = 0.01; // Size of each step along the path
-let pct = 0.0; // Percentage traveled (0.0 to 1.0)
+let beginX = 20.0; // वर्तमान x-निर्देशांक
+let beginY = 10.0; // प्रारंभिक y-निर्देशांक
+let endX = 570.0; // वर्तमान x-निर्देशांक
+let endY = 320.0; // अंतिम y-निर्देशांक
+let distX; // एक्स-अक्ष दूरी को स्थानांतरित करने के लिए
+let distY; // वाई-अक्ष दूरी को स्थानांतरित करने के लिए
+let exponent = 4; // वक्र निर्धारित करता है
+let x = 0.0; // वर्तमान x-निर्देशांक
+let y = 0.0; // वर्तमान y-निर्देशांक
+let step = 0.01; // पथ के साथ प्रत्येक चरण का आकार
+let pct = 0.0; // यात्रा का प्रतिशत (0.0 से 1.0)
 
 function setup() {
   createCanvas(720, 400);

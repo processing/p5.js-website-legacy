@@ -1,10 +1,10 @@
 /*
- * @name Follow 3
- * @frame 710,400
- * @description A segmented line follows the mouse. The relative angle from
- * each segment to the next is calculated with atan2() and the position of
- * the next is calculated with sin() and cos(). Based on code from Keith Peters.
- */
+  * @name फॉलो 3
+  * @frame 710,400
+  * @description एक खंडित रेखा माउस का अनुसरण करती है। से आपेक्षिक कोण
+  * अगले से प्रत्येक खंड की गणना atan2 () और की स्थिति के साथ की जाती है
+  * अगले की गणना sin() और cos() के साथ की जाती है। कीथ पीटर्स के कोड के आधार पर।
+  */
 let x = [],
   y = [],
   segNum = 20,

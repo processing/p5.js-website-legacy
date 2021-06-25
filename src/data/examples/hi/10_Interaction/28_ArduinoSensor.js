@@ -1,21 +1,21 @@
 /*
- * @name Arduino sensor data via WebJack
- * @description WebJack is a way to read data from an Arduino (and other sources)
- * using audio -- it basically turns your Arduino into an audio modem.
- * 
- * https://github.com/publiclab/webjack
- * 
- * Note: WebJack and p5-webjack libraries must be added to your index.html as follows:
- * <pre><code class="language-markup">&lt;script src="https://webjack.io/dist/webjack.js">&lt;/script></code></pre>
- * <pre><code class="language-markup">&lt;script src="https://jywarren.github.io/p5-webjack/lib.js">&lt;/script></code></pre>
- * 
- * Working example: https://editor.p5js.org/jywarren/sketches/rkztwSt8M
- * 
- * Testing audio: https://www.youtube.com/watch?v=GtJW1Dlt3cg
- * Load this sketch onto an Arduino: 
- * https://create.arduino.cc/editor/jywarren/023158d8-be51-4c78-99ff-36c63126b554/preview
- * Arduino will output audio from pin 3 + ground. Use microphone or an audio cable.
- */
+  * @name Arduino सेंसर डेटा WebJack के माध्यम से
+  * @description WebJack एक Arduino (और अन्य स्रोतों) से डेटा पढ़ने का एक तरीका है
+  * ऑडियो का उपयोग करना - यह मूल रूप से आपके Arduino को एक ऑडियो मॉडेम में बदल देता है।
+  *
+  * https://github.com/publiclab/webjack
+  *
+  * नोट: WebJack और p5-webjack लाइब्रेरी को आपके index.html में निम्नानुसार जोड़ा जाना चाहिए:
+  * <pre><code class="language-markup">&lt;script src="https://webjack.io/dist/webjack.js">&lt;/script></code></pre>
+  * <pre><code class="language-markup">&lt;script src="https://jywarren.github.io/p5-webjack/lib.js">&lt;/script></code></ पूर्व>
+  *
+  * कार्य उदाहरण: https://editor.p5js.org/jywarren/sketches/rkztwSt8M
+  *
+  * परीक्षण ऑडियो: https://www.youtube.com/watch?v=GtJW1Dlt3cg
+  * इस स्केच को एक Arduino पर लोड करें:
+  * https://create.arduino.cc/editor/jywarren/023158d8-be51-4c78-99ff-36c63126b554/preview
+  * Arduino पिन 3 + ग्राउंड से ऑडियो आउटपुट करेगा। माइक्रोफ़ोन या ऑडियो केबल का उपयोग करें।
+  */
 
 function setup() { 
   createCanvas(400, 400);
