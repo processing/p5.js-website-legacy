@@ -1,12 +1,12 @@
 /*
- * @name Arm
- * @description This example uses transform matrices to create
- * an arm. The angle of each segment is controlled with the
- * mouseX and mouseY position. The transformations applied to
- * the first segment are also applied to the second segment
- * because they are inside the same push() and
- * pop() matrix group.
- */
+  * @name आर्म
+  * @description यह उदाहरण बनाने के लिए ट्रांसफ़ॉर्म मैट्रिसेस का उपयोग करता है
+  * एक हाथ। प्रत्येक खंड के कोण को द्वारा नियंत्रित किया जाता है
+  * माउसएक्स और माउसवाई स्थिति। पर लागू किए गए परिवर्तन
+  * पहला खंड दूसरे खंड पर भी लागू होता है
+  * क्योंकि वे एक ही push() और . के अंदर हैं
+  * pop() मैट्रिक्स समूह।
+  */
 
 let x, y;
 let angle1 = 0.0;
@@ -17,10 +17,10 @@ function setup() {
   createCanvas(720, 400);
   strokeWeight(30);
 
-  //Stroke with a semi-transparent white
+  // अर्ध-पारदर्शी सफेद के साथ स्ट्रोक
   stroke(255, 160);
 
-  //Position the "shoulder" of the arm in the center of the canvas
+  // हाथ के "कंधे" को कैनवास के केंद्र में रखें
   x = width * 0.5;
   y = height * 0.5;
 }
@@ -28,20 +28,20 @@ function setup() {
 function draw() {
   background(0);
 
-  //Change the angle of the segments according to the mouse positions
+  // माउस की स्थिति के अनुसार खंडों के कोण को बदलें
   angle1 = (mouseX / float(width) - 0.5) * -TWO_PI;
   angle2 = (mouseY / float(height) - 0.5) * PI;
 
-  //use push and pop to "contain" the transforms. Note that
-  // even though we draw the segments using a custom function,
-  // the transforms still accumulate
+   // ट्रांसफ़ॉर्म को "शामिल" करने के लिए पुश और पॉप का उपयोग करें। ध्यान दें कि
+   // भले ही हम एक कस्टम फ़ंक्शन का उपयोग करके सेगमेंट बनाते हैं,
+   // परिवर्तन अभी भी जमा होते हैं
   push();
   segment(x, y, angle1);
   segment(segLength, 0, angle2);
   pop();
 }
 
-//a custom function for drawing segments
+// सेगमेंट ड्राइंग के लिए एक कस्टम फ़ंक्शन
 function segment(x, y, a) {
   translate(x, y);
   rotate(a);

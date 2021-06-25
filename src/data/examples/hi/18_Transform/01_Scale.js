@@ -1,12 +1,12 @@
 /*
- * @name Scale
- * @description Paramenters for the scale() function are values
- * specified as decimal percentages. For example, the method
- * call scale(2.0) will increase the dimension of the shape by
- * 200 percent. Objects always scale from the origin. This example
- * shows how transforms accumulate and also how scale and translate
- * interact depending on their order.
- */
+  * @name स्केल
+  * @description scale() फ़ंक्शन के लिए पैरामीटर मान हैं
+  * दशमलव प्रतिशत के रूप में निर्दिष्ट। उदाहरण के लिए, विधि
+  * कॉल स्केल (2.0) आकार के आयाम को बढ़ा देगा
+  * 200 प्रतिशत। वस्तुएं हमेशा मूल से मापी जाती हैं। यह उदाहरण
+  * दिखाता है कि परिवर्तन कैसे जमा होते हैं और यह भी कि कैसे पैमाने और अनुवाद and
+  * उनके आदेश के आधार पर बातचीत करें।
+  */
 
 let a = 0.0;
 let s = 0.0;

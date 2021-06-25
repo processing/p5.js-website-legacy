@@ -1,23 +1,23 @@
 /*
- * @name Letters
- * @description Letters can be drawn to the screen by loading a font, setting
- * its characteristics and then drawing the letters. This example uses a for
- * loop and unicode reference numbers to automatically fill the canvas with
- * characters in a grid. Vowels are selected and given a specific fill color.
- */
+  * @name पत्र
+  * @description पत्र एक फ़ॉन्ट लोड करके स्क्रीन पर खींचा जा सकता है, सेटिंग
+  * इसकी विशेषताएँ और फिर अक्षर खींचना। यह उदाहरण for . का उपयोग करता है
+  * कैनवास को स्वचालित रूप से भरने के लिए लूप और यूनिकोड संदर्भ संख्या
+  * एक ग्रिड में वर्ण। स्वरों का चयन किया जाता है और एक विशिष्ट भरण रंग दिया जाता है।
+  */
 let font,
   fontsize = 32;
 
 function preload() {
-  // Ensure the .ttf or .otf font stored in the assets directory
-  // is loaded before setup() and draw() are called
+   // सुनिश्चित करें कि .ttf या .otf फ़ॉन्ट संपत्ति निर्देशिका में संग्रहीत है
+   // सेटअप से पहले लोड किया जाता है setup() और draw() कहा जाता है
   font = loadFont('assets/SourceSansPro-Regular.otf');
 }
 
 function setup() {
   createCanvas(710, 400);
 
-  // Set text characteristics
+  // टेक्स्ट विशेषताओं को सेट करें
   textFont(font);
   textSize(fontsize);
   textAlign(CENTER, CENTER);
@@ -26,22 +26,22 @@ function setup() {
 function draw() {
   background(160);
 
-  // Set the gap between letters and the left and top margin
+  // अक्षरों और बाएँ और शीर्ष हाशिये के बीच की खाई को सेट करें
   let gap = 52;
   let margin = 10;
   translate(margin * 4, margin * 4);
 
-  // Set the counter to start at the character you want
-  // in this case 35, which is the # symbol
+   // अपने इच्छित चरित्र पर शुरू करने के लिए काउंटर सेट करें
+   // इस मामले में 35, जो # प्रतीक . है
   let counter = 35;
 
-  // Loop as long as there is space on the canvas
+  // जब तक कैनवास पर जगह है तब तक लूप करें
   for (let y = 0; y < height - gap; y += gap) {
     for (let x = 0; x < width - gap; x += gap) {
-      // Use the counter to retrieve individual letters by their Unicode number
+      // उनके यूनिकोड नंबर द्वारा अलग-अलग अक्षरों को पुनः प्राप्त करने के लिए काउंटर का उपयोग करें
       let letter = char(counter);
 
-      // Add different color to the vowels and other characters
+      // स्वरों और अन्य वर्णों में अलग-अलग रंग जोड़ें
       if (
         letter === 'A' ||
         letter === 'E' ||
@@ -54,10 +54,10 @@ function draw() {
         fill(255);
       }
 
-      // Draw the letter to the screen
+      // पत्र को स्क्रीन पर ड्रा करें
       text(letter, x, y);
 
-      // Increment the counter
+      // काउंटर बढ़ाएँ
       counter++;
     }
   }
