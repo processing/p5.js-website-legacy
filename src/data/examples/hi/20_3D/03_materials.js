@@ -1,9 +1,9 @@
 /*
- * @name Materials
- * @description There are five types of materials supported.
- * They respond to light differently.
- * Move your mouse to change the light position.
- */
+  * @name सामग्री
+  * @description पांच प्रकार की सामग्री समर्थित हैं।
+  * वे प्रकाश के प्रति अलग तरह से प्रतिक्रिया करते हैं।
+  * प्रकाश की स्थिति बदलने के लिए अपने माउस को घुमाएँ।
+  */
 let img;
 function setup() {
   createCanvas(710, 400, WEBGL);

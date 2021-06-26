@@ -1,27 +1,27 @@
 /*
- * @name Basic Shader
- * @description This is a basic example showing how to load shaders in p5.js.
- * <br> To learn more about using shaders in p5.js: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
- */
+  * @name बेसिक शेडर
+  * @description यह एक बुनियादी उदाहरण है जिसमें दिखाया गया है कि p5.js में शेडर्स को कैसे लोड किया जाए।
+  * <br> p5.js में शेडर्स का उपयोग करने के बारे में अधिक जानने के लिए: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
+  */
 
-// this variable will hold our shader object
+// यह वेरिएबल हमारे शेडर ऑब्जेक्ट को होल्ड करेगा
 let theShader;
 
 function preload(){
-  // load the shader
+  // शेडर लोड करें
   theShader = loadShader('assets/basic.vert', 'assets/basic.frag');
 }
 
 function setup() {
-  // shaders require WEBGL mode to work
+  // शेडर्स को काम करने के लिए WEBGL मोड की आवश्यकता होती है
   createCanvas(710, 400, WEBGL);
   noStroke();
 }
 
 function draw() {
-  // shader() sets the active shader with our shader
+  // shader() हमारे शेडर के साथ सक्रिय शेडर सेट करता है
   shader(theShader);
 
-  // rect gives us some geometry on the screen
+  // रेक्ट हमें स्क्रीन पर कुछ ज्योमेट्री देता है
   rect(0,0,width, height);
 }

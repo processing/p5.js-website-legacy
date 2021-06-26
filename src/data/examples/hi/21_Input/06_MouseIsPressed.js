@@ -1,8 +1,8 @@
 /*
- * @name Mouse Press
- * @description Move the mouse to position the shape.
- * Press the mouse button to invert the color.
- */
+  * @name माउस प्रेस
+  * @description माउस को शेप में लाने के लिए मूव करें।
+  * रंग बदलने के लिए माउस बटन दबाएं।
+  */
 function setup() {
   createCanvas(720, 400);
   background(230);

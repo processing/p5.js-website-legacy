@@ -1,9 +1,9 @@
 /*
- * @name Mouse 1D
- * @description Move the mouse left and right to
- * shift the balance. The "mouseX" variable is used
- * to control both the size and color of the rectangles.
- */
+  * @name माउस 1D
+  * @description माउस को बाएँ और दाएँ ले जाएँ
+  * संतुलन शिफ्ट करें। "माउसएक्स" चर का उपयोग किया जाता है
+  * आयतों के आकार और रंग दोनों को नियंत्रित करने के लिए।
+  */
 function setup() {
   createCanvas(720, 400);
   noStroke();

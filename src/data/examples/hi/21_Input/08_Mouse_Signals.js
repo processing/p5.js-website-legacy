@@ -1,10 +1,10 @@
 /*
- * @name Mouse Signals
- * @description Move and click the mouse to generate signals.
- * The top row is the signal from "mouseX", the middle row is
- * the signal from "mouseY", and the bottom row is the signal
- * from "mouseIsPressed".
- */
+  * @name माउस सिग्नल
+  * @description सिग्नल जेनरेट करने के लिए माउस को मूव करें और क्लिक करें।
+  * शीर्ष पंक्ति "माउसएक्स" से संकेत है, मध्य पंक्ति है
+  * "माउसवाई" से संकेत, और नीचे की पंक्ति संकेत है
+  * "mouseIsPressed" से।
+  */
 let xvals = [];
 let yvals = [];
 let bvals = [];
@@ -22,7 +22,7 @@ function draw() {
     yvals[i - 1] = yvals[i];
     bvals[i - 1] = bvals[i];
   }
-  // Add the new values to the end of the array
+  // सरणी के अंत में नए मान जोड़ें
   xvals[width - 1] = mouseX;
   yvals[width - 1] = mouseY;
 

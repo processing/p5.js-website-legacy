@@ -1,21 +1,21 @@
 /*
- * @name Shader Using Webcam
- * @description The webcam can be passed to shaders as a texture.
- * <br> To learn more about using shaders in p5.js: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
- */
+  * @name Shader वेबकैम का उपयोग कर रहा है
+  * @description वेबकैम को टेक्सचर के रूप में शेडर्स को पास किया जा सकता है।
+  * <br> p5.js में शेडर्स का उपयोग करने के बारे में अधिक जानने के लिए: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
+  */
 
- // this variable will hold our shader object
+ // यह वेरिएबल हमारे शेडर ऑब्जेक्ट को होल्ड करेगा
  let theShader;
- // this variable will hold our webcam video
+ // यह वेरिएबल हमारे वेबकैम वीडियो को होल्ड करेगा
  let cam;
 
  function preload(){
-   // load the shader
+   // शेडर लोड करें
    theShader = loadShader('assets/webcam.vert', 'assets/webcam.frag');
  }
 
  function setup() {
-   // shaders require WEBGL mode to work
+   // शेडर्स को काम करने के लिए WEBGL मोड की आवश्यकता होती है
    createCanvas(710, 400, WEBGL);
    noStroke();
 
@@ -26,12 +26,12 @@
  }
 
  function draw() {
-   // shader() sets the active shader with our shader
+   // shader() हमारे शेडर के साथ सक्रिय शेडर सेट करता है
    shader(theShader);
 
-   // passing cam as a texture
+   // एक बनावट के रूप में कैम पास करना
    theShader.setUniform('tex0', cam);
 
-   // rect gives us some geometry on the screen
+   // रेक्ट हमें स्क्रीन पर कुछ ज्योमेट्री देता है
    rect(0,0,width,height);
  }

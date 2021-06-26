@@ -1,7 +1,7 @@
 /*
- * @name Sine Cosine in 3D
- * @description Sine, cosine and push / pop could be applied in 3D as well.
- */
+  * @name 3D में साइन कोसाइन
+  * @description साइन, कोसाइन और पुश/पॉप को 3D में भी लागू किया जा सकता है।
+  */
 function setup() {
   createCanvas(710, 400, WEBGL);
 }
