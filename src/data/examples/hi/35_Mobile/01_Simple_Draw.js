@@ -1,7 +1,7 @@
 /*
- * @name Simple Draw
- * @description Touch to draw on the screen using mouseX, mouseY, pmouseX, and pmouseY values.
- */
+  * @name सिंपल ड्रा
+  * @description माउसX, mouseY, pmouseX, और pmouseY मानों का उपयोग करके स्क्रीन पर ड्रा करने के लिए स्पर्श करें।
+  */
 
 function setup() {
   createCanvas(displayWidth, displayHeight);

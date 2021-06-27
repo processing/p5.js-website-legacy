@@ -1,17 +1,17 @@
 /*
- * @name Acceleration Ball Bounce
- * @description Move an ellipse around based on accelerationX and accelerationY values, and bounces when touch the edge of the canvas.
- */
+  * @name एक्सेलेरेशन बॉल बाउंस
+  * @description त्वरणX और त्वरणY मानों के आधार पर एक दीर्घवृत्त को इधर-उधर घुमाएँ, और कैनवास के किनारे को छूने पर उछलता है।
+  */
 
-// Position Variables
+// स्थिति चर
 let x = 0;
 let y = 0;
 
-// Speed - Velocity
+// गति वेग
 let vx = 0;
 let vy = 0;
 
-// Acceleration
+// त्वरण
 let ax = 0;
 let ay = 0;
 
@@ -38,7 +38,7 @@ function ballMove() {
   y = y + vy * vMultiplier;
   x = x + vx * vMultiplier;
 
-  // Bounce when touch the edge of the canvas
+  // कैनवास के किनारे को छूने पर उछलें
   if (x < 0) {
     x = 0;
     vx = -vx * bMultiplier;

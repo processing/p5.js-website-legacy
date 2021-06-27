@@ -1,24 +1,24 @@
 /*
- * @name Simple Shapes
- * @description This examples includes a circle, square, triangle, and a flower.
- */
+  * @name सरल आकार
+  * @description इस उदाहरण में एक वृत्त, वर्ग, त्रिभुज और एक फूल शामिल है।
+  */
 function setup() {
-  // Create the canvas
+  // कैनवास बनाएं
   createCanvas(720, 400);
   background(200);
-
-  // Set colors
+  
+  // रंग सेट करें
   fill(204, 101, 192, 127);
   stroke(127, 63, 120);
 
-  // A rectangle
+  // एक चतुर्भुज
   rect(40, 120, 120, 40);
-  // An ellipse
+  // एक दीर्घवृत्त
   ellipse(240, 240, 80, 80);
-  // A triangle
+  // एक त्रिभुज
   triangle(300, 100, 320, 100, 310, 80);
 
-  // A design for a simple flower
+  // एक साधारण फूल के लिए एक डिजाइन
   translate(580, 200);
   noStroke();
   for (let i = 0; i < 10; i ++) {
