@@ -1,10 +1,10 @@
 /*
- * @name Load and Play Sound
- * @description Load sound during preload(). Play a sound when canvas is clicked.
- * <br><br><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em>
- */
+  * @name लोड और प्ले साउंड
+  * @description प्रीलोड के दौरान ध्वनि लोड करें ()। कैनवास पर क्लिक करने पर ध्वनि बजाएं।
+  * <br><br><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको इसकी आवश्यकता होगी
+  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound लाइब्रेरी</a>
+  * एक ध्वनि फ़ाइल, और एक चल रहा <a href="https://github.com/processing/p5.js/wiki/Local-server">स्थानीय सर्वर</a>।</span></em>
+  */
 let song;
 
 function setup() {
@@ -15,7 +15,7 @@ function setup() {
 
 function mousePressed() {
   if (song.isPlaying()) {
-    // .isPlaying() returns a boolean
+    // .isPlaying () एक बूलियन लौटाता है
     song.stop();
     background(255, 0, 0);
   } else {

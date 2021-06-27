@@ -1,26 +1,26 @@
 /**
- *  @name soundFormats
- *  @description <p>Technically, due to patent issues, there is no single
- *  sound format that is supported by all web browsers. While
- *  <a href="http://caniuse.com/#feat=mp3">mp3 is supported</a> across the
- *  latest versions of major browsers on OS X and Windows, for example,
- *  it may not be available on some less mainstream operating systems and
- *  browsers.</p>
+ * @name ध्वनि प्रारूप
+ * @description <p>तकनीकी रूप से, पेटेंट मुद्दों के कारण, कोई एकल नहीं है
+ * ध्वनि प्रारूप जो सभी वेब ब्राउज़र द्वारा समर्थित है। जबकि
+ * <a href="http://caniuse.com/#feat=mp3">mp3 समर्थित है</a> पर
+ * OS X और Windows पर प्रमुख ब्राउज़रों के नवीनतम संस्करण, उदाहरण के लिए,
+ * यह कुछ कम मुख्यधारा के ऑपरेटिंग सिस्टम पर उपलब्ध नहीं हो सकता है और
+ * ब्राउज़र।</p>
  *
- *  <p>To ensure full compatibility, you can include the same sound file
- *  in multiple formats, e.g. 'sound.mp3' and 'sound.ogg'. (Ogg is an
- *  open source alternative to mp3.) You can convert audio files
- *  into web friendly formats for free online at <a href="
- *  http://media.io/">media.io</a></p>.
+ * <p>पूर्ण संगतता सुनिश्चित करने के लिए, आप समान ध्वनि फ़ाइल शामिल कर सकते हैं
+ * कई स्वरूपों में, उदा। 'sound.mp3' और 'sound.ogg'। (ओग एक है
+ * एमपी3 का ओपन सोर्स विकल्प।) आप ऑडियो फाइलों को कन्वर्ट कर सकते हैं
+ * वेब अनुकूल प्रारूपों में <a href=" पर नि:शुल्क ऑनलाइन
+ * http://media.io/">media.io</a></p>।
  *
- *  <p>The soundFormats() method tells loadSound which formats
- *  we have included with our sketch. Then, loadSound will
- *  attempt to load the first format that is supported by the
- *  client's web browser.</p>
+ * <p>soundformats() विधि लोडसाउंड को बताती है कि कौन से प्रारूप हैं
+ * हमने अपने स्केच के साथ शामिल किया है। फिर, लोडसाउंड होगा
+ * द्वारा समर्थित पहले प्रारूप को लोड करने का प्रयास
+ * क्लाइंट का वेब ब्राउज़र।</p>
  *
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको इसकी आवश्यकता होगी
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound लाइब्रेरी</a>
+ * एक ध्वनि फ़ाइल, और एक चल रहा <a href="https://github.com/processing/p5.js/wiki/Local-server">स्थानीय सर्वर</a>।</span></em>< /पी>
  */
 let song;
 

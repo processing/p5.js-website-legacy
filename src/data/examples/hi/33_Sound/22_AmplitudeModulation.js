@@ -1,76 +1,76 @@
 /**
- * @name Amplitude Modulation
- * @description <p>Amplitude Modulation involves two oscillators, referred
- * to as the carrier and the modulator, where the modulator controls
- * the carrier's amplitude.</p>
+ * @name आयाम मॉडुलन
+ * @description <p>एम्पलीट्यूड मॉड्यूलेशन में दो ऑसिलेटर शामिल होते हैं, जिन्हें संदर्भित किया जाता है
+ * वाहक और न्यूनाधिक के रूप में, जहाँ न्यूनाधिक नियंत्रित करता है
+ * वाहक का आयाम।</p>
  *
- * <p>The carrier is typically set at an audible frequency (i.e. 440 Hz)
- * and connected to master output by default. The carrier.amp is
- * set to zero because we will have the modulator control its amplitude.</p>
+ * <p>वाहक आमतौर पर एक श्रव्य आवृत्ति (यानी 440 हर्ट्ज) पर सेट होता है
+ * और डिफ़ॉल्ट रूप से मास्टर आउटपुट से जुड़ा है। वाहक.amp है
+ * शून्य पर सेट करें क्योंकि हमारे पास मॉड्यूलेटर इसके आयाम को नियंत्रित करेगा।</p>
  *
- * <p>The modulator is disconnected from master output. Instead, it is connected
- * to the amplitude of the Carrier, like this: carrier.amp(modulator).</p>
+ * <p>मॉड्यूलेटर मास्टर आउटपुट से डिस्कनेक्ट हो गया है। इसके बजाय, यह जुड़ा हुआ है
+ * कैरियर के आयाम तक, इस तरह:वाहक.amp(मॉड्यूलेटर)।</p>
  *
- * <p>In this example...</p>
- * <p>- MouseX controls the amplitude of the modulator
- * from 0 to 1. When the modulator's amplitude is set to 0, the
- * amplitude modulation has no effect.</p>
+ * <p>इस उदाहरण में...</p>
+ * <p>- MouseX न्यूनाधिक के आयाम को नियंत्रित करता है
+ * 0 से 1 तक। जब न्यूनाधिक का आयाम 0 पर सेट होता है, तो
+ * आयाम मॉडुलन का कोई प्रभाव नहीं पड़ता है।</p>
  *
- * <p>- MouseY controls the frequency of the modulator from 0 to 20hz.
- * This range is lower frequencies than humans can hear, and we perceive the
- * modulation as a rhythm. This range can simulate effects such as Tremolo.
- * Ring Modulation is a type of Amplitude Modulation where the original
- * carrier signal is not present, and often involves modulation at a faster
- * frequency. </p>
+ * <p>- MouseY न्यूनाधिक की आवृत्ति को 0 से 20hz तक नियंत्रित करता है।
+ * यह रेंज मनुष्यों की तुलना में कम आवृत्तियों की है, और हम अनुभव करते हैं
+ * एक लय के रूप में मॉडुलन। यह श्रेणी ट्रेमोलो जैसे प्रभावों का अनुकरण कर सकती है।
+ * रिंग मॉड्यूलेशन एक प्रकार का एम्प्लीट्यूड मॉड्यूलेशन है जहां मूल
+ * वाहक संकेत मौजूद नहीं है, और अक्सर तेजी से मॉडुलन शामिल होता है
+ * आवृत्ति। </p>
  *
- * <p><em><span class="small">You will need to include the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * for this example to work in your own project.</em></span></p>
+ * <p><em><span class="small">आपको इसमें शामिल करना होगा
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound लाइब्रेरी</a>
+ * इस उदाहरण के लिए अपने स्वयं के प्रोजेक्ट में काम करने के लिए।</em></span></p>
  */
-let carrier; // this is the oscillator we will hear
-let modulator; // this oscillator will modulate the amplitude of the carrier
-let fft; // we'll visualize the waveform
+let carrier; // यह थरथरानवाला है जिसे हम सुनेंगे
+let modulator; // यह थरथरानवाला वाहक के आयाम को संशोधित करेगा
+let fft; // हम तरंग की कल्पना करेंगे
 
 function setup() {
   createCanvas(800, 400);
   noFill();
-  background(30); // alpha
+  background(30); // अल्फा
 
-  carrier = new p5.Oscillator(); // connects to master output by default
+  carrier = new p5.Oscillator(); // डिफ़ॉल्ट रूप से मास्टर आउटपुट से जुड़ता है
   carrier.freq(340);
   carrier.amp(0);
-  // carrier's amp is 0 by default, giving our modulator total control
+  // वाहक का amp डिफ़ॉल्ट रूप से 0 है, हमारे न्यूनाधिक को कुल नियंत्रण देता है
 
   carrier.start();
 
   modulator = new p5.Oscillator('triangle');
-  modulator.disconnect(); // disconnect the modulator from master output
+  modulator.disconnect(); // मास्टर आउटपुट से मॉड्यूलेटर को डिस्कनेक्ट करें
   modulator.freq(5);
   modulator.amp(1);
   modulator.start();
 
-  // Modulate the carrier's amplitude with the modulator
-  // Optionally, we can scale the signal.
+   // न्यूनाधिक के साथ वाहक के आयाम को संशोधित करें
+   // वैकल्पिक रूप से, हम सिग्नल को स्केल कर सकते हैं।
   carrier.amp(modulator.scale(-1, 1, 1, -1));
 
-  // create an fft to analyze the audio
+  // ऑडियो का विश्लेषण करने के लिए एक fft बनाएं
   fft = new p5.FFT();
 }
 
 function draw() {
-  background(30, 30, 30, 100); // alpha
+  background(30, 30, 30, 100); // अल्फा
 
-  // map mouseY to moodulator freq between 0 and 20hz
+  // माउसY को 0 और 20hz के बीच मूड्यूलेटर फ़्रीक में मैप करें
   let modFreq = map(mouseY, 0, height, 20, 0);
   modulator.freq(modFreq);
 
   let modAmp = map(mouseX, 0, width, 0, 1);
-  modulator.amp(modAmp, 0.01); // fade time of 0.1 for smooth fading
+  modulator.amp(modAmp, 0.01); // चिकनी लुप्त होती के लिए 0.1 का फीका समय fade
 
-  // analyze the waveform
+  // तरंग का विश्लेषण करें
   waveform = fft.waveform();
 
-  // draw the shape of the waveform
+  // तरंग का आकार बनाएं
   drawWaveform();
 
   drawText(modFreq, modAmp);

@@ -1,19 +1,19 @@
 /**
- *  @name Note Envelope
- *  @description  <p>An Envelope is a series of fades, defined
- *  as time / value pairs. In this example, the envelope
- *  will be used to "play" a note by controlling the output
- *  amplitude of an oscillator.<br/><br/>
- *  The p5.Oscillator sends its output through
- *  an internal Web Audio GainNode (p5.Oscillator.output).
- *  By default, that node has a constant value of 0.5. It can
- *  be reset with the osc.amp() method. Or, in this example, an
- *  Envelope takes control of that node, turning the amplitude
- *  up and down like a volume knob.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a> and a
- * sound file.</span></em></p>
- */
+  * @name नोट लिफाफा
+  * @description <p>एक लिफाफा फीका पड़ने की एक श्रृंखला है, परिभाषित
+  * समय / मूल्य जोड़े के रूप में। इस उदाहरण में, लिफाफा
+  * आउटपुट को नियंत्रित करके किसी नोट को "प्ले" करने के लिए उपयोग किया जाएगा
+  * एक थरथरानवाला का आयाम।<br/><br/>
+  * p5.Oscillator इसके माध्यम से अपना आउटपुट भेजता है
+  * एक आंतरिक वेब ऑडियो GainNode (p5.Oscillator.output)।
+  * डिफ़ॉल्ट रूप से, उस नोड का निरंतर मान 0.5 होता है। यह
+  * osc.amp() विधि से रीसेट करें। या, इस उदाहरण में, an
+  * लिफाफा आयाम को मोड़ते हुए उस नोड को नियंत्रित करता है
+  * वॉल्यूम नॉब की तरह ऊपर और नीचे।</p>
+  * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको इसकी आवश्यकता होगी
+  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound लाइब्रेरी</a> और a
+  * ध्वनि फ़ाइल।</span></em></p>
+  */
 let osc, envelope, fft;
 
 let scaleArray = [60, 62, 64, 65, 67, 69, 71, 72];
@@ -23,13 +23,13 @@ function setup() {
   createCanvas(710, 200);
   osc = new p5.SinOsc();
 
-  // Instantiate the envelope
+  // लिफाफे को तुरंत चालू करें
   envelope = new p5.Env();
 
-  // set attackTime, decayTime, sustainRatio, releaseTime
+  // सेट अटैकटाइम, डिकेटाइम, सस्टेनरैटियो, रिलीजटाइम
   envelope.setADSR(0.001, 0.5, 0.1, 0.5);
 
-  // set attackLevel, releaseLevel
+  // अटैकलेवल सेट करें, रिलीजलेवल
   envelope.setRange(1, 0);
 
   osc.start();
@@ -50,7 +50,7 @@ function draw() {
     note = (note + 1) % scaleArray.length;
   }
 
-  // plot FFT.analyze() frequency analysis on the canvas
+  // प्लॉट FFT.analyze () कैनवास पर आवृत्ति विश्लेषण
   let spectrum = fft.analyze();
   for (let i = 0; i < spectrum.length / 20; i++) {
     fill(spectrum[i], spectrum[i] / 10, 0);

@@ -1,13 +1,13 @@
 /*
- * @name Load Saved JSON
- * @description Create a Bubble class, instantiate multiple bubbles using data from
- * a JSON file, and display results on the screen.
- *  Because the web browsers differ in where they save files, we do not make use of
- * saveJSON, unlike the Processing example.<br><br>
- * Based on Daniel Shiffman's <a href="https://processing.org/examples/loadsavejson.html">LoadSaveJSON Example</a> for Processing.
- */
+  * @name लोड सेव किया गया JSON
+  * @description बबल क्लास बनाएं, डेटा का उपयोग करके कई बबल को इंस्टेंट करें
+  * एक JSON फ़ाइल, और स्क्रीन पर परिणाम प्रदर्शित करें।
+  * क्योंकि वेब ब्राउजर फाइलों को सेव करने में भिन्न होते हैं, हम इसका उपयोग नहीं करते हैं
+  * saveJSON, प्रोसेसिंग उदाहरण के विपरीत।<br><br>
+  * प्रोसेसिंग के लिए डेनियल शिफमैन के <a href="https://processing.org/examples/loadsavejson.html">LoadSaveJSON उदाहरण</a> पर आधारित।
+  */
 
-// Bubble class
+// बबल क्लास
 class Bubble {
   constructor(x, y, diameter, name) {
     this.x = x;
@@ -19,13 +19,13 @@ class Bubble {
     this.over = false;
   }
 
-  // Check if mouse is over the bubble
+ // जांचें कि क्या माउस बुलबुले के ऊपर है
   rollover(px, py) {
     let d = dist(px, py, this.x, this.y);
     this.over = d < this.radius;
   }
 
-  // Display the Bubble
+  // बबल प्रदर्शित करें
   display() {
     stroke(0);
     strokeWeight(0.8);
@@ -39,47 +39,47 @@ class Bubble {
   }
 }
 
-let data = {}; // Global object to hold results from the loadJSON call
-let bubbles = []; // Global array to hold all bubble objects
+let data = {}; // loadJSON कॉल से परिणाम धारण करने के लिए वैश्विक वस्तु
+let bubbles = []; // सभी बबल ऑब्जेक्ट्स को होल्ड करने के लिए ग्लोबल ऐरे
 
-// Put any asynchronous data loading in preload to complete before "setup" is run
+// "सेटअप" चलाने से पहले किसी भी एसिंक्रोनस डेटा लोडिंग को प्रीलोड में रखें
 function preload() {
   data = loadJSON('assets/bubbles.json');
 }
 
-// Convert saved Bubble data into Bubble Objects
+// सहेजे गए बबल डेटा को बबल ऑब्जेक्ट में बदलें
 function loadData() {
   let bubbleData = data['bubbles'];
   for (let i = 0; i < bubbleData.length; i++) {
-    // Get each object in the array
+    // प्रत्येक वस्तु को सरणी में प्राप्त करें
     let bubble = bubbleData[i];
-    // Get a position object
+    // एक स्थिति वस्तु प्राप्त करें
     let position = bubble['position'];
-    // Get x,y from position
+    // स्थिति से x, y प्राप्त करें
     let x = position['x'];
     let y = position['y'];
 
-    // Get diameter and label
+    // व्यास और लेबल प्राप्त करें
     let diameter = bubble['diameter'];
     let label = bubble['label'];
 
-    // Put object in array
+    // ऑब्जेक्ट को सरणी में रखें
     bubbles.push(new Bubble(x, y, diameter, label));
   }
 }
 
-// Create a new Bubble each time the mouse is clicked.
+// हर बार माउस क्लिक करने पर एक नया बबल बनाएं।
 function mousePressed() {
-  // Add diameter and label to bubble
+  // बबल में व्यास और लेबल जोड़ें
   let diameter = random(40, 80);
   let label = 'New Label';
 
-  // Append the new JSON bubble object to the array
+  // नई JSON बबल ऑब्जेक्ट को सरणी में जोड़ें
   bubbles.push(new Bubble(mouseX, mouseY, diameter, label));
 
-  // Prune Bubble Count if there are too many
+  // यदि बहुत अधिक हैं तो बबल काउंट प्रून करें
   if (bubbles.length > 10) {
-    bubbles.shift(); // remove first item from array
+    bubbles.shift(); // सरणी से पहले आइटम को हटा दें
   }
 }
 
@@ -91,13 +91,13 @@ function setup() {
 function draw() {
   background(255);
 
-  // Display all bubbles
+  // सभी बुलबुले प्रदर्शित करें
   for (let i = 0; i < bubbles.length; i++) {
     bubbles[i].display();
     bubbles[i].rollover(mouseX, mouseY);
   }
 
-  // Label directions at bottom
+  // नीचे की ओर लेबल निर्देश
   textAlign(LEFT);
   fill(0);
   text('Click to add bubbles.', 10, height - 10);

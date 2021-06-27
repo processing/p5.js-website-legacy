@@ -1,13 +1,13 @@
 /**
- * @name Mic Threshold
- * @description <p>Trigger an event (draw a rectangle) when the Audio Input
- * volume surpasses a threshold.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
- */
-// Adapted from Learning Processing, Daniel Shiffman
-// learningprocessing.com
+  * @name माइक थ्रेशोल्ड
+  * @description <p>ऑडियो इनपुट होने पर एक ईवेंट ट्रिगर करें (एक आयत बनाएं))
+  * वॉल्यूम एक सीमा से अधिक है।</p>
+  * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको इसकी आवश्यकता होगी
+  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound लाइब्रेरी</a>
+  * और एक चालू <a href="https://github.com/processing/p5.js/wiki/Local-server">स्थानीय सर्वर</a>।</span></em></p>
+  */
+// लर्निंग प्रोसेसिंग से अनुकूलित, डैनियल शिफमैन
+// Learningprocessing.com
 let input;
 let analyzer;
 
@@ -15,18 +15,18 @@ function setup() {
   createCanvas(710, 200);
   background(255);
 
-  // Create an Audio input
+  // एक ऑडियो इनपुट बनाएं
   input = new p5.AudioIn();
 
   input.start();
 }
 
 function draw() {
-  // Get the overall volume (between 0 and 1.0)
+  // कुल मात्रा प्राप्त करें (0 और 1.0 के बीच)
   let volume = input.getLevel();
 
-  // If the volume > 0.1,  a rect is drawn at a random location.
-  // The louder the volume, the larger the rectangle.
+   // यदि वॉल्यूम> 0.1, एक यादृच्छिक स्थान पर एक रेक्ट खींचा जाता है।
+   // वॉल्यूम जितना बड़ा होगा, आयत उतना ही बड़ा होगा।
   let threshold = 0.1;
   if (volume > threshold) {
     stroke(0);
@@ -34,14 +34,14 @@ function draw() {
     rect(random(40, width), random(height), volume * 50, volume * 50);
   }
 
-  // Graph the overall potential volume, w/ a line at the threshold
+  // थ्रेशोल्ड पर समग्र संभावित आयतन, w / एक रेखा का ग्राफ़
   let y = map(volume, 0, 1, height, 0);
   let ythreshold = map(threshold, 0, 1, height, 0);
 
   noStroke();
   fill(175);
   rect(0, 0, 20, height);
-  // Then draw a rectangle on the graph, sized according to volume
+  // फिर ग्राफ़ पर एक आयत बनाएं, जिसका आकार आयतन के अनुसार हो
   fill(0);
   rect(0, y, 20, y);
   stroke(0);
