@@ -24,7 +24,7 @@ function setup() {
   fill(128);
   base1 = createVector(0, height - 150);
   base2 = createVector(width, height);
-   // क्रिएटग्राउंड ();
+   //createGround();
 
    // स्क्रीन के मध्य शीर्ष पर अंडाकार प्रारंभ करें
   position = createVector(width / 2, 0);
