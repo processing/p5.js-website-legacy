@@ -76,33 +76,33 @@
     "describe": {
       "description": [
         "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed. ",
-        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a div adjacent to the canvas. You can style it as you wish in your CSS. ",
         "<code class=\"language-javascript\">describe(text, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users."
       ],
       "params": {
         "text": "String: description of the canvas",
-        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+        "display": "Constant: (Optional) either LABEL or FALLBACK"
       }
     },
     "describeElement": {
       "description": [
         "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed. ",
-        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a div adjacent to the canvas. You can style it as you wish in your CSS. ",
         "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users."
       ],
       "params": {
         "name": "String: name of the element",
         "text": "String: description of the element",
-        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+        "display": "Constant: (Optional) either LABEL or FALLBACK"
       }
     },
     "textOutput": {
       "description": [
         "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\"). ",
-        "<code class=\"language-javascript\">textOutput()</code> and <code class=\"language-javascript\">texOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">textOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+        "<code class=\"language-javascript\">textOutput()</code> and <code class=\"language-javascript\">textOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">textOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
       ],
       "params": {
-        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+        "display": "Constant: (Optional) either FALLBACK or LABEL"
       }
     },
     "gridOutput": {
@@ -111,7 +111,7 @@
         "<code class=\"language-javascript\">gridOutput()</code> and <code class=\"language-javascript\">gridOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">gridOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
       ],
       "params": {
-        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+        "display": "Constant: (Optional) either FALLBACK or LABEL"
       }
     },
     "alpha": {
@@ -180,7 +180,7 @@
     },
     "lerpColor": {
       "description": [
-        "Blends two colors to find a third color somewhere between them. The amt parameter is the amount to interpolate between the two values where 0.0 equal to the first color, 0.1 is very near the first color, 0.5 is halfway in between, etc. An amount below 0 will be treated as 0. Likewise, amounts above 1 will be capped at 1. This is different from the behavior of <a href=\"#/p5/lerp\">lerp()</a>, but necessary because otherwise numbers outside the range will produce strange and unexpected colors. ",
+        "Blends two colors to find a third color somewhere between them. The amt parameter is the amount to interpolate between the two values where 0.0 is equal to the first color, 0.1 is very near the first color, 0.5 is halfway in between, etc. An amount below 0 will be treated as 0. Likewise, amounts above 1 will be capped at 1. This is different from the behavior of <a href=\"#/p5/lerp\">lerp()</a>, but necessary because otherwise numbers outside the range will produce strange and unexpected colors. ",
         "The way that colors are interpolated depends on the current color mode."
       ],
       "returns": "p5.Color: interpolated color",
@@ -319,7 +319,7 @@
     "arc": {
       "description": [
         "Draw an arc to the screen. If called with only x, y, w, h, start and stop, the arc will be drawn and filled as an open pie segment. If a mode parameter is provided, the arc will be filled like an open semi-circle (OPEN), a closed semi-circle (CHORD), or as a closed pie segment (PIE). The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function. ",
-        "The arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse.Adding or subtracting TWO_PI to either angle does not change where they fall. If both start and stop fall at the same place, a full ellipse will be drawn. Be aware that the y-axis increases in the downward direction, therefore angles are measured clockwise from the positive x-direction (\"3 o'clock\")."
+        "The arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse. Adding or subtracting TWO_PI to either angle does not change where they fall. If both start and stop fall at the same place, a full ellipse will be drawn. Be aware that the y-axis increases in the downward direction, therefore angles are measured clockwise from the positive x-direction (\"3 o'clock\")."
       ],
       "params": {
         "x": "Number: x-coordinate of the arc's ellipse",
@@ -634,7 +634,16 @@
     "beginShape": {
       "description": [
         "Using the <a href=\"#/p5/beginShape\">beginShape()</a> and <a href=\"#/p5/endShape\">endShape()</a> functions allow creating more complex forms. <a href=\"#/p5/beginShape\">beginShape()</a> begins recording vertices for a shape and <a href=\"#/p5/endShape\">endShape()</a> stops recording. The value of the kind parameter tells it which types of shapes to create from the provided vertices. With no mode specified, the shape can be any irregular polygon. ",
-        "The parameters available for <a href=\"#/p5/beginShape\">beginShape()</a> are POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, QUAD_STRIP, and TESS (WebGL only). After calling the <a href=\"#/p5/beginShape\">beginShape()</a> function, a series of <a href=\"#/p5/vertex\">vertex()</a> commands must follow. To stop drawing the shape, call <a href=\"#/p5/endShape\">endShape()</a>. Each shape will be outlined with the current stroke color and filled with the fill color. ",
+        "The parameters available for <a href=\"#/p5/beginShape\">beginShape()</a> are: ",
+        "POINTS Draw a series of points ",
+        "LINES Draw a series of unconnected line segments (individual lines) ",
+        "TRIANGLES Draw a series of separate triangles ",
+        "TRIANGLE_FAN Draw a series of connected triangles sharing the first vertex in a fan-like fashion ",
+        "TRIANGLE_STRIP Draw a series of connected triangles in strip fashion ",
+        "QUADS Draw a series of seperate quad ",
+        "QUAD_STRIP Draw quad strip using adjacent edges to form the next quad ",
+        "TESS (WebGl only) Handle irregular polygon for filling curve by explicit tessellation ",
+        "After calling the <a href=\"#/p5/beginShape\">beginShape()</a> function, a series of <a href=\"#/p5/vertex\">vertex()</a> commands must follow. To stop drawing the shape, call <a href=\"#/p5/endShape\">endShape()</a>. Each shape will be outlined with the current stroke color and filled with the fill color. ",
         "Transformations such as <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, and <a href=\"#/p5/scale\">scale()</a> do not work within <a href=\"#/p5/beginShape\">beginShape()</a>. It is also not possible to use other shapes, such as <a href=\"#/p5/ellipse\">ellipse()</a> or <a href=\"#/p5/rect\">rect()</a> within <a href=\"#/p5/beginShape\">beginShape()</a>."
       ],
       "params": {
@@ -704,9 +713,20 @@
       "params": {
         "x": "Number: x-coordinate of the vertex",
         "y": "Number: y-coordinate of the vertex",
-        "z": "Number: z-coordinate of the vertex",
-        "u": "Number: (Optional) the vertex's texture u-coordinate",
-        "v": "Number: (Optional) the vertex's texture v-coordinate"
+        "z": "Number: z-coordinate of the vertex.  Defaults to 0 if not specified.",
+        "u": "Number: the vertex's texture u-coordinate",
+        "v": "Number: the vertex's texture v-coordinate"
+      }
+    },
+    "normal": {
+      "description": [
+        "Sets the 3d vertex normal to use for subsequent vertices drawn with <a href=\"#/p5/vertex\">vertex()</a>. A normal is a vector that is generally nearly perpendicular to a shape's surface which controls how much light will be reflected from that part of the surface."
+      ],
+      "params": {
+        "vector": "Vector: A p5.Vector representing the vertex normal.",
+        "x": "Number: The x component of the vertex normal.",
+        "y": "Number: The y component of the vertex normal.",
+        "z": "Number: The z component of the vertex normal."
       }
     },
     "VERSION": {
@@ -757,12 +777,12 @@
     },
     "DEGREES": {
       "description": [
-        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprates and calculates angles (either DEGREES or RADIANS)."
+        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprets and calculates angles (either DEGREES or RADIANS)."
       ]
     },
     "RADIANS": {
       "description": [
-        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprates and calculates angles (either RADIANS or DEGREES)."
+        "Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which p5.js interprets and calculates angles (either RADIANS or DEGREES)."
       ]
     },
     "CORNER": {},
@@ -847,6 +867,8 @@
     "ITALIC": {},
     "BOLD": {},
     "BOLDITALIC": {},
+    "CHAR": {},
+    "WORD": {},
     "LINEAR": {},
     "QUADRATIC": {},
     "BEZIER": {},
@@ -979,19 +1001,19 @@
     },
     "getURL": {
       "description": [
-        "Gets the current URL. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using sketch the edtior's present or share URLs."
+        "Gets the current URL. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using the editor's present or share URLs."
       ],
       "returns": "String: url"
     },
     "getURLPath": {
       "description": [
-        "Gets the current URL path as an array. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using sketch the edtior's present or share URLs."
+        "Gets the current URL path as an array. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using the editor's present or share URLs."
       ],
       "returns": "String[]: path components"
     },
     "getURLParams": {
       "description": [
-        "Gets the current URL params as an Object. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using sketch the edtior's present or share URLs."
+        "Gets the current URL params as an Object. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using the editor's present or share URLs."
       ],
       "returns": "Object: URL params"
     },
@@ -1118,14 +1140,14 @@
     },
     "class": {
       "description": [
-        "Creates and names a <a href=\"#/p5/class\">class</a> which is a template for the creation of <a href=\"#/p5/objects\">objects</a>. ",
+        "Creates and names a <a href=\"#/p5/class\">class</a> which is a template for the creation of <a href=\"#/p5/object\">objects</a>. ",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class\">the MDN entry</a>: The class declaration creates a new Class with a given name using prototype-based inheritance."
       ]
     },
     "for": {
       "description": [
         "<a href=\"#/p5/for\">for</a> creates a loop that is useful for executing one section of code multiple times. ",
-        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are seperated by ; (semi-colon).In case of an empty expression, only a semi-colon is written. ",
+        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are separated by ; (semi-colon).In case of an empty expression, only a semi-colon is written. ",
         "The code inside of the loop body (in between the curly braces) is executed between the evaluation of the second and third expression. ",
         "As with any loop, it is important to ensure that the loop can 'exit', or that the test condition will eventually evaluate to false. The test condition with a <a href=\"#/p5/for\">for</a> loop is the second expression detailed above. Ensuring that this expression can eventually become false ensures that your loop doesn't attempt to run an infinite amount of times, which can crash your browser. ",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for\">the MDN entry</a>: Creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once."
@@ -1273,7 +1295,7 @@
     "rotate": {
       "description": [
         "Rotates a shape by the amount specified by the angle parameter. This function accounts for <a href=\"#/p5/angleMode\">angleMode</a>, so angles can be entered in either RADIANS or DEGREES. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI). All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again. ",
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI). All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again. ",
         "Technically, <a href=\"#/p5/rotate\">rotate()</a> multiplies the current transformation matrix by a rotation matrix. This function can be further controlled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>."
       ],
       "params": {
@@ -1284,7 +1306,7 @@
     "rotateX": {
       "description": [
         "Rotates a shape around X axis by the amount specified in angle parameter. The angles can be entered in either RADIANS or DEGREES. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Number: the angle of rotation, specified in radians  or degrees, depending on current angleMode"
@@ -1293,7 +1315,7 @@
     "rotateY": {
       "description": [
         "Rotates a shape around Y axis by the amount specified in angle parameter. The angles can be entered in either RADIANS or DEGREES. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Number: the angle of rotation, specified in radians  or degrees, depending on current angleMode"
@@ -1303,7 +1325,7 @@
       "description": [
         "Rotates a shape around Z axis by the amount specified in angle parameter. The angles can be entered in either RADIANS or DEGREES. ",
         "This method works in WEBGL mode only. ",
-        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All tranformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Number: the angle of rotation, specified in radians  or degrees, depending on current angleMode"
@@ -1836,7 +1858,7 @@
     },
     "mouseButton": {
       "description": [
-        "Processing automatically tracks if the mouse button is pressed and which button is pressed. The value of the system variable mouseButton is either LEFT, RIGHT, or CENTER depending on which button was pressed last. Warning: different browsers may track mouseButton differently."
+        "p5 automatically tracks if the mouse button is pressed and which button is pressed. The value of the system variable mouseButton is either LEFT, RIGHT, or CENTER depending on which button was pressed last. Warning: different browsers may track mouseButton differently."
       ]
     },
     "mouseIsPressed": {
@@ -2337,7 +2359,7 @@
     },
     "dist": {
       "description": [
-        "Calculates the distance between two points, in either two or three dimensions."
+        "Calculates the distance between two points, in either two or three dimensions. If you looking for distance between two vectors see <a herf=\"#/p5.Vector/dist\">dist()</a>"
       ],
       "returns": "Number: distance between the two points",
       "params": {
@@ -2712,6 +2734,18 @@
         "Returns the descent of the current font at its current size. The descent represents the distance, in pixels, of the character with the longest descender below the baseline."
       ],
       "returns": "Number: "
+    },
+    "textWrap": {
+      "description": [
+        "Specifies how lines of text are wrapped within a text box. This requires a max-width set on the text area, specified in <a href=\"#/p5/text\">text()</a> as parameter <code>x2</code>. ",
+        "WORD wrap style only breaks lines at spaces. A single string without spaces that exceeds the boundaries of the canvas or text area is not truncated, and will overflow the desired area, disappearing at the canvas edge. ",
+        "CHAR wrap style breaks lines wherever needed to stay within the text box. ",
+        "WORD is the default wrap style, and both styles will still break lines at any line breaks (<code>\\n</code>) specified in the original text. The text area max-height parameter (<code>y2</code>) also still applies to wrapped text in both styles, lines of text that do not fit within the text area will not be drawn to the screen."
+      ],
+      "returns": "String: wrapStyle",
+      "params": {
+        "wrapStyle": "Constant: text wrapping style, either WORD or CHAR"
+      }
     },
     "loadFont": {
       "description": [
@@ -3367,11 +3401,6 @@
         "This function restores the default shaders in WEBGL mode. Code that runs after resetShader() will not be affected by previously defined shaders. Should be run after <a href=\"#/p5/shader\">shader()</a>."
       ]
     },
-    "normalMaterial": {
-      "description": [
-        "Normal material for geometry is a material that is not affected by light. It is not reflective and is a placeholder material often used for debugging. Surfaces facing the X-axis, become red, those facing the Y-axis, become green and those facing the Z-axis, become blue. You can view all possible materials in this <a href=\"https://p5js.org/examples/3d-materials.html\">example</a>."
-      ]
-    },
     "texture": {
       "description": [
         "Texture for geometry. You can view other possible materials in this <a href=\"https://p5js.org/examples/3d-materials.html\">example</a>."
@@ -3401,6 +3430,11 @@
         "wrapX": "Constant: either CLAMP, REPEAT, or MIRROR",
         "wrapY": "Constant: (Optional) either CLAMP, REPEAT, or MIRROR"
       }
+    },
+    "normalMaterial": {
+      "description": [
+        "Normal material for geometry is a material that is not affected by light. It is not reflective and is a placeholder material often used for debugging. Surfaces facing the X-axis, become red, those facing the Y-axis, become green and those facing the Z-axis, become blue. You can view all possible materials in this <a href=\"https://p5js.org/examples/3d-materials.html\">example</a>."
+      ]
     },
     "ambientMaterial": {
       "description": [
@@ -3448,10 +3482,10 @@
     },
     "camera": {
       "description": [
-        "Sets the camera position for a 3D sketch. Parameters for this function define the position for the camera, the center of the sketch (where the camera is pointing), and an up direction (the orientation of the camera). ",
-        "This function simulates the movements of the camera, allowing objects to be viewed from various angles. Remember, it does not move the objects themselves but the camera instead. For example when centerX value is positive, the camera is rotating to the right side of the sketch, so the object would seem like moving to the left. ",
+        "Sets the position of the current camera in a 3D sketch. Parameters for this function define the camera's position, the center of the sketch (where the camera is pointing), and an up direction (the orientation of the camera). ",
+        "This function simulates the movements of the camera, allowing objects to be viewed from various angles. Remember, it does not move the objects themselves but the camera instead. For example when the centerX value is positive, and the camera is rotating to the right side of the sketch, the object will seem like it's moving to the left. ",
         "See this <a href = \"https://www.openprocessing.org/sketch/740258\">example</a> to view the position of your camera. ",
-        "When called with no arguments, this function creates a default camera equivalent to camera(0, 0, (height/2.0) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, 1, 0);"
+        "If no parameters are given, the following default is used: camera(0, 0, (height/2) / tan(PI/6), 0, 0, 0, 0, 1, 0)"
       ],
       "params": {
         "x": "Number: (Optional) camera position value on x axis",
@@ -3467,8 +3501,9 @@
     },
     "perspective": {
       "description": [
-        "Sets a perspective projection for the camera in a 3D sketch. This projection represents depth through foreshortening: objects that are close to the camera appear their actual size while those that are further away from the camera appear smaller. The parameters to this function define the viewing frustum (the truncated pyramid within which objects are seen by the camera) through vertical field of view, aspect ratio (usually width/height), and near and far clipping planes. ",
-        "When called with no arguments, the defaults provided are equivalent to perspective(PI/3.0, width/height, eyeZ/10.0, eyeZ<em>10.0), where eyeZ is equal to ((height/2.0) / tan(PI</em>60.0/360.0));"
+        "Sets a perspective projection for the current camera in a 3D sketch. This projection represents depth through foreshortening: objects that are close to the camera appear their actual size while those that are further away from the camera appear smaller. ",
+        "The parameters to this function define the viewing frustum (the truncated pyramid within which objects are seen by the camera) through vertical field of view, aspect ratio (usually width/height), and near and far clipping planes. ",
+        "If no parameters are given, the following default is used: perspective(PI/3, width/height, eyeZ/10, eyeZ*10), where eyeZ is equal to ((height/2) / tan(PI/6))."
       ],
       "params": {
         "fovy": "Number: (Optional) camera frustum vertical field of view,  from bottom to top of view, in <a href=\"#/p5/angleMode\">angleMode</a> units",
@@ -3479,7 +3514,9 @@
     },
     "ortho": {
       "description": [
-        "Sets an orthographic projection for the camera in a 3D sketch and defines a box-shaped viewing frustum within which objects are seen. In this projection, all objects with the same dimension appear the same size, regardless of whether they are near or far from the camera. The parameters to this function specify the viewing frustum where left and right are the minimum and maximum x values, top and bottom are the minimum and maximum y values, and near and far are the minimum and maximum z values. If no parameters are given, the default is used: ortho(-width/2, width/2, -height/2, height/2)."
+        "Sets an orthographic projection for the current camera in a 3D sketch and defines a box-shaped viewing frustum within which objects are seen. In this projection, all objects with the same dimension appear the same size, regardless of whether they are near or far from the camera. ",
+        "The parameters to this function specify the viewing frustum where left and right are the minimum and maximum x values, top and bottom are the minimum and maximum y values, and near and far are the minimum and maximum z values. ",
+        "If no parameters are given, the following default is used: ortho(-width/2, width/2, -height/2, height/2)."
       ],
       "params": {
         "left": "Number: (Optional) camera frustum left plane",
@@ -3492,9 +3529,10 @@
     },
     "frustum": {
       "description": [
-        "Sets a perspective matrix as defined by the parameters. ",
+        "Sets the frustum of the current camera as defined by the parameters. ",
         "A frustum is a geometric form: a pyramid with its top cut off. With the viewer's eye at the imaginary top of the pyramid, the six planes of the frustum act as clipping planes when rendering a 3D view. Thus, any form inside the clipping planes is visible; anything outside those planes is not visible. ",
-        "Setting the frustum changes the perspective of the scene being rendered. This can be achieved more simply in many cases by using <a href=\"https://p5js.org/reference/#/p5/perspective\">perspective()</a>."
+        "Setting the frustum changes the perspective of the scene being rendered. This can be achieved more simply in many cases by using <a href=\"https://p5js.org/reference/#/p5/perspective\">perspective()</a>. ",
+        "If no parameters are given, the following default is used: frustum(-width/2, width/2, -height/2, height/2, 0, max(width, height))."
       ],
       "params": {
         "left": "Number: (Optional) camera frustum left plane",
@@ -3507,13 +3545,15 @@
     },
     "createCamera": {
       "description": [
-        "Creates a new <a href=\"#/p5.Camera\">p5.Camera</a> object and tells the renderer to use that camera. Returns the p5.Camera object."
+        "Creates a new <a href=\"#/p5.Camera\">p5.Camera</a> object and sets it as the current (active) camera. ",
+        "The new camera is initialized with a default position (see <a href=\"#/p5.Camera/camera\">camera()</a>) and a default perspective projection (see <a href=\"#/p5.Camera/perspective\">perspective()</a>). Its properties can be controlled with the <a href=\"#/p5.Camera\">p5.Camera</a> methods. ",
+        "Note: Every 3D sketch starts with a default camera initialized. This camera can be controlled with the global methods <a href=\"#/p5/camera\">camera()</a>, <a href=\"#/p5/perspective\">perspective()</a>, <a href=\"#/p5/ortho\">ortho()</a>, and <a href=\"#/p5/frustum\">frustum()</a> if it is the only camera in the scene."
       ],
       "returns": "p5.Camera: The newly created camera object."
     },
     "setCamera": {
       "description": [
-        "Sets rendererGL's current camera to a p5.Camera object. Allows switching between multiple cameras."
+        "Sets the current (active) camera of a 3D sketch. Allows for switching between multiple cameras."
       ],
       "params": {
         "cam": "p5.Camera: p5.Camera object"
@@ -3537,6 +3577,49 @@
         "value": "Boolean: New value of named attribute",
         "obj": "Object: object with key-value pairs"
       }
+    },
+    "getAudioContext": {
+      "description": [
+        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.  ",
+        "Some browsers require users to startAudioContext with a user gesture, such as touchStarted in the example below."
+      ],
+      "returns": "Object: AudioContext for this sketch"
+    },
+    "userStartAudio": {
+      "description": [
+        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state.  ",
+        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>.  ",
+        "<code>userStartAudio()</code> starts the AudioContext on a user gesture. The default behavior will enable audio on any mouseUp or touchEnd event. It can also be placed in a specific interaction function, such as <code>mousePressed()</code> as in the example below. This method utilizes <a href=\"https://github.com/tambien/StartAudioContext\">StartAudioContext </a>, a library by Yotam Mann (MIT Licence, 2016)."
+      ],
+      "returns": "Promise: Returns a Promise that resolves when  the AudioContext state is 'running'",
+      "params": {
+        "element(s)": "Element|Array: (Optional) This argument can be an Element,  Selector String, NodeList, p5.Element,  jQuery Element, or an Array of any of those.",
+        "callback": "Function: (Optional) Callback to invoke when the AudioContext  has started"
+      }
+    },
+    "getOutputVolume": {
+      "description": [
+        "Returns a number representing the output volume for sound in this sketch."
+      ],
+      "returns": "Number: Output volume for sound in this sketch.  Should be between 0.0 (silence) and 1.0."
+    },
+    "outputVolume": {
+      "description": [
+        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.  ",
+        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal. ",
+        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.  ",
+        "If no value is provided, returns a Web Audio API Gain Node"
+      ],
+      "params": {
+        "volume": "Number|Object: Volume (amplitude) between 0.0  and 1.0 or modulating signal/oscillator",
+        "rampTime": "Number: (Optional) Fade for t seconds",
+        "timeFromNow": "Number: (Optional) Schedule this event to happen at  t seconds in the future"
+      }
+    },
+    "soundOut": {
+      "description": [
+        "<code>p5.soundOut</code> is the p5.sound final output bus. It sends output to the destination of this window's web audio context. It contains Web Audio API nodes including a dyanmicsCompressor (<code>.limiter</code>), and Gain Nodes for <code>.input</code> and <code>.output</code>."
+      ]
     },
     "sampleRate": {
       "description": [
@@ -3570,23 +3653,13 @@
         "formats": "String: (Optional) i.e. 'mp3', 'wav', 'ogg'"
       }
     },
-    "getAudioContext": {
+    "saveSound": {
       "description": [
-        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.  ",
-        "Some browsers require users to startAudioContext with a user gesture, such as touchStarted in the example below."
+        "Save a p5.SoundFile as a .wav file. The browser will prompt the user to download the file to their device. For uploading audio to a server, use <a href=\"/docs/reference/#/p5.SoundFile/saveBlob\"><code>p5.SoundFile.saveBlob</code></a>."
       ],
-      "returns": "Object: AudioContext for this sketch"
-    },
-    "userStartAudio": {
-      "description": [
-        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state.  ",
-        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>.  ",
-        "<code>userStartAudio()</code> starts the AudioContext on a user gesture. The default behavior will enable audio on any mouseUp or touchEnd event. It can also be placed in a specific interaction function, such as <code>mousePressed()</code> as in the example below. This method utilizes <a href=\"https://github.com/tambien/StartAudioContext\">StartAudioContext </a>, a library by Yotam Mann (MIT Licence, 2016)."
-      ],
-      "returns": "Promise: Returns a Promise that resolves when  the AudioContext state is 'running'",
       "params": {
-        "element(s)": "Element|Array: (Optional) This argument can be an Element,  Selector String, NodeList, p5.Element,  jQuery Element, or an Array of any of those.",
-        "callback": "Function: (Optional) Callback to invoke when the AudioContext  has started"
+        "soundFile": "p5.SoundFile: p5.SoundFile that you wish to save",
+        "fileName": "String: name of the resulting .wav file."
       }
     },
     "loadSound": {
@@ -3619,15 +3692,6 @@
       "params": {
         "BPM": "Number: Beats Per Minute",
         "rampTime": "Number: Seconds from now"
-      }
-    },
-    "saveSound": {
-      "description": [
-        "Save a p5.SoundFile as a .wav file. The browser will prompt the user to download the file to their device. For uploading audio to a server, use <a href=\"/docs/reference/#/p5.SoundFile/saveBlob\"><code>p5.SoundFile.saveBlob</code></a>."
-      ],
-      "params": {
-        "soundFile": "p5.SoundFile: p5.SoundFile that you wish to save",
-        "fileName": "String: name of the resulting .wav file."
       }
     }
   },
@@ -5061,7 +5125,7 @@
         "value": "p5.Vector|Number[]: the vector to add",
         "v1": "p5.Vector: a <a href=\"#/p5.Vector\">p5.Vector</a> to add",
         "v2": "p5.Vector: a <a href=\"#/p5.Vector\">p5.Vector</a> to add",
-        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
+        "target": "p5.Vector: (Optional) the vector to receive the result"
       }
     },
     "rem": {
@@ -5088,7 +5152,7 @@
         "value": "p5.Vector|Number[]: the vector to subtract",
         "v1": "p5.Vector: a <a href=\"#/p5.Vector\">p5.Vector</a> to subtract from",
         "v2": "p5.Vector: a <a href=\"#/p5.Vector\">p5.Vector</a> to subtract",
-        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
+        "target": "p5.Vector: (Optional) the vector to receive the result"
       }
     },
     "mult": {
@@ -5102,7 +5166,7 @@
         "z": "Number: (Optional) The number to multiply with the z component of the vector",
         "arr": "Number[]: The array to multiply with the components of the vector",
         "v": "p5.Vector: The vector to multiply with the components of the original vector",
-        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)",
+        "target": "p5.Vector: (Optional) the vector to receive the result",
         "v0": "p5.Vector",
         "v1": "p5.Vector"
       }
@@ -5118,7 +5182,7 @@
         "z": "Number: (Optional) The number to divide with the z component of the vector",
         "arr": "Number[]: The array to divide the components of the vector by",
         "v": "p5.Vector: The vector to divide the components of the original vector by",
-        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)",
+        "target": "p5.Vector: (Optional) the vector to receive the result",
         "v0": "p5.Vector",
         "v1": "p5.Vector"
       }
@@ -5165,7 +5229,7 @@
     },
     "dist": {
       "description": [
-        "Calculates the Euclidean distance between two points (considering a point as a vector object)."
+        "Calculates the Euclidean distance between two points (considering a point as a vector object). If you are looking to calculate distance with 2 points see <a href=\"#/p5/dist\">dist()</a>"
       ],
       "returns": "Number: the distance",
       "params": {
@@ -5181,7 +5245,7 @@
       "returns": "p5.Vector: normalized <a href=\"#/p5.Vector\">p5.Vector</a>",
       "params": {
         "v": "p5.Vector: the vector to normalize",
-        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
+        "target": "p5.Vector: (Optional) the vector to receive the result"
       }
     },
     "limit": {
@@ -5202,7 +5266,7 @@
     },
     "heading": {
       "description": [
-        "Calculate the angle of rotation for this vector(only 2D vectors). p5.Vectors created using <a src=\"#/p5/createVector\">createVector()</a> will take the current <a = src=\"#/p5/angleMode\">angleMode</a> into consideration, and give the angle in radians or degree accordingly."
+        "Calculate the angle of rotation for this vector(only 2D vectors). p5.Vectors created using <a href=\"#/p5/createVector\">createVector()</a> will take the current <a href=\"#/p5/angleMode\">angleMode</a> into consideration, and give the angle in radians or degree accordingly."
       ],
       "returns": "Number: the angle of rotation"
     },
@@ -5221,12 +5285,12 @@
       "params": {
         "angle": "Number: the angle of rotation",
         "v": "p5.Vector",
-        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
+        "target": "p5.Vector: (Optional) the vector to receive the result"
       }
     },
     "angleBetween": {
       "description": [
-        "Calculates and returns the angle (in radians) between two vectors."
+        "Calculates and returns the angle between two vectors. This function will take the current <a href=\"#/p5/angleMode\">angleMode</a> into consideration, and give the angle in radians or degree accordingly."
       ],
       "returns": "Number: the angle between (in radians)",
       "params": {
@@ -5245,7 +5309,7 @@
         "v": "p5.Vector: the <a href=\"#/p5.Vector\">p5.Vector</a> to lerp to",
         "v1": "p5.Vector",
         "v2": "p5.Vector",
-        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
+        "target": "p5.Vector: (Optional) the vector to receive the result"
       }
     },
     "reflect": {
@@ -5404,15 +5468,19 @@
     },
     "perspective": {
       "description": [
-        "Sets a perspective projection for a p5.Camera object and sets parameters for that projection according to <a href=\"#/p5/perspective\">perspective()</a> syntax."
+        "Sets a perspective projection. Accepts the same parameters as the global <a href=\"#/p5/perspective\">perspective()</a>. More information on this function can be found there."
       ]
     },
     "ortho": {
       "description": [
-        "Sets an orthographic projection for a p5.Camera object and sets parameters for that projection according to <a href=\"#/p5/ortho\">ortho()</a> syntax."
+        "Sets an orthographic projection. Accepts the same parameters as the global <a href=\"#/p5/ortho\">ortho()</a>. More information on this function can be found there."
       ]
     },
-    "frustum": {},
+    "frustum": {
+      "description": [
+        "Sets the camera's frustum. Accepts the same parameters as the global <a href=\"#/p5/frustum\">frustum()</a>. More information on this function can be found there."
+      ]
+    },
     "pan": {
       "description": [
         "Panning rotates the camera view to the left and right."
@@ -5441,7 +5509,7 @@
     },
     "camera": {
       "description": [
-        "Sets a camera's position and orientation. This is equivalent to calling <a href=\"#/p5/camera\">camera()</a> on a p5.Camera object."
+        "Sets the camera's position and orientation. Accepts the same parameters as the global <a href=\"#/p5/camera\">camera()</a>. More information on this function can be found there."
       ]
     },
     "move": {
@@ -5519,19 +5587,128 @@
       }
     }
   },
-  "p5.sound": {
-    "getMasterVolume": {
-      "description": [
-        "Returns a number representing the master amplitude (volume) for sound in this sketch."
-      ],
-      "returns": "Number: Master amplitude (volume) for sound in this sketch.  Should be between 0.0 (silence) and 1.0."
+  "p5.sound": {},
+  "p5.SoundFile": {
+    "description": [
+      "SoundFile object with a path to a file.  ",
+      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
+      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
+      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatability, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
+    ],
+    "params": {
+      "path": "String|Array: path to a sound file (String). Optionally,  you may include multiple file formats in  an array. Alternately, accepts an object  from the HTML5 File API, or a p5.File.",
+      "successCallback": "Function: (Optional) Name of a function to call once file loads",
+      "errorCallback": "Function: (Optional) Name of a function to call if file fails to  load. This function will receive an error or  XMLHttpRequest object with information  about what went wrong.",
+      "whileLoadingCallback": "Function: (Optional) Name of a function to call while file  is loading. That function will  receive progress of the request to  load the sound file  (between 0 and 1) as its first  parameter. This progress  does not account for the additional  time needed to decode the audio data."
     },
-    "masterVolume": {
+    "isLoaded": {
       "description": [
-        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.  ",
-        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal. ",
-        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.  ",
-        "If no value is provided, returns a Web Audio API Gain Node"
+        "Returns true if the sound file finished loading successfully."
+      ],
+      "returns": "Boolean: "
+    },
+    "play": {
+      "description": [
+        "Play the p5.SoundFile"
+      ],
+      "params": {
+        "startTime": "Number: (Optional) (optional) schedule playback to start (in seconds from now).",
+        "rate": "Number: (Optional) (optional) playback rate",
+        "amp": "Number: (Optional) (optional) amplitude (volume)  of playback",
+        "cueStart": "Number: (Optional) (optional) cue start time in seconds",
+        "duration": "Number: (Optional) (optional) duration of playback in seconds"
+      }
+    },
+    "playMode": {
+      "description": [
+        "p5.SoundFile has two play modes: <code>restart</code> and <code>sustain</code>. Play Mode determines what happens to a p5.SoundFile if it is triggered while in the middle of playback. In sustain mode, playback will continue simultaneous to the new playback. In restart mode, play() will stop playback and start over. With untilDone, a sound will play only if it's not already playing. Sustain is the default mode."
+      ],
+      "params": {
+        "str": "String: 'restart' or 'sustain' or 'untilDone'"
+      }
+    },
+    "pause": {
+      "description": [
+        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen. ",
+        "After pausing, .play() will resume from the paused position. If p5.SoundFile had been set to loop before it was paused, it will continue to loop after it is unpaused with .play()."
+      ],
+      "params": {
+        "startTime": "Number: (Optional) (optional) schedule event to occur  seconds from now"
+      }
+    },
+    "loop": {
+      "description": [
+        "Loop the p5.SoundFile. Accepts optional parameters to set the playback rate, playback volume, loopStart, loopEnd."
+      ],
+      "params": {
+        "startTime": "Number: (Optional) (optional) schedule event to occur  seconds from now",
+        "rate": "Number: (Optional) (optional) playback rate",
+        "amp": "Number: (Optional) (optional) playback volume",
+        "cueLoopStart": "Number: (Optional) (optional) startTime in seconds",
+        "duration": "Number: (Optional) (optional) loop duration in seconds"
+      }
+    },
+    "setLoop": {
+      "description": [
+        "Set a p5.SoundFile's looping flag to true or false. If the sound is currently playing, this change will take effect when it reaches the end of the current playback."
+      ],
+      "params": {
+        "Boolean": "Boolean: set looping to true or false"
+      }
+    },
+    "isLooping": {
+      "description": [
+        "Returns 'true' if a p5.SoundFile is currently looping and playing, 'false' if not."
+      ],
+      "returns": "Boolean: "
+    },
+    "isPlaying": {
+      "description": [
+        "Returns true if a p5.SoundFile is playing, false if not (i.e. paused or stopped)."
+      ],
+      "returns": "Boolean: "
+    },
+    "isPaused": {
+      "description": [
+        "Returns true if a p5.SoundFile is paused, false if not (i.e. playing or stopped)."
+      ],
+      "returns": "Boolean: "
+    },
+    "stop": {
+      "description": [
+        "Stop soundfile playback."
+      ],
+      "params": {
+        "startTime": "Number: (Optional) (optional) schedule event to occur  in seconds from now"
+      }
+    },
+    "pan": {
+      "description": [
+        "Set the stereo panning of a p5.sound object to a floating point number between -1.0 (left) and 1.0 (right). Default is 0.0 (center)."
+      ],
+      "params": {
+        "panValue": "Number: (Optional) Set the stereo panner",
+        "timeFromNow": "Number: (Optional) schedule this event to happen  seconds from now"
+      }
+    },
+    "getPan": {
+      "description": [
+        "Returns the current stereo pan position (-1.0 to 1.0)"
+      ],
+      "returns": "Number: Returns the stereo pan setting of the Oscillator  as a number between -1.0 (left) and 1.0 (right).  0.0 is center and default."
+    },
+    "rate": {
+      "description": [
+        "Set the playback rate of a sound file. Will change the speed and the pitch. Values less than zero will reverse the audio buffer."
+      ],
+      "params": {
+        "playbackRate": "Number: (Optional) Set the playback rate. 1.0 is normal,  .5 is half-speed, 2.0 is twice as fast.  Values less than zero play backwards."
+      }
+    },
+    "setVolume": {
+      "description": [
+        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class. ",
+        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal."
       ],
       "params": {
         "volume": "Number|Object: Volume (amplitude) between 0.0  and 1.0 or modulating signal/oscillator",
@@ -5539,10 +5716,722 @@
         "timeFromNow": "Number: (Optional) Schedule this event to happen at  t seconds in the future"
       }
     },
-    "soundOut": {
+    "duration": {
       "description": [
-        "<code>p5.soundOut</code> is the p5.sound master output. It sends output to the destination of this window's web audio context. It contains Web Audio API nodes including a dyanmicsCompressor (<code>.limiter</code>), and Gain Nodes for <code>.input</code> and <code>.output</code>."
+        "Returns the duration of a sound file in seconds."
+      ],
+      "returns": "Number: The duration of the soundFile in seconds."
+    },
+    "currentTime": {
+      "description": [
+        "Return the current position of the p5.SoundFile playhead, in seconds. Time is relative to the normal buffer direction, so if <code>reverseBuffer</code> has been called, currentTime will count backwards."
+      ],
+      "returns": "Number: currentTime of the soundFile in seconds."
+    },
+    "jump": {
+      "description": [
+        "Move the playhead of a soundfile that is currently playing to a new position and a new duration, in seconds. If none are given, will reset the file to play entire duration from start to finish. To set the position of a soundfile that is not currently playing, use the <code>play</code> or <code>loop</code> methods."
+      ],
+      "params": {
+        "cueTime": "Number: cueTime of the soundFile in seconds.",
+        "duration": "Number: duration in seconds."
+      }
+    },
+    "channels": {
+      "description": [
+        "Return the number of channels in a sound file. For example, Mono = 1, Stereo = 2."
+      ],
+      "returns": "Number: [channels]"
+    },
+    "sampleRate": {
+      "description": [
+        "Return the sample rate of the sound file."
+      ],
+      "returns": "Number: [sampleRate]"
+    },
+    "frames": {
+      "description": [
+        "Return the number of samples in a sound file. Equal to sampleRate * duration."
+      ],
+      "returns": "Number: [sampleCount]"
+    },
+    "getPeaks": {
+      "description": [
+        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations. ",
+        "Inspired by Wavesurfer.js."
+      ],
+      "returns": "Float32Array: Array of peaks.",
+      "params": {
+        "length": "Number: (Optional) length is the size of the returned array.  Larger length results in more precision.  Defaults to 5*width of the browser window."
+      }
+    },
+    "reverseBuffer": {
+      "description": [
+        "Reverses the p5.SoundFile's buffer source. Playback must be handled separately (see example)."
       ]
+    },
+    "onended": {
+      "description": [
+        "Schedule an event to be called when the soundfile reaches the end of a buffer. If the soundfile is playing through once, this will be called when it ends. If it is looping, it will be called when stop is called."
+      ],
+      "params": {
+        "callback": "Function: function to call when the  soundfile has ended."
+      }
+    },
+    "connect": {
+      "description": [
+        "Connects the output of a p5sound object to input of another p5.sound object. For example, you may connect a p5.SoundFile to an FFT or an Effect. If no parameter is given, it will connect to the main output. Most p5sound objects connect to the master output when they are created."
+      ],
+      "params": {
+        "object": "Object: (Optional) Audio object that accepts an input"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnects the output of this p5sound object."
+      ]
+    },
+    "setPath": {
+      "description": [
+        "Reset the source for this SoundFile to a new path (URL)."
+      ],
+      "params": {
+        "path": "String: path to audio file",
+        "callback": "Function: Callback"
+      }
+    },
+    "setBuffer": {
+      "description": [
+        "Replace the current Audio Buffer with a new Buffer."
+      ],
+      "params": {
+        "buf": "Array: Array of Float32 Array(s). 2 Float32 Arrays  will create a stereo source. 1 will create  a mono source."
+      }
+    },
+    "addCue": {
+      "description": [
+        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point. ",
+        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback. ",
+        "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
+      ],
+      "returns": "Number: id ID of this cue,  useful for removeCue(id)",
+      "params": {
+        "time": "Number: Time in seconds, relative to this media  element's playback. For example, to trigger  an event every time playback reaches two  seconds, pass in the number 2. This will be  passed as the first parameter to  the callback function.",
+        "callback": "Function: Name of a function that will be  called at the given time. The callback will  receive time and (optionally) param as its  two parameters.",
+        "value": "Object: (Optional) An object to be passed as the  second parameter to the  callback function."
+      }
+    },
+    "removeCue": {
+      "description": [
+        "Remove a callback based on its ID. The ID is returned by the addCue method."
+      ],
+      "params": {
+        "id": "Number: ID of the cue, as returned by addCue"
+      }
+    },
+    "clearCues": {
+      "description": [
+        "Remove all of the callbacks that had originally been scheduled via the addCue method."
+      ]
+    },
+    "save": {
+      "description": [
+        "Save a p5.SoundFile as a .wav file. The browser will prompt the user to download the file to their device. To upload a file to a server, see <a href=\"/reference/#/p5.SoundFile/getBlob\">getBlob</a>"
+      ],
+      "params": {
+        "fileName": "String: (Optional) name of the resulting .wav file."
+      }
+    },
+    "getBlob": {
+      "description": [
+        "This method is useful for sending a SoundFile to a server. It returns the .wav-encoded audio data as a \"<a target=\"_blank\" title=\"Blob reference at MDN\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/Blob\">Blob</a>\". A Blob is a file-like data object that can be uploaded to a server with an <a href=\"/reference/#/p5/httpDo\">http</a> request. We'll use the <code>httpDo</code> options object to send a POST request with some specific options: we encode the request as <code>multipart/form-data</code>, and attach the blob as one of the form values using <code>FormData</code>."
+      ],
+      "returns": "Blob: A file-like data object"
+    }
+  },
+  "p5.Amplitude": {
+    "description": [
+      "Amplitude measures volume between 0.0 and 1.0. Listens to all p5sound by default, or use setInput() to listen to a specific sound source. Accepts an optional smoothing value, which defaults to 0."
+    ],
+    "params": {
+      "smoothing": "Number: (Optional) between 0.0 and .999 to smooth  amplitude readings (defaults to 0)"
+    },
+    "setInput": {
+      "description": [
+        "Connects to the p5sound instance (main output) by default. Optionally, you can pass in a specific source (i.e. a soundfile)."
+      ],
+      "params": {
+        "snd": "SoundObject|undefined: (Optional) set the sound source  (optional, defaults to  main output)",
+        "smoothing": "Number|undefined: (Optional) a range between 0.0 and 1.0  to smooth amplitude readings"
+      }
+    },
+    "getLevel": {
+      "description": [
+        "Returns a single Amplitude reading at the moment it is called. For continuous readings, run in the draw loop."
+      ],
+      "returns": "Number: Amplitude as a number between 0.0 and 1.0",
+      "params": {
+        "channel": "Number: (Optional) Optionally return only channel 0 (left) or 1 (right)"
+      }
+    },
+    "toggleNormalize": {
+      "description": [
+        "Determines whether the results of Amplitude.process() will be Normalized. To normalize, Amplitude finds the difference the loudest reading it has processed and the maximum amplitude of 1.0. Amplitude adds this difference to all values to produce results that will reliably map between 0.0 and 1.0. However, if a louder moment occurs, the amount that Normalize adds to all the values will change. Accepts an optional boolean parameter (true or false). Normalizing is off by default."
+      ],
+      "params": {
+        "boolean": "Boolean: (Optional) set normalize to true (1) or false (0)"
+      }
+    },
+    "smooth": {
+      "description": [
+        "Smooth Amplitude analysis by averaging with the last analysis frame. Off by default."
+      ],
+      "params": {
+        "set": "Number: smoothing from 0.0 <= 1"
+      }
+    }
+  },
+  "p5.FFT": {
+    "description": [
+      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.  ",
+      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies. ",
+      "FFT analyzes a very short snapshot of sound called a sample buffer. It returns an array of amplitude measurements, referred to as <code>bins</code>. The array is 1024 bins long by default. You can change the bin array length, but it must be a power of 2 between 16 and 1024 in order for the FFT algorithm to function correctly. The actual size of the FFT buffer is twice the number of bins, so given a standard sample rate, the buffer is 2048/44100 seconds long."
+    ],
+    "params": {
+      "smoothing": "Number: (Optional) Smooth results of Freq Spectrum.  0.0 < smoothing < 1.0.  Defaults to 0.8.",
+      "bins": "Number: (Optional) Length of resulting array.  Must be a power of two between  16 and 1024. Defaults to 1024."
+    },
+    "setInput": {
+      "description": [
+        "Set the input source for the FFT analysis. If no source is provided, FFT will analyze all sound in the sketch."
+      ],
+      "params": {
+        "source": "Object: (Optional) p5.sound object (or web audio API source node)"
+      }
+    },
+    "waveform": {
+      "description": [
+        "Returns an array of amplitude values (between -1.0 and +1.0) that represent a snapshot of amplitude readings in a single buffer. Length will be equal to bins (defaults to 1024). Can be used to draw the waveform of a sound."
+      ],
+      "returns": "Array: Array Array of amplitude values (-1 to 1)  over time. Array length = bins.",
+      "params": {
+        "bins": "Number: (Optional) Must be a power of two between  16 and 1024. Defaults to 1024.",
+        "precision": "String: (Optional) If any value is provided, will return results  in a Float32 Array which is more precise  than a regular array."
+      }
+    },
+    "analyze": {
+      "description": [
+        "Returns an array of amplitude values (between 0 and 255) across the frequency spectrum. Length is equal to FFT bins (1024 by default). The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Must be called prior to using <code>getEnergy()</code>."
+      ],
+      "returns": "Array: spectrum Array of energy (amplitude/volume)  values across the frequency spectrum.  Lowest energy (silence) = 0, highest  possible is 255.",
+      "params": {
+        "bins": "Number: (Optional) Must be a power of two between  16 and 1024. Defaults to 1024.",
+        "scale": "Number: (Optional) If \"dB,\" returns decibel  float measurements between  -140 and 0 (max).  Otherwise returns integers from 0-255."
+      }
+    },
+    "getEnergy": {
+      "description": [
+        "Returns the amount of energy (volume) at a specific <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\" target=\"_blank\"> frequency</a>, or the average amount of energy between two frequencies. Accepts Number(s) corresponding to frequency (in Hz), or a \"string\" corresponding to predefined frequency ranges (\"bass\", \"lowMid\", \"mid\", \"highMid\", \"treble\"). Returns a range between 0 (no energy/volume at that frequency) and 255 (maximum energy). <em>NOTE: analyze() must be called prior to getEnergy(). analyze() tells the FFT to analyze frequency data, and getEnergy() uses the results to determine the value at a specific frequency or range of frequencies.</em>"
+      ],
+      "returns": "Number: Energy Energy (volume/amplitude) from  0 and 255.",
+      "params": {
+        "frequency1": "Number|String: Will return a value representing  energy at this frequency. Alternately,  the strings \"bass\", \"lowMid\" \"mid\",  \"highMid\", and \"treble\" will return  predefined frequency ranges.",
+        "frequency2": "Number: (Optional) If a second frequency is given,  will return average amount of  energy that exists between the  two frequencies."
+      }
+    },
+    "getCentroid": {
+      "description": [
+        "Returns the <a href=\"http://en.wikipedia.org/wiki/Spectral_centroid\" target=\"_blank\"> spectral centroid</a> of the input signal. <em>NOTE: analyze() must be called prior to getCentroid(). Analyze() tells the FFT to analyze frequency data, and getCentroid() uses the results determine the spectral centroid.</em>"
+      ],
+      "returns": "Number: Spectral Centroid Frequency of the spectral centroid in Hz."
+    },
+    "smooth": {
+      "description": [
+        "Smooth FFT analysis by averaging with the last analysis frame."
+      ],
+      "params": {
+        "smoothing": "Number: 0.0 < smoothing < 1.0.  Defaults to 0.8."
+      }
+    },
+    "linAverages": {
+      "description": [
+        "Returns an array of average amplitude values for a given number of frequency bands split equally. N defaults to 16. <em>NOTE: analyze() must be called prior to linAverages(). Analyze() tells the FFT to analyze frequency data, and linAverages() uses the results to group them into a smaller set of averages.</em>"
+      ],
+      "returns": "Array: linearAverages Array of average amplitude values for each group",
+      "params": {
+        "N": "Number: Number of returned frequency groups"
+      }
+    },
+    "logAverages": {
+      "description": [
+        "Returns an array of average amplitude values of the spectrum, for a given set of <a href=\"https://en.wikipedia.org/wiki/Octave_band\" target=\"_blank\"> Octave Bands</a> <em>NOTE: analyze() must be called prior to logAverages(). Analyze() tells the FFT to analyze frequency data, and logAverages() uses the results to group them into a smaller set of averages.</em>"
+      ],
+      "returns": "Array: logAverages Array of average amplitude values for each group",
+      "params": {
+        "octaveBands": "Array: Array of Octave Bands objects for grouping"
+      }
+    },
+    "getOctaveBands": {
+      "description": [
+        "Calculates and Returns the 1/N <a href=\"https://en.wikipedia.org/wiki/Octave_band\" target=\"_blank\">Octave Bands</a> N defaults to 3 and minimum central frequency to 15.625Hz. (1/3 Octave Bands ~= 31 Frequency Bands) Setting fCtr0 to a central value of a higher octave will ignore the lower bands and produce less frequency groups."
+      ],
+      "returns": "Array: octaveBands Array of octave band objects with their bounds",
+      "params": {
+        "N": "Number: Specifies the 1/N type of generated octave bands",
+        "fCtr0": "Number: Minimum central frequency for the lowest band"
+      }
+    }
+  },
+  "p5.Oscillator": {
+    "description": [
+      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).  ",
+      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>. "
+    ],
+    "params": {
+      "freq": "Number: (Optional) frequency defaults to 440Hz",
+      "type": "String: (Optional) type of oscillator. Options:  'sine' (default), 'triangle',  'sawtooth', 'square'"
+    },
+    "start": {
+      "description": [
+        "Start an oscillator. ",
+        "Starting an oscillator on a user gesture will enable audio in browsers that have a strict autoplay policy, including Chrome and most mobile devices. See also: <code>userStartAudio()</code>."
+      ],
+      "params": {
+        "time": "Number: (Optional) startTime in seconds from now.",
+        "frequency": "Number: (Optional) frequency in Hz."
+      }
+    },
+    "stop": {
+      "description": [
+        "Stop an oscillator. Accepts an optional parameter to determine how long (in seconds from now) until the oscillator stops."
+      ],
+      "params": {
+        "secondsFromNow": "Number: Time, in seconds from now."
+      }
+    },
+    "amp": {
+      "description": [
+        "Set the amplitude between 0 and 1.0. Or, pass in an object such as an oscillator to modulate amplitude with an audio signal."
+      ],
+      "returns": "AudioParam: gain If no value is provided,  returns the Web Audio API  AudioParam that controls  this oscillator's  gain/amplitude/volume)",
+      "params": {
+        "vol": "Number|Object: between 0 and 1.0  or a modulating signal/oscillator",
+        "rampTime": "Number: (Optional) create a fade that lasts rampTime",
+        "timeFromNow": "Number: (Optional) schedule this event to happen  seconds from now"
+      }
+    },
+    "getAmp": {
+      "description": [
+        "Returns the value of output gain"
+      ],
+      "returns": "Number: Amplitude value between 0.0 and 1.0"
+    },
+    "freq": {
+      "description": [
+        "Set frequency of an oscillator to a value. Or, pass in an object such as an oscillator to modulate the frequency with an audio signal."
+      ],
+      "returns": "AudioParam: Frequency If no value is provided,  returns the Web Audio API  AudioParam that controls  this oscillator's frequency",
+      "params": {
+        "Frequency": "Number|Object: Frequency in Hz  or modulating signal/oscillator",
+        "rampTime": "Number: (Optional) Ramp time (in seconds)",
+        "timeFromNow": "Number: (Optional) Schedule this event to happen  at x seconds from now"
+      }
+    },
+    "getFreq": {
+      "description": [
+        "Returns the value of frequency of oscillator"
+      ],
+      "returns": "Number: Frequency of oscillator in Hertz"
+    },
+    "setType": {
+      "description": [
+        "Set type to 'sine', 'triangle', 'sawtooth' or 'square'."
+      ],
+      "params": {
+        "type": "String: 'sine', 'triangle', 'sawtooth' or 'square'."
+      }
+    },
+    "getType": {
+      "description": [
+        "Returns current type of oscillator eg. 'sine', 'triangle', 'sawtooth' or 'square'."
+      ],
+      "returns": "String: type of oscillator eg . 'sine', 'triangle', 'sawtooth' or 'square'."
+    },
+    "connect": {
+      "description": [
+        "Connect to a p5.sound / Web Audio object."
+      ],
+      "params": {
+        "unit": "Object: A p5.sound or Web Audio object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect all outputs"
+      ]
+    },
+    "pan": {
+      "description": [
+        "Pan between Left (-1) and Right (1)"
+      ],
+      "params": {
+        "panning": "Number: Number between -1 and 1",
+        "timeFromNow": "Number: schedule this event to happen  seconds from now"
+      }
+    },
+    "getPan": {
+      "description": [
+        "Returns the current value of panPosition , between Left (-1) and Right (1)"
+      ],
+      "returns": "Number: panPosition of oscillator , between Left (-1) and Right (1)"
+    },
+    "phase": {
+      "description": [
+        "Set the phase of an oscillator between 0.0 and 1.0. In this implementation, phase is a delay time based on the oscillator's current frequency."
+      ],
+      "params": {
+        "phase": "Number: float between 0.0 and 1.0"
+      }
+    },
+    "add": {
+      "description": [
+        "Add a value to the p5.Oscillator's output amplitude, and return the oscillator. Calling this method again will override the initial add() with a new value."
+      ],
+      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with scaled output",
+      "params": {
+        "number": "Number: Constant number to add"
+      }
+    },
+    "mult": {
+      "description": [
+        "Multiply the p5.Oscillator's output amplitude by a fixed value (i.e. turn it up!). Calling this method again will override the initial mult() with a new value."
+      ],
+      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with multiplied output",
+      "params": {
+        "number": "Number: Constant number to multiply"
+      }
+    },
+    "scale": {
+      "description": [
+        "Scale this oscillator's amplitude values to a given range, and return the oscillator. Calling this method again will override the initial scale() with new values."
+      ],
+      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with scaled output",
+      "params": {
+        "inMin": "Number: input range minumum",
+        "inMax": "Number: input range maximum",
+        "outMin": "Number: input range minumum",
+        "outMax": "Number: input range maximum"
+      }
+    }
+  },
+  "p5.SinOsc": {
+    "description": [
+      "Constructor: <code>new p5.SinOsc()</code>. This creates a Sine Wave Oscillator and is equivalent to <code> new p5.Oscillator('sine') </code> or creating a p5.Oscillator and then calling its method <code>setType('sine')</code>. See p5.Oscillator for methods."
+    ],
+    "params": {
+      "freq": "Number: (Optional) Set the frequency"
+    }
+  },
+  "p5.TriOsc": {
+    "description": [
+      "Constructor: <code>new p5.TriOsc()</code>. This creates a Triangle Wave Oscillator and is equivalent to <code>new p5.Oscillator('triangle') </code> or creating a p5.Oscillator and then calling its method <code>setType('triangle')</code>. See p5.Oscillator for methods."
+    ],
+    "params": {
+      "freq": "Number: (Optional) Set the frequency"
+    }
+  },
+  "p5.SawOsc": {
+    "description": [
+      "Constructor: <code>new p5.SawOsc()</code>. This creates a SawTooth Wave Oscillator and is equivalent to <code> new p5.Oscillator('sawtooth') </code> or creating a p5.Oscillator and then calling its method <code>setType('sawtooth')</code>. See p5.Oscillator for methods."
+    ],
+    "params": {
+      "freq": "Number: (Optional) Set the frequency"
+    }
+  },
+  "p5.SqrOsc": {
+    "description": [
+      "Constructor: <code>new p5.SqrOsc()</code>. This creates a Square Wave Oscillator and is equivalent to <code> new p5.Oscillator('square') </code> or creating a p5.Oscillator and then calling its method <code>setType('square')</code>. See p5.Oscillator for methods."
+    ],
+    "params": {
+      "freq": "Number: (Optional) Set the frequency"
+    }
+  },
+  "p5.Envelope": {
+    "description": [
+      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>. ",
+      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime. ",
+      "Use the <code><a href=\"#/p5.Envelope/play\">play</a></code> method to play the entire envelope, the <code><a href=\"#/p5.Envelope/ramp\">ramp</a></code> method for a pingable trigger, or <code><a href=\"#/p5.Envelope/triggerAttack\">triggerAttack</a></code>/ <code><a href=\"#/p5.Envelope/triggerRelease\">triggerRelease</a></code> to trigger noteOn/noteOff."
+    ],
+    "attackTime": {
+      "description": [
+        "Time until envelope reaches attackLevel"
+      ]
+    },
+    "attackLevel": {
+      "description": [
+        "Level once attack is complete."
+      ]
+    },
+    "decayTime": {
+      "description": [
+        "Time until envelope reaches decayLevel."
+      ]
+    },
+    "decayLevel": {
+      "description": [
+        "Level after decay. The envelope will sustain here until it is released."
+      ]
+    },
+    "releaseTime": {
+      "description": [
+        "Duration of the release portion of the envelope."
+      ]
+    },
+    "releaseLevel": {
+      "description": [
+        "Level at the end of the release."
+      ]
+    },
+    "set": {
+      "description": [
+        "Reset the envelope with a series of time/value pairs."
+      ],
+      "params": {
+        "attackTime": "Number: Time (in seconds) before level  reaches attackLevel",
+        "attackLevel": "Number: Typically an amplitude between  0.0 and 1.0",
+        "decayTime": "Number: Time",
+        "decayLevel": "Number: Amplitude (In a standard ADSR envelope,  decayLevel = sustainLevel)",
+        "releaseTime": "Number: Release Time (in seconds)",
+        "releaseLevel": "Number: Amplitude"
+      }
+    },
+    "setADSR": {
+      "description": [
+        "Set values like a traditional <a href=\"https://en.wikipedia.org/wiki/Synthesizer#/media/File:ADSR_parameter.svg\"> ADSR envelope </a>."
+      ],
+      "params": {
+        "attackTime": "Number: Time (in seconds before envelope  reaches Attack Level",
+        "decayTime": "Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level",
+        "susRatio": "Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
+        "releaseTime": "Number: (Optional) Time in seconds from now (defaults to 0)"
+      }
+    },
+    "setRange": {
+      "description": [
+        "Set max (attackLevel) and min (releaseLevel) of envelope."
+      ],
+      "params": {
+        "aLevel": "Number: attack level (defaults to 1)",
+        "rLevel": "Number: release level (defaults to 0)"
+      }
+    },
+    "setInput": {
+      "description": [
+        "Assign a parameter to be controlled by this envelope. If a p5.Sound object is given, then the p5.Envelope will control its output gain. If multiple inputs are provided, the env will control all of them."
+      ],
+      "params": {
+        "inputs": "Object: (Optional) A p5.sound object or  Web Audio Param."
+      }
+    },
+    "setExp": {
+      "description": [
+        "Set whether the envelope ramp is linear (default) or exponential. Exponential ramps can be useful because we perceive amplitude and frequency logarithmically."
+      ],
+      "params": {
+        "isExp": "Boolean: true is exponential, false is linear"
+      }
+    },
+    "play": {
+      "description": [
+        "Play tells the envelope to start acting on a given input. If the input is a p5.sound object (i.e. AudioIn, Oscillator, SoundFile), then Envelope will control its output volume. Envelopes can also be used to control any <a href=\" http://docs.webplatform.org/wiki/apis/webaudio/AudioParam\"> Web Audio Audio Param.</a>"
+      ],
+      "params": {
+        "unit": "Object: A p5.sound object or  Web Audio Param.",
+        "startTime": "Number: (Optional) time from now (in seconds) at which to play",
+        "sustainTime": "Number: (Optional) time to sustain before releasing the envelope"
+      }
+    },
+    "triggerAttack": {
+      "description": [
+        "Trigger the Attack, and Decay portion of the Envelope. Similar to holding down a key on a piano, but it will hold the sustain level until you let go. Input can be any p5.sound object, or a <a href=\" http://docs.webplatform.org/wiki/apis/webaudio/AudioParam\"> Web Audio Param</a>."
+      ],
+      "params": {
+        "unit": "Object: p5.sound Object or Web Audio Param",
+        "secondsFromNow": "Number: time from now (in seconds)"
+      }
+    },
+    "triggerRelease": {
+      "description": [
+        "Trigger the Release of the Envelope. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
+      ],
+      "params": {
+        "unit": "Object: p5.sound Object or Web Audio Param",
+        "secondsFromNow": "Number: time to trigger the release"
+      }
+    },
+    "ramp": {
+      "description": [
+        "Exponentially ramp to a value using the first two values from <code><a href=\"#/p5.Envelope/setADSR\">setADSR(attackTime, decayTime)</a></code> as <a href=\"https://en.wikipedia.org/wiki/RC_time_constant\"> time constants</a> for simple exponential ramps. If the value is higher than current value, it uses attackTime, while a decrease uses decayTime."
+      ],
+      "params": {
+        "unit": "Object: p5.sound Object or Web Audio Param",
+        "secondsFromNow": "Number: When to trigger the ramp",
+        "v": "Number: Target value",
+        "v2": "Number: (Optional) Second target value"
+      }
+    },
+    "add": {
+      "description": [
+        "Add a value to the p5.Oscillator's output amplitude, and return the oscillator. Calling this method again will override the initial add() with new values."
+      ],
+      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
+      "params": {
+        "number": "Number: Constant number to add"
+      }
+    },
+    "mult": {
+      "description": [
+        "Multiply the p5.Envelope's output amplitude by a fixed value. Calling this method again will override the initial mult() with new values."
+      ],
+      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
+      "params": {
+        "number": "Number: Constant number to multiply"
+      }
+    },
+    "scale": {
+      "description": [
+        "Scale this envelope's amplitude values to a given range, and return the envelope. Calling this method again will override the initial scale() with new values."
+      ],
+      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
+      "params": {
+        "inMin": "Number: input range minumum",
+        "inMax": "Number: input range maximum",
+        "outMin": "Number: input range minumum",
+        "outMax": "Number: input range maximum"
+      }
+    }
+  },
+  "p5.Noise": {
+    "description": [
+      "Noise is a type of oscillator that generates a buffer with random values."
+    ],
+    "params": {
+      "type": "String: Type of noise can be 'white' (default),  'brown' or 'pink'."
+    },
+    "setType": {
+      "description": [
+        "Set type of noise to 'white', 'pink' or 'brown'. White is the default."
+      ],
+      "params": {
+        "type": "String: (Optional) 'white', 'pink' or 'brown'"
+      }
+    }
+  },
+  "p5.Pulse": {
+    "description": [
+      "Creates a Pulse object, an oscillator that implements Pulse Width Modulation. The pulse is created with two oscillators. Accepts a parameter for frequency, and to set the width between the pulses. See <a href=\" http://p5js.org/reference/#/p5.Oscillator\"> <code>p5.Oscillator</code> for a full list of methods."
+    ],
+    "params": {
+      "freq": "Number: (Optional) Frequency in oscillations per second (Hz)",
+      "w": "Number: (Optional) Width between the pulses (0 to 1.0,  defaults to 0)"
+    },
+    "width": {
+      "description": [
+        "Set the width of a Pulse object (an oscillator that implements Pulse Width Modulation)."
+      ],
+      "params": {
+        "width": "Number: (Optional) Width between the pulses (0 to 1.0,  defaults to 0)"
+      }
+    }
+  },
+  "p5.AudioIn": {
+    "description": [
+      "Get audio from an input, i.e. your computer's microphone.  ",
+      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.  ",
+      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.  ",
+      "<em>Note: This uses the <a href=\"http://caniuse.com/stream\">getUserMedia/ Stream</a> API, which is not supported by certain browsers. Access in Chrome browser is limited to localhost and https, but access over http may be limited.</em>"
+    ],
+    "params": {
+      "errorCallback": "Function: (Optional) A function to call if there is an error  accessing the AudioIn. For example,  Safari and iOS devices do not  currently allow microphone access."
+    },
+    "input": {},
+    "output": {},
+    "stream": {},
+    "mediaStream": {},
+    "currentSource": {},
+    "enabled": {
+      "description": [
+        "Client must allow browser to access their microphone / audioin source. Default: false. Will become true when the client enables access."
+      ]
+    },
+    "amplitude": {
+      "description": [
+        "Input amplitude, connect to it by default but not to master out"
+      ]
+    },
+    "start": {
+      "description": [
+        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/> ",
+        "Certain browsers limit access to the user's microphone. For example, Chrome only allows access from localhost and over https. For this reason, you may want to include an errorCallback—a function that is called in case the browser won't provide mic access."
+      ],
+      "params": {
+        "successCallback": "Function: (Optional) Name of a function to call on  success.",
+        "errorCallback": "Function: (Optional) Name of a function to call if  there was an error. For example,  some browsers do not support  getUserMedia."
+      }
+    },
+    "stop": {
+      "description": [
+        "Turn the AudioIn off. If the AudioIn is stopped, it cannot getLevel(). If re-starting, the user may be prompted for permission access."
+      ]
+    },
+    "connect": {
+      "description": [
+        "Connect to an audio unit. If no parameter is provided, will connect to the main output (i.e. your speakers).<br/>"
+      ],
+      "params": {
+        "unit": "Object: (Optional) An object that accepts audio input,  such as an FFT"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect the AudioIn from all audio units. For example, if connect() had been called, disconnect() will stop sending signal to your speakers.<br/>"
+      ]
+    },
+    "getLevel": {
+      "description": [
+        "Read the Amplitude (volume level) of an AudioIn. The AudioIn class contains its own instance of the Amplitude class to help make it easy to get a microphone's volume level. Accepts an optional smoothing value (0.0 < 1.0). <em>NOTE: AudioIn must .start() before using .getLevel().</em><br/>"
+      ],
+      "returns": "Number: Volume level (between 0.0 and 1.0)",
+      "params": {
+        "smoothing": "Number: (Optional) Smoothing is 0.0 by default.  Smooths values based on previous values."
+      }
+    },
+    "amp": {
+      "description": [
+        "Set amplitude (volume) of a mic input between 0 and 1.0. <br/>"
+      ],
+      "params": {
+        "vol": "Number: between 0 and 1.0",
+        "time": "Number: (Optional) ramp time (optional)"
+      }
+    },
+    "getSources": {
+      "description": [
+        "Returns a list of available input sources. This is a wrapper for <a href=\"https://developer.mozilla.org/ en-US/docs/Web/API/MediaDevices/enumerateDevices\" target=\"_blank\"> MediaDevices.enumerateDevices() - Web APIs | MDN</a> and it returns a Promise."
+      ],
+      "returns": "Promise: Returns a Promise that can be used in place of the callbacks, similar  to the enumerateDevices() method",
+      "params": {
+        "successCallback": "Function: (Optional) This callback function handles the sources when they  have been enumerated. The callback function  receives the deviceList array as its only argument",
+        "errorCallback": "Function: (Optional) This optional callback receives the error  message as its argument."
+      }
+    },
+    "setSource": {
+      "description": [
+        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support  <a href=\"https://developer.mozilla.org/  en-US/docs/Web/API/MediaDevices/enumerateDevices\" target=\"_blank\">  navigator.mediaDevices.enumerateDevices()</a>"
+      ],
+      "params": {
+        "num": "Number: position of input source in the array"
+      }
     }
   },
   "p5.Effect": {
@@ -5690,1094 +6579,6 @@
       "Constructor: <code>new p5.BandPass()</code> Filter. This is the same as creating a p5.Filter and then calling its method <code>setType('bandpass')</code>. See p5.Filter for methods."
     ]
   },
-  "p5.Oscillator": {
-    "description": [
-      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).  ",
-      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>. "
-    ],
-    "params": {
-      "freq": "Number: (Optional) frequency defaults to 440Hz",
-      "type": "String: (Optional) type of oscillator. Options:  'sine' (default), 'triangle',  'sawtooth', 'square'"
-    },
-    "start": {
-      "description": [
-        "Start an oscillator. ",
-        "Starting an oscillator on a user gesture will enable audio in browsers that have a strict autoplay policy, including Chrome and most mobile devices. See also: <code>userStartAudio()</code>."
-      ],
-      "params": {
-        "time": "Number: (Optional) startTime in seconds from now.",
-        "frequency": "Number: (Optional) frequency in Hz."
-      }
-    },
-    "stop": {
-      "description": [
-        "Stop an oscillator. Accepts an optional parameter to determine how long (in seconds from now) until the oscillator stops."
-      ],
-      "params": {
-        "secondsFromNow": "Number: Time, in seconds from now."
-      }
-    },
-    "amp": {
-      "description": [
-        "Set the amplitude between 0 and 1.0. Or, pass in an object such as an oscillator to modulate amplitude with an audio signal."
-      ],
-      "returns": "AudioParam: gain If no value is provided,  returns the Web Audio API  AudioParam that controls  this oscillator's  gain/amplitude/volume)",
-      "params": {
-        "vol": "Number|Object: between 0 and 1.0  or a modulating signal/oscillator",
-        "rampTime": "Number: (Optional) create a fade that lasts rampTime",
-        "timeFromNow": "Number: (Optional) schedule this event to happen  seconds from now"
-      }
-    },
-    "freq": {
-      "description": [
-        "Set frequency of an oscillator to a value. Or, pass in an object such as an oscillator to modulate the frequency with an audio signal."
-      ],
-      "returns": "AudioParam: Frequency If no value is provided,  returns the Web Audio API  AudioParam that controls  this oscillator's frequency",
-      "params": {
-        "Frequency": "Number|Object: Frequency in Hz  or modulating signal/oscillator",
-        "rampTime": "Number: (Optional) Ramp time (in seconds)",
-        "timeFromNow": "Number: (Optional) Schedule this event to happen  at x seconds from now"
-      }
-    },
-    "setType": {
-      "description": [
-        "Set type to 'sine', 'triangle', 'sawtooth' or 'square'."
-      ],
-      "params": {
-        "type": "String: 'sine', 'triangle', 'sawtooth' or 'square'."
-      }
-    },
-    "connect": {
-      "description": [
-        "Connect to a p5.sound / Web Audio object."
-      ],
-      "params": {
-        "unit": "Object: A p5.sound or Web Audio object"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect all outputs"
-      ]
-    },
-    "pan": {
-      "description": [
-        "Pan between Left (-1) and Right (1)"
-      ],
-      "params": {
-        "panning": "Number: Number between -1 and 1",
-        "timeFromNow": "Number: schedule this event to happen  seconds from now"
-      }
-    },
-    "phase": {
-      "description": [
-        "Set the phase of an oscillator between 0.0 and 1.0. In this implementation, phase is a delay time based on the oscillator's current frequency."
-      ],
-      "params": {
-        "phase": "Number: float between 0.0 and 1.0"
-      }
-    },
-    "add": {
-      "description": [
-        "Add a value to the p5.Oscillator's output amplitude, and return the oscillator. Calling this method again will override the initial add() with a new value."
-      ],
-      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with scaled output",
-      "params": {
-        "number": "Number: Constant number to add"
-      }
-    },
-    "mult": {
-      "description": [
-        "Multiply the p5.Oscillator's output amplitude by a fixed value (i.e. turn it up!). Calling this method again will override the initial mult() with a new value."
-      ],
-      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with multiplied output",
-      "params": {
-        "number": "Number: Constant number to multiply"
-      }
-    },
-    "scale": {
-      "description": [
-        "Scale this oscillator's amplitude values to a given range, and return the oscillator. Calling this method again will override the initial scale() with new values."
-      ],
-      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with scaled output",
-      "params": {
-        "inMin": "Number: input range minumum",
-        "inMax": "Number: input range maximum",
-        "outMin": "Number: input range minumum",
-        "outMax": "Number: input range maximum"
-      }
-    }
-  },
-  "p5.SinOsc": {
-    "description": [
-      "Constructor: <code>new p5.SinOsc()</code>. This creates a Sine Wave Oscillator and is equivalent to <code> new p5.Oscillator('sine') </code> or creating a p5.Oscillator and then calling its method <code>setType('sine')</code>. See p5.Oscillator for methods."
-    ],
-    "params": {
-      "freq": "Number: (Optional) Set the frequency"
-    }
-  },
-  "p5.TriOsc": {
-    "description": [
-      "Constructor: <code>new p5.TriOsc()</code>. This creates a Triangle Wave Oscillator and is equivalent to <code>new p5.Oscillator('triangle') </code> or creating a p5.Oscillator and then calling its method <code>setType('triangle')</code>. See p5.Oscillator for methods."
-    ],
-    "params": {
-      "freq": "Number: (Optional) Set the frequency"
-    }
-  },
-  "p5.SawOsc": {
-    "description": [
-      "Constructor: <code>new p5.SawOsc()</code>. This creates a SawTooth Wave Oscillator and is equivalent to <code> new p5.Oscillator('sawtooth') </code> or creating a p5.Oscillator and then calling its method <code>setType('sawtooth')</code>. See p5.Oscillator for methods."
-    ],
-    "params": {
-      "freq": "Number: (Optional) Set the frequency"
-    }
-  },
-  "p5.SqrOsc": {
-    "description": [
-      "Constructor: <code>new p5.SqrOsc()</code>. This creates a Square Wave Oscillator and is equivalent to <code> new p5.Oscillator('square') </code> or creating a p5.Oscillator and then calling its method <code>setType('square')</code>. See p5.Oscillator for methods."
-    ],
-    "params": {
-      "freq": "Number: (Optional) Set the frequency"
-    }
-  },
-  "p5.MonoSynth": {
-    "description": [
-      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthetisers should be built inheriting from this class."
-    ],
-    "play": {
-      "description": [
-        "Play tells the MonoSynth to start playing a note. This method schedules the calling of .triggerAttack and .triggerRelease."
-      ],
-      "params": {
-        "note": "String | Number: the note you want to play, specified as a  frequency in Hertz (Number) or as a midi  value in Note/Octave format (\"C4\", \"Eb3\"...etc\")  See <a href = \"https://github.com/Tonejs/Tone.js/wiki/Instruments\">  Tone</a>. Defaults to 440 hz.",
-        "velocity": "Number: (Optional) velocity of the note to play (ranging from 0 to 1)",
-        "secondsFromNow": "Number: (Optional) time from now (in seconds) at which to play",
-        "sustainTime": "Number: (Optional) time to sustain before releasing the envelope. Defaults to 0.15 seconds."
-      }
-    },
-    "triggerAttack": {
-      "description": [
-        "Trigger the Attack, and Decay portion of the Envelope. Similar to holding down a key on a piano, but it will hold the sustain level until you let go."
-      ],
-      "params": {
-        "note": "String | Number: the note you want to play, specified as a  frequency in Hertz (Number) or as a midi  value in Note/Octave format (\"C4\", \"Eb3\"...etc\")  See <a href = \"https://github.com/Tonejs/Tone.js/wiki/Instruments\">  Tone</a>. Defaults to 440 hz",
-        "velocity": "Number: (Optional) velocity of the note to play (ranging from 0 to 1)",
-        "secondsFromNow": "Number: (Optional) time from now (in seconds) at which to play"
-      }
-    },
-    "triggerRelease": {
-      "description": [
-        "Trigger the release of the Envelope. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
-      ],
-      "params": {
-        "secondsFromNow": "Number: time to trigger the release"
-      }
-    },
-    "setADSR": {
-      "description": [
-        "Set values like a traditional <a href=\"https://en.wikipedia.org/wiki/Synthesizer#/media/File:ADSR_parameter.svg\"> ADSR envelope </a>."
-      ],
-      "params": {
-        "attackTime": "Number: Time (in seconds before envelope  reaches Attack Level",
-        "decayTime": "Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level",
-        "susRatio": "Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
-        "releaseTime": "Number: (Optional) Time in seconds from now (defaults to 0)"
-      }
-    },
-    "attack": {
-      "description": [
-        "Getters and Setters"
-      ]
-    },
-    "decay": {},
-    "sustain": {},
-    "release": {},
-    "amp": {
-      "description": [
-        "MonoSynth amp"
-      ],
-      "returns": "Number: new volume value",
-      "params": {
-        "vol": "Number: desired volume",
-        "rampTime": "Number: (Optional) Time to reach new volume"
-      }
-    },
-    "connect": {
-      "description": [
-        "Connect to a p5.sound / Web Audio object."
-      ],
-      "params": {
-        "unit": "Object: A p5.sound or Web Audio object"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect all outputs"
-      ]
-    },
-    "dispose": {
-      "description": [
-        "Get rid of the MonoSynth and free up its resources / memory."
-      ]
-    }
-  },
-  "p5.AudioVoice": {
-    "description": [
-      "Base class for monophonic synthesizers. Any extensions of this class should follow the API and implement the methods below in order to remain compatible with p5.PolySynth();"
-    ],
-    "connect": {
-      "description": [
-        "Connect to p5 objects or Web Audio Nodes"
-      ],
-      "params": {
-        "unit": "Object"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect from soundOut"
-      ]
-    }
-  },
-  "p5.PolySynth": {
-    "description": [
-      "An AudioVoice is used as a single voice for sound synthesis. The PolySynth class holds an array of AudioVoice, and deals with voices allocations, with setting notes to be played, and parameters to be set."
-    ],
-    "params": {
-      "synthVoice": "Number: (Optional) A monophonic synth voice inheriting  the AudioVoice class. Defaults to p5.MonoSynth",
-      "maxVoices": "Number: (Optional) Number of voices, defaults to 8;"
-    },
-    "notes": {
-      "description": [
-        "An object that holds information about which notes have been played and which notes are currently being played. New notes are added as keys on the fly. While a note has been attacked, but not released, the value of the key is the audiovoice which is generating that note. When notes are released, the value of the key becomes undefined."
-      ]
-    },
-    "polyvalue": {
-      "description": [
-        "A PolySynth must have at least 1 voice, defaults to 8"
-      ]
-    },
-    "AudioVoice": {
-      "description": [
-        "Monosynth that generates the sound for each note that is triggered. The p5.PolySynth defaults to using the p5.MonoSynth as its voice."
-      ]
-    },
-    "play": {
-      "description": [
-        "Play a note by triggering noteAttack and noteRelease with sustain time"
-      ],
-      "params": {
-        "note": "Number: (Optional) midi note to play (ranging from 0 to 127 - 60 being a middle C)",
-        "velocity": "Number: (Optional) velocity of the note to play (ranging from 0 to 1)",
-        "secondsFromNow": "Number: (Optional) time from now (in seconds) at which to play",
-        "sustainTime": "Number: (Optional) time to sustain before releasing the envelope"
-      }
-    },
-    "noteADSR": {
-      "description": [
-        "noteADSR sets the envelope for a specific note that has just been triggered. Using this method modifies the envelope of whichever audiovoice is being used to play the desired note. The envelope should be reset before noteRelease is called in order to prevent the modified envelope from being used on other notes."
-      ],
-      "params": {
-        "note": "Number: (Optional) Midi note on which ADSR should be set.",
-        "attackTime": "Number: (Optional) Time (in seconds before envelope  reaches Attack Level",
-        "decayTime": "Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level",
-        "susRatio": "Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
-        "releaseTime": "Number: (Optional) Time in seconds from now (defaults to 0)"
-      }
-    },
-    "setADSR": {
-      "description": [
-        "Set the PolySynths global envelope. This method modifies the envelopes of each monosynth so that all notes are played with this envelope."
-      ],
-      "params": {
-        "attackTime": "Number: (Optional) Time (in seconds before envelope  reaches Attack Level",
-        "decayTime": "Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level",
-        "susRatio": "Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
-        "releaseTime": "Number: (Optional) Time in seconds from now (defaults to 0)"
-      }
-    },
-    "noteAttack": {
-      "description": [
-        "Trigger the Attack, and Decay portion of a MonoSynth. Similar to holding down a key on a piano, but it will hold the sustain level until you let go."
-      ],
-      "params": {
-        "note": "Number: (Optional) midi note on which attack should be triggered.",
-        "velocity": "Number: (Optional) velocity of the note to play (ranging from 0 to 1)/",
-        "secondsFromNow": "Number: (Optional) time from now (in seconds)"
-      }
-    },
-    "noteRelease": {
-      "description": [
-        "Trigger the Release of an AudioVoice note. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
-      ],
-      "params": {
-        "note": "Number: (Optional) midi note on which attack should be triggered.  If no value is provided, all notes will be released.",
-        "secondsFromNow": "Number: (Optional) time to trigger the release"
-      }
-    },
-    "connect": {
-      "description": [
-        "Connect to a p5.sound / Web Audio object."
-      ],
-      "params": {
-        "unit": "Object: A p5.sound or Web Audio object"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect all outputs"
-      ]
-    },
-    "dispose": {
-      "description": [
-        "Get rid of the MonoSynth and free up its resources / memory."
-      ]
-    }
-  },
-  "p5.SoundFile": {
-    "description": [
-      "SoundFile object with a path to a file.  ",
-      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
-      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
-      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatability, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
-    ],
-    "params": {
-      "path": "String|Array: path to a sound file (String). Optionally,  you may include multiple file formats in  an array. Alternately, accepts an object  from the HTML5 File API, or a p5.File.",
-      "successCallback": "Function: (Optional) Name of a function to call once file loads",
-      "errorCallback": "Function: (Optional) Name of a function to call if file fails to  load. This function will receive an error or  XMLHttpRequest object with information  about what went wrong.",
-      "whileLoadingCallback": "Function: (Optional) Name of a function to call while file  is loading. That function will  receive progress of the request to  load the sound file  (between 0 and 1) as its first  parameter. This progress  does not account for the additional  time needed to decode the audio data."
-    },
-    "isLoaded": {
-      "description": [
-        "Returns true if the sound file finished loading successfully."
-      ],
-      "returns": "Boolean: "
-    },
-    "play": {
-      "description": [
-        "Play the p5.SoundFile"
-      ],
-      "params": {
-        "startTime": "Number: (Optional) (optional) schedule playback to start (in seconds from now).",
-        "rate": "Number: (Optional) (optional) playback rate",
-        "amp": "Number: (Optional) (optional) amplitude (volume)  of playback",
-        "cueStart": "Number: (Optional) (optional) cue start time in seconds",
-        "duration": "Number: (Optional) (optional) duration of playback in seconds"
-      }
-    },
-    "playMode": {
-      "description": [
-        "p5.SoundFile has two play modes: <code>restart</code> and <code>sustain</code>. Play Mode determines what happens to a p5.SoundFile if it is triggered while in the middle of playback. In sustain mode, playback will continue simultaneous to the new playback. In restart mode, play() will stop playback and start over. With untilDone, a sound will play only if it's not already playing. Sustain is the default mode."
-      ],
-      "params": {
-        "str": "String: 'restart' or 'sustain' or 'untilDone'"
-      }
-    },
-    "pause": {
-      "description": [
-        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen. ",
-        "After pausing, .play() will resume from the paused position. If p5.SoundFile had been set to loop before it was paused, it will continue to loop after it is unpaused with .play()."
-      ],
-      "params": {
-        "startTime": "Number: (Optional) (optional) schedule event to occur  seconds from now"
-      }
-    },
-    "loop": {
-      "description": [
-        "Loop the p5.SoundFile. Accepts optional parameters to set the playback rate, playback volume, loopStart, loopEnd."
-      ],
-      "params": {
-        "startTime": "Number: (Optional) (optional) schedule event to occur  seconds from now",
-        "rate": "Number: (Optional) (optional) playback rate",
-        "amp": "Number: (Optional) (optional) playback volume",
-        "cueLoopStart": "Number: (Optional) (optional) startTime in seconds",
-        "duration": "Number: (Optional) (optional) loop duration in seconds"
-      }
-    },
-    "setLoop": {
-      "description": [
-        "Set a p5.SoundFile's looping flag to true or false. If the sound is currently playing, this change will take effect when it reaches the end of the current playback."
-      ],
-      "params": {
-        "Boolean": "Boolean: set looping to true or false"
-      }
-    },
-    "isLooping": {
-      "description": [
-        "Returns 'true' if a p5.SoundFile is currently looping and playing, 'false' if not."
-      ],
-      "returns": "Boolean: "
-    },
-    "isPlaying": {
-      "description": [
-        "Returns true if a p5.SoundFile is playing, false if not (i.e. paused or stopped)."
-      ],
-      "returns": "Boolean: "
-    },
-    "isPaused": {
-      "description": [
-        "Returns true if a p5.SoundFile is paused, false if not (i.e. playing or stopped)."
-      ],
-      "returns": "Boolean: "
-    },
-    "stop": {
-      "description": [
-        "Stop soundfile playback."
-      ],
-      "params": {
-        "startTime": "Number: (Optional) (optional) schedule event to occur  in seconds from now"
-      }
-    },
-    "setVolume": {
-      "description": [
-        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class. ",
-        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal."
-      ],
-      "params": {
-        "volume": "Number|Object: Volume (amplitude) between 0.0  and 1.0 or modulating signal/oscillator",
-        "rampTime": "Number: (Optional) Fade for t seconds",
-        "timeFromNow": "Number: (Optional) Schedule this event to happen at  t seconds in the future"
-      }
-    },
-    "pan": {
-      "description": [
-        "Set the stereo panning of a p5.sound object to a floating point number between -1.0 (left) and 1.0 (right). Default is 0.0 (center)."
-      ],
-      "params": {
-        "panValue": "Number: (Optional) Set the stereo panner",
-        "timeFromNow": "Number: (Optional) schedule this event to happen  seconds from now"
-      }
-    },
-    "getPan": {
-      "description": [
-        "Returns the current stereo pan position (-1.0 to 1.0)"
-      ],
-      "returns": "Number: Returns the stereo pan setting of the Oscillator  as a number between -1.0 (left) and 1.0 (right).  0.0 is center and default."
-    },
-    "rate": {
-      "description": [
-        "Set the playback rate of a sound file. Will change the speed and the pitch. Values less than zero will reverse the audio buffer."
-      ],
-      "params": {
-        "playbackRate": "Number: (Optional) Set the playback rate. 1.0 is normal,  .5 is half-speed, 2.0 is twice as fast.  Values less than zero play backwards."
-      }
-    },
-    "duration": {
-      "description": [
-        "Returns the duration of a sound file in seconds."
-      ],
-      "returns": "Number: The duration of the soundFile in seconds."
-    },
-    "currentTime": {
-      "description": [
-        "Return the current position of the p5.SoundFile playhead, in seconds. Time is relative to the normal buffer direction, so if <code>reverseBuffer</code> has been called, currentTime will count backwards."
-      ],
-      "returns": "Number: currentTime of the soundFile in seconds."
-    },
-    "jump": {
-      "description": [
-        "Move the playhead of a soundfile that is currently playing to a new position and a new duration, in seconds. If none are given, will reset the file to play entire duration from start to finish. To set the position of a soundfile that is not currently playing, use the <code>play</code> or <code>loop</code> methods."
-      ],
-      "params": {
-        "cueTime": "Number: cueTime of the soundFile in seconds.",
-        "duration": "Number: duration in seconds."
-      }
-    },
-    "channels": {
-      "description": [
-        "Return the number of channels in a sound file. For example, Mono = 1, Stereo = 2."
-      ],
-      "returns": "Number: [channels]"
-    },
-    "sampleRate": {
-      "description": [
-        "Return the sample rate of the sound file."
-      ],
-      "returns": "Number: [sampleRate]"
-    },
-    "frames": {
-      "description": [
-        "Return the number of samples in a sound file. Equal to sampleRate * duration."
-      ],
-      "returns": "Number: [sampleCount]"
-    },
-    "getPeaks": {
-      "description": [
-        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations. ",
-        "Inspired by Wavesurfer.js."
-      ],
-      "returns": "Float32Array: Array of peaks.",
-      "params": {
-        "length": "Number: (Optional) length is the size of the returned array.  Larger length results in more precision.  Defaults to 5*width of the browser window."
-      }
-    },
-    "reverseBuffer": {
-      "description": [
-        "Reverses the p5.SoundFile's buffer source. Playback must be handled separately (see example)."
-      ]
-    },
-    "onended": {
-      "description": [
-        "Schedule an event to be called when the soundfile reaches the end of a buffer. If the soundfile is playing through once, this will be called when it ends. If it is looping, it will be called when stop is called."
-      ],
-      "params": {
-        "callback": "Function: function to call when the  soundfile has ended."
-      }
-    },
-    "connect": {
-      "description": [
-        "Connects the output of a p5sound object to input of another p5.sound object. For example, you may connect a p5.SoundFile to an FFT or an Effect. If no parameter is given, it will connect to the master output. Most p5sound objects connect to the master output when they are created."
-      ],
-      "params": {
-        "object": "Object: (Optional) Audio object that accepts an input"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnects the output of this p5sound object."
-      ]
-    },
-    "setPath": {
-      "description": [
-        "Reset the source for this SoundFile to a new path (URL)."
-      ],
-      "params": {
-        "path": "String: path to audio file",
-        "callback": "Function: Callback"
-      }
-    },
-    "setBuffer": {
-      "description": [
-        "Replace the current Audio Buffer with a new Buffer."
-      ],
-      "params": {
-        "buf": "Array: Array of Float32 Array(s). 2 Float32 Arrays  will create a stereo source. 1 will create  a mono source."
-      }
-    },
-    "processPeaks": {
-      "description": [
-        "processPeaks returns an array of timestamps where it thinks there is a beat. ",
-        "This is an asynchronous function that processes the soundfile in an offline audio context, and sends the results to your callback function. ",
-        "The process involves running the soundfile through a lowpass filter, and finding all of the peaks above the initial threshold. If the total number of peaks are below the minimum number of peaks, it decreases the threshold and re-runs the analysis until either minPeaks or minThreshold are reached."
-      ],
-      "returns": "Array: Array of timestamped peaks",
-      "params": {
-        "callback": "Function: a function to call once this data is returned",
-        "initThreshold": "Number: (Optional) initial threshold defaults to 0.9",
-        "minThreshold": "Number: (Optional) minimum threshold defaults to 0.22",
-        "minPeaks": "Number: (Optional) minimum number of peaks defaults to 200"
-      }
-    },
-    "addCue": {
-      "description": [
-        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point. ",
-        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback. ",
-        "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
-      ],
-      "returns": "Number: id ID of this cue,  useful for removeCue(id)",
-      "params": {
-        "time": "Number: Time in seconds, relative to this media  element's playback. For example, to trigger  an event every time playback reaches two  seconds, pass in the number 2. This will be  passed as the first parameter to  the callback function.",
-        "callback": "Function: Name of a function that will be  called at the given time. The callback will  receive time and (optionally) param as its  two parameters.",
-        "value": "Object: (Optional) An object to be passed as the  second parameter to the  callback function."
-      }
-    },
-    "removeCue": {
-      "description": [
-        "Remove a callback based on its ID. The ID is returned by the addCue method."
-      ],
-      "params": {
-        "id": "Number: ID of the cue, as returned by addCue"
-      }
-    },
-    "clearCues": {
-      "description": [
-        "Remove all of the callbacks that had originally been scheduled via the addCue method."
-      ]
-    },
-    "save": {
-      "description": [
-        "Save a p5.SoundFile as a .wav file. The browser will prompt the user to download the file to their device. To upload a file to a server, see <a href=\"/docs/reference/#/p5.SoundFile/getBlob\">getBlob</a>"
-      ],
-      "params": {
-        "fileName": "String: (Optional) name of the resulting .wav file."
-      }
-    },
-    "getBlob": {
-      "description": [
-        "This method is useful for sending a SoundFile to a server. It returns the .wav-encoded audio data as a \"<a target=\"_blank\" title=\"Blob reference at MDN\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/Blob\">Blob</a>\". A Blob is a file-like data object that can be uploaded to a server with an <a href=\"/docs/reference/#/p5/httpDo\">http</a> request. We'll use the <code>httpDo</code> options object to send a POST request with some specific options: we encode the request as <code>multipart/form-data</code>, and attach the blob as one of the form values using <code>FormData</code>."
-      ],
-      "returns": "Blob: A file-like data object"
-    }
-  },
-  "p5.Amplitude": {
-    "description": [
-      "Amplitude measures volume between 0.0 and 1.0. Listens to all p5sound by default, or use setInput() to listen to a specific sound source. Accepts an optional smoothing value, which defaults to 0."
-    ],
-    "params": {
-      "smoothing": "Number: (Optional) between 0.0 and .999 to smooth  amplitude readings (defaults to 0)"
-    },
-    "setInput": {
-      "description": [
-        "Connects to the p5sound instance (master output) by default. Optionally, you can pass in a specific source (i.e. a soundfile)."
-      ],
-      "params": {
-        "snd": "SoundObject|undefined: (Optional) set the sound source  (optional, defaults to  master output)",
-        "smoothing": "Number|undefined: (Optional) a range between 0.0 and 1.0  to smooth amplitude readings"
-      }
-    },
-    "getLevel": {
-      "description": [
-        "Returns a single Amplitude reading at the moment it is called. For continuous readings, run in the draw loop."
-      ],
-      "returns": "Number: Amplitude as a number between 0.0 and 1.0",
-      "params": {
-        "channel": "Number: (Optional) Optionally return only channel 0 (left) or 1 (right)"
-      }
-    },
-    "toggleNormalize": {
-      "description": [
-        "Determines whether the results of Amplitude.process() will be Normalized. To normalize, Amplitude finds the difference the loudest reading it has processed and the maximum amplitude of 1.0. Amplitude adds this difference to all values to produce results that will reliably map between 0.0 and 1.0. However, if a louder moment occurs, the amount that Normalize adds to all the values will change. Accepts an optional boolean parameter (true or false). Normalizing is off by default."
-      ],
-      "params": {
-        "boolean": "Boolean: (Optional) set normalize to true (1) or false (0)"
-      }
-    },
-    "smooth": {
-      "description": [
-        "Smooth Amplitude analysis by averaging with the last analysis frame. Off by default."
-      ],
-      "params": {
-        "set": "Number: smoothing from 0.0 <= 1"
-      }
-    }
-  },
-  "p5.FFT": {
-    "description": [
-      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.  ",
-      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies. ",
-      "FFT analyzes a very short snapshot of sound called a sample buffer. It returns an array of amplitude measurements, referred to as <code>bins</code>. The array is 1024 bins long by default. You can change the bin array length, but it must be a power of 2 between 16 and 1024 in order for the FFT algorithm to function correctly. The actual size of the FFT buffer is twice the number of bins, so given a standard sample rate, the buffer is 2048/44100 seconds long."
-    ],
-    "params": {
-      "smoothing": "Number: (Optional) Smooth results of Freq Spectrum.  0.0 < smoothing < 1.0.  Defaults to 0.8.",
-      "bins": "Number: (Optional) Length of resulting array.  Must be a power of two between  16 and 1024. Defaults to 1024."
-    },
-    "setInput": {
-      "description": [
-        "Set the input source for the FFT analysis. If no source is provided, FFT will analyze all sound in the sketch."
-      ],
-      "params": {
-        "source": "Object: (Optional) p5.sound object (or web audio API source node)"
-      }
-    },
-    "waveform": {
-      "description": [
-        "Returns an array of amplitude values (between -1.0 and +1.0) that represent a snapshot of amplitude readings in a single buffer. Length will be equal to bins (defaults to 1024). Can be used to draw the waveform of a sound."
-      ],
-      "returns": "Array: Array Array of amplitude values (-1 to 1)  over time. Array length = bins.",
-      "params": {
-        "bins": "Number: (Optional) Must be a power of two between  16 and 1024. Defaults to 1024.",
-        "precision": "String: (Optional) If any value is provided, will return results  in a Float32 Array which is more precise  than a regular array."
-      }
-    },
-    "analyze": {
-      "description": [
-        "Returns an array of amplitude values (between 0 and 255) across the frequency spectrum. Length is equal to FFT bins (1024 by default). The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Must be called prior to using <code>getEnergy()</code>."
-      ],
-      "returns": "Array: spectrum Array of energy (amplitude/volume)  values across the frequency spectrum.  Lowest energy (silence) = 0, highest  possible is 255.",
-      "params": {
-        "bins": "Number: (Optional) Must be a power of two between  16 and 1024. Defaults to 1024.",
-        "scale": "Number: (Optional) If \"dB,\" returns decibel  float measurements between  -140 and 0 (max).  Otherwise returns integers from 0-255."
-      }
-    },
-    "getEnergy": {
-      "description": [
-        "Returns the amount of energy (volume) at a specific <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\" target=\"_blank\"> frequency</a>, or the average amount of energy between two frequencies. Accepts Number(s) corresponding to frequency (in Hz), or a String corresponding to predefined frequency ranges (\"bass\", \"lowMid\", \"mid\", \"highMid\", \"treble\"). Returns a range between 0 (no energy/volume at that frequency) and 255 (maximum energy). <em>NOTE: analyze() must be called prior to getEnergy(). Analyze() tells the FFT to analyze frequency data, and getEnergy() uses the results determine the value at a specific frequency or range of frequencies.</em>"
-      ],
-      "returns": "Number: Energy Energy (volume/amplitude) from  0 and 255.",
-      "params": {
-        "frequency1": "Number|String: Will return a value representing  energy at this frequency. Alternately,  the strings \"bass\", \"lowMid\" \"mid\",  \"highMid\", and \"treble\" will return  predefined frequency ranges.",
-        "frequency2": "Number: (Optional) If a second frequency is given,  will return average amount of  energy that exists between the  two frequencies."
-      }
-    },
-    "getCentroid": {
-      "description": [
-        "Returns the <a href=\"http://en.wikipedia.org/wiki/Spectral_centroid\" target=\"_blank\"> spectral centroid</a> of the input signal. <em>NOTE: analyze() must be called prior to getCentroid(). Analyze() tells the FFT to analyze frequency data, and getCentroid() uses the results determine the spectral centroid.</em>"
-      ],
-      "returns": "Number: Spectral Centroid Frequency Frequency of the spectral centroid in Hz."
-    },
-    "smooth": {
-      "description": [
-        "Smooth FFT analysis by averaging with the last analysis frame."
-      ],
-      "params": {
-        "smoothing": "Number: 0.0 < smoothing < 1.0.  Defaults to 0.8."
-      }
-    },
-    "linAverages": {
-      "description": [
-        "Returns an array of average amplitude values for a given number of frequency bands split equally. N defaults to 16. <em>NOTE: analyze() must be called prior to linAverages(). Analyze() tells the FFT to analyze frequency data, and linAverages() uses the results to group them into a smaller set of averages.</em>"
-      ],
-      "returns": "Array: linearAverages Array of average amplitude values for each group",
-      "params": {
-        "N": "Number: Number of returned frequency groups"
-      }
-    },
-    "logAverages": {
-      "description": [
-        "Returns an array of average amplitude values of the spectrum, for a given set of <a href=\"https://en.wikipedia.org/wiki/Octave_band\" target=\"_blank\"> Octave Bands</a> <em>NOTE: analyze() must be called prior to logAverages(). Analyze() tells the FFT to analyze frequency data, and logAverages() uses the results to group them into a smaller set of averages.</em>"
-      ],
-      "returns": "Array: logAverages Array of average amplitude values for each group",
-      "params": {
-        "octaveBands": "Array: Array of Octave Bands objects for grouping"
-      }
-    },
-    "getOctaveBands": {
-      "description": [
-        "Calculates and Returns the 1/N <a href=\"https://en.wikipedia.org/wiki/Octave_band\" target=\"_blank\">Octave Bands</a> N defaults to 3 and minimum central frequency to 15.625Hz. (1/3 Octave Bands ~= 31 Frequency Bands) Setting fCtr0 to a central value of a higher octave will ignore the lower bands and produce less frequency groups."
-      ],
-      "returns": "Array: octaveBands Array of octave band objects with their bounds",
-      "params": {
-        "N": "Number: Specifies the 1/N type of generated octave bands",
-        "fCtr0": "Number: Minimum central frequency for the lowest band"
-      }
-    }
-  },
-  "p5.Signal": {
-    "description": [
-      "p5.Signal is a constant audio-rate signal used by p5.Oscillator and p5.Envelope for modulation math.  ",
-      "This is necessary because Web Audio is processed on a seprate clock. For example, the p5 draw loop runs about 60 times per second. But the audio clock must process samples 44100 times per second. If we want to add a value to each of those samples, we can't do it in the draw loop, but we can do it by adding a constant-rate audio signal.</p.  ",
-      "This class mostly functions behind the scenes in p5.sound, and returns a Tone.Signal from the Tone.js library by Yotam Mann. If you want to work directly with audio signals for modular synthesis, check out <a href='http://bit.ly/1oIoEng' target=_'blank'>tone.js.</a>"
-    ],
-    "returns": "Tone.Signal: A Signal object from the Tone.js library",
-    "fade": {
-      "description": [
-        "Fade to value, for smooth transitions"
-      ],
-      "params": {
-        "value": "Number: Value to set this signal",
-        "secondsFromNow": "Number: (Optional) Length of fade, in seconds from now"
-      }
-    },
-    "setInput": {
-      "description": [
-        "Connect a p5.sound object or Web Audio node to this p5.Signal so that its amplitude values can be scaled."
-      ],
-      "params": {
-        "input": "Object"
-      }
-    },
-    "add": {
-      "description": [
-        "Add a constant value to this audio signal, and return the resulting audio signal. Does not change the value of the original signal, instead it returns a new p5.SignalAdd."
-      ],
-      "returns": "p5.Signal: object",
-      "params": {
-        "number": "Number"
-      }
-    },
-    "mult": {
-      "description": [
-        "Multiply this signal by a constant value, and return the resulting audio signal. Does not change the value of the original signal, instead it returns a new p5.SignalMult."
-      ],
-      "returns": "p5.Signal: object",
-      "params": {
-        "number": "Number: to multiply"
-      }
-    },
-    "scale": {
-      "description": [
-        "Scale this signal value to a given range, and return the result as an audio signal. Does not change the value of the original signal, instead it returns a new p5.SignalScale."
-      ],
-      "returns": "p5.Signal: object",
-      "params": {
-        "number": "Number: to multiply",
-        "inMin": "Number: input range minumum",
-        "inMax": "Number: input range maximum",
-        "outMin": "Number: input range minumum",
-        "outMax": "Number: input range maximum"
-      }
-    }
-  },
-  "p5.Envelope": {
-    "description": [
-      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>. ",
-      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime. ",
-      "Use the <code><a href=\"#/p5.Envelope/play\">play</a></code> method to play the entire envelope, the <code><a href=\"#/p5.Envelope/ramp\">ramp</a></code> method for a pingable trigger, or <code><a href=\"#/p5.Envelope/triggerAttack\">triggerAttack</a></code>/ <code><a href=\"#/p5.Envelope/triggerRelease\">triggerRelease</a></code> to trigger noteOn/noteOff."
-    ],
-    "attackTime": {
-      "description": [
-        "Time until envelope reaches attackLevel"
-      ]
-    },
-    "attackLevel": {
-      "description": [
-        "Level once attack is complete."
-      ]
-    },
-    "decayTime": {
-      "description": [
-        "Time until envelope reaches decayLevel."
-      ]
-    },
-    "decayLevel": {
-      "description": [
-        "Level after decay. The envelope will sustain here until it is released."
-      ]
-    },
-    "releaseTime": {
-      "description": [
-        "Duration of the release portion of the envelope."
-      ]
-    },
-    "releaseLevel": {
-      "description": [
-        "Level at the end of the release."
-      ]
-    },
-    "set": {
-      "description": [
-        "Reset the envelope with a series of time/value pairs."
-      ],
-      "params": {
-        "attackTime": "Number: Time (in seconds) before level  reaches attackLevel",
-        "attackLevel": "Number: Typically an amplitude between  0.0 and 1.0",
-        "decayTime": "Number: Time",
-        "decayLevel": "Number: Amplitude (In a standard ADSR envelope,  decayLevel = sustainLevel)",
-        "releaseTime": "Number: Release Time (in seconds)",
-        "releaseLevel": "Number: Amplitude"
-      }
-    },
-    "setADSR": {
-      "description": [
-        "Set values like a traditional <a href=\"https://en.wikipedia.org/wiki/Synthesizer#/media/File:ADSR_parameter.svg\"> ADSR envelope </a>."
-      ],
-      "params": {
-        "attackTime": "Number: Time (in seconds before envelope  reaches Attack Level",
-        "decayTime": "Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level",
-        "susRatio": "Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
-        "releaseTime": "Number: (Optional) Time in seconds from now (defaults to 0)"
-      }
-    },
-    "setRange": {
-      "description": [
-        "Set max (attackLevel) and min (releaseLevel) of envelope."
-      ],
-      "params": {
-        "aLevel": "Number: attack level (defaults to 1)",
-        "rLevel": "Number: release level (defaults to 0)"
-      }
-    },
-    "setInput": {
-      "description": [
-        "Assign a parameter to be controlled by this envelope. If a p5.Sound object is given, then the p5.Envelope will control its output gain. If multiple inputs are provided, the env will control all of them."
-      ],
-      "params": {
-        "inputs": "Object: (Optional) A p5.sound object or  Web Audio Param."
-      }
-    },
-    "setExp": {
-      "description": [
-        "Set whether the envelope ramp is linear (default) or exponential. Exponential ramps can be useful because we perceive amplitude and frequency logarithmically."
-      ],
-      "params": {
-        "isExp": "Boolean: true is exponential, false is linear"
-      }
-    },
-    "play": {
-      "description": [
-        "Play tells the envelope to start acting on a given input. If the input is a p5.sound object (i.e. AudioIn, Oscillator, SoundFile), then Envelope will control its output volume. Envelopes can also be used to control any <a href=\" http://docs.webplatform.org/wiki/apis/webaudio/AudioParam\"> Web Audio Audio Param.</a>"
-      ],
-      "params": {
-        "unit": "Object: A p5.sound object or  Web Audio Param.",
-        "startTime": "Number: (Optional) time from now (in seconds) at which to play",
-        "sustainTime": "Number: (Optional) time to sustain before releasing the envelope"
-      }
-    },
-    "triggerAttack": {
-      "description": [
-        "Trigger the Attack, and Decay portion of the Envelope. Similar to holding down a key on a piano, but it will hold the sustain level until you let go. Input can be any p5.sound object, or a <a href=\" http://docs.webplatform.org/wiki/apis/webaudio/AudioParam\"> Web Audio Param</a>."
-      ],
-      "params": {
-        "unit": "Object: p5.sound Object or Web Audio Param",
-        "secondsFromNow": "Number: time from now (in seconds)"
-      }
-    },
-    "triggerRelease": {
-      "description": [
-        "Trigger the Release of the Envelope. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
-      ],
-      "params": {
-        "unit": "Object: p5.sound Object or Web Audio Param",
-        "secondsFromNow": "Number: time to trigger the release"
-      }
-    },
-    "ramp": {
-      "description": [
-        "Exponentially ramp to a value using the first two values from <code><a href=\"#/p5.Envelope/setADSR\">setADSR(attackTime, decayTime)</a></code> as <a href=\"https://en.wikipedia.org/wiki/RC_time_constant\"> time constants</a> for simple exponential ramps. If the value is higher than current value, it uses attackTime, while a decrease uses decayTime."
-      ],
-      "params": {
-        "unit": "Object: p5.sound Object or Web Audio Param",
-        "secondsFromNow": "Number: When to trigger the ramp",
-        "v": "Number: Target value",
-        "v2": "Number: (Optional) Second target value (optional)"
-      }
-    },
-    "add": {
-      "description": [
-        "Add a value to the p5.Oscillator's output amplitude, and return the oscillator. Calling this method again will override the initial add() with new values."
-      ],
-      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
-      "params": {
-        "number": "Number: Constant number to add"
-      }
-    },
-    "mult": {
-      "description": [
-        "Multiply the p5.Envelope's output amplitude by a fixed value. Calling this method again will override the initial mult() with new values."
-      ],
-      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
-      "params": {
-        "number": "Number: Constant number to multiply"
-      }
-    },
-    "scale": {
-      "description": [
-        "Scale this envelope's amplitude values to a given range, and return the envelope. Calling this method again will override the initial scale() with new values."
-      ],
-      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
-      "params": {
-        "inMin": "Number: input range minumum",
-        "inMax": "Number: input range maximum",
-        "outMin": "Number: input range minumum",
-        "outMax": "Number: input range maximum"
-      }
-    }
-  },
-  "p5.Pulse": {
-    "description": [
-      "Creates a Pulse object, an oscillator that implements Pulse Width Modulation. The pulse is created with two oscillators. Accepts a parameter for frequency, and to set the width between the pulses. See <a href=\" http://p5js.org/reference/#/p5.Oscillator\"> <code>p5.Oscillator</code> for a full list of methods."
-    ],
-    "params": {
-      "freq": "Number: (Optional) Frequency in oscillations per second (Hz)",
-      "w": "Number: (Optional) Width between the pulses (0 to 1.0,  defaults to 0)"
-    },
-    "width": {
-      "description": [
-        "Set the width of a Pulse object (an oscillator that implements Pulse Width Modulation)."
-      ],
-      "params": {
-        "width": "Number: (Optional) Width between the pulses (0 to 1.0,  defaults to 0)"
-      }
-    }
-  },
-  "p5.Noise": {
-    "description": [
-      "Noise is a type of oscillator that generates a buffer with random values."
-    ],
-    "params": {
-      "type": "String: Type of noise can be 'white' (default),  'brown' or 'pink'."
-    },
-    "setType": {
-      "description": [
-        "Set type of noise to 'white', 'pink' or 'brown'. White is the default."
-      ],
-      "params": {
-        "type": "String: (Optional) 'white', 'pink' or 'brown'"
-      }
-    }
-  },
-  "p5.AudioIn": {
-    "description": [
-      "Get audio from an input, i.e. your computer's microphone.  ",
-      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.  ",
-      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.  ",
-      "<em>Note: This uses the <a href=\"http://caniuse.com/stream\">getUserMedia/ Stream</a> API, which is not supported by certain browsers. Access in Chrome browser is limited to localhost and https, but access over http may be limited.</em>"
-    ],
-    "params": {
-      "errorCallback": "Function: (Optional) A function to call if there is an error  accessing the AudioIn. For example,  Safari and iOS devices do not  currently allow microphone access."
-    },
-    "input": {},
-    "output": {},
-    "stream": {},
-    "mediaStream": {},
-    "currentSource": {},
-    "enabled": {
-      "description": [
-        "Client must allow browser to access their microphone / audioin source. Default: false. Will become true when the client enables access."
-      ]
-    },
-    "amplitude": {
-      "description": [
-        "Input amplitude, connect to it by default but not to master out"
-      ]
-    },
-    "start": {
-      "description": [
-        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/> ",
-        "Certain browsers limit access to the user's microphone. For example, Chrome only allows access from localhost and over https. For this reason, you may want to include an errorCallback—a function that is called in case the browser won't provide mic access."
-      ],
-      "params": {
-        "successCallback": "Function: (Optional) Name of a function to call on  success.",
-        "errorCallback": "Function: (Optional) Name of a function to call if  there was an error. For example,  some browsers do not support  getUserMedia."
-      }
-    },
-    "stop": {
-      "description": [
-        "Turn the AudioIn off. If the AudioIn is stopped, it cannot getLevel(). If re-starting, the user may be prompted for permission access."
-      ]
-    },
-    "connect": {
-      "description": [
-        "Connect to an audio unit. If no parameter is provided, will connect to the master output (i.e. your speakers).<br/>"
-      ],
-      "params": {
-        "unit": "Object: (Optional) An object that accepts audio input,  such as an FFT"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect the AudioIn from all audio units. For example, if connect() had been called, disconnect() will stop sending signal to your speakers.<br/>"
-      ]
-    },
-    "getLevel": {
-      "description": [
-        "Read the Amplitude (volume level) of an AudioIn. The AudioIn class contains its own instance of the Amplitude class to help make it easy to get a microphone's volume level. Accepts an optional smoothing value (0.0 < 1.0). <em>NOTE: AudioIn must .start() before using .getLevel().</em><br/>"
-      ],
-      "returns": "Number: Volume level (between 0.0 and 1.0)",
-      "params": {
-        "smoothing": "Number: (Optional) Smoothing is 0.0 by default.  Smooths values based on previous values."
-      }
-    },
-    "amp": {
-      "description": [
-        "Set amplitude (volume) of a mic input between 0 and 1.0. <br/>"
-      ],
-      "params": {
-        "vol": "Number: between 0 and 1.0",
-        "time": "Number: (Optional) ramp time (optional)"
-      }
-    },
-    "getSources": {
-      "description": [
-        "Returns a list of available input sources. This is a wrapper for <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href=  \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> ",
-        "and it returns a Promise. </blockquote>"
-      ],
-      "returns": "Promise: Returns a Promise that can be used in place of the callbacks, similar  to the enumerateDevices() method",
-      "params": {
-        "successCallback": "Function: (Optional) This callback function handles the sources when they  have been enumerated. The callback function  receives the deviceList array as its only argument",
-        "errorCallback": "Function: (Optional) This optional callback receives the error  message as its argument."
-      }
-    },
-    "setSource": {
-      "description": [
-        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href= \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> ",
-        "navigator.mediaDevices.enumerateDevices()</a>.<br/> </blockquote>"
-      ],
-      "params": {
-        "num": "Number: position of input source in the array"
-      }
-    }
-  },
   "p5.EQ": {
     "description": [
       "p5.EQ is an audio effect that performs the function of a multiband audio equalizer. Equalization is used to adjust the balance of frequency compoenents of an audio signal. This process is commonly used in sound production and recording to change the waveform before it reaches a sound output device. EQ can also be used as an audio effect to create interesting distortions by filtering out parts of the spectrum. p5.EQ is built using a chain of Web Audio Biquad Filter Nodes and can be instantiated with 3 or 8 bands. Bands can be added or removed from the EQ by directly modifying p5.EQ.bands (the array that stores filters). ",
@@ -6809,9 +6610,7 @@
     "panner": {
       "description": [
         "<a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a> ",
-        "Properties include <ul> <li><a title=\"w3 spec for Panning Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"</a><blockquote> ",
-        "panningModel</a>: \"equal power\" or \"HRTF\" </blockquote> </li> <li><a title=\"w3 spec for Distance Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-DistanceModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-DistanceModelType\"</a><blockquote> ",
-        "distanceModel</a>: \"linear\", \"inverse\", or \"exponential\" </blockquote> </li> </ul>"
+        "Properties include  <a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\">Panning Model</a>  : \"equal power\" or \"HRTF\"  <a href=\"https://www.w3.org/TR/webaudio/#idl-def-DistanceModelType\">DistanceModel</a> : \"linear\", \"inverse\", or \"exponential\""
       ]
     },
     "process": {
@@ -7060,6 +6859,11 @@
         "Internally, the p5.Convolver uses the a <a href=\"http://www.w3.org/TR/webaudio/#ConvolverNode\"> Web Audio Convolver Node</a>."
       ]
     },
+    "impulses": {
+      "description": [
+        "If you load multiple impulse files using the .addImpulse method, they will be stored as Objects in this Array. Toggle between them with the <code>toggleImpulse(id)</code> method."
+      ]
+    },
     "process": {
       "description": [
         "Connect a source to the convolver."
@@ -7067,11 +6871,6 @@
       "params": {
         "src": "Object: p5.sound / Web Audio object with a sound  output."
       }
-    },
-    "impulses": {
-      "description": [
-        "If you load multiple impulse files using the .addImpulse method, they will be stored as Objects in this Array. Toggle between them with the <code>toggleImpulse(id)</code> method."
-      ]
     },
     "addImpulse": {
       "description": [
@@ -7272,6 +7071,26 @@
       "callback": "Function: this function will be called on each iteration of theloop",
       "interval": "Number|String: (Optional) amount of time (if a number) or beats (if a string, following <a href = \"https://github.com/Tonejs/Tone.js/wiki/Time\">Tone.Time</a> convention) for each iteration of the loop. Defaults to 1 second."
     },
+    "bpm": {
+      "description": [
+        "Getters and Setters, setting any paramter will result in a change in the clock's frequency, that will be reflected after the next callback beats per minute (defaults to 60)"
+      ]
+    },
+    "timeSignature": {
+      "description": [
+        "number of quarter notes in a measure (defaults to 4)"
+      ]
+    },
+    "interval": {
+      "description": [
+        "length of the loops interval"
+      ]
+    },
+    "iterations": {
+      "description": [
+        "how many times the callback has been called so far"
+      ]
+    },
     "musicalTimeMode": {
       "description": [
         "musicalTimeMode uses <a href = \"https://github.com/Tonejs/Tone.js/wiki/Time\">Tone.Time</a> convention true if string, false if number"
@@ -7308,37 +7127,17 @@
     },
     "syncedStart": {
       "description": [
-        "Synchronize loops. Use this method to start two more more loops in synchronization or to start a loop in synchronization with a loop that is already playing This method will schedule the implicit loop in sync with the explicit master loop i.e. loopToStart.syncedStart(loopToSyncWith)"
+        "Synchronize loops. Use this method to start two or more loops in synchronization or to start a loop in synchronization with a loop that is already playing This method will schedule the implicit loop in sync with the explicit master loop i.e. loopToStart.syncedStart(loopToSyncWith)"
       ],
       "params": {
         "otherLoop": "Object: a p5.SoundLoop to sync with",
         "timeFromNow": "Number: (Optional) Start the loops in sync after timeFromNow seconds"
       }
-    },
-    "bpm": {
-      "description": [
-        "Getters and Setters, setting any paramter will result in a change in the clock's frequency, that will be reflected after the next callback beats per minute (defaults to 60)"
-      ]
-    },
-    "timeSignature": {
-      "description": [
-        "number of quarter notes in a measure (defaults to 4)"
-      ]
-    },
-    "interval": {
-      "description": [
-        "length of the loops interval"
-      ]
-    },
-    "iterations": {
-      "description": [
-        "how many times the callback has been called so far"
-      ]
     }
   },
   "p5.Compressor": {
     "description": [
-      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on indivudal sound sources in addition to the master output. ",
+      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on indivudal sound sources in addition to the main output. ",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "compressor": {
@@ -7423,35 +7222,6 @@
       "returns": "Number: Value of the amount of gain reduction that is applied to the signal"
     }
   },
-  "p5.SoundRecorder": {
-    "description": [
-      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput(). ",
-      "The record() method accepts a p5.SoundFile as a parameter. When playback is stopped (either after the given amount of time, or with the stop() method), the p5.SoundRecorder will send its recording to that p5.SoundFile for playback."
-    ],
-    "setInput": {
-      "description": [
-        "Connect a specific device to the p5.SoundRecorder. If no parameter is given, p5.SoundRecorer will record all audible p5.sound from your sketch."
-      ],
-      "params": {
-        "unit": "Object: (Optional) p5.sound object or a web audio unit  that outputs sound"
-      }
-    },
-    "record": {
-      "description": [
-        "Start recording. To access the recording, provide a p5.SoundFile as the first parameter. The p5.SoundRecorder will send its recording to that p5.SoundFile for playback once recording is complete. Optional parameters include duration (in seconds) of the recording, and a callback function that will be called once the complete recording has been transfered to the p5.SoundFile."
-      ],
-      "params": {
-        "soundFile": "p5.SoundFile: p5.SoundFile",
-        "duration": "Number: (Optional) Time (in seconds)",
-        "callback": "Function: (Optional) The name of a function that will be  called once the recording completes"
-      }
-    },
-    "stop": {
-      "description": [
-        "Stop the recording. Once the recording is stopped, the results will be sent to the p5.SoundFile that was given on .record(), and if a callback function was provided on record, that function will be called."
-      ]
-    }
-  },
   "p5.PeakDetect": {
     "description": [
       "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum.  ",
@@ -7491,40 +7261,33 @@
       }
     }
   },
-  "p5.Gain": {
+  "p5.SoundRecorder": {
     "description": [
-      "A gain node is usefull to set the relative volume of sound. It's typically used to build mixers."
+      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput(). ",
+      "The record() method accepts a p5.SoundFile as a parameter. When playback is stopped (either after the given amount of time, or with the stop() method), the p5.SoundRecorder will send its recording to that p5.SoundFile for playback."
     ],
     "setInput": {
       "description": [
-        "Connect a source to the gain node."
+        "Connect a specific device to the p5.SoundRecorder. If no parameter is given, p5.SoundRecorer will record all audible p5.sound from your sketch."
       ],
       "params": {
-        "src": "Object: p5.sound / Web Audio object with a sound  output."
+        "unit": "Object: (Optional) p5.sound object or a web audio unit  that outputs sound"
       }
     },
-    "connect": {
+    "record": {
       "description": [
-        "Send output to a p5.sound or web audio object"
+        "Start recording. To access the recording, provide a p5.SoundFile as the first parameter. The p5.SoundRecorder will send its recording to that p5.SoundFile for playback once recording is complete. Optional parameters include duration (in seconds) of the recording, and a callback function that will be called once the complete recording has been transfered to the p5.SoundFile."
       ],
       "params": {
-        "unit": "Object"
+        "soundFile": "p5.SoundFile: p5.SoundFile",
+        "duration": "Number: (Optional) Time (in seconds)",
+        "callback": "Function: (Optional) The name of a function that will be  called once the recording completes"
       }
     },
-    "disconnect": {
+    "stop": {
       "description": [
-        "Disconnect all output."
+        "Stop the recording. Once the recording is stopped, the results will be sent to the p5.SoundFile that was given on .record(), and if a callback function was provided on record, that function will be called."
       ]
-    },
-    "amp": {
-      "description": [
-        "Set the output level of the gain node."
-      ],
-      "params": {
-        "volume": "Number: amplitude between 0 and 1.0",
-        "rampTime": "Number: (Optional) create a fade that lasts rampTime",
-        "timeFromNow": "Number: (Optional) schedule this event to happen  seconds from now"
-      }
     }
   },
   "p5.Distortion": {
@@ -7570,6 +7333,247 @@
         "Return the oversampling."
       ],
       "returns": "String: Oversample can either be 'none', '2x', or '4x'."
+    }
+  },
+  "p5.Gain": {
+    "description": [
+      "A gain node is usefull to set the relative volume of sound. It's typically used to build mixers."
+    ],
+    "setInput": {
+      "description": [
+        "Connect a source to the gain node."
+      ],
+      "params": {
+        "src": "Object: p5.sound / Web Audio object with a sound  output."
+      }
+    },
+    "connect": {
+      "description": [
+        "Send output to a p5.sound or web audio object"
+      ],
+      "params": {
+        "unit": "Object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect all output."
+      ]
+    },
+    "amp": {
+      "description": [
+        "Set the output level of the gain node."
+      ],
+      "params": {
+        "volume": "Number: amplitude between 0 and 1.0",
+        "rampTime": "Number: (Optional) create a fade that lasts rampTime",
+        "timeFromNow": "Number: (Optional) schedule this event to happen  seconds from now"
+      }
+    }
+  },
+  "p5.AudioVoice": {
+    "description": [
+      "Base class for monophonic synthesizers. Any extensions of this class should follow the API and implement the methods below in order to remain compatible with p5.PolySynth();"
+    ],
+    "connect": {
+      "description": [
+        "Connect to p5 objects or Web Audio Nodes"
+      ],
+      "params": {
+        "unit": "Object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect from soundOut"
+      ]
+    }
+  },
+  "p5.MonoSynth": {
+    "description": [
+      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthetisers should be built inheriting from this class."
+    ],
+    "attack": {
+      "description": [
+        "Getters and Setters"
+      ]
+    },
+    "decay": {},
+    "sustain": {},
+    "release": {},
+    "play": {
+      "description": [
+        "Play tells the MonoSynth to start playing a note. This method schedules the calling of .triggerAttack and .triggerRelease."
+      ],
+      "params": {
+        "note": "String | Number: the note you want to play, specified as a  frequency in Hertz (Number) or as a midi  value in Note/Octave format (\"C4\", \"Eb3\"...etc\")  See <a href = \"https://github.com/Tonejs/Tone.js/wiki/Instruments\">  Tone</a>. Defaults to 440 hz.",
+        "velocity": "Number: (Optional) velocity of the note to play (ranging from 0 to 1)",
+        "secondsFromNow": "Number: (Optional) time from now (in seconds) at which to play",
+        "sustainTime": "Number: (Optional) time to sustain before releasing the envelope. Defaults to 0.15 seconds."
+      }
+    },
+    "triggerAttack": {
+      "description": [
+        "Trigger the Attack, and Decay portion of the Envelope. Similar to holding down a key on a piano, but it will hold the sustain level until you let go."
+      ],
+      "params": {
+        "note": "String | Number: the note you want to play, specified as a  frequency in Hertz (Number) or as a midi  value in Note/Octave format (\"C4\", \"Eb3\"...etc\")  See <a href = \"https://github.com/Tonejs/Tone.js/wiki/Instruments\">  Tone</a>. Defaults to 440 hz",
+        "velocity": "Number: (Optional) velocity of the note to play (ranging from 0 to 1)",
+        "secondsFromNow": "Number: (Optional) time from now (in seconds) at which to play"
+      }
+    },
+    "triggerRelease": {
+      "description": [
+        "Trigger the release of the Envelope. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
+      ],
+      "params": {
+        "secondsFromNow": "Number: time to trigger the release"
+      }
+    },
+    "setADSR": {
+      "description": [
+        "Set values like a traditional <a href=\"https://en.wikipedia.org/wiki/Synthesizer#/media/File:ADSR_parameter.svg\"> ADSR envelope </a>."
+      ],
+      "params": {
+        "attackTime": "Number: Time (in seconds before envelope  reaches Attack Level",
+        "decayTime": "Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level",
+        "susRatio": "Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
+        "releaseTime": "Number: (Optional) Time in seconds from now (defaults to 0)"
+      }
+    },
+    "amp": {
+      "description": [
+        "MonoSynth amp"
+      ],
+      "returns": "Number: new volume value",
+      "params": {
+        "vol": "Number: desired volume",
+        "rampTime": "Number: (Optional) Time to reach new volume"
+      }
+    },
+    "connect": {
+      "description": [
+        "Connect to a p5.sound / Web Audio object."
+      ],
+      "params": {
+        "unit": "Object: A p5.sound or Web Audio object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect all outputs"
+      ]
+    },
+    "dispose": {
+      "description": [
+        "Get rid of the MonoSynth and free up its resources / memory."
+      ]
+    }
+  },
+  "p5.OnsetDetect": {
+    "description": [
+      "Listen for onsets (a sharp increase in volume) within a given frequency range."
+    ],
+    "params": {
+      "freqLow": "Number: Low frequency",
+      "freqHigh": "Number: High frequency",
+      "threshold": "Number: Amplitude threshold between 0 (no energy) and 1 (maximum)",
+      "callback": "Function: Function to call when an onset is detected"
+    }
+  },
+  "p5.PolySynth": {
+    "description": [
+      "An AudioVoice is used as a single voice for sound synthesis. The PolySynth class holds an array of AudioVoice, and deals with voices allocations, with setting notes to be played, and parameters to be set."
+    ],
+    "params": {
+      "synthVoice": "Number: (Optional) A monophonic synth voice inheriting  the AudioVoice class. Defaults to p5.MonoSynth",
+      "maxVoices": "Number: (Optional) Number of voices, defaults to 8;"
+    },
+    "notes": {
+      "description": [
+        "An object that holds information about which notes have been played and which notes are currently being played. New notes are added as keys on the fly. While a note has been attacked, but not released, the value of the key is the audiovoice which is generating that note. When notes are released, the value of the key becomes undefined."
+      ]
+    },
+    "polyvalue": {
+      "description": [
+        "A PolySynth must have at least 1 voice, defaults to 8"
+      ]
+    },
+    "AudioVoice": {
+      "description": [
+        "Monosynth that generates the sound for each note that is triggered. The p5.PolySynth defaults to using the p5.MonoSynth as its voice."
+      ]
+    },
+    "play": {
+      "description": [
+        "Play a note by triggering noteAttack and noteRelease with sustain time"
+      ],
+      "params": {
+        "note": "Number: (Optional) midi note to play (ranging from 0 to 127 - 60 being a middle C)",
+        "velocity": "Number: (Optional) velocity of the note to play (ranging from 0 to 1)",
+        "secondsFromNow": "Number: (Optional) time from now (in seconds) at which to play",
+        "sustainTime": "Number: (Optional) time to sustain before releasing the envelope"
+      }
+    },
+    "noteADSR": {
+      "description": [
+        "noteADSR sets the envelope for a specific note that has just been triggered. Using this method modifies the envelope of whichever audiovoice is being used to play the desired note. The envelope should be reset before noteRelease is called in order to prevent the modified envelope from being used on other notes."
+      ],
+      "params": {
+        "note": "Number: (Optional) Midi note on which ADSR should be set.",
+        "attackTime": "Number: (Optional) Time (in seconds before envelope  reaches Attack Level",
+        "decayTime": "Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level",
+        "susRatio": "Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
+        "releaseTime": "Number: (Optional) Time in seconds from now (defaults to 0)"
+      }
+    },
+    "setADSR": {
+      "description": [
+        "Set the PolySynths global envelope. This method modifies the envelopes of each monosynth so that all notes are played with this envelope."
+      ],
+      "params": {
+        "attackTime": "Number: (Optional) Time (in seconds before envelope  reaches Attack Level",
+        "decayTime": "Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level",
+        "susRatio": "Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
+        "releaseTime": "Number: (Optional) Time in seconds from now (defaults to 0)"
+      }
+    },
+    "noteAttack": {
+      "description": [
+        "Trigger the Attack, and Decay portion of a MonoSynth. Similar to holding down a key on a piano, but it will hold the sustain level until you let go."
+      ],
+      "params": {
+        "note": "Number: (Optional) midi note on which attack should be triggered.",
+        "velocity": "Number: (Optional) velocity of the note to play (ranging from 0 to 1)/",
+        "secondsFromNow": "Number: (Optional) time from now (in seconds)"
+      }
+    },
+    "noteRelease": {
+      "description": [
+        "Trigger the Release of an AudioVoice note. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
+      ],
+      "params": {
+        "note": "Number: (Optional) midi note on which attack should be triggered.  If no value is provided, all notes will be released.",
+        "secondsFromNow": "Number: (Optional) time to trigger the release"
+      }
+    },
+    "connect": {
+      "description": [
+        "Connect to a p5.sound / Web Audio object."
+      ],
+      "params": {
+        "unit": "Object: A p5.sound or Web Audio object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect all outputs"
+      ]
+    },
+    "dispose": {
+      "description": [
+        "Get rid of the MonoSynth and free up its resources / memory."
+      ]
     }
   }
 }
