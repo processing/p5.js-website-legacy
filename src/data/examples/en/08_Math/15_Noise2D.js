@@ -2,7 +2,6 @@
  * @name Noise2D
  * @frame 710,400 (optional)
  * @description Create a 2D noise with different parameters.
- *
  */
 
 let noiseVal;
@@ -38,5 +37,5 @@ function draw() {
   textSize(18);
   fill(255, 255, 255);
   text('Noise2D with 2 octaves and 0.2 falloff', 10, 350);
-  text('Noise2D with 1 octaves and 0.7 falloff', 330, 350);
+  text('Noise2D with 5 octaves and 0.5 falloff', 330, 350);
 }
