@@ -9,7 +9,7 @@ define([
 ], function(App, itemTpl, classTpl, endTpl) {
   'use strict';
 
-  var appVersion = App.project.version || 'master';
+  var appVersion = App.project.version ? 'v' + App.project.version : 'master';
 
   var itemView = Backbone.View.extend({
     el: '#item',
