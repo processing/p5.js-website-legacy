@@ -44,7 +44,7 @@ function draw() {
 
   updatePixels();
 
-  //Show the details of two partitions
+  //Show the details of each partition
   textSize(18);
   fill(255, 255, 255);
   text("Noise2D with 2 octaves and 0.2 falloff", 10, 350);
