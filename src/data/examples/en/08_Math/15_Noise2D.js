@@ -5,25 +5,24 @@
  * @description Create a 2D noise with different parameters.
  */
 
-let noiseVal;
-let noiseScale = 0.02;
+let noise_val;
+let noise_scale = 0.02;
 
 function setup() {
   createCanvas(640, 360);
 }
 
 function drawNoise(x, y, w, h) {
-  for (let yp = y; yp < y + h; yp++) {
-    let yindex = yp * width;
-    for (let xp = x; xp < x + w; xp++) {
-      let noiseVal =
-        noise((mouseX + xp) * noiseScale, (mouseY + yp) * noiseScale) * 255;
+  for (let pixel_y = y; pixel_y < y + h; pixel_y++) {
+    for (let pixel_x = x; pixel_x < x + w; pixel_x++) {
+      let noise_val =
+        noise((mouseX + pixel_x) * noise_scale, (mouseY + pixel_y) * noise_scale) * 255;
 
-      let xindex = xp;
-      let index = 4 * (yindex + xindex);
-      pixels[index] = noiseVal;
-      pixels[index + 1] = noiseVal;
-      pixels[index + 2] = noiseVal;
+      let index = 4 * (pixel_y * width + pixel_x);
+
+      pixels[index]     = noise_val;
+      pixels[index + 1] = noise_val;
+      pixels[index + 2] = noise_val;
       pixels[index + 3] = 255;
     }
   }
@@ -44,7 +43,7 @@ function draw() {
 
   updatePixels();
 
-  //Show the details of each partition
+  //Show the details of two partitions
   textSize(18);
   fill(255, 255, 255);
   text("Noise2D with 2 octaves and 0.2 falloff", 10, 350);
