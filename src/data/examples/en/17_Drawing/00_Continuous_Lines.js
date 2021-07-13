@@ -1,5 +1,5 @@
 /*
- * @name Continous Lines
+ * @name Continuous Lines
  * @description Click and drag the mouse to draw a line.
  */
 function setup() {
