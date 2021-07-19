@@ -1,12 +1,12 @@
 /*
- * @name Video
- * @frame 710,250
- * @description <p>Load a video with multiple formats and toggle between playing
- * and paused with a button press.
- * <p><em><span class="small"> To run this example locally, you will need at least
- * one video file, and the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>.</span></em></p>
- */
+  * @name वीडियो
+  * @frame 710,250
+  * @description <p>एक वीडियो को कई फ़ॉर्मैट में लोड करें और खेलने के बीच टॉगल करें
+  * और एक बटन प्रेस के साथ रुक गया।
+  * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको कम से कम की आवश्यकता होगी
+  * एक वीडियो फ़ाइल, और
+  * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom लाइब्रेरी</a>।</span></em></p>
+  */
 let playing = false;
 let fingers;
 let button;

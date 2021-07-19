@@ -1,9 +1,9 @@
 /*
- * @name Follow 1
- * @frame 710,400
- * @description A line segment is pushed and pulled by the cursor.
- * Based on code from Keith Peters.
- */
+  * @name फॉलो 1
+  * @frame 710,400
+  * @description एक रेखा खंड को कर्सर द्वारा धकेला और खींचा जाता है।
+  * कीथ पीटर्स के कोड के आधार पर।
+  */
 let x = 100,
   y = 100,
   angle1 = 0.0,

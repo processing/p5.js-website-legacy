@@ -1,24 +1,24 @@
 /*
- * @name Bounce
- * @frame 720,400
- * @description When the shape hits the edge of the window, it reverses its direction.
- */
+  * @name उछाल
+  * @frame 720,400
+  * @description जब आकृति खिड़की के किनारे से टकराती है, तो वह अपनी दिशा उलट देती है।
+  */
 
-let rad = 60; // Width of the shape
-let xpos, ypos; // Starting position of shape
+let rad = 60; // आकार की चौड़ाई
+let xpos, ypos; // आकार की प्रारंभिक स्थिति
 
-let xspeed = 2.8; // Speed of the shape
-let yspeed = 2.2; // Speed of the shape
+let xspeed = 2.8; // आकार की गति
+let yspeed = 2.2; // आकार की गति
 
-let xdirection = 1; // Left or Right
-let ydirection = 1; // Top to Bottom
+let xdirection = 1; // बायें या दायें
+let ydirection = 1; // ऊपर से नीचे
 
 function setup() {
   createCanvas(720, 400);
   noStroke();
   frameRate(30);
   ellipseMode(RADIUS);
-  // Set the starting position of the shape
+  // आकृति की प्रारंभिक स्थिति निर्धारित करें
   xpos = width / 2;
   ypos = height / 2;
 }
@@ -26,12 +26,12 @@ function setup() {
 function draw() {
   background(102);
 
-  // Update the position of the shape
+  // आकृति की स्थिति को अपडेट करें
   xpos = xpos + xspeed * xdirection;
   ypos = ypos + yspeed * ydirection;
 
-  // Test to see if the shape exceeds the boundaries of the screen
-  // If it does, reverse its direction by multiplying by -1
+   // यह देखने के लिए परीक्षण करें कि क्या आकार स्क्रीन की सीमाओं से अधिक है
+   // यदि ऐसा होता है, तो -1 . से गुणा करके इसकी दिशा उलट दें
   if (xpos > width - rad || xpos < rad) {
     xdirection *= -1;
   }
@@ -39,6 +39,6 @@ function draw() {
     ydirection *= -1;
   }
 
-  // Draw the shape
+  // आकृति बनाएं
   ellipse(xpos, ypos, rad, rad);
 }

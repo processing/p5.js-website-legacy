@@ -1,10 +1,10 @@
 /*
- * @name Follow 2
- * @frame 710,400
- * @description A two-segmented arm follows the cursor position. The relative
- * angle between the segments is calculated with atan2() and the position
- * calculated with sin() and cos(). Based on code from Keith Peters.
- */
+  * @name फॉलो 2
+  * @frame 710,400
+  * @description दो खंडों वाली भुजा कर्सर की स्थिति का अनुसरण करती है। संबंधी
+  * खंडों के बीच के कोण की गणना atan2 () और स्थिति के साथ की जाती है
+  * sin() और cos() के साथ गणना की गई। कीथ पीटर्स के कोड के आधार पर।
+  */
 let x = [0, 0],
   y = [0, 0],
   segLength = 50;

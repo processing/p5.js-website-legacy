@@ -1,18 +1,18 @@
 /*
- * @name Non Orthogonal Reflection
- * @frame 710,400 (optional)
- * @description This is a port by David Blitz of the "Reflection 1" example from processing.org/examples
- */
+  * @name नॉन ऑर्थोगोनल रिफ्लेक्शन
+  * @frame 710,400 (वैकल्पिक)
+  * @description यह प्रोसेसिंग.org/examples से "प्रतिबिंब 1" उदाहरण के डेविड ब्लिट्ज का एक पोर्ट है
+  */
 
-//Position of left hand side of floor
+// फर्श के बाएं हाथ की स्थिति
 let base1;
 
-//Position of right hand side of floor
+// फर्श के दाहिने हाथ की स्थिति
 let base2;
-//Length of floor
-//let baseLength;
+// फर्श की लंबाई
+// बेसलेंथ दें;
 
-// Variables related to moving ball
+// चलती गेंद से संबंधित चर
 let position;
 let velocity;
 let r = 6;
@@ -24,51 +24,51 @@ function setup() {
   fill(128);
   base1 = createVector(0, height - 150);
   base2 = createVector(width, height);
-  //createGround();
+   //createGround();
 
-  //start ellipse at middle top of screen
+   // स्क्रीन के मध्य शीर्ष पर अंडाकार प्रारंभ करें
   position = createVector(width / 2, 0);
 
-  //calculate initial random velocity
+  // प्रारंभिक यादृच्छिक वेग की गणना करें
   velocity = p5.Vector.random2D();
   velocity.mult(speed);
 }
 
 function draw() {
-  //draw background
+  // ड्रा बैकग्राउंड
   fill(0, 12);
   noStroke();
   rect(0, 0, width, height);
 
-  //draw base
+  // ड्रा बेस
   fill(200);
   quad(base1.x, base1.y, base2.x, base2.y, base2.x, height, 0, height);
 
-  //calculate base top normal
+  // बेस टॉप नॉर्मल की गणना करें
   let baseDelta = p5.Vector.sub(base2, base1);
   baseDelta.normalize();
   let normal = createVector(-baseDelta.y, baseDelta.x);
   let intercept = p5.Vector.dot(base1, normal);
 
-  //draw ellipse
+  // दीर्घवृत्त खींचें
   noStroke();
   fill(255);
   ellipse(position.x, position.y, r * 2, r * 2);
 
-  //move ellipse
+  // दीर्घवृत्त ले जाएँ
   position.add(velocity);
 
-  //normalized incidence vector
+  // सामान्यीकृत घटना वेक्टर
   incidence = p5.Vector.mult(velocity, -1);
   incidence.normalize();
 
-  // detect and handle collision with base
+  // बेस के साथ टकराव का पता लगाएं और संभालें
   if (p5.Vector.dot(normal, position) > intercept) {
-    //calculate dot product of incident vector and base top
+    // घटना वेक्टर और बेस टॉप के डॉट उत्पाद की गणना करें
     let dot = incidence.dot(normal);
 
-    //calculate reflection vector
-    //assign reflection vector to direction vector
+    // प्रतिबिंब वेक्टर की गणना करें
+    // दिशा वेक्टर को प्रतिबिंब वेक्टर असाइन करें
     velocity.set(
       2 * normal.x * dot - incidence.x,
       2 * normal.y * dot - incidence.y,
@@ -76,7 +76,7 @@ function draw() {
     );
     velocity.mult(speed);
 
-    // draw base top normal at collision point
+    // टकराव बिंदु पर आधार शीर्ष सामान्य बनाएं
     stroke(255, 128, 0);
     line(
       position.x,
@@ -87,23 +87,23 @@ function draw() {
   }
   //}
 
-  // detect boundary collision
-  // right
+  // सीमा टकराव का पता लगाएं
+  // सही
   if (position.x > width - r) {
     position.x = width - r;
     velocity.x *= -1;
   }
-  // left
+  // बाएं
   if (position.x < r) {
     position.x = r;
     velocity.x *= -1;
   }
-  // top
+  // ऊपर
   if (position.y < r) {
     position.y = r;
     velocity.y *= -1;
 
-    //randomize base top
+    // बेस टॉप को रैंडमाइज करें
     base1.y = random(height - 100, height);
     base2.y = random(height - 100, height);
   }

@@ -1,11 +1,11 @@
 /*
- * @name Modifying the DOM
- * @frame 710,300
- * @description <p>Create DOM elements and modify their properties every time
- * draw() is called. You will need to include the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.</p>
- */
+  * @name डोम को संशोधित करना
+  * @frame 710,300
+  * @description <p>DOM एलिमेंट बनाएं और हर बार उनके गुणों को संशोधित करें
+  * draw() कहा जाता है। आपको शामिल करने की आवश्यकता होगी
+  * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom लाइब्रेरी</a>
+  * इस उदाहरण के लिए अपने स्वयं के प्रोजेक्ट में काम करने के लिए।</p>
+  */
 let dancingWords = [];
 
 class DanceSpan {
@@ -24,18 +24,18 @@ class DanceSpan {
 }
 
 function setup() {
-  // This paragraph is created aside of the main block of code.
-  // It's to differentiate the creation of an element from its
-  // selection. Selected elements don't need to be created by
-  // p5js, they can be just plain HTML.
+   // यह पैराग्राफ कोड के मुख्य ब्लॉक से अलग बनाया गया है।
+   // यह किसी तत्व के निर्माण को उसके . से अलग करना है
+   // चयन। चयनित तत्वों को बनाने की आवश्यकता नहीं है
+   // p5js, वे सिर्फ सादा HTML हो सकते हैं।
   createP(
     'I learn in this Letter, that Don Peter of Aragon, ' +
       ' comes this night to Messina'
   ).addClass('text').hide();
 
-  // This line grabs the paragraph just created, but it would
-  // also grab any other elements with class 'text' in the HTML
-  // page.
+  // यह लाइन अभी बनाए गए पैराग्राफ को पकड़ लेती है, लेकिन यह but
+  // HTML में वर्ग 'पाठ' के साथ किसी अन्य तत्व को भी पकड़ें
+  // पृष्ठ।
   const texts = selectAll('.text');
 
   for (let i = 0; i < texts.length; i++) {

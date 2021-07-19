@@ -1,8 +1,8 @@
 /*
- * @name Bouncy Bubbles
- * @frame 720,400
- * @description  based on code from Keith Peters. Multiple-object collision..
- */
+  * @name उछाल वाले बुलबुले
+  * @frame 720,400
+  * @description कीथ पीटर्स के कोड पर आधारित विवरण। एकाधिक-वस्तु टकराव ..
+  */
 
 let numBalls = 13;
 let spring = 0.05;
@@ -47,15 +47,15 @@ class Ball {
 
   collide() {
     for (let i = this.id + 1; i < numBalls; i++) {
-      // console.log(others[i]);
+      // कंसोल.लॉग (अन्य [i]);
       let dx = this.others[i].x - this.x;
       let dy = this.others[i].y - this.y;
       let distance = sqrt(dx * dx + dy * dy);
       let minDist = this.others[i].diameter / 2 + this.diameter / 2;
-      //   console.log(distance);
-      //console.log(minDist);
+       // कंसोल.लॉग (दूरी);
+       // कंसोल.लॉग (मिनडिस्ट);
       if (distance < minDist) {
-        //console.log("2");
+        // कंसोल.लॉग ("2");
         let angle = atan2(dy, dx);
         let targetX = this.x + cos(angle) * minDist;
         let targetY = this.y + sin(angle) * minDist;

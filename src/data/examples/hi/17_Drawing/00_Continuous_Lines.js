@@ -1,7 +1,7 @@
-/*
- * @name Continous Lines
- * @description Click and drag the mouse to draw a line.
- */
+/* 
+* @name सतत रेखा 
+* @description एक रेखा खींचने के लिए माउस को क्लिक करें और खींचें। 
+*/
 function setup() {
   createCanvas(710, 400);
   background(102);

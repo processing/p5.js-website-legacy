@@ -1,9 +1,9 @@
 /*
- * @name Reach 1
- * @frame 710,400
- * @description The arm follows the position of the mouse by calculating the
- * angles with atan2(). Based on code from Keith Peters.
- */
+  * @name रीच 1
+  * @frame 710,400
+  * @description हाथ की गणना करके माउस की स्थिति का अनुसरण करता है
+  * atan2 () के साथ कोण। कीथ पीटर्स के कोड के आधार पर।
+  */
 let segLength = 80,
   x,
   y,

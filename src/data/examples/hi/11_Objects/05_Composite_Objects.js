@@ -1,8 +1,8 @@
-/* @name Composite Objects
- * @description An object can include several other objects.
- * Creating such composite objects is a good way to use the principles
- * of modularity and build higher levels of abstraction within a program.
- */
+/*  @name समग्र वस्तु
+  * @description एक ऑब्जेक्ट में कई अन्य ऑब्जेक्ट शामिल हो सकते हैं।
+  * इस तरह की मिश्रित वस्तुओं का निर्माण सिद्धांतों का उपयोग करने का एक अच्छा तरीका है
+  * प्रतिरूपकता और एक कार्यक्रम के भीतर अमूर्तता के उच्च स्तर का निर्माण।
+  */
 let er1, er2;
 
 function setup() {

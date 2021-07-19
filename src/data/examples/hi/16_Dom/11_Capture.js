@@ -1,14 +1,14 @@
 /*
- * @name Video Capture
- * @frame 710,240
- * @description <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * at least one video file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p><br><br>
- * Capture video from the webcam and display
- * on the canvas as well with invert filter. Note that by
- * default the capture feed shows up, too. You can hide the
- * feed by uncommenting the capture.hide() line.
- */
+  * @name वीडियो कैप्चर
+  * @frame 710,240
+  * @description <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको इसकी आवश्यकता होगी
+  * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom लाइब्रेरी</a>
+  * कम से कम एक वीडियो फ़ाइल, और एक चालू <a href="https://github.com/processing/p5.js/wiki/Local-server">स्थानीय सर्वर</a>।</span></em </p><br><br>
+  * वेबकैम से वीडियो कैप्चर करें और प्रदर्शित करें
+  * कैनवास पर और साथ ही इनवर्ट फिल्टर के साथ। ध्यान दें कि द्वारा
+  * डिफॉल्ट कैप्चर फीड भी दिखाई देता है। आप छुपा सकते हैं
+  * capture.hide() लाइन को अनकम्मेंट करके फीड करें।
+  */
 let capture;
 
 function setup() {

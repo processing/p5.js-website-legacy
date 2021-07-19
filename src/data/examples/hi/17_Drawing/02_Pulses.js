@@ -1,10 +1,10 @@
 /*
- * @name Pulses
- * @description Software drawing instruments can follow a rhythm or abide by
- * rules independent of drawn gestures. This is a form of collaborative drawing
- * in which the draftsperson controls some aspects of the image and the software
- * controls others.
- */
+  * @name दालें
+  * @description सॉफ्टवेयर ड्राइंग इंस्ट्रूमेंट्स एक लय का अनुसरण कर सकते हैं या इसका पालन कर सकते हैं
+  * खींचे गए इशारों से स्वतंत्र नियम। यह सहयोगी आरेखण का एक रूप है
+  * जिसमें ड्राफ्ट्सपर्सन इमेज और सॉफ्टवेयर के कुछ पहलुओं को नियंत्रित करता है
+  *दूसरों को नियंत्रित करता है।
+  */
 let angle = 0;
 
 function setup() {
@@ -15,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-  // Draw only when mouse is pressed
+  // तभी ड्रा करें जब माउस दबाया जाए
   if (mouseIsPressed === true) {
     angle += 5;
     let val = cos(radians(angle)) * 12.0;

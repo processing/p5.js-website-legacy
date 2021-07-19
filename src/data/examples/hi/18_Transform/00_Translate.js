@@ -1,11 +1,10 @@
 /*
- * @name Translate
- * @description The translate() function allows objects to be
- * moved to any location within the window. The first parameter
- * sets the x-axis offset and the second parameter sets the
- * y-axis offset. This example shows how transforms accumulate.
- */
-
+  * @name अनुवाद
+  * @description translate() फ़ंक्शन वस्तुओं को होने की अनुमति देता है
+  * खिड़की के भीतर किसी भी स्थान पर ले जाया गया। पहला पैरामीटर
+  * एक्स-अक्ष ऑफसेट सेट करता है और दूसरा पैरामीटर सेट करता है
+  * वाई-अक्ष ऑफसेट। यह उदाहरण दिखाता है कि परिवर्तन कैसे जमा होते हैं।
+  */
 let x = 0;
 let y = 0;
 let dim = 80.0;

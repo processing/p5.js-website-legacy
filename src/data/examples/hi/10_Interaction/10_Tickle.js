@@ -1,14 +1,14 @@
 /*
- * @name Tickle
- * @description The word "tickle" jitters when the cursor hovers over.
- * Sometimes, it can be tickled off the screen.
- */
+  * @name टिकल 
+  * @description कर्सर के ऊपर मंडराने पर "टिकल" शब्द कांपता है।
+  * कभी-कभी, इसे स्क्रीन से गुदगुदी किया जा सकता है।
+  */
 let message = 'tickle',
   font,
-  bounds, // holds x, y, w, h of the text's bounding box
+  bounds, // टेक्स्ट के बाउंडिंग बॉक्स का x, y, w, h रखता है
   fontsize = 60,
   x,
-  y; // x and y coordinates of the text
+  y; // x और y पाठ के निर्देशांक
 
 function preload() {
   font = loadFont('assets/SourceSansPro-Regular.otf');
@@ -17,11 +17,11 @@ function preload() {
 function setup() {
   createCanvas(710, 400);
 
-  // set up the font
+  // फ़ॉन्ट सेट करें
   textFont(font);
   textSize(fontsize);
 
-  // get the width and height of the text so we can center it initially
+  // पाठ की चौड़ाई और ऊंचाई प्राप्त करें ताकि हम इसे शुरू में केंद्रित कर सकें
   bounds = font.textBounds(message, 0, 0, fontsize);
   x = width / 2 - bounds.w / 2;
   y = height / 2 - bounds.h / 2;
@@ -30,12 +30,12 @@ function setup() {
 function draw() {
   background(204, 120);
 
-  // write the text in black and get its bounding box
+  // टेक्स्ट को काले रंग में लिखें और उसका बाउंडिंग बॉक्स प्राप्त करें
   fill(0);
   text(message, x, y);
   bounds = font.textBounds(message, x, y, fontsize);
 
-  // check if the mouse is inside the bounding box and tickle if so
+  // जांचें कि क्या माउस बाउंडिंग बॉक्स के अंदर है और यदि ऐसा है तो गुदगुदी करें
   if (
     mouseX >= bounds.x &&
     mouseX <= bounds.x + bounds.w &&

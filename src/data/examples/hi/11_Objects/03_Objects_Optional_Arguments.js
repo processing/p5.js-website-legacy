@@ -1,9 +1,9 @@
 /*
- * @name Objects 2
- * @description Ported from example by hbarragan. Move the cursor across the
- * image to change the speed and positions of the geometry. The class MRect
- * defines a group of lines.
- */
+  * @name वस्तु 2
+  * @description उदाहरण के लिए hbarragan द्वारा पोर्ट किया गया। कर्सर को इसके पार ले जाएँ
+  * छवि ज्यामिति की गति और स्थिति को बदलने के लिए। कक्षा MRect
+  * लाइनों के समूह को परिभाषित करता है।
+  */
 
 let r1, r2, r3, r4;
 
@@ -33,12 +33,12 @@ function draw() {
 
 class MRect {
   constructor(iw, ixp, ih, iyp, id, it) {
-    this.w = iw; // single bar width
-    this.xpos = ixp; // rect xposition
-    this.h = ih; // rect height
-    this.ypos = iyp; // rect yposition
-    this.d = id; // single bar distance
-    this.t = it; // number of bars
+    this.w = iw; // सिंगल बार चौड़ाई
+    this.xpos = ixp; // रेक्ट एक्सपोजिशन
+    this.h = ih; // रेक्ट ऊंचाई
+    this.ypos = iyp; // रेक्ट योपोजिशन
+    this.d = id; // सिंगल बार दूरी
+    this.t = it; // बार की संख्या
   }
 
   move(posX, posY, damping) {

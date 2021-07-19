@@ -1,17 +1,17 @@
 /*
- * @name Snake game
- * @description The famous snake game! Once you click run, click anywhere
- * inside the black area, and control the snake using i j k and l. Don't let
- * the snake hit itself or the wall!<br>
- * Example created by <a href='https://github.com/prashantgupta24' target='_blank'>Prashant Gupta
- */
+  * @name सांप का खेल
+  * @description प्रसिद्ध सांप का खेल! रन पर क्लिक करने के बाद, कहीं भी क्लिक करें
+  * काले क्षेत्र के अंदर, और i j k और l का उपयोग करके सांप को नियंत्रित करें। मत जाने दो
+  *सांप खुद को या दीवार से टकराया!<br>
+  * उदाहरण <a href='https://github.com/prashantgupta24' target='_blank'>प्रशांत गुप्ता द्वारा बनाया गया
+  */
 
-// the snake is divided into small segments, which are drawn and edited on each 'draw' call
+// सांप को छोटे-छोटे खंडों में विभाजित किया जाता है, जिन्हें प्रत्येक 'ड्रा' कॉल पर खींचा और संपादित किया जाता है
 let numSegments = 10;
 let direction = 'right';
 
-const xStart = 0; //starting x coordinate for snake
-const yStart = 250; //starting y coordinate for snake
+const xStart = 0; // सांप के लिए x निर्देशांक शुरू करना
+const yStart = 250; // सांप के लिए y समन्वय शुरू करना
 const diff = 10;
 
 let xCor = [];
@@ -50,15 +50,15 @@ function draw() {
 }
 
 /*
- The segments are updated based on the direction of the snake.
- All segments from 0 to n-1 are just copied over to 1 till n, i.e. segment 0
- gets the value of segment 1, segment 1 gets the value of segment 2, and so on,
- and this results in the movement of the snake.
+  साँप की दिशा के आधार पर खंडों को अद्यतन किया जाता है।
+  0 से n-1 तक के सभी खंडों को 1 से n तक कॉपी किया जाता है, अर्थात खंड 0
+  खंड 1 का मान प्राप्त करता है, खंड 1 को खंड 2 का मान मिलता है, और इसी तरह,
+  और इसके परिणामस्वरूप सांप की गति होती है।
 
- The last segment is added based on the direction in which the snake is going,
- if it's going left or right, the last segment's x coordinate is increased by a
- predefined value 'diff' than its second to last segment. And if it's going up
- or down, the segment's y coordinate is affected.
+  सांप जिस दिशा में जा रहा है, उसके आधार पर अंतिम खंड जोड़ा जाता है,
+  यदि यह बाएँ या दाएँ जा रहा है, तो अंतिम खंड का x निर्देशांक a . से बढ़ जाता है
+  इसके दूसरे से अंतिम खंड की तुलना में पूर्वनिर्धारित मान 'diff'। और अगर यह ऊपर जा रहा है
+  या नीचे, खंड का y निर्देशांक प्रभावित होता है।
 */
 function updateSnakeCoordinates() {
   for (let i = 0; i < numSegments - 1; i++) {
@@ -86,9 +86,9 @@ function updateSnakeCoordinates() {
 }
 
 /*
- I always check the snake's head position xCor[xCor.length - 1] and
- yCor[yCor.length - 1] to see if it touches the game's boundaries
- or if the snake hits itself.
+  मैं हमेशा सांप के सिर की स्थिति की जांच करता हूं xCor[xCor.length - 1] और
+  yCor[yCor.length - 1] यह देखने के लिए कि क्या यह खेल की सीमाओं को छूता है
+  या अगर सांप खुद को मारता है।
 */
 function checkGameStatus() {
   if (
@@ -105,8 +105,8 @@ function checkGameStatus() {
 }
 
 /*
- If the snake hits itself, that means the snake head's (x,y) coordinate
- has to be the same as one of its own segment's (x,y) coordinate.
+  यदि सांप खुद को मारता है, तो इसका मतलब है कि सांप का सिर (x,y) समन्वय करता है
+  अपने स्वयं के खंड (x, y) निर्देशांक में से एक के समान होना चाहिए।
 */
 function checkSnakeCollision() {
   const snakeHeadX = xCor[xCor.length - 1];
@@ -119,9 +119,9 @@ function checkSnakeCollision() {
 }
 
 /*
- Whenever the snake consumes a fruit, I increment the number of segments,
- and just insert the tail segment again at the start of the array (basically
- I add the last segment again at the tail, thereby extending the tail)
+  जब भी सांप फल खाता है, मैं खंडों की संख्या बढ़ा देता हूं,
+  और सरणी की शुरुआत में फिर से पूंछ खंड डालें (मूल रूप से
+  मैं अंतिम खंड को फिर से पूंछ में जोड़ता हूं, जिससे पूंछ का विस्तार होता है)
 */
 function checkForFruit() {
   point(xFruit, yFruit);
@@ -136,11 +136,11 @@ function checkForFruit() {
 }
 
 function updateFruitCoordinates() {
-  /*
-    The complex math logic is because I wanted the point to lie
-    in between 100 and width-100, and be rounded off to the nearest
-    number divisible by 10, since I move the snake in multiples of 10.
-  */
+ /*
+     जटिल गणित तर्क इसलिए है क्योंकि मैं चाहता था कि बिंदु झूठ बोलें
+     १०० और चौड़ाई १०० के बीच में, और निकटतम तक पूर्णांकित किया जाए
+     संख्या १० से विभाज्य है, क्योंकि मैं साँप को १० के गुणकों में घुमाता हूँ।
+ */
 
   xFruit = floor(random(10, (width - 100) / 10)) * 10;
   yFruit = floor(random(10, (height - 100) / 10)) * 10;

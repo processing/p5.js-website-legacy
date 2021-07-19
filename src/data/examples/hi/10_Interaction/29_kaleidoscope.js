@@ -1,8 +1,8 @@
 /*
- * @name Kaleidoscope
- * @description A kaleidoscope is an optical instrument with two or more reflecting surfaces tilted to each other in an angle. This example tries to replicate the behavior of a kaleidoscope. Set the number of reflections at the symmetry variable and start drawing on the screen. Adjust the brush size with the help of the slider. The clear screen as it says clears the screen. The save button will download a .jpg file of the art that you have created.
- */
-// Symmetry corresponding to the number of reflections. Change the number for different number of reflections 
+  * @name बहुरूपदर्शक
+  * @description एक बहुरूपदर्शक एक ऑप्टिकल उपकरण है जिसमें दो या दो से अधिक परावर्तक सतहें एक कोण में एक दूसरे की ओर झुकी होती हैं। यह उदाहरण एक बहुरूपदर्शक के व्यवहार को दोहराने का प्रयास करता है। समरूपता चर पर प्रतिबिंबों की संख्या निर्धारित करें और स्क्रीन पर चित्र बनाना शुरू करें। स्लाइडर की सहायता से ब्रश का आकार समायोजित करें। स्पष्ट स्क्रीन, जैसा कि यह कहती है, स्क्रीन को साफ़ करती है। सेव बटन आपके द्वारा बनाई गई कला की एक .jpg फ़ाइल डाउनलोड करेगा।
+  */
+// प्रतिबिंबों की संख्या के अनुरूप समरूपता। विभिन्न संख्या में परावर्तनों के लिए संख्या बदलें
 let symmetry = 6;   
 
 let angle = 360 / symmetry;
@@ -14,34 +14,34 @@ function setup() {
   angleMode(DEGREES);
   background(127);
 
-  // Creating the save button for the file
+  // फाइल के लिए सेव बटन बनाना
   saveButton = createButton('save');
   saveButton.mousePressed(saveFile);
 
-  // Creating the clear screen button
+  // स्पष्ट स्क्रीन बटन बनाना
   clearButton = createButton('clear');
   clearButton.mousePressed(clearScreen);
 
-  // Creating the button for Full Screen
+  // पूर्ण स्क्रीन के लिए बटन बनाना
   fullscreenButton = createButton('Full Screen');
   fullscreenButton.mousePressed(screenFull);
 
-  // Setting up the slider for the thickness of the brush
+  // ब्रश की मोटाई के लिए स्लाइडर सेट करना
   brushSizeSlider = createButton('Brush Size Slider');
   sizeSlider = createSlider(1, 32, 4, 0.1);
 }
 
-// Save File Function
+// फ़ाइल फ़ंक्शन सहेजें
 function saveFile() {
   save('design.jpg');
 }
 
-// Clear Screen function
+// साफ़ स्क्रीन फ़ंक्शन
 function clearScreen() {
   background(127);
 }
 
-// Full Screen Function
+// फुल स्क्रीन फंक्शन
 function screenFull() {
   let fs = fullscreen();
   fullscreen(!fs);
