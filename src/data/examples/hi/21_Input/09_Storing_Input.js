@@ -1,12 +1,12 @@
 /*
- * @name Storing Input
- * @description Move the mouse across the screen to
- * change the position of the circles. The positions
- * of the mouse are recorded into an array and played
- * back every frame. Between each frame, the newest
- * value are added to the end of each array and the
- * oldest value is deleted.
- */
+  * @name भंडारण इनपुट
+  * @description माउस को स्क्रीन पर ले जाएँ
+  * मंडलियों की स्थिति बदलें। पदों
+  * माउस को एक ऐरे में रिकॉर्ड किया जाता है और खेला जाता है
+  * हर फ्रेम वापस। प्रत्येक फ्रेम के बीच, नवीनतम
+  * मान प्रत्येक सरणी के अंत में जोड़ा जाता है और
+  * सबसे पुराना मान हटा दिया गया है।
+  */
 let num = 60;
 let mx = [];
 let my = [];
@@ -24,14 +24,14 @@ function setup() {
 function draw() {
   background(237, 34, 93);
 
-  // Cycle through the array, using a different entry on each frame.
-  // Using modulo (%) like this is faster than moving all the values over.
+   // प्रत्येक फ्रेम पर एक अलग प्रविष्टि का उपयोग करके, सरणी के माध्यम से साइकिल चलाएं।
+   // इस तरह से मोडुलो (%) का उपयोग करना सभी मूल्यों को खत्म करने की तुलना में तेज़ है।
   let which = frameCount % num;
   mx[which] = mouseX;
   my[which] = mouseY;
 
   for (let i = 0; i < num; i++) {
-    // which+1 is the smallest (the oldest in the array)
+    // कौन सा+1 सबसे छोटा है (सरणी में सबसे पुराना)
     let index = (which + 1 + i) % num;
     ellipse(mx[index], my[index], i, i);
   }

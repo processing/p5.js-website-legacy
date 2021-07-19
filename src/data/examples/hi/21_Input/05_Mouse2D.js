@@ -1,8 +1,8 @@
 /*
- * @name Mouse 2D
- * @description Moving the mouse changes the position and
- * size of each box.
- */
+  * @name माउस 2D
+  * @description माउस को हिलाने से स्थिति बदल जाती है और
+  * प्रत्येक बॉक्स का आकार।
+  */
 function setup() {
   createCanvas(720, 400);
   noStroke();

@@ -1,12 +1,12 @@
 /*
- * @name Shader as a Texture
- * @description Shaders can be applied to 2D/3D shapes as textures.
- * <br> To learn more about using shaders in p5.js: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
- */
+  * @name शेडर एक बनावट के रूप में
+  * @description Shaders को बनावट के रूप में 2D/3D आकृतियों पर लागू किया जा सकता है।
+  * <br> p5.js में शेडर्स का उपयोग करने के बारे में अधिक जानने के लिए: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
+  */
 
- // this variable will hold our shader object
+  // यह वेरिएबल हमारे शेडर ऑब्जेक्ट को होल्ड करेगा
  let theShader;
- // this variable will hold our createGraphics layer
+ // यह वेरिएबल हमारी createGraphics लेयर को होल्ड करेगा
  let shaderTexture;
 
  let theta = 0;
@@ -17,19 +17,19 @@
  let insideRadius = 100;
 
  function preload(){
-   // load the shader
+   // शेडर लोड करें
    theShader = loadShader('assets/texture.vert','assets/texture.frag');
  }
 
  function setup() {
-   // shaders require WEBGL mode to work
+   // शेडर्स को काम करने के लिए WEBGL मोड की आवश्यकता होती है
    createCanvas(710, 400, WEBGL);
    noStroke();
 
-   // initialize the createGraphics layers
+   // createGraphics लेयर्स को इनिशियलाइज़ करें
    shaderTexture = createGraphics(710, 400, WEBGL);
 
-   // turn off the createGraphics layers stroke
+   // createGraphics लेयर्स स्ट्रोक को बंद करें
    shaderTexture.noStroke();
 
     x = -50;
@@ -38,20 +38,20 @@
 
  function draw() {
 
-   // instead of just setting the active shader we are passing it to the createGraphics layer
+   // केवल सक्रिय शेडर को सेट करने के बजाय हम इसे createGraphics लेयर में पास कर रहे हैं
    shaderTexture.shader(theShader);
 
-   // here we're using setUniform() to send our uniform values to the shader
+   // यहां हम अपने समान मूल्यों को शेडर में भेजने के लिए setUniform () का उपयोग कर रहे हैं
    theShader.setUniform("resolution", [width, height]);
    theShader.setUniform("time", millis() / 1000.0);
    theShader.setUniform("mouse", [mouseX, map(mouseY, 0, height, height, 0)]);
 
-   // passing the shaderTexture layer geometry to render on
+   // रेंडर करने के लिए shaderTexture लेयर ज्योमेट्री पास करना
    shaderTexture.rect(0,0,width,height);
 
    background(255);
 
-   // pass the shader as a texture
+   // शेडर को एक बनावट के रूप में पास करें
    texture(shaderTexture);
 
    translate(-150, 0, 0);
@@ -63,6 +63,6 @@
    sphere(125);
    pop();
 
-   // passing a fifth parameter to ellipse for smooth edges in 3D
+   // 3D में चिकने किनारों के लिए दीर्घवृत्त के लिए पाँचवाँ पैरामीटर पास करना
    ellipse(260,0,200,200,100);
  }

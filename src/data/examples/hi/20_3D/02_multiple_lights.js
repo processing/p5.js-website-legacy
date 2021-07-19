@@ -1,7 +1,7 @@
 /*
- * @name Multiple Lights
- * @description All types of lights could be used in one sketch.
- */
+  * @name मल्टीपल लाइट्स
+  * @description एक स्केच में सभी प्रकार की रोशनी का उपयोग किया जा सकता है।
+  */
 function setup() {
   createCanvas(710, 400, WEBGL);
 }

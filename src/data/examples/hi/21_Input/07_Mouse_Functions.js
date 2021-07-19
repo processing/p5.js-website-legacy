@@ -1,7 +1,7 @@
 /*
- * @name Mouse Functions
- * @description Click on the box and drag it across the screen.
- */
+  * @name माउस फंक्शन्स
+  * @description बॉक्स पर क्लिक करें और इसे स्क्रीन पर खींचें।
+  */
 let bx;
 let by;
 let boxSize = 75;
@@ -21,7 +21,7 @@ function setup() {
 function draw() {
   background(237, 34, 93);
 
-  // Test if the cursor is over the box
+  // परीक्षण करें कि क्या कर्सर बॉक्स के ऊपर है
   if (
     mouseX > bx - boxSize &&
     mouseX < bx + boxSize &&
@@ -39,7 +39,7 @@ function draw() {
     overBox = false;
   }
 
-  // Draw the box
+  // बॉक्स को ड्रा करें
   rect(bx, by, boxSize, boxSize);
 }
 

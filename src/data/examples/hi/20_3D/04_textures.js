@@ -1,8 +1,8 @@
 /*
- * @name Textures
- * @description Images and videos are supported for texture.
- */
-// video source: https://vimeo.com/90312869
+  * @name बनावट
+  * @description चित्र और वीडियो बनावट के लिए समर्थित हैं।
+  */
+// वीडियो स्रोत: https://vimeo.com/90312869
 let img;
 let vid;
 let theta = 0;

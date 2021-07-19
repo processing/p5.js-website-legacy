@@ -1,7 +1,7 @@
 /*
- * @name Geometries
- * @description There are six 3D primitives in p5 now.
- */
+  * @name ज्यामिति
+  * @description अब p5 में छह 3D प्रिमिटिव हैं।
+  */
 function setup() {
   createCanvas(710, 400, WEBGL);
 }

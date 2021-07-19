@@ -1,8 +1,8 @@
 /*
- * @name Constrain
- * @description Move the mouse across the screen to move
- * the circle. The program constrains the circle to its box.
- */
+  * @name बाधा
+  * @description माउस को स्क्रीन पर घुमाने के लिए ले जाएँ
+  * वृत्त। कार्यक्रम सर्कल को उसके बॉक्स में सीमित करता है।
+  */
 let mx = 1;
 let my = 1;
 let easing = 0.05;

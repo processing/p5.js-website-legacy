@@ -1,7 +1,7 @@
 /*
- * @name Orbit Control
- * @description Orbit control allows you to drag and move around the world.
- */
+  * @name कक्षा नियंत्रण
+  * @description कक्षा नियंत्रण आपको दुनिया भर में खींचने और स्थानांतरित करने की अनुमति देता है।
+  */
 function setup() {
   createCanvas(710, 400, WEBGL);
 }
@@ -10,7 +10,7 @@ function draw() {
   background(250);
   let radius = width * 1.5;
 
-  //drag to move the world.
+  // दुनिया को स्थानांतरित करने के लिए खींचें।
   orbitControl();
 
   normalMaterial();

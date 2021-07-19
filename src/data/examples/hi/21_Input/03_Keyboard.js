@@ -1,10 +1,10 @@
 /*
- * @name Keyboard
- * @description Click on the image to give it focus and
- * press the letter keys to create forms in time and space.
- * Each key has a unique identifying number. These numbers
- * can be used to position shapes in space.
- */
+  * @name कीबोर्ड
+  * @description इमेज को फोकस करने के लिए उस पर क्लिक करें और
+  * समय और स्थान में फ़ॉर्म बनाने के लिए अक्षर कुंजियाँ दबाएँ।
+  * प्रत्येक कुंजी की एक विशिष्ट पहचान संख्या होती है। ये नंबर
+  * अंतरिक्ष में आकृतियों की स्थिति के लिए इस्तेमाल किया जा सकता है।
+  */
 let rectWidth;
 
 function setup() {
@@ -15,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-  // keep draw() here to continue looping while waiting for keys
+  // चाबियों की प्रतीक्षा करते हुए लूपिंग जारी रखने के लिए यहां draw() रखें
 }
 
 function keyPressed() {
@@ -24,10 +24,10 @@ function keyPressed() {
     keyIndex = key.charCodeAt(0) - 'a'.charCodeAt(0);
   }
   if (keyIndex === -1) {
-    // If it's not a letter key, clear the screen
+    // यदि यह एक अक्षर कुंजी नहीं है, तो स्क्रीन को साफ़ करें
     background(230);
   } else {
-    // It's a letter key, fill a rectangle
+    // यह एक अक्षर कुंजी है, एक आयत भरें
     randFill_r = Math.floor(Math.random() * 255 + 1);
     randFill_g = Math.floor(Math.random() * 255 + 1);
     randFill_b = Math.floor(Math.random() * 255 + 1);
