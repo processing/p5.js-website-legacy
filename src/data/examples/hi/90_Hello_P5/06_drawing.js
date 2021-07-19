@@ -1,15 +1,15 @@
 /*
-* @name Drawing
-* @description Generative painting program.
+* @name ड्राइंग
+* @description जनरेटिव पेंटिंग प्रोग्राम।
 */
 
-// All the paths
+// सभी पथ
 let paths = [];
-// Are we painting?
+// क्या हम पेंटिंग कर रहे हैं?
 let painting = false;
-// How long until the next circle
+// अगले सर्कल तक कब तक
 let next = 0;
-// Where are we now and where were we?
+// अब हम कहाँ हैं और हम कहाँ थे?
 let current;
 let previous;
 
@@ -22,36 +22,36 @@ function setup() {
 function draw() {
   background(200);
   
-  // If it's time for a new point
+  // यदि यह एक नए बिंदु के लिए समय है
   if (millis() > next && painting) {
 
-    // Grab mouse position      
+    // माउस की स्थिति को पकड़ो 
     current.x = mouseX;
     current.y = mouseY;
 
-    // New particle's force is based on mouse movement
+    // नए कण का बल माउस की गति पर आधारित होता है
     let force = p5.Vector.sub(current, previous);
     force.mult(0.05);
 
-    // Add new particle
+    // नया कण जोड़ें
     paths[paths.length - 1].add(current, force);
     
-    // Schedule next circle
+    // अगले सर्कल को शेड्यूल करें
     next = millis() + random(100);
 
-    // Store mouse values
+    // माउस मूल्यों को स्टोर करें
     previous.x = current.x;
     previous.y = current.y;
   }
 
-  // Draw all paths
+  // सभी पथ बनाएं
   for( let i = 0; i < paths.length; i++) {
     paths[i].update();
     paths[i].display();
   }
 }
 
-// Start it up
+// इसे शुरू करो
 function mousePressed() {
   next = 0;
   painting = true;
@@ -60,12 +60,12 @@ function mousePressed() {
   paths.push(new Path());
 }
 
-// Stop
+// रुकें
 function mouseReleased() {
   painting = false;
 }
 
-// A Path is a list of particles
+// पथ कणों की एक सूची है
 class Path {
   constructor() {
     this.particles = [];
@@ -73,25 +73,25 @@ class Path {
   }
 
   add(position, force) {
-    // Add a new particle with a position, force, and hue
+    // स्थिति, बल और रंग के साथ एक नया कण जोड़ें
     this.particles.push(new Particle(position, force, this.hue));
   }
   
-  // Display plath
+  // डिस्प्ले प्लाथ
   update() {  
     for (let i = 0; i < this.particles.length; i++) {
       this.particles[i].update();
     }
   }  
   
-  // Display plath
+  // डिस्प्ले प्लाथ
   display() {    
-    // Loop through backwards
+    // पीछे की ओर से लूप करें
     for (let i = this.particles.length - 1; i >= 0; i--) {
-      // If we shold remove it
+     // अगर हम इसे हटा देते हैं
       if (this.particles[i].lifespan <= 0) {
         this.particles.splice(i, 1);
-      // Otherwise, display it
+       // अन्यथा, इसे प्रदर्शित करें
       } else {
         this.particles[i].display(this.particles[i+1]);
       }
@@ -100,7 +100,7 @@ class Path {
   }  
 }
 
-// Particles along the path
+// पथ के साथ कण
 class Particle {
   constructor(position, force, hue) {
     this.position = createVector(position.x, position.y);
@@ -110,21 +110,21 @@ class Particle {
   }
 
   update() {
-    // Move it
+    // इसे हटाएं
     this.position.add(this.velocity);
-    // Slow it down
+    // इसे धीमा करें
     this.velocity.mult(this.drag);
-    // Fade it out
+    // इसे फीका करें
     this.lifespan--;
   }
 
-  // Draw particle and connect it with a line
-  // Draw a line to another
+   // कण ड्रा करें और इसे एक लाइन से कनेक्ट करें
+   // दूसरे के लिए एक रेखा खींचें
   display(other) {
     stroke(0, this.lifespan);
     fill(0, this.lifespan/2);    
     ellipse(this.position.x,this.position.y, 8, 8);    
-    // If we need to draw a line
+    // यदि हमें एक रेखा खींचने की आवश्यकता है
     if (other) {
       line(this.position.x, this.position.y, other.position.x, other.position.y);
     }

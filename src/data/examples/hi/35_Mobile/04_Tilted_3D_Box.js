@@ -1,7 +1,7 @@
 /*
- * @name Tilted 3D Box
- * @description Use mobile to tilt a box
- */
+  * @name झुका हुआ 3D बॉक्स
+  * @description बॉक्स को झुकाने के लिए मोबाइल का इस्तेमाल करें
+  */
 function setup() {
   createCanvas(displayWidth, displayHeight, WEBGL);
 }

@@ -1,8 +1,8 @@
 /*
- * @name Shake Ball Bounce
- * @description Create a Ball class, instantiate multiple objects, move it around the screen, and bounce when touch the edge of the canvas.
- * Detect shake event based on total change in accelerationX and accelerationY and speed up or slow down objects based on detection.
- */
+  * @name शेक बॉल बाउंस
+  * @description एक बॉल क्लास बनाएं, कई ऑब्जेक्ट्स को इंस्टेंट करें, इसे स्क्रीन के चारों ओर घुमाएं, और कैनवास के किनारे को छूने पर बाउंस करें।
+  * त्वरणX और त्वरण में कुल परिवर्तन के आधार पर शेक घटना का पता लगाएं और पता लगाने के आधार पर वस्तुओं को गति दें या धीमा करें।
+  */
 
 let balls = [];
 

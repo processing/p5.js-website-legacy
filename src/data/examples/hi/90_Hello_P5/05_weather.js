@@ -1,35 +1,35 @@
 /*
- * @name Weather
- * @frame 720,280
- * @description This example grabs JSON weather data from apixu.com.
- * You will need to include the 
- * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom library</a>
- * for this example to work in your own project.
+  * @name मौसम
+  * @frame 720,280
+  * @description यह उदाहरण apixu.com से JSON मौसम डेटा प्राप्त करता है।
+  * आपको शामिल करने की आवश्यकता होगी
+  * <a href="http://p5js.org/reference/#/libraries/p5.dom">p5.dom लाइब्रेरी</a>
+  * इस उदाहरण के लिए अपने स्वयं के प्रोजेक्ट में काम करने के लिए।
 */
 
-// A wind direction vector
+// एक हवा की दिशा वेक्टर
 let wind;
-// Circle position
+// सर्कल की स्थिति
 let position;
 
 function setup() {
   createCanvas(720, 200);
-  // Request the data from apixu.com
+  // apixu.com से डेटा का अनुरोध करें
   let url = 'https://api.apixu.com/v1/current.json?key=513d8003c8b348f1a2461629162106&q=NYC';
   loadJSON(url, gotWeather);
-  // Circle starts in the middle
+  // सर्कल बीच में शुरू होता है
   position = createVector(width/2, height/2);
-  // wind starts as (0,0)
+  // हवा शुरू होती है (0,0)
   wind = createVector();
 }
 
 function draw() {
   background(200);
 
-  // This section draws an arrow pointing in the direction of wind
+  // यह खंड हवा की दिशा की ओर इशारा करते हुए एक तीर खींचता है
   push();
   translate(32, height - 32);
-  // Rotate by the wind's angle
+  // हवा के कोण से घुमाएं
   rotate(wind.heading() + PI/2);
   noStroke();
   fill(255);
@@ -44,7 +44,7 @@ function draw() {
   triangle(0, -18, -6, -10, 6, -10);
   pop();
   
-  // Move in the wind's direction
+  // हवा की दिशा में आगे बढ़ें
   position.add(wind);
   
   stroke(0);
@@ -59,15 +59,15 @@ function draw() {
 
 function gotWeather(weather) {
   
-  // Get the angle (convert to radians)
+  // कोण प्राप्त करें (रेडियन में कनवर्ट करें)
   let angle = radians(Number(weather.current.wind_degree));
-  // Get the wind speed
+  // हवा की गति प्राप्त करें
   let windmag = Number(weather.current.wind_mph);
   
-  // Display as HTML elements
+  // HTML तत्वों के रूप में प्रदर्शित करें
   let temperatureDiv = createDiv(floor(weather.current.temp_f) + '&deg;');
   let windDiv = createDiv("WIND " + windmag + " <small>MPH</small>");
   
-  // Make a vector
+  // एक वेक्टर बनाएं
   wind = p5.Vector.fromAngle(angle);
 }

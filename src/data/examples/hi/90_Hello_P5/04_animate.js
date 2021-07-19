@@ -1,13 +1,13 @@
 /*
- * @name Animation
- * @description The circle moves.
- */
-// Where is the circle
+  * @name एनिमेशन
+  * @description सर्कल चलता है।
+  */
+// सर्कल कहां है
 let x, y;
 
 function setup() {
   createCanvas(720, 400);
-  // Starts in the middle
+  // बीच में शुरू होता है
   x = width / 2;
   y = height;
 }
@@ -15,17 +15,17 @@ function setup() {
 function draw() {
   background(200);
   
-  // Draw a circle
+  // एक चक्र बनाएं
   stroke(50);
   fill(100);
   ellipse(x, y, 24, 24);
   
-  // Jiggling randomly on the horizontal axis
+  // क्षैतिज अक्ष पर बेतरतीब ढंग से झूलना
   x = x + random(-1, 1);
-  // Moving up at a constant speed
+  // निरंतर गति से ऊपर जा रहा है
   y = y - 1;
   
-  // Reset to the bottom
+  // नीचे की ओर रीसेट करें
   if (y < 0) {
     y = height;
   }

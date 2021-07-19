@@ -1,7 +1,7 @@
 /*
- * @name Acceleration Color
- * @description Use deviceMoved() to detect when the device is rotated. The background RGB color values are mapped to accelerationX, accelerationY, and accelerationZ values.
- */
+  * @name त्वरण रंग
+  * @description डिवाइस को घुमाए जाने का पता लगाने के लिए deviceMoved() का उपयोग करें। पृष्ठभूमि आरजीबी रंग मान एक्सेलेरेशन एक्स, एक्सेलेरेशन वाई, और एक्सेलेरेशन जेड मानों पर मैप किए जाते हैं।
+  */
 
 let r, g, b;
 
