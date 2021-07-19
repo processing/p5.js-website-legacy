@@ -1,10 +1,10 @@
 /*
- * @name Double Random
- * @frame 720,400 (optional)
- * @description Using two random() calls and the point()
- * function to create an irregular sawtooth line.
- * Original by by Ira Greenberg.
- */
+  * @name डबल रैंडम
+  * @frame 720,400 (वैकल्पिक)
+  * @description दो random() कॉल और point() का उपयोग करना
+  * अनियमित चूरा रेखा बनाने का कार्य।
+  * मूल ईरा ग्रीनबर्ग द्वारा।
+  */
 let totalPts = 300;
 let steps = totalPts + 1;
 

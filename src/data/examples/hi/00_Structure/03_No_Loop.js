@@ -1,8 +1,8 @@
 /*
- * @name No Loop
- * @description The noLoop() function causes draw() to only execute once.
- * Without calling noLoop(), the code inside draw() is run continually.
- */
+   * @name और ड्रा
+   * @description ड्रा () फ़ंक्शन
+   * योजना बनने तक तक।
+   */
 let y;
 
 // The statements in the setup() function

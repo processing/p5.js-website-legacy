@@ -1,13 +1,13 @@
 /*
- * @name Array
- * @description An array is a list of data. Each piece of data in an array
- * is identified by an index number representing its position in
- * the array. Arrays are zero based, which means that the first
- * element in the array is [0], the second element is [1], and so on.
- * In this example, an array named "coswave" is created and
- * filled with the cosine values. This data is displayed three
- * separate ways on the screen.
- */
+  * @name ऐरे
+  * @description एक सरणी डेटा की एक सूची है। एक सरणी में डेटा का प्रत्येक टुकड़ा
+  * को एक सूचकांक संख्या द्वारा पहचाना जाता है जो इसकी स्थिति का प्रतिनिधित्व करता है
+  * सरणी। Arrays शून्य आधारित हैं, जिसका अर्थ है कि पहला
+  * सरणी में तत्व [0] है, दूसरा तत्व [1] है, और इसी तरह।
+  * इस उदाहरण में, "coswave" नामक एक सरणी बनाई गई है और
+  * कोसाइन मूल्यों से भरा हुआ। यह डेटा तीन प्रदर्शित होता है
+  * स्क्रीन पर अलग तरीके।
+  */
 let coswave = [];
 
 function setup() {

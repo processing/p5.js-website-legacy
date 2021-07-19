@@ -1,7 +1,7 @@
 /*
- * @name Array Objects
- * @description Demonstrates the syntax for creating an array of custom objects.
- */
+  * @name ऐरे ऑब्जेक्ट्स
+  * @description कस्टम ऑब्जेक्ट्स की एक सरणी बनाने के लिए सिंटैक्स प्रदर्शित करता है।
+  */
 
 class Module {
   constructor(xOff, yOff, x, y, speed, unit) {
@@ -15,7 +15,7 @@ class Module {
     this.yDir = 1;
   }
 
-  // Custom method for updating the variables
+  // चर को अद्यतन करने के लिए कस्टम विधि
   update() {
     this.x = this.x + this.speed * this.xDir;
     if (this.x >= this.unit || this.x <= 0) {
@@ -29,7 +29,7 @@ class Module {
     }
   }
 
-  // Custom method for drawing the object
+  // वस्तु को खींचने के लिए कस्टम विधि
   draw() {
     fill(255);
     ellipse(this.xOff + this.x, this.yOff + this.y, 6, 6);

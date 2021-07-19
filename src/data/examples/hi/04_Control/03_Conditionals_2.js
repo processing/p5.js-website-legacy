@@ -1,25 +1,25 @@
 /*
- * @name Conditionals 2
- * @description We extend the language of conditionals from the previous
- * example by adding the keyword "else". This allows conditionals
- * to ask two or more sequential questions, each with a different
- * action.
- */
+  * @name सशर्त 2
+  * @description हम पिछले से सशर्त की भाषा का विस्तार करते हैं
+  * उदाहरण "और" कीवर्ड जोड़कर। यह सशर्त अनुमति देता है
+  * दो या दो से अधिक क्रमिक प्रश्न पूछने के लिए, प्रत्येक एक अलग के साथ
+  * क्रिया।
+  */
 function setup() {
   createCanvas(720, 360);
   background(0);
 
   for (let i = 2; i < width - 2; i += 4) {
-    // If 'i' divides by 20 with no remainder
+    // यदि 'i' को 20 से विभाजित किया जाता है और कोई शेषफल नहीं है
     if (i % 20 === 0) {
       stroke(255);
       line(i, 80, i, height / 2);
-      // If 'i' divides by 10 with no remainder
+      // यदि 'i' को 10 से विभाजित किया जाता है और कोई शेषफल नहीं है
     } else if (i % 10 === 0) {
       stroke(153);
       line(i, 20, i, 180);
-      // If neither of the above two conditions are met
-      // then draw this line
+       // यदि उपरोक्त दो शर्तों में से कोई भी पूरा नहीं हुआ है
+       // फिर इस लाइन को ड्रा करें
     } else {
       stroke(102);
       line(i, height / 2, i, height - 20);

@@ -1,7 +1,7 @@
-/*
- * @name Sine
- * @description Smoothly scaling size with the sin() function.
- */
+ /*
+  *@name साइन
+  * @description sin() फ़ंक्शन के साथ आसानी से स्केलिंग आकार।
+  */
 let diameter;
 let angle = 0;
 

@@ -1,7 +1,7 @@
 /*
- * @name Noise1D
- * @description Using 1D Perlin Noise to assign location.
- */
+  * @name Noise1D
+  * @description स्थान निर्दिष्ट करने के लिए 1D Perlin Noise का उपयोग करना।
+  */
 let xoff = 0.0;
 let xincrement = 0.01;
 
@@ -12,20 +12,20 @@ function setup() {
 }
 
 function draw() {
-  // Create an alpha blended background
+  // एक अल्फा ब्लेंडेड बैकग्राउंड बनाएं
   fill(0, 10);
   rect(0, 0, width, height);
 
-  //let n = random(0,width);  // Try this line instead of noise
+  // चलो n = यादृच्छिक (0, चौड़ाई); // शोर के बजाय इस लाइन को आजमाएं
 
-  // Get a noise value based on xoff and scale
-  // it according to the window's width
+   // xoff और स्केल के आधार पर शोर मान प्राप्त करें
+   // यह खिड़की की चौड़ाई के अनुसार है
   let n = noise(xoff) * width;
 
-  // With each cycle, increment xoff
+  // प्रत्येक चक्र के साथ, वृद्धि xoff
   xoff += xincrement;
 
-  // Draw the ellipse at the value produced by perlin noise
+  // पर्लिन शोर द्वारा उत्पन्न मूल्य पर दीर्घवृत्त को ड्रा करें
   fill(200);
   ellipse(n, height / 2, 64, 64);
 }

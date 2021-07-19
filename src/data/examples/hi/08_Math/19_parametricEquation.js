@@ -1,16 +1,16 @@
 /*
- * @name Parametric Equations
- * @description A parametric equation is where x and y
- * coordinates are both written in terms of another letter. This is
- * called a parameter and is usually given in the letter t or θ.
- * The inspiration was taken from the YouTube channel of Alexander Miller.
- */
+  * @name पैरामीट्रिक समीकरण
+  * @description एक पैरामीट्रिक समीकरण है जहाँ x और y
+  * निर्देशांक दोनों एक दूसरे अक्षर के रूप में लिखे गए हैं। यह है
+  * एक पैरामीटर कहा जाता है और आमतौर पर अक्षर t या में दिया जाता है।
+  * इसकी प्रेरणा एलेक्जेंडर मिलर के यूट्यूब चैनल से ली गई है।
+  */
 
 function setup(){
   createCanvas(720,400);
 }
 
-// the parameter at which x and y depends is usually taken as either t or symbol of theta
+// वह पैरामीटर जिस पर x और y निर्भर करते हैं, आमतौर पर या तो t या थीटा के प्रतीक के रूप में लिया जाता है
 let t = 0;
 function draw(){
   background('#fff');
@@ -23,22 +23,22 @@ function draw(){
   }
   t+=0.15;
 }
-// function to change initial x co-ordinate of the line
+// लाइन के प्रारंभिक x समन्वय को बदलने के लिए कार्य
 function x1(t){
   return sin(t/10)*125+sin(t/20)*125+sin(t/30)*125;
 }
 
-// function to change initial y co-ordinate of the line
+// लाइन के प्रारंभिक y समन्वय को बदलने के लिए कार्य change
 function y1(t){
   return cos(t/10)*125+cos(t/20)*125+cos(t/30)*125;
 }
 
-// function to change final x co-ordinate of the line
+// लाइन के अंतिम x समन्वय को बदलने के लिए कार्य
 function x2(t){
   return sin(t/15)*125+sin(t/25)*125+sin(t/35)*125;
 }
 
-// function to change final y co-ordinate of the line
+// लाइन के अंतिम y समन्वय को बदलने के लिए कार्य
 function y2(t){
   return cos(t/15)*125+cos(t/25)*125+cos(t/35)*125;
 }

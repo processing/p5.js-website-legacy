@@ -1,15 +1,15 @@
 /*
- * @name Penrose Tiles
- * @frame 710,400
- * @description This is a port by David Blitz of the "Penrose Tile" example from processing.org/examples
- */
+  * @name पेनरोज़ टाइलें
+  * @frame 710,400
+  * @description यह प्रोसेसिंग.org/examples से "पेनरोज़ टाइल" उदाहरण के डेविड ब्लिट्ज का एक पोर्ट है
+  */
 
 let ds;
 
 function setup() {
   createCanvas(710, 400);
   ds = new PenroseLSystem();
-  //please, play around with the following line
+  // कृपया, निम्न पंक्ति के साथ खेलें
   ds.simulate(5);
 }
 
@@ -21,17 +21,17 @@ function draw() {
 function PenroseLSystem() {
     this.steps = 0;
 
-   //these are axiom and rules for the penrose rhombus l-system
-   //a reference would be cool, but I couldn't find a good one
+    // ये पेनरोज़ रोम्बस एल-सिस्टम के लिए स्वयंसिद्ध और नियम हैं
+    // एक संदर्भ अच्छा होगा, लेकिन मुझे एक अच्छा नहीं मिला
     this.axiom = "[X]++[X]++[X]++[X]++[X]";
     this.ruleW = "YF++ZF----XF[-YF----WF]++";
     this.ruleX = "+YF--ZF[---WF--XF]+";
     this.ruleY = "-WF++XF[+++YF++ZF]-";
     this.ruleZ = "--YF++++WF[+ZF++++XF]--XF";
 
-    //please play around with the following two lines
+    // कृपया निम्नलिखित दो पंक्तियों के साथ खेलें
     this.startLength = 460.0;
-    this.theta = TWO_PI / 10.0; //36 degrees, try TWO_PI / 6.0, ...
+    this.theta = TWO_PI / 10.0; // 36 डिग्री, TWO_PI / 6.0 आज़माएं, ...
     this.reset();
 }
 
@@ -51,14 +51,14 @@ PenroseLSystem.prototype.getAge = function () {
     return this.generations;
   }
 
-//apply substitution rules to create new iteration of production string
+// उत्पादन स्ट्रिंग का नया पुनरावृत्ति बनाने के लिए प्रतिस्थापन नियम लागू करें
 PenroseLSystem.prototype.iterate = function() {
     let newProduction = "";
 
     for(let i=0; i < this.production.length; ++i) {
       let step = this.production.charAt(i);
-      //if current character is 'W', replace current character
-      //by corresponding rule
+      // यदि वर्तमान वर्ण 'W' है, तो वर्तमान वर्ण को बदलें
+       // संबंधित नियम के अनुसार
       if (step == 'W') {
         newProduction = newProduction + this.ruleW;
       }
@@ -72,8 +72,8 @@ PenroseLSystem.prototype.iterate = function() {
         newProduction = newProduction + this.ruleZ;
       }
       else {
-        //drop all 'F' characters, don't touch other
-        //characters (i.e. '+', '-', '[', ']'
+         // सभी 'एफ' वर्णों को छोड़ दें, अन्य को स्पर्श न करें
+         // वर्ण (यानी '+', '-', '[', ']'
         if (step != 'F') {
           newProduction = newProduction + step;
         }
@@ -85,7 +85,7 @@ PenroseLSystem.prototype.iterate = function() {
     this.production = newProduction;
 }
 
-//convert production string to a turtle graphic
+// प्रोडक्शन स्ट्रिंग को टर्टल ग्राफिक में बदलें
 PenroseLSystem.prototype.render = function () {
     translate(width / 2, height / 2);
 
@@ -97,7 +97,7 @@ PenroseLSystem.prototype.render = function () {
     for(let i=0; i<this.steps; ++i) {
       let step = this.production.charAt(i);
 
-      //'W', 'X', 'Y', 'Z' symbols don't actually correspond to a turtle action
+      //'W', 'X', 'Y', 'Z' प्रतीक वास्तव में कछुए की क्रिया के अनुरूप नहीं हैं
       if( step == 'F') {
         stroke(255, 60);
         for(let j=0; j < this.repeats; j++) {

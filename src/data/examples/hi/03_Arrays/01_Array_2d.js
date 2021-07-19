@@ -1,10 +1,10 @@
 /*
- * @name Array 2D
- * @description Demonstrates the syntax for creating a two-dimensional (2D)
- * array. Values in a 2D array are accessed through two index values.
- * 2D arrays are useful for storing images. In this example, each dot
- * is colored in relation to its distance from the center of the image.
- */
+  * @name ऐरे 2D
+  * @description द्वि-आयामी (2D) बनाने के लिए सिंटैक्स प्रदर्शित करता है
+  * सरणी। 2D सरणी में मानों को दो अनुक्रमणिका मानों के माध्यम से एक्सेस किया जाता है।
+  * 2D सरणियाँ छवियों को संग्रहीत करने के लिए उपयोगी हैं। इस उदाहरण में, प्रत्येक बिंदु
+  * छवि के केंद्र से इसकी दूरी के संबंध में रंगीन है।
+  */
 let distances = [];
 let maxDistance;
 let spacer;
@@ -25,10 +25,10 @@ function setup() {
 
 function draw() {
   background(0);
-  // This embedded loop skips over values in the arrays based on
-  // the spacer variable, so there are more values in the array
-  // than are drawn here. Change the value of the spacer variable
-  // to change the density of the points
+   // यह एम्बेडेड लूप के आधार पर सरणियों में मूल्यों पर छोड़ देता है
+   // स्पेसर चर, इसलिए सरणी में अधिक मान हैं
+   // यहाँ से खींचे गए हैं। स्पेसर वैरिएबल का मान बदलें of
+   // बिंदुओं के घनत्व को बदलने के लिए
   for (let x = 0; x < width; x += spacer) {
     for (let y = 0; y < height; y += spacer) {
       stroke(distances[x][y]);

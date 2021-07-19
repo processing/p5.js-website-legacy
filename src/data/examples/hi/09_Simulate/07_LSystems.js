@@ -1,36 +1,36 @@
 /*
- * @name L-Systems
- * @description This sketch creates an automated drawing based on a Lindenmayer
- * or (L-) system. L-systems are often used in procedural graphics to make
- * natural, geometric, or interesting "fractal-style" patterns.<br>
- * Example created by <a href='http://lukedubois.com/' target='_blank'>R. Luke DuBois</a>.<br>
- * <a href='https://en.wikipedia.org/wiki/L-system'>https://en.wikipedia.org/wiki/L-system</a>
- */
-// TURTLE STUFF:
-let x, y; // the current position of the turtle
-let currentangle = 0; // which way the turtle is pointing
-let step = 20; // how much the turtle moves with each 'F'
-let angle = 90; // how much the turtle turns with a '-' or '+'
+  * @name एल-सिस्टम्स
+  * @description यह स्केच लिंडनमेयर पर आधारित एक स्वचालित ड्राइंग बनाता है
+  * या (एल-) प्रणाली। एल-सिस्टम का उपयोग अक्सर प्रक्रियात्मक ग्राफिक्स बनाने के लिए किया जाता है
+  * प्राकृतिक, ज्यामितीय, या दिलचस्प "फ्रैक्टल-शैली" पैटर्न।<br>
+  * उदाहरण <a href='http://lukedubois.com/' target='_blank'>R द्वारा बनाया गया है। ल्यूक डुबोइस</a>.<br>
+  * <a href='https://en.wikipedia.org/wiki/L-system'>https://en.wikipedia.org/wiki/L-system</a>
+  */
+// कछुआ सामान:
+let x, y; // कछुए की वर्तमान स्थिति
+let currentangle = 0; // कछुआ किस ओर इशारा कर रहा है
+let step = 20; // प्रत्येक 'एफ' के साथ कछुआ कितना चलता है
+let angle = 90; // कछुआ '-' या '+' से कितना मुड़ता है
 
-// LINDENMAYER STUFF (L-SYSTEMS)
-let thestring = 'A'; // "axiom" or start of the string
-let numloops = 5; // how many iterations to pre-compute
-let therules = []; // array for rules
-therules[0] = ['A', '-BF+AFA+FB-']; // first rule
-therules[1] = ['B', '+AF-BFB-FA+']; // second rule
+// लिंडेनमेयर स्टफ (एल-सिस्टम)
+let thestring = 'A'; // "स्वयंसिद्ध" या स्ट्रिंग की शुरुआत
+let numloops = 5; // पूर्व-गणना करने के लिए कितने पुनरावृत्तियों
+let therules = []; // नियमों के लिए सरणी
+therules[0] = ['A', '-BF+AFA+FB-']; // पहला नियम
+therules[1] = ['B', '+AF-BFB-FA+']; // दूसरा नियम
 
-let whereinstring = 0; // where in the L-system are we?
+let whereinstring = 0; // एल-सिस्टम में हम कहां हैं?
 
 function setup() {
   createCanvas(710, 400);
   background(255);
   stroke(0, 0, 0, 255);
 
-  // start the x and y position at lower-left corner
+  // निचले-बाएँ कोने पर x और y स्थिति शुरू करें
   x = 0;
   y = height-1;
 
-  // COMPUTE THE L-SYSTEM
+  // एल-सिस्टम की गणना करें
   for (let i = 0; i < numloops; i++) {
     thestring = lindenmayer(thestring);
   }
@@ -38,69 +38,69 @@ function setup() {
 
 function draw() {
 
-  // draw the current character in the string:
+  // स्ट्रिंग में वर्तमान वर्ण बनाएं:
   drawIt(thestring[whereinstring]);
 
-  // increment the point for where we're reading the string.
-  // wrap around at the end.
+   // उस बिंदु को बढ़ाएं जहां हम स्ट्रिंग पढ़ रहे हैं।
+   // अंत में चारों ओर लपेटें।
   whereinstring++;
   if (whereinstring > thestring.length-1) whereinstring = 0;
 
 }
 
-// interpret an L-system
+// एल-सिस्टम की व्याख्या करें
 function lindenmayer(s) {
-  let outputstring = ''; // start a blank output string
+  let outputstring = ''; // एक खाली आउटपुट स्ट्रिंग शुरू करें
 
-  // iterate through 'therules' looking for symbol matches:
+  // प्रतीक मिलान की तलाश में 'थेरुल्स' के माध्यम से पुनरावृति करें:
   for (let i = 0; i < s.length; i++) {
-    let ismatch = 0; // by default, no match
+    let ismatch = 0; // डिफ़ॉल्ट रूप से, कोई मिलान नहीं
     for (let j = 0; j < therules.length; j++) {
       if (s[i] == therules[j][0])  {
-        outputstring += therules[j][1]; // write substitution
-        ismatch = 1; // we have a match, so don't copy over symbol
-        break; // get outta this for() loop
+        outputstring += therules[j][1]; // प्रतिस्थापन लिखें
+        ismatch = 1; // हमारे पास एक मैच है, इसलिए प्रतीक पर कॉपी न करें
+        break; // इसके लिए () लूप से बाहर निकलें
       }
     }
-    // if nothing matches, just copy the symbol over.
+    // अगर कुछ भी मेल नहीं खाता है, तो बस प्रतीक को कॉपी करें।
     if (ismatch == 0) outputstring+= s[i];
   }
 
-  return outputstring; // send out the modified string
+  return outputstring; // संशोधित स्ट्रिंग भेजें
 }
 
-// this is a custom function that draws turtle commands
+// यह एक कस्टम फ़ंक्शन है जो टर्टल कमांड खींचता है
 function drawIt(k) {
 
-  if (k=='F') { // draw forward
-    // polar to cartesian based on step and currentangle:
+  if (k=='F') { // आगे बढ़ें
+   // स्टेप और करंट एंगल के आधार पर ध्रुवीय से कार्टेशियन:
     let x1 = x + step*cos(radians(currentangle));
     let y1 = y + step*sin(radians(currentangle));
-    line(x, y, x1, y1); // connect the old and the new
+    line(x, y, x1, y1); // पुराने और नए को कनेक्ट करें
 
-    // update the turtle's position:
+    // कछुए की स्थिति को अपडेट करें:
     x = x1;
     y = y1;
   } else if (k == '+') {
-    currentangle += angle; // turn left
+    currentangle += angle; // बांए मुड़िए
   } else if (k == '-') {
-    currentangle -= angle; // turn right
+    currentangle -= angle; // दांए मुड़िए
   }
 
-  // give me some random color values:
+  // मुझे कुछ यादृच्छिक रंग मान दें:
   let r = random(128, 255);
   let g = random(0, 192);
   let b = random(0, 50);
   let a = random(50, 100);
 
-  // pick a gaussian (D&D) distribution for the radius:
+  // त्रिज्या के लिए एक गाऊसी (डी एंड डी) वितरण चुनें:
   let radius = 0;
   radius += random(0, 15);
   radius += random(0, 15);
   radius += random(0, 15);
   radius = radius / 3;
 
-  // draw the stuff:
+  // सामान ड्रा करें:
   fill(r, g, b, a);
   ellipse(x, y, radius, radius);
 }

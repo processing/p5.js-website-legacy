@@ -1,13 +1,13 @@
 /*
- * @name SmokeParticles
- * @description a port of Dan Shiffman's SmokeParticleSystem example originally
- * for Processing. Creates smokey particles :p
- */
+  * @name स्मोकपार्टिकल्स
+  * @description डैन शिफमैन के स्मोकपार्टिकल सिस्टम उदाहरण का एक पोर्ट मूल रूप से वर्णन करें
+  * प्रसंस्करण के लिए। धुएँ के रंग के कण बनाता है :p
+  */
 
-// texture for the particle
+// कण के लिए बनावट
 let particle_texture = null;
 
-// variable holding our particle system
+// हमारे कण प्रणाली को धारण करने वाला चर
 let ps = null;
 
 function preload() {
@@ -16,10 +16,10 @@ function preload() {
 
 function setup() {
 
-  //set the canvas size
+ // कैनवास का आकार निर्धारित करें
   createCanvas(640, 360);
 
-  //initialize our particle system
+  // हमारे कण प्रणाली को इनिशियलाइज़ करें
   ps = new ParticleSystem(0, createVector(width / 2, height - 60), particle_texture);
 }
 
@@ -35,13 +35,13 @@ function draw() {
     ps.addParticle();
   }
 
-  // Draw an arrow representing the wind force
+  // वायु शक्ति का प्रतिनिधित्व करने वाला एक तीर खींचें
   drawVector(wind, createVector(width / 2, 50, 0), 500);
 }
 
 /**
- *  This function draws an arrow showing the direction our "wind" is blowing.
- */
+  * यह फ़ंक्शन हमारी "हवा" की दिशा को दर्शाने वाला एक तीर खींचता है।
+  */
 function drawVector(v, loc, scale){
   push();
   let arrowsize = 4;
@@ -55,19 +55,19 @@ function drawVector(v, loc, scale){
   line(len, 0, len-arrowsize, -arrowsize / 2);
   pop();
 }
-//========= PARTICLE SYSTEM ===========
+//========= कण प्रणाली ==========
 
 /**
- * A basic particle system class
- * @param num the number of particles
- * @param v the origin of the particle system
- * @param img_ a texture for each particle in the system
+  * एक बुनियादी कण प्रणाली वर्ग
+ * @param num कणों की संख्या
+ * @param v कण प्रणाली की उत्पत्ति
+ * @param img_ सिस्टम में प्रत्येक कण के लिए एक बनावट
  * @constructor
  */
 let ParticleSystem = function(num, v, img_) {
 
   this.particles = [];
-  this.origin = v.copy(); // we make sure to copy the vector value in case we accidentally mutate the original by accident
+  this.origin = v.copy(); // यदि हम गलती से मूल को गलती से बदल देते हैं, तो हम वेक्टर मान की प्रतिलिपि बनाना सुनिश्चित करते हैं
   this.img = img_
   for(let i = 0; i < num; ++i){
     this.particles.push(new Particle(this.origin, this.img));
@@ -75,23 +75,23 @@ let ParticleSystem = function(num, v, img_) {
 };
 
 /**
- * This function runs the entire particle system.
- */
+  * यह फ़ंक्शन पूरे कण प्रणाली को चलाता है।
+  */
 ParticleSystem.prototype.run = function() {
 
-  // cache length of the array we're going to loop into a variable
-  // You may see <variable>.length in a for loop, from time to time but
-  // we cache it here because otherwise the length is re-calculated for each iteration of a loop
+   // उस सरणी की कैश लंबाई जिसे हम एक चर में लूप करने जा रहे हैं
+   // आप समय-समय पर लूप के लिए <variable>.length देख सकते हैं लेकिन
+   // हम इसे यहां कैश करते हैं क्योंकि अन्यथा लूप के प्रत्येक पुनरावृत्ति के लिए लंबाई की फिर से गणना की जाती है
   let len = this.particles.length;
 
-  //loop through and run particles
+  // लूप के माध्यम से और कणों को चलाएं
   for (let i = len - 1; i >= 0; i--) {
     let particle = this.particles[i];
     particle.run();
 
-    // if the particle is dead, we remove it.
-    // javascript arrays don't have a "remove" function but "splice" works just as well.
-    // we feed it an index to start at, then how many numbers from that point to remove.
+     // यदि कण मर चुका है, तो हम इसे हटा देते हैं।
+     // जावास्क्रिप्ट सरणियों में "निकालें" फ़ंक्शन नहीं है, लेकिन "स्प्लिस" भी काम करता है।
+     // हम इसे शुरू करने के लिए एक सूचकांक खिलाते हैं, फिर उस बिंदु से कितनी संख्या को निकालना है।
     if (particle.isDead()) {
       this.particles.splice(i, 1);
     }
@@ -99,8 +99,8 @@ ParticleSystem.prototype.run = function() {
 }
 
 /**
- * Method to add a force vector to all particles currently in the system
- * @param dir a p5.Vector describing the direction of the force.
+  * सिस्टम में वर्तमान में मौजूद सभी कणों में एक बल वेक्टर जोड़ने की विधि
+ * @param dir a p5.बल की दिशा का वर्णन करने वाला सदिश।
  */
 ParticleSystem.prototype.applyForce = function(dir) {
   let len = this.particles.length;
@@ -110,17 +110,17 @@ ParticleSystem.prototype.applyForce = function(dir) {
 }
 
 /**
- * Adds a new particle to the system at the origin of the system and with
- * the originally set texture.
- */
+  * सिस्टम के मूल में और साथ में सिस्टम में एक नया कण जोड़ता है
+  * मूल रूप से सेट बनावट।
+  */
 ParticleSystem.prototype.addParticle = function() {
     this.particles.push(new Particle(this.origin, this.img));
 }
 
-//========= PARTICLE  ===========
+//========= कण ==========
 /**
- *  A simple Particle class, renders the particle as an image
- */
+  * एक साधारण कण वर्ग, कण को एक छवि के रूप में प्रस्तुत करता है
+  */
 let Particle = function (pos, img_) {
   this.loc = pos.copy();
 
@@ -133,17 +133,15 @@ let Particle = function (pos, img_) {
   this.texture = img_;
 }
 
-/**
- *  Simulataneously updates and displays a particle.
- */
+// साथ ही एक कण को अपडेट और प्रदर्शित करें। 
 Particle.prototype.run = function() {
   this.update();
   this.render();
 }
 
 /**
- *  A function to display a particle
- */
+  * एक कण प्रदर्शित करने के लिए एक समारोह
+  */
 Particle.prototype.render = function() {
   imageMode(CENTER);
   tint(255, this.lifespan);
@@ -151,16 +149,16 @@ Particle.prototype.render = function() {
 }
 
 /**
- *  A method to apply a force vector to a particle.
- */
+  * किसी कण पर बल सदिश लगाने की एक विधि।
+  */
 Particle.prototype.applyForce = function(f) {
   this.acc.add(f);
 }
 
 /**
- *  This method checks to see if the particle has reached the end of it's lifespan,
- *  if it has, return true, otherwise return false.
- */
+  * यह विधि यह देखने के लिए जाँच करती है कि क्या कण अपने जीवन काल के अंत तक पहुँच गया है,
+  * यदि यह है, तो सत्य लौटाएँ, अन्यथा असत्य लौटाएँ।
+  */
 Particle.prototype.isDead = function () {
   if (this.lifespan <= 0.0) {
     return true;
@@ -170,8 +168,8 @@ Particle.prototype.isDead = function () {
 }
 
 /**
- *  This method updates the position of the particle.
- */
+  * यह विधि कण की स्थिति को अद्यतन करती है।
+  */
 Particle.prototype.update = function() {
   this.vel.add(this.acc);
   this.loc.add(this.vel);

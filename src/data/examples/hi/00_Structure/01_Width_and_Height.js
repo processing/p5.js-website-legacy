@@ -1,9 +1,9 @@
 /*
- * @name Width and Height
- * @description The 'width' and 'height' variables contain the
- * width and height of the display window as defined in the createCanvas()
- * function.
- */
+  * @name चौड़ाई और ऊंचाई
+  * @description 'चौड़ाई' और 'ऊंचाई' चर में शामिल हैं
+  * createCanvas () में परिभाषित डिस्प्ले विंडो की चौड़ाई और ऊंचाई
+  * समारोह।
+  */
 function setup() {
   createCanvas(720, 400);
 }

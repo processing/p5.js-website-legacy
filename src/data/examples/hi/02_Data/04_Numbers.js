@@ -1,13 +1,13 @@
 /*
- * @name Numbers
- * @frame 720,400
- * @description Numbers can be written with or without decimals. An integer
- * (more commonly called an int) is a number without a decimal point. A float
- * is a floating-point number, which means it is a number that has a decimal
- * place.
- */
-let a = 0; // Create a global variable "a" of type Number
-let b = 0; // Create a global variable "b" of type Number
+  * @name नंबर
+  * @frame 720,400
+  * @description नंबर को दशमलव के साथ या बिना लिखा जा सकता है। पूर्णांक
+  * (आमतौर पर एक इंट कहा जाता है) एक दशमलव बिंदु के बिना एक संख्या है। एक फ्लोट
+  * एक फ़्लोटिंग-पॉइंट नंबर है, जिसका अर्थ है कि यह एक संख्या है जिसमें दशमलव है
+  * जगह।
+  */
+let a = 0; // एक वैश्विक चर "ए" प्रकार की संख्या बनाएं
+let b = 0; // संख्या प्रकार का एक वैश्विक चर "बी" बनाएं
 
 function setup() {
   createCanvas(720, 400);
@@ -17,8 +17,8 @@ function setup() {
 function draw() {
   background(0);
 
-  a = a + 1; // Increment a with an integer
-  b = b + 0.2; //Increment b with a float
+  a = a + 1;   // एक पूर्णांक के साथ वृद्धि करें
+  b = b + 0.2; // वृद्धि बी एक फ्लोट के साथ
   line(a, 0, a, height / 2);
   line(b, height / 2, b, height);
 

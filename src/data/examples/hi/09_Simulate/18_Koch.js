@@ -1,37 +1,36 @@
 /*
- * @name Koch Curve
- * @description Renders a simple fractal, the Koch snowflake. Each recursive level is drawn in sequence.
- * By Daniel Shiffman
- */
-
+  * @name कोच कर्व
+  * @description एक साधारण फ्रैक्टल, कोच स्नोफ्लेक प्रस्तुत करता है। प्रत्येक पुनरावर्ती स्तर क्रम में तैयार किया गया है।
+  * डैनियल शिफमैन द्वारा
+  */
 let k;
 
 function setup() {
   createCanvas(710, 400);
-  frameRate(1);  // Animate slowly
+  frameRate(1); // धीरे-धीरे चेतन करें
   k = new KochFractal();
 }
 
 function draw() {
   background(0);
-  // Draws the snowflake!
+  // बर्फ के टुकड़े खींचता है!
   k.render();
-  // Iterate
+  // पुनरावृति
   k.nextLevel();
-  // Let's not do it more than 5 times. . .
+  // आइए इसे 5 बार से अधिक न करें। . .
   if (k.getCount() > 5) {
     k.restart();
   }
 }
 
-// A class to describe one line segment in the fractal
-// Includes methods to calculate midp5.Vectors along the line according to the Koch algorithm
+// भग्न में एक रेखा खंड का वर्णन करने के लिए एक वर्ग
+// कोच एल्गोरिथ्म के अनुसार लाइन के साथ midp5.Vectors की गणना करने के तरीके शामिल हैं
 
 class KochLine {
   constructor(a,b) {
-    // Two p5.Vectors,
-    // start is the "left" p5.Vector and
-    // end is the "right p5.Vector
+     // दो p5.Vectors,
+     // प्रारंभ "बाएं" p5 है। वेक्टर और
+     // अंत "सही p5.Vector" है
     this.start = a.copy();
     this.end = b.copy();
   }
@@ -45,7 +44,7 @@ class KochLine {
     return this.start.copy();
   }
 
-  // This is easy, just 1/3 of the way
+  // यह आसान है, रास्ते का सिर्फ 1/3
   kochB() {
     let v = p5.Vector.sub(this.end, this.start);
     v.div(3);
@@ -53,18 +52,18 @@ class KochLine {
     return v;
   }
 
-  // More complicated, have to use a little trig to figure out where this p5.Vector is!
+  // अधिक जटिल, यह पता लगाने के लिए थोड़ा ट्रिगर का उपयोग करना होगा कि यह p5.Vector कहाँ है!
   kochC() {
-    let a = this.start.copy(); // Start at the beginning
+    let a = this.start.copy(); // शुरुआत में शुरू करें
     let v = p5.Vector.sub(this.end, this.start);
     v.div(3);
-    a.add(v);  // Move to point B
-    v.rotate(-PI/3); // Rotate 60 degrees
-    a.add(v);  // Move to point C
+    a.add(v); // बिंदु बी पर ले जाएँ
+    v.rotate(-PI/3); // 60 डिग्री घुमाएँate
+    a.add(v);  // बिंदु C . पर जाएँ
     return a;
   }
 
-  // Easy, just 2/3 of the way
+ // आसान, रास्ते का सिर्फ 2/3
   kochD() {
     let v = p5.Vector.sub(this.end, this.start);
     v.mult(2/3.0);
@@ -77,60 +76,60 @@ class KochLine {
   }
 }
 
-// A class to manage the list of line segments in the snowflake pattern
+// स्नोफ्लेक पैटर्न में लाइन सेगमेंट की सूची को प्रबंधित करने के लिए एक वर्ग
 
 class KochFractal {
   constructor() {
-    this.start = createVector(0,height-20);   // A p5.Vector for the start
-    this.end = createVector(width,height-20); // A p5.Vector for the end
-    this.lines = [];                         // An array to keep track of all the lines
+    this.start = createVector(0,height-20);   // एक p5. शुरुआत के लिए वेक्टर
+    this.end = createVector(width,height-20); // एक p5। अंत के लिए वेक्टर
+    this.lines = [];                         // सभी लाइनों का ट्रैक रखने के लिए एक सरणी
     this.count = 0;
     this.restart();
   }
 
   nextLevel() {
-    // For every line that is in the arraylist
-    // create 4 more lines in a new arraylist
+     // प्रत्येक पंक्ति के लिए जो सरणी सूची में है
+     // एक नई सरणी सूची में 4 और लाइनें बनाएं
     this.lines = this.iterate(this.lines);
     this.count++;
   }
 
   restart() {
-    this.count = 0;      // Reset count
-    this.lines = [];  // Empty the array list
-    this.lines.push(new KochLine(this.start,this.end));  // Add the initial line (from one end p5.Vector to the other)
+    this.count = 0;     // रीसेट गिनती
+    this.lines = [];    // सरणी सूची खाली करें
+    this.lines.push(new KochLine(this.start,this.end));  // प्रारंभिक पंक्ति जोड़ें (एक छोर p5.Vector से दूसरे तक)
   }
 
   getCount() {
     return this.count;
   }
 
-  // This is easy, just draw all the lines
+  // यह आसान है, बस सभी रेखाएँ खींचें
   render() {
     for(let i = 0; i < this.lines.length; i++) {
       this.lines[i].display();
     }
   }
 
-  // This is where the **MAGIC** happens
-  // Step 1: Create an empty arraylist
-  // Step 2: For every line currently in the arraylist
-  //   - calculate 4 line segments based on Koch algorithm
-  //   - add all 4 line segments into the new arraylist
-  // Step 3: Return the new arraylist and it becomes the list of line segments for the structure
+   // यहां जादू पैदा होता है
+   // चरण 1: एक खाली सरणी सूची बनाएं
+   // चरण 2: वर्तमान में सरणी सूची में प्रत्येक पंक्ति के लिए
+   // - कोच एल्गोरिथम के आधार पर 4 लाइन सेगमेंट की गणना करें
+   // - सभी 4 लाइन सेगमेंट को नई सरणी सूची में जोड़ें
+   // चरण 3: नई सरणी सूची लौटाएं और यह संरचना के लिए रेखा खंडों की सूची बन जाती है
 
-  // As we do this over and over again, each line gets broken into 4 lines, which gets broken into 4 lines, and so on. . .
+   // जैसा कि हम इसे बार-बार करते हैं, प्रत्येक पंक्ति 4 पंक्तियों में टूट जाती है, जो 4 पंक्तियों में टूट जाती है, और इसी तरह। . .
   iterate(before) {
-    let now = [];    // Create emtpy list
+    let now = [];    // खाली सूची बनाएं
     for(let i = 0; i < this.lines.length; i++) {
       let l = this.lines[i];
-      // Calculate 5 koch p5.Vectors (done for us by the line object)
+      // 5 koch p5.Vectors की गणना करें (लाइन ऑब्जेक्ट द्वारा हमारे लिए किया गया)
       let a = l.kochA();
       let b = l.kochB();
       let c = l.kochC();
       let d = l.kochD();
       let e = l.kochE();
-      // Make line segments between all the p5.Vectors and add them
+      // सभी p5.Vectors के बीच लाइन सेगमेंट बनाएं और उन्हें जोड़ें
       now.push(new KochLine(a,b));
       now.push(new KochLine(b,c));
       now.push(new KochLine(c,d));

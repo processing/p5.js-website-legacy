@@ -1,8 +1,8 @@
 /*
- * @name Distance 1D
- * @description Move the mouse left and right to control
- * the speed and direction of the moving shapes.
- */
+  * @name दूरी 1डी
+  * @description नियंत्रित करने के लिए माउस को बाएँ और दाएँ घुमाएँ
+  * चलती आकृतियों की गति और दिशा।
+  */
 let xpos1;
 let xpos2;
 let xpos3;

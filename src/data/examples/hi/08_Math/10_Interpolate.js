@@ -1,12 +1,12 @@
 /*
- * @name Linear Interpolation
- * @frame 720, 400
- * @description Move the mouse across the screen and the symbol will follow.
- * Between drawing each frame of the animation, the ellipse moves part
- * of the distance (0.05) from its current position toward the cursor using
- * the lerp() function.
- * This is the same as the Easing under input only with lerp() instead..
- */
+  * @name रैखिक इंटरपोलेशन
+  * @frame 720, 400
+  * @description माउस को स्क्रीन पर ले जाएँ और सिंबल उसके पीछे आ जाएगा।
+  * एनीमेशन के प्रत्येक फ्रेम को खींचने के बीच, दीर्घवृत्त भाग जाता है
+  * दूरी (0.05) की वर्तमान स्थिति से कर्सर की ओर का उपयोग कर
+  * lerp () फ़ंक्शन।
+  * यह केवल lerp() के साथ इनपुट के तहत ईजिंग जैसा ही है ..
+  */
 
 let x = 0;
 let y = 0;
@@ -19,12 +19,12 @@ function setup() {
 function draw() {
   background(51);
 
-  // lerp() calculates a number between two numbers at a specific increment.
-  // The amt parameter is the amount to interpolate between the two values
-  // where 0.0 equal to the first point, 0.1 is very near the first point, 0.5
-  // is half-way in between, etc.
+   // lerp () एक विशिष्ट वेतन वृद्धि पर दो संख्याओं के बीच की संख्या की गणना करता है।
+   // एएमटी पैरामीटर दो मानों के बीच प्रक्षेपित करने की राशि है
+   // जहां 0.0 पहले बिंदु के बराबर है, 0.1 पहले बिंदु के बहुत करीब है, 0.5
+   // बीच में आधा रास्ता है, आदि।
 
-  // Here we are moving 5% of the way to the mouse location each frame
+   // यहां हम प्रत्येक फ्रेम में 5% रास्ते को माउस स्थान पर ले जा रहे हैं
   x = lerp(x, mouseX, 0.05);
   y = lerp(y, mouseY, 0.05);
 

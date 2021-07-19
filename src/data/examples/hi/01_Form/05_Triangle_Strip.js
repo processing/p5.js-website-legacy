@@ -1,9 +1,9 @@
 /*
- * @name Triangle Strip
- * @description Example by Ira Greenberg. Generate a closed ring using the
- * vertex() function and beginShape(TRIANGLE_STRIP) mode. The outsideRadius
- * and insideRadius variables control ring's radii respectively.
- */
+  *@name त्रिभुज पट्टी
+  * @description उदाहरण इरा ग्रीनबर्ग द्वारा। का उपयोग करके एक बंद रिंग उत्पन्न करें
+  * vertex() फ़ंक्शन और beginShape (TRIANGLE_STRIP) मोड। बाहरी त्रिज्या
+  * और इनसाइडरेडियस वेरिएबल्स क्रमशः रिंग की त्रिज्या को नियंत्रित करते हैं।
+  */
 let x;
 let y;
 let outsideRadius = 150;

@@ -1,10 +1,10 @@
 /*
- * @name Saturation
- * @description Saturation is the strength or purity of the color and
- * represents the amount of gray in proportion to the hue. A "saturated"
- * color is pure and an "unsaturated" color has a large percentage of gray.
- * Move the cursor vertically over each bar to alter its saturation.
- */
+  * @name संतृप्ति
+  * @description संतृप्ति रंग की ताकत या शुद्धता है और
+  * रंग के अनुपात में ग्रे की मात्रा का प्रतिनिधित्व करता है। एक "संतृप्त"
+  * रंग शुद्ध होता है और "असंतृप्त" रंग में ग्रे का एक बड़ा प्रतिशत होता है।
+  * इसकी संतृप्ति को बदलने के लिए कर्सर को प्रत्येक पट्टी पर लंबवत ले जाएँ।
+  */
 const barWidth = 20;
 let lastBar = -1;
 

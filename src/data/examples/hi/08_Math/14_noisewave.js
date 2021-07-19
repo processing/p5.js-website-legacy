@@ -1,9 +1,9 @@
 /*
- * @name Noise Wave
- * @description Using Perlin Noise to generate a wave-like pattern.
- * Original by Daniel Shiffman.
- */
-let yoff = 0.0; // 2nd dimension of perlin noise
+  * @name शोर लहर
+  * @description तरंग जैसा पैटर्न उत्पन्न करने के लिए पर्लिन शोर का उपयोग करना।
+  * डैनियल शिफमैन द्वारा मूल।
+  */
+let yoff = 0.0; // पर्लिन शोर का दूसरा आयाम
 
 function setup() {
   createCanvas(710, 400);
@@ -13,28 +13,28 @@ function draw() {
   background(51);
 
   fill(255);
-  // We are going to draw a polygon out of the wave points
+  // हम तरंग बिंदुओं से एक बहुभुज बनाने जा रहे हैं
   beginShape();
 
-  let xoff = 0; // Option #1: 2D Noise
-  // let xoff = yoff; // Option #2: 1D Noise
+  let xoff = 0; // विकल्प # 1: 2D शोर
+  // चलो xoff = yoff; // विकल्प # 2: 1D शोर
 
-  // Iterate over horizontal pixels
+ // क्षैतिज पिक्सेल पर पुनरावृति
   for (let x = 0; x <= width; x += 10) {
-    // Calculate a y value according to noise, map to
+    // शोर के अनुसार y मान की गणना करें, मानचित्र करें
 
-    // Option #1: 2D Noise
+    // विकल्प # 1: 2D शोर
     let y = map(noise(xoff, yoff), 0, 1, 200, 300);
 
-    // Option #2: 1D Noise
-    // let y = map(noise(xoff), 0, 1, 200,300);
+     // विकल्प # 2: 1D शोर
+     // चलो y = नक्शा (शोर (xoff), 0, 1, 200,300);
 
-    // Set the vertex
+   // शीर्ष सेट करें
     vertex(x, y);
-    // Increment x dimension for noise
+    // शोर के लिए वृद्धि x आयाम
     xoff += 0.05;
   }
-  // increment y dimension for noise
+  // शोर के लिए वृद्धि y आयाम
   yoff += 0.01;
   vertex(width, height);
   vertex(0, height);

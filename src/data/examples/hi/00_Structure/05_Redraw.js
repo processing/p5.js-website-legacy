@@ -1,8 +1,8 @@
 /*
- * @name Redraw
- * @description The redraw() function makes draw() execute once. In this example,
- * draw() is executed once every time the mouse is clicked.
- */
+  * @name रेड्रा
+  * @description रेड्रा () फ़ंक्शन ड्रा () को एक बार निष्पादित करता है। इस उदाहरण में,
+  * ड्रा () को हर बार माउस क्लिक करने पर एक बार निष्पादित किया जाता है।
+  */
 
 let y;
 

@@ -1,8 +1,8 @@
 /*
- * @name Color Variables
- * @description (Homage to Albers.) This example creates variables for colors
- * that may be referred to in the program by a name, rather than a number.
- */
+  * @name रंग चर
+  * @description (अलबर्स को श्रद्धांजलि।) यह उदाहरण रंगों के लिए चर बनाता है
+  * जिसे कार्यक्रम में एक संख्या के बजाय एक नाम से संदर्भित किया जा सकता है।
+  */
 function setup() {
   createCanvas(710, 400);
   noStroke();
@@ -12,12 +12,11 @@ function setup() {
   let middle = color(204, 153, 0);
   let outside = color(153, 51, 0);
 
-  // These statements are equivalent to the statements above.
-  // Programmers may use the format they prefer.
-  //let inside = color('#CC6600');
-  //let middle = color('#CC9900');
-  //let outside = color('#993300');
-
+   // ये बयान ऊपर दिए गए बयानों के बराबर हैं।
+   // प्रोग्रामर अपने पसंदीदा प्रारूप का उपयोग कर सकते हैं।
+   // अंदर जाने दें = रंग ('# CC6600');
+   // चलो मध्य = रंग ('# CC9900');
+   // बाहर जाने दें = रंग ('#993300');
   push();
   translate(80, 80);
   fill(outside);

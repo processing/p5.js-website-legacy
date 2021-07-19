@@ -1,9 +1,9 @@
 /*
- *@name Recursion
- *@description A demonstration of recursion, which means functions call themselves.
- * Notice how the drawCircle() function calls itself at the end of its block.
- * It continues to do this until the variable "level" is equal to 1.
- */
+  *@name रिकर्सन
+  *@description रिकर्सन का एक प्रदर्शन, जिसका अर्थ है कि फ़ंक्शन स्वयं को कॉल करते हैं।
+  * ध्यान दें कि कैसे drawCircle () फ़ंक्शन अपने ब्लॉक के अंत में खुद को कॉल करता है।
+  * यह तब तक करना जारी रखता है जब तक कि चर "स्तर" 1 के बराबर न हो जाए।
+  */
 
 function setup() {
   createCanvas(720, 560);

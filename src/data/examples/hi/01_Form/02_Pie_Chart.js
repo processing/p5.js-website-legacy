@@ -1,14 +1,14 @@
 /*
- * @name Pie Chart
- * @description Uses the arc() function to generate a pie chart from the data
- * stored in an array.
- */
+  * @name पाई चार्ट
+  * @description डेटा से पाई चार्ट बनाने के लिए arc() फ़ंक्शन का उपयोग करता है
+  * एक सरणी में संग्रहीत।
+  */
 let angles = [30, 10, 45, 35, 60, 38, 75, 67];
 
 function setup() {
   createCanvas(720, 400);
   noStroke();
-  noLoop(); // Run once and stop
+  noLoop(); // एक बार दौड़ें और रुकें
 }
 
 function draw() {

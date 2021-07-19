@@ -1,8 +1,8 @@
 /*
- * @name Increment Decrement
- * @description Writing "a++" is equivalent to "a = a + 1".
- * Writing "a--" is equivalent to "a = a - 1".
- */
+  * @name वेतन वृद्धि
+  * @description "a++" लिखना "a = a + 1" के बराबर है।
+  * "ए--" लिखना "ए = ए -1" के बराबर है।
+  */
 let a;
 let b;
 let direction;

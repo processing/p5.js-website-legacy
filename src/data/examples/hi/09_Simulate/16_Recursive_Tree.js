@@ -1,10 +1,10 @@
 /*
- * @name Recursive Tree
- * @description Renders a simple tree-like structure via recursion.
- * The branching angle is calculated as a function of the horizontal mouse
- * location. Move the mouse left and right to change the angle.
- * Based on Daniel Shiffman's <a href="https://processing.org/examples/tree.html">Recursive Tree Example</a> for Processing.
- */
+  * @name रिकर्सिव ट्री
+  * @description रिकर्सन के माध्यम से एक साधारण पेड़ जैसी संरचना प्रदान करता है।
+  * ब्रांचिंग एंगल की गणना हॉरिजॉन्टल माउस के फंक्शन के रूप में की जाती है
+  * स्थान। कोण बदलने के लिए माउस को बाएँ और दाएँ घुमाएँ।
+  * प्रोसेसिंग के लिए डेनियल शिफमैन के <a href="https://processing.org/examples/tree.html">रिकर्सिव ट्री उदाहरण</a> पर आधारित।
+  */
 let theta;
 
 function setup() {
@@ -15,36 +15,36 @@ function draw() {
   background(0);
   frameRate(30);
   stroke(255);
-  // Let's pick an angle 0 to 90 degrees based on the mouse position
+  // आइए माउस की स्थिति के आधार पर 0 से 90 डिग्री का कोण चुनें
   let a = (mouseX / width) * 90;
-  // Convert it to radians
+  // इसे रेडियन में बदलें
   theta = radians(a);
-  // Start the tree from the bottom of the screen
+  // स्क्रीन के नीचे से पेड़ शुरू करें
   translate(width/2,height);
-  // Draw a line 120 pixels
+  // 120 पिक्सल की एक लाइन बनाएं
   line(0,0,0,-120);
-  // Move to the end of that line
+  // उस लाइन के अंत में जाएँ
   translate(0,-120);
-  // Start the recursive branching!
+  // रिकर्सिव ब्रांचिंग शुरू करें!
   branch(120);
 
 }
 
 function branch(h) {
-  // Each branch will be 2/3rds the size of the previous one
+  // प्रत्येक शाखा पिछले एक के आकार का 2/3 होगा
   h *= 0.66;
 
-  // All recursive functions must have an exit condition!!!!
-  // Here, ours is when the length of the branch is 2 pixels or less
+ // सभी पुनरावर्ती कार्यों में बाहर निकलने की स्थिति होनी चाहिए !!!!
+   // यहाँ, हमारा है जब शाखा की लंबाई 2 पिक्सेल या उससे कम है
   if (h > 2) {
-    push();    // Save the current state of transformation (i.e. where are we now)
-    rotate(theta);   // Rotate by theta
-    line(0, 0, 0, -h);  // Draw the branch
-    translate(0, -h); // Move to the end of the branch
-    branch(h);       // Ok, now call myself to draw two new branches!!
-    pop();     // Whenever we get back here, we "pop" in order to restore the previous matrix state
+    push();   // परिवर्तन की वर्तमान स्थिति को बचाएं (अर्थात अब हम कहां हैं)
+    rotate(theta);  // थीटा द्वारा घुमाएं
+    line(0, 0, 0, -h);  // शाखा ड्रा करें
+    translate(0, -h); // शाखा के अंत में ले जाएँ
+    branch(h);      // ठीक है, अब दो नई शाखाएँ बनाने के लिए खुद को बुलाएँ !!
+    pop();     // जब भी हम यहां वापस आते हैं, तो हम पिछली मैट्रिक्स स्थिति को पुनर्स्थापित करने के लिए "पॉप" करते हैं
 
-    // Repeat the same thing, only branch off to the "left" this time!
+    // एक ही बात दोहराएं, इस बार केवल "बाईं ओर" शाखा बंद करें!
     push();
     rotate(-theta);
     line(0, 0, 0, -h);

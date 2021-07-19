@@ -1,9 +1,9 @@
 /*
- * @name Soft Body
- * @description Original example by Ira Greenberg.
- * <br><br>Softbody dynamics simulation using curveVertex() and curveTightness().
- */
-// center point
+  * @name शीतल शरीर
+  * @description इरा ग्रीनबर्ग द्वारा मूल उदाहरण।
+  * <br><br>कर्ववर्टेक्स () और कर्वटाइटनेस () का उपयोग करके सॉफ्टबॉडी डायनेमिक्स सिमुलेशन।
+  */
+// केंद्र बिंदु
 let centerX = 0.0, centerY = 0.0;
 
 let radius = 45, rotAngle = -90;
@@ -11,10 +11,10 @@ let accelX = 0.0, accelY = 0.0;
 let deltaX = 0.0, deltaY = 0.0;
 let springing = 0.0009, damping = 0.98;
 
-//corner nodes
+// कोने के नोड्स
 let nodes = 5;
 
-//zero fill arrays
+// शून्य भरण सरणियाँ
 let nodeStartX = [];
 let nodeStartY = [];
 let nodeX = [];
@@ -22,17 +22,17 @@ let nodeY = [];
 let angle = [];
 let frequency = [];
 
-// soft-body dynamics
+// सॉफ्ट-बॉडी डायनामिक्स
 let organicConstant = 1.0;
 
 function setup() {
   createCanvas(710, 400);
 
-  //center shape in window
+ // विंडो में केंद्र का आकार
   centerX = width / 2;
   centerY = height / 2;
 
-  //initialize arrays to 0
+  // सरणियों को 0 . पर इनिशियलाइज़ करें
   for (let i = 0; i < nodes; i++){
     nodeStartX[i] = 0;
     nodeStartY[i] = 0;
@@ -41,7 +41,7 @@ function setup() {
     angle[i] = 0;
   }
 
-  // iniitalize frequencies for corner nodes
+ // कोने के नोड्स के लिए आवृत्तियों को प्रारंभ करें
   for (let i = 0; i < nodes; i++){
     frequency[i] = random(5, 12);
   }
@@ -51,7 +51,7 @@ function setup() {
 }
 
 function draw() {
-  //fade background
+  // फीका पृष्ठभूमि
   fill(0, 100);
   rect(0, 0, width, height);
   drawShape();
@@ -59,14 +59,14 @@ function draw() {
 }
 
 function drawShape() {
-  //  calculate node  starting locations
+  // नोड के शुरुआती स्थानों की गणना करें
   for (let i = 0; i < nodes; i++){
     nodeStartX[i] = centerX + cos(radians(rotAngle)) * radius;
     nodeStartY[i] = centerY + sin(radians(rotAngle)) * radius;
     rotAngle += 360.0 / nodes;
   }
 
-  // draw polygon
+  // बहुभुज बनाएं
   curveTightness(organicConstant);
   fill(255);
   beginShape();
@@ -80,28 +80,28 @@ function drawShape() {
 }
 
 function moveShape() {
-  //move center point
+  // केंद्र बिंदु ले जाएँ
   deltaX = mouseX - centerX;
   deltaY = mouseY - centerY;
 
-  // create springing effect
+  // स्प्रिंग इफेक्ट बनाएं
   deltaX *= springing;
   deltaY *= springing;
   accelX += deltaX;
   accelY += deltaY;
 
-  // move predator's center
+  // शिकारी के केंद्र को स्थानांतरित करें
   centerX += accelX;
   centerY += accelY;
 
-  // slow down springing
+  // स्प्रिंगिंग को धीमा करें
   accelX *= damping;
   accelY *= damping;
 
-  // change curve tightness
+  // वक्र की जकड़न बदलें
   organicConstant = 1 - ((abs(accelX) + abs(accelY)) * 0.1);
 
-  //move nodes
+  // नोड्स ले जाएँ
   for (let i = 0; i < nodes; i++){
     nodeX[i] = nodeStartX[i] + sin(radians(angle[i])) * (accelX * 2);
     nodeY[i] = nodeStartY[i] + sin(radians(angle[i])) * (accelY * 2);

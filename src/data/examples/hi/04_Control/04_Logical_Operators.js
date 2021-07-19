@@ -1,9 +1,9 @@
 /*
- * @name Logical Operators
- * @description The logical operators for AND (&&) and OR (||) are used to
- * combine simple relational statements into more complex expressions.
- * The NOT (!) operator is used to negate a boolean statement.
- */
+  * @name लॉजिकल ऑपरेटर्स
+  * @description AND (&&) और OR (||) के लिए तार्किक ऑपरेटरों का उपयोग किया जाता है
+  * सरल संबंधपरक कथनों को अधिक जटिल अभिव्यक्तियों में संयोजित करें।
+  * NOT (!) ऑपरेटर का उपयोग बूलियन स्टेटमेंट को नकारने के लिए किया जाता है।
+  */
 let test = false;
 
 function setup() {
@@ -11,29 +11,29 @@ function setup() {
   background(126);
 
   for (let i = 5; i <= height; i += 5) {
-    // Logical AND
+    // तार्किक और
     stroke(0);
     if (i > 35 && i < 100) {
       line(width / 4, i, width / 2, i);
       test = false;
     }
 
-    // Logical OR
+    // तार्किक OR
     stroke(76);
     if (i <= 35 || i >= 100) {
       line(width / 2, i, width, i);
       test = true;
     }
 
-    // Testing if a boolean value is "true"
-    // The expression "if(test)" is equivalent to "if(test == true)"
+    // परीक्षण करें कि क्या बूलियन मान "सत्य" है
+    // अभिव्यक्ति "अगर (परीक्षण)" "अगर (परीक्षण == सत्य)" के बराबर है
     if (test) {
       stroke(0);
       point(width / 3, i);
     }
 
-    // Testing if a boolean value is "false"
-    // The expression "if(!test)" is equivalent to "if(test == false)"
+    // परीक्षण करें कि क्या बूलियन मान "गलत" है
+    // अभिव्यक्ति "if(!test)" बराबर है "if(test == false)"
     if (!test) {
       stroke(255);
       point(width / 4, i);

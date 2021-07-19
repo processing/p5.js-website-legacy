@@ -1,8 +1,8 @@
 /*
- * @name Loop
- * @description The code inside the draw() function runs continuously from top
- * to bottom until the program is stopped.
- */
+  * @name लूप
+  * @description ड्रा () फ़ंक्शन के अंदर का कोड ऊपर से लगातार चलता है
+  * कार्यक्रम बंद होने तक नीचे तक।
+  */
 let y = 100;
 
 // The statements in the setup() function

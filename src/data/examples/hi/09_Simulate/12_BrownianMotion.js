@@ -1,9 +1,8 @@
 /*
- * @name Brownian Motion
- * @description Recording random movement as a continuous line.
- * Port of original example from the Processing examples page.
- */
-
+  * @name ब्राउनियन मोशन
+  * @description एक सतत लाइन के रूप में यादृच्छिक गति को रिकॉर्ड करना।
+  * प्रसंस्करण उदाहरण पृष्ठ से मूल उदाहरण का पोर्ट।
+  */
 let num = 2000;
 let range = 6;
 
@@ -23,21 +22,21 @@ function setup() {
 function draw() {
   background(51);
 
-  // Shift all elements 1 place to the left
+  // सभी तत्वों को 1 स्थान पर बाईं ओर शिफ्ट करें
   for ( let i = 1; i < num; i++ ) {
     ax[i - 1] = ax[i];
     ay[i - 1] = ay[i];
   }
 
-  // Put a new value at the end of the array
+  // सरणी के अंत में एक नया मान डालें
   ax[num - 1] += random(-range, range);
   ay[num - 1] += random(-range, range);
 
-  // Constrain all points to the screen
+  // स्क्रीन पर सभी बिंदुओं को रोकें
   ax[num - 1] = constrain(ax[num - 1], 0, width);
   ay[num - 1] = constrain(ay[num - 1], 0, height);
 
-  // Draw a line connecting the points
+  // बिंदुओं को जोड़ने वाली एक रेखा खींचें
   for ( let j = 1; j < num; j++ ) {
     let val = j / num * 204.0 + 51;
     stroke(val);

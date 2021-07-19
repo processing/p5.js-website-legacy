@@ -1,11 +1,11 @@
 /*
- * @name Flocking
- * @description Demonstration of Craig Reynolds' "Flocking" behavior.
- * See: http://www.red3d.com/cwr/
- * Rules: Cohesion, Separation, Alignment
- * (from <a href="http://natureofcode.com">natureofcode.com</a>).
- *  Drag mouse to add boids into the system.
- */
+  * @name झुंड
+  * @description क्रेग रेनॉल्ड्स के "झुंड" व्यवहार का प्रदर्शन।
+  * देखें: http://www.red3d.com/cwr/
+  * नियम: सामंजस्य, पृथक्करण, संरेखण
+  * (<a href="http://natureofcode.com">natureofcode.com</a> से)।
+  * सिस्टम में बोड्स जोड़ने के लिए माउस को ड्रैग करें।
+  */
 
 
 let flock;
@@ -15,7 +15,7 @@ function setup() {
   createP("Drag the mouse to generate new boids.");
 
   flock = new Flock();
-  // Add an initial set of boids into the system
+  // सिस्टम में बोलियों का एक प्रारंभिक सेट जोड़ें
   for (let i = 0; i < 100; i++) {
     let b = new Boid(width / 2,height / 2);
     flock.addBoid(b);
@@ -27,26 +27,26 @@ function draw() {
   flock.run();
 }
 
-// Add a new boid into the System
+// सिस्टम में एक नया बोड जोड़ें
 function mouseDragged() {
   flock.addBoid(new Boid(mouseX, mouseY));
 }
 
-// The Nature of Code
-// Daniel Shiffman
+// कोड की प्रकृति
+// डैनियल शिफमैन
 // http://natureofcode.com
 
-// Flock object
-// Does very little, simply manages the array of all the boids
+// झुंड वस्तु
+// बहुत कम करता है, बस सभी बोलियों की सरणी का प्रबंधन करता है
 
 function Flock() {
-  // An array for all the boids
-  this.boids = []; // Initialize the array
+  // सभी बोलियों के लिए एक सरणी
+  this.boids = []; // सरणी को इनिशियलाइज़ करें
 }
 
 Flock.prototype.run = function() {
   for (let i = 0; i < this.boids.length; i++) {
-    this.boids[i].run(this.boids);  // Passing the entire list of boids to each boid individually
+    this.boids[i].run(this.boids);  // प्रत्येक बोली को व्यक्तिगत रूप से बोलियों की पूरी सूची पास करना
   }
 }
 
@@ -54,20 +54,20 @@ Flock.prototype.addBoid = function(b) {
   this.boids.push(b);
 }
 
-// The Nature of Code
-// Daniel Shiffman
+// कोड की प्रकृति
+// डैनियल शिफमैन
 // http://natureofcode.com
 
-// Boid class
-// Methods for Separation, Cohesion, Alignment added
+// बोएड क्लास
+// पृथक्करण, सामंजस्य, संरेखण के तरीके जोड़े गए
 
 function Boid(x, y) {
   this.acceleration = createVector(0, 0);
   this.velocity = createVector(random(-1, 1), random(-1, 1));
   this.position = createVector(x, y);
   this.r = 3.0;
-  this.maxspeed = 3;    // Maximum speed
-  this.maxforce = 0.05; // Maximum steering force
+  this.maxspeed = 3;    // अधिकतम गति
+  this.maxforce = 0.05; // अधिकतम स्टीयरिंग बल
 }
 
 Boid.prototype.run = function(boids) {
@@ -78,51 +78,51 @@ Boid.prototype.run = function(boids) {
 }
 
 Boid.prototype.applyForce = function(force) {
-  // We could add mass here if we want A = F / M
+  // यदि हम A = F / M . चाहते हैं तो हम यहाँ द्रव्यमान जोड़ सकते हैं
   this.acceleration.add(force);
 }
 
-// We accumulate a new acceleration each time based on three rules
+// हम हर बार तीन नियमों के आधार पर एक नया त्वरण जमा करते हैं
 Boid.prototype.flock = function(boids) {
-  let sep = this.separate(boids);   // Separation
-  let ali = this.align(boids);      // Alignment
-  let coh = this.cohesion(boids);   // Cohesion
-  // Arbitrarily weight these forces
+  let sep = this.separate(boids);   // पृथक्करण
+  let ali = this.align(boids);      // संरेखण
+  let coh = this.cohesion(boids);   // सामंजस्य
+  // मनमाने ढंग से इन ताकतों को तौलें
   sep.mult(1.5);
   ali.mult(1.0);
   coh.mult(1.0);
-  // Add the force vectors to acceleration
+  // बल वैक्टर को त्वरण में जोड़ें
   this.applyForce(sep);
   this.applyForce(ali);
   this.applyForce(coh);
 }
 
-// Method to update location
+// स्थान अपडेट करने की विधि
 Boid.prototype.update = function() {
-  // Update velocity
+  // वेग अपडेट करें
   this.velocity.add(this.acceleration);
-  // Limit speed
+  // सीमा गति
   this.velocity.limit(this.maxspeed);
   this.position.add(this.velocity);
-  // Reset accelertion to 0 each cycle
+ // त्वरण को प्रत्येक चक्र में 0 पर रीसेट करें
   this.acceleration.mult(0);
 }
 
-// A method that calculates and applies a steering force towards a target
-// STEER = DESIRED MINUS VELOCITY
+// एक विधि जो एक लक्ष्य की ओर एक स्टीयरिंग बल की गणना और लागू करती है
+// स्टीयर = वांछित माइनस वेलोसिटी
 Boid.prototype.seek = function(target) {
-  let desired = p5.Vector.sub(target,this.position);  // A vector pointing from the location to the target
-  // Normalize desired and scale to maximum speed
+  let desired = p5.Vector.sub(target,this.position); // स्थान से लक्ष्य की ओर इशारा करते हुए एक वेक्टर
+  // वांछित और स्केल को अधिकतम गति के लिए सामान्यीकृत करें
   desired.normalize();
   desired.mult(this.maxspeed);
-  // Steering = Desired minus Velocity
+ // संचालन = वांछित शून्य वेग
   let steer = p5.Vector.sub(desired,this.velocity);
-  steer.limit(this.maxforce);  // Limit to maximum steering force
+  steer.limit(this.maxforce);  // अधिकतम स्टीयरिंग बल तक सीमित करें
   return steer;
 }
 
 Boid.prototype.render = function() {
-  // Draw a triangle rotated in the direction of velocity
+  // वेग की दिशा में घुमाया गया एक त्रिभुज बनाएं
   let theta = this.velocity.heading() + radians(90);
   fill(127);
   stroke(200);
@@ -137,7 +137,7 @@ Boid.prototype.render = function() {
   pop();
 }
 
-// Wraparound
+// चारों ओर लपेट दो
 Boid.prototype.borders = function() {
   if (this.position.x < -this.r)  this.position.x = width + this.r;
   if (this.position.y < -this.r)  this.position.y = height + this.r;
@@ -145,33 +145,33 @@ Boid.prototype.borders = function() {
   if (this.position.y > height + this.r) this.position.y = -this.r;
 }
 
-// Separation
-// Method checks for nearby boids and steers away
+// पृथक्करण
+// विधि आस-पास के boids के लिए जाँच करता है और दूर चला जाता है
 Boid.prototype.separate = function(boids) {
   let desiredseparation = 25.0;
   let steer = createVector(0, 0);
   let count = 0;
-  // For every boid in the system, check if it's too close
+  // सिस्टम में प्रत्येक बोड के लिए, जांचें कि क्या यह बहुत करीब है
   for (let i = 0; i < boids.length; i++) {
     let d = p5.Vector.dist(this.position,boids[i].position);
-    // If the distance is greater than 0 and less than an arbitrary amount (0 when you are yourself)
+    // यदि दूरी 0 से अधिक है और मनमानी राशि से कम है (0 जब आप स्वयं हों)
     if ((d > 0) && (d < desiredseparation)) {
-      // Calculate vector pointing away from neighbor
+      // पड़ोसी से दूर की ओर इशारा करते हुए वेक्टर की गणना करें
       let diff = p5.Vector.sub(this.position, boids[i].position);
       diff.normalize();
-      diff.div(d);        // Weight by distance
+      diff.div(d);        // दूरी से वजन
       steer.add(diff);
-      count++;            // Keep track of how many
+      count++;           // कितने का ट्रैक रखें
     }
   }
-  // Average -- divide by how many
+  // औसत -- कितने से विभाजित करें
   if (count > 0) {
     steer.div(count);
   }
 
-  // As long as the vector is greater than 0
+  // जब तक वेक्टर 0 . से बड़ा है
   if (steer.mag() > 0) {
-    // Implement Reynolds: Steering = Desired - Velocity
+    // रेनॉल्ड्स को लागू करें: संचालन = वांछित - वेग
     steer.normalize();
     steer.mult(this.maxspeed);
     steer.sub(this.velocity);
@@ -180,8 +180,8 @@ Boid.prototype.separate = function(boids) {
   return steer;
 }
 
-// Alignment
-// For every nearby boid in the system, calculate the average velocity
+// संरेखण
+// सिस्टम में प्रत्येक पास के बोड के लिए, औसत वेग की गणना करें
 Boid.prototype.align = function(boids) {
   let neighbordist = 50;
   let sum = createVector(0,0);
@@ -205,22 +205,22 @@ Boid.prototype.align = function(boids) {
   }
 }
 
-// Cohesion
-// For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location
+// सामंजस्य
+// आस-पास के सभी बोड्स के औसत स्थान (अर्थात केंद्र) के लिए, उस स्थान की ओर स्टीयरिंग वेक्टर की गणना करें
 Boid.prototype.cohesion = function(boids) {
   let neighbordist = 50;
-  let sum = createVector(0, 0);   // Start with empty vector to accumulate all locations
+  let sum = createVector(0, 0);   // सभी स्थानों को जमा करने के लिए खाली वेक्टर से शुरू करें
   let count = 0;
   for (let i = 0; i < boids.length; i++) {
     let d = p5.Vector.dist(this.position,boids[i].position);
     if ((d > 0) && (d < neighbordist)) {
-      sum.add(boids[i].position); // Add location
+      sum.add(boids[i].position); // स्थान जोड़ना
       count++;
     }
   }
   if (count > 0) {
     sum.div(count);
-    return this.seek(sum);  // Steer towards the location
+    return this.seek(sum);  // स्थान की ओर बढ़ें
   } else {
     return createVector(0, 0);
   }

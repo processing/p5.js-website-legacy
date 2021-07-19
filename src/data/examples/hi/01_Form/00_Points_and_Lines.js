@@ -1,9 +1,9 @@
 /*
- * @name Points and Lines
- * @description Points and lines can be used to draw basic geometry.
- * Change the value of the variable 'd' to scale the form. The four
- * variables set the positions based on the value of 'd'.
- */
+  * @name अंक और रेखाएं
+  * @description पॉइंट्स और लाइन्स का इस्तेमाल बेसिक ज्योमेट्री ड्रा करने के लिए किया जा सकता है।
+  * फॉर्म को स्केल करने के लिए वेरिएबल 'd' का मान बदलें। चार
+  * चर 'डी' के मान के आधार पर स्थिति निर्धारित करते हैं।
+  */
 function setup() {
   let d = 70;
   let p1 = d;
@@ -11,21 +11,21 @@ function setup() {
   let p3 = p2 + d;
   let p4 = p3 + d;
 
-  // Sets the screen to be 720 pixels wide and 400 pixels high
+  // स्क्रीन को 720 पिक्सल चौड़ा और 400 पिक्सल ऊंचा सेट करता है
   createCanvas(720, 400);
   background(0);
   noSmooth();
 
   translate(140, 0);
 
-  // Draw gray box
+  // ग्रे बॉक्स बनाएं
   stroke(153);
   line(p3, p3, p2, p3);
   line(p2, p3, p2, p2);
   line(p2, p2, p3, p2);
   line(p3, p2, p3, p3);
 
-  // Draw white points
+  // सफेद बिंदु बनाएं
   stroke(255);
   point(p1, p1);
   point(p1, p3);

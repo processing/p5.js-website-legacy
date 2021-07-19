@@ -1,10 +1,10 @@
 /*
- * @name Sine Cosine
- * @description Linear movement with sin() and cos().
- * Numbers between 0 and PI*2 (TWO_PI which angles roughly 6.28)
- * are put into these functions and numbers between -1 and 1 are returned.
- * These values are then scaled to produce larger movements.
- */
+  * @name साइन कोसाइन
+  * @description लीनियर मूवमेंट विथ sin() और cos()।
+  * 0 और PI*2 के बीच की संख्या (TWO_PI जिसका कोण लगभग 6.28 है)
+  * इन कार्यों में डाल दिया जाता है और -1 और 1 के बीच की संख्या वापस कर दी जाती है।
+  * इन मूल्यों को तब बड़े आंदोलनों का उत्पादन करने के लिए बढ़ाया जाता है।
+  */
 let angle1 = 0;
 let angle2 = 0;
 let scalar = 70;

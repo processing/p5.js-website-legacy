@@ -1,24 +1,24 @@
 /*
- * @name Operator Precedence
- * @description If you don't explicitly state the order in which an
- * expression is evaluated, they are evaluated based on the operator
- * precedence. For example, in the statement "4+2*8", the 2 will
- * first be multiplied by 8 and then the result will be added to 4.
- * This is because the "*" has a higher precedence than the "+". To avoid
- * ambiguity in reading the program, it is recommended that is statement
- * is written as "4+(2*8)". The order of evaluation can be controlled
- * through placement of parenthesis in the code. A table of operator
- * precedence follows below.
- */
-// The highest precedence is at the top of the list and
-// the lowest is at the bottom.
-// Multiplicative: * / %
-// Additive: + -
-// Relational: < > <= >=
-// Equality: == !=
-// Logical AND: &&
-// Logical OR: ||
-// Assignment: = += -= *= /= %=
+  * @name ऑपरेटर वरीयता
+  * @description यदि आप स्पष्ट रूप से उस क्रम का उल्लेख नहीं करते हैं जिसमें a
+  * अभिव्यक्ति का मूल्यांकन किया जाता है, उनका मूल्यांकन ऑपरेटर के आधार पर किया जाता है
+  * वरीयता। उदाहरण के लिए, "4+2*8" कथन में, 2 होगा
+  * पहले 8 से गुणा करें और फिर परिणाम 4 में जोड़ दिया जाएगा।
+  * ऐसा इसलिए है क्योंकि "*" की "+" की तुलना में अधिक प्राथमिकता है। कन्नी काटना
+  * कार्यक्रम को पढ़ने में अस्पष्टता, यह अनुशंसा की जाती है कि कथन है
+  * को "4+(2*8)" लिखा जाता है। मूल्यांकन के क्रम को नियंत्रित किया जा सकता है
+  * कोड में कोष्ठक लगाने के माध्यम से। ऑपरेटर की एक तालिका
+  * वरीयता नीचे दी गई है।
+  */
+// सर्वोच्च प्राथमिकता सूची में सबसे ऊपर है और
+// सबसे नीचे सबसे नीचे है।
+// गुणक: * /%
+// योजक: + -
+// संबंधपरक: <> <= >=
+// समानता: ==!=
+// तार्किक और: &&
+// तार्किक या: ||
+// असाइनमेंट: = += -= *= /= %=
 function setup() {
   createCanvas(710, 400);
   background(51);
@@ -27,26 +27,26 @@ function setup() {
 
   stroke(204);
   for (let i = 0; i < width - 20; i += 4) {
-    // The 30 is added to 70 and then evaluated
-    // if it is greater than the current value of "i"
-    // For clarity, write as "if (i > (30 + 70)) {"
+     // 30 को 70 में जोड़ा जाता है और फिर मूल्यांकन किया जाता है
+     // यदि यह "i" के वर्तमान मान से अधिक है
+     // स्पष्टता के लिए, "if (i> (30 + 70)) {" के रूप में लिखें
     if (i > 30 + 70) {
       line(i, 0, i, 50);
     }
   }
 
   stroke(255);
-  // The 2 is multiplied by the 8 and the result is added to the 4
-  // For clarity, write as "rect(5 + (2 * 8), 0, 90, 20);"
+   // 2 को 8 से गुणा किया जाता है और परिणाम 4 . में जोड़ा जाता है
+   // स्पष्टता के लिए, "रेक्ट (5 + (2 * 8), 0, 90, 20);" के रूप में लिखें।
   rect(4 + 2 * 8, 52, 290, 48);
   rect((4 + 2) * 8, 100, 290, 49);
 
   stroke(153);
   for (let i = 0; i < width; i += 2) {
-    // The relational statements are evaluated
-    // first, and then the logical AND statements and
-    // finally the logical OR. For clarity, write as:
-    // "if(((i > 20) && (i < 50)) || ((i > 100) && (i < width-20))) {"
+     // संबंधपरक बयानों का मूल्यांकन किया जाता है
+     // पहले, और फिर तार्किक और कथन और
+     // अंत में तार्किक OR. स्पष्टता के लिए, इस प्रकार लिखें:
+     // "अगर (((i> 20) && (i <50)) || ((i> 100) && (i <चौड़ाई-20))) {"
     if ((i > 20 && i < 50) || (i > 100 && i < width - 20)) {
       line(i, 151, i, height - 1);
     }

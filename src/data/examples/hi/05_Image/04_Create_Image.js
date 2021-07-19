@@ -1,9 +1,9 @@
 /*
- * @name Create Image
- * @description The createImage() function provides a fresh buffer of pixels to
- * play with. This example creates an image gradient.
- */
-let img; // Declare variable 'img'.
+  * @name इमेज बनाएं
+  * @description createImage() फ़ंक्शन पिक्सेल का एक ताज़ा बफर प्रदान करता है
+  * सोचना। यह उदाहरण एक छवि ढाल बनाता है।
+  */
+let img; // वैरिएबल 'img' घोषित करें।
 
 function setup() {
   createCanvas(720, 400);

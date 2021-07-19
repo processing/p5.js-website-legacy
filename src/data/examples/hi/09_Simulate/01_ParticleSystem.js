@@ -1,8 +1,8 @@
 /*
- * @name Particle System
- * @description This is a basic Particle System
- * (<a href="http://natureofcode.com">natureofcode.com</a>)
- */
+  * @name कण प्रणाली
+  * @description यह एक मूल कण प्रणाली है
+  * (<a href="http://natureofcode.com">natureofcode.com</a>)
+  */
 let system;
 
 function setup() {
@@ -16,7 +16,7 @@ function draw() {
   system.run();
 }
 
-// A simple Particle class
+// एक साधारण कण वर्ग
 let Particle = function(position) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
@@ -29,14 +29,14 @@ Particle.prototype.run = function() {
   this.display();
 };
 
-// Method to update position
+// स्थिति को अद्यतन करने की विधि
 Particle.prototype.update = function(){
   this.velocity.add(this.acceleration);
   this.position.add(this.velocity);
   this.lifespan -= 2;
 };
 
-// Method to display
+// प्रदर्शित करने की विधि
 Particle.prototype.display = function() {
   stroke(200, this.lifespan);
   strokeWeight(2);
@@ -44,7 +44,7 @@ Particle.prototype.display = function() {
   ellipse(this.position.x, this.position.y, 12, 12);
 };
 
-// Is the particle still useful?
+// क्या कण अभी भी उपयोगी है?
 Particle.prototype.isDead = function(){
   return this.lifespan < 0;
 };

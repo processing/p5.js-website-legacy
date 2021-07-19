@@ -1,8 +1,8 @@
 /*
- * @name Lerp Color
- * @description Loop random shapes,
- * lerp color from red to blue.
- */
+  * @name Lerp Color
+  * @description लूप यादृच्छिक आकार,
+  * लाल से नीले रंग में लाल रंग का रंग।
+  */
 function setup() {
   createCanvas(720, 400);
   background(255);
