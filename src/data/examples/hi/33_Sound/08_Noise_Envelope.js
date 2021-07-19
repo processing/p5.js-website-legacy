@@ -1,49 +1,49 @@
 /**
- *  @name Noise Drum Envelope
- *  @description  <p>White Noise is a random audio signal with equal energy
- *  at every part of the frequency spectrum</p>
- *
- *  <p>An Envelope is a series of fades, defined
- *  as time / value pairs.</p>
- *
- *  <p>In this example, the p5.Env
- *  will be used to "play" the p5.Noise like a drum by controlling its output
- *  amplitude. A p5.Amplitude will get the level of all sound in the sketch, and
- *  we'll use this value to draw a green rectangle that shows the envelope
- *  in action.</p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a> and a
- * sound file.</span></em></p>
- */
+  * @name शोर ड्रम लिफाफा
+  * @description <p>श्वेत शोर समान ऊर्जा वाला एक यादृच्छिक ऑडियो संकेत है
+  * फ़्रीक्वेंसी स्पेक्ट्रम के हर हिस्से पर</p>
+  *
+  * <p>एक लिफाफा फीका पड़ने की एक श्रृंखला है, परिभाषित
+  * समय / मान जोड़े के रूप में।</p>
+  *
+  * <p>इस उदाहरण में, p5.Env
+  * p5 को "प्ले" करने के लिए इस्तेमाल किया जाएगा। इसके आउटपुट को नियंत्रित करके ड्रम की तरह शोर
+  * आयाम। A p5. आयाम स्केच में सभी ध्वनि का स्तर प्राप्त करेगा, और
+  * हम इस मान का उपयोग एक हरे रंग का आयत बनाने के लिए करेंगे जो लिफाफा दिखाता है
+  * कार्रवाई में।</p>
+  * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको इसकी आवश्यकता होगी
+  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound लाइब्रेरी</a> और a
+  * ध्वनि फ़ाइल।</span></em></p>
+  */
 let noise, env, analyzer;
 
 function setup() {
   createCanvas(710, 200);
-  noise = new p5.Noise(); // other types include 'brown' and 'pink'
+  noise = new p5.Noise(); // अन्य प्रकारों में 'भूरा' और 'गुलाबी' शामिल हैं
   noise.start();
 
-  // multiply noise volume by 0
-  // (keep it quiet until we're ready to make noise!)
+   // शोर की मात्रा को 0 . से गुणा करें
+   // (जब तक हम शोर करने के लिए तैयार न हों तब तक इसे शांत रखें!)
   noise.amp(0);
 
   env = new p5.Env();
-  // set attackTime, decayTime, sustainRatio, releaseTime
+  // सेट अटैकटाइम, डिकेटाइम, सस्टेनरैटियो, रिलीजटाइम
   env.setADSR(0.001, 0.1, 0.2, 0.1);
-  // set attackLevel, releaseLevel
+  // अटैकलेवल सेट करें, रिलीजलेवल
   env.setRange(1, 0);
 
-  // p5.Amplitude will analyze all sound in the sketch
-  // unless the setInput() method is used to specify an input.
+   // p5. आयाम स्केच में सभी ध्वनि का विश्लेषण करेगा
+   // जब तक कि इनपुट निर्दिष्ट करने के लिए setInput () विधि का उपयोग नहीं किया जाता है।
   analyzer = new p5.Amplitude();
 }
 
 function draw() {
   background(0);
 
-  // get volume reading from the p5.Amplitude analyzer
+  // p5 से वॉल्यूम रीडिंग प्राप्त करें। आयाम विश्लेषक
   let level = analyzer.getLevel();
 
-  // use level to draw a green rectangle
+  // हरे रंग की आयत बनाने के लिए स्तर का उपयोग करें
   let levelHeight = map(level, 0, 0.4, 0, height);
   fill(100, 250, 100);
   rect(0, height, width, -levelHeight);

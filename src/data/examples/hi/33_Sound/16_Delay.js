@@ -1,15 +1,15 @@
 /**
- *  @name Delay
- *  @description
- *  Click the mouse to hear the p5.Delay process a SoundFile.
- *  MouseX controls the p5.Delay Filter Frequency.
- *  MouseY controls both the p5.Delay Time and Resonance.
- *  Visualize the resulting sound's volume with an Amplitude object.
- *
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
- */
+  *  @name देरी
+  *  @description
+  * p5 सुनने के लिए माउस क्लिक करें। साउंडफाइल को प्रोसेस करने में देरी करें।
+  * MouseX p5.Delay फ़िल्टर फ़्रीक्वेंसी को नियंत्रित करता है।
+  * MouseY p5.Delay Time और Resonance दोनों को नियंत्रित करता है।
+  * एक आयाम वस्तु के साथ परिणामी ध्वनि की मात्रा की कल्पना करें।
+  *
+  * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको इसकी आवश्यकता होगी
+  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound लाइब्रेरी</a>
+  * एक ध्वनि फ़ाइल, और एक चल रहा <a href="https://github.com/processing/p5.js/wiki/Local-server">स्थानीय सर्वर</a>।</span></em></p>
+  */
 
 let soundFile, analyzer, delay;
 
@@ -21,11 +21,11 @@ function preload() {
 function setup() {
   createCanvas(710, 400);
 
-  soundFile.disconnect(); // so we'll only hear delay
+  soundFile.disconnect(); // तो हम केवल देरी सुनेंगे
 
   delay = new p5.Delay();
   delay.process(soundFile, 0.12, 0.7, 2300);
-  delay.setType('pingPong'); // a stereo effect
+  delay.setType('pingPong'); // एक स्टीरियो प्रभाव
 
   analyzer = new p5.Amplitude();
 }
@@ -33,10 +33,10 @@ function setup() {
 function draw() {
   background(0);
 
-  // get volume reading from the p5.Amplitude analyzer
+  // p5 से वॉल्यूम रीडिंग प्राप्त करें। आयाम विश्लेषक
   let level = analyzer.getLevel();
 
-  // use level to draw a green rectangle
+  // हरे रंग की आयत बनाने के लिए स्तर का उपयोग करें
   let levelHeight = map(level, 0, 0.1, 0, height);
   fill(100, 250, 100);
   rect(0, height, width, -levelHeight);

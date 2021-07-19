@@ -1,24 +1,24 @@
 /**
- * @name Measuring Amplitude
- * @description <p>Analyze the amplitude of sound with
- * p5.Amplitude.</p>
+ * @name मापने वाला आयाम
+ * @description <p>ध्वनि के आयाम का विश्लेषण करें
+ * p5.आयाम।</p>
  *
- *  <p><b>Amplitude</b> is the magnitude of vibration. Sound is vibration,
- *  so its amplitude is is closely related to volume / loudness.</p>
+ * <p><b>आयाम</b> कंपन का परिमाण है। ध्वनि कंपन है,
+ * इसलिए इसका आयाम आयतन / प्रबलता से निकटता से संबंधित है।</p>
  *
- * <p>The <code>getLevel()</code> method takes an array
- * of amplitude values collected over a small period of time (1024 samples).
- * Then it returns the <b>Root Mean Square (RMS)</b> of these values.</p>
+ * <p><code>getLevel()</code> विधि एक सरणी लेती है
+ * एक छोटी अवधि (1024 नमूने) में एकत्र किए गए आयाम मानों का।
+ * फिर यह इन मानों का <b>रूट मीन स्क्वायर (RMS)</b> लौटाता है।</p>
  *
- * <p>The original amplitude values for digital audio are between -1.0 and 1.0.
- * But the RMS will always be positive, because it is squared.
- * And, rather than use instantanous amplitude readings that are sampled at a rate
- * of 44,100 times per second, the RMS is an average over time (1024 samples, in this case),
- * which better represents how we hear amplitude.
+ * <p>डिजिटल ऑडियो के लिए मूल आयाम मान -1.0 और 1.0 के बीच हैं।
+ * लेकिन आरएमएस हमेशा सकारात्मक रहेगा, क्योंकि यह चुकता है।
+ * और, तात्कालिक आयाम रीडिंग का उपयोग करने के बजाय, जिन्हें एक दर पर नमूना लिया जाता है
+ * प्रति सेकंड ४४,१०० बार, आरएमएस समय के साथ औसत है (इस मामले में १०२४ नमूने),
+ * जो बेहतर ढंग से दर्शाता है कि हम आयाम कैसे सुनते हैं।
  * </p>
- * <p><em><span class="small"> To run this example locally, you will need the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * a sound file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * <p><em><span class="small"> इस उदाहरण को स्थानीय रूप से चलाने के लिए, आपको इसकी आवश्यकता होगी
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound लाइब्रेरी</a>
+ * एक ध्वनि फ़ाइल, और एक चल रहा <a href="https://github.com/processing/p5.js/wiki/Local-server">स्थानीय सर्वर</a>।</span></em></p>
  */
 let song, analyzer;
 

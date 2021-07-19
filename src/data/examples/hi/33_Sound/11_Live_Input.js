@@ -14,23 +14,23 @@ let mic;
 function setup() {
   createCanvas(710, 200);
 
-  // Create an Audio input
+  // एक ऑडियो इनपुट बनाएं
   mic = new p5.AudioIn();
 
-  // start the Audio Input.
-  // By default, it does not .connect() (to the computer speakers)
+   // ऑडियो इनपुट शुरू करें।
+   // डिफ़ॉल्ट रूप से, यह .connect() (कंप्यूटर स्पीकर के लिए) नहीं करता है
   mic.start();
 }
 
 function draw() {
   background(200);
 
-  // Get the overall volume (between 0 and 1.0)
+  // कुल मात्रा प्राप्त करें (0 और 1.0 के बीच)
   let vol = mic.getLevel();
   fill(127);
   stroke(0);
 
-  // Draw an ellipse with height based on volume
+  // आयतन के आधार पर ऊंचाई के साथ एक दीर्घवृत्त बनाएं
   let h = map(vol, 0, 1, height, 0);
   ellipse(width / 2, h - 25, 50, 50);
 }

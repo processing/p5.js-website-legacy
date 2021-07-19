@@ -1,68 +1,68 @@
 /**
- * @name Frequency Modulation
- * @description <p>Frequency Modulation is a powerful form of synthesis.
- * In its simplest form, FM involves two oscillators, referred
- * to as the carrier and the modulator. As the modulator's waveform oscillates
- * between some minimum and maximum amplitude value, that momentary value
- * is added to ("modulates") the frequency of the carrier.</p>
- * <p>The <b>carrier</b> is typically set to oscillate at an audible frequency
- * that we perceive as a pitch—in this case, it is a sine wave oscilaltor at 220Hz,
- * equivalent to an "A3" note. The carrier is connected to master output by default
- * (this is the case for all p5.Oscillators).</p>
- * <p>We will <code>disconnect</code> the <b>modulator</b> from master output,
- * and instead connect to the frequency of the carrier:
- * <code>carrier.freq(modulator)</code>. This adds the output amplitude of the
- * modulator to the frequency of the carrier.</p>
+ * @name फ़्रीक्वेंसी मॉडुलन
+ * @description <p>फ़्रीक्वेंसी मॉडुलन संश्लेषण का एक शक्तिशाली रूप है।
+ * अपने सरलतम रूप में, FM में दो ऑसिलेटर शामिल होते हैं, जिन्हें संदर्भित किया जाता है
+ * वाहक और न्यूनाधिक के रूप में। जैसा कि न्यूनाधिक का तरंग दोलन करता है
+ * कुछ न्यूनतम और अधिकतम आयाम मान के बीच, वह क्षणिक मान
+ * वाहक की आवृत्ति ("मॉड्यूलेट") में जोड़ा जाता है।</p>
+ * <p><b>वाहक</b> को आमतौर पर श्रव्य आवृत्ति पर दोलन करने के लिए सेट किया जाता है
+ * जिसे हम एक पिच के रूप में देखते हैं - इस मामले में, यह 220Hz पर एक साइन वेव थरथरानवाला है,
+ * "A3" नोट के बराबर। वाहक डिफ़ॉल्ट रूप से मास्टर आउटपुट से जुड़ा होता है
+ * (यह सभी p5.Oscillators के लिए मामला है)।</p>
+ * <p>हम मास्टर आउटपुट से <b>मॉड्यूलेटर</b> को <code>डिस्कनेक्ट</code> करेंगे,
+ * और इसके बजाय वाहक की आवृत्ति से कनेक्ट करें:
+ * <code>carrier.freq(modulator)</code>. यह के आउटपुट आयाम को जोड़ता है
+ * वाहक की आवृत्ति के लिए न्यूनाधिक।</p>
  * <p>
- * <b>Modulation Depth</b> describes how much the carrier frequency will modulate.
- * It is based on the amplitude of the modulator.
- * The modulator produces a continuous stream of amplitude values that we will add
- * to the carrier frequency. An amplitude of zero means silence, so the modulation will
- * have no effect. An amplitude of 1.0 scales the range of output values
- * between +1.0 and -1.0. That is the standard range for sound that gets sent to
- * your speakers, but in FM we are instead sending the modulator's output to the carrier frequency,
- * where we'd barely notice the +1Hz / -1Hz modulation.
- * So we will typically increase the amplitude ("depth") of the modulator to numbers much higher than what
- * we might send to our speakers.</p>
- * <p><b>Modulation Frequency</b> is the speed of modulation. When the modulation frequency is lower
- * than 20Hz, we stop hearing its frequency as pitch, and start to hear it as a beating rhythm.
- * For example, try 7.5Hz at a depth of 20 to mimic the "vibrato" effect of an operatic vocalist.
- * The term for this is Low Frequency Oscillator, or LFO. Modulators set to higher frequencies can
- * also produce interesting effects, especially when the frequency has a harmonic relationship
- * to the carrier signal. For example, listen to what happens when the modulator's frequency is
- * half or twice that of the carrier. This is the basis for FM Synthesis, developed by John Chowning
- * in the 1960s, which came to revolutionize synthesis in the 1980s and is often used to synthesize
- * brass and bell-like sounds.
+ * <b>मॉड्यूलेशन गहराई</b> बताती है कि वाहक आवृत्ति कितनी संशोधित करेगी।
+ * यह न्यूनाधिक के आयाम पर आधारित है।
+ * न्यूनाधिक आयाम मानों की एक सतत धारा उत्पन्न करता है जिसे हम जोड़ेंगे
+ * वाहक आवृत्ति के लिए। शून्य के आयाम का अर्थ है मौन, इसलिए मॉडुलन होगा
+ *कोई प्रभाव नहीं पड़ता। 1.0 का एक आयाम आउटपुट मानों की सीमा को मापता है
+ * +1.0 और -1.0 के बीच। ध्वनि के लिए यह मानक श्रेणी है जिसे भेजा जाता है
+ * आपके स्पीकर, लेकिन FM में हम इसके बजाय मॉड्यूलेटर के आउटपुट को कैरियर फ़्रीक्वेंसी पर भेज रहे हैं,
+ * जहां हम मुश्किल से +1Hz / -1Hz मॉडुलन को नोटिस करेंगे।
+ * तो हम आम तौर पर न्यूनाधिक के आयाम ("गहराई") को बढ़ाकर संख्याओं की तुलना में बहुत अधिक करेंगे
+ * हम अपने वक्ताओं को भेज सकते हैं।</p>
+ * <p><b>मॉड्यूलेशन फ़्रीक्वेंसी</b> मॉडुलन की गति है। जब मॉडुलन आवृत्ति कम होती है
+ * 20 हर्ट्ज से अधिक, हम इसकी आवृत्ति को पिच के रूप में सुनना बंद कर देते हैं, और इसे धड़कन की लय के रूप में सुनना शुरू कर देते हैं।
+ * उदाहरण के लिए, एक ऑपरेटिव गायक के "वाइब्रेटो" प्रभाव की नकल करने के लिए 20 की गहराई पर 7.5 हर्ट्ज़ आज़माएं।
+ * इसके लिए शब्द लो फ़्रीक्वेंसी ऑसिलेटर या एलएफओ है। उच्च आवृत्तियों पर सेट किए गए मॉड्यूलेटर कर सकते हैं
+ * दिलचस्प प्रभाव भी पैदा करते हैं, खासकर जब आवृत्ति का हार्मोनिक संबंध होता है
+ * वाहक संकेत के लिए। उदाहरण के लिए, सुनें कि क्या होता है जब न्यूनाधिक की आवृत्ति होती है
+ * वाहक का आधा या दोगुना। यह जॉन चाउनिंग द्वारा विकसित एफएम सिंथेसिस का आधार है
+ * 1960 के दशक में, जो 1980 के दशक में संश्लेषण में क्रांति लाने के लिए आया था और अक्सर इसका उपयोग संश्लेषण के लिए किया जाता है
+ * पीतल और घंटी जैसी आवाजें।
  *
- * <p>In this example,</p><p>
- * - MouseX controls the modulation depth (the amplitude of the modulator) from -150 to 150.
- * When the modulator's amplitude is set to 0 (in the middle), notice how the modulation
- * has no effect. The greater (the absolute value of) the number, the greater the effect.
- * If the modulator waveform is symetrical like a square <code>[]</code>, sine <code>~</code>
- * or triangle <code>/\</code>, the negative amplitude will be the same as positive amplitude.
- * But in this example, the modulator is an asymetrical sawtooth wave, shaped like this /.
- * When we multiply it by a negative number, it goes backwards like this \. To best
- * observe the difference, try lowering the frequency.
+ * <p>इस उदाहरण में,</p><p>
+ * - माउसएक्स -150 से 150 तक मॉड्यूलेशन गहराई (मॉड्यूलेटर का आयाम) को नियंत्रित करता है।
+ * जब मॉड्यूलेटर का आयाम 0 (बीच में) पर सेट होता है, तो ध्यान दें कि मॉड्यूलेशन कैसे होता है
+ *कोई प्रभाव नहीं पड़ता। संख्या जितनी अधिक (पूर्ण मान) होगी, प्रभाव उतना ही अधिक होगा।
+ * यदि मॉड्यूलेटर तरंग एक वर्ग <code>[]</code> की तरह सममित है, तो साइन <code>~</code>
+ * या त्रिभुज <code>/\</code>, ऋणात्मक आयाम धनात्मक आयाम के समान होगा।
+ * लेकिन इस उदाहरण में, न्यूनाधिक एक विषम चूरा तरंग है, जिसका आकार इस प्रकार है /।
+ * जब हम इसे किसी ऋणात्मक संख्या से गुणा करते हैं, तो यह इस प्रकार पीछे की ओर जाती है। सबसे अच्छा के लिए
+ * अंतर देखें, आवृत्ति कम करने का प्रयास करें।
  * </p>
- * <p>- MouseY controls the frequency of the modulator from 0 to 112 Hz.
- * Try comparing modulation frequencies below the audible range (which starts around 20hz),
- * and above it, especially in a harmonic relationship to the carrier frequency (which is 220hz, so
- * try half that, 1/3, 1/4 etc...).
+ * <p>- MouseY न्यूनाधिक की आवृत्ति को 0 से 112 Hz तक नियंत्रित करता है।
+ * श्रव्य सीमा के नीचे मॉड्यूलेशन आवृत्तियों की तुलना करने का प्रयास करें (जो लगभग 20 हर्ट्ज से शुरू होता है),
+ * और इसके ऊपर, विशेष रूप से वाहक आवृत्ति के लिए एक हार्मोनिक संबंध में (जो कि 220hz है, इसलिए
+ * आधा प्रयास करें, 1/3, 1/4 आदि...)।
  *
- * <p><em><span class="small">You will need to include the
- * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>
- * for this example to work in your own project.</em></span></p>
+ * <p><em><span class="small">आपको इसमें शामिल करना होगा
+ * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound लाइब्रेरी</a>
+ * इस उदाहरण के लिए अपने स्वयं के प्रोजेक्ट में काम करने के लिए।</em></span></p>
  */
 
-let carrier; // this is the oscillator we will hear
-let modulator; // this oscillator will modulate the frequency of the carrier
+let carrier; // यह थरथरानवाला है जिसे हम सुनेंगे
+let modulator; // यह थरथरानवाला वाहक की आवृत्ति को नियंत्रित करेगा
 
-let analyzer; // we'll use this visualize the waveform
+let analyzer; // हम इसका उपयोग तरंग की कल्पना करेंगे
 
-// the carrier frequency pre-modulation
+// वाहक आवृत्ति पूर्व-मॉड्यूलेशन
 let carrierBaseFreq = 220;
 
-// min/max ranges for modulator
+// न्यूनाधिक के लिए न्यूनतम/अधिकतम रेंजmax
 let modMaxFreq = 112;
 let modMinFreq = 0;
 let modMaxDepth = 150;
@@ -73,42 +73,42 @@ function setup() {
   noFill();
 
   carrier = new p5.Oscillator('sine');
-  carrier.amp(0); // set amplitude
-  carrier.freq(carrierBaseFreq); // set frequency
-  carrier.start(); // start oscillating
+  carrier.amp(0); // आयाम सेट करें
+  carrier.freq(carrierBaseFreq); // आवृत्ति सेट करें
+  carrier.start(); // हिलना शुरू करें
 
-  // try changing the type to 'square', 'sine' or 'triangle'
+  // प्रकार को 'वर्ग', 'साइन' या 'त्रिकोण' में बदलने का प्रयास करें
   modulator = new p5.Oscillator('sawtooth');
   modulator.start();
 
-  // add the modulator's output to modulate the carrier's frequency
+  // वाहक की आवृत्ति को संशोधित करने के लिए मॉड्यूलेटर का आउटपुट जोड़ें
   modulator.disconnect();
   carrier.freq(modulator);
 
-  // create an FFT to analyze the audio
+  // ऑडियो का विश्लेषण करने के लिए एक FFT बनाएं
   analyzer = new p5.FFT();
 
-  // fade carrier in/out on mouseover / touch start
+  // माउसओवर / टच स्टार्ट पर वाहक को अंदर / बाहर फीका करें
   toggleAudio(cnv);
 }
 
 function draw() {
   background(30);
 
-  // map mouseY to modulator freq between a maximum and minimum frequency
+  // मैप माउसY अधिकतम और न्यूनतम आवृत्ति के बीच न्यूनाधिक आवृत्ति के लिए
   let modFreq = map(mouseY, height, 0, modMinFreq, modMaxFreq);
   modulator.freq(modFreq);
 
-  // change the amplitude of the modulator
-  // negative amp reverses the sawtooth waveform, and sounds percussive
-  //
+   // न्यूनाधिक के आयाम को बदलें
+   // नकारात्मक amp चूरा तरंग को उलट देता है, और टक्कर लगता है
+   //
   let modDepth = map(mouseX, 0, width, modMinDepth, modMaxDepth);
   modulator.amp(modDepth);
 
-  // analyze the waveform
+  // तरंग का विश्लेषण करें
   waveform = analyzer.waveform();
 
-  // draw the shape of the waveform
+  // तरंग का आकार बनाएं
   stroke(255);
   strokeWeight(10);
   beginShape();
@@ -120,7 +120,7 @@ function draw() {
   endShape();
 
   strokeWeight(1);
-  // add a note about what's happening
+  // क्या हो रहा है इसके बारे में एक नोट जोड़ें
   text('Modulator Frequency: ' + modFreq.toFixed(3) + ' Hz', 20, 20);
   text(
     'Modulator Amplitude (Modulation Depth): ' + modDepth.toFixed(3),
@@ -134,7 +134,7 @@ function draw() {
   );
 }
 
-// helper function to toggle sound
+// ध्वनि को टॉगल करने के लिए सहायक कार्य
 function toggleAudio(cnv) {
   cnv.mouseOver(function() {
     carrier.amp(1.0, 0.01);
