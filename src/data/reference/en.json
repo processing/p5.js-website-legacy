@@ -88,7 +88,7 @@
       "description": [
         "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed. ",
         "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
-        "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users."
+        "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a third parameter is not specified, by default, the element description will only be available to screen-reader users."
       ],
       "params": {
         "name": "String: name of the element",
@@ -303,7 +303,7 @@
     },
     "erase": {
       "description": [
-        "All drawing that follows <a href=\"#/p5/erase\">erase()</a> will subtract from the canvas.Erased areas will reveal the web page underneath the canvas.Erasing can be canceled with <a href=\"#/p5/noErase\">noErase()</a>. ",
+        "All drawing that follows <a href=\"#/p5/erase\">erase()</a> will subtract from the canvas. Erased areas will reveal the web page underneath the canvas.Erasing can be canceled with <a href=\"#/p5/noErase\">noErase()</a>. ",
         "Drawing done with <a href=\"#/p5/image\">image()</a> and <a href=\"#/p5/background\"> background()</a> in between <a href=\"#/p5/erase\">erase()</a> and <a href=\"#/p5/noErase\">noErase()</a> will not erase the canvas but works as usual."
       ],
       "params": {
@@ -318,8 +318,8 @@
     },
     "arc": {
       "description": [
-        "Draw an arc to the screen. If called with only x, y, w, h, start and stop, the arc will be drawn and filled as an open pie segment. If a mode parameter is provided, the arc will be filled like an open semi-circle (OPEN), a closed semi-circle (CHORD), or as a closed pie segment (PIE). The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function. ",
-        "The arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse.Adding or subtracting TWO_PI to either angle does not change where they fall. If both start and stop fall at the same place, a full ellipse will be drawn. Be aware that the y-axis increases in the downward direction, therefore angles are measured clockwise from the positive x-direction (\"3 o'clock\")."
+        "Draw an arc to the screen. If called with only x, y, w, h, start and stop, the arc will be drawn and filled as an open pie segment. If a mode parameter is provided, the arc will be filled like an open semi-circle (OPEN), a closed semi-circle (CHORD), or as a closed pie segment (PIE). The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function.",
+        "The arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse. Adding or subtracting TWO_PI to either angle does not change where they fall. If both start and stop fall at the same place, a full ellipse will be drawn. Be aware that the y-axis increases in the downward direction, therefore angles are measured clockwise from the positive x-direction (\"3 o'clock\")."
       ],
       "params": {
         "x": "Number: x-coordinate of the arc's ellipse",
@@ -997,7 +997,7 @@
     },
     "preload": {
       "description": [
-        "Called directly before <a href=\"#/p5/setup\">setup()</a>, the <a href=\"#/p5/preload\">preload()</a> function is used to handle asynchronous loading of external files in a blocking way. If a preload function is defined, <a href=\"#/p5/setup\">setup()</a> will wait until any load calls within have finished. Nothing besides load calls (<a href=\"#/p5/loadImage\">loadImage</a>, <a href=\"#/p5/loadJSON\">loadJSON</a>, <a href=\"#/p5/loadFont\">loadFont</a>, <a href=\"#/p5/loadStrings\">loadStrings</a>, etc.) should be inside the preload function. If asynchronous loading is preferred, the load methods can instead be called in <a href=\"#/p5/setup\">setup()</a> or anywhere else with the use of a callback parameter. ",
+        "Called directly before <a href=\"#/p5/setup\">setup()</a>, the <a href=\"#/p5/preload\">preload()</a> function is used to handle asynchronous loading of external files in a blocking way. If a preload function is defined, <a href=\"#/p5/setup\">setup()</a> will wait until any load calls within have finished. Nothing besides load calls (<a href=\"#/p5/loadImage\">loadImage</a>, <a href=\"#/p5/loadJSON\">loadJSON</a>, <a href=\"#/p5/loadFont\">loadFont</a>, <a href=\"#/p5/loadStrings\">loadStrings</a>, etc.) should be inside the preload function. If asynchronous loading is preferred, the load methods can instead be called in <a href=\"#/p5/setup\">setup()</a> or anywhere else with the use of a callback parameter.",
         "By default the text \"loading...\" will be displayed. To make your own loading page, include an HTML element with id \"p5_loading\" in your page. More information <a href=\"http://bit.ly/2kQ6Nio\">here</a>."
       ]
     },
@@ -1125,7 +1125,7 @@
     "for": {
       "description": [
         "<a href=\"#/p5/for\">for</a> creates a loop that is useful for executing one section of code multiple times. ",
-        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are seperated by ; (semi-colon).In case of an empty expression, only a semi-colon is written. ",
+        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are seperated by ; (semi-colon). In case of an empty expression, only a semi-colon is written. ",
         "The code inside of the loop body (in between the curly braces) is executed between the evaluation of the second and third expression. ",
         "As with any loop, it is important to ensure that the loop can 'exit', or that the test condition will eventually evaluate to false. The test condition with a <a href=\"#/p5/for\">for</a> loop is the second expression detailed above. Ensuring that this expression can eventually become false ensures that your loop doesn't attempt to run an infinite amount of times, which can crash your browser. ",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for\">the MDN entry</a>: Creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once."
@@ -5250,7 +5250,7 @@
     },
     "reflect": {
       "description": [
-        "Reflect the incoming vector about a normal to a line in 2D, or about a normal to a plane in 3D This method acts on the vector directly"
+        "Reflect the incoming vector about a normal to a line in 2D, or about a normal to a plane in 3D. This method acts on the vector directly"
       ],
       "params": {
         "surfaceNormal": "p5.Vector: the <a href=\"#/p5.Vector\">p5.Vector</a> to reflect about, will be normalized by this method"
