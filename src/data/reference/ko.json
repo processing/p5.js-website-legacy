@@ -630,15 +630,24 @@
     "beginContour": {
       "description": [
         "beginContour()와 endContour() 함수를 사용하여 특정 도형 내부에 그 음수 좌표에 상응하는 동일한 도형 윤곽선을 그릴 수 있습니다. 예를 들어, 동그라미의 안쪽에 또다른 작은 동그라미를 그릴 수 있습니다. beginContour()는 도형의 꼭짓점을 기록하기 시작하고, endContour()는 그 기록을 중지합니다. 이 때, 안쪽의 도형을 정의하는 꼭짓점은 바깥쪽의 도형과 반대 순서로 그려져야 합니다. 먼저 바깥에 위치한 원래 도형의 꼭짓점을 시계 방향으로 그리고, 그 다음 내부의 도형을 시계 반대 방향으로 그립니다.",
-        " beginContour()/endContour() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야 합니다. 또한, beingContour()/endContour() 함수 사이에는 translate(), rotate(), scale()과 같은 변형 함수나 ellipse() 및 rect()와 같은 도형그리기 함수가 사용될 수 없습니다.",
+        " beginContour()/endContour() 함수는 반드시 <a href=\"#/p5/beginShape\">beginShape()/</a>/Shape\">endShape()</a> 함수 사이에 작성되어야 합니다. 또한, beingContour()/endContour() 함수 사이에는 translate(), rotate(), scale()과 같은 변형 함수나 ellipse() 및 rect()와 같은 도형그리기 함수가 사용될 수 없습니다.",
         ""
       ]
     },
     "beginShape": {
       "description": [
-        "beginShape()과 endShape()를 사용하여 좀 더 복잡한 모양을 만들 수 있습니다. beingShape()은 도형의 꼭짓점을 기록하기 시작하고, endShape()은 그 기록을 중지합니다. 함수의 매개변수를 통해 꼭짓점으로 어떤 도형을 그릴지 결정할 수 있습니다. 별도의 매개변수가 지정되지 않으면, 비정형의 다각형이 그려집니다. ",
-        "beginShape()에 쓰이는 매개변수로는 POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, QUAD_STRIP, 그리고 TESS(WebGL 전용)가 있습니다. beginShape() 함수를 호출한 다음, 꼭짓점 지정을 위해 vertex() 명령문을 반드시 작성해야 합니다. 도형그리기를 멈추려면 endShape() 함수를 호출하면 됩니다. 각 도형은 현재 지정된 선그리기(stroke) 및 면채우기(fill) 색상으로 그려집니다.",
-        "<a href=\"#/p5/beginShape\">beginShape()</a>와 <a href=\"#/p5/endShape\">endShape()</a> 함수들 사이에는 <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, <a href=\"#/p5/scale\">scale()</a>과 같은 변형 함수나 <a href=\"#/p5/ellipse\">ellipse()</a>, <a href=\"#/p5/rect\">rect()</a>와 같은 도형그리기 함수를 사용할 수 없습니다."
+        "<a href=\"#/p5/beginShape\">beginShape()</a>과 <a href=\"#/p5/endShape\">endShape()</a>를 사용하여 좀 더 복잡한 모양을 만들 수 있습니다. beingShape()은 도형의 꼭짓점을 기록하기 시작하고, <a href=\"#/p5/endShape\">endShape()</a>은 그 기록을 중지합니다. 함수의 매개변수를 통해 꼭짓점으로 어떤 도형을 그릴지 결정할 수 있습니다. 별도의 매개변수가 지정되지 않으면, 비정형의 다각형이 그려집니다. ",
+        "<a href=\"#/p5/beginShape\">beginShape()</a>에 쓰이는 매개변수로는 POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, QUAD_STRIP, 그리고 TESS(WebGL 전용)가 있습니다. <a href=\"#/p5/beginShape\">beginShape()</a> 함수를 호출한 다음, 꼭짓점 지정을 위해 vertex() 명령문을 반드시 작성해야 합니다. 도형그리기를 멈추려면 <a href=\"#/p5/endShape\">endShape()</a> 함수를 호출하면 됩니다. 각 도형은 현재 지정된 선그리기(stroke) 및 면채우기(fill) 색상으로 그려집니다.",
+        "<a href=\"#/p5/beginShape\">beginShape()</a>와 <a href=\"#/p5/endShape\">endShape()</a> 함수들 사이에는 <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, <a href=\"#/p5/scale\">scale()</a>과 같은 변형 함수나 <a href=\"#/p5/ellipse\">ellipse()</a>, <a href=\"#/p5/rect\">rect()</a>와 같은 도형그리기 함수를 사용할 수 없습니다.",
+        "LINES - 여려 개의 분리 된 선들을 그립니다.",
+        "TRIANGLES - 여러 개의 분리 된 삼각형들을 그립니다.",
+        "TRIANGLE_FAN - 여러 개의 연결 된 삼각형들을 그립니다. 이 삼각형들은 첫 꼭짓점을 공통적으로 하며 부채 모양으로 그려집니다.",
+        "TRIANGLE_STRIP - 여러 개의 연결 된 삼각형들을 그립니다. 이 삼각형들은 한 줄로 그려집니다. ",
+        "QUADS - 여러 개의 분리 된 사각형들을 그립니다. ",
+        "QUAD_STRIP - 여러 개의 연결 된 사각형들을 한 줄로 그립니다.",
+        "TESS (WebGl만 가능) - 모자이크 세공 (tessellation)을 위한 불규칙적 도형을 그립니다.",
+        "<a href=\"#/p5/beginShape\">beginShape()</a> 함수는 호출할 시, 이후에 여러 개의 <a href=\"#/p5/vertex\">vertex()</a> 명령들을 호출해야 합니다.그림 그리기를 멈추려면 <a href=\"#/p5/endShape\">endShape()</a> 함수를 호출합니다. 각 도형은 현재의 윤곽선 색으로 그려지며, 면은 현재의 면 색으로 채워집니다.",
+        "<a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, 또는 <a href=\"#/p5/scale\">scale()</a>와 같은 변형 함수들은 <a href=\"#/p5/beginShape\">beginShape()</a> 함수 안에서 사용할 수 없습니다. 또한, <a href=\"#/p5/ellipse\">ellipse()</a>와 <a href=\"#/p5/rect\">rect()</a> 같은 함수들을 <a href=\"#/p5/beginShape\">beginShape()</a> 함수 안에서 사용할 수 없습니다."
       ],
       "params": {
         "kind": "상수: (선택 사항) POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS 또는 QUAD_STRIP"
@@ -647,7 +656,7 @@
     "bezierVertex": {
       "description": [
         "베지에 곡선의 꼭짓점 좌표를 지정합니다. bezierVertex()은 매 호출마다 베지에 곡선의 제어점 2개와 고정점 1개의 위치를 정의하고, 이 새로운 선분을 선 또는 도형에 더합니다. bezierVertex()는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 6개의 매개변수가, 3D 모드에서는 9개의 매개변수(z좌표값 포함)가 필요합니다.",
-        "beginShape() 함수 안에 작성된 bezierVertex()를 호출하기에 앞서, vertex() 함수를 bezierVertex() 윗줄에 작성하여 곡선의 1번째 고정점을 설정해야 합니다. bezierVertex() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다."
+        "<a href=\"#/p5/beginShape\">beginShape()</a> 함수 안에 작성된 bezierVertex()를 호출하기에 앞서, vertex() 함수를 bezierVertex() 윗줄에 작성하여 곡선의 1번째 고정점을 설정해야 합니다. bezierVertex() 함수는 반드시 <a href=\"#/p5/beginShape\">beginShape()/</a>/Shape\">endShape()</a> 함수 사이에 작성되어야하며, <a href=\"#/p5/beginShape\">beginShape()</a> 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다."
       ],
       "params": {
         "x2": "숫자: 1번째 제어점의 x좌표값",
@@ -663,7 +672,7 @@
     },
     "curveVertex": {
       "description": [
-        "곡선의 꼭짓점 좌표를 지정합니다. 이 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다. 또한, 이 함수는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 2개의 매개변수가, 3D 모드에서는 3개의 매개변수가 필요합니다.",
+        "곡선의 꼭짓점 좌표를 지정합니다. 이 함수는 반드시 <a href=\"#/p5/beginShape\">beginShape()/</a>/Shape\">endShape()</a> 함수 사이에 작성되어야하며, <a href=\"#/p5/beginShape\">beginShape()</a> 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다. 또한, 이 함수는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 2개의 매개변수가, 3D 모드에서는 3개의 매개변수가 필요합니다.",
         "curveVertex()로 그려진 일련의 선들 중 1번째 점과 마지막 점을 통해 각각 전체 곡선의 시작점과 끝점을 알 수 있습니다. 2번째와 3번째 사이에도 작은 곡선을 만들기 위해선 최소 4개의 점들이 필요합니다. curveVertex() 함수로 5번째 점을 추가하면 함수는 2번째, 3번째, 4번째 점들 사이에 곡선을 그립니다. curveVertex() 함수는 캣멀롬 스플라인(Catmull-Rom Spline)을 구현합니다. "
       ],
       "params": {
@@ -675,12 +684,12 @@
     "endContour": {
       "description": [
         "beginContour()와 endContour() 함수를 사용하여 특정 도형 내부에 그 음수 좌표에 상응하는 동일한 도형 윤곽선을 그릴 수 있습니다. 예를 들어, 동그라미의 안쪽에 또다른 작은 동그라미를 그릴 수 있습니다. beginContour()는 도형의 꼭짓점을 기록하기 시작하고, endContour()는 그 기록을 중지합니다. 이 때, 안쪽의 도형을 정의하는 꼭짓점은 바깥쪽의 도형과 반대 순서로 그려져야 합니다. 먼저 바깥에 위치한 원래 도형의 꼭짓점을 시계 방향으로 그리고, 그 다음 내부의 도형을 시계 반대 방향으로 그립니다.",
-        "beginContour()/endContour() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야 합니다. 또한, beingContour()/endContour() 함수 사이에는 translate(), rotate(), scale()과 같은 변형 함수나 ellipse() 및 rect()와 같은 도형그리기 함수가 사용될 수 없습니다."
+        "beginContour()/endContour() 함수는 반드시 <a href=\"#/p5/beginShape\">beginShape()/</a>/Shape\">endShape()</a> 함수 사이에 작성되어야 합니다. 또한, beingContour()/endContour() 함수 사이에는 translate(), rotate(), scale()과 같은 변형 함수나 ellipse() 및 rect()와 같은 도형그리기 함수가 사용될 수 없습니다."
       ]
     },
     "endShape": {
       "description": [
-        "endShape()은 beginShape()과 한 쌍을 이루는 함수로, 반드시 beginShape() 다음에 호출될 수 있습니다. endShape() 함수가 호출되면, beginShape() 함수가 호출된 이래로 정의된 모든 이미지 데이터가이미지 버퍼로서 처리됩니다. endShape()의 MODE 매개변수로는 상수 CLOSE를 씁니다."
+        "<a href=\"#/p5/endShape\">endShape()</a>은 <a href=\"#/p5/beginShape\">beginShape()</a>과 한 쌍을 이루는 함수로, 반드시 beginShape() 다음에 호출될 수 있습니다. <a href=\"#/p5/endShape\">endShape()</a> 함수가 호출되면, <a href=\"#/p5/beginShape\">beginShape()</a> 함수가 호출된 이래로 정의된 모든 이미지 데이터가이미지 버퍼로서 처리됩니다. <a href=\"#/p5/endShape\">endShape()</a>의 MODE 매개변수로는 상수 CLOSE를 씁니다."
       ],
       "params": {
         "mode": "상수: CLOSE로 도형 닫기"
@@ -688,8 +697,8 @@
     },
     "quadraticVertex": {
       "description": [
-        "2차 베지에 곡선의 꼭짓점 좌표를 지정합니다. quadraticVertex()은 매 호출마다 베지에 곡선의 제어점 1개와 고정점 1개의 위치를 정의하고, 이 새로운 선분을 선 또는 도형에 더합니다. beginShape() 함수 안에 작성된 quadraticVertex()를 호출하기에 앞서, vertex() 함수를 quadraticVertex() 윗줄에 작성하여 곡선의 1번째 고정점을 설정해야 합니다. quadraticVertex()는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 6개의 매개변수가, 3D 모드에서는 9개의 매개변수(z좌표값 포함)가 필요합니다.",
-        "quadraticVertex() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다."
+        "2차 베지에 곡선의 꼭짓점 좌표를 지정합니다. quadraticVertex()은 매 호출마다 베지에 곡선의 제어점 1개와 고정점 1개의 위치를 정의하고, 이 새로운 선분을 선 또는 도형에 더합니다. <a href=\"#/p5/beginShape\">beginShape()</a> 함수 안에 작성된 quadraticVertex()를 호출하기에 앞서, vertex() 함수를 quadraticVertex() 윗줄에 작성하여 곡선의 1번째 고정점을 설정해야 합니다. quadraticVertex()는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 6개의 매개변수가, 3D 모드에서는 9개의 매개변수(z좌표값 포함)가 필요합니다.",
+        "quadraticVertex() 함수는 반드시 <a href=\"#/p5/beginShape\">beginShape()/</a>/Shape\">endShape()</a> 함수 사이에 작성되어야하며, <a href=\"#/p5/beginShape\">beginShape()</a> 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다."
       ],
       "params": {
         "cx": "숫자: 제어점의 x좌표값",
@@ -702,7 +711,7 @@
     },
     "vertex": {
       "description": [
-        "모든 도형들은 꼭짓점 연결을 통해 구축됩니다. vertex() 함수를 사용하여 점, 선, 삼각형, 사각형, 그리고 다각형의 꼭짓점 좌표를 지정할 수 있습니다.는 데에 쓰입니다. 이 때, vertex() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야합니다."
+        "모든 도형들은 꼭짓점 연결을 통해 구축됩니다. vertex() 함수를 사용하여 점, 선, 삼각형, 사각형, 그리고 다각형의 꼭짓점 좌표를 지정할 수 있습니다.는 데에 쓰입니다. 이 때, vertex() 함수는 반드시 <a href=\"#/p5/beginShape\">beginShape()/</a>/Shape\">endShape()</a> 함수 사이에 작성되어야합니다."
       ],
       "params": {
         "x": "숫자: 꼭짓점의 x좌표값",
@@ -710,6 +719,17 @@
         "z": "숫자: 꼭짓점의 z좌표값",
         "u": "숫자: (선택 사항) 꼭짓점의 u좌표값",
         "v": "숫자: (선택 사항) 꼭짓점의 v좌표값"
+      }
+    },
+    "normal": {
+      "description": [
+        "이후에 <a href=\"#/p5/vertex\">vertex()</a> 함수로 그려질 꼭짓점들을 위한 3D 꼭짓점의 노멀 (normal)을 설정합니다. 도형의 면에 수직방향이 노멀 벡터이며, 이는 빛의 반사량을 지정합니다."
+      ],
+      "params": {
+        "vector": "벡터: 노멀을 표시하는 p5.Vector.",
+        "x": "숫자: 꼭짓점의 x좌표값",
+        "y": "숫자: 꼭짓점의 y좌표값",
+        "z": "숫자: 꼭짓점의 z좌표값"
       }
     },
     "VERSION": {
@@ -850,6 +870,8 @@
     "ITALIC": {},
     "BOLD": {},
     "BOLDITALIC": {},
+    "CHAR": {},
+    "WORD": {},
     "LINEAR": {},
     "QUADRATIC": {},
     "BEZIER": {},
@@ -2790,6 +2812,18 @@
       ],
       "returns": "숫자:"
     },
+    "textWrap": {
+      "description": [
+        "텍스트 상자에서 텍스트의 줄 바꿈 (wrap)을 설정합니다. 이것를 하기 위해서는 텍스트 너비의 최댓값을 지정해야하며, 이것은 <a href=\"#/p5/text\">text()</a> 함수의 <code>x2</code> 매개변수로 설정됩니다.",
+        "WORD의 줄 바꿈 형식은 줄을 띄어쓰기 부분에서만 바꿉니다. 즉, 캔버스 또는 텍스트 상자의 너비를 초과하며 띄움이 없는 하나의 문자열의 경우에는 원하는 너비를 넘어 캔버스의 경계에서 벗어납니다. 이럴 때, 벗어난 문자열의 나머지는 보이지 않습니다.",
+        "CHAR의 줄 바꿈 형식은 텍스트 상자 안에 있기 위해 필요한 부분에서 자동적으로 띄움 또는 글자에 상관없이 줄을 바꿉니다.",
+        "WORD의 형식이 기본값이며, 두 형식은 모두 수동적 줄 바꿈 (<code>\\n</code>)에서 줄을 바꿉니다. 텍스트 상자의 높이 최댓값은 (<code>y2</code>)이며, 이는 형식에 상관없이 유효합니다. 즉, 텍스트가 상자 안 높이보다 많을 경우 남는 글자는 스크린에 표시되지 않습니다."
+      ],
+      "returns": "문자열: wrapStyle (줄 바꿈 형식)",
+      "params": {
+        "wrapStyle": "Constant: 줄 바꿈 형식, WORD 또는 CHAR"
+      }
+    },
     "loadFont": {
       "description": [
         "파일 또는 URL로부터 폰트 파일(.otf, .ttf)을 불러오고, PFont 객체를 반환합니다. ",
@@ -3284,12 +3318,12 @@
         "yOff": "숫자: (선택 사항) 원점(0,0,0)으로부터의 Y축 상쇄값",
         "zOff": "숫자: (선택 사항) 원점(0,0,0)으로부터의 Z축 상쇄값",
         "axesSize": "숫자: (선택 사항) 좌표축 아이콘 크기",
-        "gridXOff": "숫자:",
-        "gridYOff": "숫자:",
-        "gridZOff": "숫자:",
-        "axesXOff": "숫자:",
-        "axesYOff": "숫자:",
-        "axesZOff": "숫자:"
+        "gridXOff": "숫자: (선택 사항)",
+        "gridYOff": "숫자: (선택 사항)",
+        "gridZOff": "숫자: (선택 사항)",
+        "axesXOff": "숫자: (선택 사항)",
+        "axesYOff": "숫자: (선택 사항)",
+        "axesZOff": "숫자: (선택 사항)"
       }
     },
     "noDebugMode": {
@@ -3605,7 +3639,9 @@
     },
     "createCamera": {
       "description": [
-        "새로운 p5.Camera 객체를 생성하고 렌더러에게 해당 카메라를 사용하도록 지시합니다. p5.Camera 객체를 반환합니다."
+        "새로운 p5.Camera 객체를 생성하고 렌더러에게 해당 카메라를 사용하도록 지시합니다. p5.Camera 객체를 반환합니다.",
+        "The new camera is initialized with a default position (see <a href=\"#/p5.Camera/camera\">camera()</a>) and a default perspective projection (see <a href=\"#/p5.Camera/perspective\">perspective()</a>). Its properties can be controlled with the <a href=\"#/p5.Camera\">p5.Camera</a> methods. ",
+        "Note: Every 3D sketch starts with a default camera initialized. This camera can be controlled with the global methods <a href=\"#/p5/camera\">camera()</a>, <a href=\"#/p5/perspective\">perspective()</a>, <a href=\"#/p5/ortho\">ortho()</a>, and <a href=\"#/p5/frustum\">frustum()</a> if it is the only camera in the scene."
       ],
       "returns": "p5.Camera: 새로 생성된 카메라 객체"
     },
@@ -3639,6 +3675,49 @@
         "obj": "객체: 주요값들의 쌍을 갖는 객체"
       }
     },
+    "getAudioContext": {
+      "description": [
+        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.  ",
+        "Some browsers require users to startAudioContext with a user gesture, such as touchStarted in the example below."
+      ],
+      "returns": "객체: AudioContext for this sketch"
+    },
+    "userStartAudio": {
+      "description": [
+        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/ko/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state.  ",
+        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>.  ",
+        "<code>userStartAudio()</code> starts the AudioContext on a user gesture. The default behavior will enable audio on any mouseUp or touchEnd event. It can also be placed in a specific interaction function, such as <code>mousePressed()</code> as in the example below. This method utilizes <a href=\"https://github.com/tambien/StartAudioContext\">StartAudioContext </a>, a library by Yotam Mann (MIT Licence, 2016)."
+      ],
+      "returns": "Promise: Returns a Promise that resolves when  the AudioContext state is 'running'",
+      "params": {
+        "element(s)": "Element|배열: (선택 사항) This argument can be an Element,  Selector String, NodeList, p5.Element,  jQuery Element, or an Array of any of those.",
+        "callback": "함수: (선택 사항) Callback to invoke when the AudioContext  has started"
+      }
+    },
+    "getOutputVolume": {
+      "description": [
+        "Returns a number representing the output volume for sound in this sketch."
+      ],
+      "returns": "숫자: Output volume for sound in this sketch.  Should be between 0.0 (silence) and 1.0."
+    },
+    "outputVolume": {
+      "description": [
+        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.  ",
+        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal. ",
+        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.  ",
+        "If no value is provided, returns a Web Audio API Gain Node"
+      ],
+      "params": {
+        "volume": "숫자|Object: Volume (amplitude) between 0.0  and 1.0 or modulating signal/oscillator",
+        "rampTime": "숫자: (선택 사항) Fade for t seconds",
+        "timeFromNow": "숫자: (선택 사항) Schedule this event to happen at  t seconds in the future"
+      }
+    },
+    "soundOut": {
+      "description": [
+        "<code>p5.soundOut</code> is the p5.sound final output bus. It sends output to the destination of this window's web audio context. It contains Web Audio API nodes including a dyanmicsCompressor (<code>.limiter</code>), and Gain Nodes for <code>.input</code> and <code>.output</code>."
+      ]
+    },
     "sampleRate": {
       "description": [
         "Returns a number representing the sample rate, in samples per second, of all sound objects in this audio context. It is determined by the sampling rate of your operating system's sound card, and it is not currently possile to change. It is often 44100, or twice the range of human hearing."
@@ -3669,25 +3748,6 @@
       ],
       "params": {
         "formats": "문자열: (선택 사항) i.e. 'mp3', 'wav', 'ogg'"
-      }
-    },
-    "getAudioContext": {
-      "description": [
-        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.  ",
-        "Some browsers require users to startAudioContext with a user gesture, such as touchStarted in the example below."
-      ],
-      "returns": "객체: AudioContext for this sketch"
-    },
-    "userStartAudio": {
-      "description": [
-        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/ko/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state.  ",
-        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>.  ",
-        "<code>userStartAudio()</code> starts the AudioContext on a user gesture. The default behavior will enable audio on any mouseUp or touchEnd event. It can also be placed in a specific interaction function, such as <code>mousePressed()</code> as in the example below. This method utilizes <a href=\"https://github.com/tambien/StartAudioContext\">StartAudioContext </a>, a library by Yotam Mann (MIT Licence, 2016)."
-      ],
-      "returns": "Promise: Returns a Promise that resolves when  the AudioContext state is 'running'",
-      "params": {
-        "element(s)": "Element|배열: (선택 사항) This argument can be an Element,  Selector String, NodeList, p5.Element,  jQuery Element, or an Array of any of those.",
-        "callback": "함수: (선택 사항) Callback to invoke when the AudioContext  has started"
       }
     },
     "loadSound": {
@@ -4635,8 +4695,8 @@
   },
   "p5.PrintWriter": {
     "params": {
-      "filename": "String:",
-      "extension": "String: (선택 사항)"
+      "filename": "문자열:",
+      "extension": "문자열: (선택 사항)"
     },
     "write": {
       "description": [
@@ -5626,30 +5686,851 @@
       }
     }
   },
-  "p5.sound": {
-    "getMasterVolume": {
-      "description": [
-        "Returns a number representing the master amplitude (volume) for sound in this sketch."
-      ],
-      "returns": "숫자: Master amplitude (volume) for sound in this sketch.  Should be between 0.0 (silence) and 1.0."
+  "p5.sound": {},
+  "p5.SoundFile": {
+    "description": [
+      "SoundFile object with a path to a file.  ",
+      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
+      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
+      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatibility, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
+    ],
+    "params": {
+      "path": "문자열|Array: path to a sound file (String). Optionally,  you may include multiple file formats in  an array. Alternately, accepts an object  from the HTML5 File API, or a p5.File.",
+      "successCallback": "함수: (선택 사항) Name of a function to call once file loads",
+      "errorCallback": "함수: (선택 사항) Name of a function to call if file fails to  load. This function will receive an error or  XMLHttpRequest object with information  about what went wrong.",
+      "whileLoadingCallback": "함수: (선택 사항) Name of a function to call while file  is loading. That function will  receive progress of the request to  load the sound file  (between 0 and 1) as its first  parameter. This progress  does not account for the additional  time needed to decode the audio data."
     },
-    "masterVolume": {
+    "isLoaded": {
       "description": [
-        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.  ",
-        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal. ",
-        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.  ",
-        "If no value is provided, returns a Web Audio API Gain Node"
+        "Returns true if the sound file finished loading successfully."
+      ],
+      "returns": "불리언: "
+    },
+    "play": {
+      "description": [
+        "Play the p5.SoundFile"
       ],
       "params": {
-        "volume": "숫자|객체: Volume (amplitude) between 0.0  and 1.0 or modulating signal/oscillator",
+        "startTime": "숫자: (선택 사항) (optional) schedule playback to start (in seconds from now).",
+        "rate": "숫자: (선택 사항) (optional) playback rate",
+        "amp": "숫자: (선택 사항) (optional) amplitude (volume)  of playback",
+        "cueStart": "숫자: (선택 사항) (optional) cue start time in seconds",
+        "duration": "숫자: (선택 사항) (optional) duration of playback in seconds"
+      }
+    },
+    "playMode": {
+      "description": [
+        "p5.SoundFile has two play modes: <code>restart</code> and <code>sustain</code>. Play Mode determines what happens to a p5.SoundFile if it is triggered while in the middle of playback. In sustain mode, playback will continue simultaneous to the new playback. In restart mode, play() will stop playback and start over. With untilDone, a sound will play only if it's not already playing. Sustain is the default mode."
+      ],
+      "params": {
+        "str": "문자열: 'restart' or 'sustain' or 'untilDone'"
+      }
+    },
+    "pause": {
+      "description": [
+        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen. ",
+        "After pausing, .play() will resume from the paused position. If p5.SoundFile had been set to loop before it was paused, it will continue to loop after it is unpaused with .play()."
+      ],
+      "params": {
+        "startTime": "숫자: (선택 사항) (optional) schedule event to occur  seconds from now"
+      }
+    },
+    "loop": {
+      "description": [
+        "Loop the p5.SoundFile. Accepts optional parameters to set the playback rate, playback volume, loopStart, loopEnd."
+      ],
+      "params": {
+        "startTime": "숫자: (선택 사항) (optional) schedule event to occur  seconds from now",
+        "rate": "숫자: (선택 사항) (optional) playback rate",
+        "amp": "숫자: (선택 사항) (optional) playback volume",
+        "cueLoopStart": "숫자: (선택 사항) (optional) startTime in seconds",
+        "duration": "숫자: (선택 사항) (optional) loop duration in seconds"
+      }
+    },
+    "setLoop": {
+      "description": [
+        "Set a p5.SoundFile's looping flag to true or false. If the sound is currently playing, this change will take effect when it reaches the end of the current playback."
+      ],
+      "params": {
+        "Boolean": "불리언: set looping to true or false"
+      }
+    },
+    "isLooping": {
+      "description": [
+        "Returns 'true' if a p5.SoundFile is currently looping and playing, 'false' if not."
+      ],
+      "returns": "불리언: "
+    },
+    "isPlaying": {
+      "description": [
+        "Returns true if a p5.SoundFile is playing, false if not (i.e. paused or stopped)."
+      ],
+      "returns": "불리언: "
+    },
+    "isPaused": {
+      "description": [
+        "Returns true if a p5.SoundFile is paused, false if not (i.e. playing or stopped)."
+      ],
+      "returns": "불리언: "
+    },
+    "stop": {
+      "description": [
+        "Stop soundfile playback."
+      ],
+      "params": {
+        "startTime": "숫자: (선택 사항) (optional) schedule event to occur  in seconds from now"
+      }
+    },
+    "pan": {
+      "description": [
+        "Set the stereo panning of a p5.sound object to a floating point number between -1.0 (left) and 1.0 (right). Default is 0.0 (center)."
+      ],
+      "params": {
+        "panValue": "숫자: (선택 사항) Set the stereo panner",
+        "timeFromNow": "숫자: (선택 사항) schedule this event to happen  seconds from now"
+      }
+    },
+    "getPan": {
+      "description": [
+        "Returns the current stereo pan position (-1.0 to 1.0)"
+      ],
+      "returns": "숫자: Returns the stereo pan setting of the Oscillator  as a number between -1.0 (left) and 1.0 (right).  0.0 is center and default."
+    },
+    "rate": {
+      "description": [
+        "Set the playback rate of a sound file. Will change the speed and the pitch. Values less than zero will reverse the audio buffer."
+      ],
+      "params": {
+        "playbackRate": "숫자: (선택 사항) Set the playback rate. 1.0 is normal,  .5 is half-speed, 2.0 is twice as fast.  Values less than zero play backwards."
+      }
+    },
+    "setVolume": {
+      "description": [
+        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class. ",
+        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal."
+      ],
+      "params": {
+        "volume": "숫자|Object: Volume (amplitude) between 0.0  and 1.0 or modulating signal/oscillator",
         "rampTime": "숫자: (선택 사항) Fade for t seconds",
         "timeFromNow": "숫자: (선택 사항) Schedule this event to happen at  t seconds in the future"
       }
     },
-    "soundOut": {
+    "duration": {
       "description": [
-        "<code>p5.soundOut</code> is the p5.sound master output. It sends output to the destination of this window's web audio context. It contains Web Audio API nodes including a dyanmicsCompressor (<code>.limiter</code>), and Gain Nodes for <code>.input</code> and <code>.output</code>."
+        "Returns the duration of a sound file in seconds."
+      ],
+      "returns": "숫자: The duration of the soundFile in seconds."
+    },
+    "currentTime": {
+      "description": [
+        "Return the current position of the p5.SoundFile playhead, in seconds. Time is relative to the normal buffer direction, so if <code>reverseBuffer</code> has been called, currentTime will count backwards."
+      ],
+      "returns": "숫자: currentTime of the soundFile in seconds."
+    },
+    "jump": {
+      "description": [
+        "Move the playhead of a soundfile that is currently playing to a new position and a new duration, in seconds. If none are given, will reset the file to play entire duration from start to finish. To set the position of a soundfile that is not currently playing, use the <code>play</code> or <code>loop</code> methods."
+      ],
+      "params": {
+        "cueTime": "숫자: cueTime of the soundFile in seconds.",
+        "duration": "숫자: duration in seconds."
+      }
+    },
+    "channels": {
+      "description": [
+        "Return the number of channels in a sound file. For example, Mono = 1, Stereo = 2."
+      ],
+      "returns": "숫자: [channels]"
+    },
+    "sampleRate": {
+      "description": [
+        "Return the sample rate of the sound file."
+      ],
+      "returns": "숫자: [sampleRate]"
+    },
+    "frames": {
+      "description": [
+        "Return the number of samples in a sound file. Equal to sampleRate * duration."
+      ],
+      "returns": "숫자: [sampleCount]"
+    },
+    "getPeaks": {
+      "description": [
+        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations. ",
+        "Inspired by Wavesurfer.js."
+      ],
+      "returns": "Float32Array: Array of peaks.",
+      "params": {
+        "length": "숫자: (선택 사항) length is the size of the returned array.  Larger length results in more precision.  Defaults to 5*width of the browser window."
+      }
+    },
+    "reverseBuffer": {
+      "description": [
+        "Reverses the p5.SoundFile's buffer source. Playback must be handled separately (see example)."
       ]
+    },
+    "onended": {
+      "description": [
+        "Schedule an event to be called when the soundfile reaches the end of a buffer. If the soundfile is playing through once, this will be called when it ends. If it is looping, it will be called when stop is called."
+      ],
+      "params": {
+        "callback": "함수: function to call when the  soundfile has ended."
+      }
+    },
+    "connect": {
+      "description": [
+        "Connects the output of a p5sound object to input of another p5.sound object. For example, you may connect a p5.SoundFile to an FFT or an Effect. If no parameter is given, it will connect to the master output. Most p5sound objects connect to the master output when they are created."
+      ],
+      "params": {
+        "object": "객체: (선택 사항) Audio object that accepts an input"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnects the output of this p5sound object."
+      ]
+    },
+    "setPath": {
+      "description": [
+        "Reset the source for this SoundFile to a new path (URL)."
+      ],
+      "params": {
+        "path": "문자열: path to audio file",
+        "callback": "함수: Callback"
+      }
+    },
+    "setBuffer": {
+      "description": [
+        "Replace the current Audio Buffer with a new Buffer."
+      ],
+      "params": {
+        "buf": "배열: Array of Float32 Array(s). 2 Float32 Arrays  will create a stereo source. 1 will create  a mono source."
+      }
+    },
+    "addCue": {
+      "description": [
+        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point. ",
+        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback. ",
+        "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
+      ],
+      "returns": "숫자: id ID of this cue,  useful for removeCue(id)",
+      "params": {
+        "time": "숫자: Time in seconds, relative to this media  element's playback. For example, to trigger  an event every time playback reaches two  seconds, pass in the number 2. This will be  passed as the first parameter to  the callback function.",
+        "callback": "함수: Name of a function that will be  called at the given time. The callback will  receive time and (optionally) param as its  two parameters.",
+        "value": "객체: (선택 사항) An object to be passed as the  second parameter to the  callback function."
+      }
+    },
+    "removeCue": {
+      "description": [
+        "Remove a callback based on its ID. The ID is returned by the addCue method."
+      ],
+      "params": {
+        "id": "숫자: ID of the cue, as returned by addCue"
+      }
+    },
+    "clearCues": {
+      "description": [
+        "Remove all of the callbacks that had originally been scheduled via the addCue method."
+      ]
+    },
+    "save": {
+      "description": [
+        "Save a p5.SoundFile as a .wav file. The browser will prompt the user to download the file to their device. To upload a file to a server, see <a href=\"/docs/reference/#/p5.SoundFile/getBlob\">getBlob</a>"
+      ],
+      "params": {
+        "fileName": "문자열: (선택 사항) name of the resulting .wav file."
+      }
+    },
+    "getBlob": {
+      "description": [
+        "This method is useful for sending a SoundFile to a server. It returns the .wav-encoded audio data as a \"<a target=\"_blank\" title=\"Blob reference at MDN\" href=\"https://developer.mozilla.org/en-US/docs/Web/API/Blob\">Blob</a>\". A Blob is a file-like data object that can be uploaded to a server with an <a href=\"/docs/reference/#/p5/httpDo\">http</a> request. We'll use the <code>httpDo</code> options object to send a POST request with some specific options: we encode the request as <code>multipart/form-data</code>, and attach the blob as one of the form values using <code>FormData</code>."
+      ],
+      "returns": "Blob: A file-like data object"
+    }
+  },
+  "p5.Amplitude": {
+    "description": [
+      "Amplitude measures volume between 0.0 and 1.0. Listens to all p5sound by default, or use setInput() to listen to a specific sound source. Accepts an optional smoothing value, which defaults to 0."
+    ],
+    "params": {
+      "smoothing": "숫자: (선택 사항) between 0.0 and .999 to smooth  amplitude readings (defaults to 0)"
+    },
+    "setInput": {
+      "description": [
+        "Connects to the p5sound instance (master output) by default. Optionally, you can pass in a specific source (i.e. a soundfile)."
+      ],
+      "params": {
+        "snd": "SoundObject|undefined: (선택 사항) set the sound source  (optional, defaults to  master output)",
+        "smoothing": "숫자|undefined: (선택 사항) a range between 0.0 and 1.0  to smooth amplitude readings"
+      }
+    },
+    "getLevel": {
+      "description": [
+        "Returns a single Amplitude reading at the moment it is called. For continuous readings, run in the draw loop."
+      ],
+      "returns": "숫자: Amplitude as a number between 0.0 and 1.0",
+      "params": {
+        "channel": "숫자: (선택 사항) Optionally return only channel 0 (left) or 1 (right)"
+      }
+    },
+    "toggleNormalize": {
+      "description": [
+        "Determines whether the results of Amplitude.process() will be Normalized. To normalize, Amplitude finds the difference the loudest reading it has processed and the maximum amplitude of 1.0. Amplitude adds this difference to all values to produce results that will reliably map between 0.0 and 1.0. However, if a louder moment occurs, the amount that Normalize adds to all the values will change. Accepts an optional boolean parameter (true or false). Normalizing is off by default."
+      ],
+      "params": {
+        "boolean": "불리언: (선택 사항) set normalize to true (1) or false (0)"
+      }
+    },
+    "smooth": {
+      "description": [
+        "Smooth Amplitude analysis by averaging with the last analysis frame. Off by default."
+      ],
+      "params": {
+        "set": "숫자: smoothing from 0.0 <= 1"
+      }
+    }
+  },
+  "p5.FFT": {
+    "description": [
+      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.  ",
+      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies. ",
+      "FFT analyzes a very short snapshot of sound called a sample buffer. It returns an array of amplitude measurements, referred to as <code>bins</code>. The array is 1024 bins long by default. You can change the bin array length, but it must be a power of 2 between 16 and 1024 in order for the FFT algorithm to function correctly. The actual size of the FFT buffer is twice the number of bins, so given a standard sample rate, the buffer is 2048/44100 seconds long."
+    ],
+    "params": {
+      "smoothing": "숫자: (선택 사항) Smooth results of Freq Spectrum.  0.0 < smoothing < 1.0.  Defaults to 0.8.",
+      "bins": "숫자: (선택 사항) Length of resulting array.  Must be a power of two between  16 and 1024. Defaults to 1024."
+    },
+    "setInput": {
+      "description": [
+        "Set the input source for the FFT analysis. If no source is provided, FFT will analyze all sound in the sketch."
+      ],
+      "params": {
+        "source": "객체: (선택 사항) p5.sound object (or web audio API source node)"
+      }
+    },
+    "waveform": {
+      "description": [
+        "Returns an array of amplitude values (between -1.0 and +1.0) that represent a snapshot of amplitude readings in a single buffer. Length will be equal to bins (defaults to 1024). Can be used to draw the waveform of a sound."
+      ],
+      "returns": "배열: Array Array of amplitude values (-1 to 1)  over time. Array length = bins.",
+      "params": {
+        "bins": "숫자: (선택 사항) Must be a power of two between  16 and 1024. Defaults to 1024.",
+        "precision": "문자열: (선택 사항) If any value is provided, will return results  in a Float32 Array which is more precise  than a regular array."
+      }
+    },
+    "analyze": {
+      "description": [
+        "Returns an array of amplitude values (between 0 and 255) across the frequency spectrum. Length is equal to FFT bins (1024 by default). The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Must be called prior to using <code>getEnergy()</code>."
+      ],
+      "returns": "배열: spectrum Array of energy (amplitude/volume)  values across the frequency spectrum.  Lowest energy (silence) = 0, highest  possible is 255.",
+      "params": {
+        "bins": "숫자: (선택 사항) Must be a power of two between  16 and 1024. Defaults to 1024.",
+        "scale": "숫자: (선택 사항) If \"dB,\" returns decibel  float measurements between  -140 and 0 (max).  Otherwise returns integers from 0-255."
+      }
+    },
+    "getEnergy": {
+      "description": [
+        "Returns the amount of energy (volume) at a specific <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\" target=\"_blank\"> frequency</a>, or the average amount of energy between two frequencies. Accepts Number(s) corresponding to frequency (in Hz), or a String corresponding to predefined frequency ranges (\"bass\", \"lowMid\", \"mid\", \"highMid\", \"treble\"). Returns a range between 0 (no energy/volume at that frequency) and 255 (maximum energy). <em>NOTE: analyze() must be called prior to getEnergy(). Analyze() tells the FFT to analyze frequency data, and getEnergy() uses the results determine the value at a specific frequency or range of frequencies.</em>"
+      ],
+      "returns": "숫자: Energy Energy (volume/amplitude) from  0 and 255.",
+      "params": {
+        "frequency1": "숫자|String: Will return a value representing  energy at this frequency. Alternately,  the strings \"bass\", \"lowMid\" \"mid\",  \"highMid\", and \"treble\" will return  predefined frequency ranges.",
+        "frequency2": "숫자: (선택 사항) If a second frequency is given,  will return average amount of  energy that exists between the  two frequencies."
+      }
+    },
+    "getCentroid": {
+      "description": [
+        "Returns the <a href=\"http://en.wikipedia.org/wiki/Spectral_centroid\" target=\"_blank\"> spectral centroid</a> of the input signal. <em>NOTE: analyze() must be called prior to getCentroid(). Analyze() tells the FFT to analyze frequency data, and getCentroid() uses the results determine the spectral centroid.</em>"
+      ],
+      "returns": "숫자: Spectral Centroid Frequency Frequency of the spectral centroid in Hz."
+    },
+    "smooth": {
+      "description": [
+        "Smooth FFT analysis by averaging with the last analysis frame."
+      ],
+      "params": {
+        "smoothing": "숫자: 0.0 < smoothing < 1.0.  Defaults to 0.8."
+      }
+    },
+    "linAverages": {
+      "description": [
+        "Returns an array of average amplitude values for a given number of frequency bands split equally. N defaults to 16. <em>NOTE: analyze() must be called prior to linAverages(). Analyze() tells the FFT to analyze frequency data, and linAverages() uses the results to group them into a smaller set of averages.</em>"
+      ],
+      "returns": "배열: linearAverages Array of average amplitude values for each group",
+      "params": {
+        "N": "숫자: Number of returned frequency groups"
+      }
+    },
+    "logAverages": {
+      "description": [
+        "Returns an array of average amplitude values of the spectrum, for a given set of <a href=\"https://en.wikipedia.org/wiki/Octave_band\" target=\"_blank\"> Octave Bands</a> <em>NOTE: analyze() must be called prior to logAverages(). Analyze() tells the FFT to analyze frequency data, and logAverages() uses the results to group them into a smaller set of averages.</em>"
+      ],
+      "returns": "배열: logAverages Array of average amplitude values for each group",
+      "params": {
+        "octaveBands": "배열: Array of Octave Bands objects for grouping"
+      }
+    },
+    "getOctaveBands": {
+      "description": [
+        "Calculates and Returns the 1/N <a href=\"https://en.wikipedia.org/wiki/Octave_band\" target=\"_blank\">Octave Bands</a> N defaults to 3 and minimum central frequency to 15.625Hz. (1/3 Octave Bands ~= 31 Frequency Bands) Setting fCtr0 to a central value of a higher octave will ignore the lower bands and produce less frequency groups."
+      ],
+      "returns": "배열: octaveBands Array of octave band objects with their bounds",
+      "params": {
+        "N": "숫자: Specifies the 1/N type of generated octave bands",
+        "fCtr0": "숫자: Minimum central frequency for the lowest band"
+      }
+    }
+  },
+  "p5.Oscillator": {
+    "description": [
+      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).  ",
+      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>. "
+    ],
+    "params": {
+      "freq": "숫자: (선택 사항) frequency defaults to 440Hz",
+      "type": "문자열: (선택 사항) type of oscillator. Options:  'sine' (default), 'triangle',  'sawtooth', 'square'"
+    },
+    "start": {
+      "description": [
+        "Start an oscillator. ",
+        "Starting an oscillator on a user gesture will enable audio in browsers that have a strict autoplay policy, including Chrome and most mobile devices. See also: <code>userStartAudio()</code>."
+      ],
+      "params": {
+        "time": "숫자: (선택 사항) startTime in seconds from now.",
+        "frequency": "숫자: (선택 사항) frequency in Hz."
+      }
+    },
+    "stop": {
+      "description": [
+        "Stop an oscillator. Accepts an optional parameter to determine how long (in seconds from now) until the oscillator stops."
+      ],
+      "params": {
+        "secondsFromNow": "숫자: Time, in seconds from now."
+      }
+    },
+    "amp": {
+      "description": [
+        "Set the amplitude between 0 and 1.0. Or, pass in an object such as an oscillator to modulate amplitude with an audio signal."
+      ],
+      "returns": "AudioParam: gain If no value is provided,  returns the Web Audio API  AudioParam that controls  this oscillator's  gain/amplitude/volume)",
+      "params": {
+        "vol": "숫자|Object: between 0 and 1.0  or a modulating signal/oscillator",
+        "rampTime": "숫자: (선택 사항) create a fade that lasts rampTime",
+        "timeFromNow": "숫자: (선택 사항) schedule this event to happen  seconds from now"
+      }
+    },
+    "getAmp": {
+      "description": [
+        "Returns the value of output gain"
+      ],
+      "returns": "숫자: Amplitude value between 0.0 and 1.0"
+    },
+    "freq": {
+      "description": [
+        "Set frequency of an oscillator to a value. Or, pass in an object such as an oscillator to modulate the frequency with an audio signal."
+      ],
+      "returns": "AudioParam: Frequency If no value is provided,  returns the Web Audio API  AudioParam that controls  this oscillator's frequency",
+      "params": {
+        "Frequency": "숫자|Object: Frequency in Hz  or modulating signal/oscillator",
+        "rampTime": "숫자: (선택 사항) Ramp time (in seconds)",
+        "timeFromNow": "숫자: (선택 사항) Schedule this event to happen  at x seconds from now"
+      }
+    },
+    "getFreq": {
+      "description": [
+        "Returns the value of frequency of oscillator"
+      ],
+      "returns": "숫자: Frequency of oscillator in Hertz"
+    },
+    "setType": {
+      "description": [
+        "Set type to 'sine', 'triangle', 'sawtooth' or 'square'."
+      ],
+      "params": {
+        "type": "문자열: 'sine', 'triangle', 'sawtooth' or 'square'."
+      }
+    },
+    "getType": {
+      "description": [
+        "Returns current type of oscillator eg. 'sine', 'triangle', 'sawtooth' or 'square'."
+      ],
+      "returns": "문자열: type of oscillator eg . 'sine', 'triangle', 'sawtooth' or 'square'."
+    },
+    "connect": {
+      "description": [
+        "Connect to a p5.sound / Web Audio object."
+      ],
+      "params": {
+        "unit": "객체: A p5.sound or Web Audio object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect all outputs"
+      ]
+    },
+    "pan": {
+      "description": [
+        "Pan between Left (-1) and Right (1)"
+      ],
+      "params": {
+        "panning": "숫자: Number between -1 and 1",
+        "timeFromNow": "숫자: schedule this event to happen  seconds from now"
+      }
+    },
+    "getPan": {
+      "description": [
+        "Returns the current value of panPosition , between Left (-1) and Right (1)"
+      ],
+      "returns": "숫자: panPosition of oscillator , between Left (-1) and Right (1)"
+    },
+    "phase": {
+      "description": [
+        "Set the phase of an oscillator between 0.0 and 1.0. In this implementation, phase is a delay time based on the oscillator's current frequency."
+      ],
+      "params": {
+        "phase": "숫자: float between 0.0 and 1.0"
+      }
+    },
+    "add": {
+      "description": [
+        "Add a value to the p5.Oscillator's output amplitude, and return the oscillator. Calling this method again will override the initial add() with a new value."
+      ],
+      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with scaled output",
+      "params": {
+        "number": "숫자: Constant number to add"
+      }
+    },
+    "mult": {
+      "description": [
+        "Multiply the p5.Oscillator's output amplitude by a fixed value (i.e. turn it up!). Calling this method again will override the initial mult() with a new value."
+      ],
+      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with multiplied output",
+      "params": {
+        "number": "숫자: Constant number to multiply"
+      }
+    },
+    "scale": {
+      "description": [
+        "Scale this oscillator's amplitude values to a given range, and return the oscillator. Calling this method again will override the initial scale() with new values."
+      ],
+      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with scaled output",
+      "params": {
+        "inMin": "숫자: input range minumum",
+        "inMax": "숫자: input range maximum",
+        "outMin": "숫자: input range minumum",
+        "outMax": "숫자: input range maximum"
+      }
+    }
+  },
+  "p5.SinOsc": {
+    "description": [
+      "Constructor: <code>new p5.SinOsc()</code>. This creates a Sine Wave Oscillator and is equivalent to <code> new p5.Oscillator('sine') </code> or creating a p5.Oscillator and then calling its method <code>setType('sine')</code>. See p5.Oscillator for methods."
+    ],
+    "params": {
+      "freq": "숫자: (선택 사항) Set the frequency"
+    }
+  },
+  "p5.TriOsc": {
+    "description": [
+      "Constructor: <code>new p5.TriOsc()</code>. This creates a Triangle Wave Oscillator and is equivalent to <code>new p5.Oscillator('triangle') </code> or creating a p5.Oscillator and then calling its method <code>setType('triangle')</code>. See p5.Oscillator for methods."
+    ],
+    "params": {
+      "freq": "숫자: (선택 사항) Set the frequency"
+    }
+  },
+  "p5.SawOsc": {
+    "description": [
+      "Constructor: <code>new p5.SawOsc()</code>. This creates a SawTooth Wave Oscillator and is equivalent to <code> new p5.Oscillator('sawtooth') </code> or creating a p5.Oscillator and then calling its method <code>setType('sawtooth')</code>. See p5.Oscillator for methods."
+    ],
+    "params": {
+      "freq": "숫자: (선택 사항) Set the frequency"
+    }
+  },
+  "p5.SqrOsc": {
+    "description": [
+      "Constructor: <code>new p5.SqrOsc()</code>. This creates a Square Wave Oscillator and is equivalent to <code> new p5.Oscillator('square') </code> or creating a p5.Oscillator and then calling its method <code>setType('square')</code>. See p5.Oscillator for methods."
+    ],
+    "params": {
+      "freq": "숫자: (선택 사항) Set the frequency"
+    }
+  },
+  "p5.Envelope": {
+    "description": [
+      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>. ",
+      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime. ",
+      "Use the <code><a href=\"#/p5.Envelope/play\">play</a></code> method to play the entire envelope, the <code><a href=\"#/p5.Envelope/ramp\">ramp</a></code> method for a pingable trigger, or <code><a href=\"#/p5.Envelope/triggerAttack\">triggerAttack</a></code>/ <code><a href=\"#/p5.Envelope/triggerRelease\">triggerRelease</a></code> to trigger noteOn/noteOff."
+    ],
+    "attackTime": {
+      "description": [
+        "Time until envelope reaches attackLevel"
+      ]
+    },
+    "attackLevel": {
+      "description": [
+        "Level once attack is complete."
+      ]
+    },
+    "decayTime": {
+      "description": [
+        "Time until envelope reaches decayLevel."
+      ]
+    },
+    "decayLevel": {
+      "description": [
+        "Level after decay. The envelope will sustain here until it is released."
+      ]
+    },
+    "releaseTime": {
+      "description": [
+        "Duration of the release portion of the envelope."
+      ]
+    },
+    "releaseLevel": {
+      "description": [
+        "Level at the end of the release."
+      ]
+    },
+    "set": {
+      "description": [
+        "Reset the envelope with a series of time/value pairs."
+      ],
+      "params": {
+        "attackTime": "숫자: Time (in seconds) before level  reaches attackLevel",
+        "attackLevel": "숫자: Typically an amplitude between  0.0 and 1.0",
+        "decayTime": "숫자: Time",
+        "decayLevel": "숫자: Amplitude (In a standard ADSR envelope,  decayLevel = sustainLevel)",
+        "releaseTime": "숫자: Release Time (in seconds)",
+        "releaseLevel": "숫자: Amplitude"
+      }
+    },
+    "setADSR": {
+      "description": [
+        "Set values like a traditional <a href=\"https://en.wikipedia.org/wiki/Synthesizer#/media/File:ADSR_parameter.svg\"> ADSR envelope </a>."
+      ],
+      "params": {
+        "attackTime": "숫자: Time (in seconds before envelope  reaches Attack Level",
+        "decayTime": "숫자: (선택 사항) Time (in seconds) before envelope  reaches Decay/Sustain Level",
+        "susRatio": "숫자: (선택 사항) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
+        "releaseTime": "숫자: (선택 사항) Time in seconds from now (defaults to 0)"
+      }
+    },
+    "setRange": {
+      "description": [
+        "Set max (attackLevel) and min (releaseLevel) of envelope."
+      ],
+      "params": {
+        "aLevel": "숫자: attack level (defaults to 1)",
+        "rLevel": "숫자: release level (defaults to 0)"
+      }
+    },
+    "setInput": {
+      "description": [
+        "Assign a parameter to be controlled by this envelope. If a p5.Sound object is given, then the p5.Envelope will control its output gain. If multiple inputs are provided, the env will control all of them."
+      ],
+      "params": {
+        "inputs": "객체: (선택 사항) A p5.sound object or  Web Audio Param."
+      }
+    },
+    "setExp": {
+      "description": [
+        "Set whether the envelope ramp is linear (default) or exponential. Exponential ramps can be useful because we perceive amplitude and frequency logarithmically."
+      ],
+      "params": {
+        "isExp": "불리언: true is exponential, false is linear"
+      }
+    },
+    "play": {
+      "description": [
+        "Play tells the envelope to start acting on a given input. If the input is a p5.sound object (i.e. AudioIn, Oscillator, SoundFile), then Envelope will control its output volume. Envelopes can also be used to control any <a href=\" http://docs.webplatform.org/wiki/apis/webaudio/AudioParam\"> Web Audio Audio Param.</a>"
+      ],
+      "params": {
+        "unit": "객체: A p5.sound object or  Web Audio Param.",
+        "startTime": "숫자: (선택 사항) time from now (in seconds) at which to play",
+        "sustainTime": "숫자: (선택 사항) time to sustain before releasing the envelope"
+      }
+    },
+    "triggerAttack": {
+      "description": [
+        "Trigger the Attack, and Decay portion of the Envelope. Similar to holding down a key on a piano, but it will hold the sustain level until you let go. Input can be any p5.sound object, or a <a href=\" http://docs.webplatform.org/wiki/apis/webaudio/AudioParam\"> Web Audio Param</a>."
+      ],
+      "params": {
+        "unit": "객체: p5.sound Object or Web Audio Param",
+        "secondsFromNow": "숫자: time from now (in seconds)"
+      }
+    },
+    "triggerRelease": {
+      "description": [
+        "Trigger the Release of the Envelope. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
+      ],
+      "params": {
+        "unit": "객체: p5.sound Object or Web Audio Param",
+        "secondsFromNow": "숫자: time to trigger the release"
+      }
+    },
+    "ramp": {
+      "description": [
+        "Exponentially ramp to a value using the first two values from <code><a href=\"#/p5.Envelope/setADSR\">setADSR(attackTime, decayTime)</a></code> as <a href=\"https://en.wikipedia.org/wiki/RC_time_constant\"> time constants</a> for simple exponential ramps. If the value is higher than current value, it uses attackTime, while a decrease uses decayTime."
+      ],
+      "params": {
+        "unit": "객체: p5.sound Object or Web Audio Param",
+        "secondsFromNow": "숫자: When to trigger the ramp",
+        "v": "숫자: Target value",
+        "v2": "숫자: (선택 사항) Second target value (optional)"
+      }
+    },
+    "add": {
+      "description": [
+        "Add a value to the p5.Oscillator's output amplitude, and return the oscillator. Calling this method again will override the initial add() with new values."
+      ],
+      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
+      "params": {
+        "number": "숫자: Constant number to add"
+      }
+    },
+    "mult": {
+      "description": [
+        "Multiply the p5.Envelope's output amplitude by a fixed value. Calling this method again will override the initial mult() with new values."
+      ],
+      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
+      "params": {
+        "number": "숫자: Constant number to multiply"
+      }
+    },
+    "scale": {
+      "description": [
+        "Scale this envelope's amplitude values to a given range, and return the envelope. Calling this method again will override the initial scale() with new values."
+      ],
+      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
+      "params": {
+        "inMin": "숫자: input range minumum",
+        "inMax": "숫자: input range maximum",
+        "outMin": "숫자: input range minumum",
+        "outMax": "숫자: input range maximum"
+      }
+    }
+  },
+  "p5.Noise": {
+    "description": [
+      "Noise is a type of oscillator that generates a buffer with random values."
+    ],
+    "params": {
+      "type": "문자열: Type of noise can be 'white' (default),  'brown' or 'pink'."
+    },
+    "setType": {
+      "description": [
+        "Set type of noise to 'white', 'pink' or 'brown'. White is the default."
+      ],
+      "params": {
+        "type": "문자열: (선택 사항) 'white', 'pink' or 'brown'"
+      }
+    }
+  },
+  "p5.Pulse": {
+    "description": [
+      "Creates a Pulse object, an oscillator that implements Pulse Width Modulation. The pulse is created with two oscillators. Accepts a parameter for frequency, and to set the width between the pulses. See <a href=\" http://p5js.org/reference/#/p5.Oscillator\"> <code>p5.Oscillator</code> for a full list of methods."
+    ],
+    "params": {
+      "freq": "숫자: (선택 사항) Frequency in oscillations per second (Hz)",
+      "w": "숫자: (선택 사항) Width between the pulses (0 to 1.0,  defaults to 0)"
+    },
+    "width": {
+      "description": [
+        "Set the width of a Pulse object (an oscillator that implements Pulse Width Modulation)."
+      ],
+      "params": {
+        "width": "숫자: (선택 사항) Width between the pulses (0 to 1.0,  defaults to 0)"
+      }
+    }
+  },
+  "p5.AudioIn": {
+    "description": [
+      "Get audio from an input, i.e. your computer's microphone.  ",
+      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.  ",
+      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.  ",
+      "<em>Note: This uses the <a href=\"http://caniuse.com/stream\">getUserMedia/ Stream</a> API, which is not supported by certain browsers. Access in Chrome browser is limited to localhost and https, but access over http may be limited.</em>"
+    ],
+    "params": {
+      "errorCallback": "함수: (선택 사항) A function to call if there is an error  accessing the AudioIn. For example,  Safari and iOS devices do not  currently allow microphone access."
+    },
+    "input": {},
+    "output": {},
+    "stream": {},
+    "mediaStream": {},
+    "currentSource": {},
+    "enabled": {
+      "description": [
+        "Client must allow browser to access their microphone / audioin source. Default: false. Will become true when the client enables access."
+      ]
+    },
+    "amplitude": {
+      "description": [
+        "Input amplitude, connect to it by default but not to master out"
+      ]
+    },
+    "start": {
+      "description": [
+        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/> ",
+        "Certain browsers limit access to the user's microphone. For example, Chrome only allows access from localhost and over https. For this reason, you may want to include an errorCallback—a function that is called in case the browser won't provide mic access."
+      ],
+      "params": {
+        "successCallback": "함수: (선택 사항) Name of a function to call on  success.",
+        "errorCallback": "함수: (선택 사항) Name of a function to call if  there was an error. For example,  some browsers do not support  getUserMedia."
+      }
+    },
+    "stop": {
+      "description": [
+        "Turn the AudioIn off. If the AudioIn is stopped, it cannot getLevel(). If re-starting, the user may be prompted for permission access."
+      ]
+    },
+    "connect": {
+      "description": [
+        "Connect to an audio unit. If no parameter is provided, will connect to the master output (i.e. your speakers).<br/>"
+      ],
+      "params": {
+        "unit": "객체: (선택 사항) An object that accepts audio input,  such as an FFT"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect the AudioIn from all audio units. For example, if connect() had been called, disconnect() will stop sending signal to your speakers.<br/>"
+      ]
+    },
+    "getLevel": {
+      "description": [
+        "Read the Amplitude (volume level) of an AudioIn. The AudioIn class contains its own instance of the Amplitude class to help make it easy to get a microphone's volume level. Accepts an optional smoothing value (0.0 < 1.0). <em>NOTE: AudioIn must .start() before using .getLevel().</em><br/>"
+      ],
+      "returns": "숫자: Volume level (between 0.0 and 1.0)",
+      "params": {
+        "smoothing": "숫자: (선택 사항) Smoothing is 0.0 by default.  Smooths values based on previous values."
+      }
+    },
+    "amp": {
+      "description": [
+        "Set amplitude (volume) of a mic input between 0 and 1.0. <br/>"
+      ],
+      "params": {
+        "vol": "숫자: between 0 and 1.0",
+        "time": "숫자: (선택 사항) ramp time (optional)"
+      }
+    },
+    "getSources": {
+      "description": [
+        "Returns a list of available input sources. This is a wrapper for <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href=  \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> "
+      ],
+      "returns": "Promise: Returns a Promise that can be used in place of the callbacks, similar  to the enumerateDevices() method",
+      "params": {
+        "successCallback": "함수: (선택 사항) This callback function handles the sources when they  have been enumerated. The callback function  receives the deviceList array as its only argument",
+        "errorCallback": "함수: (선택 사항) This optional callback receives the error  message as its argument."
+      }
+    },
+    "setSource": {
+      "description": [
+        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href= \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> "
+      ],
+      "params": {
+        "num": "숫자: position of input source in the array"
+      }
     }
   },
   "p5.Effect": {
@@ -5797,1094 +6678,6 @@
       "Constructor: <code>new p5.BandPass()</code> Filter. This is the same as creating a p5.Filter and then calling its method <code>setType('bandpass')</code>. See p5.Filter for methods."
     ]
   },
-  "p5.Oscillator": {
-    "description": [
-      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).  ",
-      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>. "
-    ],
-    "params": {
-      "freq": "숫자: (선택 사항) frequency defaults to 440Hz",
-      "type": "문자열: (선택 사항) type of oscillator. Options:  'sine' (default), 'triangle',  'sawtooth', 'square'"
-    },
-    "start": {
-      "description": [
-        "Start an oscillator. ",
-        "Starting an oscillator on a user gesture will enable audio in browsers that have a strict autoplay policy, including Chrome and most mobile devices. See also: <code>userStartAudio()</code>."
-      ],
-      "params": {
-        "time": "숫자: (선택 사항) startTime in seconds from now.",
-        "frequency": "숫자: (선택 사항) frequency in Hz."
-      }
-    },
-    "stop": {
-      "description": [
-        "Stop an oscillator. Accepts an optional parameter to determine how long (in seconds from now) until the oscillator stops."
-      ],
-      "params": {
-        "secondsFromNow": "숫자: Time, in seconds from now."
-      }
-    },
-    "amp": {
-      "description": [
-        "Set the amplitude between 0 and 1.0. Or, pass in an object such as an oscillator to modulate amplitude with an audio signal."
-      ],
-      "returns": "AudioParam: gain If no value is provided,  returns the Web Audio API  AudioParam that controls  this oscillator's  gain/amplitude/volume)",
-      "params": {
-        "vol": "숫자|객체: between 0 and 1.0  or a modulating signal/oscillator",
-        "rampTime": "숫자: (선택 사항) create a fade that lasts rampTime",
-        "timeFromNow": "숫자: (선택 사항) schedule this event to happen  seconds from now"
-      }
-    },
-    "freq": {
-      "description": [
-        "Set frequency of an oscillator to a value. Or, pass in an object such as an oscillator to modulate the frequency with an audio signal."
-      ],
-      "returns": "AudioParam: Frequency If no value is provided,  returns the Web Audio API  AudioParam that controls  this oscillator's frequency",
-      "params": {
-        "Frequency": "숫자|객체: Frequency in Hz  or modulating signal/oscillator",
-        "rampTime": "숫자: (선택 사항) Ramp time (in seconds)",
-        "timeFromNow": "숫자: (선택 사항) Schedule this event to happen  at x seconds from now"
-      }
-    },
-    "setType": {
-      "description": [
-        "Set type to 'sine', 'triangle', 'sawtooth' or 'square'."
-      ],
-      "params": {
-        "type": "문자열: 'sine', 'triangle', 'sawtooth' or 'square'."
-      }
-    },
-    "connect": {
-      "description": [
-        "Connect to a p5.sound / Web Audio object."
-      ],
-      "params": {
-        "unit": "객체: A p5.sound or Web Audio object"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect all outputs"
-      ]
-    },
-    "pan": {
-      "description": [
-        "Pan between Left (-1) and Right (1)"
-      ],
-      "params": {
-        "panning": "숫자: -1 1 사이 숫자",
-        "timeFromNow": "숫자: schedule this event to happen  seconds from now"
-      }
-    },
-    "phase": {
-      "description": [
-        "Set the phase of an oscillator between 0.0 and 1.0. In this implementation, phase is a delay time based on the oscillator's current frequency."
-      ],
-      "params": {
-        "phase": "숫자: float between 0.0 and 1.0"
-      }
-    },
-    "add": {
-      "description": [
-        "Add a value to the p5.Oscillator's output amplitude, and return the oscillator. Calling this method again will override the initial add() with a new value."
-      ],
-      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with scaled output",
-      "params": {
-        "number": "숫자: Constant number to add"
-      }
-    },
-    "mult": {
-      "description": [
-        "Multiply the p5.Oscillator's output amplitude by a fixed value (i.e. turn it up!). Calling this method again will override the initial mult() with a new value."
-      ],
-      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with multiplied output",
-      "params": {
-        "number": "숫자: Constant number to multiply"
-      }
-    },
-    "scale": {
-      "description": [
-        "Scale this oscillator's amplitude values to a given range, and return the oscillator. Calling this method again will override the initial scale() with new values."
-      ],
-      "returns": "p5.Oscillator: Oscillator Returns this oscillator  with scaled output",
-      "params": {
-        "inMin": "숫자: input range minumum",
-        "inMax": "숫자: input range maximum",
-        "outMin": "숫자: input range minumum",
-        "outMax": "숫자: input range maximum"
-      }
-    }
-  },
-  "p5.SinOsc": {
-    "description": [
-      "Constructor: <code>new p5.SinOsc()</code>. This creates a Sine Wave Oscillator and is equivalent to <code> new p5.Oscillator('sine') </code> or creating a p5.Oscillator and then calling its method <code>setType('sine')</code>. See p5.Oscillator for methods."
-    ],
-    "params": {
-      "freq": "숫자: (선택 사항) Set the frequency"
-    }
-  },
-  "p5.TriOsc": {
-    "description": [
-      "Constructor: <code>new p5.TriOsc()</code>. This creates a Triangle Wave Oscillator and is equivalent to <code>new p5.Oscillator('triangle') </code> or creating a p5.Oscillator and then calling its method <code>setType('triangle')</code>. See p5.Oscillator for methods."
-    ],
-    "params": {
-      "freq": "숫자: (선택 사항) Set the frequency"
-    }
-  },
-  "p5.SawOsc": {
-    "description": [
-      "Constructor: <code>new p5.SawOsc()</code>. This creates a SawTooth Wave Oscillator and is equivalent to <code> new p5.Oscillator('sawtooth') </code> or creating a p5.Oscillator and then calling its method <code>setType('sawtooth')</code>. See p5.Oscillator for methods."
-    ],
-    "params": {
-      "freq": "숫자: (선택 사항) Set the frequency"
-    }
-  },
-  "p5.SqrOsc": {
-    "description": [
-      "Constructor: <code>new p5.SqrOsc()</code>. This creates a Square Wave Oscillator and is equivalent to <code> new p5.Oscillator('square') </code> or creating a p5.Oscillator and then calling its method <code>setType('square')</code>. See p5.Oscillator for methods."
-    ],
-    "params": {
-      "freq": "숫자: (선택 사항) Set the frequency"
-    }
-  },
-  "p5.MonoSynth": {
-    "description": [
-      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthesizers should be built inheriting from this class."
-    ],
-    "play": {
-      "description": [
-        "Play tells the MonoSynth to start playing a note. This method schedules the calling of .triggerAttack and .triggerRelease."
-      ],
-      "params": {
-        "note": "String | 숫자: the note you want to play, specified as a  frequency in Hertz (Number) or as a midi  value in Note/Octave format (\"C4\", \"Eb3\"...etc\")  See <a href = \"https://github.com/Tonejs/Tone.js/wiki/Instruments\">  Tone</a>. Defaults to 440 hz.",
-        "velocity": "숫자: (선택 사항) velocity of the note to play (ranging from 0 to 1)",
-        "secondsFromNow": "숫자: (선택 사항) time from now (in seconds) at which to play",
-        "sustainTime": "숫자: (선택 사항) time to sustain before releasing the envelope. Defaults to 0.15 seconds."
-      }
-    },
-    "triggerAttack": {
-      "description": [
-        "Trigger the Attack, and Decay portion of the Envelope. Similar to holding down a key on a piano, but it will hold the sustain level until you let go."
-      ],
-      "params": {
-        "note": "String | 숫자: the note you want to play, specified as a  frequency in Hertz (Number) or as a midi  value in Note/Octave format (\"C4\", \"Eb3\"...etc\")  See <a href = \"https://github.com/Tonejs/Tone.js/wiki/Instruments\">  Tone</a>. Defaults to 440 hz",
-        "velocity": "숫자: (선택 사항) velocity of the note to play (ranging from 0 to 1)",
-        "secondsFromNow": "숫자: (선택 사항) time from now (in seconds) at which to play"
-      }
-    },
-    "triggerRelease": {
-      "description": [
-        "Trigger the release of the Envelope. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
-      ],
-      "params": {
-        "secondsFromNow": "숫자: time to trigger the release"
-      }
-    },
-    "setADSR": {
-      "description": [
-        "Set values like a traditional <a href=\"https://en.wikipedia.org/wiki/Synthesizer#/media/File:ADSR_parameter.svg\"> ADSR envelope </a>."
-      ],
-      "params": {
-        "attackTime": "숫자: Time (in seconds before envelope  reaches Attack Level",
-        "decayTime": "숫자: (선택 사항) Time (in seconds) before envelope  reaches Decay/Sustain Level",
-        "susRatio": "숫자: (선택 사항) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
-        "releaseTime": "숫자: (선택 사항) Time in seconds from now (defaults to 0)"
-      }
-    },
-    "attack": {
-      "description": [
-        "Getters and Setters"
-      ]
-    },
-    "decay": {},
-    "sustain": {},
-    "release": {},
-    "amp": {
-      "description": [
-        "MonoSynth amp"
-      ],
-      "returns": "숫자: new volume value",
-      "params": {
-        "vol": "숫자: desired volume",
-        "rampTime": "숫자: (선택 사항) Time to reach new volume"
-      }
-    },
-    "connect": {
-      "description": [
-        "Connect to a p5.sound / Web Audio object."
-      ],
-      "params": {
-        "unit": "객체: A p5.sound or Web Audio object"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect all outputs"
-      ]
-    },
-    "dispose": {
-      "description": [
-        "Get rid of the MonoSynth and free up its resources / memory."
-      ]
-    }
-  },
-  "p5.AudioVoice": {
-    "description": [
-      "Base class for monophonic synthesizers. Any extensions of this class should follow the API and implement the methods below in order to remain compatible with p5.PolySynth();"
-    ],
-    "connect": {
-      "description": [
-        "Connect to p5 objects or Web Audio Nodes"
-      ],
-      "params": {
-        "unit": "Object"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect from soundOut"
-      ]
-    }
-  },
-  "p5.PolySynth": {
-    "description": [
-      "An AudioVoice is used as a single voice for sound synthesis. The PolySynth class holds an array of AudioVoice, and deals with voices allocations, with setting notes to be played, and parameters to be set."
-    ],
-    "params": {
-      "synthVoice": "숫자: (선택 사항) A monophonic synth voice inheriting  the AudioVoice class. Defaults to p5.MonoSynth",
-      "maxVoices": "숫자: (선택 사항) Number of voices, defaults to 8;"
-    },
-    "notes": {
-      "description": [
-        "An object that holds information about which notes have been played and which notes are currently being played. New notes are added as keys on the fly. While a note has been attacked, but not released, the value of the key is the audiovoice which is generating that note. When notes are released, the value of the key becomes undefined."
-      ]
-    },
-    "polyvalue": {
-      "description": [
-        "A PolySynth must have at least 1 voice, defaults to 8"
-      ]
-    },
-    "AudioVoice": {
-      "description": [
-        "Monosynth that generates the sound for each note that is triggered. The p5.PolySynth defaults to using the p5.MonoSynth as its voice."
-      ]
-    },
-    "play": {
-      "description": [
-        "Play a note by triggering noteAttack and noteRelease with sustain time"
-      ],
-      "params": {
-        "note": "숫자: (선택 사항) midi note to play (ranging from 0 to 127 - 60 being a middle C)",
-        "velocity": "숫자: (선택 사항) velocity of the note to play (ranging from 0 to 1)",
-        "secondsFromNow": "숫자: (선택 사항) time from now (in seconds) at which to play",
-        "sustainTime": "숫자: (선택 사항) time to sustain before releasing the envelope"
-      }
-    },
-    "noteADSR": {
-      "description": [
-        "noteADSR sets the envelope for a specific note that has just been triggered. Using this method modifies the envelope of whichever audiovoice is being used to play the desired note. The envelope should be reset before noteRelease is called in order to prevent the modified envelope from being used on other notes."
-      ],
-      "params": {
-        "note": "숫자: (선택 사항) Midi note on which ADSR should be set.",
-        "attackTime": "숫자: (선택 사항) Time (in seconds before envelope  reaches Attack Level",
-        "decayTime": "숫자: (선택 사항) Time (in seconds) before envelope  reaches Decay/Sustain Level",
-        "susRatio": "숫자: (선택 사항) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
-        "releaseTime": "숫자: (선택 사항) Time in seconds from now (defaults to 0)"
-      }
-    },
-    "setADSR": {
-      "description": [
-        "Set the PolySynths global envelope. This method modifies the envelopes of each monosynth so that all notes are played with this envelope."
-      ],
-      "params": {
-        "attackTime": "숫자: (선택 사항) Time (in seconds before envelope  reaches Attack Level",
-        "decayTime": "숫자: (선택 사항) Time (in seconds) before envelope  reaches Decay/Sustain Level",
-        "susRatio": "숫자: (선택 사항) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
-        "releaseTime": "숫자: (선택 사항) Time in seconds from now (defaults to 0)"
-      }
-    },
-    "noteAttack": {
-      "description": [
-        "Trigger the Attack, and Decay portion of a MonoSynth. Similar to holding down a key on a piano, but it will hold the sustain level until you let go."
-      ],
-      "params": {
-        "note": "숫자: (선택 사항) midi note on which attack should be triggered.",
-        "velocity": "숫자: (선택 사항) velocity of the note to play (ranging from 0 to 1)/",
-        "secondsFromNow": "숫자: (선택 사항) time from now (in seconds)"
-      }
-    },
-    "noteRelease": {
-      "description": [
-        "Trigger the Release of an AudioVoice note. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
-      ],
-      "params": {
-        "note": "숫자: (선택 사항) midi note on which attack should be triggered.  If no value is provided, all notes will be released.",
-        "secondsFromNow": "숫자: (선택 사항) time to trigger the release"
-      }
-    },
-    "connect": {
-      "description": [
-        "Connect to a p5.sound / Web Audio object."
-      ],
-      "params": {
-        "unit": "객체: A p5.sound or Web Audio object"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect all outputs"
-      ]
-    },
-    "dispose": {
-      "description": [
-        "Get rid of the MonoSynth and free up its resources / memory."
-      ]
-    }
-  },
-  "p5.SoundFile": {
-    "description": [
-      "SoundFile object with a path to a file.  ",
-      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
-      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
-      "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatibility, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
-    ],
-    "params": {
-      "path": "문자열|배열: path to a sound file (String). Optionally,  you may include multiple file formats in  an array. Alternately, accepts an object  from the HTML5 File API, or a p5.File.",
-      "successCallback": "함수: (선택 사항) Name of a function to call once file loads",
-      "errorCallback": "함수: (선택 사항) Name of a function to call if file fails to  load. This function will receive an error or  XMLHttpRequest object with information  about what went wrong.",
-      "whileLoadingCallback": "함수: (선택 사항) Name of a function to call while file  is loading. That function will  receive progress of the request to  load the sound file  (between 0 and 1) as its first  parameter. This progress  does not account for the additional  time needed to decode the audio data."
-    },
-    "isLoaded": {
-      "description": [
-        "Returns true if the sound file finished loading successfully."
-      ],
-      "returns": "불리언: "
-    },
-    "play": {
-      "description": [
-        "Play the p5.SoundFile"
-      ],
-      "params": {
-        "startTime": "숫자: (선택 사항) schedule playback to start (in seconds from now).",
-        "rate": "숫자: (선택 사항) playback rate",
-        "amp": "숫자: (선택 사항) amplitude (volume)  of playback",
-        "cueStart": "숫자: (선택 사항) cue start time in seconds",
-        "duration": "숫자: (선택 사항) duration of playback in seconds"
-      }
-    },
-    "playMode": {
-      "description": [
-        "p5.SoundFile has two play modes: <code>restart</code> and <code>sustain</code>. Play Mode determines what happens to a p5.SoundFile if it is triggered while in the middle of playback. In sustain mode, playback will continue simultaneous to the new playback. In restart mode, play() will stop playback and start over. With untilDone, a sound will play only if it's not already playing. Sustain is the default mode."
-      ],
-      "params": {
-        "str": "문자열: 'restart' or 'sustain' or 'untilDone'"
-      }
-    },
-    "pause": {
-      "description": [
-        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen. ",
-        "After pausing, .play() will resume from the paused position. If p5.SoundFile had been set to loop before it was paused, it will continue to loop after it is unpaused with .play()."
-      ],
-      "params": {
-        "startTime": "숫자: (선택 사항) schedule event to occur  seconds from now"
-      }
-    },
-    "loop": {
-      "description": [
-        "Loop the p5.SoundFile. Accepts optional parameters to set the playback rate, playback volume, loopStart, loopEnd."
-      ],
-      "params": {
-        "startTime": "숫자: (선택 사항) schedule event to occur  seconds from now",
-        "rate": "숫자: (선택 사항) playback rate",
-        "amp": "숫자: (선택 사항) playback volume",
-        "cueLoopStart": "숫자: (선택 사항) startTime in seconds",
-        "duration": "숫자: (선택 사항) loop duration in seconds"
-      }
-    },
-    "setLoop": {
-      "description": [
-        "Set a p5.SoundFile's looping flag to true or false. If the sound is currently playing, this change will take effect when it reaches the end of the current playback."
-      ],
-      "params": {
-        "Boolean": "불리언: set looping to true or false"
-      }
-    },
-    "isLooping": {
-      "description": [
-        "Returns 'true' if a p5.SoundFile is currently looping and playing, 'false' if not."
-      ],
-      "returns": "불리언: "
-    },
-    "isPlaying": {
-      "description": [
-        "Returns true if a p5.SoundFile is playing, false if not (i.e. paused or stopped)."
-      ],
-      "returns": "불리언: "
-    },
-    "isPaused": {
-      "description": [
-        "Returns true if a p5.SoundFile is paused, false if not (i.e. playing or stopped)."
-      ],
-      "returns": "불리언: "
-    },
-    "stop": {
-      "description": [
-        "Stop soundfile playback."
-      ],
-      "params": {
-        "startTime": "숫자: (선택 사항) schedule event to occur  in seconds from now"
-      }
-    },
-    "setVolume": {
-      "description": [
-        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class. ",
-        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal."
-      ],
-      "params": {
-        "volume": "숫자|객체: Volume (amplitude) between 0.0  and 1.0 or modulating signal/oscillator",
-        "rampTime": "숫자: (선택 사항) Fade for t seconds",
-        "timeFromNow": "숫자: (선택 사항) Schedule this event to happen at  t seconds in the future"
-      }
-    },
-    "pan": {
-      "description": [
-        "Set the stereo panning of a p5.sound object to a floating point number between -1.0 (left) and 1.0 (right). Default is 0.0 (center)."
-      ],
-      "params": {
-        "panValue": "숫자: (선택 사항) Set the stereo panner",
-        "timeFromNow": "숫자: (선택 사항) schedule this event to happen  seconds from now"
-      }
-    },
-    "getPan": {
-      "description": [
-        "Returns the current stereo pan position (-1.0 to 1.0)"
-      ],
-      "returns": "숫자: Returns the stereo pan setting of the Oscillator  as a number between -1.0 (left) and 1.0 (right).  0.0 is center and default."
-    },
-    "rate": {
-      "description": [
-        "Set the playback rate of a sound file. Will change the speed and the pitch. Values less than zero will reverse the audio buffer."
-      ],
-      "params": {
-        "playbackRate": "숫자: (선택 사항) Set the playback rate. 1.0 is normal,  .5 is half-speed, 2.0 is twice as fast.  Values less than zero play backwards."
-      }
-    },
-    "duration": {
-      "description": [
-        "Returns the duration of a sound file in seconds."
-      ],
-      "returns": "숫자: The duration of the soundFile in seconds."
-    },
-    "currentTime": {
-      "description": [
-        "Return the current position of the p5.SoundFile playhead, in seconds. Time is relative to the normal buffer direction, so if <code>reverseBuffer</code> has been called, currentTime will count backwards."
-      ],
-      "returns": "숫자: currentTime of the soundFile in seconds."
-    },
-    "jump": {
-      "description": [
-        "Move the playhead of a soundfile that is currently playing to a new position and a new duration, in seconds. If none are given, will reset the file to play entire duration from start to finish. To set the position of a soundfile that is not currently playing, use the <code>play</code> or <code>loop</code> methods."
-      ],
-      "params": {
-        "cueTime": "숫자: cueTime of the soundFile in seconds.",
-        "duration": "숫자: duration in seconds."
-      }
-    },
-    "channels": {
-      "description": [
-        "Return the number of channels in a sound file. For example, Mono = 1, Stereo = 2."
-      ],
-      "returns": "숫자: [channels]"
-    },
-    "sampleRate": {
-      "description": [
-        "Return the sample rate of the sound file."
-      ],
-      "returns": "숫자: [sampleRate]"
-    },
-    "frames": {
-      "description": [
-        "Return the number of samples in a sound file. Equal to sampleRate * duration."
-      ],
-      "returns": "숫자: [sampleCount]"
-    },
-    "getPeaks": {
-      "description": [
-        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations. ",
-        "Inspired by Wavesurfer.js."
-      ],
-      "returns": "Float32Array: Array of peaks.",
-      "params": {
-        "length": "숫자: (선택 사항) length is the size of the returned array.  Larger length results in more precision.  Defaults to 5*width of the browser window."
-      }
-    },
-    "reverseBuffer": {
-      "description": [
-        "Reverses the p5.SoundFile's buffer source. Playback must be handled separately (see example)."
-      ]
-    },
-    "onended": {
-      "description": [
-        "Schedule an event to be called when the soundfile reaches the end of a buffer. If the soundfile is playing through once, this will be called when it ends. If it is looping, it will be called when stop is called."
-      ],
-      "params": {
-        "callback": "함수: function to call when the  soundfile has ended."
-      }
-    },
-    "connect": {
-      "description": [
-        "Connects the output of a p5sound object to input of another p5.sound object. For example, you may connect a p5.SoundFile to an FFT or an Effect. If no parameter is given, it will connect to the master output. Most p5sound objects connect to the master output when they are created."
-      ],
-      "params": {
-        "object": "객체: (선택 사항) Audio object that accepts an input"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnects the output of this p5sound object."
-      ]
-    },
-    "setPath": {
-      "description": [
-        "Reset the source for this SoundFile to a new path (URL)."
-      ],
-      "params": {
-        "path": "문자열: path to audio file",
-        "callback": "함수: Callback"
-      }
-    },
-    "setBuffer": {
-      "description": [
-        "Replace the current Audio Buffer with a new Buffer."
-      ],
-      "params": {
-        "buf": "배열: Array of Float32 Array(s). 2 Float32 Arrays  will create a stereo source. 1 will create  a mono source."
-      }
-    },
-    "processPeaks": {
-      "description": [
-        "processPeaks returns an array of timestamps where it thinks there is a beat. ",
-        "This is an asynchronous function that processes the soundfile in an offline audio context, and sends the results to your callback function. ",
-        "The process involves running the soundfile through a lowpass filter, and finding all of the peaks above the initial threshold. If the total number of peaks are below the minimum number of peaks, it decreases the threshold and re-runs the analysis until either minPeaks or minThreshold are reached."
-      ],
-      "returns": "배열: Array of timestamped peaks",
-      "params": {
-        "callback": "함수: a function to call once this data is returned",
-        "initThreshold": "숫자: (선택 사항) initial threshold defaults to 0.9",
-        "minThreshold": "숫자: (선택 사항) minimum threshold defaults to 0.22",
-        "minPeaks": "숫자: (선택 사항) minimum number of peaks defaults to 200"
-      }
-    },
-    "addCue": {
-      "description": [
-        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point. ",
-        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback. ",
-        "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
-      ],
-      "returns": "숫자: id ID of this cue,  useful for removeCue(id)",
-      "params": {
-        "time": "숫자: Time in seconds, relative to this media  element's playback. For example, to trigger  an event every time playback reaches two  seconds, pass in the number 2. This will be  passed as the first parameter to  the callback function.",
-        "callback": "함수: Name of a function that will be  called at the given time. The callback will  receive time and (optionally) param as its  two parameters.",
-        "value": "객체: (선택 사항) An object to be passed as the  second parameter to the  callback function."
-      }
-    },
-    "removeCue": {
-      "description": [
-        "Remove a callback based on its ID. The ID is returned by the addCue method."
-      ],
-      "params": {
-        "id": "숫자: ID of the cue, as returned by addCue"
-      }
-    },
-    "clearCues": {
-      "description": [
-        "Remove all of the callbacks that had originally been scheduled via the addCue method."
-      ]
-    },
-    "save": {
-      "description": [
-        "Save a p5.SoundFile as a .wav file. The browser will prompt the user to download the file to their device. To upload a file to a server, see <a href=\"/docs/reference/#/p5.SoundFile/getBlob\">getBlob</a>"
-      ],
-      "params": {
-        "fileName": "문자열: (선택 사항) name of the resulting .wav file."
-      }
-    },
-    "getBlob": {
-      "description": [
-        "This method is useful for sending a SoundFile to a server. It returns the .wav-encoded audio data as a \"<a target=\"_blank\" title=\"Blob reference at MDN\" href=\"https://developer.mozilla.org/ko/docs/Web/API/Blob\">Blob</a>\". A Blob is a file-like data object that can be uploaded to a server with an <a href=\"/docs/reference/#/p5/httpDo\">http</a> request. We'll use the <code>httpDo</code> options object to send a POST request with some specific options: we encode the request as <code>multipart/form-data</code>, and attach the blob as one of the form values using <code>FormData</code>."
-      ],
-      "returns": "Blob: A file-like data object"
-    }
-  },
-  "p5.Amplitude": {
-    "description": [
-      "Amplitude measures volume between 0.0 and 1.0. Listens to all p5sound by default, or use setInput() to listen to a specific sound source. Accepts an optional smoothing value, which defaults to 0."
-    ],
-    "params": {
-      "smoothing": "숫자: (선택 사항) between 0.0 and .999 to smooth  amplitude readings (defaults to 0)"
-    },
-    "setInput": {
-      "description": [
-        "Connects to the p5sound instance (master output) by default. Optionally, you can pass in a specific source (i.e. a soundfile)."
-      ],
-      "params": {
-        "snd": "SoundObject|undefined: (선택 사항) set the sound source  (optional, defaults to  master output)",
-        "smoothing": "숫자|undefined: (선택 사항) a range between 0.0 and 1.0  to smooth amplitude readings"
-      }
-    },
-    "getLevel": {
-      "description": [
-        "Returns a single Amplitude reading at the moment it is called. For continuous readings, run in the draw loop."
-      ],
-      "returns": "숫자: Amplitude as a number between 0.0 and 1.0",
-      "params": {
-        "channel": "숫자: (선택 사항) Optionally return only channel 0 (left) or 1 (right)"
-      }
-    },
-    "toggleNormalize": {
-      "description": [
-        "Determines whether the results of Amplitude.process() will be Normalized. To normalize, Amplitude finds the difference the loudest reading it has processed and the maximum amplitude of 1.0. Amplitude adds this difference to all values to produce results that will reliably map between 0.0 and 1.0. However, if a louder moment occurs, the amount that Normalize adds to all the values will change. Accepts an optional boolean parameter (true or false). Normalizing is off by default."
-      ],
-      "params": {
-        "boolean": "불리언: (선택 사항) set normalize to true (1) or false (0)"
-      }
-    },
-    "smooth": {
-      "description": [
-        "Smooth Amplitude analysis by averaging with the last analysis frame. Off by default."
-      ],
-      "params": {
-        "set": "숫자: smoothing from 0.0 <= 1"
-      }
-    }
-  },
-  "p5.FFT": {
-    "description": [
-      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.  ",
-      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies. ",
-      "FFT analyzes a very short snapshot of sound called a sample buffer. It returns an array of amplitude measurements, referred to as <code>bins</code>. The array is 1024 bins long by default. You can change the bin array length, but it must be a power of 2 between 16 and 1024 in order for the FFT algorithm to function correctly. The actual size of the FFT buffer is twice the number of bins, so given a standard sample rate, the buffer is 2048/44100 seconds long."
-    ],
-    "params": {
-      "smoothing": "숫자: (선택 사항) Smooth results of Freq Spectrum.  0.0 < smoothing < 1.0.  Defaults to 0.8.",
-      "bins": "숫자: (선택 사항) Length of resulting array.  Must be a power of two between  16 and 1024. Defaults to 1024."
-    },
-    "setInput": {
-      "description": [
-        "Set the input source for the FFT analysis. If no source is provided, FFT will analyze all sound in the sketch."
-      ],
-      "params": {
-        "source": "객체: (선택 사항) p5.sound object (or web audio API source node)"
-      }
-    },
-    "waveform": {
-      "description": [
-        "Returns an array of amplitude values (between -1.0 and +1.0) that represent a snapshot of amplitude readings in a single buffer. Length will be equal to bins (defaults to 1024). Can be used to draw the waveform of a sound."
-      ],
-      "returns": "배열: Array Array of amplitude values (-1 to 1)  over time. Array length = bins.",
-      "params": {
-        "bins": "숫자: (선택 사항) Must be a power of two between  16 and 1024. Defaults to 1024.",
-        "precision": "문자열: (선택 사항) If any value is provided, will return results  in a Float32 Array which is more precise  than a regular array."
-      }
-    },
-    "analyze": {
-      "description": [
-        "Returns an array of amplitude values (between 0 and 255) across the frequency spectrum. Length is equal to FFT bins (1024 by default). The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Must be called prior to using <code>getEnergy()</code>."
-      ],
-      "returns": "배열: spectrum Array of energy (amplitude/volume)  values across the frequency spectrum.  Lowest energy (silence) = 0, highest  possible is 255.",
-      "params": {
-        "bins": "숫자: (선택 사항) Must be a power of two between  16 and 1024. Defaults to 1024.",
-        "scale": "숫자: (선택 사항) If \"dB,\" returns decibel  float measurements between  -140 and 0 (max).  Otherwise returns integers from 0-255."
-      }
-    },
-    "getEnergy": {
-      "description": [
-        "Returns the amount of energy (volume) at a specific <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\" target=\"_blank\"> frequency</a>, or the average amount of energy between two frequencies. Accepts 숫자(s) corresponding to frequency (in Hz), or a String corresponding to predefined frequency ranges (\"bass\", \"lowMid\", \"mid\", \"highMid\", \"treble\"). Returns a range between 0 (no energy/volume at that frequency) and 255 (maximum energy). <em>NOTE: analyze() must be called prior to getEnergy(). Analyze() tells the FFT to analyze frequency data, and getEnergy() uses the results determine the value at a specific frequency or range of frequencies.</em>"
-      ],
-      "returns": "숫자: Energy Energy (volume/amplitude) from  0 and 255.",
-      "params": {
-        "frequency1": "숫자|문자열: Will return a value representing  energy at this frequency. Alternately,  the strings \"bass\", \"lowMid\" \"mid\",  \"highMid\", and \"treble\" will return  predefined frequency ranges.",
-        "frequency2": "숫자: (선택 사항) If a second frequency is given,  will return average amount of  energy that exists between the  two frequencies."
-      }
-    },
-    "getCentroid": {
-      "description": [
-        "Returns the <a href=\"http://en.wikipedia.org/wiki/Spectral_centroid\" target=\"_blank\"> spectral centroid</a> of the input signal. <em>NOTE: analyze() must be called prior to getCentroid(). Analyze() tells the FFT to analyze frequency data, and getCentroid() uses the results determine the spectral centroid.</em>"
-      ],
-      "returns": "숫자: Spectral Centroid Frequency Frequency of the spectral centroid in Hz."
-    },
-    "smooth": {
-      "description": [
-        "Smooth FFT analysis by averaging with the last analysis frame."
-      ],
-      "params": {
-        "smoothing": "숫자: 0.0 < smoothing < 1.0.  Defaults to 0.8."
-      }
-    },
-    "linAverages": {
-      "description": [
-        "Returns an array of average amplitude values for a given number of frequency bands split equally. N defaults to 16. <em>NOTE: analyze() must be called prior to linAverages(). Analyze() tells the FFT to analyze frequency data, and linAverages() uses the results to group them into a smaller set of averages.</em>"
-      ],
-      "returns": "배열: linearAverages Array of average amplitude values for each group",
-      "params": {
-        "N": "숫자: Number of returned frequency groups"
-      }
-    },
-    "logAverages": {
-      "description": [
-        "Returns an array of average amplitude values of the spectrum, for a given set of <a href=\"https://en.wikipedia.org/wiki/Octave_band\" target=\"_blank\"> Octave Bands</a> <em>NOTE: analyze() must be called prior to logAverages(). Analyze() tells the FFT to analyze frequency data, and logAverages() uses the results to group them into a smaller set of averages.</em>"
-      ],
-      "returns": "배열: logAverages Array of average amplitude values for each group",
-      "params": {
-        "octaveBands": "배열: Array of Octave Bands objects for grouping"
-      }
-    },
-    "getOctaveBands": {
-      "description": [
-        "Calculates and Returns the 1/N <a href=\"https://en.wikipedia.org/wiki/Octave_band\" target=\"_blank\">Octave Bands</a> N defaults to 3 and minimum central frequency to 15.625Hz. (1/3 Octave Bands ~= 31 Frequency Bands) Setting fCtr0 to a central value of a higher octave will ignore the lower bands and produce less frequency groups."
-      ],
-      "returns": "배열: octaveBands Array of octave band objects with their bounds",
-      "params": {
-        "N": "숫자: Specifies the 1/N type of generated octave bands",
-        "fCtr0": "숫자: Minimum central frequency for the lowest band"
-      }
-    }
-  },
-  "p5.Signal": {
-    "description": [
-      "p5.Signal is a constant audio-rate signal used by p5.Oscillator and p5.Envelope for modulation math.  ",
-      "This is necessary because Web Audio is processed on a separate clock. For example, the p5 draw loop runs about 60 times per second. But the audio clock must process samples 44100 times per second. If we want to add a value to each of those samples, we can't do it in the draw loop, but we can do it by adding a constant-rate audio signal.</p.  ",
-      "This class mostly functions behind the scenes in p5.sound, and returns a Tone.Signal from the Tone.js library by Yotam Mann. If you want to work directly with audio signals for modular synthesis, check out <a href='http://bit.ly/1oIoEng' target=_'blank'>tone.js.</a>"
-    ],
-    "returns": "Tone.Signal: A Signal object from the Tone.js library",
-    "fade": {
-      "description": [
-        "Fade to value, for smooth transitions"
-      ],
-      "params": {
-        "value": "숫자: Value to set this signal",
-        "secondsFromNow": "숫자: (선택 사항) Length of fade, in seconds from now"
-      }
-    },
-    "setInput": {
-      "description": [
-        "Connect a p5.sound object or Web Audio node to this p5.Signal so that its amplitude values can be scaled."
-      ],
-      "params": {
-        "input": "Object"
-      }
-    },
-    "add": {
-      "description": [
-        "Add a constant value to this audio signal, and return the resulting audio signal. Does not change the value of the original signal, instead it returns a new p5.SignalAdd."
-      ],
-      "returns": "p5.Signal: object",
-      "params": {
-        "number": "숫자"
-      }
-    },
-    "mult": {
-      "description": [
-        "Multiply this signal by a constant value, and return the resulting audio signal. Does not change the value of the original signal, instead it returns a new p5.SignalMult."
-      ],
-      "returns": "p5.Signal: object",
-      "params": {
-        "number": "숫자: to multiply"
-      }
-    },
-    "scale": {
-      "description": [
-        "Scale this signal value to a given range, and return the result as an audio signal. Does not change the value of the original signal, instead it returns a new p5.SignalScale."
-      ],
-      "returns": "p5.Signal: object",
-      "params": {
-        "number": "숫자: to multiply",
-        "inMin": "숫자: input range minumum",
-        "inMax": "숫자: input range maximum",
-        "outMin": "숫자: input range minumum",
-        "outMax": "숫자: input range maximum"
-      }
-    }
-  },
-  "p5.Envelope": {
-    "description": [
-      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>. ",
-      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime. ",
-      "Use the <code><a href=\"#/p5.Envelope/play\">play</a></code> method to play the entire envelope, the <code><a href=\"#/p5.Envelope/ramp\">ramp</a></code> method for a pingable trigger, or <code><a href=\"#/p5.Envelope/triggerAttack\">triggerAttack</a></code>/ <code><a href=\"#/p5.Envelope/triggerRelease\">triggerRelease</a></code> to trigger noteOn/noteOff."
-    ],
-    "attackTime": {
-      "description": [
-        "Time until envelope reaches attackLevel"
-      ]
-    },
-    "attackLevel": {
-      "description": [
-        "Level once attack is complete."
-      ]
-    },
-    "decayTime": {
-      "description": [
-        "Time until envelope reaches decayLevel."
-      ]
-    },
-    "decayLevel": {
-      "description": [
-        "Level after decay. The envelope will sustain here until it is released."
-      ]
-    },
-    "releaseTime": {
-      "description": [
-        "Duration of the release portion of the envelope."
-      ]
-    },
-    "releaseLevel": {
-      "description": [
-        "Level at the end of the release."
-      ]
-    },
-    "set": {
-      "description": [
-        "Reset the envelope with a series of time/value pairs."
-      ],
-      "params": {
-        "attackTime": "숫자: Time (in seconds) before level  reaches attackLevel",
-        "attackLevel": "숫자: Typically an amplitude between  0.0 and 1.0",
-        "decayTime": "숫자: Time",
-        "decayLevel": "숫자: Amplitude (In a standard ADSR envelope,  decayLevel = sustainLevel)",
-        "releaseTime": "숫자: Release Time (in seconds)",
-        "releaseLevel": "숫자: Amplitude"
-      }
-    },
-    "setADSR": {
-      "description": [
-        "Set values like a traditional <a href=\"https://en.wikipedia.org/wiki/Synthesizer#/media/File:ADSR_parameter.svg\"> ADSR envelope </a>."
-      ],
-      "params": {
-        "attackTime": "숫자: Time (in seconds before envelope  reaches Attack Level",
-        "decayTime": "숫자: (선택 사항) Time (in seconds) before envelope  reaches Decay/Sustain Level",
-        "susRatio": "숫자: (선택 사항) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
-        "releaseTime": "숫자: (선택 사항) Time in seconds from now (defaults to 0)"
-      }
-    },
-    "setRange": {
-      "description": [
-        "Set max (attackLevel) and min (releaseLevel) of envelope."
-      ],
-      "params": {
-        "aLevel": "숫자: attack level (defaults to 1)",
-        "rLevel": "숫자: release level (defaults to 0)"
-      }
-    },
-    "setInput": {
-      "description": [
-        "Assign a parameter to be controlled by this envelope. If a p5.Sound object is given, then the p5.Envelope will control its output gain. If multiple inputs are provided, the env will control all of them."
-      ],
-      "params": {
-        "inputs": "객체: (선택 사항) A p5.sound object or  Web Audio Param."
-      }
-    },
-    "setExp": {
-      "description": [
-        "Set whether the envelope ramp is linear (default) or exponential. Exponential ramps can be useful because we perceive amplitude and frequency logarithmically."
-      ],
-      "params": {
-        "isExp": "불리언: true is exponential, false is linear"
-      }
-    },
-    "play": {
-      "description": [
-        "Play tells the envelope to start acting on a given input. If the input is a p5.sound object (i.e. AudioIn, Oscillator, SoundFile), then Envelope will control its output volume. Envelopes can also be used to control any <a href=\" http://docs.webplatform.org/wiki/apis/webaudio/AudioParam\"> Web Audio Audio Param.</a>"
-      ],
-      "params": {
-        "unit": "객체: A p5.sound object or  Web Audio Param.",
-        "startTime": "숫자: (선택 사항) time from now (in seconds) at which to play",
-        "sustainTime": "숫자: (선택 사항) time to sustain before releasing the envelope"
-      }
-    },
-    "triggerAttack": {
-      "description": [
-        "Trigger the Attack, and Decay portion of the Envelope. Similar to holding down a key on a piano, but it will hold the sustain level until you let go. Input can be any p5.sound object, or a <a href=\" http://docs.webplatform.org/wiki/apis/webaudio/AudioParam\"> Web Audio Param</a>."
-      ],
-      "params": {
-        "unit": "객체: p5.sound Object or Web Audio Param",
-        "secondsFromNow": "숫자: time from now (in seconds)"
-      }
-    },
-    "triggerRelease": {
-      "description": [
-        "Trigger the Release of the Envelope. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
-      ],
-      "params": {
-        "unit": "객체: p5.sound Object or Web Audio Param",
-        "secondsFromNow": "숫자: time to trigger the release"
-      }
-    },
-    "ramp": {
-      "description": [
-        "Exponentially ramp to a value using the first two values from <code><a href=\"#/p5.Envelope/setADSR\">setADSR(attackTime, decayTime)</a></code> as <a href=\"https://en.wikipedia.org/wiki/RC_time_constant\"> time constants</a> for simple exponential ramps. If the value is higher than current value, it uses attackTime, while a decrease uses decayTime."
-      ],
-      "params": {
-        "unit": "객체: p5.sound Object or Web Audio Param",
-        "secondsFromNow": "숫자: When to trigger the ramp",
-        "v": "숫자: Target value",
-        "v2": "숫자: (선택 사항) Second target value"
-      }
-    },
-    "add": {
-      "description": [
-        "Add a value to the p5.Oscillator's output amplitude, and return the oscillator. Calling this method again will override the initial add() with new values."
-      ],
-      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
-      "params": {
-        "number": "숫자: Constant number to add"
-      }
-    },
-    "mult": {
-      "description": [
-        "Multiply the p5.Envelope's output amplitude by a fixed value. Calling this method again will override the initial mult() with new values."
-      ],
-      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
-      "params": {
-        "number": "숫자: Constant number to multiply"
-      }
-    },
-    "scale": {
-      "description": [
-        "Scale this envelope's amplitude values to a given range, and return the envelope. Calling this method again will override the initial scale() with new values."
-      ],
-      "returns": "p5.Envelope: Envelope Returns this envelope  with scaled output",
-      "params": {
-        "inMin": "숫자: input range minumum",
-        "inMax": "숫자: input range maximum",
-        "outMin": "숫자: input range minumum",
-        "outMax": "숫자: input range maximum"
-      }
-    }
-  },
-  "p5.Pulse": {
-    "description": [
-      "Creates a Pulse object, an oscillator that implements Pulse Width Modulation. The pulse is created with two oscillators. Accepts a parameter for frequency, and to set the width between the pulses. See <a href=\" http://p5js.org/reference/#/p5.Oscillator\"> <code>p5.Oscillator</code> for a full list of methods."
-    ],
-    "params": {
-      "freq": "숫자: (선택 사항) Frequency in oscillations per second (Hz)",
-      "w": "숫자: (선택 사항) Width between the pulses (0 to 1.0,  defaults to 0)"
-    },
-    "width": {
-      "description": [
-        "Set the width of a Pulse object (an oscillator that implements Pulse Width Modulation)."
-      ],
-      "params": {
-        "width": "숫자: (선택 사항) Width between the pulses (0 to 1.0,  defaults to 0)"
-      }
-    }
-  },
-  "p5.Noise": {
-    "description": [
-      "Noise is a type of oscillator that generates a buffer with random values."
-    ],
-    "params": {
-      "type": "문자열: Type of noise can be 'white' (default),  'brown' or 'pink'."
-    },
-    "setType": {
-      "description": [
-        "Set type of noise to 'white', 'pink' or 'brown'. White is the default."
-      ],
-      "params": {
-        "type": "문자열: (선택 사항) 'white', 'pink' or 'brown'"
-      }
-    }
-  },
-  "p5.AudioIn": {
-    "description": [
-      "Get audio from an input, i.e. your computer's microphone.  ",
-      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.  ",
-      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.  ",
-      "<em>Note: This uses the <a href=\"http://caniuse.com/stream\">getUserMedia/ Stream</a> API, which is not supported by certain browsers. Access in Chrome browser is limited to localhost and https, but access over http may be limited.</em>"
-    ],
-    "params": {
-      "errorCallback": "함수: (선택 사항) A function to call if there is an error  accessing the AudioIn. For example,  Safari and iOS devices do not  currently allow microphone access."
-    },
-    "input": {},
-    "output": {},
-    "stream": {},
-    "mediaStream": {},
-    "currentSource": {},
-    "enabled": {
-      "description": [
-        "Client must allow browser to access their microphone / audioin source. Default: false. Will become true when the client enables access."
-      ]
-    },
-    "amplitude": {
-      "description": [
-        "Input amplitude, connect to it by default but not to master out"
-      ]
-    },
-    "start": {
-      "description": [
-        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/> ",
-        "Certain browsers limit access to the user's microphone. For example, Chrome only allows access from localhost and over https. For this reason, you may want to include an errorCallback—a function that is called in case the browser won't provide mic access."
-      ],
-      "params": {
-        "successCallback": "함수: (선택 사항) Name of a function to call on  success.",
-        "errorCallback": "함수: (선택 사항) Name of a function to call if  there was an error. For example,  some browsers do not support  getUserMedia."
-      }
-    },
-    "stop": {
-      "description": [
-        "Turn the AudioIn off. If the AudioIn is stopped, it cannot getLevel(). If re-starting, the user may be prompted for permission access."
-      ]
-    },
-    "connect": {
-      "description": [
-        "Connect to an audio unit. If no parameter is provided, will connect to the master output (i.e. your speakers).<br/>"
-      ],
-      "params": {
-        "unit": "객체: (선택 사항) An object that accepts audio input,  such as an FFT"
-      }
-    },
-    "disconnect": {
-      "description": [
-        "Disconnect the AudioIn from all audio units. For example, if connect() had been called, disconnect() will stop sending signal to your speakers.<br/>"
-      ]
-    },
-    "getLevel": {
-      "description": [
-        "Read the Amplitude (volume level) of an AudioIn. The AudioIn class contains its own instance of the Amplitude class to help make it easy to get a microphone's volume level. Accepts an optional smoothing value (0.0 < 1.0). <em>NOTE: AudioIn must .start() before using .getLevel().</em><br/>"
-      ],
-      "returns": "숫자: Volume level (between 0.0 and 1.0)",
-      "params": {
-        "smoothing": "숫자: (선택 사항) Smoothing is 0.0 by default.  Smooths values based on previous values."
-      }
-    },
-    "amp": {
-      "description": [
-        "Set amplitude (volume) of a mic input between 0 and 1.0. <br/>"
-      ],
-      "params": {
-        "vol": "숫자: between 0 and 1.0",
-        "time": "숫자: (선택 사항) ramp time"
-      }
-    },
-    "getSources": {
-      "description": [
-        "Returns a list of available input sources. This is a wrapper for <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href=  \"<a href=\"https://developer.mozilla.org/ko/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/ko/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> ",
-        "and it returns a Promise. </blockquote>"
-      ],
-      "returns": "Promise: Returns a Promise that can be used in place of the callbacks, similar  to the enumerateDevices() method",
-      "params": {
-        "successCallback": "함수: (선택 사항) This callback function handles the sources when they  have been enumerated. The callback function  receives the deviceList array as its only argument",
-        "errorCallback": "함수: (선택 사항) This optional callback receives the error  message as its argument."
-      }
-    },
-    "setSource": {
-      "description": [
-        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href= \"<a href=\"https://developer.mozilla.org/ko/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/ko/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> ",
-        "navigator.mediaDevices.enumerateDevices()</a>.<br/> </blockquote>"
-      ],
-      "params": {
-        "num": "숫자: position of input source in the array"
-      }
-    }
-  },
   "p5.EQ": {
     "description": [
       "p5.EQ is an audio effect that performs the function of a multiband audio equalizer. Equalization is used to adjust the balance of frequency compoenents of an audio signal. This process is commonly used in sound production and recording to change the waveform before it reaches a sound output device. EQ can also be used as an audio effect to create interesting distortions by filtering out parts of the spectrum. p5.EQ is built using a chain of Web Audio Biquad Filter Nodes and can be instantiated with 3 or 8 bands. Bands can be added or removed from the EQ by directly modifying p5.EQ.bands (the array that stores filters). ",
@@ -6916,9 +6709,7 @@
     "panner": {
       "description": [
         "<a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a> ",
-        "Properties include <ul> <li><a title=\"w3 spec for Panning Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"</a><blockquote> ",
-        "panningModel</a>: \"equal power\" or \"HRTF\" </blockquote> </li> <li><a title=\"w3 spec for Distance Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-DistanceModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-DistanceModelType\"</a><blockquote> ",
-        "distanceModel</a>: \"linear\", \"inverse\", or \"exponential\" </blockquote> </li> </ul>"
+        "Properties include <ul> <li><a title=\"w3 spec for Panning Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"</a><blockquote> "
       ]
     },
     "process": {
@@ -7057,7 +6848,7 @@
       ],
       "returns": "숫자: Feedback value",
       "params": {
-        "feedback": "숫자|객체: 0.0 to 1.0, or an object such as an  Oscillator that can be used to  modulate this param"
+        "feedback": "숫자|Object: 0.0 to 1.0, or an object such as an  Oscillator that can be used to  modulate this param"
       }
     },
     "filter": {
@@ -7065,8 +6856,8 @@
         "Set a lowpass filter frequency for the delay. A lowpass filter will cut off any frequencies higher than the filter frequency."
       ],
       "params": {
-        "cutoffFreq": "숫자|객체: A lowpass filter will cut off any  frequencies higher than the filter frequency.",
-        "res": "숫자|객체: Resonance of the filter frequency  cutoff, or an object (i.e. a p5.Oscillator)  that can be used to modulate this parameter.  High numbers (i.e. 15) will produce a resonance,  low numbers (i.e. .2) will produce a slope."
+        "cutoffFreq": "숫자|Object: A lowpass filter will cut off any  frequencies higher than the filter frequency.",
+        "res": "숫자|Object: Resonance of the filter frequency  cutoff, or an object (i.e. a p5.Oscillator)  that can be used to modulate this parameter.  High numbers (i.e. 15) will produce a resonance,  low numbers (i.e. .2) will produce a slope."
       }
     },
     "setType": {
@@ -7167,6 +6958,11 @@
         "Internally, the p5.Convolver uses the a <a href=\"http://www.w3.org/TR/webaudio/#ConvolverNode\"> Web Audio Convolver Node</a>."
       ]
     },
+    "impulses": {
+      "description": [
+        "If you load multiple impulse files using the .addImpulse method, they will be stored as Objects in this Array. Toggle between them with the <code>toggleImpulse(id)</code> method."
+      ]
+    },
     "process": {
       "description": [
         "Connect a source to the convolver."
@@ -7175,19 +6971,14 @@
         "src": "객체: p5.sound / Web Audio object with a sound  output."
       }
     },
-    "impulses": {
-      "description": [
-        "If you load multiple impulse files using the .addImpulse method, they will be stored as Objects in this Array. Toggle between them with the <code>toggleImpulse(id)</code> method."
-      ]
-    },
     "addImpulse": {
       "description": [
         "Load and assign a new Impulse Response to the p5.Convolver. The impulse is added to the <code>.impulses</code> array. Previous impulses can be accessed with the <code>.toggleImpulse(id)</code> method."
       ],
       "params": {
         "path": "문자열: path to a sound file",
-        "callback": "함수: (선택 사항) function",
-        "errorCallback": "함수: (선택 사항) function"
+        "callback": "함수: function (optional)",
+        "errorCallback": "함수: function (optional)"
       }
     },
     "resetImpulse": {
@@ -7196,8 +6987,8 @@
       ],
       "params": {
         "path": "문자열: path to a sound file",
-        "callback": "함수: (선택 사항) function",
-        "errorCallback": "함수: (선택 사항) function"
+        "callback": "함수: function (optional)",
+        "errorCallback": "함수: function (optional)"
       }
     },
     "toggleImpulse": {
@@ -7377,7 +7168,27 @@
     ],
     "params": {
       "callback": "함수: this function will be called on each iteration of theloop",
-      "interval": "숫자|문자열: (선택 사항) amount of time (if a number) or beats (if a string, following <a href = \"https://github.com/Tonejs/Tone.js/wiki/Time\">Tone.Time</a> convention) for each iteration of the loop. Defaults to 1 second."
+      "interval": "숫자|String: (선택 사항) amount of time (if a number) or beats (if a string, following <a href = \"https://github.com/Tonejs/Tone.js/wiki/Time\">Tone.Time</a> convention) for each iteration of the loop. Defaults to 1 second."
+    },
+    "bpm": {
+      "description": [
+        "Getters and Setters, setting any paramter will result in a change in the clock's frequency, that will be reflected after the next callback beats per minute (defaults to 60)"
+      ]
+    },
+    "timeSignature": {
+      "description": [
+        "number of quarter notes in a measure (defaults to 4)"
+      ]
+    },
+    "interval": {
+      "description": [
+        "length of the loops interval"
+      ]
+    },
+    "iterations": {
+      "description": [
+        "how many times the callback has been called so far"
+      ]
     },
     "musicalTimeMode": {
       "description": [
@@ -7421,26 +7232,6 @@
         "otherLoop": "객체: a p5.SoundLoop to sync with",
         "timeFromNow": "숫자: (선택 사항) Start the loops in sync after timeFromNow seconds"
       }
-    },
-    "bpm": {
-      "description": [
-        "Getters and Setters, setting any paramter will result in a change in the clock's frequency, that will be reflected after the next callback beats per minute (defaults to 60)"
-      ]
-    },
-    "timeSignature": {
-      "description": [
-        "number of quarter notes in a measure (defaults to 4)"
-      ]
-    },
-    "interval": {
-      "description": [
-        "length of the loops interval"
-      ]
-    },
-    "iterations": {
-      "description": [
-        "how many times the callback has been called so far"
-      ]
     }
   },
   "p5.Compressor": {
@@ -7530,35 +7321,6 @@
       "returns": "숫자: Value of the amount of gain reduction that is applied to the signal"
     }
   },
-  "p5.SoundRecorder": {
-    "description": [
-      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput(). ",
-      "The record() method accepts a p5.SoundFile as a parameter. When playback is stopped (either after the given amount of time, or with the stop() method), the p5.SoundRecorder will send its recording to that p5.SoundFile for playback."
-    ],
-    "setInput": {
-      "description": [
-        "Connect a specific device to the p5.SoundRecorder. If no parameter is given, p5.SoundRecorer will record all audible p5.sound from your sketch."
-      ],
-      "params": {
-        "unit": "객체: (선택 사항) p5.sound object or a web audio unit  that outputs sound"
-      }
-    },
-    "record": {
-      "description": [
-        "Start recording. To access the recording, provide a p5.SoundFile as the first parameter. The p5.SoundRecorder will send its recording to that p5.SoundFile for playback once recording is complete. Optional parameters include duration (in seconds) of the recording, and a callback function that will be called once the complete recording has been transfered to the p5.SoundFile."
-      ],
-      "params": {
-        "soundFile": "p5.SoundFile: p5.SoundFile",
-        "duration": "숫자: (선택 사항) Time (in seconds)",
-        "callback": "함수: (선택 사항) The name of a function that will be  called once the recording completes"
-      }
-    },
-    "stop": {
-      "description": [
-        "Stop the recording. Once the recording is stopped, the results will be sent to the p5.SoundFile that was given on .record(), and if a callback function was provided on record, that function will be called."
-      ]
-    }
-  },
   "p5.PeakDetect": {
     "description": [
       "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum.  ",
@@ -7598,40 +7360,33 @@
       }
     }
   },
-  "p5.Gain": {
+  "p5.SoundRecorder": {
     "description": [
-      "A gain node is useful to set the relative volume of sound. It's typically used to build mixers."
+      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput(). ",
+      "The record() method accepts a p5.SoundFile as a parameter. When playback is stopped (either after the given amount of time, or with the stop() method), the p5.SoundRecorder will send its recording to that p5.SoundFile for playback."
     ],
     "setInput": {
       "description": [
-        "Connect a source to the gain node."
+        "Connect a specific device to the p5.SoundRecorder. If no parameter is given, p5.SoundRecorer will record all audible p5.sound from your sketch."
       ],
       "params": {
-        "src": "객체: p5.sound / Web Audio object with a sound  output."
+        "unit": "객체: (선택 사항) p5.sound object or a web audio unit  that outputs sound"
       }
     },
-    "connect": {
+    "record": {
       "description": [
-        "Send output to a p5.sound or web audio object"
+        "Start recording. To access the recording, provide a p5.SoundFile as the first parameter. The p5.SoundRecorder will send its recording to that p5.SoundFile for playback once recording is complete. Optional parameters include duration (in seconds) of the recording, and a callback function that will be called once the complete recording has been transfered to the p5.SoundFile."
       ],
       "params": {
-        "unit": "Object"
+        "soundFile": "p5.SoundFile: p5.SoundFile",
+        "duration": "숫자: (선택 사항) Time (in seconds)",
+        "callback": "함수: (선택 사항) The name of a function that will be  called once the recording completes"
       }
     },
-    "disconnect": {
+    "stop": {
       "description": [
-        "Disconnect all output."
+        "Stop the recording. Once the recording is stopped, the results will be sent to the p5.SoundFile that was given on .record(), and if a callback function was provided on record, that function will be called."
       ]
-    },
-    "amp": {
-      "description": [
-        "Set the output level of the gain node."
-      ],
-      "params": {
-        "volume": "숫자: amplitude between 0 and 1.0",
-        "rampTime": "숫자: (선택 사항) create a fade that lasts rampTime",
-        "timeFromNow": "숫자: (선택 사항) schedule this event to happen  seconds from now"
-      }
     }
   },
   "p5.Distortion": {
@@ -7677,6 +7432,247 @@
         "Return the oversampling."
       ],
       "returns": "문자열: Oversample can either be 'none', '2x', or '4x'."
+    }
+  },
+  "p5.Gain": {
+    "description": [
+      "A gain node is useful to set the relative volume of sound. It's typically used to build mixers."
+    ],
+    "setInput": {
+      "description": [
+        "Connect a source to the gain node."
+      ],
+      "params": {
+        "src": "객체: p5.sound / Web Audio object with a sound  output."
+      }
+    },
+    "connect": {
+      "description": [
+        "Send output to a p5.sound or web audio object"
+      ],
+      "params": {
+        "unit": "Object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect all output."
+      ]
+    },
+    "amp": {
+      "description": [
+        "Set the output level of the gain node."
+      ],
+      "params": {
+        "volume": "숫자: amplitude between 0 and 1.0",
+        "rampTime": "숫자: (선택 사항) create a fade that lasts rampTime",
+        "timeFromNow": "숫자: (선택 사항) schedule this event to happen  seconds from now"
+      }
+    }
+  },
+  "p5.AudioVoice": {
+    "description": [
+      "Base class for monophonic synthesizers. Any extensions of this class should follow the API and implement the methods below in order to remain compatible with p5.PolySynth();"
+    ],
+    "connect": {
+      "description": [
+        "Connect to p5 objects or Web Audio Nodes"
+      ],
+      "params": {
+        "unit": "Object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect from soundOut"
+      ]
+    }
+  },
+  "p5.MonoSynth": {
+    "description": [
+      "A MonoSynth is used as a single voice for sound synthesis. This is a class to be used in conjunction with the PolySynth class. Custom synthesizers should be built inheriting from this class."
+    ],
+    "attack": {
+      "description": [
+        "Getters and Setters"
+      ]
+    },
+    "decay": {},
+    "sustain": {},
+    "release": {},
+    "play": {
+      "description": [
+        "Play tells the MonoSynth to start playing a note. This method schedules the calling of .triggerAttack and .triggerRelease."
+      ],
+      "params": {
+        "note": "String | Number: the note you want to play, specified as a  frequency in Hertz (Number) or as a midi  value in Note/Octave format (\"C4\", \"Eb3\"...etc\")  See <a href = \"https://github.com/Tonejs/Tone.js/wiki/Instruments\">  Tone</a>. Defaults to 440 hz.",
+        "velocity": "숫자: (선택 사항) velocity of the note to play (ranging from 0 to 1)",
+        "secondsFromNow": "숫자: (선택 사항) time from now (in seconds) at which to play",
+        "sustainTime": "숫자: (선택 사항) time to sustain before releasing the envelope. Defaults to 0.15 seconds."
+      }
+    },
+    "triggerAttack": {
+      "description": [
+        "Trigger the Attack, and Decay portion of the Envelope. Similar to holding down a key on a piano, but it will hold the sustain level until you let go."
+      ],
+      "params": {
+        "note": "String | Number: the note you want to play, specified as a  frequency in Hertz (Number) or as a midi  value in Note/Octave format (\"C4\", \"Eb3\"...etc\")  See <a href = \"https://github.com/Tonejs/Tone.js/wiki/Instruments\">  Tone</a>. Defaults to 440 hz",
+        "velocity": "숫자: (선택 사항) velocity of the note to play (ranging from 0 to 1)",
+        "secondsFromNow": "숫자: (선택 사항) time from now (in seconds) at which to play"
+      }
+    },
+    "triggerRelease": {
+      "description": [
+        "Trigger the release of the Envelope. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
+      ],
+      "params": {
+        "secondsFromNow": "숫자: time to trigger the release"
+      }
+    },
+    "setADSR": {
+      "description": [
+        "Set values like a traditional <a href=\"https://en.wikipedia.org/wiki/Synthesizer#/media/File:ADSR_parameter.svg\"> ADSR envelope </a>."
+      ],
+      "params": {
+        "attackTime": "숫자: Time (in seconds before envelope  reaches Attack Level",
+        "decayTime": "숫자: (선택 사항) Time (in seconds) before envelope  reaches Decay/Sustain Level",
+        "susRatio": "숫자: (선택 사항) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
+        "releaseTime": "숫자: (선택 사항) Time in seconds from now (defaults to 0)"
+      }
+    },
+    "amp": {
+      "description": [
+        "MonoSynth amp"
+      ],
+      "returns": "숫자: new volume value",
+      "params": {
+        "vol": "숫자: desired volume",
+        "rampTime": "숫자: (선택 사항) Time to reach new volume"
+      }
+    },
+    "connect": {
+      "description": [
+        "Connect to a p5.sound / Web Audio object."
+      ],
+      "params": {
+        "unit": "객체: A p5.sound or Web Audio object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect all outputs"
+      ]
+    },
+    "dispose": {
+      "description": [
+        "Get rid of the MonoSynth and free up its resources / memory."
+      ]
+    }
+  },
+  "p5.OnsetDetect": {
+    "description": [
+      "Listen for onsets (a sharp increase in volume) within a given frequency range."
+    ],
+    "params": {
+      "freqLow": "숫자: Low frequency",
+      "freqHigh": "숫자: High frequency",
+      "threshold": "숫자: Amplitude threshold between 0 (no energy) and 1 (maximum)",
+      "callback": "함수: Function to call when an onset is detected"
+    }
+  },
+  "p5.PolySynth": {
+    "description": [
+      "An AudioVoice is used as a single voice for sound synthesis. The PolySynth class holds an array of AudioVoice, and deals with voices allocations, with setting notes to be played, and parameters to be set."
+    ],
+    "params": {
+      "synthVoice": "숫자: (선택 사항) A monophonic synth voice inheriting  the AudioVoice class. Defaults to p5.MonoSynth",
+      "maxVoices": "숫자: (선택 사항) Number of voices, defaults to 8;"
+    },
+    "notes": {
+      "description": [
+        "An object that holds information about which notes have been played and which notes are currently being played. New notes are added as keys on the fly. While a note has been attacked, but not released, the value of the key is the audiovoice which is generating that note. When notes are released, the value of the key becomes undefined."
+      ]
+    },
+    "polyvalue": {
+      "description": [
+        "A PolySynth must have at least 1 voice, defaults to 8"
+      ]
+    },
+    "AudioVoice": {
+      "description": [
+        "Monosynth that generates the sound for each note that is triggered. The p5.PolySynth defaults to using the p5.MonoSynth as its voice."
+      ]
+    },
+    "play": {
+      "description": [
+        "Play a note by triggering noteAttack and noteRelease with sustain time"
+      ],
+      "params": {
+        "note": "숫자: (선택 사항) midi note to play (ranging from 0 to 127 - 60 being a middle C)",
+        "velocity": "숫자: (선택 사항) velocity of the note to play (ranging from 0 to 1)",
+        "secondsFromNow": "숫자: (선택 사항) time from now (in seconds) at which to play",
+        "sustainTime": "숫자: (선택 사항) time to sustain before releasing the envelope"
+      }
+    },
+    "noteADSR": {
+      "description": [
+        "noteADSR sets the envelope for a specific note that has just been triggered. Using this method modifies the envelope of whichever audiovoice is being used to play the desired note. The envelope should be reset before noteRelease is called in order to prevent the modified envelope from being used on other notes."
+      ],
+      "params": {
+        "note": "숫자: (선택 사항) Midi note on which ADSR should be set.",
+        "attackTime": "숫자: (선택 사항) Time (in seconds before envelope  reaches Attack Level",
+        "decayTime": "숫자: (선택 사항) Time (in seconds) before envelope  reaches Decay/Sustain Level",
+        "susRatio": "숫자: (선택 사항) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
+        "releaseTime": "숫자: (선택 사항) Time in seconds from now (defaults to 0)"
+      }
+    },
+    "setADSR": {
+      "description": [
+        "Set the PolySynths global envelope. This method modifies the envelopes of each monosynth so that all notes are played with this envelope."
+      ],
+      "params": {
+        "attackTime": "숫자: (선택 사항) Time (in seconds before envelope  reaches Attack Level",
+        "decayTime": "숫자: (선택 사항) Time (in seconds) before envelope  reaches Decay/Sustain Level",
+        "susRatio": "숫자: (선택 사항) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.",
+        "releaseTime": "숫자: (선택 사항) Time in seconds from now (defaults to 0)"
+      }
+    },
+    "noteAttack": {
+      "description": [
+        "Trigger the Attack, and Decay portion of a MonoSynth. Similar to holding down a key on a piano, but it will hold the sustain level until you let go."
+      ],
+      "params": {
+        "note": "숫자: (선택 사항) midi note on which attack should be triggered.",
+        "velocity": "숫자: (선택 사항) velocity of the note to play (ranging from 0 to 1)/",
+        "secondsFromNow": "숫자: (선택 사항) time from now (in seconds)"
+      }
+    },
+    "noteRelease": {
+      "description": [
+        "Trigger the Release of an AudioVoice note. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time."
+      ],
+      "params": {
+        "note": "숫자: (선택 사항) midi note on which attack should be triggered.  If no value is provided, all notes will be released.",
+        "secondsFromNow": "숫자: (선택 사항) time to trigger the release"
+      }
+    },
+    "connect": {
+      "description": [
+        "Connect to a p5.sound / Web Audio object."
+      ],
+      "params": {
+        "unit": "객체: A p5.sound or Web Audio object"
+      }
+    },
+    "disconnect": {
+      "description": [
+        "Disconnect all outputs"
+      ]
+    },
+    "dispose": {
+      "description": [
+        "Get rid of the MonoSynth and free up its resources / memory."
+      ]
     }
   }
 }
