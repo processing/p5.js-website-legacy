@@ -1,5 +1,6 @@
 /*
  * @name Wolfram CA
+ * @arialabel 1-dimensional cellular automata is depicted which is a pyramid shape with a design consisting of white squares that create a pixelated look
  * @description Simple demonstration of a Wolfram 1-dimensional cellular automata
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */

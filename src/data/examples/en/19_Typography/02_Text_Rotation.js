@@ -1,5 +1,6 @@
 /*
  * @name Text Rotation
+ * @arialabel three white lines on a black screen. One at 45 degrees, one at 270 degrees, and one line that turns clockwise and the degree label changes as the line turns.
  * @description Draws letters to the screen and rotates them at different angles.
  *  (ported from https://processing.org/examples/textrotation.html) 
  */

@@ -1,5 +1,6 @@
 /*
  * @name Loop
+ * @arialabel horizontal white line on a black background that moves from the bottom to the top of the screen parallel to the x-axis
  * @description The code inside the draw() function runs continuously from top
  * to bottom until the program is stopped.
  */

@@ -1,5 +1,6 @@
 /*
  * @name Numbers
+ * @arialabel A black background with one white vertical line on the top half and one on the bottom. Both lines move from the left to the right of the screen with the top vertical line moving faster than the bottom.
  * @frame 720,400
  * @description Numbers can be written with or without decimals. An integer
  * (more commonly called an int) is a number without a decimal point. A float

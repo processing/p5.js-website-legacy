@@ -1,5 +1,6 @@
 /*
  * @name Drop
+ * @arialabel empty grey canvas that displays an image if it is dragged from the user’s computer to the grey canvas
  * @description Drag an image file onto the canvas to see it displayed.
  */
 

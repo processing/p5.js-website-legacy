@@ -1,5 +1,6 @@
 /*
  * @name Mouse Press
+ * @arialabel User draws pink crosses on a grey background and can change the cross color to white by clicking the mouse. 
  * @description Move the mouse to position the shape.
  * Press the mouse button to invert the color.
  */
