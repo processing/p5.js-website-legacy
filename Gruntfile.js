@@ -159,14 +159,17 @@ module.exports = function(grunt) {
       images: {
         options: {
           optimizationLevel: 2,
-          use: [mozjpeg({quality: 70}), pngquant()] //plugins for jpeg & png image compression
+          //plugins for jpeg & png image compression
+          use: [mozjpeg({ quality: 70 }), pngquant()]
         },
-        files: [{
-          expand: true,
-          cwd: '<%= config.src %>/assets/img',
-          src: ['**/*.{png,jpg,gif,svg,ico}'],
-          dest: '<%= config.dist %>/assets/img/'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.src %>/assets/img',
+            src: ['**/*.{png,jpg,gif,svg,ico}'],
+            dest: '<%= config.dist %>/assets/img/'
+          }
+        ]
       }
     },
 
@@ -191,16 +194,18 @@ module.exports = function(grunt) {
           annotation: '<%= config.dist %>/assets/css/maps/'
         },
         processors: [
-          require('autoprefixer')({browsers: [
-            'Android 2.3',
-            'Android >= 4',
-            'Chrome >= 20',
-            'Firefox >= 24',
-            'Explorer >= 8',
-            'iOS >= 6',
-            'Opera >= 12',
-            'Safari >= 6'
-          ]}),
+          require('autoprefixer')({
+            browsers: [
+              'Android 2.3',
+              'Android >= 4',
+              'Chrome >= 20',
+              'Firefox >= 24',
+              'Explorer >= 8',
+              'iOS >= 6',
+              'Opera >= 12',
+              'Safari >= 6'
+            ]
+          }),
           require('cssnano')()
         ]
       },
@@ -419,41 +424,47 @@ module.exports = function(grunt) {
     });
   });
 
-  grunt.registerTask('json-to-fluent', async function(){
+  grunt.registerTask('json-to-fluent', async function() {
     const done = this.async();
     const languages = pkg.languages;
     const promises = [];
 
-    try{
-      for(const language of languages){
-        const fileData = await fs.readFile(`./src/data/reference/${language}.json`);
+    try {
+      for (const language of languages) {
+        const fileData = await fs.readFile(
+          `./src/data/reference/${language}.json`
+        );
         const ftlStrs = fluentConverter.jsonToFtl(fileData);
         fse.mkdirpSync(`./src/data/localization/${language}/`);
         _.each(ftlStrs, (str, name) => {
-          promises.push(fs.writeFile(`./src/data/localization/${language}/${name}.ftl`, str));
+          promises.push(
+            fs.writeFile(`./src/data/localization/${language}/${name}.ftl`, str)
+          );
         });
       }
 
       await Promise.all(promises);
       done();
-    }catch(err){
+    } catch (err) {
       done(err);
     }
   });
 
-  grunt.registerTask('fluent-to-json', async function(){
+  grunt.registerTask('fluent-to-json', async function() {
     const done = this.async();
     const languages = pkg.languages;
     const promises = [];
 
-    try{
-      for(const language of languages){
-        const fileData = await fs.readFile(`./src/data/reference/${language}.json`);
+    try {
+      for (const language of languages) {
+        const fileData = await fs.readFile(
+          `./src/data/reference/${language}.json`
+        );
         const data = JSON.parse(fileData);
         const newData = _.cloneDeep(data);
 
         const files = await glob(`./src/data/localization/${language}/*.ftl`);
-        for(const file of files) {
+        for (const file of files) {
           if(
             file !== `./src/data/localization/${language}/root.ftl`
           ){
@@ -462,7 +473,7 @@ module.exports = function(grunt) {
             const jsonData = fluentConverter.ftlToObj(fileData);
 
             _.assign(newData[key], jsonData);
-         }
+          }
         }
       }
 
@@ -470,7 +481,7 @@ module.exports = function(grunt) {
       // Will be implemented when confirm there will be no data loss
       console.log('File write skipped.');
       done();
-    }catch(err){
+    } catch (err) {
       done(err);
     }
   });
