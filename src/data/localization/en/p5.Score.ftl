@@ -1,0 +1,10 @@
+description__0 = A Score consists of a series of Parts. The parts will be played back in order. For example, you could have an A part, a B part, and a C part, and play them back in this order <code>new p5.Score(a, a, b, a, c)</code>
+params__parts = p5.Part: (Optional) One or multiple parts, to be played in sequence.
+start__description__0 = Start playback of the score.
+stop__description__0 = Stop playback of the score.
+pause__description__0 = Pause playback of the score.
+loop__description__0 = Loop playback of the score.
+noLoop__description__0 = Stop looping playback of the score. If it is currently playing, this will go into effect after the current round of playback completes.
+setBPM__description__0 = Set the tempo for all parts in the score
+setBPM__params__BPM = Number: Beats Per Minute
+setBPM__params__rampTime = Number: Seconds from now

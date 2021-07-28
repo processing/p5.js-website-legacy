@@ -1,0 +1,33 @@
+description__0 = An AudioVoice is used as a single voice for sound synthesis. The PolySynth class holds an array of AudioVoice, and deals with voices allocations, with setting notes to be played, and parameters to be set.
+params__synthVoice = Number: (Optional) A monophonic synth voice inheriting  the AudioVoice class. Defaults to p5.MonoSynth
+params__maxVoices = Number: (Optional) Number of voices, defaults to 8;
+notes__description__0 = An object that holds information about which notes have been played and which notes are currently being played. New notes are added as keys on the fly. While a note has been attacked, but not released, the value of the key is the audiovoice which is generating that note. When notes are released, the value of the key becomes undefined.
+polyvalue__description__0 = A PolySynth must have at least 1 voice, defaults to 8
+AudioVoice__description__0 = Monosynth that generates the sound for each note that is triggered. The p5.PolySynth defaults to using the p5.MonoSynth as its voice.
+play__description__0 = Play a note by triggering noteAttack and noteRelease with sustain time
+play__params__note = Number: (Optional) midi note to play (ranging from 0 to 127 - 60 being a middle C)
+play__params__velocity = Number: (Optional) velocity of the note to play (ranging from 0 to 1)
+play__params__secondsFromNow = Number: (Optional) time from now (in seconds) at which to play
+play__params__sustainTime = Number: (Optional) time to sustain before releasing the envelope
+noteADSR__description__0 = noteADSR sets the envelope for a specific note that has just been triggered. Using this method modifies the envelope of whichever audiovoice is being used to play the desired note. The envelope should be reset before noteRelease is called in order to prevent the modified envelope from being used on other notes.
+noteADSR__params__note = Number: (Optional) Midi note on which ADSR should be set.
+noteADSR__params__attackTime = Number: (Optional) Time (in seconds before envelope  reaches Attack Level
+noteADSR__params__decayTime = Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level
+noteADSR__params__susRatio = Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.
+noteADSR__params__releaseTime = Number: (Optional) Time in seconds from now (defaults to 0)
+setADSR__description__0 = Set the PolySynths global envelope. This method modifies the envelopes of each monosynth so that all notes are played with this envelope.
+setADSR__params__attackTime = Number: (Optional) Time (in seconds before envelope  reaches Attack Level
+setADSR__params__decayTime = Number: (Optional) Time (in seconds) before envelope  reaches Decay/Sustain Level
+setADSR__params__susRatio = Number: (Optional) Ratio between attackLevel and releaseLevel, on a scale from 0 to 1,  where 1.0 = attackLevel, 0.0 = releaseLevel.  The susRatio determines the decayLevel and the level at which the  sustain portion of the envelope will sustain.  For example, if attackLevel is 0.4, releaseLevel is 0,  and susAmt is 0.5, the decayLevel would be 0.2. If attackLevel is  increased to 1.0 (using <code>setRange</code>),  then decayLevel would increase proportionally, to become 0.5.
+setADSR__params__releaseTime = Number: (Optional) Time in seconds from now (defaults to 0)
+noteAttack__description__0 = Trigger the Attack, and Decay portion of a MonoSynth. Similar to holding down a key on a piano, but it will hold the sustain level until you let go.
+noteAttack__params__note = Number: (Optional) midi note on which attack should be triggered.
+noteAttack__params__velocity = Number: (Optional) velocity of the note to play (ranging from 0 to 1)/
+noteAttack__params__secondsFromNow = Number: (Optional) time from now (in seconds)
+noteRelease__description__0 = Trigger the Release of an AudioVoice note. This is similar to releasing the key on a piano and letting the sound fade according to the release level and release time.
+noteRelease__params__note = Number: (Optional) midi note on which attack should be triggered.  If no value is provided, all notes will be released.
+noteRelease__params__secondsFromNow = Number: (Optional) time to trigger the release
+connect__description__0 = Connect to a p5.sound / Web Audio object.
+connect__params__unit = Object: A p5.sound or Web Audio object
+disconnect__description__0 = Disconnect all outputs
+dispose__description__0 = Get rid of the MonoSynth and free up its resources / memory.
