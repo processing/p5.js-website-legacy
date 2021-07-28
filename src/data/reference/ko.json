@@ -5,7 +5,7 @@
   "reference-description3": "오프라인 버전 다운로드",
   "reference-contribute2": "여기로 알려주세요.",
   "reference-error1": "오타나 버그를 발견했다면",
-  "reference-error3": "p5.js에 기여하고 싶다면, ",
+  "reference-error3": "p5.js에 기여하고 싶다면,",
   "reference-error5": "에 풀 리퀘스트(pull request) 해주세요!",
   "reference-example": "예제",
   "reference-description": "설명",
@@ -75,8 +75,8 @@
     },
     "describe": {
       "description": [
-        "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed. ",
-        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed.",
+        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS.",
         "<code class=\"language-javascript\">describe(text, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users."
       ],
       "params": {
@@ -86,8 +86,8 @@
     },
     "describeElement": {
       "description": [
-        "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed. ",
-        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed.",
+        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS.",
         "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users."
       ],
       "params": {
@@ -98,7 +98,7 @@
     },
     "textOutput": {
       "description": [
-        "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\"). ",
+        "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\").",
         "<code class=\"language-javascript\">textOutput()</code> and <code class=\"language-javascript\">texOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">textOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
       ],
       "params": {
@@ -107,7 +107,7 @@
     },
     "gridOutput": {
       "description": [
-        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape. A brief description of the canvas is available before the table output. This description includes: color of the background, size of the canvas, number of objects, and object types (example: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). The grid describes the content spatially, each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: \"orange ellipse\"). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, and area are described (example: \"orange ellipse location=top left area=1%\") is also available. ",
+        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape. A brief description of the canvas is available before the table output. This description includes: color of the background, size of the canvas, number of objects, and object types (example: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). The grid describes the content spatially, each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: \"orange ellipse\"). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, and area are described (example: \"orange ellipse location=top left area=1%\") is also available.",
         "<code class=\"language-javascript\">gridOutput()</code> and <code class=\"language-javascript\">gridOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">gridOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
       ],
       "params": {
@@ -303,7 +303,7 @@
     },
     "erase": {
       "description": [
-        "<a href=\"#/p5/erase\">erase()</a> 함수의 영향을 받는 모든 드로잉을 캔버스로부터 지웁니다. 지워진 영역은 캔버스 이면의 웹 페이지 화면을 드러냅니다. 이러한 지우기 행위는 <a href=\"#/p5/noErase\">noErase()</a>로 취소할 수 있습니다. ",
+        "<a href=\"#/p5/erase\">erase()</a> 함수의 영향을 받는 모든 드로잉을 캔버스로부터 지웁니다. 지워진 영역은 캔버스 이면의 웹 페이지 화면을 드러냅니다. 이러한 지우기 행위는 <a href=\"#/p5/noErase\">noErase()</a>로 취소할 수 있습니다.",
         "<a href=\"#/p5/erase\">erase()</a> 함수와 <a href=\"#/p5/noErase\">noErase()</a> 함수 사이에서 <a href=\"#/p5/image\">image()</a>나 <a href=\"#/p5/background\">background()</a>로 그려진 드로잉은 캔버스에서 지워지지 않습니다."
       ],
       "params": {
@@ -636,14 +636,14 @@
         "beginShape()과 endShape()를 사용하여 좀 더 복잡한 모양을 만들 수 있습니다. beingShape()은 도형의 꼭지점을 기록하기 시작하고, endShape()은 그 기록을 중지합니다. 함수의 매개변수를 통해 꼭지점으로 어떤 도형을 그릴지 결정할 수 있습니다. 별도의 매개변수가 지정되지 않으면, 비정형의 다각형이 그려집니다. <br><br>beginShape()에 쓰이는 매개변수로는 POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, QUAD_STRIP, 그리고 TESS(WebGL 전용)가 있습니다. beginShape() 함수를 호출한 다음, 꼭지점 지정을 위해 vertex() 명령문을 반드시 작성해야 합니다. 도형그리기를 멈추려면 endShape() 함수를 호출하면 됩니다. 각 도형은 현재 지정된 선그리기(stroke) 및 면채우기(fill) 색상으로 그려집니다.",
         "",
         "",
-        "LINES Draw a series of unconnected line segments (individual lines) ",
-        "TRIANGLES Draw a series of separate triangles ",
-        "TRIANGLE_FAN Draw a series of connected triangles sharing the first vertex in a fan-like fashion ",
-        "TRIANGLE_STRIP Draw a series of connected triangles in strip fashion ",
-        "QUADS Draw a series of seperate quad ",
-        "QUAD_STRIP Draw quad strip using adjacent edges to form the next quad ",
-        "TESS (WebGl only) Handle irregular polygon for filling curve by explicit tessellation ",
-        "After calling the <a href=\"#/p5/beginShape\">beginShape()</a> function, a series of <a href=\"#/p5/vertex\">vertex()</a> commands must follow. To stop drawing the shape, call <a href=\"#/p5/endShape\">endShape()</a>. Each shape will be outlined with the current stroke color and filled with the fill color. ",
+        "LINES Draw a series of unconnected line segments (individual lines)",
+        "TRIANGLES Draw a series of separate triangles",
+        "TRIANGLE_FAN Draw a series of connected triangles sharing the first vertex in a fan-like fashion",
+        "TRIANGLE_STRIP Draw a series of connected triangles in strip fashion",
+        "QUADS Draw a series of seperate quad",
+        "QUAD_STRIP Draw quad strip using adjacent edges to form the next quad",
+        "TESS (WebGl only) Handle irregular polygon for filling curve by explicit tessellation",
+        "After calling the <a href=\"#/p5/beginShape\">beginShape()</a> function, a series of <a href=\"#/p5/vertex\">vertex()</a> commands must follow. To stop drawing the shape, call <a href=\"#/p5/endShape\">endShape()</a>. Each shape will be outlined with the current stroke color and filled with the fill color.",
         "Transformations such as <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, and <a href=\"#/p5/scale\">scale()</a> do not work within <a href=\"#/p5/beginShape\">beginShape()</a>. It is also not possible to use other shapes, such as <a href=\"#/p5/ellipse\">ellipse()</a> or <a href=\"#/p5/rect\">rect()</a> within <a href=\"#/p5/beginShape\">beginShape()</a>."
       ],
       "params": {
@@ -663,13 +663,13 @@
         "x4": "숫자: 고정점의 x좌표값",
         "y4": "숫자: 고정점의 y좌표값",
         "z2": "숫자: 1번째 제어점의 z좌표값 (WebGL 모드용)",
-        "z3": "숫자: 2번째 제어점의 z좌표값 (WebGL 모드용) ",
+        "z3": "숫자: 2번째 제어점의 z좌표값 (WebGL 모드용)",
         "z4": "숫자: 고정점의 z좌표값 (WebGL 모드용)"
       }
     },
     "curveVertex": {
       "description": [
-        "곡선의 꼭지점 좌표를 지정합니다. 이 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다. 또한, 이 함수는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 2개의 매개변수가, 3D 모드에서는 3개의 매개변수가 필요합니다.<br><br>curveVertex()로 그려진 일련의 선들 중 1번째 점과 마지막 점을 통해 각각 전체 곡선의 시작점과 끝점을 알 수 있습니다. 2번째와 3번째 사이에도 작은 곡선을 만들기 위해선 최소 4개의 점들이 필요합니다. curveVertex() 함수로 5번째 점을 추가하면 함수는 2번째, 3번째, 4번째 점들 사이에 곡선을 그립니다. curveVertex() 함수는 캣멀롬 스플라인(Catmull-Rom Spline)을 구현합니다. ",
+        "곡선의 꼭지점 좌표를 지정합니다. 이 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다. 또한, 이 함수는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 2개의 매개변수가, 3D 모드에서는 3개의 매개변수가 필요합니다.<br><br>curveVertex()로 그려진 일련의 선들 중 1번째 점과 마지막 점을 통해 각각 전체 곡선의 시작점과 끝점을 알 수 있습니다. 2번째와 3번째 사이에도 작은 곡선을 만들기 위해선 최소 4개의 점들이 필요합니다. curveVertex() 함수로 5번째 점을 추가하면 함수는 2번째, 3번째, 4번째 점들 사이에 곡선을 그립니다. curveVertex() 함수는 캣멀롬 스플라인(Catmull-Rom Spline)을 구현합니다.",
         ""
       ],
       "params": {
@@ -904,7 +904,7 @@
     },
     "deltaTime": {
       "description": [
-        "The system variable <a href=\"#/p5/deltaTime\">deltaTime</a> contains the time difference between the beginning of the previous frame and the beginning of the current frame in milliseconds. ",
+        "The system variable <a href=\"#/p5/deltaTime\">deltaTime</a> contains the time difference between the beginning of the previous frame and the beginning of the current frame in milliseconds.",
         "This variable is useful for creating time sensitive animation or physics calculation that should stay constant regardless of frame rate."
       ]
     },
@@ -1603,7 +1603,7 @@
     },
     "createVideo": {
       "description": [
-        "DOM에 간단한 오디오/비디오 재생을 위한 HTML5 <video> 요소를 생성합니다. 화면에 나타나기가 기본값이며, .hide()로 숨길 수 있습니다. video() 함수를 통해 캔버스에 그릴 수 있습니다. 1번째 매개변수는 비디오 파일에 대한 단일 문자열 경로이거나, 또는 동일한 비디오 파일이 여러 개의 형식을 갖는 경우, 문자열 경로들의 배열로 지정됩니다. 특히, 다양한 파일 형식을 지정하여 여러 종류의 브라우저에서 재생될 수 있도록 하는 데에 용이합니다. 지원되는 파일 형식에 대한 자세한 내용은 <a href = 'https://developer.mozilla.org/en-US/docs/Web/Media/Formats'>이 페이지</a>를 참고하세요. "
+        "DOM에 간단한 오디오/비디오 재생을 위한 HTML5 <video> 요소를 생성합니다. 화면에 나타나기가 기본값이며, .hide()로 숨길 수 있습니다. video() 함수를 통해 캔버스에 그릴 수 있습니다. 1번째 매개변수는 비디오 파일에 대한 단일 문자열 경로이거나, 또는 동일한 비디오 파일이 여러 개의 형식을 갖는 경우, 문자열 경로들의 배열로 지정됩니다. 특히, 다양한 파일 형식을 지정하여 여러 종류의 브라우저에서 재생될 수 있도록 하는 데에 용이합니다. 지원되는 파일 형식에 대한 자세한 내용은 <a href = 'https://developer.mozilla.org/en-US/docs/Web/Media/Formats'>이 페이지</a>를 참고하세요."
       ],
       "returns": "p5.MediaElement: 비디오 p5.Element에 대한 포인터",
       "params": {
@@ -1613,7 +1613,7 @@
     },
     "createAudio": {
       "description": [
-        "DOM에 간단한 오디오 재생을 위한 HTML5 <audio> 요소를 생성합니다. 1번째 매개변수는 오디오 파일에 대한 단일 문자열 경로이거나, 또는 동일한 오디오 파일이 여러 개의 형식을 갖는 경우, 문자열 경로들의 배열로 지정됩니다. 특히, 다양한 파일 형식을 지정하여 여러 종류의 브라우저에서 재생될 수 있도록 하는 데에 용이합니다. 지원되는 파일 형식에 대한 자세한 내용은 <a href = 'https://developer.mozilla.org/en-US/docs/Web/Media/Formats'>이 페이지</a>를 참고하세요. "
+        "DOM에 간단한 오디오 재생을 위한 HTML5 <audio> 요소를 생성합니다. 1번째 매개변수는 오디오 파일에 대한 단일 문자열 경로이거나, 또는 동일한 오디오 파일이 여러 개의 형식을 갖는 경우, 문자열 경로들의 배열로 지정됩니다. 특히, 다양한 파일 형식을 지정하여 여러 종류의 브라우저에서 재생될 수 있도록 하는 데에 용이합니다. 지원되는 파일 형식에 대한 자세한 내용은 <a href = 'https://developer.mozilla.org/en-US/docs/Web/Media/Formats'>이 페이지</a>를 참고하세요."
       ],
       "returns": "p5.MediaElement: 오디오 p5.Element에 대한 포인터",
       "params": {
@@ -1625,7 +1625,7 @@
     "AUDIO": {},
     "createCapture": {
       "description": [
-        "웹캠의 오디오/비디오 피드를 담는 <video> 요소를 생성합니다. 이 요소는 캔버스와는 별개로 작동합니다. '화면에 나타내기'가 기본값으로 주어지며, .hide()를 사용하여 화면으로부터 숨길 수 있습니다. image() 함수를 사용하여 피드를 캔버스에 그릴 수 있습니다. loadedmetadata 속성을 사용하여 요소가 완전히 로드된 시점을 감지할 수 있습니다. (2번째 예제 참고)<br><br> 피드의 구체적인 속성은 제약 조건(Constraints) 객체를 전달할 수 있습니다. 속성 및 제약 조건 객체와 관련해서는 <a href = 'https://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'>W3C 사양</a>을 참고하세요. 모든 브라우저가 이 기능을 지원하지 않는 점에 유의하세요.<br><br>보안 정보: 최신 브라우저 보안 사양은 createCapture() 이면의 getUserMedia() 메소드가 로컬 또는 HTTPS에서 코드 실행시에만 작동할 것을 요구합니다. 자세한 사항은 <a href = 'https://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https'>여기</a>와 <a href = 'https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia'>여기</a>서 확인하세요. ",
+        "웹캠의 오디오/비디오 피드를 담는 <video> 요소를 생성합니다. 이 요소는 캔버스와는 별개로 작동합니다. '화면에 나타내기'가 기본값으로 주어지며, .hide()를 사용하여 화면으로부터 숨길 수 있습니다. image() 함수를 사용하여 피드를 캔버스에 그릴 수 있습니다. loadedmetadata 속성을 사용하여 요소가 완전히 로드된 시점을 감지할 수 있습니다. (2번째 예제 참고)<br><br> 피드의 구체적인 속성은 제약 조건(Constraints) 객체를 전달할 수 있습니다. 속성 및 제약 조건 객체와 관련해서는 <a href = 'https://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'>W3C 사양</a>을 참고하세요. 모든 브라우저가 이 기능을 지원하지 않는 점에 유의하세요.<br><br>보안 정보: 최신 브라우저 보안 사양은 createCapture() 이면의 getUserMedia() 메소드가 로컬 또는 HTTPS에서 코드 실행시에만 작동할 것을 요구합니다. 자세한 사항은 <a href = 'https://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https'>여기</a>와 <a href = 'https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia'>여기</a>서 확인하세요.",
         "",
         ""
       ],
@@ -1976,7 +1976,7 @@
     },
     "saveCanvas": {
       "description": [
-        "현재 캔버스를 이미지로 저장합니다. 브라우저에 따라 파일을 즉시 저장하거나 사용자에게 대화 상자를 표시합니다. "
+        "현재 캔버스를 이미지로 저장합니다. 브라우저에 따라 파일을 즉시 저장하거나 사용자에게 대화 상자를 표시합니다."
       ],
       "params": {
         "selectedCanvas": "p5.Element|HTMLCanvasElement: 특정 HTML5 캔버스를 나타내는 변수 (선택 사항)",
@@ -2067,7 +2067,7 @@
     },
     "pixels": {
       "description": [
-        "디스플레이 화면의 모든 픽셀값을 담는 <a href ='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray'>Uint8ClampedArray</a>입니다. 픽셀값은 숫자로 표현됩니다. 배열은 디스플레이 화면의 4배 크기(픽셀 밀도에 대한 인수 포함)로, 각 픽셀에 대한 R, G, B, A값을 나타냅니다. 배열은 행의 좌에서 우로, 그 다음 열로 내려가는 순으로 채워집니다. Retina를 비롯한 기타 고밀도 디스플레이는 (pixelDensity^2 계수로 인해) 크기가 더 큰 픽셀 배열[]을 갖기도 합니다. 일반 디스플레이 화면상 이미지가 100x100 픽셀이고 그 배열이 40,000이라면, Retina에서 배열은 160,000이 됩니다. <br><br>배열상 처음 4개의 값들(즉, 인덱스 0-3)은 (0,0) 픽셀에서의 R, G, B, A값을, 그 다음 4개의 값들(즉, 인덱스 4-7)은 (1,0) 픽셀에서의 R, G, B, A값을 담습니다. 특정 좌표 (x,y)에서의 픽셀값을 설정하는 방법은 아래의 예제와 같습니다.<br><br>다소 복잡해보이는 예제지만, 모든 픽셀 밀도(pixelDensity)를 사용할 수 있을정도로 유연합니다. set()은 임의의 pixelDensity에서 주어진 (x,y)에 대한 픽셀 배열[]의 모든 값들을 자동으로 설정합니다. 배열을 여러 차례 수정할 경우, 성능이 느려질 수 있습니다.<br><br>이 레퍼런스는 표준 자바스크립트 배열이 아니고, 따라서 slice()나 arrayCopy()와 같은 표준 자바스크립트 함수가 작동하지 않는 점에 유의하세요.  ",
+        "디스플레이 화면의 모든 픽셀값을 담는 <a href ='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray'>Uint8ClampedArray</a>입니다. 픽셀값은 숫자로 표현됩니다. 배열은 디스플레이 화면의 4배 크기(픽셀 밀도에 대한 인수 포함)로, 각 픽셀에 대한 R, G, B, A값을 나타냅니다. 배열은 행의 좌에서 우로, 그 다음 열로 내려가는 순으로 채워집니다. Retina를 비롯한 기타 고밀도 디스플레이는 (pixelDensity^2 계수로 인해) 크기가 더 큰 픽셀 배열[]을 갖기도 합니다. 일반 디스플레이 화면상 이미지가 100x100 픽셀이고 그 배열이 40,000이라면, Retina에서 배열은 160,000이 됩니다. <br><br>배열상 처음 4개의 값들(즉, 인덱스 0-3)은 (0,0) 픽셀에서의 R, G, B, A값을, 그 다음 4개의 값들(즉, 인덱스 4-7)은 (1,0) 픽셀에서의 R, G, B, A값을 담습니다. 특정 좌표 (x,y)에서의 픽셀값을 설정하는 방법은 아래의 예제와 같습니다.<br><br>다소 복잡해보이는 예제지만, 모든 픽셀 밀도(pixelDensity)를 사용할 수 있을정도로 유연합니다. set()은 임의의 pixelDensity에서 주어진 (x,y)에 대한 픽셀 배열[]의 모든 값들을 자동으로 설정합니다. 배열을 여러 차례 수정할 경우, 성능이 느려질 수 있습니다.<br><br>이 레퍼런스는 표준 자바스크립트 배열이 아니고, 따라서 slice()나 arrayCopy()와 같은 표준 자바스크립트 함수가 작동하지 않는 점에 유의하세요.",
         "",
         "",
         "",
@@ -2148,7 +2148,7 @@
     },
     "set": {
       "description": [
-        "특정 픽셀의 색상을 변경하거나, 디스플레이 창에 이미지를 직접 작성합니다.<br><br>매개변수 x와 y는 변경할 픽셀을 지정하고, 매개변수 c는 색상값을 지정합니다. 색상값으로는 p5.Color 객체, [R,G,B,A] 베열, 또는 단일 그레이 스케일값을 사용할 수 있습니다. 이미지 설정시, 매개변수 x와 y는 현재 imageMode()와 관계없이 좌측 상단 모퉁이의 좌표값을 정의합니다.<br><br>set() 함수 사용 후에는 반드시 updatePixels()를 호출하여 변경 사항을 반영해야 합니다. 호출 시점은 픽셀 설정을 완료한 이후이면서 동시에, .get() 또는 그리기 함수 호출 이전이어야 합니다.<br><br>set(x,y) 함수로 픽셀 1개의 색상을 받아오는 것은 쉬운 방법이지만, pixels[] 배열로부터 직접 데이터를 받아오는 것만큼 빠르진 않습니다. 레티나 디스플레이에선 pixels[] 배열값을 직접 설정하는 것이 복잡할 수 있으나, 많은 양의 픽셀들이 반복 실행되도록 설정된 경우 그 작업 성능이 향상됩니다.<br><br>자세한 내용은 pixels[]를 참고하세요. ",
+        "특정 픽셀의 색상을 변경하거나, 디스플레이 창에 이미지를 직접 작성합니다.<br><br>매개변수 x와 y는 변경할 픽셀을 지정하고, 매개변수 c는 색상값을 지정합니다. 색상값으로는 p5.Color 객체, [R,G,B,A] 베열, 또는 단일 그레이 스케일값을 사용할 수 있습니다. 이미지 설정시, 매개변수 x와 y는 현재 imageMode()와 관계없이 좌측 상단 모퉁이의 좌표값을 정의합니다.<br><br>set() 함수 사용 후에는 반드시 updatePixels()를 호출하여 변경 사항을 반영해야 합니다. 호출 시점은 픽셀 설정을 완료한 이후이면서 동시에, .get() 또는 그리기 함수 호출 이전이어야 합니다.<br><br>set(x,y) 함수로 픽셀 1개의 색상을 받아오는 것은 쉬운 방법이지만, pixels[] 배열로부터 직접 데이터를 받아오는 것만큼 빠르진 않습니다. 레티나 디스플레이에선 pixels[] 배열값을 직접 설정하는 것이 복잡할 수 있으나, 많은 양의 픽셀들이 반복 실행되도록 설정된 경우 그 작업 성능이 향상됩니다.<br><br>자세한 내용은 pixels[]를 참고하세요.",
         "",
         ""
       ],
@@ -2293,7 +2293,7 @@
       ],
       "params": {
         "objectOrFilename": "객체|문자열: 지정된 파일명에 따라 캔버스를 png 또는 jpg 확장자 이미지로 저장합니다. 객체 지정시, 객체와 파일명에 따라 저장합니다. (위의 예제 참고) (선택 사항)",
-        "filename": "문자열: 객체를 1번째 매개변수로 지정할 경우, 2번째 매개변수는 파일명을 지시하게 되며, 이 경우 적절한 파일 확장자를 포함해야 합니다. (위의 예제 참고) (선택 사항) ",
+        "filename": "문자열: 객체를 1번째 매개변수로 지정할 경우, 2번째 매개변수는 파일명을 지시하게 되며, 이 경우 적절한 파일 확장자를 포함해야 합니다. (위의 예제 참고) (선택 사항)",
         "options": "불리언|문자열: 파일 유형에 따른 추가 옵션. 예를 들어 JSON을 저장할 경우, 참(true)은 결과물의 가독성이 아닌, 결과물 파일 크기의 최적화를 뜻합니다. (선택 사항)"
       }
     },
@@ -2458,7 +2458,7 @@
     },
     "norm": {
       "description": [
-        "특정 범위 내의 숫자를 0과 1 범위의 값으로 정규화합니다. 이는 map(value, low, high, 0, 1)과도 동일한 효과를 갖습니다. 숫자가 0과 1 범위를 벗어나더라도, 사용자의 의도와 활용 가능성을 감안하여 0과 1 사이의 값으로 재고정하지 않습니다. (위의 예제를 참고하세요.)   "
+        "특정 범위 내의 숫자를 0과 1 범위의 값으로 정규화합니다. 이는 map(value, low, high, 0, 1)과도 동일한 효과를 갖습니다. 숫자가 0과 1 범위를 벗어나더라도, 사용자의 의도와 활용 가능성을 감안하여 0과 1 사이의 값으로 재고정하지 않습니다. (위의 예제를 참고하세요.)"
       ],
       "returns": "숫자: 정규화된 숫자",
       "params": {
@@ -2469,7 +2469,7 @@
     },
     "pow": {
       "description": [
-        "pow() 함수는 지수 식을 효율적으로 사용하는 한 방법으로, 특정 숫자(또는 그 역수)를 반복하여 곱할 수 있습니다. 예를 들어, pow(3,5)는 3 x 3 x 3 x 3 x 3과 같고, pow(3,-5)는 1 / 3 x 3 x 3 x 3 x 3과 같습니다. Math.pow()에 매핑합니다. "
+        "pow() 함수는 지수 식을 효율적으로 사용하는 한 방법으로, 특정 숫자(또는 그 역수)를 반복하여 곱할 수 있습니다. 예를 들어, pow(3,5)는 3 x 3 x 3 x 3 x 3과 같고, pow(3,-5)는 1 / 3 x 3 x 3 x 3 x 3과 같습니다. Math.pow()에 매핑합니다."
       ],
       "returns": "숫자：n^e",
       "params": {
@@ -2518,7 +2518,7 @@
       "description": [
         "Creates a new <a href=\"#/p5.Vector\">p5.Vector</a> (the datatype for storing vectors). This provides a two or three dimensional vector, specifically a Euclidean (also known as geometric) vector. A vector is an entity that has both magnitude and direction."
       ],
-      "returns": "p5.Vector: ",
+      "returns": "p5.Vector:",
       "params": {
         "x": "Number: (Optional) x component of the vector",
         "y": "Number: (Optional) y component of the vector",
@@ -2555,7 +2555,7 @@
     },
     "randomSeed": {
       "description": [
-        "random() 함수의 시드(seed) 값을 설정합니다.<br>기본적으로, random()은 소프트웨어 프로그램이 실행될 때마다 매번 다른 결과를 생성합니다. 매 실행마다 동일한 유사-난수(random)를 반환하려면 매개변수 value를 상수로 설정하세요. ",
+        "random() 함수의 시드(seed) 값을 설정합니다.<br>기본적으로, random()은 소프트웨어 프로그램이 실행될 때마다 매번 다른 결과를 생성합니다. 매 실행마다 동일한 유사-난수(random)를 반환하려면 매개변수 value를 상수로 설정하세요.",
         ""
       ],
       "params": {
@@ -2737,9 +2737,9 @@
     },
     "textWrap": {
       "description": [
-        "Specifies how lines of text are wrapped within a text box. This requires a max-width set on the text area, specified in <a href=\"#/p5/text\">text()</a> as parameter <code>x2</code>. ",
-        "WORD wrap style only breaks lines at spaces. A single string without spaces that exceeds the boundaries of the canvas or text area is not truncated, and will overflow the desired area, disappearing at the canvas edge. ",
-        "CHAR wrap style breaks lines wherever needed to stay within the text box. ",
+        "Specifies how lines of text are wrapped within a text box. This requires a max-width set on the text area, specified in <a href=\"#/p5/text\">text()</a> as parameter <code>x2</code>.",
+        "WORD wrap style only breaks lines at spaces. A single string without spaces that exceeds the boundaries of the canvas or text area is not truncated, and will overflow the desired area, disappearing at the canvas edge.",
+        "CHAR wrap style breaks lines wherever needed to stay within the text box.",
         "WORD is the default wrap style, and both styles will still break lines at any line breaks (<code>\\n</code>) specified in the original text. The text area max-height parameter (<code>y2</code>) also still applies to wrapped text in both styles, lines of text that do not fit within the text area will not be drawn to the screen."
       ],
       "returns": "String: wrapStyle",
@@ -3341,7 +3341,7 @@
     },
     "noLights": {
       "description": [
-        "noLights() 함수 호출 이후에 렌더링된 재질(material)들로부터 모든 조명을 제거합니다. 모든 후속 메소드에 영향을 줍니다. noLights() 이후에 작성된 조명 메소드를 호출할 경우, 스케치상 조명이 다시 활성화됩니다. "
+        "noLights() 함수 호출 이후에 렌더링된 재질(material)들로부터 모든 조명을 제거합니다. 모든 후속 메소드에 영향을 줍니다. noLights() 이후에 작성된 조명 메소드를 호출할 경우, 스케치상 조명이 다시 활성화됩니다."
       ]
     },
     "loadModel": {
@@ -3398,7 +3398,7 @@
     },
     "resetShader": {
       "description": [
-        "이 함수는 WebGL 모드 기본 셰이더를 복원합니다. resetShader() 이후에 실행되는 코드는 그 이전에 정의된 셰이더의 영향을 받지 않습니다. 반드시 shader() 함수 이후에 실행되어야 합니다. "
+        "이 함수는 WebGL 모드 기본 셰이더를 복원합니다. resetShader() 이후에 실행되는 코드는 그 이전에 정의된 셰이더의 영향을 받지 않습니다. 반드시 shader() 함수 이후에 실행되어야 합니다."
       ]
     },
     "texture": {
@@ -3515,7 +3515,7 @@
     "ortho": {
       "description": [
         "3D 스케치의 카메라 직교 투영법을 설정하고, 객체에 대한 상자 모양의 절두체 구도를 정의합니다. 이 투영법은 동일한 차원상의 객체들을 카메라로부터 떨어져있는 거리와 상관없이 모두 동일한 크기로 나타냅니다. 이 함수의 매개변수는 좌우가 최소 및 최대 x값이고, 상하가 최소 및 최대 y값이며, 원근이 최소 및 최대 z값인 절두체 구도를 지정합니다. 별도의 매개변수를 지정하지 않는 경우, 기본값은 ortho(-width/2, width/2, -height/2, height/2)입니다.",
-        "The parameters to this function specify the viewing frustum where left and right are the minimum and maximum x values, top and bottom are the minimum and maximum y values, and near and far are the minimum and maximum z values. ",
+        "The parameters to this function specify the viewing frustum where left and right are the minimum and maximum x values, top and bottom are the minimum and maximum y values, and near and far are the minimum and maximum z values.",
         "If no parameters are given, the following default is used: ortho(-width/2, width/2, -height/2, height/2)."
       ],
       "params": {
@@ -3529,8 +3529,8 @@
     },
     "frustum": {
       "description": [
-        "Sets a perspective matrix as defined by the parameters. ",
-        "A frustum is a geometric form: a pyramid with its top cut off. With the viewer's eye at the imaginary top of the pyramid, the six planes of the frustum act as clipping planes when rendering a 3D view. Thus, any form inside the clipping planes is visible; anything outside those planes is not visible. ",
+        "Sets a perspective matrix as defined by the parameters.",
+        "A frustum is a geometric form: a pyramid with its top cut off. With the viewer's eye at the imaginary top of the pyramid, the six planes of the frustum act as clipping planes when rendering a 3D view. Thus, any form inside the clipping planes is visible; anything outside those planes is not visible.",
         "Setting the frustum changes the perspective of the scene being rendered. This can be achieved more simply in many cases by using <a href=\"https://p5js.org/reference/#/p5/perspective\">perspective()</a>.",
         "If no parameters are given, the following default is used: frustum(-width/2, width/2, -height/2, height/2, 0, max(width, height))."
       ],
@@ -3546,7 +3546,7 @@
     "createCamera": {
       "description": [
         "새로운 p5.Camera 객체를 생성하고 렌더러에게 해당 카메라를 사용하도록 지시합니다. p5.Camera 객체를 반환합니다.",
-        "The new camera is initialized with a default position (see <a href=\"#/p5.Camera/camera\">camera()</a>) and a default perspective projection (see <a href=\"#/p5.Camera/perspective\">perspective()</a>). Its properties can be controlled with the <a href=\"#/p5.Camera\">p5.Camera</a> methods. ",
+        "The new camera is initialized with a default position (see <a href=\"#/p5.Camera/camera\">camera()</a>) and a default perspective projection (see <a href=\"#/p5.Camera/perspective\">perspective()</a>). Its properties can be controlled with the <a href=\"#/p5.Camera\">p5.Camera</a> methods.",
         "Note: Every 3D sketch starts with a default camera initialized. This camera can be controlled with the global methods <a href=\"#/p5/camera\">camera()</a>, <a href=\"#/p5/perspective\">perspective()</a>, <a href=\"#/p5/ortho\">ortho()</a>, and <a href=\"#/p5/frustum\">frustum()</a> if it is the only camera in the scene."
       ],
       "returns": "p5.Camera: 새로 생성된 카메라 객체"
@@ -3580,15 +3580,15 @@
     },
     "getAudioContext": {
       "description": [
-        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.  ",
+        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.",
         "Some browsers require users to startAudioContext with a user gesture, such as touchStarted in the example below."
       ],
       "returns": "Object: AudioContext for this sketch"
     },
     "userStartAudio": {
       "description": [
-        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state.  ",
-        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>.  ",
+        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state.",
+        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>.",
         "<code>userStartAudio()</code> starts the AudioContext on a user gesture. The default behavior will enable audio on any mouseUp or touchEnd event. It can also be placed in a specific interaction function, such as <code>mousePressed()</code> as in the example below. This method utilizes <a href=\"https://github.com/tambien/StartAudioContext\">StartAudioContext </a>, a library by Yotam Mann (MIT Licence, 2016)."
       ],
       "returns": "Promise: Returns a Promise that resolves when  the AudioContext state is 'running'",
@@ -3605,9 +3605,9 @@
     },
     "outputVolume": {
       "description": [
-        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.  ",
-        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal. ",
-        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.  ",
+        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.",
+        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal.",
+        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.",
         "If no value is provided, returns a Web Audio API Gain Node"
       ],
       "params": {
@@ -3678,7 +3678,7 @@
       "description": [
         "Create a p5.Convolver. Accepts a path to a soundfile that will be used to generate an impulse response."
       ],
-      "returns": "p5.Convolver: ",
+      "returns": "p5.Convolver:",
       "params": {
         "path": "String: path to a sound file",
         "callback": "Function: (Optional) function to call if loading is successful.  The object will be passed in as the argument  to the callback function.",
@@ -3697,8 +3697,8 @@
   },
   "p5.Color": {
     "description": [
-      "Each color stores the color mode and level maxes that was applied at the time of its construction. These are used to interpret the input arguments (at construction and later for that instance of color) and to format the output e.g. when <a href=\"#/p5/saturation\">saturation()</a> is requested. ",
-      "Internally, we store an array representing the ideal RGBA values in floating point form, normalized from 0 to 1. From this we calculate the closest screen color (RGBA levels from 0 to 255) and expose this to the renderer. ",
+      "Each color stores the color mode and level maxes that was applied at the time of its construction. These are used to interpret the input arguments (at construction and later for that instance of color) and to format the output e.g. when <a href=\"#/p5/saturation\">saturation()</a> is requested.",
+      "Internally, we store an array representing the ideal RGBA values in floating point form, normalized from 0 to 1. From this we calculate the closest screen color (RGBA levels from 0 to 255) and expose this to the renderer.",
       "We also cache normalized, floating point components of the color in various representations as they are calculated. This is done to prevent repeating a conversion that has already been performed."
     ],
     "setRed": {
@@ -3783,7 +3783,7 @@
       "description": [
         ".doubleClicked() 함수는 요소 위에서 마우스 버튼을 빠르게 두 번 클릭할 때마다 한 번씩 호출됩니다. 요소에 행동 특정적 이벤트 리스너를 연결하는 데에 사용됩니다."
       ],
-      "returns": "p5.Element: ",
+      "returns": "p5.Element:",
       "params": {
         "fxn": "Function|Boolean: function to be fired when mouse is  double clicked over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
       }
@@ -3913,7 +3913,7 @@
     },
     "child": {
       "description": [
-        "지정된 부모 클래스에 요소를 자식으로서 연결합니다. 문자열 ID, DOM 노드, 또는 p5.Element를 허용합니다. 별도의 인수가 지정되지 않을 경우, 자식 DOM 노드 배열이 반환됩니다. "
+        "지정된 부모 클래스에 요소를 자식으로서 연결합니다. 문자열 ID, DOM 노드, 또는 p5.Element를 허용합니다. 별도의 인수가 지정되지 않을 경우, 자식 DOM 노드 배열이 반환됩니다."
       ],
       "returns": "Node[]: an array of child nodes",
       "params": {
@@ -3961,7 +3961,7 @@
     },
     "attribute": {
       "description": [
-        "사용자가 지정한 요소에 새 속성을 추가하거나, 요소의 기존 속성값을 변경합니다. 별도로 지정한 값이 없는 경우 주어진 속성의 값을 반환하고, 속성이 설정되지 않은 경우 null을 반환합니다. "
+        "사용자가 지정한 요소에 새 속성을 추가하거나, 요소의 기존 속성값을 변경합니다. 별도로 지정한 값이 없는 경우 주어진 속성의 값을 반환하고, 속성이 설정되지 않은 경우 null을 반환합니다."
       ],
       "returns": "String: value of attribute",
       "params": {
@@ -4066,8 +4066,8 @@
   "console": {
     "log": {
       "description": [
-        "Prints a message to your browser's web console. When using p5, you can use <a href=\"#/p5/print\">print</a> and <a href=\"#/p5/console/log\">console.log</a> interchangeably. ",
-        "The console is opened differently depending on which browser you are using. Here are links on how to open the console in <a href=\"https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console\">Firefox</a> , <a href=\"https://developers.google.com/web/tools/chrome-devtools/open\">Chrome</a>, <a href=\"https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console\">Edge</a>, and <a href=\"https://support.apple.com/en-ca/guide/safari/sfri20948/mac\">Safari</a>. With the <a href=\"https://editor.p5js.org/\">online p5 editor</a> the console is embedded directly in the page underneath the code editor. ",
+        "Prints a message to your browser's web console. When using p5, you can use <a href=\"#/p5/print\">print</a> and <a href=\"#/p5/console/log\">console.log</a> interchangeably.",
+        "The console is opened differently depending on which browser you are using. Here are links on how to open the console in <a href=\"https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console\">Firefox</a> , <a href=\"https://developers.google.com/web/tools/chrome-devtools/open\">Chrome</a>, <a href=\"https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console\">Edge</a>, and <a href=\"https://support.apple.com/en-ca/guide/safari/sfri20948/mac\">Safari</a>. With the <a href=\"https://editor.p5js.org/\">online p5 editor</a> the console is embedded directly in the page underneath the code editor.",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Console/log\">the MDN entry</a>: The Console method log() outputs a message to the web console. The message may be a single <a href=\"#/p5/string\">string</a> (with optional substitution values), or it may be any one or more JavaScript <a href=\"#/p5/object\">objects</a>."
       ],
       "params": {
@@ -4200,25 +4200,25 @@
       "description": [
         "사전 안에 현재 저장된 값들 중 가장 낮은 숫자를 반환합니다."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "maxValue": {
       "description": [
         "사전 안에 현재 저장된 값들 중 가장 높은 숫자를 반환합니다."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "minKey": {
       "description": [
         "사전에서 사용된 키들 중 가장 낮은 키를 반환합니다."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "maxKey": {
       "description": [
         "사전에서 사용된 키들 중 가장 높은 키를 반환합니다."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     }
   },
   "p5.MediaElement": {
@@ -4402,9 +4402,9 @@
   },
   "p5.Image": {
     "description": [
-      "Creates a new <a href=\"#/p5.Image\">p5.Image</a>. A <a href=\"#/p5.Image\">p5.Image</a> is a canvas backed representation of an image. ",
-      "p5 can display .gif, .jpg and .png images. Images may be displayed in 2D and 3D space. Before an image is used, it must be loaded with the <a href=\"#/p5/loadImage\">loadImage()</a> function. The <a href=\"#/p5.Image\">p5.Image</a> class contains fields for the width and height of the image, as well as an array called <a href=\"#/p5.Image/pixels\">pixels[]</a> that contains the values for every pixel in the image. ",
-      "The methods described below allow easy access to the image's pixels and alpha channel and simplify the process of compositing. ",
+      "Creates a new <a href=\"#/p5.Image\">p5.Image</a>. A <a href=\"#/p5.Image\">p5.Image</a> is a canvas backed representation of an image.",
+      "p5 can display .gif, .jpg and .png images. Images may be displayed in 2D and 3D space. Before an image is used, it must be loaded with the <a href=\"#/p5/loadImage\">loadImage()</a> function. The <a href=\"#/p5.Image\">p5.Image</a> class contains fields for the width and height of the image, as well as an array called <a href=\"#/p5.Image/pixels\">pixels[]</a> that contains the values for every pixel in the image.",
+      "The methods described below allow easy access to the image's pixels and alpha channel and simplify the process of compositing.",
       "Before using the <a href=\"#/p5.Image/pixels\">pixels[]</a> array, be sure to use the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> method on the image to make sure that the pixel data is properly loaded."
     ],
     "params": {
@@ -4423,7 +4423,7 @@
     },
     "pixels": {
       "description": [
-        "Array containing the values for all the pixels in the display window. These values are numbers. This array is the size (include an appropriate factor for pixelDensity) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. Retina and other high density displays may have more pixels (by a factor of pixelDensity^2). For example, if the image is 100x100 pixels, there will be 40,000. With pixelDensity = 2, there will be 160,000. The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class=\"language-javascript\">let d = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  } }</code></pre> ",
+        "Array containing the values for all the pixels in the display window. These values are numbers. This array is the size (include an appropriate factor for pixelDensity) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. Retina and other high density displays may have more pixels (by a factor of pixelDensity^2). For example, if the image is 100x100 pixels, there will be 40,000. With pixelDensity = 2, there will be 160,000. The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class=\"language-javascript\">let d = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  } }</code></pre>",
         "Before accessing this array, the data must loaded with the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> function. After the array data has been modified, the <a href=\"#/p5.Image/updatePixels\">updatePixels()</a> function must be run to update the changes."
       ]
     },
@@ -4434,7 +4434,7 @@
     },
     "updatePixels": {
       "description": [
-        "Updates the backing canvas for this image with the contents of the [pixels] array. ",
+        "Updates the backing canvas for this image with the contents of the [pixels] array.",
         "If this image is an animated GIF then the pixels will be updated in the frame that is currently displayed."
       ],
       "params": {
@@ -4446,7 +4446,7 @@
     },
     "get": {
       "description": [
-        "Get a region of pixels from an image. ",
+        "Get a region of pixels from an image.",
         "If no params are passed, the whole image is returned. If x and y are the only params passed a single pixel is extracted. If all params are passed a rectangle region is extracted and a <a href=\"#/p5.Image\">p5.Image</a> is returned."
       ],
       "returns": "p5.Image: the rectangle <a href=\"#/p5.Image\">p5.Image</a>",
@@ -4459,7 +4459,7 @@
     },
     "set": {
       "description": [
-        "Set the color of a single pixel or write an image into this <a href=\"#/p5.Image\">p5.Image</a>. ",
+        "Set the color of a single pixel or write an image into this <a href=\"#/p5.Image\">p5.Image</a>.",
         "Note that for a large number of pixels this will be slower than directly manipulating the pixels array and then calling <a href=\"#/p5.Image/updatePixels\">updatePixels()</a>."
       ],
       "params": {
@@ -4504,14 +4504,14 @@
     "filter": {
       "description": [
         "Applies an image filter to a <a href=\"#/p5.Image\">p5.Image</a>",
-        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used. ",
-        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used. ",
-        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used. ",
-        "INVERT Sets each pixel to its inverse value. No parameter is used. ",
-        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges. ",
-        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur. ",
-        "ERODE Reduces the light areas. No parameter is used. ",
-        "DILATE Increases the light areas. No parameter is used. ",
+        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used.",
+        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used.",
+        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used.",
+        "INVERT Sets each pixel to its inverse value. No parameter is used.",
+        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges.",
+        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur.",
+        "ERODE Reduces the light areas. No parameter is used.",
+        "DILATE Increases the light areas. No parameter is used.",
         "filter() does not work in WEBGL mode. A similar effect can be achieved in WEBGL mode using custom shaders. Adam Ferriss has written a <a href=\"https://github.com/aferriss/p5jsShaderExamples\" target='_blank'>selection of shader examples</a> that contains many of the effects present in the filter examples."
       ],
       "params": {
@@ -4568,7 +4568,7 @@
       "description": [
         "Returns the number of frames in an animated GIF"
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "play": {
       "description": [
@@ -4676,7 +4676,7 @@
       "description": [
         "지정된 값을 포함하는 테이블 행 중 1번째 행을 검색하고, 해당 행의 레퍼런스를 반환합니다. 여러 개의 행들이 지정된 값을 포함하더라도, 오직 1번째 행만 반환됩니다. ID 또는 제목(title) 설정을 통해 검색할 열도 지정가능합니다."
       ],
-      "returns": "p5.TableRow: ",
+      "returns": "p5.TableRow:",
       "params": {
         "value": "String: The value to match",
         "column": "Integer|String: ID number or title of the  column to search"
@@ -4806,7 +4806,7 @@
       "description": [
         "테이블 중 지정된 행과 열에 값을 받아옵니다. 행은 ID로, 열은 ID 또는 제목으로 지정가능합니다."
       ],
-      "returns": "String|Number: ",
+      "returns": "String|Number:",
       "params": {
         "row": "Integer: row ID",
         "column": "String|Integer: columnName (string) or  ID (number)"
@@ -4816,7 +4816,7 @@
       "description": [
         "이블 중 지정된 행과 열에 실수(float)값을 받아옵니다. 행은 ID로, 열은 ID 또는 제목으로 지정가능합니다."
       ],
-      "returns": "Number: ",
+      "returns": "Number:",
       "params": {
         "row": "Integer: row ID",
         "column": "String|Integer: columnName (string) or  ID (number)"
@@ -4826,7 +4826,7 @@
       "description": [
         "테이블 중 지정된 행과 열에 문자열 값을 받아옵니다. 행은 ID로,ø 열은 ID 또는 제목으로 지정가능합니다."
       ],
-      "returns": "String: ",
+      "returns": "String:",
       "params": {
         "row": "Integer: row ID",
         "column": "String|Integer: columnName (string) or  ID (number)"
@@ -4836,7 +4836,7 @@
       "description": [
         "모든 테이블 데이터를 받아와 객체로 반환합니다. 열 이름이 전달될 경우, 각 행 객체는 해당 속성을 제목으로 저장합니다."
       ],
-      "returns": "Object: ",
+      "returns": "Object:",
       "params": {
         "headerColumn": "String: (Optional) Name of the column which should be used to  title each row object (optional)"
       }
@@ -4845,7 +4845,7 @@
       "description": [
         "모든 테이블 데이터를 받아와 다차원 배열로 반환합니다."
       ],
-      "returns": "Array: "
+      "returns": "Array:"
     }
   },
   "p5.TableRow": {
@@ -4886,9 +4886,9 @@
     },
     "get": {
       "description": [
-        "TableRow의 지정된 열로부터 값을 받습니다. 열은 ID 또는 제목으로 지정가능합니다. "
+        "TableRow의 지정된 열로부터 값을 받습니다. 열은 ID 또는 제목으로 지정가능합니다."
       ],
-      "returns": "String|Number: ",
+      "returns": "String|Number:",
       "params": {
         "column": "String|Integer: columnName (string) or  ID (number)"
       }
@@ -4940,7 +4940,7 @@
       "description": [
         "요소의 자식 유무 여부를 확인하고, 그 결과를 불리언으로 반환합니다."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "listChildren": {
       "description": [
@@ -4961,14 +4961,14 @@
       "description": [
         "이름 매개변수 또는 지정된 인덱스의 자식과 일치하는 요소의 1번째 자식을 반환합니다. 일치하는 자식을 찾지 못하는 경우, 'undefined'를 반환합니다."
       ],
-      "returns": "p5.XML: ",
+      "returns": "p5.XML:",
       "params": {
         "name": "String|Integer: element name or index"
       }
     },
     "addChild": {
       "description": [
-        "요소에 새로운 자식을 추가합니다. 자식은 문자열로 지정될 수 있으며, 이는 새로운 태그명 또는 기존 p5.XML 객체에 대한 레퍼런스로서 사용할 수 있습니다. 새로 추가된 자식에 대한 레퍼런스는 p5.XML 객체로 반환됩니다. "
+        "요소에 새로운 자식을 추가합니다. 자식은 문자열로 지정될 수 있으며, 이는 새로운 태그명 또는 기존 p5.XML 객체에 대한 레퍼런스로서 사용할 수 있습니다. 새로 추가된 자식에 대한 레퍼런스는 p5.XML 객체로 반환됩니다."
       ],
       "params": {
         "node": "p5.XML: a <a href=\"#/p5.XML\">p5.XML</a> Object which will be the child to be added"
@@ -4986,7 +4986,7 @@
       "description": [
         "지정된 요소의 속성 개수를 숫자로 반환합니다."
       ],
-      "returns": "Integer: "
+      "returns": "Integer:"
     },
     "listAttributes": {
       "description": [
@@ -5007,7 +5007,7 @@
       "description": [
         "요소의 속성값을 숫자로 반환합니다. 매개변수 defaultValue가 지정되고 속성이 존재하지 않으면 defaultValue를 반환합니다. 매개변수 defaultValue가 지정되지 않고 속성이 존재하지 않으면 값 0을 반환합니다."
       ],
-      "returns": "Number: ",
+      "returns": "Number:",
       "params": {
         "name": "String: the non-null full name of the attribute",
         "defaultValue": "Number: (Optional) the default value of the attribute"
@@ -5017,7 +5017,7 @@
       "description": [
         "요소의 속성값을 문자열로 반환합니다. 매개변수 defaultValue가 지정되고 속성이 존재하지 않으면 'defaultValue'를 반환합니다. 매개변수 defaultValue가 지정되지 않고 속성이 존재하지 않으면 null을 반환합니다."
       ],
-      "returns": "String: ",
+      "returns": "String:",
       "params": {
         "name": "String: the non-null full name of the attribute",
         "defaultValue": "Number: (Optional) the default value of the attribute"
@@ -5036,7 +5036,7 @@
       "description": [
         "요소의 내용을 반환합니다. 매개변수 defaultValue가 지정되고 내용이 존재하지 않으면 'defaultValue'를 반환합니다. 매개변수 defaultValue가 지정되지 않고 내용이 존재하지 않으면 null을 반환합니다."
       ],
-      "returns": "String: ",
+      "returns": "String:",
       "params": {
         "defaultValue": "String: (Optional) value returned if no content is found"
       }
@@ -5575,9 +5575,9 @@
   "p5.sound": {},
   "p5.SoundFile": {
     "description": [
-      "SoundFile object with a path to a file.  ",
-      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
-      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
+      "SoundFile object with a path to a file.",
+      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.",
+      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.",
       "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatibility, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
     ],
     "params": {
@@ -5590,7 +5590,7 @@
       "description": [
         "Returns true if the sound file finished loading successfully."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "play": {
       "description": [
@@ -5614,7 +5614,7 @@
     },
     "pause": {
       "description": [
-        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen. ",
+        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen.",
         "After pausing, .play() will resume from the paused position. If p5.SoundFile had been set to loop before it was paused, it will continue to loop after it is unpaused with .play()."
       ],
       "params": {
@@ -5645,19 +5645,19 @@
       "description": [
         "Returns 'true' if a p5.SoundFile is currently looping and playing, 'false' if not."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "isPlaying": {
       "description": [
         "Returns true if a p5.SoundFile is playing, false if not (i.e. paused or stopped)."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "isPaused": {
       "description": [
         "Returns true if a p5.SoundFile is paused, false if not (i.e. playing or stopped)."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "stop": {
       "description": [
@@ -5692,7 +5692,7 @@
     },
     "setVolume": {
       "description": [
-        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class. ",
+        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.",
         "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal."
       ],
       "params": {
@@ -5742,7 +5742,7 @@
     },
     "getPeaks": {
       "description": [
-        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations. ",
+        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations.",
         "Inspired by Wavesurfer.js."
       ],
       "returns": "Float32Array: Array of peaks.",
@@ -5795,8 +5795,8 @@
     },
     "addCue": {
       "description": [
-        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point. ",
-        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback. ",
+        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point.",
+        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback.",
         "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
       ],
       "returns": "Number: id ID of this cue,  useful for removeCue(id)",
@@ -5878,8 +5878,8 @@
   },
   "p5.FFT": {
     "description": [
-      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.  ",
-      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies. ",
+      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.",
+      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies.",
       "FFT analyzes a very short snapshot of sound called a sample buffer. It returns an array of amplitude measurements, referred to as <code>bins</code>. The array is 1024 bins long by default. You can change the bin array length, but it must be a power of 2 between 16 and 1024 in order for the FFT algorithm to function correctly. The actual size of the FFT buffer is twice the number of bins, so given a standard sample rate, the buffer is 2048/44100 seconds long."
     ],
     "params": {
@@ -5969,8 +5969,8 @@
   },
   "p5.Oscillator": {
     "description": [
-      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).  ",
-      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>. "
+      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).",
+      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>."
     ],
     "params": {
       "freq": "Number: (Optional) frequency defaults to 440Hz",
@@ -5978,7 +5978,7 @@
     },
     "start": {
       "description": [
-        "Start an oscillator. ",
+        "Start an oscillator.",
         "Starting an oscillator on a user gesture will enable audio in browsers that have a strict autoplay policy, including Chrome and most mobile devices. See also: <code>userStartAudio()</code>."
       ],
       "params": {
@@ -6143,8 +6143,8 @@
   },
   "p5.Envelope": {
     "description": [
-      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>. ",
-      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime. ",
+      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>.",
+      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime.",
       "Use the <code><a href=\"#/p5.Envelope/play\">play</a></code> method to play the entire envelope, the <code><a href=\"#/p5.Envelope/ramp\">ramp</a></code> method for a pingable trigger, or <code><a href=\"#/p5.Envelope/triggerAttack\">triggerAttack</a></code>/ <code><a href=\"#/p5.Envelope/triggerRelease\">triggerRelease</a></code> to trigger noteOn/noteOff."
     ],
     "attackTime": {
@@ -6331,9 +6331,9 @@
   },
   "p5.AudioIn": {
     "description": [
-      "Get audio from an input, i.e. your computer's microphone.  ",
-      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.  ",
-      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.  ",
+      "Get audio from an input, i.e. your computer's microphone.",
+      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.",
+      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.",
       "<em>Note: This uses the <a href=\"http://caniuse.com/stream\">getUserMedia/ Stream</a> API, which is not supported by certain browsers. Access in Chrome browser is limited to localhost and https, but access over http may be limited.</em>"
     ],
     "params": {
@@ -6356,7 +6356,7 @@
     },
     "start": {
       "description": [
-        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/> ",
+        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/>",
         "Certain browsers limit access to the user's microphone. For example, Chrome only allows access from localhost and over https. For this reason, you may want to include an errorCallback—a function that is called in case the browser won't provide mic access."
       ],
       "params": {
@@ -6402,7 +6402,7 @@
     },
     "getSources": {
       "description": [
-        "Returns a list of available input sources. This is a wrapper for <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href=  \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> "
+        "Returns a list of available input sources. This is a wrapper for <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href=  \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote>"
       ],
       "returns": "Promise: Returns a Promise that can be used in place of the callbacks, similar  to the enumerateDevices() method",
       "params": {
@@ -6412,7 +6412,7 @@
     },
     "setSource": {
       "description": [
-        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href= \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> "
+        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href= \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote>"
       ],
       "params": {
         "num": "Number: position of input source in the array"
@@ -6421,7 +6421,7 @@
   },
   "p5.Effect": {
     "description": [
-      "Effect is a base class for audio effects in p5. This module handles the nodes and methods that are common and useful for current and future effects. ",
+      "Effect is a base class for audio effects in p5. This module handles the nodes and methods that are common and useful for current and future effects.",
       "This class is extended by <a href=\"/reference/#/p5.Distortion\">p5.Distortion</a>, <a href=\"/reference/#/p5.Compressor\">p5.Compressor</a>, <a href=\"/reference/#/p5.Delay\">p5.Delay</a>, <a href=\"/reference/#/p5.Filter\">p5.Filter</a>, <a href=\"/reference/#/p5.Reverb\">p5.Reverb</a>."
     ],
     "params": {
@@ -6473,8 +6473,8 @@
   },
   "p5.Filter": {
     "description": [
-      "A p5.Filter uses a Web Audio Biquad Filter to filter the frequency response of an input source. Subclasses include: <a href=\"/reference/#/p5.LowPass\"><code>p5.LowPass</code></a>: Allows frequencies below the cutoff frequency to pass through, and attenuates frequencies above the cutoff.<br/> <a href=\"/reference/#/p5.HighPass\"><code>p5.HighPass</code></a>: The opposite of a lowpass filter. <br/> <a href=\"/reference/#/p5.BandPass\"><code>p5.BandPass</code></a>: Allows a range of frequencies to pass through and attenuates the frequencies below and above this frequency range.<br/>  ",
-      "The <code>.res()</code> method controls either width of the bandpass, or resonance of the low/highpass cutoff frequency. ",
+      "A p5.Filter uses a Web Audio Biquad Filter to filter the frequency response of an input source. Subclasses include: <a href=\"/reference/#/p5.LowPass\"><code>p5.LowPass</code></a>: Allows frequencies below the cutoff frequency to pass through, and attenuates frequencies above the cutoff.<br/> <a href=\"/reference/#/p5.HighPass\"><code>p5.HighPass</code></a>: The opposite of a lowpass filter. <br/> <a href=\"/reference/#/p5.BandPass\"><code>p5.BandPass</code></a>: Allows a range of frequencies to pass through and attenuates the frequencies below and above this frequency range.<br/>",
+      "The <code>.res()</code> method controls either width of the bandpass, or resonance of the low/highpass cutoff frequency.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "params": {
@@ -6566,7 +6566,7 @@
   },
   "p5.EQ": {
     "description": [
-      "p5.EQ is an audio effect that performs the function of a multiband audio equalizer. Equalization is used to adjust the balance of frequency compoenents of an audio signal. This process is commonly used in sound production and recording to change the waveform before it reaches a sound output device. EQ can also be used as an audio effect to create interesting distortions by filtering out parts of the spectrum. p5.EQ is built using a chain of Web Audio Biquad Filter Nodes and can be instantiated with 3 or 8 bands. Bands can be added or removed from the EQ by directly modifying p5.EQ.bands (the array that stores filters). ",
+      "p5.EQ is an audio effect that performs the function of a multiband audio equalizer. Equalization is used to adjust the balance of frequency compoenents of an audio signal. This process is commonly used in sound production and recording to change the waveform before it reaches a sound output device. EQ can also be used as an audio effect to create interesting distortions by filtering out parts of the spectrum. p5.EQ is built using a chain of Web Audio Biquad Filter Nodes and can be instantiated with 3 or 8 bands. Bands can be added or removed from the EQ by directly modifying p5.EQ.bands (the array that stores filters).",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "returns": "Object: p5.EQ object",
@@ -6589,13 +6589,13 @@
   },
   "p5.Panner3D": {
     "description": [
-      "Panner3D is based on the <a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a>. This panner is a spatial processing node that allows audio to be positioned and oriented in 3D space. ",
+      "Panner3D is based on the <a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a>. This panner is a spatial processing node that allows audio to be positioned and oriented in 3D space.",
       "The position is relative to an <a title=\"Web Audio Listener docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/AudioListener\"> Audio Context Listener</a>, which can be accessed by <code>p5.soundOut.audiocontext.listener</code>"
     ],
     "panner": {
       "description": [
-        "<a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a> ",
-        "Properties include <ul> <li><a title=\"w3 spec for Panning Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"</a><blockquote> "
+        "<a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a>",
+        "Properties include <ul> <li><a title=\"w3 spec for Panning Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"</a><blockquote>"
       ]
     },
     "process": {
@@ -6696,7 +6696,7 @@
   },
   "p5.Delay": {
     "description": [
-      "Delay is an echo effect. It processes an existing sound source, and outputs a delayed version of that sound. The p5.Delay can produce different effects depending on the delayTime, feedback, filter, and type. In the example below, a feedback of 0.5 (the default value) will produce a looping delay that decreases in volume by 50% each repeat. A filter will cut out the high frequencies so that the delay does not sound as piercing as the original source. ",
+      "Delay is an echo effect. It processes an existing sound source, and outputs a delayed version of that sound. The p5.Delay can produce different effects depending on the delayTime, feedback, filter, and type. In the example below, a feedback of 0.5 (the default value) will produce a looping delay that decreases in volume by 50% each repeat. A filter will cut out the high frequencies so that the delay does not sound as piercing as the original source.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "leftDelay": {
@@ -6780,7 +6780,7 @@
   },
   "p5.Reverb": {
     "description": [
-      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has parameters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution. ",
+      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has parameters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "process": {
@@ -6830,8 +6830,8 @@
   },
   "p5.Convolver": {
     "description": [
-      "p5.Convolver extends p5.Reverb. It can emulate the sound of real physical spaces through a process called <a href=\" https://en.wikipedia.org/wiki/Convolution_reverb#Real_space_simulation\"> convolution</a>.  ",
-      "Convolution multiplies any audio input by an \"impulse response\" to simulate the dispersion of sound over time. The impulse response is generated from an audio file that you provide. One way to generate an impulse response is to pop a balloon in a reverberant space and record the echo. Convolution can also be used to experiment with sound.  ",
+      "p5.Convolver extends p5.Reverb. It can emulate the sound of real physical spaces through a process called <a href=\" https://en.wikipedia.org/wiki/Convolution_reverb#Real_space_simulation\"> convolution</a>.",
+      "Convolution multiplies any audio input by an \"impulse response\" to simulate the dispersion of sound over time. The impulse response is generated from an audio file that you provide. One way to generate an impulse response is to pop a balloon in a reverberant space and record the echo. Convolution can also be used to experiment with sound.",
       "Use the method <code>createConvolution(path)</code> to instantiate a p5.Convolver with a path to your impulse response audio file."
     ],
     "params": {
@@ -6888,8 +6888,8 @@
   },
   "p5.Phrase": {
     "description": [
-      "A phrase is a pattern of musical events over time, i.e. a series of notes and rests.  ",
-      "Phrases must be added to a p5.Part for playback, and each part can play multiple phrases at the same time. For example, one Phrase might be a kick drum, another could be a snare, and another could be the bassline.  ",
+      "A phrase is a pattern of musical events over time, i.e. a series of notes and rests.",
+      "Phrases must be added to a p5.Part for playback, and each part can play multiple phrases at the same time. For example, one Phrase might be a kick drum, another could be a snare, and another could be the bassline.",
       "The first parameter is a name so that the phrase can be modified or deleted later. The callback is a a function that this phrase will call at every step—for example it might be called <code>playNote(value){}</code>. The array determines which value is passed into the callback at each step of the phrase. It can be numbers, an object with multiple numbers, or a zero (0) indicates a rest so the callback won't be called)."
     ],
     "params": {
@@ -6905,7 +6905,7 @@
   },
   "p5.Part": {
     "description": [
-      "A p5.Part plays back one or more p5.Phrases. Instantiate a part with steps and tatums. By default, each step represents a 1/16th note.  ",
+      "A p5.Part plays back one or more p5.Phrases. Instantiate a part with steps and tatums. By default, each step represents a 1/16th note.",
       "See p5.Phrase for more about musical timing."
     ],
     "params": {
@@ -6925,7 +6925,7 @@
       "description": [
         "Returns the tempo, in Beats Per Minute, of this part."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "start": {
       "description": [
@@ -7122,7 +7122,7 @@
   },
   "p5.Compressor": {
     "description": [
-      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on individual sound sources in addition to the master output. ",
+      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on individual sound sources in addition to the master output.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "compressor": {
@@ -7209,12 +7209,12 @@
   },
   "p5.PeakDetect": {
     "description": [
-      "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum.  ",
-      " To use p5.PeakDetect, call <code>update</code> in the draw loop and pass in a p5.FFT object.  ",
-      " You can listen for a specific part of the frequency spectrum by setting the range between <code>freq1</code> and <code>freq2</code>.   ",
-      "<code>threshold</code> is the threshold for detecting a peak, scaled between 0 and 1. It is logarithmic, so 0.1 is half as loud as 1.0.  ",
-      " The update method is meant to be run in the draw loop, and <b>frames</b> determines how many loops must pass before another peak can be detected. For example, if the frameRate() = 60, you could detect the beat of a 120 beat-per-minute song with this equation: <code> framesPerPeak = 60 / (estimatedBPM / 60 );</code>   ",
-      " Based on example contribtued by @b2renger, and a simple beat detection explanation by <a href=\"http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/\" target=\"_blank\">Felix Turner</a>. "
+      "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum.",
+      " To use p5.PeakDetect, call <code>update</code> in the draw loop and pass in a p5.FFT object.",
+      " You can listen for a specific part of the frequency spectrum by setting the range between <code>freq1</code> and <code>freq2</code>. ",
+      "<code>threshold</code> is the threshold for detecting a peak, scaled between 0 and 1. It is logarithmic, so 0.1 is half as loud as 1.0.",
+      " The update method is meant to be run in the draw loop, and <b>frames</b> determines how many loops must pass before another peak can be detected. For example, if the frameRate() = 60, you could detect the beat of a 120 beat-per-minute song with this equation: <code> framesPerPeak = 60 / (estimatedBPM / 60 );</code> ",
+      " Based on example contribtued by @b2renger, and a simple beat detection explanation by <a href=\"http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/\" target=\"_blank\">Felix Turner</a>."
     ],
     "params": {
       "freq1": "Number: (Optional) lowFrequency - defaults to 20Hz",
@@ -7229,7 +7229,7 @@
     },
     "update": {
       "description": [
-        "The update method is run in the draw loop. ",
+        "The update method is run in the draw loop.",
         "Accepts an FFT object. You must call .analyze() on the FFT object prior to updating the peakDetect because it relies on a completed FFT analysis."
       ],
       "params": {
@@ -7248,7 +7248,7 @@
   },
   "p5.SoundRecorder": {
     "description": [
-      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput(). ",
+      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput().",
       "The record() method accepts a p5.SoundFile as a parameter. When playback is stopped (either after the given amount of time, or with the stop() method), the p5.SoundRecorder will send its recording to that p5.SoundFile for playback."
     ],
     "setInput": {
@@ -7277,7 +7277,7 @@
   },
   "p5.Distortion": {
     "description": [
-      "A Distortion effect created with a Waveshaper Node, with an approach adapted from <a href=\"http://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion\">Kevin Ennis</a> ",
+      "A Distortion effect created with a Waveshaper Node, with an approach adapted from <a href=\"http://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion\">Kevin Ennis</a>",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "params": {

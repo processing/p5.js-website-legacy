@@ -5,7 +5,8 @@ const {
   Message,
   Identifier,
   Pattern,
-  TextElement
+  TextElement,
+  Placeable
 } = require('@fluent/syntax');
 const _ = require('lodash');
 
@@ -72,7 +73,7 @@ function jsonToFtl(jsonStr) {
   function strToElements(str) {
     let result = str;
     const curlyRegex = /([{}])/gm;
-    result = result.replace(curlyRegex, "{'$1'}");
+    result = result.replace(curlyRegex, '{"$1"}');
 
     return result;
   }
@@ -101,10 +102,19 @@ function ftlToObj(ftlStr) {
         .replace(/-_leftBracket_-/g, '(')
         .replace(/-_rightBracket_-/g, ')');
     });
+
     const text = message.value.elements.reduce((acc, element) => {
-      acc += element.value;
+      if (element instanceof TextElement) {
+        acc += element.value;
+      } else if (element instanceof Placeable) {
+        acc += element.expression.value;
+      }
       return acc;
     }, '');
+
+    if (path[path.length - 2] === 'toString') {
+      _.set(jsonData, path.slice(0, path.length - 1), []);
+    }
 
     _.set(jsonData, path, text);
   }
