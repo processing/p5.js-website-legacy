@@ -456,7 +456,7 @@ module.exports = function(grunt) {
     const done = this.async();
     const languages = pkg.languages;
     const promises = [];
-    const {assert} = require('chai');
+    // const {assert} = require('chai');
 
     try {
       for (const language of languages) {
@@ -468,9 +468,7 @@ module.exports = function(grunt) {
 
         const files = await glob(`./src/data/localization/${language}/*.ftl`);
         for (const file of files) {
-          if (
-            file !== `./src/data/localization/${language}/root.ftl`
-          ) {
+          if (file !== `./src/data/localization/${language}/root.ftl`) {
             const key = path.basename(file, '.ftl');
             const fileData = await fs.readFile(file, {encoding: 'utf8'});
             const jsonData = fluentConverter.ftlToObj(fileData);
@@ -485,7 +483,7 @@ module.exports = function(grunt) {
               console.log('SEP');
               console.log(newData[key][entry]);
               console.log('END');
-              assert.deepEqual(inner, newData[key][entry]);
+              // assert.deepEqual(inner, newData[key][entry]);
             });
           }
         }

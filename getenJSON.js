@@ -61,7 +61,7 @@ function buildClassObj(p5Class) {
   }
 
   if (p5Class.return) {
-    classObj['returns'] = buildReturnObj(p5Class.return);
+    classObj['returns'] = buildReturnObj(p5Class.return).trim();
   }
 
   if (p5Class.params) {
@@ -77,7 +77,7 @@ function buildItemObj(p5Item) {
     itemObj['description'] = getParagraphs(p5Item.description);
   }
   if (p5Item.return) {
-    itemObj['returns'] = buildReturnObj(p5Item.return);
+    itemObj['returns'] = buildReturnObj(p5Item.return).trim();
   }
 
   if (p5Item.itemtype === 'method') {
@@ -88,7 +88,7 @@ function buildItemObj(p5Item) {
       itemObj = getOverloads(p5Item, itemObj);
     }
   }
-  return itemObj.description;
+  return itemObj;
 }
 
 function buildReturnObj(returns) {
