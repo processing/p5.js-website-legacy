@@ -3580,15 +3580,15 @@
     },
     "getAudioContext": {
       "description": [
-        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>. ",
+        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.",
         "Some browsers require users to startAudioContext with a user gesture, such as touchStarted in the example below."
       ],
       "returns": "Object: AudioContext for this sketch"
     },
     "userStartAudio": {
       "description": [
-        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state. ",
-        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>. ",
+        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state.",
+        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>.",
         "<code>userStartAudio()</code> starts the AudioContext on a user gesture. The default behavior will enable audio on any mouseUp or touchEnd event. It can also be placed in a specific interaction function, such as <code>mousePressed()</code> as in the example below. This method utilizes <a href=\"https://github.com/tambien/StartAudioContext\">StartAudioContext </a>, a library by Yotam Mann (MIT Licence, 2016)."
       ],
       "returns": "Promise: Returns a Promise that resolves when  the AudioContext state is 'running'",
@@ -3605,9 +3605,9 @@
     },
     "outputVolume": {
       "description": [
-        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class. ",
+        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.",
         "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal.",
-        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module. ",
+        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.",
         "If no value is provided, returns a Web Audio API Gain Node"
       ],
       "params": {
@@ -5575,9 +5575,9 @@
   "p5.sound": {},
   "p5.SoundFile": {
     "description": [
-      "SoundFile object with a path to a file. ",
-      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously. ",
-      "To do something with the sound as soon as it loads pass the name of a function as the second parameter. ",
+      "SoundFile object with a path to a file.",
+      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.",
+      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.",
       "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatibility, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
     ],
     "params": {
@@ -5878,7 +5878,7 @@
   },
   "p5.FFT": {
     "description": [
-      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform. ",
+      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.",
       "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies.",
       "FFT analyzes a very short snapshot of sound called a sample buffer. It returns an array of amplitude measurements, referred to as <code>bins</code>. The array is 1024 bins long by default. You can change the bin array length, but it must be a power of 2 between 16 and 1024 in order for the FFT algorithm to function correctly. The actual size of the FFT buffer is twice the number of bins, so given a standard sample rate, the buffer is 2048/44100 seconds long."
     ],
@@ -5969,7 +5969,7 @@
   },
   "p5.Oscillator": {
     "description": [
-      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note). ",
+      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).",
       "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>."
     ],
     "params": {
@@ -6331,9 +6331,9 @@
   },
   "p5.AudioIn": {
     "description": [
-      "Get audio from an input, i.e. your computer's microphone. ",
-      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object. ",
-      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback. ",
+      "Get audio from an input, i.e. your computer's microphone.",
+      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.",
+      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.",
       "<em>Note: This uses the <a href=\"http://caniuse.com/stream\">getUserMedia/ Stream</a> API, which is not supported by certain browsers. Access in Chrome browser is limited to localhost and https, but access over http may be limited.</em>"
     ],
     "params": {
@@ -6473,7 +6473,7 @@
   },
   "p5.Filter": {
     "description": [
-      "A p5.Filter uses a Web Audio Biquad Filter to filter the frequency response of an input source. Subclasses include: <a href=\"/reference/#/p5.LowPass\"><code>p5.LowPass</code></a>: Allows frequencies below the cutoff frequency to pass through, and attenuates frequencies above the cutoff.<br/> <a href=\"/reference/#/p5.HighPass\"><code>p5.HighPass</code></a>: The opposite of a lowpass filter. <br/> <a href=\"/reference/#/p5.BandPass\"><code>p5.BandPass</code></a>: Allows a range of frequencies to pass through and attenuates the frequencies below and above this frequency range.<br/> ",
+      "A p5.Filter uses a Web Audio Biquad Filter to filter the frequency response of an input source. Subclasses include: <a href=\"/reference/#/p5.LowPass\"><code>p5.LowPass</code></a>: Allows frequencies below the cutoff frequency to pass through, and attenuates frequencies above the cutoff.<br/> <a href=\"/reference/#/p5.HighPass\"><code>p5.HighPass</code></a>: The opposite of a lowpass filter. <br/> <a href=\"/reference/#/p5.BandPass\"><code>p5.BandPass</code></a>: Allows a range of frequencies to pass through and attenuates the frequencies below and above this frequency range.<br/>",
       "The <code>.res()</code> method controls either width of the bandpass, or resonance of the low/highpass cutoff frequency.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
@@ -6830,8 +6830,8 @@
   },
   "p5.Convolver": {
     "description": [
-      "p5.Convolver extends p5.Reverb. It can emulate the sound of real physical spaces through a process called <a href=\" https://en.wikipedia.org/wiki/Convolution_reverb#Real_space_simulation\"> convolution</a>. ",
-      "Convolution multiplies any audio input by an \"impulse response\" to simulate the dispersion of sound over time. The impulse response is generated from an audio file that you provide. One way to generate an impulse response is to pop a balloon in a reverberant space and record the echo. Convolution can also be used to experiment with sound. ",
+      "p5.Convolver extends p5.Reverb. It can emulate the sound of real physical spaces through a process called <a href=\" https://en.wikipedia.org/wiki/Convolution_reverb#Real_space_simulation\"> convolution</a>.",
+      "Convolution multiplies any audio input by an \"impulse response\" to simulate the dispersion of sound over time. The impulse response is generated from an audio file that you provide. One way to generate an impulse response is to pop a balloon in a reverberant space and record the echo. Convolution can also be used to experiment with sound.",
       "Use the method <code>createConvolution(path)</code> to instantiate a p5.Convolver with a path to your impulse response audio file."
     ],
     "params": {
@@ -6888,8 +6888,8 @@
   },
   "p5.Phrase": {
     "description": [
-      "A phrase is a pattern of musical events over time, i.e. a series of notes and rests. ",
-      "Phrases must be added to a p5.Part for playback, and each part can play multiple phrases at the same time. For example, one Phrase might be a kick drum, another could be a snare, and another could be the bassline. ",
+      "A phrase is a pattern of musical events over time, i.e. a series of notes and rests.",
+      "Phrases must be added to a p5.Part for playback, and each part can play multiple phrases at the same time. For example, one Phrase might be a kick drum, another could be a snare, and another could be the bassline.",
       "The first parameter is a name so that the phrase can be modified or deleted later. The callback is a a function that this phrase will call at every step—for example it might be called <code>playNote(value){}</code>. The array determines which value is passed into the callback at each step of the phrase. It can be numbers, an object with multiple numbers, or a zero (0) indicates a rest so the callback won't be called)."
     ],
     "params": {
@@ -6905,7 +6905,7 @@
   },
   "p5.Part": {
     "description": [
-      "A p5.Part plays back one or more p5.Phrases. Instantiate a part with steps and tatums. By default, each step represents a 1/16th note. ",
+      "A p5.Part plays back one or more p5.Phrases. Instantiate a part with steps and tatums. By default, each step represents a 1/16th note.",
       "See p5.Phrase for more about musical timing."
     ],
     "params": {
@@ -7209,12 +7209,12 @@
   },
   "p5.PeakDetect": {
     "description": [
-      "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum. ",
-      " To use p5.PeakDetect, call <code>update</code> in the draw loop and pass in a p5.FFT object. ",
-      " You can listen for a specific part of the frequency spectrum by setting the range between <code>freq1</code> and <code>freq2</code>.  ",
-      "<code>threshold</code> is the threshold for detecting a peak, scaled between 0 and 1. It is logarithmic, so 0.1 is half as loud as 1.0. ",
-      " The update method is meant to be run in the draw loop, and <b>frames</b> determines how many loops must pass before another peak can be detected. For example, if the frameRate() = 60, you could detect the beat of a 120 beat-per-minute song with this equation: <code> framesPerPeak = 60 / (estimatedBPM / 60 );</code>  ",
-      " Based on example contribtued by @b2renger, and a simple beat detection explanation by <a href=\"http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/\" target=\"_blank\">Felix Turner</a>."
+      "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum.",
+      "To use p5.PeakDetect, call <code>update</code> in the draw loop and pass in a p5.FFT object.",
+      "You can listen for a specific part of the frequency spectrum by setting the range between <code>freq1</code> and <code>freq2</code>.",
+      "<code>threshold</code> is the threshold for detecting a peak, scaled between 0 and 1. It is logarithmic, so 0.1 is half as loud as 1.0.",
+      "The update method is meant to be run in the draw loop, and <b>frames</b> determines how many loops must pass before another peak can be detected. For example, if the frameRate() = 60, you could detect the beat of a 120 beat-per-minute song with this equation: <code> framesPerPeak = 60 / (estimatedBPM / 60 );</code>",
+      "Based on example contribtued by @b2renger, and a simple beat detection explanation by <a href=\"http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/\" target=\"_blank\">Felix Turner</a>."
     ],
     "params": {
       "freq1": "Number: (Optional) lowFrequency - defaults to 20Hz",

@@ -112,8 +112,16 @@ function ftlToObj(ftlStr) {
       return acc;
     }, '');
 
-    if (path[path.length - 2] === 'toString') {
-      _.set(jsonData, path.slice(0, path.length - 1), []);
+    const toStringIndex = path.indexOf('toString');
+    if (
+      toStringIndex >= 0 &&
+      _.isFunction(_.get(jsonData, path.slice(0, toStringIndex + 1)))
+    ) {
+      if (Number.isFinite(parseInt(path[toStringIndex + 1]))) {
+        _.set(jsonData, path.slice(0, toStringIndex + 1), []);
+      } else {
+        _.set(jsonData, path.slice(0, toStringIndex + 1), {});
+      }
     }
 
     _.set(jsonData, path, text);

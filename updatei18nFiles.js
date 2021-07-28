@@ -62,7 +62,6 @@ function updatei18nObj(originalObj, translatedObj) {
       newTranslatedObj[key] = originalObj[key];
     }
   }
-  // console.log(newTranslatedObj["p5/color/description/1"]);
   return newTranslatedObj;
 }
 
