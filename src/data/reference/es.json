@@ -144,8 +144,8 @@
     "color": {
       "description": [
         "Crea colores para ser almacenados en variables del tipo color. Los parámetros son interpretados como valores RGB o HSB, dependiendo del modo actual de color según colorMode)(). El modo por defecto es RGB con valores entre 0 y 255 y, por lo tanto, la función color(255, 204, 0) retorna un color amarillo brillante. Nota que si solo se provee un valor a la función color(), será interpretado como un valor en escala de grises. Añade un segundo valor, y será usado como transparencia alpha. Cuando se especifican tres valores, son interpretados como valores RGB o HSB. Al añadir un cuarto valor se aplica transparencia alpha. Si se provee solo un parámetro de tipo string, será interpretado como un string de color compatible con CSS.Los colores son almacenados como números o arreglos.",
-        "",
-        ""
+        "Note that if only one value is provided to <a href=\"#/p5/color\">color()</a>, it will be interpreted as a grayscale value. Add a second value, and it will be used for alpha transparency. When three values are specified, they are interpreted as either RGB or HSB values. Adding a fourth value applies alpha transparency.",
+        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used."
       ],
       "returns": "Arreglo: color resultante",
       "params": {
@@ -171,7 +171,7 @@
     "hue": {
       "description": [
         "Extrae el valor de tinte de un color o de un arreglo de pixeles. El tinte (hue) existe en HSB y HSL. Esta función retorna el tinte normalizado HSB que cuando se le provee un objeto de color HSB (o cuando se le provee un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará el tinte normalizado según HSB en otro caso. (Estos valores solo son diferentes si la configuración de valor de tinte máximo de cada sistema es diferente.)",
-        ""
+        "Hue exists in both HSB and HSL. This function will return the HSB-normalized hue when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL-normalized hue otherwise. (The values will only be different if the maximum hue setting for each system is different.)"
       ],
       "returns": "el objeto p5",
       "params": {
@@ -181,7 +181,7 @@
     "lerpColor": {
       "description": [
         "Mezcla dos colores para encontrar un tercer color según la combinación de ambos. El parámetro amt es la cantidad a interpolar entre los dos valores, donde 0.0 es igual al primer color, 0.1 es muy cercano al primer color, 0.5 está a medio camino entre ambos, etc. Un valor menor que 0 será tratado como 0. Del mismo modo, valores sobre 1 serán tratados como 1. Esto es distinto al comportamiento de lerp(), pero necesario porque de otra manera los números fuera de rango producirían colores no esperados y extraños. La manera en que los colores son interpolados depende del modo de color actual.",
-        ""
+        "The way that colors are interpolated depends on the current color mode."
       ],
       "returns": "Arreglo/Número: color interpolado",
       "params": {
@@ -211,7 +211,7 @@
     "saturation": {
       "description": [
         "Extrae el valor de saturación de un color o de un arreglo de pixeles. La saturación es escalada en HSB y HSL de forma distinta. Esta función retornará la saturación HSB cuando le sea provisto un objeto de color HSB (o cuando le sea provisto un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará saturación HSL.",
-        ""
+        "Saturation is scaled differently in HSB and HSL. This function will return the HSB saturation when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL saturation otherwise."
       ],
       "returns": "el objeto p5",
       "params": {
@@ -221,10 +221,10 @@
     "background": {
       "description": [
         "La función background() define el color usado como fondo del lienzo p5.js. El fondo por defecto es gris claro. Esta función es típicamente usada dentro de draw() para despejar o borrar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de setup() para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
-        "",
-        "",
-        "",
-        ""
+        "The color is either specified in terms of the RGB, HSB, or HSL color depending on the current <a href=\"#/p5/colorMode\">colorMode</a>. (The default color space is RGB, with each value in the range from 0 to 255). The alpha range by default is also 0 to 255.",
+        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
+        "A <a href=\"#/p5.Color\">p5.Color</a> object can also be provided to set the background color.",
+        "A <a href=\"#/p5.Image\">p5.Image</a> can also be provided to set the background image."
       ],
       "params": {
         "color": "Color: cualquier valor creado con la función color()",
@@ -246,7 +246,7 @@
     "colorMode": {
       "description": [
         "colorMode() cambia la manera en que p5.js interpreta los datos de color. Por defecto, los parámetros de fill(), stroke(), background() y color() son definidos por valores entre 0 y 255 en modo RGB. Esto es equivalente a definir el modo de color según colorMode(RGB, 255). Definir el modo de color en colorMode(HSB) permite usar el sistema HSB. Por defecto, este modo de color es colorMode(HSB, 360, 100, 100, 1). También se puede usar HSL. Nota: los objetos de color existentes recuerdan el modo en que fueron creados, por lo que puedes cambiar el modo como quieras, sin afectar su apariencia.",
-        ""
+        "Note: existing color objects remember the mode that they were created in, so you can change modes as you like without affecting their appearance."
       ],
       "params": {
         "mode": "Constante: RGB o HSB, correspondiente a Rojo/Verde/Azul o tinte/saturación/brillo (o luminosidad)",
@@ -260,8 +260,8 @@
     "fill": {
       "description": [
         "Define el color usado para el relleno de figuras geométricas. Por ejemplo, si ejecutas fill(204, 102, 0), todas las figuras a continuación tendrán relleno naranja. Este color es especificado en términos de color RGB o HSB, dependiendo del modo de color según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del relleno.",
-        "",
-        ""
+        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
+        "A p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the fill color."
       ],
       "params": {
         "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
@@ -287,8 +287,8 @@
     "stroke": {
       "description": [
         "Define el color usado para dibujar líneas y bordes de figuras. Este color especificado en términos de color RGB o HSB, dependiendo del modo de color actual según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del trazado.",
-        "",
-        ""
+        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
+        "A p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the stroke color."
       ],
       "params": {
         "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
@@ -319,7 +319,7 @@
     "arc": {
       "description": [
         "Dibuja un arco en la pantalla. Si se llama con solo a, b, c, d, start y stop, el arco se dibuja como un pastel abierto. Si el modo se provee, el arco será dibujado abierto, o como acorde, o como pastel, según lo especificado. El origen puede ser cambiado con la función ellipseMode(). Nota que si dibujas un círculo completo (ej: 0 a TWO_PI) aparecerá en blanco, porque 0 y TWO_PI son la misma posición en el círculo unitario. La mejor manera de manejar esto es usar la función ellipse() para una elipse cerrada, y la función arc() para generar solo secciones de una elipse.",
-        ""
+        "The arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse. Adding or subtracting TWO_PI to either angle does not change where they fall. If both start and stop fall at the same place, a full ellipse will be drawn. Be aware that the y-axis increases in the downward direction, therefore angles are measured clockwise from the positive x-direction (\"3 o'clock\")."
       ],
       "params": {
         "x": "Número: coordenada x del arco de elipse.",
@@ -335,7 +335,7 @@
     "ellipse": {
       "description": [
         "Dibuja una elipse (óvalo)  en la pantalla. Una elipse con igual ancho y altura es un círculo. Por defecto, los primeros dos parámetros definen la ubicación, y el tercero y cuarto definen el ancho y altura de la figura. Si no especifica una altura, el valor del ancho es usado como ancho y altura. El origen puede ser cambiado con la función ellipseMode().",
-        ""
+        "An ellipse with equal width and height is a circle. The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function."
       ],
       "params": {
         "x": "Número: coordenada x de la elipse.",
@@ -403,7 +403,7 @@
     "rect": {
       "description": [
         "Dibuja un rectángulo en la pantalla. Un rectángulo es una figura de cuatro lados con cada ángulo interior de noventa grados. Por defecto, los dos primeros parámetros definen la ubicación de la esquina superior izquierda, el tercero el ancho y el cuarto la altura. La manera en que estos parámetros son interpretados, sin embargo, puede ser cambiado con la función rectMode(). Los parámetros quinto, sexto, séptimo y octavo, si son especificados, determinan el radio de la esquina superior derecha, superior izquierda, inferior derecha e inferior izquierda, respectivamente. Si se omite un parámetro de radio de esquina, se usa el radio especificado por el valor anterior en la lista.",
-        ""
+        "The fifth, sixth, seventh and eighth parameters, if specified, determine corner radius for the top-left, top-right, lower-right and lower-left corners, respectively. An omitted corner radius parameter is set to the value of the previously specified radius value in the parameter list."
       ],
       "params": {
         "x": "Número: coordenada x del rectángulo.",
@@ -449,11 +449,11 @@
     "ellipseMode": {
       "description": [
         "Modifica la ubicación de donde las elipses son dibujadas, cambiando la manera en que los parámetros dados a ellipse() son interpretados. El modo por defecto es ellipseMode(CENTER), que interpreta los dos primeros parámetros de ellipse() como el centro de la figura, mientras que los parámetros tercero y cuarto son el ancho y la altura. ellipseMode(RADIUS) también usa los dos primeros parámetros de ellipse() como el punto central de la figura, pero usa los parámetros tercero y cuarto para especificar la mitad del ancho y la altura de la figura. ellipseMode(CORNER) interpreta los dos primeros parámetros de ellipse() como la esquina superior izquierda de la figura, mientras que los parámetros tercero y cuarto son el ancho y la altura. ellipseMode(CORNERS) interpreta los dos primeros parámetros de ellipse() como la ubicación de una esquina del rectángulo contenedor de la elipse, y los parámetros tercero y cuarto como la ubicación de la esquina opuesta. El parámetro debe ser escrito en MAYÚSCULAS porque Javascript es una lenguaje de programación que distingue entre mayúsculas y minúsculas.",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "The default mode is CENTER, in which the first two parameters are interpreted as the shape's center point's x and y coordinates respectively, while the third and fourth parameters are its width and height.",
+        "ellipseMode(RADIUS) also uses the first two parameters as the shape's center point's x and y coordinates, but uses the third and fourth parameters to specify half of the shapes's width and height.",
+        "ellipseMode(CORNER) interprets the first two parameters as the upper-left corner of the shape, while the third and fourth parameters are its width and height.",
+        "ellipseMode(CORNERS) interprets the first two parameters as the location of one corner of the ellipse's bounding box, and the third and fourth parameters as the location of the opposite corner.",
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "mode": "Constante: puede ser CENTER, RADIUS, CORNER, o CORNERS."
@@ -467,11 +467,11 @@
     "rectMode": {
       "description": [
         "Modifica la ubicación en que los rectángulos son dibujados, cambiando la manera en que los parámetros dados a rect() son interpretados. El modo por defecto es rectMode(CORNER), que interpreta los primeros dos parámetros de rect() como la esquina superior izquierda de la figura, mientras que los parámetros tercero y cuarto son su ancho y altura. rectMode(CORNERS) interpreta los dos primeros parámetros de rect() como la ubicación de una esquina, y los parámetros tercero y cuarto como la ubicación de la esquina opuesta. rectMode(CENTER) interpreta los dos primeros parámetros de rect() como el punto central de la figura, mientas que los parámetros tercero y cuarto son su ancho y altura. rectMode(RADIUS) también usa los dos primeros parámetros de rect()= como el punto central de la figura, pero usa los parámetros tercero y cuarto para especificar la mitad del ancho y la altura de la figura. Los parámetros deben ser escritos en MAYÚSCULAS porque Javascript es un lenguaje que distingue entre mayúsculas y minúsculas.",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "The default mode is CORNER, which interprets the first two parameters as the upper-left corner of the shape, while the third and fourth parameters are its width and height.",
+        "rectMode(CORNERS) interprets the first two parameters as the location of one of the corners, and the third and fourth parameters as the location of the diagonally opposite corner. Note, the rectangle is drawn between the coordinates, so it is not neccesary that the first corner be the upper left corner.",
+        "rectMode(CENTER) interprets the first two parameters as the shape's center point, while the third and fourth parameters are its width and height.",
+        "rectMode(RADIUS) also uses the first two parameters as the shape's center point, but uses the third and fourth parameters to specify half of the shape's width and height respectively.",
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "mode": "Constante: puede ser CORNER, CORNERS, CENTER, o RADIUS."
@@ -485,7 +485,7 @@
     "strokeCap": {
       "description": [
         "Define el estilo de rendering de los extremos de las líneas. Estos extremos pueden ser cuadrados, extendidos o redondeados, cada uno de estos especifados con los parámetros correspondientes: SQUARE, PROJECT, y ROUND. El extremo por defecto es redonedeado (ROUND).",
-        ""
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "cap": "Constante: puede ser SQUARE, PROJECT, o ROUND."
@@ -494,7 +494,7 @@
     "strokeJoin": {
       "description": [
         "Define el estilo de las uniones que conectan segmentos de líneas. Estas uniones pueden ser tipo inglete, biseladas o redondeadas, y especificadas con los parámetros correspondientes: MITER, BEVEL, y ROUND. La unión por defecto es MITER.",
-        ""
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "join": "Constante: puede ser MITER, BEVEL, o ROUND."
@@ -511,7 +511,7 @@
     "bezier": {
       "description": [
         "Dibuja una curva Bezier cúbica en la pantalla. Estas curvas están definidas por una serie de puntos ancla y de control. Los primeros dos parámetros especifican el primer punto ancla y los dos últimos especifican el otro punto ancla, que se convierten en los puntos primero y último de la curva. Los parámetros en el medio especifican los dos puntos de control que definen la forma de la curva. De forma aproximada, los puntos de control atraen la curva hacia ellos. Las curvas Bezier fueron desarrolladas por el ingeniero automotriz Pierre Bezier, y son comúnmente usadas en gráficas computacionales para definir curvas de pendiente suave. Ver también curve().",
-        ""
+        "Bezier curves were developed by French automotive engineer Pierre Bezier, and are commonly used in computer graphics to define gently sloping curves. See also <a href=\"#/p5/curve\">curve()</a>."
       ],
       "params": {
         "x1": "Número: coordenada x del primer punto ancla",
@@ -628,14 +628,14 @@
     "beginContour": {
       "description": [
         "Usa las funciones beginContour() y endContour() para crear figuras negativas dentro de figuras como el centro de la letra 'O'. beginContour() empieza la grabación de los vértices para la figura y endContour() finaliza la grabación. Los vértices que definen una figura negativa deben ser definidos en la dirección opuesta a la figura exterior. Primero dibuja los vértices de la figura exterior en el orden de las manecillas del reloj, y luego para figuras internas, dibuja vértices en el sentido contrario a las manecillas del reloj. Estas funciones solo pueden ser usadas dentro de un par beginShape()/endShape() y transformaciones como translate(), rotate(), y scale() no funcionan dentro de un par beginContour()/endContour(). Tampoco es posible usar otras figuras, como elupse() o rect() dentro.",
-        ""
+        "These functions can only be used within a <a href=\"#/p5/beginShape\">beginShape()</a>/<a href=\"#/p5/endShape\">endShape()</a> pair and transformations such as <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, and <a href=\"#/p5/scale\">scale()</a> do not work within a <a href=\"#/p5/beginContour\">beginContour()</a>/<a href=\"#/p5/endContour\">endContour()</a> pair. It is also not possible to use other shapes, such as <a href=\"#/p5/ellipse\">ellipse()</a> or <a href=\"#/p5/rect\">rect()</a> within."
       ]
     },
     "beginShape": {
       "description": [
         "El uso de las funciones beginShape() y endShape() permiten la creación de figuras más complejas. beginShape() empieza la grabación de vértices para una figura, mientras que endShape() termina la grabación. El valor del parámetro kind (tipo) define qué tipo de figuras serán creadas a partir de los vértices. Si no se especifica un modo, la figura puede ser cualquier polígono irregular. Los parámetros disponibles para beginShape() son POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, y QUAD_STRIP. Después de llamar a la función beginShape(), debe ser seguida por una serie de comandos vertex(). Para detener el dibujo de la figura, ejecuta endShape(). Cada figura será dibujada con el color de trazo y el color de relleno actual. Transformaciones como translate(), rotate(), y scale() no funcionan dentro de beginShape(). Tampoco es posible usar otras figuras como ellipse() o rect() dentro de beginShape().",
-        "",
-        "",
+        "The parameters available for <a href=\"#/p5/beginShape\">beginShape()</a> are:",
+        "POINTS Draw a series of points",
         "LINES Draw a series of unconnected line segments (individual lines)",
         "TRIANGLES Draw a series of separate triangles",
         "TRIANGLE_FAN Draw a series of connected triangles sharing the first vertex in a fan-like fashion",
@@ -653,7 +653,7 @@
     "bezierVertex": {
       "description": [
         "Especifica las coordenadas de un vértice para una curva Bezier. Cada llamada a la función bezierVertex() define la posición de dos puntos de control y un punto ancla de una curva Bezier, añadiendo un nuevo segmento a la línea o figura. La primera vez que bezierVertex() es usada dentro de una llamada a beginShape(), debe ser antecedida por una llamada a la función vertex() para definir el primer punto ancla. Esta función debe ser usada entre beginShape() y endShape() y solo cuando no se ha especificado el parámetro MODE (modo) a beginShape().",
-        ""
+        "The first time bezierVertex() is used within a <a href=\"#/p5/beginShape\">beginShape()</a> call, it must be prefaced with a call to <a href=\"#/p5/vertex\">vertex()</a> to set the first anchor point. This function must be used between <a href=\"#/p5/beginShape\">beginShape()</a> and <a href=\"#/p5/endShape\">endShape()</a> and only when there is no MODE or POINTS parameter specified to <a href=\"#/p5/beginShape\">beginShape()</a>."
       ],
       "params": {
         "x2": "Número: coordenada x del primer punto de control la curva",
@@ -670,7 +670,7 @@
     "curveVertex": {
       "description": [
         "Especifica las coordenadas de un vértice para una curva. Esta función solo puede ser usada entre beginShape() y endShape() y cuando no se ha especificado el parámetro MODE en la función beginShape(). Los puntos primero y último en una serie de líneas curveVertex() serán usados para guiar el inicio y final de una curva. Un mínimo de cuatro puntos es requerido para dibujar una pequeña curva entre los puntos segundo y tercero, Añadir un quinto punto con curveVertex() dibujará la curva entre los puntos segundo, tercero y cuarto. La función curveVertex() es una implementación de las splines de Catmull-Rom.",
-        ""
+        "The first and last points in a series of curveVertex() lines will be used to guide the beginning and end of a the curve. A minimum of four points is required to draw a tiny curve between the second and third points. Adding a fifth point with curveVertex() will draw the curve between the second, third, and fourth points. The curveVertex() function is an implementation of Catmull-Rom splines."
       ],
       "params": {
         "x": "Número: coordenada x del vértice",
@@ -681,7 +681,7 @@
     "endContour": {
       "description": [
         "Usa las funciones beginContour() y endContour() para crear figuras negativas dentro de figuras como el centro de la letra 'O'. beginContour() empieza la grabación de los vértices para la figura y endContour() finaliza la grabación. Los vértices que definen una figura negativa deben ser definidos en la dirección opuesta a la figura exterior. Primero dibuja los vértices de la figura exterior en el orden de las manecillas del reloj, y luego para figuras internas, dibuja vértices en el sentido contrario a las manecillas del reloj. Estas funciones solo pueden ser usadas dentro de un par beginShape()/endShape() y transformaciones como translate(), rotate(), y scale() no funcionan dentro de un par beginContour()/endContour(). Tampoco es posible usar otras figuras, como elupse() o rect() dentro.",
-        ""
+        "These functions can only be used within a <a href=\"#/p5/beginShape\">beginShape()</a>/<a href=\"#/p5/endShape\">endShape()</a> pair and transformations such as <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, and <a href=\"#/p5/scale\">scale()</a> do not work within a <a href=\"#/p5/beginContour\">beginContour()</a>/<a href=\"#/p5/endContour\">endContour()</a> pair. It is also not possible to use other shapes, such as <a href=\"#/p5/ellipse\">ellipse()</a> or <a href=\"#/p5/rect\">rect()</a> within."
       ]
     },
     "endShape": {
@@ -695,7 +695,7 @@
     "quadraticVertex": {
       "description": [
         "Especifica las coordenadas de vértices par curvas Bezier cuadráticas. Cada llamada a quadraticVertex() define la posición de uno de los puntos de control y ancla de una curva Bezier, añadiendo un nuevo segmento a la línea o figura. La primera vez que quadraticVertex() es usada dentro de una llamada a beginShape(), debe ser precedida por una llamada a la función vertex() para definir el primer punto ancla. Esta función debe ser usada entre un par beginShape() y endShape() y solo cuando no se ha especificado el parámetro MODE de beginShape().",
-        ""
+        "This function must be used between <a href=\"#/p5/beginShape\">beginShape()</a> and <a href=\"#/p5/endShape\">endShape()</a> and only when there is no MODE or POINTS parameter specified to <a href=\"#/p5/beginShape\">beginShape()</a>."
       ],
       "params": {
         "cx": "Número: coordenada x del punto de control",
@@ -891,7 +891,7 @@
     "print": {
       "description": [
         "La función print() escribe en la consola del navegador. Esta función es a menudo de ayuda para observar los datos que un programa está produciendo. Esta función crea una nueva línea de texto por cada ejecución de la función. Elementos individuales pueden ser separados por comillas ('') y unidos con el operador de adición (+). Aunque print() es similar a console.log(), no llama a console.log() directamente, para simular una manera más simple de entender el comportamiento del programa. Por esto mismo, es más lento. Para resultados más rápidos, usar directamente console.log().",
-        ""
+        "Note that calling print() without any arguments invokes the window.print() function which opens the browser's print dialog. To print a blank line to console you can write print('\\n')."
       ],
       "params": {
         "contents": "Cualquiera: cualquier combinación de número, string, objeto, boolean o arreglo a imprimir"
@@ -926,8 +926,8 @@
     "frameRate": {
       "description": [
         "Especifica el número de cuadros mostrados por segundo. Por ejemplo, la llamada a la función frameRate(30), tratará de refrescar 30 veces por segundo. Si el procesador no es lo suficientemente rápido para mantener la tasa especificada, la tasa de cuadros por segundo no será lograda. Definir la tasa de cuadros por segundo dentro de setup() es lo recomendable. La tasa por defecto es de 60 veces por segundo. Esto es lo mismo que setFrameRate(val). Llamar a la función frameRate() sin argumentos retorna la tasa actual. Esto es lo mismo que getFrameRate(). Llamar a la función frameRate() con arugmentos que no son de tipo número o no son positivos también retornarán la tasa actual.",
-        "",
-        ""
+        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with no arguments returns the current framerate. The draw function must run at least once before it will return a value. This is the same as <a href=\"#/p5/getFrameRate\">getFrameRate()</a>.",
+        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with arguments that are not of the type numbers or are non positive also returns current framerate."
       ],
       "params": {
         "fps": "Número: número de cuadros a ser mostrados cada segundo."
@@ -1020,22 +1020,22 @@
     "preload": {
       "description": [
         "La función preload() es ejecutada antes de setup(), es usada para manejar la carga asíncrona de archivos externos. Si se define una función preload(), setup() esperará hasta que las llamadas a funciones load hayan terminado. Solo se deben incluir instrucciones de carga dentro de preload() (loadImage, loadJSON, loadFont, loadStrings, etc).",
-        ""
+        "By default the text \"loading...\" will be displayed. To make your own loading page, include an HTML element with id \"p5_loading\" in your page. More information <a href=\"http://bit.ly/2kQ6Nio\">here</a>."
       ]
     },
     "setup": {
       "description": [
         "La función setup() es ejecutada una vez, cuando el programa empieza. Es usada para definir propiedades iniciales como amaño de la pantalla y color de fondo y para cargar medios como imágenes y tipografías cuando el programa empieza. Solo puede haber una función setup() en cada programa y no debe ser llamada después de su ejecución inicial. Nota: las variables declaradas dentro de setup() no son accesibles dentro de otras funciones, como draw().",
-        ""
+        "Note: Variables declared within <a href=\"#/p5/setup\">setup()</a> are not accessible within other functions, including <a href=\"#/p5/draw\">draw()</a>."
       ]
     },
     "draw": {
       "description": [
         "La función draw() es ejecutada después de setup(), y ejecuta contínuamente las líneas de código dentro de su bloque hasta que el programa es detenido o se ejecuta la función noLoop(). Notar que si noLoop() es ejecutada dentro de setup(), draw() igualmente será ejecutado una vez antes de parar. La función draw() es ejecutada automáticamente y nunca debiera ser ejecutada explícitamente. Siempre debería ser controlada con noLoop(), redraw() y loop(). Después de que noLoop() detiene la ejecución del código dentro de draw(), redraw() causa que el código dentro de draw() se ejecute una vez, y loop() causa que el código dentro de draw() siga ejecutándose de forma continua. El número de veces que draw() se ejecuta por segundo puede ser controlado con la función frameRate(). Solo puede haber una función draw() en cada bosquejo, y draw() solo debe existir si quieres que el código corra de forma continua, o para procesar eventos como mousePressed(). Algunas veces, podrías querer ejecutar una función draw() vacía, como se mostró en el ejemplo más arriba. Es importante notar que el sistema de coordenadas de dibujo será reiniciado al principio de cada ejecución de la función draw(). Si cualquier transformación es hecha dentro de draw() (por ejemplo: escalar, rotar, trasladar), sus efectos serán anulados al principio de cada ejecución de draw(), así que las transformaciones no se acumulan en el tiempo. Por el otro lado, el estilo aplicado (color de relleno, color de trazado) sí se mantendrá en efecto.",
-        "",
-        "",
-        "",
-        ""
+        "It should always be controlled with <a href=\"#/p5/noLoop\">noLoop()</a>, <a href=\"#/p5/redraw\">redraw()</a> and <a href=\"#/p5/loop\">loop()</a>. After <a href=\"#/p5/noLoop\">noLoop()</a> stops the code in <a href=\"#/p5/draw\">draw()</a> from executing, <a href=\"#/p5/redraw\">redraw()</a> causes the code inside <a href=\"#/p5/draw\">draw()</a> to execute once, and <a href=\"#/p5/loop\">loop()</a> will cause the code inside <a href=\"#/p5/draw\">draw()</a> to resume executing continuously.",
+        "The number of times <a href=\"#/p5/draw\">draw()</a> executes in each second may be controlled with the <a href=\"#/p5/frameRate\">frameRate()</a> function.",
+        "There can only be one <a href=\"#/p5/draw\">draw()</a> function for each sketch, and <a href=\"#/p5/draw\">draw()</a> must exist if you want the code to run continuously, or to process events such as <a href=\"#/p5/mousePressed\">mousePressed()</a>. Sometimes, you might have an empty call to <a href=\"#/p5/draw\">draw()</a> in your program, as shown in the above example.",
+        "It is important to note that the drawing coordinate system will be reset at the beginning of each <a href=\"#/p5/draw\">draw()</a> call. If any transformations are performed within <a href=\"#/p5/draw\">draw()</a> (ex: scale, rotate, translate), their effects will be undone at the beginning of <a href=\"#/p5/draw\">draw()</a>, so transformations will not accumulate over time. On the other hand, styling applied (ex: fill, stroke, etc) will remain in effect."
       ]
     },
     "remove": {
@@ -1164,8 +1164,8 @@
     "createCanvas": {
       "description": [
         "Crea un elemento canvas en el documento, y define sus dimensiones medidas en pixeles. Este método debe ser llamado solo una vez al comienzo de la función setup(). Llamar a la función createCanvas() más de una vez en un bosquejo puede resultar en comportamientos impredecibles. Si quieres más de un lienzo donde dibujar, debes usar la función createGraphics() (escondido por defecto, pero puede ser mostrado), Las variables de sistema width (ancho) y height (altura) son definidas por los parámetros pasados a la función. Si createCanvas() no es usado, la ventana tendrá un tamaño por defecto de 100 x 100 pixeles. Para más maneras de posicionar el lienzo, ver la sección de posición del lienzo.",
-        "",
-        "",
+        "Important note: in 2D mode (i.e. when <code>p5.Renderer</code> is not set) the origin (0,0) is positioned at the top left of the screen. In 3D mode (i.e. when <code>p5.Renderer</code> is set to <code>WEBGL</code>), the origin is positioned at the center of the canvas. See <a href=\"https://github.com/processing/p5.js/issues/1545\">this issue</a> for more information.",
+        "The system variables width and height are set by the parameters passed to this function. If <a href=\"#/p5/createCanvas\">createCanvas()</a> is not used, the window will be given a default size of 100x100 pixels.",
         "For more ways to position the canvas, see the <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'> positioning the canvas</a> wiki page."
       ],
       "returns": "Objeto: lienzo generado",
@@ -1204,7 +1204,7 @@
     "blendMode": {
       "description": [
         "Combina los pixeles en la ventana según el modo definido. Existen distintas maneras de combinar los pixeles de la fuente (A) con los ya existentes en la pantalla mostrada (B). TODO",
-        ""
+        "<em>(2D)</em> indicates that this blend mode <b>only</b> works in the 2D renderer. <em>(3D)</em> indicates that this blend mode <b>only</b> works in the WEBGL renderer."
       ],
       "params": {
         "mode": "Constante: modo de combinar del lienzo"
@@ -1218,16 +1218,16 @@
     "noLoop": {
       "description": [
         "Detiene la ejecución continua del código de draw() de p5.js. Si se llama a la función loop(), el código dentro de draw() empieza a correr de forma continua nuevamente. Si se usa noLoop() dentro de setup(), debe ser la última línea de código dentro del bloque. Cuando se usa noLoop(), no es posible manipular o acceder a la pantalla dentro de las funciones que manejan eventos como mousePressed() o keyPressed(). En vez de eso, usa estas funciones para llamar a redraw() o loop(), que permitirán la ejecución de draw(), lo que permite el refresco correcto de la pantalla. Esto significa que cuando noLoop() ha sido ejecutado, no se sigue dibujando, y funciones como saveFrame() o loadPixels() no se pueden usar. Notar que si el bosquejo es escalado, redraw() será llamado para actualizar el bosquejo, incluso si noLoop() ha sido ejecutada. Por otro lado, el bosquejo entrará a un estado singular, hasta que loop() sea ejecutado.",
-        "",
-        "",
-        ""
+        "When <a href=\"#/p5/noLoop\">noLoop()</a> is used, it's not possible to manipulate or access the screen inside event handling functions such as <a href=\"#/p5/mousePressed\">mousePressed()</a> or <a href=\"#/p5/keyPressed\">keyPressed()</a>. Instead, use those functions to call <a href=\"#/p5/redraw\">redraw()</a> or <a href=\"#/p5/loop\">loop()</a>, which will run <a href=\"#/p5/draw\">draw()</a>, which can update the screen properly. This means that when <a href=\"#/p5/noLoop\">noLoop()</a> has been called, no drawing can happen, and functions like <a href=\"#/p5/saveFrames\">saveFrames()</a> or <a href=\"#/p5/loadPixels\">loadPixels()</a> may not be used.",
+        "Note that if the sketch is resized, <a href=\"#/p5/redraw\">redraw()</a> will be called to update the sketch, even after <a href=\"#/p5/noLoop\">noLoop()</a> has been specified. Otherwise, the sketch would enter an odd state until <a href=\"#/p5/loop\">loop()</a> was called.",
+        "Use <a href=\"#/p5/isLooping\">isLooping()</a> to check current state of loop()."
       ]
     },
     "loop": {
       "description": [
         "Por defecto, p5.js repite de forma continua la función draw(), ejecutado el código dentro de su bloque. Sin embargo, el bucle de dibujo puede ser detenido llamando a la función noLoop(). En ese caso, el bucle de draw() puede ser retomado con loop().",
-        "",
-        ""
+        "Avoid calling loop() from inside setup().",
+        "Use <a href=\"#/p5/isLooping\">isLooping()</a> to check current state of loop()."
       ]
     },
     "isLooping": {
@@ -1238,23 +1238,23 @@
     "push": {
       "description": [
         "La función push() graba la configuración actual de estilo de dibujo, y pop() restaura esta configuración. Notar que estas funciones siempre son usadas en conjunto. Permiten cambiar las configuraciones de estilo y transformaciones y luego volver a lo que tenías. Cuando un nuevo estado es iniciado con push(), construye encima de la información actual de estilo y transformación. Las funciones push() y pop() pueden ser embebidas para proveer más control (ver el segundo ejemplo para una demostración). push() almacena información relacionada a la configuración de estado de transformación y de estulo actual, controlada por las siguientes funciones: fill(), stroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(), imageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(), textFont(), textMode(), textSize(), textLeading().",
-        "",
-        ""
+        "<a href=\"#/p5/push\">push()</a> stores information related to the current transformation state and style settings controlled by the following functions: <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/noFill\">noFill()</a>, <a href=\"#/p5/noStroke\">noStroke()</a>, <a href=\"#/p5/stroke\">stroke()</a>, <a href=\"#/p5/tint\">tint()</a>, <a href=\"#/p5/noTint\">noTint()</a>, <a href=\"#/p5/strokeWeight\">strokeWeight()</a>, <a href=\"#/p5/strokeCap\">strokeCap()</a>, <a href=\"#/p5/strokeJoin\">strokeJoin()</a>, <a href=\"#/p5/imageMode\">imageMode()</a>, <a href=\"#/p5/rectMode\">rectMode()</a>, <a href=\"#/p5/ellipseMode\">ellipseMode()</a>, <a href=\"#/p5/colorMode\">colorMode()</a>, <a href=\"#/p5/textAlign\">textAlign()</a>, <a href=\"#/p5/textFont\">textFont()</a>, <a href=\"#/p5/textSize\">textSize()</a>, <a href=\"#/p5/textLeading\">textLeading()</a>, <a href=\"#/p5/applyMatrix\">applyMatrix()</a>, <a href=\"#/p5/resetMatrix\">resetMatrix()</a>, <a href=\"#/p5/rotate\">rotate()</a>, <a href=\"#/p5/scale\">scale()</a>, <a href=\"#/p5/shearX\">shearX()</a>, <a href=\"#/p5/shearY\">shearY()</a>, <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/noiseSeed\">noiseSeed()</a>.",
+        "In WEBGL mode additional style settings are stored. These are controlled by the following functions: <a href=\"#/p5/setCamera\">setCamera()</a>, <a href=\"#/p5/ambientLight\">ambientLight()</a>, <a href=\"#/p5/directionalLight\">directionalLight()</a>, <a href=\"#/p5/pointLight\">pointLight()</a>, <a href=\"#/p5/texture\">texture()</a>, <a href=\"#/p5/specularMaterial\">specularMaterial()</a>, <a href=\"#/p5/shininess\">shininess()</a>, <a href=\"#/p5/normalMaterial\">normalMaterial()</a> and <a href=\"#/p5/shader\">shader()</a>."
       ]
     },
     "pop": {
       "description": [
         "La función push() graba la configuración actual de estilo de dibujo, y pop() restaura esta configuración. Notar que estas funciones siempre son usadas en conjunto. Permiten cambiar las configuraciones de estilo y transformaciones y luego volver a lo que tenías. Cuando un nuevo estado es iniciado con push(), construye encima de la información actual de estilo y transformación. Las funciones push() y pop() pueden ser embebidas para proveer más control (ver el segundo ejemplo para una demostración). push() almacena información relacionada a la configuración de estado de transformación y de estulo actual, controlada por las siguientes funciones: fill(), stroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(), imageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(), textFont(), textMode(), textSize(), textLeading().",
-        "",
-        ""
+        "<a href=\"#/p5/push\">push()</a> stores information related to the current transformation state and style settings controlled by the following functions: <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/noFill\">noFill()</a>, <a href=\"#/p5/noStroke\">noStroke()</a>, <a href=\"#/p5/stroke\">stroke()</a>, <a href=\"#/p5/tint\">tint()</a>, <a href=\"#/p5/noTint\">noTint()</a>, <a href=\"#/p5/strokeWeight\">strokeWeight()</a>, <a href=\"#/p5/strokeCap\">strokeCap()</a>, <a href=\"#/p5/strokeJoin\">strokeJoin()</a>, <a href=\"#/p5/imageMode\">imageMode()</a>, <a href=\"#/p5/rectMode\">rectMode()</a>, <a href=\"#/p5/ellipseMode\">ellipseMode()</a>, <a href=\"#/p5/colorMode\">colorMode()</a>, <a href=\"#/p5/textAlign\">textAlign()</a>, <a href=\"#/p5/textFont\">textFont()</a>, <a href=\"#/p5/textSize\">textSize()</a>, <a href=\"#/p5/textLeading\">textLeading()</a>, <a href=\"#/p5/applyMatrix\">applyMatrix()</a>, <a href=\"#/p5/resetMatrix\">resetMatrix()</a>, <a href=\"#/p5/rotate\">rotate()</a>, <a href=\"#/p5/scale\">scale()</a>, <a href=\"#/p5/shearX\">shearX()</a>, <a href=\"#/p5/shearY\">shearY()</a>, <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/noiseSeed\">noiseSeed()</a>.",
+        "In WEBGL mode additional style settings are stored. These are controlled by the following functions: <a href=\"#/p5/setCamera\">setCamera()</a>, <a href=\"#/p5/ambientLight\">ambientLight()</a>, <a href=\"#/p5/directionalLight\">directionalLight()</a>, <a href=\"#/p5/pointLight\">pointLight()</a>, <a href=\"#/p5/texture\">texture()</a>, <a href=\"#/p5/specularMaterial\">specularMaterial()</a>, <a href=\"#/p5/shininess\">shininess()</a>, <a href=\"#/p5/normalMaterial\">normalMaterial()</a> and <a href=\"#/p5/shader\">shader()</a>."
       ]
     },
     "redraw": {
       "description": [
         "Ejecuta una vez el código dentro de la función draw(). Esta función permite al programa actualizar la ventana mostrada solamente cuando es necesario, por ejemplo, cuando un evento registrado por mousePressed() o keyPressed() ocurre. En la estructura de un programa, solo hace sentido llamar a redraw() dentro de eventos como mousePressed(). Esto es porque redraw() no hace que draw() se ejecute de forma inmediata (solo define una indicación de que se necesita un refresco). La función redraw() no funciona de forma correcta cuando se llama dentro de la función draw(). Para habilitar y deshabilitar animaciones, usa las funcioens loop() y noLoop(). Adicionalmente, puedes definir el número de veces que se dibuja por cada llamada a este método. Para esto, añade un entero como parámetro único a la función, que señale cuántas veces se requiere dibujar.",
-        "",
-        "",
-        ""
+        "In structuring a program, it only makes sense to call <a href=\"#/p5/redraw\">redraw()</a> within events such as <a href=\"#/p5/mousePressed\">mousePressed()</a>. This is because <a href=\"#/p5/redraw\">redraw()</a> does not run <a href=\"#/p5/draw\">draw()</a> immediately (it only sets a flag that indicates an update is needed).",
+        "The <a href=\"#/p5/redraw\">redraw()</a> function does not work properly when called inside <a href=\"#/p5/draw\">draw()</a>.To enable/disable animations, use <a href=\"#/p5/loop\">loop()</a> and <a href=\"#/p5/noLoop\">noLoop()</a>.",
+        "In addition you can set the number of redraws per method call. Just add an integer as single parameter for the number of redraws."
       ],
       "params": {
         "n": "Entero: redibuja n-veces. Por defecto el valor es 1"
@@ -1275,8 +1275,8 @@
     "applyMatrix": {
       "description": [
         "Multiplica la matriz actual por la especificada según los parámetros. Esto es muy lento porque tratará de calcular el inverso de la transformada, así que evítalo cuando sea posible",
-        "",
-        ""
+        "The naming of the arguments here follows the naming of the <a href= \"https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-transform\"> WHATWG specification</a> and corresponds to a transformation matrix of the form: <blockquote>",
+        "<img style=\"max-width: 150px\" src=\"assets/transformation-matrix.png\" alt=\"The transformation matrix used when applyMatrix is called\"/> </blockquote>"
       ],
       "params": {
         "a": "Número: números que definen la matriz 3x2 a multiplicar",
@@ -1295,8 +1295,8 @@
     "rotate": {
       "description": [
         "Rota una figura según el monto especificado por el parámetro ángulo. Esta función toma en cuenta el modo de ángulo definido por angleMode(), así que los ángulos pueden ser ingresados en radianes o grados. Los objetos son siempre rotados según su posición relativa al origen y los números positivos rotan en la dirección de las manecillas del reloj. Las transformaciones se aplican a todo lo que ocurre de forma posterior y las subsecuentes llamadas a la función acumulan el efecto. Por ejemplo, llamar a la función rotate(HALF_PI) y luego rotate(HALF_PI) equivale a una llamada a rotate(PI). Todas las transformaciones son anuladas cuando la función draw() comienza nuevamente. Técnicamente, rotate() multiplica la matriz de transformación actual por una matriz de rotación. Esta función puede ser controlada además con las funciones push() y pop().",
-        "",
-        ""
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI). All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again.",
+        "Technically, <a href=\"#/p5/rotate\">rotate()</a> multiplies the current transformation matrix by a rotation matrix. This function can be further controlled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>."
       ],
       "params": {
         "angle": "Ángulo: el ángulo de rotación, especificado en radianes o grados, dependiendo de angleMode()",
@@ -1306,7 +1306,7 @@
     "rotateX": {
       "description": [
         "Rota en torno al eje X",
-        ""
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Número: ángulo en radianes"
@@ -1315,7 +1315,7 @@
     "rotateY": {
       "description": [
         "Rota en torno al eje Y",
-        ""
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Número: ángulo en radianes"
@@ -1324,8 +1324,8 @@
     "rotateZ": {
       "description": [
         "Rota en torno al eje Z,. Sólo disponible en el modo WEBGL.",
-        "",
-        ""
+        "This method works in WEBGL mode only.",
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "Número: ángulo en radianes"
@@ -1334,8 +1334,8 @@
     "scale": {
       "description": [
         "Aumenta o decrementa el tamaño de una figura por medio de expandir o contraer sus vértices. Los objetos siempre escalan desde su origen relativo al sistema de coordenadas. Los valores de escalamiento son porcentajes decimales. Por ejemplo, la llamada a la función scale(2.0) aumenta la dimensión de una figura en un 200%. Las transformaciones se aplican a todo lo que ocurre después y llamadas subsecuentes a la función multiplican el efecto. Por ejemplo, llamar a scale(2.0) y luego a scale(1.5) equivale a llamar a scale(3.0). Si la función scale() es llamad dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. El uso de esta función con el parámetro z está solo disponible en el modo WEBGL. Esta función puede también ser controlada con las funciones push() y pop().",
-        "",
-        ""
+        "Transformations apply to everything that happens after and subsequent calls to the function multiply the effect. For example, calling scale(2.0) and then scale(1.5) is the same as scale(3.0). If <a href=\"#/p5/scale\">scale()</a> is called within <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when the loop begins again.",
+        "Using this function with the z parameter is only available in WEBGL mode. This function can be further controlled with <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>."
       ],
       "params": {
         "s": "Número | p5.Vector| Arreglo: porcentaje a escalar del objeto, o porcentaje a esacalar del objeto en el eje x si se dan múltiples argumentos",
@@ -1347,8 +1347,8 @@
     "shearX": {
       "description": [
         "Corta la figura en torno al eje x según el monto especificado por el parámetro ángulo. Los ángulos deben ser especificados según el modo actual de ángulo angleMode(). Los objetos son siempre cortados según su posición relativa al origen y los números positivos cortan los objetos en la dirección de las manecillas del reloj. Las transformaciones aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a shearX(PI/2) y luego a shearX(PI/2) equivale a llamar a shearX(PI). Si shearX() es llamado dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. Técnicamente, shearX() multiplica la matriz de transformación actual por una matriz de rotación. La función puede ser controlada con las funciones push() y pop().",
-        "",
-        ""
+        "Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling shearX(PI/2) and then shearX(PI/2) is the same as shearX(PI). If <a href=\"#/p5/shearX\">shearX()</a> is called within the <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when the loop begins again.",
+        "Technically, <a href=\"#/p5/shearX\">shearX()</a> multiplies the current transformation matrix by a rotation matrix. This function can be further controlled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a> functions."
       ],
       "params": {
         "angle": "Número: ángulo de corte especificado en radianes o grados, dependiendo del modo de ángulo actual angleMode()"
@@ -1357,8 +1357,8 @@
     "shearY": {
       "description": [
         "Corta la figura en torno al eje y según el monto especificado por el parámetro ángulo. Los ángulos deben ser especificados según el modo actual de ángulo angleMode(). Los objetos son siempre cortados según su posición relativa al origen y los números positivos cortan los objetos en la dirección de las manecillas del reloj. Las transformaciones aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a shearY(PI/2) y luego a shearY(PI/2) equivale a llamar a shearY(PI). Si shearY() es llamado dentro de draw(), la transformación es anulada cuando el bucle empieza nuevamente. Técnicamente, shearY() multiplica la matriz de transformación actual por una matriz de rotación. La función puede ser controlada con las funciones push() y pop().",
-        "",
-        ""
+        "Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling shearY(PI/2) and then shearY(PI/2) is the same as shearY(PI). If <a href=\"#/p5/shearY\">shearY()</a> is called within the <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when the loop begins again.",
+        "Technically, <a href=\"#/p5/shearY\">shearY()</a> multiplies the current transformation matrix by a rotation matrix. This function can be further controlled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a> functions."
       ],
       "params": {
         "angle": "Número: ángulo de corte especificado en radianes o grados, dependiendo del modo de ángulo actual angleMode()"
@@ -1367,7 +1367,7 @@
     "translate": {
       "description": [
         "Especifica una cantidad a desplazar los objetos dentro de la ventana mostrada. El parámetro x especifica la traslación de izquierda a derecha, el parámetro y especifica la traslación de arriba a abajo. Las transformaciones son acumulativas y aplican a todo lo que ocurre después y llamadas posteriores a la misma función acumulan el efecto. Por ejemplo, llamar a translate(50, 0) y luego a translate(20, 0) equivale a llamar a translate(70, 0). Si translate() es llamado dentro de draw(), la transformación es anulada cada vez que el bucle empieza nuevamente. Esta función peude ser controlada con las funciones push() y pop().",
-        ""
+        "Transformations are cumulative and apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling translate(50, 0) and then translate(20, 0) is the same as translate(70, 0). If <a href=\"#/p5/translate\">translate()</a> is called within <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when the loop begins again. This function can be further controlled by using <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>."
       ],
       "params": {
         "x": "Número: traslación izquierda-derecha",
@@ -1683,38 +1683,38 @@
     "rotationX": {
       "description": [
         "La variable de sistema rotationX siempre contiene la rotación del dispositivo en el eje x. El valor está representado entre 0 y  +/-180 grados. Nota: el orden en que las rotaciones son llamadas es importante, por ejemplo, si se usan juntas, deben ser llamadas en el orden Z-X-Y, en caso contrario podría haber un comportamiento errado.",
-        ""
+        "Note: The order the rotations are called is important, ie. if used together, it must be called in the order Z-X-Y or there might be unexpected behaviour."
       ]
     },
     "rotationY": {
       "description": [
         "La variable de sistema rotationX siempre contiene la rotación del dispositivo en el eje x. El valor está representado entre 0 y  +/-180 grados. Nota: el orden en que las rotaciones son llamadas es importante, por ejemplo, si se usan juntas, deben ser llamadas en el orden Z-X-Y, en caso contrario podría haber un comportamiento errado.",
-        ""
+        "Note: The order the rotations are called is important, ie. if used together, it must be called in the order Z-X-Y or there might be unexpected behaviour."
       ]
     },
     "rotationZ": {
       "description": [
         "La variable de sistema rotationX siempre contiene la rotación del dispositivo en el eje y. El valor está representado entre 0 y  360 grados. A diferencia de rotationX y rotationY, esta variable está solo disponible en dispositivos equipados con una brújula interna. Nota: el orden en que las rotaciones son llamadas es importante, por ejemplo, si se usan juntas, deben ser llamadas en el orden Z-X-Y, en caso contrario podría haber un comportamiento errado.",
-        "",
-        ""
+        "Unlike rotationX and rotationY, this variable is available for devices with a built-in compass only.",
+        "Note: The order the rotations are called is important, ie. if used together, it must be called in the order Z-X-Y or there might be unexpected behaviour."
       ]
     },
     "pRotationX": {
       "description": [
         "La variable de sistema pRotationX siempre contiene la rotación del dispositivo en el eje x, en el cuadro anterior al actual. El valor está representado entre 0 y  +/-180 grados. pRotationX puede ser usado en conjunto con rotationX para determinar la dirección de rotación del dispositivo a lo largo del eje x.",
-        ""
+        "pRotationX can also be used with rotationX to determine the rotate direction of the device along the X-axis."
       ]
     },
     "pRotationY": {
       "description": [
         "La variable de sistema pRotationY siempre contiene la rotación del dispositivo en el eje x, en el cuadro anterior al actual. El valor está representado entre 0 y  +/-90 grados. pRotationY puede ser usado en conjunto con rotationY para determinar la dirección de rotación del dispositivo a lo largo del eje y.",
-        ""
+        "pRotationY can also be used with rotationY to determine the rotate direction of the device along the Y-axis."
       ]
     },
     "pRotationZ": {
       "description": [
         "La variable de sistema pRotationZ siempre contiene la rotación del dispositivo en el eje z, en el cuadro anterior al actual. El valor está representado entre 0 y 359 grados. pRotationZ puede ser usado en conjunto con rotationZ para determinar la dirección de rotación del dispositivo a lo largo del eje z.",
-        ""
+        "pRotationZ can also be used with rotationZ to determine the rotate direction of the device along the Z-axis."
       ]
     },
     "turnAxis": {
@@ -1746,7 +1746,7 @@
     "deviceTurned": {
       "description": [
         "La función deviceTurned() es llamada cuando el dispositivo es girado en más de 90 grados de modo continuo. El eje que gatilla la función deviceTurned() es almacenado en la variable turnAxis. El método deviceTurned() puede ser restringido para gatillar en cualquier eje: X, Y o Z, comparando la variable turnAxis con X, Y o Z.",
-        ""
+        "The axis that triggers the <a href=\"#/p5/deviceTurned\">deviceTurned()</a> method is stored in the turnAxis variable. The <a href=\"#/p5/deviceTurned\">deviceTurned()</a> method can be locked to trigger on any axis: X, Y or Z by comparing the turnAxis variable to 'X', 'Y' or 'Z'."
       ]
     },
     "deviceShaken": {
@@ -1772,9 +1772,9 @@
     "keyPressed": {
       "description": [
         "La función keyPressed() es llamada una vez cada vez que una tecla es presionada. El código keyCode de la tecla presionada es almacenado en la variable keyCode. Para las teclas sin valor ASCII, usa la variable keyCode.  Puedes comprobar si la variable keyCode es igual a BACKSPACE, DELETE, ENTER, RETURN, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW. Para las teclas con valor ASCII que son presionadas, el valor es almacenado en la variable key. Sin embargo, no distingue entre letras mayúsculas y minúsculas. Por esta razón, es recomendable usar la función keyTyped() para leer la variable key, que sí distingue entre mayúsculas y minúsculas. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-        "",
-        "",
-        ""
+        "For non-ASCII keys, use the keyCode variable. You can check if the keyCode equals BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW.",
+        "For ASCII keys, the key that was pressed is stored in the key variable. However, it does not distinguish between uppercase and lowercase. For this reason, it is recommended to use <a href=\"#/p5/keyTyped\">keyTyped()</a> to read the key variable, in which the case of the variable will be distinguished.",
+        "Because of how operating systems handle key repeats, holding down a key may cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The rate of repeat is set by the operating system and how each computer is configured. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
       ],
       "params": {
         "event": "Object: (Optional) optional KeyboardEvent callback argument."
@@ -1791,7 +1791,7 @@
     "keyTyped": {
       "description": [
         "la función keyTyped es llamada cava vez que una tecla es presionada, excepto cuando son presionadas la steclas de acción como Ctrl, Shift y Alt, que son ignoradas. La tecla presionada más reciente será almacenada en la variable key. Por la forma en que los sistemas operativos manejan la repetición de teclas, mantener presionada una tecla puede causar múltiples llamadas a keyTyped() (y también keyReleased()). La tasa de repetición es definida por el sistema operativo y según cómo cada computador está configurado. Los navegadores tienen distintos comportamientos por defecto asociados a distintos eventos gatillados por teclas. Para prevenir cualquier comportamiento por defecto para este evento, añade return false al final de este método.",
-        ""
+        "Because of how operating systems handle key repeats, holding down a key will cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The rate of repeat is set by the operating system and how each computer is configured. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
       ],
       "params": {
         "event": "Object: (Optional) optional KeyboardEvent callback argument."
@@ -1965,8 +1965,8 @@
     "createImage": {
       "description": [
         "Crea una nueva p5.Image (el tipo de datos para almacenar imágenes). Esto provee un nuevo buffer de pixeles para jugar. Define el tamaño del buffer con los parámetros de ancho y altuar. .pixels da acceso a un arreglo conteniendo los valores de todos los pixeles en la ventana mostrada. Estos valores son números. Este arreglo es del tamaño (incluyendo un factor apropiado de pixelDensity) de la ventana mostrada x4, representando los valroes R, G, B, A en orden para cada pixel., moviendo de izquierda a derecha en cada fila, y luego bajando de columna. Ver .pixels para mayor información. Podría ser más simple usar set() y get(). Antes de acceder a los pixeles de una imagen, los datos deben ser cargados con la función loadPixels(). Después de que el arreglo de datos ha sido modificado, la función updatePixels() debe ejecutarse para actualizar los cambios.",
-        "",
-        ""
+        ".<a href=\"#/p5.Image/pixels\">pixels</a> gives access to an array containing the values for all the pixels in the display window. These values are numbers. This array is the size (including an appropriate factor for the <a href=\"#/p5/pixelDensity\">pixelDensity</a>) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. See .<a href=\"#/p5.Image/pixels\">pixels</a> for more info. It may also be simpler to use <a href=\"#/p5.Image/set\">set()</a> or <a href=\"#/p5.Image/get\">get()</a>.",
+        "Before accessing the pixels of an image, the data must loaded with the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> function. After the array data has been modified, the <a href=\"#/p5.Image/updatePixels\">updatePixels()</a> function must be run to update the changes."
       ],
       "returns": "el objeto p5",
       "params": {
@@ -1987,7 +1987,7 @@
     "saveFrames": {
       "description": [
         "Captura una secuencia de cuadros que pueden ser usados para crear una película. Acepta una función callback. Por ejemplo, puedes querer mandar los cuadros a un servidor donde pueden ser almacenados o convertidos en una película. Si no se provee una función callback, el navegador abrirá varios diálogos tratando de descargar todas las imágenes que han sido creadas. Con una función callback provista, los datos de imagen no son grabados por defecto, sino que son pasados como argumento a la función callback como un arreglo de objetos, con el tamaño del arreglo siendo igual al número total de cuadros.",
-        ""
+        "Note that <a href=\"#/p5.Image/saveFrames\">saveFrames()</a> will only save the first 15 frames of an animation. To export longer animations, you might look into a library like <a href=\"https://github.com/spite/ccapture.js/\">ccapture.js</a>."
       ],
       "params": {
         "filename": "String:",
@@ -2000,9 +2000,9 @@
     "loadImage": {
       "description": [
         "Carga una imagen desde una ruta de archivo y crea un objeto p5.Image. La imagen puede no estar inmediatamente disponible para render. Si quieres asegurarte que esté lista antes de hacer algo con ella, ubica la función loadImage() dentro de preload(). También puedes proveer una función callback para manejar la imagen cuando esté lista. La ruta a la imagen debe ser relativa al archivo HTML de tu bosquejo. Cargar desde una URL u otra ubicación remota podría estar bloqueado por las opciones de seguridad del navegador.",
-        "",
-        "",
-        ""
+        "The image may not be immediately available for rendering. If you want to ensure that the image is ready before doing anything with it, place the <a href=\"#/p5/loadImage\">loadImage()</a> call in <a href=\"#/p5/preload\">preload()</a>. You may also supply a callback function to handle the image when it's ready.",
+        "The path to the image should be relative to the HTML file that links in your sketch. Loading an image from a URL or other remote location may be blocked due to your browser's built-in security.",
+        "You can also pass in a string of a base64 encoded image as an alternative to the file path. Remember to add \"data:image/png;base64,\" in front of the string."
       ],
       "returns": "el objeto p5",
       "params": {
@@ -2014,8 +2014,8 @@
     "image": {
       "description": [
         "Dibuja una imagen en el lienzo principal del bosquejo p5.js.",
-        "",
-        ""
+        "This function can be used with different numbers of parameters. The simplest use requires only three parameters: img, x, and y—where (x, y) is the position of the image. Two more parameters can optionally be added to specify the width and height of the image.",
+        "This function can also be used with all eight Number parameters. To differentiate between all these parameters, p5.js uses the language of \"destination rectangle\" (which corresponds to \"dx\", \"dy\", etc.) and \"source image\" (which corresponds to \"sx\", \"sy\", etc.) below. Specifying the \"source image\" dimensions can be useful when you want to display a subsection of the source image instead of the whole thing. Here's a diagram to explain further: <img src=\"assets/drawImage.png\"></img>"
       ],
       "params": {
         "img": "p5.Image: la imagen a mostrar",
@@ -2036,8 +2036,8 @@
     "tint": {
       "description": [
         "Define el valor de relleno para mostrar imágenes. Las imágenes pueden ser teñidas en colores específicos o hacerse transparentes al incluir un valor alpha. Para aplicar transparencia a una imagen sin afectar su color, usa blanco como color de teñido y especifica un valor alpha. Por ejemplo, tint(255, 128) hará una imagen 50% transparente (asumiendo el rango alpha por defecto entre 0 y 255, el que puede ser modificado con la función colorMode()). El valor del parámetro gris debe ser menor o igual al actual valor máximo según lo especificado por colorMode(). El valor máximo por defecto es 255.",
-        "",
-        ""
+        "To apply transparency to an image without affecting its color, use white as the tint color and specify an alpha value. For instance, tint(255, 128) will make an image 50% transparent (assuming the default alpha range of 0-255, which can be changed with <a href=\"#/p5/colorMode\">colorMode()</a>).",
+        "The value for the gray parameter must be less than or equal to the current maximum value as specified by <a href=\"#/p5/colorMode\">colorMode()</a>. The default maximum value is 255."
       ],
       "params": {
         "v1": "Número|Arreglo: valor de gris, rojo o tinte (dependiendo del modo de color actual), o un arreglo de colores",
@@ -2058,8 +2058,8 @@
     "imageMode": {
       "description": [
         "Define el modo de imagen. Modifica la ubicación desde la que las imágenes son dibujadas, por medio de cambiar la manera en que los parámetros dados a image() son interpretados. El modo por defecto es imageMode(CORNER), que interpreta los paráemtros segundo y tercero de image() como la posición de la esquina superior izquierda de la imagen. Si se dan dos parámetros adicionales, son usados para definir el ancho y la altura la imagen. imageMode(CORNERS) interpreta los paráemtros segundo y tercero de image() como la ubicación de una esquina, y los parámetros cuarto y quinto como la ubicación de la esquina opuesta. imageMode(CENTER) interpreta los parámetros segundo y tercero de image() como el punto central de la imagen. Si dos parámetros adicionales son especificados, son usados para definir el ancho y la altura de la imagen.",
-        "",
-        ""
+        "imageMode(CORNERS) interprets the second and third parameters of <a href=\"#/p5/image\">image()</a> as the location of one corner, and the fourth and fifth parameters as the opposite corner.",
+        "imageMode(CENTER) interprets the second and third parameters of <a href=\"#/p5/image\">image()</a> as the image's center point. If two additional parameters are specified, they are used to set the image's width and height."
       ],
       "params": {
         "mode": "Constante: puede ser CORNER, CORNERS, o CENTER"
@@ -2110,15 +2110,15 @@
     "filter": {
       "description": [
         "Aplica un filtro al lienzo. Las opciones posibles son: THRESHOLD, que convierte la imagen a pixeles blancos y negros dependiendo de si están arriba o abajo del umbral definido por el parámetro. El parámetro debe estar entre 0.0 (negro) y 1.0 (blanco). Si no se especifica ningún valor, el valor por defecto es 0.5. GRAY, convierte cualquier color en la imagen a un equivalente en la escala de grises, no tiene parámetros. OPAQUE, hace que el canal alpha sea totalmente opaco, no tiene parámetros. INVERT, hace que cada pixel tenga su valor inverso, no tiene parámetros. POSTERIZE, limita cada canal de la imagen a un número de colores especificado como parámetro. El parámetro puede definir entre 2 y 255 valores, pero los resultados más notorios se dan con valores bajos. BLUR, hace que la imagen sea borrosa con un proceso Gaussiano, siendo el parámetro el nivel de cuán borroso es el resultado, si no se usa ningún parámetro, el parámetro por defecto es 1, a mayores valores es más borroso el resultado. ERODE, reduce las áreas claras, no tiene parámetros. DILATE, aumenta las áreas claras, no tiene parámetros.",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used.",
+        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used.",
+        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used.",
+        "INVERT Sets each pixel to its inverse value. No parameter is used.",
+        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges.",
+        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur.",
+        "ERODE Reduces the light areas. No parameter is used.",
+        "DILATE Increases the light areas. No parameter is used.",
+        "filter() does not work in WEBGL mode. A similar effect can be achieved in WEBGL mode using custom shaders. Adam Ferriss has written a <a href=\"https://github.com/aferriss/p5jsShaderExamples\" target='_blank'>selection of shader examples</a> that contains many of the effects present in the filter examples."
       ],
       "params": {
         "filterType": "Constante:",
@@ -2128,10 +2128,10 @@
     "get": {
       "description": [
         "Retorna un arreglo de valores RGBA por cada pixel o toma una sección de una imagen. Si no especifican parámetros, se retorna la imagen entera. Usa los parámetros x e y para obtener el valor de un pixel. Toma una sección de la ventana mostrada si especificas los parámetros adicionales w y h. Cuando se obtiene una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el actual mode imagen definido por imageMode(). Si el pixel solicitado está fuera de la imagen, se retorna el valor [0, 0, 0, 255]. Para obtener los números escalados según los rangoes de color actuales y tomar en cuenta el modo de color según colorMode(), usa getColor() en vez de get(). Tomar el valor de un pixel con get(x, y) es fácil, pero no tan rápido como tomar los datos directamente desde pixels[]. La instrucción equivalente a get(x, y) usando pixels[] con densidad de pixeles d es  var off = (y width + x) d * 4; [pixels[off], pixels[off+1], pixels[off+2], pixels[off+3]]. Ver la referencia de pixels[] para mayor información.",
-        "",
-        "",
-        "",
-        ""
+        "Returns an array of [R,G,B,A] values for any pixel or grabs a section of an image. If no parameters are specified, the entire image is returned. Use the x and y parameters to get the value of one pixel. Get a section of the display window by specifying additional w and h parameters. When getting an image, the x and y parameters define the coordinates for the upper-left corner of the image, regardless of the current <a href=\"#/p5/imageMode\">imageMode()</a>.",
+        "Getting the color of a single pixel with get(x, y) is easy, but not as fast as grabbing the data directly from <a href=\"#/p5/pixels\">pixels[]</a>. The equivalent statement to get(x, y) using <a href=\"#/p5/pixels\">pixels[]</a> with pixel density d is <pre><code class=\"language-javascript\">let x, y, d; // set these to the coordinates let off = (y * width + x) * d * 4; let components = [  pixels[off],  pixels[off + 1],  pixels[off + 2],  pixels[off + 3] ]; print(components);</code></pre>",
+        "See the reference for <a href=\"#/p5/pixels\">pixels[]</a> for more information.",
+        "If you want to extract an array of colors or a subimage from an p5.Image object, take a look at <a href=\"#/p5.Image/get\">p5.Image.get()</a>"
       ],
       "returns": "Arreglo|p5.Image: valores de pixel en la posición (x, y) en formato arreglo RGBAs o p5.Image",
       "params": {
@@ -2149,8 +2149,8 @@
     "set": {
       "description": [
         "Cambia el color de cualquier pixel, o pone una imagen directamente en la ventana. Los parámetros x e y especifican el pixel a cambiar y c especifica el valor del color. Puede ser un objeto p5.Color o un arreglo de pixeles RGBA. También puede ser un valor único en escala de grises. Cuando se define una imagen, los parámetros x e y definen las coordenadas de la esquina superior izquierda de la imagen, sin importar el modo actual de imagen según imageMode(). Después de usar set(), debes llamar a updatePixels()' para que tus cambios aparezcan. Esta función debería ser llamada una vez que todos los pixeles han sido definidos. Definir el color de un solo pixel con set(x, y) es fácil, pero es tan rápido como poner los datos directamente en el arreglo pixels[]. Definir los valores de pixels[] directamente puede ser complicado cuando se trabaja con un monitor retina, pero tendrá un mejor desempeño cuando muchos pixeles necesiten ser definidos directamente en cada iteración. Ver la referencia de pixels[] para mayor información.",
-        "",
-        ""
+        "After using <a href=\"#/p5/set\">set()</a>, you must call <a href=\"#/p5/updatePixels\">updatePixels()</a> for your changes to appear. This should be called once all pixels have been set, and must be called before calling .<a href=\"#/p5/get\">get()</a> or drawing the image.",
+        "Setting the color of a single pixel with set(x, y) is easy, but not as fast as putting the data directly into <a href=\"#/p5/pixels\">pixels[]</a>. Setting the <a href=\"#/p5/pixels\">pixels[]</a> values directly may be complicated when working with a retina display, but will perform better when lots of pixels need to be set directly on every loop. See the reference for <a href=\"#/p5/pixels\">pixels[]</a> for more information."
       ],
       "params": {
         "x": "Número: coordenada x del pixel",
@@ -2172,8 +2172,8 @@
     "loadJSON": {
       "description": [
         "Carga un archivo JSON desde un archivo o una URL, y retorna un objeto o un arreglo. Este método es asíncrono, lo que significa que puede que no termine antes que se ejecute la siguiente línea en tu bosquejo.",
-        "",
-        ""
+        "This method is asynchronous, meaning it may not finish before the next line in your sketch is executed. JSONP is supported via a polyfill and you can pass in as the second argument an object with definitions of the json callback following the syntax specified <a href=\"https://github.com/camsong/ fetch-jsonp\">here</a>.",
+        "This method is suitable for fetching files up to size of 64MB."
       ],
       "returns": "Objeto|Arreglo: datos JSON",
       "params": {
@@ -2187,9 +2187,9 @@
     "loadStrings": {
       "description": [
         "Lee los contenidos de un archivo y crea un arreglo de Strings de sus líneas individuales. Si el nombre del archivo es usado como parámetro, como en el ejemplo anterior, el archivo debe estar ubicado en el directorio del bosquejo. Alternativamente, el archivo puede ser cargado desde cualquier lugar del computador local usando una dirección absoluta (empieza con / en Unix y Linux, o una letra representando el disco en Windows), o el parámetro de nombre de archivo puede ser una URL donde esté el archivo dentro de una red. Este método es asíncrono, lo que significa que puede ser que su ejecución no termine antes de que se ejecute la siguiente línea del bosquejo.",
-        "",
-        "",
-        ""
+        "Alternatively, the file maybe be loaded from anywhere on the local computer using an absolute path (something that starts with / on Unix and Linux, or a drive letter on Windows), or the filename parameter can be a URL for a file found on a network.",
+        "This method is asynchronous, meaning it may not finish before the next line in your sketch is executed.",
+        "This method is suitable for fetching files up to size of 64MB."
       ],
       "returns": "Arreglo: un arreglo de Strings",
       "params": {
@@ -2201,8 +2201,8 @@
     "loadTable": {
       "description": [
         "Lee los contenidos de un archivo o URL y crea un objeto p5.Table con sus valores. Si un archivo es especificado, debe ser ubicado en el directorio data del bosquejo. El parámetro de nombre de archivo puede también ser una URL de un archivo en línea. Por defecto, se asume que el archivo está separado por comas (formato CSV), La tabla sólo busca una fila de encabezado si es que se incluye la opción header. Las opciones posibles incluyen: csv: se procesan los datos como valores separados por comas, tsv: se procesan los datos como separados por tabulación, header: la tabla tiene una fila de encabezados (títulos). Si se incluyenn múltiples opciones, se deben ingresar como parámetros separados por comas. Todos los archivos son cargados y grabados usando codificación UTF-8. Este método es asíncrono, lo que significa que su ejecución puede no haber terminado antes de que se ejecute la siguiente línea del bosquejo. Si se llama a loadTable() dentro de preload() se garantiza que se complete la operación antes de que setup() y draw() sean llamadas. Fuera de preload(), puedes suplir una función callback para manejar el objeto.",
-        "",
-        ""
+        "This method is asynchronous, meaning it may not finish before the next line in your sketch is executed. Calling <a href=\"#/p5/loadTable\">loadTable()</a> inside <a href=\"#/p5/preload\">preload()</a> guarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called. Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the object:",
+        "All files loaded and saved use UTF-8 encoding. This method is suitable for fetching files up to size of 64MB."
       ],
       "returns": "Objeto Table conteniendo los datos",
       "params": {
@@ -2216,10 +2216,10 @@
     "loadXML": {
       "description": [
         "Lee los contenidos de un archivo y crea un objeto XML con sus valores. Si el nombre del archivo es usado como parámetro, el archivo debe estar ubicado en el directorio del bosquejo. Alternativamente, el archivo puede ser cargado desde cualquier lugar del computador local usando una dirección absoluta (que empieza con / en Unix y Linux, o con una letra que simbolice el disco duro en Windows). También se puede usar como parámetro de nombre de archivo una URL para un archivo en una red. Este método es asíncrono, lo que significa que su ejecución puede no estar completa antes de que se ejecute la siguiente línea de código en el bosquejo. Llamar a loadXML() dentro de preload() garantiza que la operación se complete antes de que setup() y draw() sean llamados. Fuera de preload(), puedes suplir una función callBack para manejar el objeto.",
-        "",
-        "",
-        "",
-        ""
+        "Alternatively, the file maybe be loaded from anywhere on the local computer using an absolute path (something that starts with / on Unix and Linux, or a drive letter on Windows), or the filename parameter can be a URL for a file found on a network.",
+        "This method is asynchronous, meaning it may not finish before the next line in your sketch is executed. Calling <a href=\"#/p5/loadXML\">loadXML()</a> inside <a href=\"#/p5/preload\">preload()</a> guarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called.",
+        "Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the object.",
+        "This method is suitable for fetching files up to size of 64MB."
       ],
       "returns": "objeto XML que contiene los datos",
       "params": {
@@ -2422,7 +2422,7 @@
     "map": {
       "description": [
         "Escala un nombre de un rango a otro rango. En el primer ejemplo anterior, el número 25 es convertido de un valor en el rango entre 0 y 100 a un valor cuyo rango está entre el borde izquierdo de la ventana (0) y el borde derecho (ancho).",
-        ""
+        "In the first example above, the number 25 is converted from a value in the range of 0 to 100 into a value that ranges from the left edge of the window (0) to the right edge (width)."
       ],
       "returns": "Número: número escalado",
       "params": {
@@ -2556,7 +2556,7 @@
     "randomSeed": {
       "description": [
         "Define la semilla para la función random(). Por defecto, la función random() produce diferentes resultados cada vez que el programa es ejecutado. Definir el parámetro semilla como una constante hace que retorne la misma secuencia de números pseudo-aleatorios cada vez que el programa es ejecutado.",
-        ""
+        "By default, <a href=\"#/p5/random\">random()</a> produces different results each time the program is run. Set the seed parameter to a constant to return the same pseudo-random numbers each time the software is run."
       ],
       "params": {
         "seed": "Número: el valor semilla"
@@ -2565,11 +2565,11 @@
     "random": {
       "description": [
         "Retorna un número aleaotorio de tipo float (punto flotante). Acepta 0, 1 o 2 argumentos. Si no se le da un argumento, retorna un número aleatorio entre 0 y 1 (sin incluir 1). Si se da un argumento y es un número, retorna un número aleatorio entre 0 y hasta (pero sin incluir) el parámetro. Si se da un argumento y es un arreglo, retorna una elemento al azar del arreglo. Si se dan dos argumentos, retorna un número aleatorio entre el primer argumento y hasta (pero sin incluir) el segundo argumento.",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "Takes either 0, 1 or 2 arguments.",
+        "If no argument is given, returns a random number from 0 up to (but not including) 1.",
+        "If one argument is given and it is a number, returns a random number from 0 up to (but not including) the number.",
+        "If one argument is given and it is an array, returns a random element from that array.",
+        "If two arguments are given, returns a random number from the first argument up to (but not including) the second argument."
       ],
       "returns": "Número: el número aleatorio o un elemento aleatorio de un conjunto de opciones",
       "params": {
@@ -2618,7 +2618,7 @@
     "atan2": {
       "description": [
         "Calcula el ángulo (en radianes) desde un punto específico al origen, medido desde el eje x positivo. Los valores retornados son de tipo float entre  -PI/2  y PI/2. La función atan2() es más frecuentemente usada para orientar figuras figuras geométricas según la posición del cursor. Nota: la coordenada y del punto es el primer parámetro, y la coordenada x es el segundo parámetro, debido a la estructura para calcular la tangente.",
-        ""
+        "Note: The y-coordinate of the point is the first parameter, and the x-coordinate is the second parameter, due the the structure of calculating the tangent."
       ],
       "returns": "Número: el arcotangente del punto dado",
       "params": {
@@ -2682,8 +2682,8 @@
     "textAlign": {
       "description": [
         "Define el alineamiento actual para dibujar texto. Acepta dos argumentos: horizAlign(LEFT, CENTER o RIGHT) y vertAlign(TOP, BOTTOM, CENTER, o BASELINE). El parámetro horizAlign se refiere al valor x de la función text(), mientras que vel parámetro vertAlign al valor y. Así que si escribes textAlign(LEFT), estás alineando el borde izquierdo de tu texto al valor x dado en la función text(). Si escribes textAlign(RIGHT, TOP), estás alineando el borde derecho de tu texto con el valor x y el borde superior con el valor y del texto.",
-        "",
-        ""
+        "The horizAlign parameter is in reference to the x value of the <a href=\"#/p5/text\">text()</a> function, while the vertAlign parameter is in reference to the y value.",
+        "So if you write textAlign(LEFT), you are aligning the left edge of your text to the x value you give in <a href=\"#/p5/text\">text()</a>. If you write textAlign(RIGHT, TOP), you are aligning the right edge of your text to the x value and the top of edge of the text to the y value."
       ],
       "params": {
         "horizAlign": "Constante: alineamiento horizontal, puede ser LEFT, CENTER o RIGHT",
@@ -2750,7 +2750,7 @@
     "loadFont": {
       "description": [
         "Carga un archivo de fuente de letra (.otf, .ttf) desde un archivo o URL, y retorna un objeto PFont. Este método es asíncrono, lo que significa que puede que no finalice antes de que la siguiente línea en tu bosquejo sea ejecutada. La ubicación del archivo debe ser relativo al archivo HTML que lo vincula con tu bosquejo. Cargar desde una URL u otra ubicación remota puede ser bloqueado por las opciones de seguridad del navegador.",
-        ""
+        "The path to the font should be relative to the HTML file that links in your sketch. Loading fonts from a URL or other remote location may be blocked due to your browser's built-in security."
       ],
       "returns": "Objeto: objeto p5.Font",
       "params": {
@@ -2762,9 +2762,9 @@
     "text": {
       "description": [
         "Dibuja texto en la pantalla. Muestra la información especificada en el primer parámetro en la pantalla, en la posición especificada por los parámetros adicionales. Una fuente por defecto será usada a menos que una fuente sea definida por la función textFont() y un tamaño por defecto será usado a menos que se use la función textSize(). Cambia el color del texto con la función fill(). Cambia la apariencia del texto con las funciones stroke() y strokeWeight(). El texto se muestra en relación a la función textAlign(), que da la opción de dibujar a la izuiqerda, derecha y centro de las coordenadas. Los parámetros x2 e y2 definen un área rectangular donde mostrar el texto y solo puede ser usado por los datos tipo String. Cuando estos parámetros son especificados, son interpretados según la configuración de rectMode(). El texto que no cabe completamente dentro del rectángulo especificado no será dibujado en pantalla.",
-        "",
-        "",
-        ""
+        "The text displays in relation to the <a href=\"#/p5/textAlign\">textAlign()</a> function, which gives the option to draw to the left, right, and center of the coordinates.",
+        "The x2 and y2 parameters define a rectangular area to display within and may only be used with string data. When these parameters are specified, they are interpreted based on the current <a href=\"#/p5/rectMode\">rectMode()</a> setting. Text that does not fit completely within the rectangle specified will not be drawn to the screen. If x2 and y2 are not specified, the baseline alignment is the default, which means that the text will be drawn upwards from x and y.",
+        "<b>WEBGL</b>: Only opentype/truetype fonts are supported. You must load a font using the <a href=\"#/p5/loadFont\">loadFont()</a> method (see the example above). <a href=\"#/p5/stroke\">stroke()</a> currently has no effect in webgl mode."
       ],
       "params": {
         "str": "String: símbolos alfanuméricos a ser mostrados",
@@ -2777,7 +2777,7 @@
     "textFont": {
       "description": [
         "Define la función actual con la que se dibujará el contenido de la función text()",
-        ""
+        "<b>WEBGL</b>: Only fonts loaded via <a href=\"#/p5/loadFont\">loadFont()</a> are supported."
       ],
       "returns": "Objeto",
       "params": {
@@ -2798,8 +2798,8 @@
     "arrayCopy": {
       "description": [
         "Copia el arreglo (o una parte del arreglo) a otro arreglo. El arreglo fuente es copiado al arreglo de destino, empezando por la posición especificada por srcPosition y a la posición especificada por dstPosition. El número de elementos a copiar es determinado por el largo. Notar que al copiar valores se sobreescriben los valores existentes en el arreglo de destino. Para anexar valores en vez de sobreescribirlos, usa la función concat(). La versión simplificada con dos argumentos, arrayCopy(src, dest), copia un arreglo entero a otro del mismo tamaño. Es equivaletne a arrayCopy(src, 0, dst, 0, src.length). Usar esta función es mucho más eficiente para copiar datos de un arreglo que iterar con un bucle for() y copiar cada elemento individualmente.",
-        "",
-        ""
+        "The simplified version with only two arguments, arrayCopy(src, dst), copies an entire array to another of the same size. It is equivalent to arrayCopy(src, 0, dst, 0, src.length).",
+        "Using this function is far more efficient for copying array data than iterating through a for() loop and copying each element individually."
       ],
       "params": {
         "src": "Arreglo: el arreglo fuente",
@@ -2882,7 +2882,7 @@
     "float": {
       "description": [
         "Convierte un String a su representación de punto flotante. Los contenidos de un String deben parecerse a un número, en otro caso NaN es retornado. Por ejemplo, float('1234.56') evalua a 1234.56, pero float('giraffe') retorna NaN. Cuando un arreglo de valores es pasado, un arreglo de floats del mismo largo es retornado.",
-        ""
+        "When an array of values is passed in, then an array of floats of the same length is returned."
       ],
       "returns": "Número: representación en punto flotante de un string",
       "params": {
@@ -2973,8 +2973,8 @@
     "match": {
       "description": [
         "Esta función es usada para aplicar una expresión regular a una porción de texto,  y retorna grupos coincidentes (elementos encontrados entre paréntesis) como un arreglo de Strings. Si no existen coincidencias, se retorna el valor null. Si no se especifican grupos en la expresión regular, pero la secuencia coincide, un arreglo de largo 1 (con el texto coincidente como primer elemento del arreglo) será retornado. Para usar la función, primero comprueba si el resultado es null. Si el resultado es null, entonces la secuencia no tuvo coincidencias. Si la secuencia tuvo coincidencias, retorna un arreglo. Si exsiten grupos (especificados como conjuntos de paréntesis) en la expresión regular, entonces los contenidos de cada uno serán retornados en el arreglo. El elemento[0] de una coincidencia de expresión regular retorna el string coincidente, y el grupo de coincidencia empieza en el elemento[1] (el primer grupo es [1], el segundo es [2], etc).",
-        "",
-        ""
+        "To use the function, first check to see if the result is null. If the result is null, then the sequence did not match at all. If the sequence did match, an array is returned.",
+        "If there are groups (specified by sets of parentheses) in the regular expression, then the contents of each will be returned in the array. Element [0] of a regular expression match returns the entire matching string, and the match groups start at element [1] (the first group is [1], the second [2], and so on)."
       ],
       "returns": "Arreglo: arreglo de Strings encontrados",
       "params": {
@@ -2985,8 +2985,8 @@
     "matchAll": {
       "description": [
         "Esta función es usada para aplicar una expresión regular a una porción de texto,  y retorna una lista de grupos coincidentes (elementos encontrados entre paréntesis) como un arreglo de Strings bidimensional. Si no existen coincidencias, se retorna el valor null. Si no se especifican grupos en la expresión regular, pero la secuencia coincide, un arreglo de dos dimensiones es retornado, pero es de largo 1. Para usar la función, primero comprueba si el resultado es null. Si el resultado es null, entonces la secuencia no tuvo coincidencias. Si la secuencia tuvo coincidencias, retorna un arreglo 2D. Si exsiten grupos (especificados como conjuntos de paréntesis) en la expresión regular, entonces los contenidos de cada uno serán retornados en el arreglo. El elemento[i][0] de una coincidencia de expresión regular retorna el string coincidente completo, y el grupo de coincidencia empieza en el elemento[i][1] (el primer grupo es [i][1], el segundo es [i][2], etc).",
-        "",
-        ""
+        "To use the function, first check to see if the result is null. If the result is null, then the sequence did not match at all. If the sequence did match, a 2D array is returned.",
+        "If there are groups (specified by sets of parentheses) in the regular expression, then the contents of each will be returned in the array. Assuming a loop with counter variable i, element [i][0] of a regular expression match returns the entire matching string, and the match groups start at element [i][1] (the first group is [i][1], the second [i][2], and so on)."
       ],
       "returns": "Arreglo: arreglo 2D de Strings encontrados",
       "params": {
@@ -3044,7 +3044,7 @@
     "split": {
       "description": [
         "La función split usa String.split(), corta un String en pedazos usando un caracter o String como delimitador. El parámetro delim especifica el caracter o caracteres que marcan los bordes entre cada pieza. Un arreglo String[] es retornado, que contiene cada una de las piezas. La función splitTokens() funciona de forma similar, excepto que divide usango un rango de caracteres en vez de usar un caracter o una secuencia de caracteres específicos.",
-        ""
+        "The <a href=\"#/p5/splitTokens\">splitTokens()</a> function works in a similar fashion, except that it splits using a range of characters instead of a specific character or sequence."
       ],
       "returns": "Arreglo: arreglo de Strings",
       "params": {
@@ -3055,7 +3055,7 @@
     "splitTokens": {
       "description": [
         "La función splitTokens() divide un String en uno o varios caracteres delimitadores o tokens. El parámetro delim especifica el o los caracteres a ser usados como borde. Si no se especifican caracteres delim, cualquier caracter tipo whitespace será usado para dividir. Los caracteres whitespace incluyen tabulación (\t), nueva línea (\n), retorno de carro (\r), entrada de formulario (\f), y espacio.",
-        ""
+        "If no delim characters are specified, any whitespace character is used to split. Whitespace characters include tab (\\t), line feed (\\n), carriage return (\\r), form feed (\\f), and space."
       ],
       "returns": "Arreglo: arreglo de Strings",
       "params": {
@@ -3141,7 +3141,7 @@
     "sphere": {
       "description": [
         "Dibuja una esfera de radio dado.",
-        ""
+        "DetailX and detailY determines the number of subdivisions in the x-dimension and the y-dimension of a sphere. More subdivisions make the sphere seem smoother. The recommended maximum values are both 24. Using a value greater than 24 may cause a warning or slow down the browser."
       ],
       "params": {
         "radius": "Número: radio del círculo",
@@ -3152,7 +3152,7 @@
     "cylinder": {
       "description": [
         "Dibuja un cilindro de radio y altura dados.",
-        ""
+        "DetailX and detailY determines the number of subdivisions in the x-dimension and the y-dimension of a cylinder. More subdivisions make the cylinder seem smoother. The recommended maximum value for detailX is 24. Using a value greater than 24 may cause a warning or slow down the browser."
       ],
       "params": {
         "radius": "Número: radio de la superficie",
@@ -3166,7 +3166,7 @@
     "cone": {
       "description": [
         "Dibuja un cono de radio y altura dados.",
-        ""
+        "DetailX and detailY determine the number of subdivisions in the x-dimension and the y-dimension of a cone. More subdivisions make the cone seem smoother. The recommended maximum value for detailX is 24. Using a value greater than 24 may cause a warning or slow down the browser."
       ],
       "params": {
         "radius": "Número: radio de la superficie inferior",
@@ -3179,7 +3179,7 @@
     "ellipsoid": {
       "description": [
         "Dibuja un elipsoide de radio dado.",
-        ""
+        "DetailX and detailY determine the number of subdivisions in the x-dimension and the y-dimension of a cone. More subdivisions make the ellipsoid appear to be smoother. Avoid detail number above 150, it may crash the browser."
       ],
       "params": {
         "radiusx": "Número: radio x del círculo",
@@ -3192,7 +3192,7 @@
     "torus": {
       "description": [
         "Dibuja un toroide con radio y tubo dado.",
-        ""
+        "DetailX and detailY determine the number of subdivisions in the x-dimension and the y-dimension of a torus. More subdivisions make the torus appear to be smoother. The default and maximum values for detailX and detailY are 24 and 16, respectively. Setting them to relatively small values like 4 and 6 allows you to create new shapes other than a torus."
       ],
       "params": {
         "radius": "Número: radio del anillo completo",
@@ -3271,7 +3271,7 @@
     "directionalLight": {
       "description": [
         "Crea una luz direccional con color y dirección",
-        ""
+        "A maximum of 5 directionalLight can be active at one time"
       ],
       "params": {
         "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
@@ -3287,7 +3287,7 @@
     "pointLight": {
       "description": [
         "Crea una luz puntual con color y posición",
-        ""
+        "A maximum of 5 pointLight can be active at one time"
       ],
       "params": {
         "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo o tinte (dependiendo del modo de color actual), o arreglo de color o String de color CSS",
@@ -3347,9 +3347,9 @@
     "loadModel": {
       "description": [
         "Carga un modelo 3d desde un archivo OBJ. Una de las limitaciones del formato OBJ es que no trae incorporado un sentido de escala. Esto significa que los modelos exportados por distintos programas pueden ser de tamaños radicalmente distintos. Si tu modelo no está siendo mostrado en pantalla, trata llamando a la función loadMode() con el parámetro de normalización configurado como verdadero. Esto escalará el tamaño del modelo a una escala apropiada para p5. También puedes hacer cambios adicionales al tamaño final de tu modelo con la función scale().",
-        "",
-        "",
-        ""
+        "<a href=\"#/p5/loadModel\">loadModel()</a> should be placed inside of <a href=\"#/p5/preload\">preload()</a>. This allows the model to load fully before the rest of your code is run.",
+        "One of the limitations of the OBJ and STL format is that it doesn't have a built-in sense of scale. This means that models exported from different programs might be very different sizes. If your model isn't displaying, try calling <a href=\"#/p5/loadModel\">loadModel()</a> with the normalized parameter set to true. This will resize the model to a scale appropriate for p5. You can also make additional changes to the final size of your model with the <a href=\"#/p5/scale\">scale()</a> function.",
+        "Also, the support for colored STL files is not present. STL files with color will be rendered without color properties."
       ],
       "returns": "el objeto p5.Geometry3D",
       "params": {
@@ -3483,9 +3483,9 @@
     "camera": {
       "description": [
         "Define la posición de la cámara",
-        "",
-        "",
-        ""
+        "This function simulates the movements of the camera, allowing objects to be viewed from various angles. Remember, it does not move the objects themselves but the camera instead. For example when the centerX value is positive, and the camera is rotating to the right side of the sketch, the object will seem like it's moving to the left.",
+        "See this <a href = \"https://www.openprocessing.org/sketch/740258\">example</a> to view the position of your camera.",
+        "If no parameters are given, the following default is used: camera(0, 0, (height/2) / tan(PI/6), 0, 0, 0, 0, 1, 0)"
       ],
       "params": {
         "x": "Número: valor de la posición de la cámara en el eje x",
@@ -3502,7 +3502,7 @@
     "perspective": {
       "description": [
         "Define la perspectiva de la cámara",
-        "",
+        "The parameters to this function define the viewing frustum (the truncated pyramid within which objects are seen by the camera) through vertical field of view, aspect ratio (usually width/height), and near and far clipping planes.",
         "If no parameters are given, the following default is used: perspective(PI/3, width/height, eyeZ/10, eyeZ*10), where eyeZ is equal to ((height/2) / tan(PI/6))."
       ],
       "params": {
@@ -4851,7 +4851,7 @@
   "p5.TableRow": {
     "description": [
       "Un objeto TableRow representa una única fila de datos, grabados en columnas, de una tabla. Un objeto TableRow contiene tanto un arreglo ordenado, como un objeto JSON desordenado.",
-      ""
+      "A Table Row contains both an ordered array, and an unordered JSON object."
     ],
     "params": {
       "str": "String: opcional, puebla la fila con una serie de valores, separados por el separador",
@@ -5059,8 +5059,8 @@
   "p5.Vector": {
     "description": [
       "Una clase para describir un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección. El tipo de datos, sin embargo, graba los componentes del vector (x, y para 2D y x,y,z para 3D). La magnitud y la dirección pueden ser calculados con los métodos mag() y heading(). En muchos de los ejemplos de p5.js, verás que p5.Vector es usado para describir una posición, velocidad o aceleración. Por ejemplo, si consideras un rectángulo moviéndose a lo largo de la pantalla, en cada instante tiene una posición (un vector que apunta desde el origen hasta su ubicación), una velocidad(la tasa a la que la posición del objeto cambia por unidad de tiempo, expresada como vector), y aceleración (la tasa a la que la velocidad del objeto cambia por unidad de tiempo, expresada como vector). Como los vectores representan grupos de valores, no podemos simplemente usar las operaciones tradicionales de adición, multiplicación, etc. En vez de eso, necesitaremos hacer matemática de vectores, lo que es simplificado con los métodos dentro de la clase p5.Vector.",
-      "",
-      ""
+      "In many of the p5.js examples, you will see <a href=\"#/p5.Vector\">p5.Vector</a> used to describe a position, velocity, or acceleration. For example, if you consider a rectangle moving across the screen, at any given instant it has a position (a vector that points from the origin to its location), a velocity (the rate at which the object's position changes per time unit, expressed as a vector), and acceleration (the rate at which the object's velocity changes per time unit, expressed as a vector).",
+      "Since vectors represent groupings of values, we cannot simply use traditional addition/multiplication/etc. Instead, we'll need to do some \"vector\" math, which is made easy by the methods inside the <a href=\"#/p5.Vector\">p5.Vector</a> class."
     ],
     "params": {
       "x": "Número: componente x del vector",
