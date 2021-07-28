@@ -121,7 +121,7 @@ module.exports = function(grunt) {
               },
               {
                 pattern: ':base',
-                replacement: function () {
+                replacement: function() {
                   var check = this.basename.lastIndexOf(this.language.toLowerCase());
                   if (check > -1) {
                     return this.basename.substring(0, check - 1);
@@ -386,16 +386,18 @@ module.exports = function(grunt) {
 
     const version = require('./src/templates/pages/reference/data.json').project.version;
 
-    fs.readFile('./src/data/data.yml').then((str) => {
-      const data = yaml.safeLoad(str);
-      data.version = version;
+    fs.readFile('./src/data/data.yml')
+      .then(str => {
+        const data = yaml.safeLoad(str);
+        data.version = version;
 
-      const dump = yaml.safeDump(data);
+        const dump = yaml.safeDump(data);
 
-      return fs.writeFile('./src/data/data.yml', dump);
-    }).then(() => {
-      done();
-    });
+        return fs.writeFile('./src/data/data.yml', dump);
+      })
+      .then(() => {
+        done();
+      });
   });
 
   // runs the updateJSON() function from update18nFiles.js
