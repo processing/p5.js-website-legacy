@@ -9,6 +9,7 @@
 // createCanvas 함수는 컴퓨터에게 만들 윈도의 크기를 지정하는 함수 스테이트멘트입니다.
 // 함수 스테이트멘트는 0개 이상의 인자 (parameter)가 있읍니다.
 // 인자들는 함수에 사용되는 데이터며, 인자들의 값으로 컴퓨터의 행동을 지정합니다.
+
 function setup() {
    createCanvas(710, 400);
 }
@@ -18,3 +19,4 @@ function setup() {
 function draw() {
    background(204, 153, 0);
 }
+
