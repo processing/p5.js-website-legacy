@@ -10,15 +10,9 @@ const yaml = require('js-yaml');
 const fs = require('fs').promises;
 const fse = require('fs-extra');
 const git = require('simple-git');
-const _ = require('lodash');
 const pkg = require('./package.json');
-const update_i18n = require('./updatei18nFiles.js');
-const fluentConverter = require('./fluentConverter.js');
 const mozjpeg = require('imagemin-mozjpeg');
 const pngquant = require('imagemin-pngquant');
-const util = require('util');
-const glob = util.promisify(require('glob'));
-const path = require('path');
 
 module.exports = function(grunt) {
   require('time-grunt')(grunt);
@@ -400,96 +394,8 @@ module.exports = function(grunt) {
       });
   });
 
-  // runs the updateJSON() function from update18nFiles.js
-  // is run by the update-translation-files workflow every time one of them is modified
-  grunt.registerTask('update-json-i18n-files', function() {
-    const JSONfiles_URL = 'src/data/reference/';
-    const lang = pkg.languages.filter(v => v !== 'en');
-    lang.forEach(langCode => {
-      update_i18n.updateJSON(
-        JSONfiles_URL + 'en.json',
-        JSONfiles_URL + langCode + '.json'
-      );
-    });
-  });
-
-  // runs the updateYAML() function from update18nFiles.js
-  // is run by the update-translation-files workflow every time one of them is modified
-  grunt.registerTask('update-yaml-i18n-files', function() {
-    const YAMLfiles_URL = 'src/data/';
-    const lang = pkg.languages.filter(v => v !== 'en');
-    lang.forEach(langCode => {
-      update_i18n.updateYAML(
-        YAMLfiles_URL + 'en.yml',
-        YAMLfiles_URL + langCode + '.yml'
-      );
-    });
-  });
-
-  grunt.registerTask('json-to-fluent', async function() {
-    const done = this.async();
-    const languages = pkg.languages;
-    const promises = [];
-
-    try {
-      for (const language of languages) {
-        const fileData = await fs.readFile(
-          `./src/data/reference/${language}.json`
-        );
-        const ftlStrs = fluentConverter.jsonToFtl(fileData);
-        fse.mkdirpSync(`./src/data/localization/${language}/`);
-        _.each(ftlStrs, (str, name) => {
-          promises.push(
-            fs.writeFile(`./src/data/localization/${language}/${name}.ftl`, str)
-          );
-        });
-      }
-
-      await Promise.all(promises);
-      done();
-    } catch (err) {
-      done(err);
-    }
-  });
-
-  grunt.registerTask('fluent-to-json', async function() {
-    const done = this.async();
-    const languages = pkg.languages;
-    const promises = [];
-    const assert = require('assert');
-
-    try {
-      for (const language of languages) {
-        const fileData = await fs.readFile(
-          `./src/data/reference/${language}.json`
-        );
-        const data = JSON.parse(fileData);
-        const newData = _.cloneDeep(data);
-
-        const files = await glob(`./src/data/localization/${language}/*.ftl`);
-        for (const file of files) {
-          if (file !== `./src/data/localization/${language}/root.ftl`) {
-            const key = path.basename(file, '.ftl');
-            const fileData = await fs.readFile(file, {
-              encoding: 'utf8'
-            });
-            const jsonData = fluentConverter.ftlToObj(fileData);
-
-            _.assign(newData[key], jsonData);
-          }
-        }
-
-        assert.deepStrictEqual(newData, data);
-      }
-
-      // Write data out to JSON files
-      // Will be implemented when confirm there will be no data loss
-      console.log('File write skipped.');
-      done();
-    } catch (err) {
-      done(err);
-    }
-  });
+  // Load modular tasks from the tasks folder
+  grunt.loadTasks('tasks');
 
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-assemble');
@@ -534,6 +440,12 @@ module.exports = function(grunt) {
     getenJSON();
   });
 
+  // i18n tracking task
+  grunt.registerTask('i18n', function() {
+    var done = this.async();
+    require('./i18n.js')(done);
+  });
+
   grunt.registerTask('update-enJSON', [
     'make_tmp_dir',
     'clone_p5js_repo',
@@ -560,12 +472,6 @@ module.exports = function(grunt) {
     'concat:dist',
     'postcss'
   ]);
-
-  // i18n tracking task
-  grunt.registerTask('i18n', function() {
-    var done = this.async();
-    require('./i18n.js')(done);
-  });
 
   // runs tasks in order
   grunt.registerTask('build', [
