@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs').promises;
-const fse = require('fs-extra');
 const _ = require('lodash');
 const util = require('util');
 const glob = util.promisify(require('glob'));
@@ -10,22 +9,19 @@ const pkg = require('../package.json');
 module.exports = function(grunt) {
   grunt.registerTask('json-to-fluent', async function() {
     const done = this.async();
-    const languages = pkg.languages;
     const promises = [];
 
     try {
-      for (const language of languages) {
-        const fileData = await fs.readFile(
-          `./src/data/reference/${language}.json`
+      // Parse data in en.json into FTL strings
+      const fileData = await fs.readFile('./src/data/reference/en.json');
+      const ftlStrs = fluentConverter.jsonToFtl(fileData);
+
+      // Write each class of objects into its own FTL file
+      _.each(ftlStrs, (str, name) => {
+        promises.push(
+          fs.writeFile(`./src/data/localization/en/${name}.ftl`, str)
         );
-        const ftlStrs = fluentConverter.jsonToFtl(fileData);
-        fse.mkdirpSync(`./src/data/localization/${language}/`);
-        _.each(ftlStrs, (str, name) => {
-          promises.push(
-            fs.writeFile(`./src/data/localization/${language}/${name}.ftl`, str)
-          );
-        });
-      }
+      });
 
       await Promise.all(promises);
       done();
@@ -38,16 +34,22 @@ module.exports = function(grunt) {
     const done = this.async();
     const languages = pkg.languages;
     const promises = [];
-    const assert = require('assert');
 
     try {
       for (const language of languages) {
+        // Skip creating en.json, this is handled by "generate_enJSON"
+        if (language === 'en') continue;
+
+        // Copy existing data in the localization JSON file.
+        // This is done because the FTL files still cannot handle all the
+        // entries available in the JSON file.
         const fileData = await fs.readFile(
           `./src/data/reference/${language}.json`
         );
         const data = JSON.parse(fileData);
         const newData = _.cloneDeep(data);
 
+        // Iterate over all ftl files and create JSON object out of them
         const files = await glob(`./src/data/localization/${language}/*.ftl`);
         for (const file of files) {
           if (file !== `./src/data/localization/${language}/root.ftl`) {
@@ -57,16 +59,22 @@ module.exports = function(grunt) {
             });
             const jsonData = fluentConverter.ftlToObj(fileData);
 
+            // The new data is assigned over the old data, keeping any old entry
+            // that doesn't exist in FTL
             _.assign(newData[key], jsonData);
           }
         }
 
-        assert.deepStrictEqual(newData, data);
+        // Write data out to JSON files
+        promises.push(
+          fs.writeFile(
+            `./src/data/reference/${language}.json`,
+            JSON.stringify(newData, null, 2)
+          )
+        );
       }
 
-      // Write data out to JSON files
-      // Will be implemented when confirm there will be no data loss
-      console.log('File write skipped.');
+      await Promise.all(promises);
       done();
     } catch (err) {
       done(err);
