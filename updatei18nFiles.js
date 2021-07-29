@@ -1,6 +1,7 @@
 const fs = require('fs');
 const flat = require('flat');
 const yaml = require('js-yaml');
+const mapObject = require('map-obj');
 
 // updates the content of the translated i18n files for the Reference
 // so that they're up to date with the English version (en.json)
@@ -16,14 +17,23 @@ function updateJSON(originalJSONPath, translatedJSONPath) {
     translJSON = {};
   }
 
-  const newJSON = updatei18nObj(
-    flat.flatten(originalJSON, { delimiter: '/' }),
-    flat.flatten(translJSON, { delimiter: '/' })
+  // An underscore is added (and later on removed) to every key as prefix
+  // to avoid conflicts between key names and JavaScript native methods
+  // (workaround for https://github.com/processing/p5.js-website/issues/1063).
+  const updatedJSON = updatei18nObj(
+    flat.flatten(originalJSON, { delimiter: '/', safe: true , transformKey: function(key){
+      return '_' + key;
+    }}),
+    flat.flatten(translJSON, { delimiter: '/', safe: true , transformKey: function(key){
+      return '_' + key;
+    }})
   );
+
+  const newJSON = flat.unflatten(updatedJSON, { delimiter: '/', safe: true})
 
   fs.writeFileSync(
     translatedJSONPath,
-    JSON.stringify(flat.unflatten(newJSON, { delimiter: '/' }), undefined, 2)
+    JSON.stringify(mapObject(newJSON, (key, value) => [key.substring(1), value], {deep: true}), undefined, 2)
   );
 }
 
