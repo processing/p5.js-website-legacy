@@ -451,7 +451,8 @@ module.exports = function(grunt) {
     'clone_p5js_repo',
     'generate_dataJSON',
     'move_dataJSON',
-    'generate_enJSON'
+    'generate_enJSON',
+    'json-to-fluent'
   ]);
 
   // multi-tasks: collections of other tasks
@@ -485,6 +486,7 @@ module.exports = function(grunt) {
     'assemble',
     'file_append',
     'compress',
+    'fluent-to-json',
     'i18n',
     'htmllint'
   ]);
