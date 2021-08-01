@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     const promises = [];
 
     try {
-      for (const language of languages) {
+      for (let language of languages) {
         // Skip creating en.json, this is handled by "generate_enJSON"
         if (language === 'en') continue;
 
@@ -48,6 +48,10 @@ module.exports = function(grunt) {
         );
         const data = JSON.parse(fileData);
         const newData = _.cloneDeep(data);
+
+        // Change language code of Simplified Chinese because of
+        // Pontoon's language code support
+        if (language === 'zh-Hans') language = 'zh-CN';
 
         // Iterate over all ftl files and create JSON object out of them
         const files = await glob(`./src/data/localization/${language}/*.ftl`);
@@ -64,6 +68,10 @@ module.exports = function(grunt) {
             _.assign(newData[key], jsonData);
           }
         }
+
+        // Change language code of Simplified Chinese because of
+        // Pontoon's language code support
+        if (language === 'zh-CN') language = 'zh-Hans';
 
         // Write data out to JSON files
         promises.push(
