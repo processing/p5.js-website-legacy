@@ -481,12 +481,12 @@ module.exports = function(grunt) {
     'clean',
     'requirejs:yuidoc_theme',
     'requirejs',
+    'fluent-to-json',
     'copy',
     'optimize',
     'assemble',
     'file_append',
     'compress',
-    'fluent-to-json',
     'i18n',
     'htmllint'
   ]);
