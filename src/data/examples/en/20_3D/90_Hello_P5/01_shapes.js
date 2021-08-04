@@ -1,6 +1,6 @@
 /*
  * @name Simple Shapes
- * @arialabel grey canvas with 4 pink shapes: a circle, a rectangle, a triangle, and a flower
+ * @arialabel Grey canvas with 4 pink shapes: a circle, a rectangle, a triangle, and a flower
  * @description This examples includes a circle, square, triangle, and a flower.
  */
 function setup() {

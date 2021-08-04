@@ -1,5 +1,6 @@
 /*
  * @name Transparency
+ * @arialabel An astronaut on planet as the background with a slightly transparent version of this image on top that moves with the horizontal direction of the user’s mouse
  * @description Move the pointer left and right across the image to change its
  * position. This program overlays one image over another by modifying the
  * alpha value of the image with the tint() function.

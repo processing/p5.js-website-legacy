@@ -1,6 +1,6 @@
 /*
  * @name Tickle
- * @arialabel the word “tickle” in black is on a light gray background. As the user hovers the word, the word shakes and moves as if being tickled
+ * @arialabel The word “tickle” in black is on a light gray background. As the user hovers the word, the word shakes and moves as if being tickled
  * @description The word "tickle" jitters when the cursor hovers over.
  * Sometimes, it can be tickled off the screen.
  */

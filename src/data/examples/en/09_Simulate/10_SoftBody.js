@@ -1,6 +1,6 @@
 /*
  * @name Soft Body
- * @arialabel white pentagon on a black screen that morphs into a blob as it follows the user’s mouse
+ * @arialabel White pentagon on a black screen that morphs into a blob as it follows the user’s mouse
  * @description Original example by Ira Greenberg.
  * <br><br>Softbody dynamics simulation using curveVertex() and curveTightness().
  */

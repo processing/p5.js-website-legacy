@@ -1,6 +1,6 @@
 /*
  * @name Particle System
- * @arialabel light grey circles flowing out from a point like a sparkler 
+ * @arialabel Light grey circles flowing out from a point like a sparkler 
  * @description This is a basic Particle System
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */

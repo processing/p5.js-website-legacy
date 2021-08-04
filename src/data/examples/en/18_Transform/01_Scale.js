@@ -1,5 +1,6 @@
 /*
  * @name Scale
+ * @arialabel Two squares one white and one black grow and shrink on a grey background 
  * @description Paramenters for the scale() function are values
  * specified as decimal percentages. For example, the method
  * call scale(2.0) will increase the dimension of the shape by

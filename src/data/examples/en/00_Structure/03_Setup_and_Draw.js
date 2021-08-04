@@ -1,6 +1,6 @@
 /*
  * @name Setup and Draw
- * @arialabel animated horizontal white line on a black background that moves from the bottom to the top of the screen
+ * @arialabel Animated horizontal white line on a black background that moves from the bottom to the top of the screen
  * @description The code inside the draw() function runs continuously from top
  * to bottom until the program is stopped.
  */

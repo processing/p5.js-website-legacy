@@ -1,6 +1,6 @@
 /*
  * @name Wavemaker
- * @arialabel water like waves of neon green lines moving in circular patterns. The user’s mouse can change the direction of the current in the waves
+ * @arialabel Water like waves of neon green lines moving in circular patterns. The user’s mouse can change the direction of the current in the waves
  * @description This illustrates how waves (like water waves) emerge
  * from particles oscillating in place. Move your mouse to direct the wave.
  * Contributed by Aatish Bhatia, inspired by <a href="https://beesandbombs.tumblr.com/post/45513650541/orbiters">Orbiters</a> by Dave Whyte.

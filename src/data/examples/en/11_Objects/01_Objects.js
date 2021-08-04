@@ -1,5 +1,6 @@
 /*
  * @name Objects
+ * @arialabel Small white circle on dark navy background that moves in small amounts in various directions by a small amount by itself like it is jittering 
  * @description Create a Jitter class, instantiate an object,
  * and move it around the screen. Adapted from Getting Started with
  * Processing by Casey Reas and Ben Fry.

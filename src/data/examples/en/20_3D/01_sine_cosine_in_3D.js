@@ -1,6 +1,6 @@
 /*
  * @name Sine Cosine in 3D
- * @arialabel geometric spheres moving in different spiral shapes in a 3D space
+ * @arialabel Geometric spheres moving in different spiral shapes in a 3D space
  * @description Sine, cosine and push / pop could be applied in 3D as well.
  */
 function setup() {
