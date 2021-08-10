@@ -1,5 +1,6 @@
 /* 
  * @name Conditional Shapes
+ * @arialabel The middle of the window is white and the user’s mouse draws red dots within it. The side edges of the window are beige and as the user’s mouse travels up and down the edges, orange squares with a red border are drawn up and down the center of the window
  * @frame 400,400
  * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
    <b>Prof WM Harris,</b></a> How

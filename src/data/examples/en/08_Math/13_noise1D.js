@@ -1,5 +1,6 @@
 /*
  * @name Noise1D
+ * @arialabel White circle travels side to side based on perlin noise 
  * @description Using 1D Perlin Noise to assign location.
  */
 let xoff = 0.0;

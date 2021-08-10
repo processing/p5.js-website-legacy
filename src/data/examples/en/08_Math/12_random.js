@@ -1,5 +1,6 @@
 /*
  * @name Random
+ * @arialabel Various shades of grey bars change patterns randomly every half a second 
  * @description Random numbers create the basis of this image.
  * Each time the program is loaded the result is different.
  */

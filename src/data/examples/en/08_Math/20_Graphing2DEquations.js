@@ -1,5 +1,6 @@
 /**
  * @name Graphing 2D Equations
+ * @arialabel Rays in a black and white pattern swirl together as the user’s mouse moves right and unswirl as the user’s mouse moves left
  * @frame 710, 400
  * @description Graphics the following equation: sin(n cos(r) + 5θ) where n is a function of horizontal mouse location. Original by Daniel Shiffman
  */
