@@ -14,7 +14,7 @@ function getenJSON() {
 
   // static strings
   for (var sstr in staticStringsJSON) {
-    enJSON[sstr] = staticStringsJSON[sstr];
+    enJSON[sstr] = staticStringsJSON[sstr].trim();
   }
 
   // modules
@@ -61,7 +61,7 @@ function buildClassObj(p5Class) {
   }
 
   if (p5Class.return) {
-    classObj['returns'] = buildReturnObj(p5Class.return);
+    classObj['returns'] = buildReturnObj(p5Class.return).trim();
   }
 
   if (p5Class.params) {
@@ -77,7 +77,7 @@ function buildItemObj(p5Item) {
     itemObj['description'] = getParagraphs(p5Item.description);
   }
   if (p5Item.return) {
-    itemObj['returns'] = buildReturnObj(p5Item.return);
+    itemObj['returns'] = buildReturnObj(p5Item.return).trim();
   }
 
   if (p5Item.itemtype === 'method') {
@@ -135,7 +135,8 @@ function getText(str) {
   return str
     .trim()
     .replace(/<p>|<\/p>|<br>/g, '')
-    .replace(/\n|\s+/g, ' ');
+    .replace(/\n|\s+/g, ' ')
+    .trim();
 }
 
 // returns an array containing the 'clean' versions of the text in the <p> tags of the input text
@@ -145,7 +146,8 @@ function getParagraphs(text) {
     .replace(/<\/p>|<br>/g, '')
     .replace(/\n|\s+/g, ' ')
     .split(/<p>/)
-    .filter(x => x.length > 0);
+    .filter(x => x.length > 0)
+    .map(x => x.trim());
 }
 
 module.exports = getenJSON;

@@ -1,0 +1,9 @@
+description__0 = Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput().
+description__1 = The record() method accepts a p5.SoundFile as a parameter. When playback is stopped (either after the given amount of time, or with the stop() method), the p5.SoundRecorder will send its recording to that p5.SoundFile for playback.
+setInput__description__0 = Connect a specific device to the p5.SoundRecorder. If no parameter is given, p5.SoundRecorer will record all audible p5.sound from your sketch.
+setInput__params__unit = Object: (Optional) p5.sound object or a web audio unit  that outputs sound
+record__description__0 = Start recording. To access the recording, provide a p5.SoundFile as the first parameter. The p5.SoundRecorder will send its recording to that p5.SoundFile for playback once recording is complete. Optional parameters include duration (in seconds) of the recording, and a callback function that will be called once the complete recording has been transfered to the p5.SoundFile.
+record__params__soundFile = p5.SoundFile: p5.SoundFile
+record__params__duration = Number: (Optional) Time (in seconds)
+record__params__callback = Function: (Optional) The name of a function that will be  called once the recording completes
+stop__description__0 = Stop the recording. Once the recording is stopped, the results will be sent to the p5.SoundFile that was given on .record(), and if a callback function was provided on record, that function will be called.

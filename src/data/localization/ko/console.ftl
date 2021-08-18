@@ -1,0 +1,2 @@
+log__description__2 = From <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/log">the MDN entry</a>: The Console method log() outputs a message to the web console. The message may be a single <a href="#/p5/string">string</a> (with optional substitution values), or it may be any one or more JavaScript <a href="#/p5/object">objects</a>.
+log__params__message = String|Expression|Object: :Message that you would like to print to the console
