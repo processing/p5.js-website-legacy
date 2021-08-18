@@ -65,7 +65,7 @@ module.exports = function(grunt) {
 
             // The new data is assigned over the old data, keeping any old entry
             // that doesn't exist in FTL
-            _.assign(newData[key], jsonData);
+            _.merge(newData[key], jsonData);
           }
         }
 
