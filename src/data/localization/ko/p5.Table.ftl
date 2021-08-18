@@ -46,7 +46,6 @@ removeTokens__params__column = String|Integer: (Optional) Column ID (number)  or
 trim__description__0 = 문자열 테이블 값에서 스페이스나 탭과 같은 선행 및 후행 공백을 자릅니다. 별도의 열을 지정하지 않는 경우, 모든 행과 열 속 값들이 처리됩니다. 열은 ID 또는 제목으로 참조가능합니다.
 trim__params__column = String|Integer: (Optional) Column ID (number)  or name (string)
 removeColumn__description__0 = removeColumn()을 사용하여 테이블 객체로부터 특정 열을 제거합니다. 제거될 열은 그 제목(문자열) 또는 인덱스 값(정수)로 식별할 수 있습니다. removeColumn(0)은 1번째 열을, removeColumn(1)은 2번째 열을 제거합니다.
-removeColumn__params__column = String|Integer: columnName (string) or ID (number)
 set__description__0 = 테이블 중 지정된 행과 열에 값을 저장합니다. 행은 ID로, 열은 ID 또는 제목으로 지정가능합니다.
 set__params__row = Integer: row ID
 set__params__column = String|Integer: column ID (Number)  or title (String)
