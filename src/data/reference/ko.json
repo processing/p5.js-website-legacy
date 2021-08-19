@@ -107,7 +107,7 @@
     },
     "gridOutput": {
       "description": [
-        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape.은 캔버스의 내용물을 위치적에 따라 격자 (grid) 형식으로 나열합니다. 이 테이블을 출력하기 전에 컨버스의 전반적 설명을 출력합니다. 캔버스의 높이 및 너비, 배경색, 그리고 캔버스상 요소 (도형, 또는 도형의 모임)의 개수를 출력합니다 (예: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). 그리드는 내용물을 위치적으로 설명하며, 각 요소는 위치의 격자 위 셀 (cell)에 놓입니다. 각 셀에는 특정 요소의 색상과 모양이 저장되어 있습니다 (예: \"orange ellipse\"). 각 요소에 대한 구체적 정보는 선택해서 볼 수 있습니다. 각 요소의 모양, 색, 위치, 넓이 등의 정보가 표기되어 있는 목록 (예: \"orange ellipse location=top left area=1%\")도 사용 가능합니다.",
+        "<code class=\"language-javascript\">gridOutput()</code>은 캔버스의 내용물을 위치적에 따라 격자 (grid) 형식으로 나열합니다. 이 테이블을 출력하기 전에 컨버스의 전반적 설명을 출력합니다. 캔버스의 높이 및 너비, 배경색, 그리고 캔버스상 요소 (도형, 또는 도형의 모임)의 개수를 출력합니다 (예: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). 그리드는 내용물을 위치적으로 설명하며, 각 요소는 위치의 격자 위 셀 (cell)에 놓입니다. 각 셀에는 특정 요소의 색상과 모양이 저장되어 있습니다 (예: \"orange ellipse\"). 각 요소에 대한 구체적 정보는 선택해서 볼 수 있습니다. 각 요소의 모양, 색, 위치, 넓이 등의 정보가 표기되어 있는 목록 (예: \"orange ellipse location=top left area=1%\")도 사용 가능합니다.",
         "<code class=\"language-javascript\">gridOutput()</code> and <code class=\"language-javascript\">gridOutput(FALLBACK)</code>은 출력물을 스크린리더 (Screen Reader)에 사용되는 <a href=\"https://developer.mozilla.org/ko/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> 캔버스의 부가적 문서객체모델 (DOM)</a>에 제공합니다. <code class=\"language-javascript\">gridOutput(LABEL)</code>은 캔버스 옆 추가적인 div요소를 만들고 그 안에 설명을 출력합니다. 이는 스크린리더를 사용하지 않지만 코딩하는 동안 출력물을 보면서 하고 싶어하는 유저들에게 유용합니다. 하지만 LABEL을 사용할 시 스크린리더 사용자들에게는 의미없는 중복성을 만들 수 있습니다. 그 이유로 LABEL은 스케치를 만드는 동안에만 사용하고 스케치를 출판하거나 스크린리더 사용자들에게 나누기 전에 지우는 것을 권장합니다."
       ],
       "params": {
@@ -3625,23 +3625,23 @@
     "frustum": {
       "description": [
         "주어진 인수로 퍼스펙티브 매트릭스 (perspective matrix)를 만듧니다.",
-        "frustum은 피라미드 모양의 상단을 바닥과 평행한 면에서 잘라낸 기하학적 모양입니다. 이 피라미드의 위에 보는 사람의 눈이 있다 가정하면서 여섯 면은 장면의 특정 부분만 렌더링하는데에 쓰이는 가상의 면인 clipping plane입니다. 3D로 렌더링 할 시, 이 여섯 면 안에 있는 물체는 보이며, 그 바깥에 있는 물체는 보이지 않습니다. 이 <https://docs.unity3d.com/kr/530/Manual/UnderstandingFrustum.html\">링크</a>를 통해 더 자세히 알 수 있습니다.",
-        "frustum을 설정하면 렌더링되는 장면이 달라집니다. 이는 간단하게 <a href=\"https://p5js.org/reference/#/p5/perspective\">perspective()</a> 함수를 통해 이룰 수도 있습니다."
+        "절두체 (frustum)은 피라미드 모양의 상단을 바닥과 평행한 면에서 잘라낸 기하학적 모양입니다. 이 피라미드의 위에 보는 사람의 눈이 있다 가정하면서 여섯 면은 장면의 특정 부분만 렌더링하는데에 쓰이는 가상의 면인 경계면 (clipping plane)입니다. 3D로 렌더링 할 시, 이 여섯 면 안에 있는 물체는 보이며, 그 바깥에 있는 물체는 보이지 않습니다. 이 <https://docs.unity3d.com/kr/530/Manual/UnderstandingFrustum.html\">링크</a>를 통해 더 자세히 알 수 있습니다.",
+        "절두체를 설정하면 렌더링되는 장면이 달라집니다. 이는 간단하게 <a href=\"https://p5js.org/reference/#/p5/perspective\">perspective()</a> 함수를 통해 이룰 수도 있습니다."
       ],
       "params": {
-        "left": "숫자: (선택 사항) 카메라 frustum의 왼쪽 면",
-        "right": "숫자: (선택 사항) 카메라 frustum의 오른쪽 면",
-        "bottom": "숫자: (선택 사항) 카메라 frustum의 밑 면",
-        "top": "숫자: (선택 사항) 카메라 frustum의 위 면",
-        "near": "숫자: (선택 사항) 카메라 frustum의 근거리 면",
-        "far": "숫자: (선택 사항) 카메라 frustum의 장거리 면"
+        "left": "숫자: (선택 사항) 카메라 절두체의 왼쪽 면",
+        "right": "숫자: (선택 사항) 카메라 절두체의 오른쪽 면",
+        "bottom": "숫자: (선택 사항) 카메라 절두체의 밑 면",
+        "top": "숫자: (선택 사항) 카메라 절두체의 위 면",
+        "near": "숫자: (선택 사항) 카메라 절두체의 근거리 면",
+        "far": "숫자: (선택 사항) 카메라 절두체의 장거리 면"
       }
     },
     "createCamera": {
       "description": [
         "새로운 p5.Camera 객체를 생성하고 렌더러에게 해당 카메라를 사용하도록 지시합니다. p5.Camera 객체를 반환합니다.",
-        "The new camera is initialized with a default position (see <a href=\"#/p5.Camera/camera\">camera()</a>) and a default perspective projection (see <a href=\"#/p5.Camera/perspective\">perspective()</a>). Its properties can be controlled with the <a href=\"#/p5.Camera\">p5.Camera</a> methods. ",
-        "Note: Every 3D sketch starts with a default camera initialized. This camera can be controlled with the global methods <a href=\"#/p5/camera\">camera()</a>, <a href=\"#/p5/perspective\">perspective()</a>, <a href=\"#/p5/ortho\">ortho()</a>, and <a href=\"#/p5/frustum\">frustum()</a> if it is the only camera in the scene."
+        "새로운 카메라는 기본적 위치가 설정이 되며 (<a href=\"#/p5.Camera/camera\">camera()</a> 참조), 기본적 관점도 설정됩니다 (<a href=\"#/p5.Camera/perspective\">perspective()</a> 참조). 카메라 객체의 속성들은 <a href=\"#/p5.Camera\">p5.Camera</a>의 메소드로 조정 가능합니다.",
+        "모든 3D 스케치는 기본 카메라가 설정된 상태로 시작하는 점을 유의해야합니다. 이 카메라가 장면에 있는 유일한 케마라일 경우, 글로벌 메소드인 <a href=\"#/p5/camera\">camera()</a>, <a href=\"#/p5/perspective\">perspective()</a>, <a href=\"#/p5/ortho\">ortho()</a>, 그리고 <a href=\"#/p5/frustum\">frustum()</a>으로 조정 가능합니다."
       ],
       "returns": "p5.Camera: 새로 생성된 카메라 객체"
     },
