@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hi">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">libraries | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=c82529">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=97b4f7"></script>
+
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">Skip to content</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/hi/">
+          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="libraries-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/hi/">सभी</a></li>
+        <li><a href="https://editor.p5js.org">एडीटर</a></li>
+        <li><a href="/hi/download/">डाउनलोड</a></li>
+        <li><a href="/hi/download/support.html">दान दिजिये</a></li>
+        <li><a href="/hi/get-started/">आरंभ करें</a></li>
+        <li><a href="/hi/reference/">संदर्भ</a></li>
+        <li><a href="/hi/libraries/">लाइब्रेरी</a></li>
+        <li><a href="/hi/learn/">सीखिए</a></li>
+        <li><a href="/hi/teach/">सिखाना</a></li>
+        <li><a href="/hi/examples/">उदाहरण</a></li>
+        <li><a href="/hi/books/">पुस्तकें</a></li>
+        <li><a href="/hi/community/">समुदाय</a></li>
+        <li><a href="https://showcase.p5js.org">प्रदर्शन</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">फोरम</a></li>
+        <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+        <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+        <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+        <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main id="content">
+      <h1>लाइब्रेरी</h1>
+
+      <h2>पुस्तकालय का उपयोग करना</h2>
+
+      <p>एक p5.js पुस्तकालय कोई भी JavaScript कोड हो सकता है जो p5.js मुख्य कार्यक्षमता को बढ़ाता या जोड़ता है। पुस्तकालयों की दो श्रेणियां हैं। कोर लाइब्रेरी (<a
+          href="/hi/reference/#/libraries/p5.sound">p5.sound</a>) p5.js वितरण का हिस्सा हैं, जबकि योगदान की गई लाइब्रेरी p5.js समुदाय के सदस्यों द्वारा विकसित, स्वामित्व और रखरखाव की जाती हैं।</p>
+
+      <p>अपने स्केच में लाइब्रेरी शामिल करने के लिए, इसे p5.js. में लिंक करने के बाद अपनी HTML फ़ाइल में लिंक करें। उदाहरण के लिए एक HTML फ़ाइल कुछ इस तरह दिख सकती है</p>
+      <pre><code class="language-markup">&lt;!doctype html&gt;
+&lt;html>
+&lt;head>
+  &lt;script src="p5.js"&gt;&lt;/script&gt;
+  &lt;script src="p5.sound.js"&gt;&lt;/script&gt;
+  &lt;script src="sketch.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </code></pre>
+
+      <h2>खुद से बनाए</h2>
+
+      <p>p5.js दूसरों द्वारा योगदान किए गए लाइब्रेरी का स्वागत करता है! एक लाइब्रेरी बनाने के तरीके के बारे में अधिक विशिष्टताओं के लिए
+        <a href="https://github.com/processing/p5.js/blob/main/contributor_docs/creating_libraries.md">
+          लाइब्रेरी शिक्षण</a>
+        की जाँच करें।
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdWWb95cfvosaIFI7msA7XC5zOEVsNruaA5klN1jH95ESJVcw/viewform"
+          target="_blank">यदि आपने एक लाइब्रेरी बनाई है और इसे इस पृष्ठ पर शामिल करना चाहते हैं, तो इस फॉर्म को जमा करें!</a></p>
+
+      
+      
+      <h2 class="tutorial-title">कोर लाइब्रेरी</h2>
+      
+      
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="/hi/reference/#/libraries/p5.sound" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.sound.jpg">
+              <h3>p5.sound</h3>
+            </a>
+          </div>
+          <p>p5.sound ऑडियो इनपुट, प्लेबैक, विश्लेषण और संश्लेषण सहित वेब ऑडियो कार्यक्षमता के साथ p5 का विस्तार करता है।  निर्माता:
+            <a href="https://www.jasonsigal.cc/"
+              target="_blank">Jason Sigal</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/processing/p5.accessibility" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.accessibility.jpg">
+              <h3>p5.accessibility</h3>
+            </a>
+          </div>
+          <p>p5.accessibility उन लोगों के लिए p5 कैनवास को अधिक सुलभ बनाती है जो नेत्रहीन और दृष्टिबाधित हैं। 
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+        
+      
+      <h2 class="tutorial-title">सामुदायिक लाइब्रेरी</h2>
+      
+      
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://tetoki.eu/asciiart" target="_blank">
+              <img alt="" src="../../assets/img/libraries/asciiart.jpg">
+              <h3>asciiart</h3>
+            </a>
+          </div>
+          <p>p5.asciiart p5js के लिए एक सरल और आसान छवि-से-ASCII कला कनवर्टर है।  निर्माता:
+            <a href="https://paweljanicki.jp"
+              target="_blank">Pawel Janicki</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://itpnyu.github.io/p5ble-website/" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.ble.jpg">
+              <h3>p5.ble</h3>
+            </a>
+          </div>
+          <p>एक जावास्क्रिप्ट लाइब्रेरी जो BLE उपकरणों और p5 स्केच के बीच संचार को सक्षम करता है।  निर्माता:
+            <a href="http://1023.io"
+              target="_blank">Yining Shi</a>, <a href="http://www.jingwen-zhu.com/"
+              target="_blank">Jingwen Zhu</a>, <a href="https://tigoe.com/"
+              target="_blank">Tom Igoe</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/sarahgp/p5bots" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.bots.jpg">
+              <h3>p5.bots</h3>
+            </a>
+          </div>
+          <p>p5.bots के साथ आप ब्राउज़र के भीतर से अपने Arduino (या अन्य माइक्रोप्रोसेसर) के साथ बातचीत कर सकते हैं। स्केच चलाने के लिए सेंसर डेटा का उपयोग करें; एल ई डी, मोटर, और बहुत कुछ चलाने के लिए एक स्केच का उपयोग करें! निर्माता:
+            <a href="http://www.sarahgp.com"
+              target="_blank">Sarah Groff-Palermo</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/Lartu/p5.clickable" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.clickable.jpg">
+              <h3>p5.clickable</h3>
+            </a>
+          </div>
+          <p>p5.js के लिए इवेंट संचालित, उपयोग में आसान बटन लाइब्रेरी। निर्माता:
+            <a href="https://www.lartu.net"
+              target="_blank">Martín del Río</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/jtnimoy/p5.cmyk.js" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.cmyk.js.jpg">
+              <h3>p5.cmyk.js</h3>
+            </a>
+          </div>
+          <p>CMYK कलरस्पेस।  निर्माता:
+            <a href="https://jtnimoy.cc/"
+              target="_blank">JT Nimoy</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/bmoren/p5.collide2D" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.collide2D.jpg">
+              <h3>p5.collide2D</h3>
+            </a>
+          </div>
+          <p>p5.collide2D p5.js के साथ 2D ज्यामिति के लिए टकराव का पता लगाने की गणना के लिए उपकरण प्रदान करता है। निर्माता:
+            <a href="http://www.benmoren.com/"
+              target="_blank">Ben Moren</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://www.npmjs.com/package/p5.createloop" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.createloop.jpg">
+              <h3>p5.createloop</h3>
+            </a>
+          </div>
+          <p>कोड की एक पंक्ति में ध्वनि और GIF निर्यात के साथ एनीमेशन लूप बनाएं।  निर्माता:
+            <a href="http://www.piratesjustar.com/"
+              target="_blank">Peter Hayman</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/Smilebags/p5.dimensions.js" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.dimensions.jpg">
+              <h3>p5.dimensions</h3>
+            </a>
+          </div>
+          <p>p5.dimensions किसी भी संख्या के आयामों में काम करने के लिए p5.js के वेक्टर फ़ंक्शन का विस्तार करता है।  निर्माता:
+            <a href="https://github.com/Smilebags"
+              target="_blank">Smilebags</a>, <a href="https://github.com/max0410"
+              target="_blank">Max Segal</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/freshfork/p5.EasyCam" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.EasyCam.jpg">
+              <h3>p5.EasyCam</h3>
+            </a>
+          </div>
+          <p>जड़त्वीय पैन, ज़ूम और रोटेट के साथ सरल 3D कैमरा नियंत्रण। थॉमस डाइवाल्ड का प्रमुख योगदान। निर्माता:
+            <a href="https://jwilliamdunn.com"
+              target="_blank">jWilliam Dunn</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/loneboarder/p5.experience.js" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.experience.jpg">
+              <h3>p5.experience</h3>
+            </a>
+          </div>
+          <p>p5.js के लिए विस्तृत लाइब्रेरी जो कैनवास-आधारित वेब एप्लिकेशन बनाने के लिए अतिरिक्त ईवेंट-सुनने की कार्यक्षमता जोड़ती है। निर्माता:
+            <a href="https://github.com/loneboarder"
+              target="_blank">Felix Meichelböck</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://idmnyu.github.io/p5.js-func" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.func.jpg">
+              <h3>p5.func</h3>
+            </a>
+          </div>
+          <p>p5.func एक p5 एक्सटेंशन है जो समय, आवृत्ति और स्थानिक डोमेन में फ़ंक्शन जनरेशन के लिए नई ऑब्जेक्ट और उपयोगिताओं को प्रदान करता है। निर्माता:
+            <a href="http://lukedubois.com/"
+              target="_blank">R. Luke DuBois</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/bmoren/p5.geolocation" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.geolocation.jpg">
+              <h3>p5.geolocation</h3>
+            </a>
+          </div>
+          <p>p5.geolocation p5.js के लिए उपयोगकर्ता स्थानों को प्राप्त करने, देखने, गणना करने और जियोफेंसिंग के लिए तकनीक प्रदान करता है। निर्माता:
+            <a href="http://www.benmoren.com/"
+              target="_blank">Ben Moren</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="http://charlie-roberts.com/gibber/p5-gibber/" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.gibber.jpg">
+              <h3>p5.gibber</h3>
+            </a>
+          </div>
+          <p>p5.gibber तेजी से संगीत अनुक्रमण और ऑडियो संश्लेषण क्षमता प्रदान करता है। निर्माता:
+            <a href="http://charlie-roberts.com"
+              target="_blank">Charlie Roberts</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/jagracar/grafica.js" target="_blank">
+              <img alt="" src="../../assets/img/libraries/grafica.js.jpg">
+              <h3>grafica.js</h3>
+            </a>
+          </div>
+          <p>grafica.js आपको अपने p5.js स्केच में सरल लेकिन अत्यधिक विन्यास योग्य 2D प्लॉट जोड़ने देता है। निर्माता:
+            <a href="http://jagracar.com/p5jsSketches.php"
+              target="_blank">Javier Graciá Carpio</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/bitcraftlab/p5.gui" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.gui.jpg">
+              <h3>p5.gui</h3>
+            </a>
+          </div>
+          <p>p5.gui आपके p5.js स्केच के लिए एक ग्राफिकल यूजर इंटरफेस बनाता है।  निर्माता:
+            <a href="http://www.bitcraftlab.com/"
+              target="_blank">Martin Schneider</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/bmoren/p5.localmessage" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.localmessage.jpg">
+              <h3>p5.localmessage</h3>
+            </a>
+          </div>
+          <p>p5.localmessage आसान मल्टी-विंडो स्केचिंग के लिए स्थानीय रूप से एक स्केच से दूसरे में संदेश भेजने के लिए एक सरल इंटरफ़ेस प्रदान करता है! निर्माता:
+            <a href="http://benmoren.com"
+              target="_blank">Ben Moren</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/jtnimoy/marching" target="_blank">
+              <img alt="" src="../../assets/img/libraries/marching.jpg">
+              <h3>marching</h3>
+            </a>
+          </div>
+          <p>वेक्टर रूपांतरण के लिए रेखापुंज, आइसोसर्फेस। निर्माता:
+            <a href="https://jtnimoy.cc/"
+              target="_blank">JT Nimoy</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/cvalenzuela/Mappa" target="_blank">
+              <img alt="" src="../../assets/img/libraries/mappa.jpg">
+              <h3>mappa</h3>
+            </a>
+          </div>
+          <p>मप्पा स्थिर मानचित्रों, टाइल मानचित्रों और भू-डेटा के साथ काम करने के लिए उपकरणों का एक सेट प्रदान करता है। भौगोलिक स्थान-आधारित दृश्य अभ्यावेदन बनाते समय उपयोगी। निर्माता:
+            <a href="https://github.com/cvalenzuela/"
+              target="_blank">Cristóbal Valenzuela</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://ml5js.org/" target="_blank">
+              <img alt="" src="../../assets/img/libraries/ml5.js.jpg">
+              <h3>ml5.js</h3>
+            </a>
+          </div>
+          <p>ml5.js Tensorflow.js पर बनाता है और ब्राउज़र में मशीन लर्निंग एल्गोरिदम और मॉडल के लिए अनुकूल पहुँच प्रदान करता है।  निर्माता:
+            <a href="https://ml5js.org/"
+              target="_blank">NYU ITP/IMA and contributors</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="http://p5play.molleindustria.org" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.play.jpg">
+              <h3>p5.play</h3>
+            </a>
+          </div>
+          <p>p5.play गेम और गेमेलिक एप्लिकेशन के लिए स्प्राइट, एनिमेशन, इनपुट और कोलिजन फंक्शन प्रदान करता है। निर्माता:
+            <a href="http://www.molleindustria.org/"
+              target="_blank">Paolo Pedercini</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/bobcgausa/cook-js" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.particle.jpg">
+              <h3>p5.particle</h3>
+            </a>
+          </div>
+          <p>कण और फव्वारा वस्तुओं का उपयोग डेटा-संचालित प्रभाव बनाने के लिए किया जा सकता है जो उपयोगकर्ता संरचनाओं या JSON इनपुट और उपयोगकर्ता-ड्रा फ़ंक्शन के माध्यम से परिभाषित होते हैं।  निर्माता:
+            <a href="http://professorcook.org/"
+              target="_blank">Robert Cook</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://antiboredom.github.io/p5.riso" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.Riso.jpg">
+              <h3>p5.Riso</h3>
+            </a>
+          </div>
+          <p>p5.Riso, Risograph मुद्रण के लिए उपयुक्त फ़ाइलें बनाने के लिए एक पुस्तकालय है। यह आपके रेखाचित्रों को बहु-रंगीन प्रिंटों में बदलने में मदद करता है।  निर्माता:
+            <a href="https://lav.io/"
+              target="_blank">Sam Lavigne</a>, <a href="http://tegabrain.com/"
+              target="_blank">Tega Brain</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="http://rednoise.org/rita" target="_blank">
+              <img alt="" src="../../assets/img/libraries/rita.js.jpg">
+              <h3>rita.js</h3>
+            </a>
+          </div>
+          <p>RiTa.js जनरेटिव साहित्य के लिए प्राकृतिक भाषा प्रसंस्करण वस्तुओं का एक सेट प्रदान करता है।  निर्माता:
+            <a href="http://rednoise.org/daniel"
+              target="_blank">Daniel C. Howe</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="http://codeforartists.com/RotatingKnobMaker" target="_blank">
+              <img alt="" src="../../assets/img/libraries/Rotating_knobs.jpg">
+              <h3>Rotating knobs</h3>
+            </a>
+          </div>
+          <p>Make knobs you can rotate with custom graphics and return value ranges. निर्माता:
+            <a href="http://codeforartists.com"
+              target="_blank">Miles DeCoster</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/mveteanu/p5.SceneManager" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.scenemanager.jpg">
+              <h3>p5.scenemanager</h3>
+            </a>
+          </div>
+          <p>p5.SceneManager आपको कई राज्यों/दृश्यों के साथ रेखाचित्र बनाने में मदद करता है। प्रत्येक दृश्य मुख्य स्केच के भीतर एक स्केच की तरह है। निर्माता:
+            <a href="https://github.com/mveteanu/"
+              target="_blank">Marian Veteanu</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/bohnacker/p5js-screenPosition" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.screenPosition.jpg">
+              <h3>p5.screenPosition</h3>
+            </a>
+          </div>
+          <p>प्रोसेसिंग से P5js तक ScreenX और ScreenY कार्यक्षमता जोड़ता है। निर्माता:
+            <a href="https://hartmut-bohnacker.de/"
+              target="_blank">Hartmut Bohnacker</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/generative-light/p5.scribble.js" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.scribble.jpg">
+              <h3>p5.scribble</h3>
+            </a>
+          </div>
+          <p>स्केची लुक में 2D प्रिमिटिव ड्रा करें। मूल प्रसंस्करण पुस्तकालय के एक बंदरगाह के आधार पर, जेनेक वुल्सचलेगर द्वारा बनाया गया। निर्माता:
+            <a href="https://github.com/gicentre/handy"
+              target="_blank">handy</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/vanevery/p5.serialport" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.serial.jpg">
+              <h3>p5.serial</h3>
+            </a>
+          </div>
+          <p>p5.serial उन उपकरणों के बीच धारावाहिक संचार को सक्षम बनाता है जो ब्राउज़र में चल रहे सीरियल (RS-232) और p5 स्केच का समर्थन करते हैं। निर्माता:
+            <a href="http://www.walking-productions.com/notslop/abou/"
+              target="_blank">Shawn Van Every</a>, <a href="https://kaganjd.github.io/portfolio/"
+              target="_blank">Jen Kagan</a>, <a href="http://tigoe.net/"
+              target="_blank">Tom Igoe</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/pfe1223/Shape5js" target="_blank">
+              <img alt="" src="../../assets/img/libraries/Shape5.jpg">
+              <h3>Shape5</h3>
+            </a>
+          </div>
+          <p>Shape5 उन प्राथमिक छात्रों के लिए एक 2D प्राइमरी लाइब्रेरी है जो पहली बार कोड करना सीख रहे हैं। निर्माता:
+            <a href="https://github.com/pfe1223"
+              target="_blank">Patrick Ester</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/gaba5/p5.shape.js" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.shape.js.jpg">
+              <h3>p5.shape.js</h3>
+            </a>
+          </div>
+          <p>P5.js ढांचे में और अधिक सरल आकृतियों को जोड़ने के लिए बनाया गया एक फ्रेमवर्क।  निर्माता:
+            <a href="https://github.com/gaba5"
+              target="_blank">Sebastien Lorentz</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://idmnyu.github.io/p5.js-speech/" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.speech.jpg">
+              <h3>p5.speech</h3>
+            </a>
+          </div>
+          <p>p5.speech वेब स्पीच और स्पीच रिकग्निशन एपीआई के लिए सरल, स्पष्ट पहुंच प्रदान करता है, जिससे स्केच के आसान निर्माण की अनुमति मिलती है जो बात कर सकते हैं और सुन सकते हैं। निर्माता:
+            <a href="http://lukedubois.com/"
+              target="_blank">R. Luke DuBois</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/eltapir/p5.start2d.js" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.start2d.js.jpg">
+              <h3>p5.start2d.js</h3>
+            </a>
+          </div>
+          <p>px, mm, cm या इंच का उपयोग करके 2D स्थिर कला के लिए p5 एक्सटेंशन निर्माता:
+            <a href="https://github.com/eltapir"
+              target="_blank">Kris HEYSE</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/linux-man/p5.tiledmap" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.tiledmap.jpg">
+              <h3>p5.tiledmap</h3>
+            </a>
+          </div>
+          <p>p5.tiledmap आपके रेखाचित्रों में मानचित्रों को शामिल करने के लिए आरेखण और सहायक कार्य प्रदान करता है। निर्माता:
+            <a href="http://softlab.pt/"
+              target="_blank">Caldas Lopes</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://github.com/L05/p5.touchgui" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.touchgui.jpg">
+              <h3>p5.touchgui</h3>
+            </a>
+          </div>
+          <p>p5.js के लिए एक मल्टी-टच और माउस GUI लाइब्रेरी। निर्माता:
+            <a href="https://L05.is"
+              target="_blank">Carlos L05 Garcia</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="http://www.tramontana.xyz" target="_blank">
+              <img alt="" src="../../assets/img/libraries/tramontana.jpg">
+              <h3>tramontana</h3>
+            </a>
+          </div>
+          <p>ट्रैमोंटाना इंटरएक्टिव वातावरण, इंटरेक्टिव स्पेस या पैमाने पर और अंतरिक्ष में सिर्फ प्रोटोटाइप अनुभव बनाने के लिए आसानी से कई उपकरणों (आईओएस, एंड्रॉइड, ट्रैमोंटाना बोर्ड, ...) का उपयोग करने के लिए एक मंच है। निर्माता:
+            <a href="http://www.pierdr.com"
+              target="_blank">Pierluigi Dalla Rosa</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="https://tetoki.eu/vida" target="_blank">
+              <img alt="" src="../../assets/img/libraries/vida.jpg">
+              <h3>vida</h3>
+            </a>
+          </div>
+          <p>विडा एक साधारण पुस्तकालय है जो कैमरा (या वीडियो) आधारित गति पहचान और ब्लॉब ट्रैकिंग कार्यक्षमता को p5js में जोड़ता है।  निर्माता:
+            <a href="https://paweljanicki.jp"
+              target="_blank">Pawel Janicki</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/Dozed12/p5.voronoi" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.voronoi.jpg">
+              <h3>p5.voronoi</h3>
+            </a>
+          </div>
+          <p>p5.voronoi आपके p5.js रेखाचित्रों में वोरोनोई आरेख बनाने और उनका उपयोग करने के लिए उपकरणों का एक सेट प्रदान करता है। निर्माता:
+            <a href="https://github.com/Dozed12"
+              target="_blank">Francisco Moreira</a>
+          </p>
+        </div>
+        
+        
+        
+      
+        <div class="right-column">
+          
+          <div class="label">
+            <a class="nounderline" href="http://p5xr.org/#/" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.xr.jpg">
+              <h3>p5.xr</h3>
+            </a>
+          </div>
+          <p>A library for creating VR and AR sketches with p5. निर्माता:
+            <a href="http://www.stalgiagrigg.name/"
+              target="_blank">Stalgia Grigg</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+      
+      <div class="left-column">
+        
+          <div class="label">
+            <a class="nounderline" href="https://github.com/FreddieRa/p5.3D" target="_blank">
+              <img alt="" src="../../assets/img/libraries/p5.3D.jpg">
+              <h3>p5.3D</h3>
+            </a>
+          </div>
+          <p>WebGL में 3D पाठ और छवियां।  निर्माता:
+            <a href="https://freddierawlins.wixsite.com/site"
+              target="_blank">Freddie Rawlins</a>
+          </p>
+        </div>
+        
+        <div class="spacer"></div>
+        
+        
+        
+        
+
+
+    </main>
+    
+    <footer>
+      <h2 class="sr-only">आभार सूची</h2>
+      <p> p5.js <a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye
+      </a>पहचान और ग्राफिक डिजाइन करने वाले थे <a href='http://www.outofambit.com/' target="_blank">evelyn masso
+      </a> द्वारा बनाया गया था और सहयोगियों के एक समुदाय द्वारा विकसित किया गया है| इस्का समरथ करन वले थे <a href='http://lauren-mccarthy.com' target="_blank">Lauren Lee
+          McCarthy</a> और <a href="http://processing.org/foundation/" target="_blank">Processing
+          Foundation</a> पहचान और ग्राफिक डिजाइन करने वाले थे 
+        <a href="http://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. Identity and graphic design by <a
+          href="http://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/hi/copyright.html">&copy;
+          Info.</a></p>
+    </footer>
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="http://processing.org">Processing</a></li>
+        <li><a class="here" href="/hi/">p5.js</a></li>
+        <li><a href="http://py.processing.org/">Processing.py</a></li>
+        <li><a href="http://android.processing.org/">Processing for Android</a></li>
+        <li><a href="http://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>
