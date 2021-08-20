@@ -400,17 +400,6 @@ let__description__2 = From <a href="https://developer.mozilla.org/en-US/docs/Web
 const__description__0 = Creates and names a new constant. Like a variable created with <a href="#/p5/let">let</a>, a constant that is created with <a href="#/p5/const">const</a> is a container for a value, however constants cannot be reassigned once they are declared. Although it is noteworthy that for non-primitive data types like objects & arrays, their elements can still be changeable. So if a variable is assigned an array, you can still add or remove elements from the array but cannot reassign another array to it. Also unlike <code>let</code>, you cannot declare variables without value using const.
 const__description__1 = Constants have block-scope. This means that the constant only exists within the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block"> block</a> that it is created within. A constant cannot be redeclared within a scope in which it already exists.
 const__description__2 = From <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">the MDN entry</a>: Declares a read-only named constant. Constants are block-scoped, much like variables defined using the 'let' statement. The value of a constant can't be changed through reassignment, and it can't be redeclared.
-===__description__0 = The strict equality operator <a href="#/p5/===">===</a> checks to see if two values are equal and of the same type.
-===__description__1 = A comparison expression always evaluates to a <a href="#/p5/boolean">boolean</a>.
-===__description__2 = From <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">the MDN entry</a>: The non-identity operator returns true if the operands are not equal and/or not of the same type.
-===__description__3 = Note: In some examples around the web you may see a double-equals-sign <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Equality">==</a>, used for comparison instead. This is the non-strict equality operator in Javascript. This will convert the two values being compared to the same type before comparing them.
->__description__0 = The greater than operator <a href="#/p5/>">></a> evaluates to true if the left value is greater than the right value. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators"> There is more info on comparison operators on MDN.</a>
->=__description__0 = The greater than or equal to operator <a href="#/p5/>=">>=</a> evaluates to true if the left value is greater than or equal to the right value.
->=__description__1 = <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">There is more info on comparison operators on MDN.</a>
-<__description__0 = The less than operator <a href="#/p5/<"><</a> evaluates to true if the left value is less than the right value.
-<__description__1 = <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">There is more info on comparison operators on MDN.</a>
-<=__description__0 = The less than or equal to operator <a href="#/p5/<="><=</a> evaluates to true if the left value is less than or equal to the right value.
-<=__description__1 = <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">There is more info on comparison operators on MDN.</a>
 if-else__description__0 = The <a href="#/p5/if-else">if-else</a> statement helps control the flow of your code.
 if-else__description__1 = A condition is placed between the parenthesis following 'if', when that condition evalues to <a href="https://developer.mozilla.org/en-US/docs/Glossary/truthy">truthy</a>, the code between the following curly braces is run. Alternatively, when the condition evaluates to <a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">falsy</a>, the code between the curly braces of 'else' block is run instead. Writing an else block is optional.
 if-else__description__2 = From <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">the MDN entry</a>: The 'if' statement executes a statement if a specified condition is truthy. If the condition is falsy, another statement can be executed
@@ -565,7 +554,7 @@ input__params__fxn = Function|Boolean: function to be fired when any user input 
 createDiv__description__0 = Creates a <div></div> element in the DOM with given inner HTML.
 createDiv__returns = p5.Element: pointer to <a href="#/p5.Element">p5.Element</a> holding created node
 createDiv__params__html = String: (Optional) inner HTML for element created
-createP__description__0 = Creates a
+createP__description__0 = Creates a <p></p> element in the DOM with given inner HTML. Used for paragraph length text.
 createP__returns = p5.Element: pointer to <a href="#/p5.Element">p5.Element</a> holding created node
 createP__params__html = String: (Optional) inner HTML for element created
 createSpan__description__0 = Creates a <span></span> element in the DOM with given inner HTML.
@@ -772,7 +761,7 @@ imageMode__description__1 = imageMode(CORNERS) interprets the second and third p
 imageMode__description__2 = imageMode(CENTER) interprets the second and third parameters of <a href="#/p5/image">image()</a> as the image's center point. If two additional parameters are specified, they are used to set the image's width and height.
 imageMode__params__mode = 常量：CORNER、CORNERS 或 CENTER
 pixels__description__0 = 此数组为一个储存显示窗口内所有像素值的 Uint8ClampedArray。这些值都为数字。这数组的大小为（同时考虑像素密度）显示窗口的大小 x4，分别代表每个像素由左到右，上到下的 R、G、B、A 值。视网膜显示及其他高密度显示器将会有更多像素（pixelDensity^2 倍）。比如说，如果图像为 100x100 像素，总共会有 40,000 个元素在 pixels[] 数组内。而在一个视网膜显示，将会有 160,000 个元素。<br><br>数组内最初四个值（指数 0-3）将会是在坐标 (0, 0) 的像素的 R、G、B、A 值。下四个值（指数 4-7）将会是在坐标 (1, 0) 的像素的 R、G、B、A 值。一般上，如果要设置像素 (x, y) 的值： <pre>CODE BLOCK PENDING</pre> 虽然以上的方式有点复杂，它能提供足够的弹性以应对任何像素密度的显示。注意 set() 将会自动处理设定所有在任何像素密度下 (x, y) 坐标在 pixels[] 内的值，不过程序性能可能在像素数组被更改很多次时时不佳。<br><br>在使用这个数组之前，像素资料必须先使用 loadPixels() 函数加载。在数组资料被修改后，updatePixels() 函数必须被调用以更新图像资料。<br><br>注意这不是个普通的 Javascript 数组。这表示 Javascript 数组函数如 <code>slice()</code> 或 <code>arrayCopy()</code> 将不会有效果。
-pixels__description__1 = The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class="language-javascript">let d = pixelDensity(); for (let i = 0; i < d; i++) {"{"}  for (let j = 0; j < d; j++) {"{"}  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  {"}"} {"}"}</code></pre>
+pixels__description__1 = The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class="language-javascript">let d = pixelDensity(); for (let i = 0; i < d; i++) { "{" }  for (let j = 0; j < d; j++) { "{" }  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  { "}" } { "}" }</code></pre>
 pixels__description__2 = While the above method is complex, it is flexible enough to work with any pixelDensity. Note that <a href="#/p5/set">set()</a> will automatically take care of setting all the appropriate values in <a href="#/p5/pixels">pixels[]</a> for a given (x, y) at any pixelDensity, but the performance may not be as fast when lots of modifications are made to the pixel array.
 pixels__description__3 = Before accessing this array, the data must loaded with the <a href="#/p5/loadPixels">loadPixels()</a> function. After the array data has been modified, the <a href="#/p5/updatePixels">updatePixels()</a> function must be run to update the changes.
 pixels__description__4 = Note that this is not a standard javascript array. This means that standard javascript functions such as <a href="#/p5/slice">slice()</a> or <a href="#/p5/arrayCopy">arrayCopy()</a> do not work.
@@ -990,7 +979,7 @@ sqrt__description__0 = 计算一个数字的平方根。一个数字的平方根
 sqrt__returns = 数字：取平方根后的数字
 sqrt__params__n = 数字：该取平方根的非负数
 fract__description__0 = Calculates the fractional part of a number.
-fract__returns = Number: fractional part of x, i.e, {"{"}x{"}"}
+fract__returns = Number: fractional part of x, i.e, { "{" }x{ "}" }
 fract__params__num = Number: Number whose fractional part needs to be found out
 createVector__description__0 = 创造一个新的 p5.Vector 向量（用以储存向量的数据类型）。此函数将提供一个二维或三维的向量，准确来说一个欧几里得（也称为几何）向量。向量为一个有大小及方向的量。
 createVector__returns = p5.Vector
