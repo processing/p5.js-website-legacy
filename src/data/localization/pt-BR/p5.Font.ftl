@@ -1,0 +1,17 @@
+description__0 = Classe base para o uso de fontes.
+params__pInst = P5 (opcional): ponteiro para a instância do p5
+font__description__0 = Implementação subjacente de fontes opentype.
+textBounds__description__0 = Retorna um retângulo contornando o texto dado, usando a fonte escolhida.
+textBounds__returns = Objeto: um retângulo com as propriedades x, y, largura, e altura
+textBounds__params__line = String: um texto
+textBounds__params__x = Número: coordenada x
+textBounds__params__y = Número: coordenada y
+textBounds__params__fontSize = Número (opcional): o tamanho da fonte a ser utilizada — o padrão é 12
+textBounds__params__options = Objeto (opcional): opções opentype — fontes opentype possuem opções de alinhamento e linha de base, sendo o padrão 'LEFT' e 'alphabetic'
+textToPoints__description__0 = Calcula uma array de pontos que segue o contorno do texto especificado.
+textToPoints__returns = Array: uma array de pontos, cada um consistindo em x, y, e alpha (o ângulo do contorno)
+textToPoints__params__txt = String: o texto a ser convertido em pontos
+textToPoints__params__x = Número: coordenada x
+textToPoints__params__y = Número: coordenada y
+textToPoints__params__fontSize = Número (opcional): tamanho da fonte a ser utilizada
+textToPoints__params__options = Objeto (opcional): um objeto que pode conter: sampleFactor - a proporção de pontos por segmento de traço, sendo que quanto maior o valor, mais pontos, e portanto mais precisão (o padrão é 1). simplifyThreshold - se este valor não for 0, pontos colineares serão removidos do polígono. O valor representa o ângulo limite para determinar se dois pontos são colineares ou não.
