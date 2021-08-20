@@ -49,9 +49,10 @@ module.exports = function(grunt) {
         const data = JSON.parse(fileData);
         const newData = _.cloneDeep(data);
 
-        // Change language code of Simplified Chinese because of
+        // Change language code of following langauges because of
         // Pontoon's language code support
         if (language === 'zh-Hans') language = 'zh-CN';
+        else if (language === 'hi') language = 'hi-IN';
 
         // Iterate over all ftl files and create JSON object out of them
         const files = await glob(`./src/data/localization/${language}/*.ftl`);
@@ -69,9 +70,10 @@ module.exports = function(grunt) {
           }
         }
 
-        // Change language code of Simplified Chinese because of
+        // Change language code of following langauges because of
         // Pontoon's language code support
         if (language === 'zh-CN') language = 'zh-Hans';
+        else if (language === 'hi-IN') language = 'hi';
 
         // Write data out to JSON files
         promises.push(
