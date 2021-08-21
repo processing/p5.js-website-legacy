@@ -1,4 +1,3 @@
-process__params__ratio = Number: (Optional) The amount of dB change in input for a 1 dB change in output  default = 12, range 1 - 20
 process__params__threshold = Number: (Optional) The decibel value above which the compression will start taking effect  default = -24, range -100 - 0
 process__params__release = Number: (Optional) The amount of time (in seconds) to increase the gain by 10dB  default = .25, range 0 - 1
 set__description__0 = Set the parameters of a compressor.
