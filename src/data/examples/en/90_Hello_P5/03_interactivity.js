@@ -1,5 +1,6 @@
 /*
  * @name Interactivity 2
+ * @arialabel Dark grey background with a colored circle in the middle that changes color as the user drags a slider on the bottom
  * @frame 720,425
  * @description The circle changes color when you move the slider.
  */

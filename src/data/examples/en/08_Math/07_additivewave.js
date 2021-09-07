@@ -1,5 +1,6 @@
 /*
  * @name Additive Wave
+ * @arialabel Slightly opaque white circles line up to form waves that moves ross the black screen 
  * @description Create a more complex wave by adding two waves together.
  * Original by Daniel Shiffman
  */

@@ -1,5 +1,6 @@
 /*
  * @name Oscillator Frequency
+ * @arialabel The wavelength travels across the screen and as the user’s mouse moves left, the wavelength is longer and the frequency is slower and both increase as the mouse moves right
  * @description <p>Control an Oscillator and view the waveform using FFT.
  * MouseX is mapped to frequency, mouseY is mapped to amplitude.</p>
  * <p><em><span class="small"> To run this example locally, you will need the

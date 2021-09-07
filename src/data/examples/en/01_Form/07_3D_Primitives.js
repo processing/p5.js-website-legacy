@@ -1,5 +1,6 @@
 /*
  * @name 3D Primitives
+ * @arialabel Grey background with a dark grey cube in the bottom left corner and a white outlined sphere in the bottom right corner
  * @frame 720,400 (optional)
  * @description Placing mathematically 3D objects in synthetic space.
  * The box() and sphere() functions take at least one parameter to specify their

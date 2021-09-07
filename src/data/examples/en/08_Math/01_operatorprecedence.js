@@ -1,5 +1,6 @@
 /*
  * @name Operator Precedence
+ * @arialabel Grey background with two rectangles outlined in white on the left, and white vertical lines on the top and bottom 
  * @description If you don't explicitly state the order in which an
  * expression is evaluated, they are evaluated based on the operator
  * precedence. For example, in the statement "4+2*8", the 2 will

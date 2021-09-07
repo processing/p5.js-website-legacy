@@ -1,5 +1,6 @@
 /*
  * @name Map
+ * @arialabel Red circle grows larger and turns more yellow as the user’s mouse moves right on the screen and does the opposite as the user’s mouse moves left
  * @description Use the map() function to take any number and scale it to a
  * new number that is more useful for the project that you are working on.
  * For example, use the numbers from the mouse position to control the size or color of a shape.

@@ -1,5 +1,6 @@
 /*
  * @name Quicksort
+ * @arialabel Bars of random heights are sorted from shortest to tallest left to right. The bars turn sage green and coral as they are sorted
  * @frame 710,400
  * @description This is a simulation of the Quicksort 
  * sorting algorithm. We start with an array of bars 

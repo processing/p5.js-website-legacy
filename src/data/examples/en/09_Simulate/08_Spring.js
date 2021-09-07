@@ -1,5 +1,6 @@
 /*
  * @name Spring
+ * @arialabel Light grey horizontal rectangle on a black vertical rectangle on a grey background. The user can move the horizontal rectangle up and down. Upon releasing the horizontal rectangle, the system moves like a spring and the vertical rectangle expands and compresses as the horizontal rectangle moves up and down.
  * @frame 710, 400
  * @description Click, drag, and release the horizontal bar to start the spring.
  */

@@ -1,5 +1,6 @@
 /*
  * @name Follow 2
+ * @arialabel Two long ovals connected at the end. The user’s mouse is attached to the end of one of the ovals and when the mouse moves, the two ovals move as well
  * @frame 710,400
  * @description A two-segmented arm follows the cursor position. The relative
  * angle between the segments is calculated with atan2() and the position

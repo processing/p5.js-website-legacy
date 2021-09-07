@@ -1,5 +1,6 @@
 /*
  * @name Embedded Iteration
+ * @arialabel Rays emerge from the center of the screen to the edges. There is also a square grid of white circles over the window
  * @description Embedding "for" structures allows repetition in two dimensions.
  */
 function setup() {

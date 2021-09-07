@@ -1,5 +1,6 @@
 /*
  * @name Multiple Objects
+ * @arialabel Four small white circles places randomly on a dark navy background that move in small amounts in various directions by itself like they are jittering 
  * @description Create a Jitter class, instantiate multiple objects,
  * and move it around the screen.
  */

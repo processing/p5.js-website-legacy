@@ -1,5 +1,6 @@
 /**
  *  @name Filter BandPass
+ *  @arialabel The bandpass filter changes intensity as the user’s mouse moves left and right on the screen
  *  @description Apply a p5.BandPass filter to white noise.
  *  Visualize the sound with FFT.
  *  Map mouseX to the bandpass frequency

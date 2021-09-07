@@ -1,5 +1,6 @@
 /*
  * @name Particles
+ * @arialabel Small light grey circles connected by thin lines floating around a black background
  * @description There is a light-weight JavaScript library named
  * particle.js which creates a very pleasing particle system.
  * This is an attempt to recreate that particle system using p5.js.

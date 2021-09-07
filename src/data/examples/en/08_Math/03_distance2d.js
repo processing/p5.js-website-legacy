@@ -1,5 +1,6 @@
 /*
  * @name Distance 2D
+ * @arialabel The user’s mouse creates a gradient of circles that decrease in size the closer they are to the mouse as it moves across the screen
  * @description Move the mouse across the image to obscure
  * and reveal the matrix. Measures the distance from the mouse
  * to each circle and sets the size proportionally.

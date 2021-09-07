@@ -1,5 +1,6 @@
 /*
  * @name Redraw
+ * @arialabel Horizontal white line across a black background that moves higher on the screen with each mouse click
  * @description The redraw() function makes draw() execute once. In this example,
  * draw() is executed once every time the mouse is clicked.
  */

@@ -1,5 +1,6 @@
 /*
  * @name Shader as a Texture
+ * @arialabel Sphere broken up into a square grid with a gradient in each grid.
  * @description Shaders can be applied to 2D/3D shapes as textures.
  * <br> To learn more about using shaders in p5.js: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
  */

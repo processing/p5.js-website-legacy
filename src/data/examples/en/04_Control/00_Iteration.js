@@ -1,5 +1,6 @@
 /*
  * @name Iteration
+ * @arialabel White bars on the top half of the screen intersect with thin lines on the left and dark grey bars on the right
  * @description Iteration with a "for" structure to construct repetitive forms.
  */
 let y;

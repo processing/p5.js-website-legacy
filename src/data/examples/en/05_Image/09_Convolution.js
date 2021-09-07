@@ -1,5 +1,6 @@
 /*
  * @name Convolution
+ * @arialabel An astronaut on a planet. As the user’s mouse moves, a square section increasing the sharpness of the image also moves
  * @description Applies a convolution matrix to a portion of an image. Move mouse to apply filter to different parts of the image. This example is a port of  <a href="https://processing.org/examples/convolution.html" target="blank">Dan Shiffman's example</a> for Processing. Original comments written by Dan unless otherwise specified.
  * <p><em><span class="small"> To run this example locally, you will need an
  * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">

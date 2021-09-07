@@ -1,5 +1,6 @@
 /*
  * @name Create Image
+ * @arialabel Black background with a blue gradient square on the left. Another blue gradient square follows the user’s mouse as it moves
  * @description The createImage() function provides a fresh buffer of pixels to
  * play with. This example creates an image gradient.
  */

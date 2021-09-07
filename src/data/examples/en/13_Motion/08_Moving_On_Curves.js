@@ -1,5 +1,6 @@
 /*
  * @name Moving On Curves
+ * @arialabel White circle travels across the grey screen on the curve y=x^4. It leaves behind an outline of its path
  * @frame 720,400
  * @description In this example, the circles moves along the curve y = x^4.
  * Click the mouse to have it move to a new position.

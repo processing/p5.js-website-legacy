@@ -1,5 +1,6 @@
 /*
  * @name Koch Curve
+ * @arialabel Koch snowflake is created by a single horizontal white line on a black background that then morphs into a triangle in the middle, and then each side of the triangle also becomes two more triangles, and this repeats 5 times
  * @description Renders a simple fractal, the Koch snowflake. Each recursive level is drawn in sequence.
  * By Daniel Shiffman
  */

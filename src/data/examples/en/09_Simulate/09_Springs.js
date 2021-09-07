@@ -1,5 +1,6 @@
 /*
  * @name Springs
+ * @arialabel Three white circles on a dark grey background. The user can drag each circle and the circle springs back and forth till finally settling in the original position
  * @frame 710,400
  * @description Move the mouse over one of the circles and click to re-position.
  * When you release the mouse, it will snap back into position.

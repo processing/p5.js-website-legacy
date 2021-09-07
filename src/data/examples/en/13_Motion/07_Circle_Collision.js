@@ -1,5 +1,6 @@
 /*
  * @name Circle Collision
+ * @arialabel One large light grey circle and one small grey circle collide and bounce off each other as they bounce off each other and off the edges of the dark grey background 
  * @frame 710,400 (optional)
  * @description This is a port of the "Circle Collision" example from processing.org/examples <br> This example uses vectors for better visualization of physical Quantity
  */

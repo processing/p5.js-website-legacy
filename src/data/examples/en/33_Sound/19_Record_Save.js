@@ -1,5 +1,6 @@
 /**
  * @name Record Save Audio
+ * @arialabel The user clicks the grey screen to begin recording audio input through their mic. When recording the screen turns red. The user clicks their mouse again to end recording and the screen turns green. If the user clicks their mouse again the audio recording is saved to their downloads as a wav file
  * @description Record a sound, play it back and save
  * it as a .wav file to the client's computer.
  * We need three objects: a p5.AudioIn (mic / sound source),

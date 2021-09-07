@@ -1,5 +1,6 @@
 /*
  * @name Video
+ * @arialabel Video of fingers walking 
  * @frame 710,250
  * @description Load a video with multiple formats and toggle between playing
  * and paused with a button press.

@@ -1,5 +1,6 @@
 /* 
  * @name Walk Over 2dArray
+ * @arialabel 20 phrases in black text are arranged on a black background with 4 phrases in a row, 5 rows total
  * @frame 400,400
  * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
    <b>Prof WM Harris,</b></a> How to display 2D array contents on the canvas

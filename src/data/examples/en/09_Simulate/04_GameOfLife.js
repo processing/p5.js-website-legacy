@@ -1,5 +1,6 @@
 /*
  * @name Game of Life
+ * @arialabel Grid of white squares on a black background with some squares flickering between white and black to generate random patterns
  * @description A basic implementation of John Conway's Game of Life CA
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */

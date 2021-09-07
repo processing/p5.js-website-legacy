@@ -1,5 +1,6 @@
 /*
  * @name Logical Operators
+ * @arialabel Horizontal black lines across half of a grey background. Part of these lines are shifted left and there are vertical lines of dots above and below this
  * @description The logical operators for AND (&&) and OR (||) are used to
  * combine simple relational statements into more complex expressions.
  * The NOT (!) operator is used to negate a boolean statement.

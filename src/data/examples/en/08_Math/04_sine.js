@@ -1,5 +1,6 @@
 /*
  * @name Sine
+ * @arialabel Three yellow circles grow larger and smaller on a black background 
  * @description Smoothly scaling size with the sin() function.
  */
 let diameter;

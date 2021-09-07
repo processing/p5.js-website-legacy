@@ -1,5 +1,6 @@
 /**
  *  @name Delay
+ *  @arialabel When the user clicks their mouse on the black screen, music plays, and a lime green rectangle appears from the bottom at a height level correlating with the amplitude of the sound as it plays
  *  @description
  *  Click the mouse to hear the p5.Delay process a SoundFile.
  *  MouseX controls the p5.Delay Filter Frequency.

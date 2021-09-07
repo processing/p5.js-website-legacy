@@ -1,5 +1,6 @@
 /*
  * @name Edge Detection
+ * @arialabel Astronaut rendered in black and white on the left and a highly sharpened version of the image on the right
  * @description A high-pass filter sharpens an image. This program analyzes every pixel in an image in relation to the neighboring pixels to sharpen the image. 
  * <br><br><span class="small"><em>This example is ported from the <a href="https://processing.org/examples/edgedetection.html">Edge Detection example</a>
  * on the Processing website</em></span>

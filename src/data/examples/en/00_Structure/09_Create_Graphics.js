@@ -1,5 +1,6 @@
 /*
  * @name Create Graphics
+ * @arialabel Black background with a very dark grey rectangle in the middle. The user’s mouse draws in white but not on the center rectangle.
  * @description Creates and returns a new p5.Renderer object. Use this
  * class if you need to draw into an off-screen graphics buffer. The two parameters
  * define the width and height in pixels.

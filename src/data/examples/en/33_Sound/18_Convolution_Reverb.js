@@ -1,5 +1,6 @@
 /**
  * @name Convolution Reverb
+ * @arialabel Sound with reverb plays when the user clicks the screen and lime green bars appear based on the amplitude of the sound
  * @description <p>The p5.Convolver can recreate the sound of actual
  * spaces using convolution. Convolution takes an Impulse Response,
  * (the sound of a room reverberating), and uses that to
