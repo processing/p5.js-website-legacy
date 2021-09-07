@@ -1,5 +1,6 @@
 /*
  * @name Regular Polygon
+ * @arialabel Three white shapes with black outlines on a grey background rotating. From left to right, a triangle, icosagon, and a heptagon
  * @description What is your favorite? Pentagon? Hexagon? Heptagon? No?
  * What about the icosagon? The polygon() function created for this example is
  * capable of drawing any regular polygon. Try placing different numbers into

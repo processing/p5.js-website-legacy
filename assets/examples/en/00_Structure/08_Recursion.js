@@ -1,5 +1,6 @@
 /*
  *@name Recursion
+ *@arialabel Grey circle with two grey circles across its middle. Each of these two grey circles have more grey circles across its middle. This pattern continues until no more can be drawn within them.
  *@description A demonstration of recursion, which means functions call themselves.
  * A recursive function must have a terminating condition, without which it will
  * go into an infinite loop. Notice how the drawCircle() function calls itself 

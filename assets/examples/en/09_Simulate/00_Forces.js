@@ -1,5 +1,6 @@
 /*
  * @name Forces
+ * @arialabel 9 grey balls drop from the top of the window and slow down as they reach the bottom half of the screen which is dark grey in color. Their change in speed mimics objects slowing down due to water resistance
  * @description Demonstration of multiple force acting on bodies
  * (<a href="http://natureofcode.com">natureofcode.com</a>)
  */

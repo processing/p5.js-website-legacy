@@ -1,5 +1,6 @@
 /*
  * @name Linear
+ * @arialabel Horizontal white line on a black background traveling from the bottom to the top of the screen parallel to the x axis
  * @frame 720,400
  * @description Changing a variable to create a moving line.
  * When the line moves off the edge of the window,

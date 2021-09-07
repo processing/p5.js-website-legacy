@@ -1,5 +1,6 @@
 /*
  * @name Conditionals 1
+ * @arialabel Pattern of alternating long and short lines
  * @description Conditions are like questions.
  * They allow a program to decide to take one action if
  * the answer to a question is true or to do another action

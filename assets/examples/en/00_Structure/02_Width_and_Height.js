@@ -1,5 +1,6 @@
 /*
  * @name Width and Height
+ * @arialabel Pattern of grey and green horizontal lines. The left half also has white vertical lines. The left half is broken up into two triangular shapes, one which is predominately green stripes, and one which is white with the white stripes
  * @description The 'width' and 'height' variables contain the
  * width and height of the display window as defined in the createCanvas()
  * function.

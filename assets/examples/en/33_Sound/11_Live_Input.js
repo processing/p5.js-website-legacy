@@ -1,5 +1,6 @@
 /**
  * @name Mic Input
+ * @arialabel Grey circle rises from the bottom of the screen based on the amplitude of the user’s audio input into their mic
  * @description <p>Get audio input from your computer's microphone.
  * Make noise to float the ellipse.</p>
  * <p>Note: p5.AudioIn contains its own p5.Amplitude object,

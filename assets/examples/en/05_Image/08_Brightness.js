@@ -1,5 +1,6 @@
 /*
  * @name Brightness
+ * @arialabel Astronaut rendered in black and white is covered with a black screen. The user’s mouse acts as a flashlight and parts of the image are illuminated as the user’s mouse travels over
  * @description This program adjusts the brightness of a part of the image by calculating the distance of each pixel to the mouse.
  * <br><br><span class="small"><em>This example is ported from the <a href="https://processing.org/examples/brightness.html">Brightness example</a>
  * on the Processing website</em></span>

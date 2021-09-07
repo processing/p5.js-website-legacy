@@ -1,5 +1,6 @@
 /*
  * @name Ray Casting
+ * @arialabel White square in the middle of a screen split diagonally between light pink and dark pink. The white square is a back wall and the pinks form 4 other walls. The user’s mouse controls a circle which turns into a 3D bump as it moves along the walls close to the front.
  * @description Original example by Jonathan Watson.
  * <br><br>Detecting the position of the mouse in 3D space with ray casting.
  */

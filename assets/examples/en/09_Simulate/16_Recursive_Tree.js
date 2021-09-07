@@ -1,5 +1,6 @@
 /*
  * @name Recursive Tree
+ * @arialabel If the user’s mouse is on the far left side of the screen, there is a white vertical line on a black background. As the user’s mouse moves right, the top of the vertical line begins to expand into branches of a tree until it curves down into a very geometric tree
  * @description Renders a simple tree-like structure via recursion.
  * The branching angle is calculated as a function of the horizontal mouse
  * location. Move the mouse left and right to change the angle.

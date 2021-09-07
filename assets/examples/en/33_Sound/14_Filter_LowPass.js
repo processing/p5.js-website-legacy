@@ -1,5 +1,6 @@
 /**
  *  @name Filter LowPass
+ *  @arialabel The lowpass filter changes intensity as the user’s mouse moves left and right on the screen
  *  @description Apply a p5.LowPass filter to a p5.SoundFile.
  *  Visualize the sound with FFT.
  *  Map mouseX to the the filter's cutoff frequency

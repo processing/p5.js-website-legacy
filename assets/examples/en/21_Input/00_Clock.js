@@ -1,5 +1,6 @@
 /*
  * @name Clock
+ * @arialabel Functioning pink clock on a grey background
  * @description The current time can be read with the second(),
  * minute(), and hour() functions. In this example, sin() and
  * cos() values are used to set the position of the hands.

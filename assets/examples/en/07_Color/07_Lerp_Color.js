@@ -1,5 +1,6 @@
 /*
  * @name Lerp Color
+ * @arialabel Four piles of triangles in random sizes: red, maroon, purple, and blue. The triangles move around within their pile to form different designs
  * @description Loop random shapes,
  * lerp color from red to blue.
  */

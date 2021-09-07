@@ -1,5 +1,6 @@
 /*
  * @name Video Capture
+ * @arialabel Takes feed from the user’s computer camera and displays it in the window
  * @frame 710,240
  * @description Capture video from the webcam and display
  * on the canvas as well with invert filter. Note that by

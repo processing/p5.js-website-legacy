@@ -1,5 +1,6 @@
 /*
  * @name Snowflakes
+ * @arialabel White snowflakes fall in a random pattern from the top of a red background 
  * @description Particle system simulating the motion of falling snowflakes.
  * Uses an array of objects to hold the snowflake particles.
  * Contributed by Aatish Bhatia.

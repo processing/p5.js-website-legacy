@@ -1,5 +1,6 @@
 /*
  * @name Load and Display Image
+ * @arialabel An astronaut on a planet with the same image in a smaller size in the bottom left quarter
  * @description Images can be loaded and displayed to the screen at their
  * actual size or any other size.
  * <p><em><span class="small"> To run this example locally, you will need an 

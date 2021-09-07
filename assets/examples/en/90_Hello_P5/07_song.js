@@ -1,5 +1,6 @@
 /*
  * @name Song
+ * @arialabel Grey background divided into 7 vertical rectangles. When the user hovers, the rectangle turns dark grey. When the user clicks, each rectangle turns cyan and plays a different note.
  * @frame 720, 430
  * @description Play a song.
  * You will need to include the

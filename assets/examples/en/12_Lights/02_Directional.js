@@ -1,5 +1,6 @@
 /*
  * @name Directional
+ * @arialabel Two spheres on both sides of a black screen that is lit by the mouse which acts as a light source. You can move this light source by moving your mouse to shine on different parts of the sphere and create different shadows
  * @frame 710,400
  * @description Move the mouse to change the direction of the light.
  * Directional light comes from one direction and is stronger when hitting a

@@ -1,5 +1,6 @@
 /*
  * @name Letters
+ * @arialabel Letters and characters on a grey background. All are white except the vowels are pink.
  * @description Letters can be drawn to the screen by loading a font, setting
  * its characteristics and then drawing the letters. This example uses a for
  * loop and unicode reference numbers to automatically fill the canvas with

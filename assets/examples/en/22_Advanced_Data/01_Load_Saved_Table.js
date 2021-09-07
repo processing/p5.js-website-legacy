@@ -1,5 +1,6 @@
 /*
  * @name Load Saved Table
+ * @arialabel Four white circles with labels 
  * @description Create a Bubble class, instantiate multiple bubbles using data from
  * a csv file, and display results on the screen.
  *  Because the web browsers differ in where they save files, we do not make use of

@@ -1,5 +1,6 @@
 /*
  * @name Noise3D
+ * @arialabel Gradient noise 
  * @frame 710,400 (optional)
  * @description Using 3D noise to create simple animated texture.
  */

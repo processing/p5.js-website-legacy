@@ -1,5 +1,6 @@
 /*
  * @name Shader Using Webcam
+ * @arialabel Neon texture added to the scene displayed by the user’s built-in webcam
  * @description The webcam can be passed to shaders as a texture.
  * <br> To learn more about using shaders in p5.js: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
  */

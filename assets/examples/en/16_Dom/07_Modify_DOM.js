@@ -1,5 +1,6 @@
 /*
  * @name Modifying the DOM
+ * @arialabel Words in black font jittering on a white background
  * @frame 710,300
  * @description Create DOM elements and modify their properties every time
  * draw() is called.

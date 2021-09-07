@@ -1,5 +1,6 @@
 /*
  * @name Sound Effect
+ * @arialabel Grey circle on a white screen that plays a doorbell sound when pressed on
  * @description <p>Play a sound effect when the mouse is clicked inside the circle.</p>
  * <p><em><span class="small"> To run this example locally, you will need the
  * <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound library</a>

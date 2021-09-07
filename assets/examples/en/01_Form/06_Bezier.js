@@ -1,5 +1,6 @@
 /*
  * @name Bezier
+ * @arialabel 10 lines in a bezier curve formation. The bottom of the curve does not move but as the user’s mouse moves, the top of the curve follows the left and right movement 
  * @description The first two parameters for the bezier() function specify the
  * first point in the curve and the last two parameters specify the last point.
  * The middle parameters set the control points that define the shape of the

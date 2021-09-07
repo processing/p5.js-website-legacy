@@ -1,5 +1,6 @@
 /*
  * @name Constrain
+ * @arialabel Pink rectangle on a grey background. A user uses their mouse to move a white circle within the pink rectangle 
  * @description Move the mouse across the screen to move
  * the circle. The program constrains the circle to its box.
  */

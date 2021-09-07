@@ -1,5 +1,6 @@
 /*
  * @name Array
+ * @arialabel Vertical lines are graphed across a white background to visualize the values of a cosine curve
  * @description An array is a list of data. Each piece of data in an array
  * is identified by an index number representing its position in
  * the array. Arrays are zero based, which means that the first

@@ -1,5 +1,6 @@
 /*
  * @name Orbit Control
+ * @arialabel Users can click on the screen and drag to move themselves around a 3D space. It consists of a white background with columns of purple cubes and green pyramids arched in curves. 
  * @description Orbit control allows you to drag and move around the world.
  */
 function setup() {

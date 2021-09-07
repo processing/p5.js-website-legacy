@@ -1,5 +1,6 @@
 /**
  * @name Measuring Amplitude
+ * @arialabel Grey circle that increases and decreases in size based on the amplitude of the music playing
  * @description <p>Analyze the amplitude of sound with
  * p5.Amplitude.</p>
  *

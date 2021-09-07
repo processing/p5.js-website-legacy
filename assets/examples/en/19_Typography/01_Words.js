@@ -1,5 +1,6 @@
 /*
  * @name Words
+ * @arialabel Three columns of the words “ichi,” “ni,” “san,” and “shi” gradienting from black to white on a gray background. The first column is right aligned, the middle column is center aligned, and the left column is left aligned
  * @description The text() function is used for writing words to the screen.
  * The words can be aligned left, center, or right with the textAlign()
  * function, and like with shapes, words can be colored with fill().
