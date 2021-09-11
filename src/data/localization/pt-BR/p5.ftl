@@ -725,12 +725,97 @@ filter__description__3 = OPAQUE Define o canal alpha como totalmente opaco. Nenh
 filter__description__4 = INVERT Define cada pixel para o seu valor inverso. Nenhum parâmetro é usado.
 filter__description__5 = POSTERIZE Limita cada canal da imagem ao número de cores especificado como parâmetro. Os valores do parâmetro podem ser definidos entre 2 e 255, mas os resultados são mais perceptíveis nas faixas inferiores.
 filter__description__6 = BLUR aplica um desfoque gaussiano à imagem. O parâmetro nível define o valor do raio do desfoque desvio, ou quantos pixels na tela se misturam, portanto, um valor maior criará mais desfoque. Se nenhum parâmetro for usado o valor do raio de desfoque será 1, por definição.
+loadJSON__description__0 = Carrega um arquivo JSON de um arquivo ou URL e retorna um Object. Observe que, mesmo se o arquivo JSON contiver um Array, um Object será retornado com os números de índice como keys.
+loadJSON__description__1 = Este método é assíncrono, o que significa que pode não terminar antes que a próxima linha em seu esboço seja executada. JSONP é suportado por meio de um polyfill e você pode passar como o segundo argumento um objeto com definições do retorno de chamada json seguindo a sintaxe especificada <a href="https://github.com/camsong/ fetch-jsonp"> aqui </ a>.
+loadJSON__description__2 = Este método é adequado para buscar arquivos de até 64 MB.
+loadJSON__returns = Object | Array: dados do JSON
+loadJSON__params__path = String: nome do arquivo ou url para carregar
+loadJSON__params__jsonpOptions = Object: (opcional) objeto de opções para configurações relacionadas ao jsonp
+loadJSON__params__datatype = String: (Opcional) "json" ou "jsonp"
+loadJSON__params__callback = Função: (Opcional) função a ser executada após a conclusão de <a href="#/p5/loadJSON"> loadJSON () </a>, os dados são passados como primeiro argumento
+loadJSON__params__errorCallback = Função: (Opcional) função a ser executada se houver um erro, a resposta é passada como primeiro argumento
+loadStrings__description__0 = Lê o conteúdo de um arquivo e cria uma array String de suas linhas individuais. Se o nome do arquivo for usado como parâmetro, como no exemplo acima, o arquivo deve estar localizado no diretório / pasta de esboço.
+loadStrings__description__1 = Alternativamente, o arquivo pode ser carregado de qualquer lugar no computador local usando um caminho absoluto (algo que começa com / no Unix e Linux, ou uma letra de unidade no Windows), ou o parâmetro do nome do arquivo pode ser uma URL para um arquivo encontrado em um rede.
+loadStrings__description__2 = Este método é assíncrono, o que significa que não pode terminar antes que a próxima linha em seu esboço seja executada.
+loadStrings__description__3 = Este método é adequado para buscar arquivos de até 64 MB.
+loadStrings__returns = String[]: Array de Strings
+loadStrings__params__filename = String: nome do arquivo ou da url para carregar
+loadStrings__params__callback = Função: (Opcional) função a ser executada após a conclusão de <a href="#/p5/loadStrings"> loadStrings () </a>, a Array é passada como primeiro argumento
+loadStrings__params__errorCallback = Função: (Opcional) função a ser executada se houver um erro, a resposta é passada como primeiro argumento
+loadTable__description__0 = Lê o conteúdo de um arquivo ou URL e cria um objeto <a href="#/p5.Table"> p5.Table </a> com seus valores. Se um arquivo for especificado, ele deve estar localizado na pasta "data" do esboço. O parâmetro filename também pode ser um URL para um arquivo online. Por padrão, o arquivo é considerado separado por vírgulas (no formato CSV). A tabela só procura uma linha de cabeçalho se a opção 'cabeçalho' estiver incluída.
+loadTable__description__1 = Este método é assíncrono, o que significa que não pode terminar antes que a próxima linha em seu esboço seja executada. Chamar <a href="#/p5/loadTable"> loadTable () </a> dentro de <a href="#/p5/preload"> preload () </a> garante a conclusão da operação antes de <a href = "# / p5 / setup"> setup () </a> e <a href="#/p5/draw"> draw () </a> são chamados. Fora de <a href="#/p5/preload"> preload () </a>, você pode fornecer uma função de retorno de chamada para manipular o objeto:
+loadTable__description__2 = Todos os arquivos carregados e salvos usam a codificação UTF-8. Este método é adequado para buscar arquivos de até 64 MB.
+loadTable__returns = Object: objeto <a href="#/p5.Table"> Tabela </a> contendo dados
+loadTable__params__filename = String: nome do arquivo ou da URL para carregar
+loadTable__params__extension = String: (Opcional) analisa a tabela por valores separados por vírgula "csv", valores separados por ponto e vírgula "ssv" ou valores separados por tabulação "tsv"
+loadTable__params__header = String: (Opcional) "header" para indicar que a tabela tem uma linha de cabeçalho
+loadTable__params__callback = Função: (Opcional) função a ser executada após a conclusão de <a href="#/p5/loadTable"> loadTable () </a>. Em caso de sucesso, o objeto <a href="#/p5.Table"> Tabela </a> é passado como o primeiro argumento.
+loadTable__params__errorCallback = Função: (Opcional) função a ser executada se houver um erro, a resposta é passada como primeiro argumento
+loadXML__description__0 = Lê o conteúdo de um arquivo e cria um objeto XML com seus valores. Se o nome do arquivo for usado como parâmetro, como no exemplo acima, o arquivo deve estar localizado no diretório / pasta de sketch.
+loadXML__description__1 = Alternativamente, o arquivo pode ser carregado de qualquer lugar no computador local usando um caminho absoluto (algo que começa com / no Unix e Linux, ou uma letra de unidade no Windows), ou o parâmetro do nome do arquivo pode ser uma URL para um arquivo encontrado em uma rede.
+loadXML__description__2 = Este método é assíncrono, o que significa que não pode terminar antes que a próxima linha em seu esboço seja executada. Chamar <a href="#/p5/loadXML"> loadXML () </a> dentro de <a href="#/p5/preload"> preload () </a> garante a conclusão da operação antes que <a href = "# / p5 / setup"> setup () </a> e <a href="#/p5/draw"> draw () </a> sejam chamados.
+loadXML__description__3 = Fora de <a href="#/p5/preload"> preload () </a>, você pode fornecer uma função de retorno de chamada para manipular o objeto.
+loadXML__description__4 = Este método é adequado para buscar arquivos de até 64 MB.
+loadXML__returns = Object: objeto XML contendo dados
+loadXML__params__filename = String: nome do arquivo ou da URL para carregar
+loadXML__params__callback = Função: (Opcional) função a ser executada após a conclusão de <a href="#/p5/loadXML"> loadXML () </a>, o objeto XML é passado como primeiro argumento
+loadXML__params__errorCallback = Função: (Opcional) função a ser executada se houver um erro, a resposta é passada como primeiro argumento
+loadBytes__description__0 = Este método é adequado para buscar arquivos de até 64 MB.
+loadBytes__returns = Object: um objeto cuja propriedade 'bytes' será carregado no buffer
+loadBytes__params__file = String: nome do arquivo ou da URL para carregar
+loadBytes__params__callback = Função: (Opcional) função a ser executada após a conclusão de <a href="#/p5/loadBytes"> loadBytes () </a>
+loadBytes__params__errorCallback = Função: (Opcional) função a ser executada se houver um erro
+httpGet__description__0 = Método para executar uma solicitação HTTP GET. Se o tipo de dados não for especificado, o p5 tentará adivinhar com base na URL, assumindo como padrão o texto. Isso é equivalente a chamar <code> httpDo (path, 'GET') </code>. O tipo de dados 'binário' retornará um objeto Blob e o tipo de dados 'arrayBuffer' retornará uma ArrayBuffer que pode ser usado para inicializar arrays digitadas (como Uint8Array).
+httpGet__returns = Promise: uma "promessa" que se resolve com os dados quando a operação é concluída com sucesso ou rejeita com o erro depois que ocorre.
+httpGet__params__path = String: nome do arquivo ou da url para carregar
+httpGet__params__datatype = String: (Opcional) "json", "jsonp", "binary", "arrayBuffer", "xml" ou "text"
+httpGet__params__data = Object | Boolean: (Opcional) dados de parâmetros enviados com solicitação
+httpGet__params__callback = Função: (Opcional) função a ser executada após a conclusão de <a href="#/p5/httpGet"> httpGet () </a>, os dados são passados como primeiro argumento
+httpGet__params__errorCallback = Função: (Opcional) função a ser executada se houver um erro, a resposta é passada como primeiro argumento
+httpPost__description__0 = Método para executar uma solicitação HTTP POST. Se o tipo de dados não for especificado, o p5 tentará adivinhar com base na URL, assumindo como padrão o texto. Isso é equivalente a chamar <code> httpDo (path, 'POST') </code>.
+httpPost__returns = Promise: uma "promessa" que se resolve com os dados quando a operação é concluída com sucesso ou rejeita com o erro depois que ocorre.
+httpPost__params__path = String: nome do arquivo ou da url para carregar
+httpPost__params__datatype = String: (Opcional) "json", "jsonp", "xml" ou "text". Se omitido, a <a href="#/p5/httpPost"> httpPost () </a> irá tentar adivinhar.
+httpPost__params__data = Object | Boolean: (Opcional) dados de parâmetros enviados com solicitação
+httpPost__params__callback = Função: (Opcional) função a ser executada após a conclusão de <a href="#/p5/httpPost"> httpPost () </a>, os dados são passados como primeiro argumento
+httpPost__params__errorCallback = Função: (Opcional) função a ser executada se houver um erro, a resposta é passada como primeiro argumento
+httpDo__description__0 = xmlMétodo para executar uma solicitação tipo HTTP. Se o tipo de dados não for especificado, o p5 tentará adivinhar com base na URL, assumindo como padrão o texto. Para um uso mais avançado, você também pode passar o caminho como o primeiro argumento e um object como o segundo argumento, a assinatura segue aquela especificada na especificação da Fetch API. Este método é adequado para buscar arquivos de até 64 MB quando "GET" é usado.
+httpDo__returns = Promise: uma "promessa" que se resolve com os dados quando a operação é concluída com sucesso ou rejeita com o erro depois que ocorre.
+httpDo__params__path = String: nome do arquivo ou da url para carregar
+httpDo__params__method = String: (Opcional) "GET", "POST" ou "PUT", o padrão é "GET"
+httpDo__params__datatype = String: (Opcional) "json", "jsonp", "xml" ou "text"
+httpDo__params__data = Object: (Opcional) dados de parâmetros transmitidos enviados com solicitação
+httpDo__params__callback = Função: (Opcional) função a ser executada após a conclusão de <a href="#/p5/httpGet"> httpGet () </a>, os dados são passados como primeiro argumento
+httpDo__params__errorCallback = Função: (Opcional) função a ser executada se houver um erro, a resposta é passada como primeiro argumento
+httpDo__params__options = Object: Solicita as opções de objeto conforme documentado na <a href="https://developer.mozilla.org/en/docs/Web/API/Fetch_API"> referência </a> da "fetch" API
+createWriter__returns = p5.PrintWriter:
+createWriter__params__name = String: nome do arquivo a ser criado
+createWriter__params__extension = String: (Opcional) uma string com o nome do arquivo que será salvo
+save__description__0 = Salva um determinado elemento (imagem, texto, json, csv, wav ou html) no computador cliente. O primeiro parâmetro pode ser uma indicação do elemento que queremos salvar. O elemento pode ser <a href="#/p5.Element"> p5.Element </a>, uma Array de Strings, uma Array de JSON, um objeto JSON, um <a href = "# / p5. Tabela "> p5.Table </a>, um <a href="#/p5.Image"> p5.Image </a> ou um p5.SoundFile (requer p5.sound). O segundo parâmetro é um nome de arquivo (incluindo a extensão). O terceiro parâmetro é para opções específicas para este tipo de objeto. Este método salvará um arquivo que se encaixa nos parâmetros fornecidos. Se for chamado sem especificar um elemento, por padrão, ele salvará toda a tela como um arquivo de imagem. Você pode, opcionalmente, especificar um nome de arquivo como o primeiro parâmetro nesse caso. <strong> Observe que não é recomendado chamar esse método dentro do draw, pois ele abrirá uma nova caixa de diálogo para salvar a cada renderização. </strong>
+save__params__objectOrFilename = Object | String: (Opcional) Se o nome do arquivo for fornecido, salvará a tela como uma imagem com extensão png ou jpg, dependendo do nome do arquivo. Se o objeto for fornecido, o salvará dependendo do objeto e do nome do arquivo (veja os exemplos acima).
+save__params__filename = String: (Opcional) Se um objeto for fornecido como o primeiro parâmetro, o segundo parâmetro indica o nome do arquivo e deve incluir uma extensão de arquivo apropriada (consulte os exemplos acima).
+save__params__options = Boolean | String: (Opcional) As opções adicionais dependem do tipo de arquivo. Por exemplo, ao salvar JSON, <code> true </code> indica que a saída será otimizada para o tamanho do arquivo, em vez de legibilidade.
+saveJSON__description__0 = Grava o conteúdo de um objeto Array ou JSON em um arquivo .json. O processo de salvamento do arquivo e a localização do arquivo salvo variam entre os navegadores da web.
+saveJSON__params__json = Array | Object
+saveJSON__params__filename = String
+saveJSON__params__optimize = Boolean: (Opcional) Se true (verdadeiro), remove quebras de linha e espaços do arquivo de saída para otimizar o tamanho do arquivo (mas não a legibilidade).
+saveStrings__description__0 = Grava uma array de Strings em um arquivo de texto, uma linha por String. O processo de salvamento do arquivo e a localização do arquivo salvo variam entre os navegadores da web.
+saveStrings__params__list = String []: string array a ser escrito
+saveStrings__params__filename = String: nome do arquivo a ser gerado
+saveStrings__params__extension = String: (Opcional) extensão do nome do arquivo
+saveStrings__params__isCRLF = Boolean: (Opcional) se true (verdadeiro), altere a quebra de linha para CRLF
+saveTable__description__0 = Grava o conteúdo de um objeto <a href="#/p5.Table"> Table </a> em um arquivo. O padrão é um arquivo de texto com valores separados por vírgula ('csv'), mas também pode usar separação por tabulação ('tsv') ou gerar uma tabela HTML ('html'). O processo de salvamento do arquivo e a localização do arquivo salvo variam entre os navegadores da web.
+saveTable__params__Table = p5.Table: o objeto <a href="#/p5.Table"> Table </a> para salvar em um arquivo
+saveTable__params__filename = String: o nome do arquivo no qual a Table deve ser salva
+saveTable__params__options = String: (Opcional) pode ser "tsv", "csv" ou "html"
 dist__params__x1 = Number: x-coordinate do primeiro ponto
 dist__params__y1 = Number: y-coordinate do primeiro ponto
 dist__params__x2 = Number: x-coordinate do segundo ponto
 dist__params__y2 = Number: y-coordinate do segundo ponto
 dist__params__z1 = Number: z-coordinate do primeiro ponto
 dist__params__z2 = Number: z-coordinate do segundo ponto
+append__description__0 = Adiciona um valor ao final de uma array. Aumenta o comprimento da array em um. É equivalente a  Array.push().
+append__returns = Array: a array a ser adicionada a
 match__description__0 = Esta função é usada para aplicar uma expressão regular a um trecho de texto e retornar grupos correspondentes (elementos encontrados entre parênteses) como um vetor de Strings. Se não houver correspondências, um valor nulo será retornado. Se nenhum grupo for especificado na expressão regular, mas a sequência corresponder, um vetor de comprimento 1 (com o texto correspondente como o primeiro elemento do vetor) será retornado.
 match__description__1 = Para usar a função, primeiro verifique se o resultado é nulo. Se o resultado for nulo, então a sequência não coincidiu. Se a sequência coincidiu, um vetor é retornada.
 match__description__2 = Se houver grupos (especificados por conjuntos de parênteses) na expressão regular, os conteúdos de cada um serão retornados no vetor. O elemento [0] de uma correspondência de uma expressão regular retorna toda a string correspondente e os grupos de correspondência começam no elemento [1] (o primeiro grupo é [1], o segundo [2] e assim por diante).
