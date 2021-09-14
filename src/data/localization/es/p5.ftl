@@ -748,10 +748,8 @@ split__description__0 = La función split usa String.split(), corta un String en
 split__returns = Arreglo: arreglo de Strings
 split__params__value = String: el String a ser dividido
 split__params__delim = String: el String usado para separar los datos
-splitTokens__description__0 =
-    La función splitTokens() divide un String en uno o varios caracteres delimitadores o tokens. El parámetro delim especifica el o los caracteres a ser usados como borde. Si no se especifican caracteres delim, cualquier caracter tipo whitespace será usado para dividir. Los caracteres whitespace incluyen tabulación (	), nueva línea (
-    ), retorno de carro (
-        ), entrada de formulario (        ), y espacio.
+splitTokens__description__0 = La función splitTokens() divide un String en uno o varios caracteres delimitadores o tokens. El parámetro delim especifica el o los caracteres a ser usados como borde.
+splitTokens__description__1 = Si no se especifican caracteres delim, cualquier caracter tipo whitespace será usado para dividir. Los caracteres whitespace incluyen tabulación (\t), nueva línea (\n), retorno de carro (\r), entrada de formulario (\f), y espacio.
 splitTokens__returns = Arreglo: arreglo de Strings
 splitTokens__params__value = String: el String a ser dividido
 splitTokens__params__delim = String: lista de Strings individuales que serán usados como separadores
