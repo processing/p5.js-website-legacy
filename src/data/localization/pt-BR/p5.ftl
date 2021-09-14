@@ -661,7 +661,24 @@ mouseClicked__description__0 =
     
     Se nenhuma função <a href="#/p5/mouseReleased"> mouseReleased () </a> for definida, a função <a href="#/p5/touchEnded"> touchEnded () </a> será chamada em seu lugar se estiver definido. Os navegadores podem ter diferentes comportamentos padrão associados a vários eventos de mouse. Para evitar qualquer comportamento padrão para este evento, adicione "return false" ao final do método.
 mouseClicked__params__event = Objeto (opcional): argumento de <em>callback</em> do evento do mouse (<code>MouseEvent</code>).
+doubleClicked__description__0 =
+    A função <code>doubleClicked()</code> é executada quando uma função de escuta de eventos (<i>event listener</i>) detecta um evento do tipo <code>dblclick</code>, que é parte da <a href="https://www.w3.org/TR/DOM-Level-3-Core/" rel="noopener noreferrer nofollow" 
+       target="_blank">especificação L3 do DOM</a>. Este evento é disparado quando um botão (geralmente o botão principal do mouse) clica duas vezes sobre um mesmo elemento. Para mais informações sobre o evento <code>dblclick</code>, acesse a <a href="https://developer.mozilla.org/en-US/docs/Web/Events/dblclick">documentação da Mozilla sobre o tema (em inglês)</a>.
+doubleClicked__params__event = Objeto (opcional): argumento de <em>callback</em> do evento do mouse (<code>MouseEvent</code>).
+mouseWheel__description__0 =
+    A função <code>mouseWheel()</code> é executada a cada vez que um evento de rolagem vertical for detectado, seja através de uma roda de rolagem, ou um trackpad. A propriedade <code> event.delta</code> retorna a quantia que a roda foi rolada. Os valores podem ser positivos ou negativos, dependendo da direção da rolagem -- em um computador OS X, com a "rolagem natural" ativada, os sinais são invertidos.
+    Os navegadores podem ter diferentes comportamentos padrão associados aos eventos do mouse. Para evitar qualquer comportamento padrão para este evento, adicione <code>return false</code> ao final do método. Devido ao suporte atual do evento <em>wheel</em> no Safari, para que a função funcione como esperado, é preciso adicionar <code>return false</code> ao fim do método para rodar o programa neste browser.
+mouseWheel__params__event = Objeto (opcional): argumento de <em>callback</em> do evento de rolagem (<code>WheelEvent</code>).
+requestPointerLock__description__0 = A função <code>requestPointerLock()</code> trava o cursor em sua posição atual e o torna invisível. Utilize as variáveis <code><a href="#/p5/movedX">movedX</a></code> e <code><a href="#/p5/movedY">movedY</a></code> para acessar o movimento do mouse desde o último quadro (frame). Note que nem todos os navegadores suportam este recurso. <code>requestPointerLock()</code> permite que você crie experiências que não restrinjam o movimento do mouse ao tamanho da tela, mesmo que este mova repetidamente para o mesmo lado — por exemplo, um ambiente 3D com perspectiva em primeira pessoa.
+exitPointerLock__description__0 = A função <code>exitPointerLock()</code> desativa o modo de bloqueio de cursor disparado pela função <code><a href="#/p5/requestPointerLock">requestPointerLock()</code>, permitindo que se volte a utilizar os elementos da interface normalmente.
+touches__description__0 = A variável global <code>touches[]</code> armazena uma array com a posição de todos os pontos de toque acontecendo simultaneamente em uma tela <i>touchscreen</i>. Cada elemento da array é um objeto contendo <code>x</code>, <code>y</code> e <code>id</code>. As coordenadas (<code>x</code> e <code>y</code>) são relativas ao ponto <code>(0, 0)</code> da canvas, e a <code>id</code> identifica cada ponto de toque enquanto este se move.
+touches__description__1 = A array <code>touches[]</code> não é compatível com os navegadores Safari e Internet Explorer em computadores com <i>touchscreen</i>.
+touchStarted__description__0 = A função <code>touchStarted()</code> é chamada a cada vez que um toque é detectado pela tela do dispositivo. Se nenhuma função <code>touchStarted()</code> for definida, a função <code><a href="#/p5/mousePressed">mousePressed()</a><code>, caso definida, será chamada em seu lugar. Os navegadores podem ter diferentes comportamentos padrão associados aos eventos de toque. Para evitar os comportamentos padrão para este evento, adicione <code>return false</code> ao final do método.
+touchStarted__params__event = Objeto (opcional): argumento de <i>callback</i> do evento de toque (<code>TouchEvent</code>).
+touchMoved__description__0 = A função <code>touchMoved()</code> é chamada a cada vez que um toque detectado pela tela do dispositivo muda de posição. Se nenhuma função <code>touchMoved()</code> for definida, a função <code><a href="#/p5/mouseDragged">mouseDragged()</a><code>, caso definida, será chamada em seu lugar. Os navegadores podem ter diferentes comportamentos padrão associados aos eventos de toque. Para evitar os comportamentos padrão para este evento, adicione <code>return false</code> ao final do método.
+touchMoved__params__event = Objeto (opcional): argumento de <i>callback</i> do evento de toque (<code>TouchEvent</code>).
 touchEnded__description__0 = A função <code>touchEnded()</code> é chamada toda vez que um toque à tela do dispositivo termina. Se nenhuma função <code> touchEnded()</code> for definida, a função <a href="#/p5/mouseReleased">mouseReleased()</a>, caso esteja definida, será chamada em seu lugar. Os navegadores podem ter diferentes comportamentos padrão associados aos eventos de mouse. Para evitar qualquer comportamento padrão para este evento, adicione <code>return false</code> ao final do método.
+touchEnded__params__event = Objeto (opcional): argumento de <i>callback</i> do evento de toque (<code>TouchEvent</code>).
 createImage__description__0 = Cria um novo objeto do tipo <a href="#/p5.Image"> p5.Image </a>, que é usado para armazenar imagens . Esta função retorna um novo buffer de pixels para ser utilizado. O tamanho do buffer é definido pelos parâmetros de largura (width)  e altura (height).
 createImage__description__1 = O método . <a href="#/p5.Image/pixels"> pixels </a> dá acesso a uma array contendo os valores de todos os pixels na janela de exibição. Esses valores são números. Esta matriz é do tamanho da janela de exibição (incluindo um fator apropriado para a <a href="#/p5/pixelDensity"> pixelDensity </a>)  multiplicado por 4, representando os valores R, G, B, A (nesta ordem) para cada pixel, movendo-se da esquerda para a direita em cada linha e, em seguida, para baixo em cada coluna. Consulte <a href="#/p5.Image/pixels"> .pixels </a> para obter mais informações. Também pode ser mais simples usar <a href="#/p5.Image/set"> set () </a> ou <a href="#/p5.Image/get"> get () </a> .
 createImage__description__2 = Antes de acessar os pixels de uma imagem os dados devem ser carregados com a função <a href="#/p5.Image/loadPixels"> loadPixels () </a>. Se os dados da array forem modificados, a função <a href="#/p5.Image/updatePixels"> updatePixels () </a> deve ser executada para atualizar as alterações.
@@ -853,12 +870,41 @@ saveTable__description__0 = Grava o conteúdo de um objeto <a href="#/p5.Table">
 saveTable__params__Table = p5.Table: o objeto <a href="#/p5.Table"> Table </a> para salvar em um arquivo
 saveTable__params__filename = String: o nome do arquivo no qual a Table deve ser salva
 saveTable__params__options = String: (Opcional) pode ser "tsv", "csv" ou "html"
+abs__description__0 = Calcula o valor absoluto (magnitude) de um número. Corresponde à função <code>Math.abs()</code>. O valor absoluto de um número é sempre positivo.
+abs__returns = Número: valor absoluto do número em questão.
+abs__params__n = Número: número a ser calculado o valor absoluto.
+ceil__description__0 = Calcula o número inteiro mais próximo que seja maior ou igual ao valor passado como parâmetro da função, ou seja, arredonda o número para cima. Corresponde a <code>Math.ceil()</code>. Por exemplo, <code>ceil(9.03)</code> retorna o valor <code>10</code>.
+ceil__returns = Número: número inteiro correspondendo ao valor passado à função arredondado para cima.
+ceil__params__n = Número: número a ser arredondado.
+constrain__description__0 = Limita o valor passado à função entre um valor mínimo e um máximo.
+constrain__returns = Número: o valor do parâmetro, restrito entre os limites definidos.
+constrain__params__n = Número: valor a ser restringido.
+constrain__params__low = Número: valor limite mínimo.
+constrain__params__high = Número: valor limite máximo.
+dist__description__0 = Calcula a distância entre dois pontos, tanto em duas quanto em três dimensões. Se você estiver buscando a distância entre dois vetores, veja a função <code><a herf="#/p5.Vector/dist">dist()</a></code>.
+dist__returns = Número: distância entre dois pontos.
 dist__params__x1 = Number: x-coordinate do primeiro ponto
 dist__params__y1 = Number: y-coordinate do primeiro ponto
 dist__params__x2 = Number: x-coordinate do segundo ponto
 dist__params__y2 = Number: y-coordinate do segundo ponto
 dist__params__z1 = Number: z-coordinate do primeiro ponto
 dist__params__z2 = Number: z-coordinate do segundo ponto
+exp__description__0 = Retorna o número de Euler — <em>e</em> (2.71828...) elevado à potência do parâmetro <code>n</code>. Corresponde à função <code>Math.exp()</code>.
+exp__returns = Número: número de Euler (<em>e</em>) elevado à potência de <code>n</code>.
+exp__params__n = Número: expoente para elevar o número de Euler.
+floor__description__0 = Calcula o número inteiro mais próximo que seja menor ou igual ao valor passado como parâmetro da função, ou seja, arredonda o número para baixo. Corresponde a <code>Math.floor()</code>. Por exemplo, <code>floor(10.8)</code> retorna o valor <code>10</code>.
+floor__returns = Número: número inteiro correspondendo ao valor passado à função arredondado para baixo.
+floor__params__n = Número: número a ser arredondado.
+lerp__description__0 = Realiza uma interpolação linear, ou seja, calcula um número entre dois números, de acordo com um incremento específico. O parâmetro <code>amt</code> é a quantia a interpolar entre os dois números, onde <code>0.0<c/ode> é igual ao primeiro valor, <code>0.1</code> é muito próximo ao primeiro valor, <code>0.5</code> é a média entre os dois, e <code>1.0</code> é igual ao segundo valor. Se o valor de <code>amt</code> for menor que 0 ou maior que 1, o número será calculado proporcionalmente. A função <code>lerp()</code> é útil para criar movimento dentro de uma linha reta, e para desenhar linhas pontilhadas.
+lerp__returns = Número: o valor resultante da interpolação.
+lerp__params__start = Número: primeiro valor a ser interpolado.
+lerp__params__stop = Número: segundo valor a ser interpolado.
+lerp__params__amt = Número: incremento da interpolação.
+randomSeed__description__0 = Configura o valor da semente da função <code><a href="#/p5/random">random()</a></code>.
+randomSeed__description__1 =
+    Por padrão, a função <code><a href="#/p5/random">random()</a></code> produz resultados diferentes a cada vez que o programa é executado. Configure uma semente padrão para ter sempre a mesma ordem de números pseudo-aleatórios a cada vez que executa seu sketch.
+    Para compreender mais sobre a semente do gerador de números aleatórios, <a href="https://www.ime.usp.br/~pf/algoritmos//aulas/random.html#seed" target="_blank" rel="noopener noreferrer">veja este material do Instituto de Matemática e Estatística da Universidade de São Paulo</a>.
+randomSeed__params__seed = Número: o valor da semente.
 textAlign__description__0 = Define o alinhamento atual para o texto que será desenhado. Aceita dois argumentos: horizAlign (LEFT, CENTER ou RIGHT) e vertAlign (TOP, BOTTOM, CENTER ou BASELINE).
 textAlign__description__1 = O parâmetro horizAlign se refere ao parâmetro x da função <a href="#/p5/text"> text() </a>, enquanto o parâmetro vertAlign se refere ao parâmetro y.
 textAlign__description__2 = Portanto, se você escrever textAlign (LEFT), estará alinhando a borda esquerda do seu texto com o valor x fornecido em <a href="#/p5/text"> text() </a>. Se você escrever textAlign (RIGHT, TOP), estará alinhando a borda direita do texto com o valor x e a parte superior da borda do texto com o valor y.
