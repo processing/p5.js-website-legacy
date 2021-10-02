@@ -88,12 +88,9 @@ var examples = {
       var desc = startDesc !== 12 ? data.substring(startDesc, endDesc) : '';
       desc = desc.replace(metaReg, '');
 
-      var testLabel = data.substring(endName, endName+50);
-
       $('#example-name').html(name);
       $('#example-desc').html(desc);
       $('#exampleFrame').attr("aria-label", ariaLabel);
-      $('#exampleFrame').attr("test-label", testLabel);
 
       // strip description and set code
       var ind = data.indexOf('*/');
