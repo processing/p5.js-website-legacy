@@ -80,7 +80,6 @@ var examples = {
       var startAriaLabel = data.indexOf("@arialabel")+11;
       var endAriaLabel = data.indexOf("\n", startAriaLabel);
 
-      var testLabel = data.substring(startAriaLabel, endAriaLabel);
       var ariaLabel = startAriaLabel !== 10 ? data.substring(startAriaLabel, endAriaLabel) : '';
 
       var startDesc = data.indexOf("@description")+13;
@@ -88,6 +87,8 @@ var examples = {
 
       var desc = startDesc !== 12 ? data.substring(startDesc, endDesc) : '';
       desc = desc.replace(metaReg, '');
+
+      var testLabel = data.substring(endName, endName+50);
 
       $('#example-name').html(name);
       $('#example-desc').html(desc);
