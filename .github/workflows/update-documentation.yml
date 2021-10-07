@@ -32,12 +32,12 @@ jobs:
       - name: Get latest p5.min.js build
         uses: suisei-cn/actions-download-file@v1
         with:
-          url: https://github.com/processing/p5.js/releases/download/${{github.event.client_payload.ref}}/p5.min.js # ${{ github.event.comment.body }}
+          url: https://github.com/processing/p5.js/releases/download/${{github.event.client_payload.ref}}/p5.min.js
           target: src/assets/js/
       - name: Get latest p5.sound.min.js build
         uses: suisei-cn/actions-download-file@v1
         with:
-          url: https://github.com/processing/p5.js/releases/download/${{github.event.client_payload.ref}}/p5.sound.min.js # ${{ github.event.comment.body }}
+          url: https://github.com/processing/p5.js/releases/download/${{github.event.client_payload.ref}}/p5.sound.min.js
           target: src/assets/js/
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
