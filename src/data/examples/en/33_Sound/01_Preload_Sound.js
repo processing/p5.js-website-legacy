@@ -1,5 +1,6 @@
 /*
  * @name Preload SoundFile
+ * @arialabel On page load, a green screen plays music. When the user clicks on it, the screen turns red and stops playing music 
  * @description Call loadSound() during preload() to ensure that the
  * sound is completely loaded before setup() is called. It's best to always
  * call loadSound() in preload(), otherwise sounds won't necessarily be loaded

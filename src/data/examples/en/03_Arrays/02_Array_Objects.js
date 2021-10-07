@@ -1,5 +1,6 @@
 /*
  * @name Array Objects
+ * @arialabel Small white circles all over a black background that move side to side and sometimes collide and bounce off of each other 
  * @description Demonstrates the syntax for creating an array of custom objects.
  */
 

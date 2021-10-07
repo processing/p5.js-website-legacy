@@ -1,5 +1,6 @@
 /*
  * @name Passing Shader Uniforms
+ * @arialabel Sage green shape in the middle of a dark purple background. As the user’s mouse moves left, the shape has less sides and as the user’s mouse moves right, the shape has more sides
  * @description Uniforms are the way in which information is passed from p5 to the shader.
  * <br> To learn more about using shaders in p5.js: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
  */

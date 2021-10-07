@@ -1,5 +1,6 @@
 /*
  * @name Video Canvas
+ * @arialabel grey background with two identical videos playing. One in color and one in black and white. 
  * @description Load a video with multiple formats and draw it to the canvas.
  * To run this example locally, you will need a running 
  * <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.

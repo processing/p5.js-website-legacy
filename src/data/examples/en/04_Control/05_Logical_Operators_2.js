@@ -1,5 +1,6 @@
 /* 
  * @name Logical Operators 2
+ * @arialabel Squares travel diagonally across the screen when a rectangle on the screen is pressed
  * @frame 400,400
  * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
    <b>Prof WM Harris,</b></a> How

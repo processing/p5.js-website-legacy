@@ -1,5 +1,6 @@
 /* 
  * @name Car Instances
+ * @arialabel Vertical pale sage background with three rectangles--blue, yellow, and grey--moving across the screen horizontally at different speeds 
  * @frame 400,400
  * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
    <b>Prof WM Harris,</b></a> <b>How </b>to create three instances of Car Class and

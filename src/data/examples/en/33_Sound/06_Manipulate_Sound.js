@@ -1,5 +1,6 @@
 /*
  * @name Playback Rate
+ * @arialabel Two grey circles on a light grey background that move as the user moves their mouse and plays different noises based on their distance from each other 
  * @description <p>Load a SoundFile and map its playback rate to
  * mouseY, volume to mouseX. Playback rate is the speed with
  * which the web audio context processings the sound file information.

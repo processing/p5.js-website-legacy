@@ -1,5 +1,6 @@
 /*
  * @name Random Chords
+ * @arialabel Random lines are drawn from one side of a circle to the other until it looks like a shaded sphere
  * @description Accumulates random chords of a circle. Each chord in translucent
  * so they accumulate to give the illusion of a shaded sphere.
  * Contributed by Aatish Bhatia, inspired by <a href ="http://inconvergent.net/">Anders Hoff</a>

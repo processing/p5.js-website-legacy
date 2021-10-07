@@ -1,0 +1,11 @@
+description__0 = Una clase para describir un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección. El tipo de datos, sin embargo, graba los componentes del vector (x, y para 2D y x,y,z para 3D). La magnitud y la dirección pueden ser calculados con los métodos mag() y heading(). En muchos de los ejemplos de p5.js, verás que p5.Vector es usado para describir una posición, velocidad o aceleración. Por ejemplo, si consideras un rectángulo moviéndose a lo largo de la pantalla, en cada instante tiene una posición (un vector que apunta desde el origen hasta su ubicación), una velocidad(la tasa a la que la posición del objeto cambia por unidad de tiempo, expresada como vector), y aceleración (la tasa a la que la velocidad del objeto cambia por unidad de tiempo, expresada como vector). Como los vectores representan grupos de valores, no podemos simplemente usar las operaciones tradicionales de adición, multiplicación, etc. En vez de eso, necesitaremos hacer matemática de vectores, lo que es simplificado con los métodos dentro de la clase p5.Vector.
+params__x = Número: componente x del vector
+params__y = Número: componente y del vector
+params__z = Número: componente z del vector
+mult__params__v0 = p5.Vector
+mult__params__v1 = p5.Vector
+div__params__v0 = p5.Vector
+div__params__v1 = p5.Vector
+rotate__params__v = p5.Vector
+lerp__params__v1 = p5.Vector
+lerp__params__v2 = p5.Vector

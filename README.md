@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/processing/p5.js-website.svg?branch=master)](https://travis-ci.com/processing/p5.js-website)
+[![Test and Deploy Status](https://github.com/processing/p5.js-website/actions/workflows/deploy.yaml/badge.svg)](https://github.com/processing/p5.js-website/actions/workflows/deploy.yaml)
 
 # p5js website
 

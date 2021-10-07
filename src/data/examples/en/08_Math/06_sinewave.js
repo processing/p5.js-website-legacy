@@ -1,5 +1,6 @@
 /*
  * @name Sine Wave
+ * @arialabel White circles line up to form a sine wave that moves across the black screen
  * @description Render a simple sine wave.
  * Original by Daniel Shiffman.
  */

@@ -1,0 +1,9 @@
+description__0 = TableRow 객체는 테이블 중 열에 저장된 데이터 값들의 단일 행을 표현합니다.<br>테이블 행은 정렬된 배열과 정렬되지 않은 JSON 객체를 모두 포함합니다.
+params__str = 문자열: 구분 기호로 분리된 문자열값으로 행 채우기 (선택 사항)
+params__separator = 문자열: 기본값은 쉼표 단위 구분(csv) (선택 사항)
+set__description__0 = TableRow의 지정된 열에 값을 저장합니다. 열은 ID 또는 제목으로 지정가능합니다.
+setNum__description__0 = TableRow의 지정된 열에 실수(float)값을 저장합니다. 열은 ID 또는 제목으로 지정가능합니다.
+setString__description__0 = TableRow의 지정된 열에 문자열 값을 저장합니다. 열은 ID 또는 제목으로 지정가능합니다.
+get__description__0 = TableRow의 지정된 열로부터 값을 받습니다. 열은 ID 또는 제목으로 지정가능합니다.
+getNum__description__0 = TableRow의 지정된 열로부터 실수(float)값을 받습니다. 열은 ID 또는 제목으로 지정가능합니다.
+getString__description__0 = TableRow의 지정된 열로부터 문자열 값을 받습니다. 열은 ID 또는 제목으로 지정가능합니다.

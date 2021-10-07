@@ -56,7 +56,7 @@ function updatei18nObj(originalObj, translatedObj) {
   }
   const newTranslatedObj = {};
   for (var key in originalObj) {
-    if (key in translatedObj) {
+    if (key in translatedObj && translatedObj[key].length !== 0) {
       newTranslatedObj[key] = translatedObj[key];
     } else {
       newTranslatedObj[key] = originalObj[key];

@@ -1,5 +1,6 @@
 /*
 * @name Drawing
+* @arialabel When the user clicks and drags on the light grey background, the user draws a pattern of dark grey circles connected by dark grey lines which also disappears after a bit.
 * @description Generative painting program.
 */
 

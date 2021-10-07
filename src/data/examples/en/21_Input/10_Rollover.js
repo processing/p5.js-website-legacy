@@ -1,5 +1,6 @@
 /*
  * @name Rollover
+ * @arialabel Black square and white circle on grey background. The background turns black as the user’s mouth hovers over the black square and the background turns white as the user’s mouth hovers over the white square.
  * @description Roll over the colored squares in the center of the image to change the color of the outside rectangle.
  * <br><br><span class="small"><em>This example is ported from the <a href="https://processing.org/examples/rollover.html"> Rollover example</a>
  * on the Processing website</em></span>

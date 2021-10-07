@@ -1,5 +1,6 @@
 /*
  * @name Pointillism
+ * @arialabel Dots generate on the screen. As the user’s mouse moves left the dots become smaller and as the user’s mouse moves right, the dots become bigger. The colors of the dots are dependent on an image of choice
  * @description By Dan Shiffman. Mouse horizontal location controls size of
  * dots. Creates a simple pointillist effect using ellipses colored according
  * to pixels in an image.

@@ -1,5 +1,6 @@
 /**
  *  @name soundFormats
+ *  @arialabel On page load, a green screen plays music. When the user clicks on it, the screen turns red and stops playing music
  *  @description <p>Technically, due to patent issues, there is no single
  *  sound format that is supported by all web browsers. While
  *  <a href="http://caniuse.com/#feat=mp3">mp3 is supported</a> across the

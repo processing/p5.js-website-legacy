@@ -1,0 +1,11 @@
+description__0 = 모든 p5.Dictionary 유형을 위한 기본 클래스 입니다. 사용자가 지정한 사전(Dictionary) 클래스는 이 클래스를 상속할 수 있습니다.
+size__description__0 = 사전 안에 현재 저장된 키-값(key-value) 쌍의 개수를 반환합니다.
+hasKey__description__0 = 지정된 키(key)가 사전 안에 존재할 경우 참(true)을, 그렇지 않으면 거짓(false)를 반환합니다.
+get__description__0 = 지정된 키에 저장된 값을 반환합니다.
+set__description__0 = 지정된 키가 사전 안에 존재할 경우 연관된 값을 반환합니다. 그렇지 않으면 새로운 키-값 쌍이 추가됩니다.
+create__description__0 = 새로운 키-값 쌍을 사전 안에 생성합니다.
+clear__description__0 = 기존에 저장된 모든 키-값 쌍들을 사전으로부터 제거합니다.
+remove__description__0 = 특정 키에 저장된 키-값 쌍을 사전으로부터 제거합니다.
+print__description__0 = Dictionary에 현재 저장된 항목들의 로그를 콘솔창에 출력합니다.
+saveTable__description__0 = 로컬 다운로드를 위해 사전을 CSV 파일로 변환합니다.
+saveJSON__description__0 = 로컬 다운로드를 위해 사전을 JSON 파일로 변환합니다.

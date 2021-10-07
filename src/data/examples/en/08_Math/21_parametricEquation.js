@@ -1,5 +1,6 @@
 /*
  * @name Parametric Equations
+ * @arialabel Black vertical lines travel in a spiral pattern in a 3D space
  * @description A parametric equation is where x and y
  * coordinates are both written in terms of another letter. This is
  * called a parameter and is usually given in the letter t or θ.

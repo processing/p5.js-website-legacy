@@ -1,5 +1,6 @@
 /*
  * @name Multiple Particle Systems
+ * @arialabel When the user clicks anywhere on the black background, a particle system begins where light grey circles flow out from the point like a sparkler  
  * @description Click the mouse to generate a burst of particles at mouse location.<br>Each burst is one instance of a particle system with Particles and CrazyParticles (a subclass of Particle).<br>Note use of Inheritance and Polymorphism here.<br>
  * Original by Daniel Shiffman.
  */

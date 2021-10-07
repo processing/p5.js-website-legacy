@@ -64,8 +64,8 @@
   "Camera": "相机",
   "p5": {
     "description": [
-      "This is the p5 instance constructor. ",
-      "A p5 instance holds all the properties and methods related to a p5 sketch. It expects an incoming sketch closure and it can also take an optional node parameter for attaching the generated p5 canvas to a node. The sketch closure takes the newly created p5 instance as its sole argument and may optionally set <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on it for running a sketch. ",
+      "This is the p5 instance constructor.",
+      "A p5 instance holds all the properties and methods related to a p5 sketch. It expects an incoming sketch closure and it can also take an optional node parameter for attaching the generated p5 canvas to a node. The sketch closure takes the newly created p5 instance as its sole argument and may optionally set <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on it for running a sketch.",
       "A p5 sketch can run in \"global\" or \"instance\" mode: \"global\" - all properties and methods are attached to the window \"instance\" - all properties and methods are bound to this p5 object"
     ],
     "returns": "P5: a p5 instance",
@@ -75,8 +75,8 @@
     },
     "describe": {
       "description": [
-        "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed. ",
-        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed.",
+        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS.",
         "<code class=\"language-javascript\">describe(text, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users."
       ],
       "params": {
@@ -86,8 +86,8 @@
     },
     "describeElement": {
       "description": [
-        "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed. ",
-        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS. ",
+        "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed.",
+        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS.",
         "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users."
       ],
       "params": {
@@ -98,7 +98,7 @@
     },
     "textOutput": {
       "description": [
-        "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\"). ",
+        "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\").",
         "<code class=\"language-javascript\">textOutput()</code> and <code class=\"language-javascript\">texOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">textOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
       ],
       "params": {
@@ -107,7 +107,7 @@
     },
     "gridOutput": {
       "description": [
-        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape. A brief description of the canvas is available before the table output. This description includes: color of the background, size of the canvas, number of objects, and object types (example: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). The grid describes the content spatially, each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: \"orange ellipse\"). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, and area are described (example: \"orange ellipse location=top left area=1%\") is also available. ",
+        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape. A brief description of the canvas is available before the table output. This description includes: color of the background, size of the canvas, number of objects, and object types (example: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). The grid describes the content spatially, each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: \"orange ellipse\"). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, and area are described (example: \"orange ellipse location=top left area=1%\") is also available.",
         "<code class=\"language-javascript\">gridOutput()</code> and <code class=\"language-javascript\">gridOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">gridOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
       ],
       "params": {
@@ -144,8 +144,8 @@
     "color": {
       "description": [
         "创造颜色物件并将其存放在颜色变量内。依当时的颜色模式而定，参数可被解读成 RGB 或 HSB 值。默认模式为 RGB 值从 0 至 255，因此调用函数 color(255, 204, 0) 将返回亮黄色。<br><br>请注意如果 color() 值被提供一个参数，它将被解读成灰阶值；增加多一个参数，它将被用来定义透明度。当被提供三个参数时，它们将被解读成 RGB 或 HSB 值；增加第四个参数将定义透明度。<br><br>如果只提供单一字符串参数，RGB、RGBA 和 十六进制 CSS 颜色字符串都为受支持的模式。在这情况下，提供第二个参数以定义透明度值并不被支持，而需使用 RGBA 字符串。",
-        "",
-        ""
+        "Note that if only one value is provided to <a href=\"#/p5/color\">color()</a>, it will be interpreted as a grayscale value. Add a second value, and it will be used for alpha transparency. When three values are specified, they are interpreted as either RGB or HSB values. Adding a fourth value applies alpha transparency.",
+        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used."
       ],
       "returns": "p5.Color：返回的颜色",
       "params": {
@@ -171,7 +171,7 @@
     "hue": {
       "description": [
         "从颜色或像素数组中提取色调值。<br><br>色调值可在 HSB 及 HSL 颜色中找到。此函数会返回标准化 HSB 值的色调值只要被提供的参数是 HSB 颜色物件（或如果被提供的参数是像素数组，颜色模式是 HSB），不然默认将会返回标准化 HSL 值的色调值。（两者的值只有在这两个不同的系统有不同的最高色调值时才会有差别）",
-        ""
+        "Hue exists in both HSB and HSL. This function will return the HSB-normalized hue when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL-normalized hue otherwise. (The values will only be different if the maximum hue setting for each system is different.)"
       ],
       "returns": "数字：该色调值",
       "params": {
@@ -181,7 +181,7 @@
     "lerpColor": {
       "description": [
         "混合两个颜色以找到一个介于它们之间的颜色。<br><br>amt 参数代表两个值之间插入的量，0.0 代表第一个颜色、0.1 代表非常接近第一个颜色、0.5 代表两个颜色之间的一半等等。低于 0 的值将被当作 0 看待。这和 lerp() 的行为不一样不过这是因为在范围外的值可能产生奇怪和意料之外的颜色。",
-        ""
+        "The way that colors are interpolated depends on the current color mode."
       ],
       "returns": "p5.Color：插值颜色",
       "params": {
@@ -211,7 +211,7 @@
     "saturation": {
       "description": [
         "从颜色或像素数组中提取饱和度值。<br><br>饱和度在 HSB 和 HSL 模式中的缩放比例不同。此函数将会返回 HSB 值的饱和度值只要被提供的参数是 HSB 颜色物件（或如果被提供的参数是像素数组，颜色模式是 HSB），不然默认将会返回 HSL 值的饱和度值。",
-        ""
+        "Saturation is scaled differently in HSB and HSL. This function will return the HSB saturation when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL saturation otherwise."
       ],
       "returns": "数字：该饱和度值",
       "params": {
@@ -221,10 +221,10 @@
     "background": {
       "description": [
         "background() 函数设定 p5.js 画布的背景颜色。默认背景颜色为浅灰色。这函数通常用在 draw() 函数内以在各画面开始时清空画布，不过它也能在 setup() 内使用以定义第一个画面的背景颜色或当背景颜色只需要被定义一次时。<br><br>背景颜色可用 RGB、HSB 或 HSL 颜色定义，取决于当时的颜色模式（默认色彩空间是 RGB，而每个数值都介于 0 至 255 之间）。默认透明度值也介于 0 至 255 之间。<br><br>如果所提供的参数是单一字符串，RGB、RGBA 和十六进制 CSS 颜色字符串及所有命名颜色都可以使用。在这情况下，提供第二个参数以定义透明度值并不被支持，而需使用 RGBA 字符串。<br><br>p5.Color 物件也能被用来定义背景颜色。<br><br>p5.Image 也能被用来提供背景图像。",
-        "",
-        "",
-        "",
-        ""
+        "The color is either specified in terms of the RGB, HSB, or HSL color depending on the current <a href=\"#/p5/colorMode\">colorMode</a>. (The default color space is RGB, with each value in the range from 0 to 255). The alpha range by default is also 0 to 255.",
+        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
+        "A <a href=\"#/p5.Color\">p5.Color</a> object can also be provided to set the background color.",
+        "A <a href=\"#/p5.Image\">p5.Image</a> can also be provided to set the background image."
       ],
       "params": {
         "color": "p5.Color：任何使用 color() 函数创造的颜色",
@@ -246,7 +246,7 @@
     "colorMode": {
       "description": [
         "colorMode() 改变 p5.js 解读颜色资料的方式。默认情况下，fill()、stroke()、background() 及 color() 的参数都是介于 0 至 255 的 RGB 颜色值。这和设置 colorMode(RGB, 255) 的效果一样。设置 colorMode(HSB) 让您使用 HSB 模式，默认情况下，这代表 colorMode(HSB, 360, 100, 100, 1)。您也可以使用 HSL。",
-        ""
+        "Note: existing color objects remember the mode that they were created in, so you can change modes as you like without affecting their appearance."
       ],
       "params": {
         "mode": "常量: RGB、HSB 或 HSL，分别代表红绿蓝及色调/饱和度/亮度（或光度）",
@@ -260,8 +260,8 @@
     "fill": {
       "description": [
         "设置形状的填充色。比如说，如果您调用 fill(204, 102, 0)，所有接下来的形状都会被填上橙色。这颜色可用 RGB 或 HSB 颜色定义，取决于当时的颜色模式（默认色彩空间是 RGB，而每个数值都介于 0 至 255 之间）。默认透明度值也介于 0 至 255 之间。<br><br>如果所提供的参数是单一字符串，RGB、RGBA 和十六进制 CSS 颜色字符串及所有命名颜色都可以使用。在这情况下，提供第二个参数以定义透明度值并不被支持，而需使用 RGBA 字符串。<br><br>p5.Color 物件也能被用来定义填充颜色。",
-        "",
-        ""
+        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
+        "A p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the fill color."
       ],
       "params": {
         "v1": "数字：红彩值或色调值，需在被定义的范围内",
@@ -287,8 +287,8 @@
     "stroke": {
       "description": [
         "设置形状的外形线色。这颜色可用 RGB 或 HSB 颜色定义，取决于当时的颜色模式（默认色彩空间是 RGB，而每个数值都介于 0 至 255 之间）。默认透明度值也介于 0 至 255 之间。<br><br>如果所提供的参数是单一字符串，RGB、RGBA 和十六进制 CSS 颜色字符串及所有命名颜色都可以使用。在这情况下，提供第二个参数以定义透明度值并不被支持，而需使用 RGBA 字符串。<br><br>p5.Color 物件也能被用来定义外形线颜色。",
-        "",
-        ""
+        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
+        "A p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the stroke color."
       ],
       "params": {
         "v1": "数字：红彩值或色调值，需在被定义的范围内",
@@ -303,7 +303,7 @@
     },
     "erase": {
       "description": [
-        "All drawing that follows <a href=\"#/p5/erase\">erase()</a> will subtract from the canvas.Erased areas will reveal the web page underneath the canvas.Erasing can be canceled with <a href=\"#/p5/noErase\">noErase()</a>. ",
+        "All drawing that follows <a href=\"#/p5/erase\">erase()</a> will subtract from the canvas.Erased areas will reveal the web page underneath the canvas.Erasing can be canceled with <a href=\"#/p5/noErase\">noErase()</a>.",
         "Drawing done with <a href=\"#/p5/image\">image()</a> and <a href=\"#/p5/background\"> background()</a> in between <a href=\"#/p5/erase\">erase()</a> and <a href=\"#/p5/noErase\">noErase()</a> will not erase the canvas but works as usual."
       ],
       "params": {
@@ -319,7 +319,7 @@
     "arc": {
       "description": [
         "在荧幕上画个弧形。如果函数调用只提供 x、y、w、h、start 及 stop 参数，弧形将会被画成开放的饼形段。如果提供 mode 参数，弧形可是开放式半圆形（OPEN）、封闭式半圆形（CHORD）或封闭式饼形段（PIE）。原点可使用 ellipseMode() 函数设定。",
-        ""
+        "The arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse. Adding or subtracting TWO_PI to either angle does not change where they fall. If both start and stop fall at the same place, a full ellipse will be drawn. Be aware that the y-axis increases in the downward direction, therefore angles are measured clockwise from the positive x-direction (\"3 o'clock\")."
       ],
       "params": {
         "x": "数字：弧形的椭圆形的 x 坐标",
@@ -335,7 +335,7 @@
     "ellipse": {
       "description": [
         "在荧幕上画个椭圆形。宽度和高度相同的椭圆形为正圆形。在默认上，前两个参数将定义位置而第三和第四个参数将定义形状的宽度和高度。如果高度参数没有被提供的话，宽度参数值将为用来定义高度和宽度。如果高度或宽度为负数，函数将会取绝对值。原点可使用 ellipseMode() 函数设定。",
-        ""
+        "An ellipse with equal width and height is a circle. The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function."
       ],
       "params": {
         "x": "数字：椭圆形的 x 坐标",
@@ -403,7 +403,7 @@
     "rect": {
       "description": [
         "在荧幕上画个方形。方形是每个角都为九十度的四边形。在默认上，前两个参数将定义位置而第三和第四个参数将定义形状的宽度和高度。这些参数被解读的方式可用 rectMode() 函数改变。<br><br>如果提供第五、六、七及八个参数，将定义左上角、右上角、右下角及左下角的拐角半径。没被定义的拐角半径参数将被定义为参数列内上一个定义的拐角半径值。",
-        ""
+        "The fifth, sixth, seventh and eighth parameters, if specified, determine corner radius for the top-left, top-right, lower-right and lower-left corners, respectively. An omitted corner radius parameter is set to the value of the previously specified radius value in the parameter list."
       ],
       "params": {
         "x": "数字：方形的 x 坐标",
@@ -420,7 +420,7 @@
     },
     "square": {
       "description": [
-        "Draws a square to the screen. A square is a four-sided shape with every angle at ninety degrees, and equal side size. This function is a special case of the rect() function, where the width and height are the same, and the parameter is called \"s\" for side size. By default, the first two parameters set the location of the upper-left corner, the third sets the side size of the square. The way these parameters are interpreted, may be changed with the <a href=\"#/p5/rectMode\">rectMode()</a> function. ",
+        "Draws a square to the screen. A square is a four-sided shape with every angle at ninety degrees, and equal side size. This function is a special case of the rect() function, where the width and height are the same, and the parameter is called \"s\" for side size. By default, the first two parameters set the location of the upper-left corner, the third sets the side size of the square. The way these parameters are interpreted, may be changed with the <a href=\"#/p5/rectMode\">rectMode()</a> function.",
         "The fourth, fifth, sixth and seventh parameters, if specified, determine corner radius for the top-left, top-right, lower-right and lower-left corners, respectively. An omitted corner radius parameter is set to the value of the previously specified radius value in the parameter list."
       ],
       "params": {
@@ -449,11 +449,11 @@
     "ellipseMode": {
       "description": [
         "更改 ellipse() 参数被解读的方式，用以更改椭圆形被画在画布上的位置。<br><br>默认模式为 ellipseMode(CENTER)，ellipse() 前两个参数将被解读成椭圆形的中心点，而第三和第四个参数为宽度和高度。<br><br>ellipseMode(RADIUS) 将 ellipse() 的前两个参数解读成形状的中心点，但是第三和第四个参数被用于定义形状的半径宽度和半径高度<br><br>ellipseMode(CORNER) 将 ellipse() 的前两个参数解读成形状左上角的位置，而第三和第四个参数为宽度和高度<br><br>ellipseMode(CORNERS) 将 ellipse() 的前两个参数解读成形状其中一个角落的位置，而第三和第四个参数则被解读成对面角落的位置。<br><br>参数必须全是大写因为 Javascript 是个区分大小写的编程语言。",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "The default mode is CENTER, in which the first two parameters are interpreted as the shape's center point's x and y coordinates respectively, while the third and fourth parameters are its width and height.",
+        "ellipseMode(RADIUS) also uses the first two parameters as the shape's center point's x and y coordinates, but uses the third and fourth parameters to specify half of the shapes's width and height.",
+        "ellipseMode(CORNER) interprets the first two parameters as the upper-left corner of the shape, while the third and fourth parameters are its width and height.",
+        "ellipseMode(CORNERS) interprets the first two parameters as the location of one corner of the ellipse's bounding box, and the third and fourth parameters as the location of the opposite corner.",
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "mode": "常量：CENTER、RADIUS、CORNER 或 CORNERS"
@@ -467,11 +467,11 @@
     "rectMode": {
       "description": [
         "更改 rect() 参数被解读的方式，用以更改方形被画在画布上的位置。<br><br>默认模式为 rectMode(CORNER), rect() 前两个参数将被解读成形状的左上角的位置，而第三和第四个参数为宽度和高度。<br><br>rectMode(CORNERS) 将 rect() 的前两个参数解读成形状其中一个角落的位置，而第三和第四个参数则被解读成对面角落的位置。<br><br>rectMode(CENTER) 将 rect() 的前两个参数解读成形状的中心点，而第三和第四个参数为宽度和高度。<br><br>rectMode(RADIUS) 也将的前两个参数解读成形状的中心点，但第三和第四个参数被用来定义形状一半的宽度和一半的高度。<br><br>参数必须全是大写因为 Javascript 是个区分大小写的编程语言。",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "The default mode is CORNER, which interprets the first two parameters as the upper-left corner of the shape, while the third and fourth parameters are its width and height.",
+        "rectMode(CORNERS) interprets the first two parameters as the location of one of the corners, and the third and fourth parameters as the location of the diagonally opposite corner. Note, the rectangle is drawn between the coordinates, so it is not neccesary that the first corner be the upper left corner.",
+        "rectMode(CENTER) interprets the first two parameters as the shape's center point, while the third and fourth parameters are its width and height.",
+        "rectMode(RADIUS) also uses the first two parameters as the shape's center point, but uses the third and fourth parameters to specify half of the shape's width and height respectively.",
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "mode": "常量：CORNER、CORNERS、CENTER 或 RADIUS"
@@ -485,7 +485,7 @@
     "strokeCap": {
       "description": [
         "定义线条顶点的风格。顶点风格可以是方形、扩展式或圆形，它们个别参数为：SQUARE、PROJECT 及 ROUND。默认模式为 ROUND。",
-        ""
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "cap": "常量：SQUARE、PROJECT 或 ROUND"
@@ -494,7 +494,7 @@
     "strokeJoin": {
       "description": [
         "定义线条连接的风格。这些链接可以是尖角、斜角或圆角，它们个别参数为：MITER、BEVEL 及 ROUND。默认模式为 MITER。",
-        ""
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "join": "常量：MITER、BEVEL 或 ROUND"
@@ -511,7 +511,7 @@
     "bezier": {
       "description": [
         "在荧幕上画个三次贝塞尔曲线。这些曲线是由一系列锚点和控制点所定义的。前两个参数定义第一个锚点而最后两个参数定义另一个锚点，这也是曲线的第一和最后一个点。中间的参数是用来定义控制点的位置并将决定曲线的形状。一般来说，控制点会将曲线“拉”向它们的方向。",
-        ""
+        "Bezier curves were developed by French automotive engineer Pierre Bezier, and are commonly used in computer graphics to define gently sloping curves. See also <a href=\"#/p5/curve\">curve()</a>."
       ],
       "params": {
         "x1": "数字：第一个锚点的 x 坐标",
@@ -531,7 +531,7 @@
     "bezierDetail": {
       "description": [
         "定义贝塞尔曲线的解析度<br><br>默认值为 20。<br><br>这函数只有在 WEBGL 模式下有效果因为默认画布渲染模式并不会使用这设定。",
-        ""
+        "Note, This function is only useful when using the WEBGL renderer as the default canvas renderer does not use this information."
       ],
       "params": {
         "detail": "数字：曲线的解析度"
@@ -585,7 +585,7 @@
     "curveDetail": {
       "description": [
         "定义曲线的解析度<br><br>默认值为 20。<br><br>这函数只有在 WEBGL 模式下有效果因为默认画布渲染模式并不会使用这设定。",
-        ""
+        "This function is only useful when using the WEBGL renderer as the default canvas renderer does not use this information."
       ],
       "params": {
         "resolution": "数字：曲线的解析度"
@@ -628,22 +628,22 @@
     "beginContour": {
       "description": [
         "使用 beginContour() 及 endContour() 函数以在其他形状内创造剪影形状，比如说 “O” 字母内的空间。beginContour() 将开始记录形状的顶点而 endContour() 则停止记录。定义剪影形状的顶点定义的方向（顺时或逆时针）必须和包含它的形状不同。如果外形的顶点是顺时针方向定义的，那么它里面的形状的顶点需是逆时针方向定义。<br><br>这些函数只能在一对 beginShape()/endShape() 函数之间使用而变形函数如 translate()、rotate() 及 scale() 在一对 beginContour()/endContour() 内并不会有任何效果。其他形状如 ellipse() 或 rect() 也不能在里面使用。",
-        ""
+        "These functions can only be used within a <a href=\"#/p5/beginShape\">beginShape()</a>/<a href=\"#/p5/endShape\">endShape()</a> pair and transformations such as <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, and <a href=\"#/p5/scale\">scale()</a> do not work within a <a href=\"#/p5/beginContour\">beginContour()</a>/<a href=\"#/p5/endContour\">endContour()</a> pair. It is also not possible to use other shapes, such as <a href=\"#/p5/ellipse\">ellipse()</a> or <a href=\"#/p5/rect\">rect()</a> within."
       ]
     },
     "beginShape": {
       "description": [
         "使用 beginShape() 及 endShape() 函数可让您创造更复杂的形状。beginShape() 将开始记录形状的顶点而 endShape() 则停止记录。所提供的参数将决定由所提供的顶点该画出怎样的形状。如果模式没有被提供，所定义的形状可以是任何不规则的多边形。<br><br>可提供给 beginShape() 的参数包括 POINTS、LINES、TRIANGLES、TRIANGLE_FAN、TRIANGLE_STRIP、QUADS 及 QUAD_STRIP。在调用 beginShape() 函数之后，一系列 vertex() 函数必须接着调用。调用 endShape() 以停止绘制形状。每个形状都将会有由当时外线色所定义的外线色及当时的填充色。<br><br>变形函数如 translate()、rotate() 及 scale() 在 beginShape() 内不会有任何效果。其他形状如 ellipse() 或 rect() 也不能在beginShape()里面使用。",
-        "",
-        "",
-        "LINES Draw a series of unconnected line segments (individual lines) ",
-        "TRIANGLES Draw a series of separate triangles ",
-        "TRIANGLE_FAN Draw a series of connected triangles sharing the first vertex in a fan-like fashion ",
-        "TRIANGLE_STRIP Draw a series of connected triangles in strip fashion ",
-        "QUADS Draw a series of seperate quad ",
-        "QUAD_STRIP Draw quad strip using adjacent edges to form the next quad ",
-        "TESS (WebGl only) Handle irregular polygon for filling curve by explicit tessellation ",
-        "After calling the <a href=\"#/p5/beginShape\">beginShape()</a> function, a series of <a href=\"#/p5/vertex\">vertex()</a> commands must follow. To stop drawing the shape, call <a href=\"#/p5/endShape\">endShape()</a>. Each shape will be outlined with the current stroke color and filled with the fill color. ",
+        "The parameters available for <a href=\"#/p5/beginShape\">beginShape()</a> are:",
+        "POINTS Draw a series of points",
+        "LINES Draw a series of unconnected line segments (individual lines)",
+        "TRIANGLES Draw a series of separate triangles",
+        "TRIANGLE_FAN Draw a series of connected triangles sharing the first vertex in a fan-like fashion",
+        "TRIANGLE_STRIP Draw a series of connected triangles in strip fashion",
+        "QUADS Draw a series of seperate quad",
+        "QUAD_STRIP Draw quad strip using adjacent edges to form the next quad",
+        "TESS (WebGl only) Handle irregular polygon for filling curve by explicit tessellation",
+        "After calling the <a href=\"#/p5/beginShape\">beginShape()</a> function, a series of <a href=\"#/p5/vertex\">vertex()</a> commands must follow. To stop drawing the shape, call <a href=\"#/p5/endShape\">endShape()</a>. Each shape will be outlined with the current stroke color and filled with the fill color.",
         "Transformations such as <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, and <a href=\"#/p5/scale\">scale()</a> do not work within <a href=\"#/p5/beginShape\">beginShape()</a>. It is also not possible to use other shapes, such as <a href=\"#/p5/ellipse\">ellipse()</a> or <a href=\"#/p5/rect\">rect()</a> within <a href=\"#/p5/beginShape\">beginShape()</a>."
       ],
       "params": {
@@ -653,7 +653,7 @@
     "bezierVertex": {
       "description": [
         "定义贝塞尔曲线的顶点坐标。每次调用 bezierVertex() 将定义贝塞尔曲线的两个控制点和一个锚点，以在线或形状上增加一个新部分。<br><br>在 beginShape() 内第一次调用 bezierVertex() 之前必须先调用一次 vertex() 以定义第一个锚点。这函数只能在 beginShape() 和 endShape() 之间使用并且也只能在 beginShape() 没有任何 MODE（模式）参数的情况下使用。",
-        ""
+        "The first time bezierVertex() is used within a <a href=\"#/p5/beginShape\">beginShape()</a> call, it must be prefaced with a call to <a href=\"#/p5/vertex\">vertex()</a> to set the first anchor point. This function must be used between <a href=\"#/p5/beginShape\">beginShape()</a> and <a href=\"#/p5/endShape\">endShape()</a> and only when there is no MODE or POINTS parameter specified to <a href=\"#/p5/beginShape\">beginShape()</a>."
       ],
       "params": {
         "x2": "数字：第一个控制点的 x 坐标",
@@ -670,7 +670,7 @@
     "curveVertex": {
       "description": [
         "定义曲线顶点的坐标。这函数只能在 beginShape() 和 endShape() 之间使用并且也只能在 beginShape() 没有任何 MODE（模式）参数的情况下使用。<br><br>在一系列 curveVertex() 线条中第一个和最后一个点将被用来引导曲线的起点和终点。至少必须提供四个点以画一个介于第二和第三个点的小曲线。增加第五个点将会在第二、第三及第四个点之间画个曲线。curveVertex() 函数使用的是 Catmull-Rom 样条函数。",
-        ""
+        "The first and last points in a series of curveVertex() lines will be used to guide the beginning and end of a the curve. A minimum of four points is required to draw a tiny curve between the second and third points. Adding a fifth point with curveVertex() will draw the curve between the second, third, and fourth points. The curveVertex() function is an implementation of Catmull-Rom splines."
       ],
       "params": {
         "x": "数字：顶点的 x 坐标",
@@ -681,7 +681,7 @@
     "endContour": {
       "description": [
         "使用 beginContour() 及 endContour() 函数以在其他形状内创造剪影形状，比如说 “O” 字母内的空间。beginContour() 将开始记录形状的顶点而 endContour() 则停止记录。定义剪影形状的顶点定义的方向（顺时或逆时针）必须和包含它的形状不同。如果外形的顶点是顺时针方向定义的，那么它里面的形状的顶点需是逆时针方向定义。<br><br>这些函数只能在一对 beginShape()/endShape() 函数之间使用而变形函数如 translate()、rotate() 及 scale() 在一对 beginContour()/endContour() 内并不会有任何效果。其他形状如 ellipse() 或 rect() 也不能在里面使用。",
-        ""
+        "These functions can only be used within a <a href=\"#/p5/beginShape\">beginShape()</a>/<a href=\"#/p5/endShape\">endShape()</a> pair and transformations such as <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/rotate\">rotate()</a>, and <a href=\"#/p5/scale\">scale()</a> do not work within a <a href=\"#/p5/beginContour\">beginContour()</a>/<a href=\"#/p5/endContour\">endContour()</a> pair. It is also not possible to use other shapes, such as <a href=\"#/p5/ellipse\">ellipse()</a> or <a href=\"#/p5/rect\">rect()</a> within."
       ]
     },
     "endShape": {
@@ -695,7 +695,7 @@
     "quadraticVertex": {
       "description": [
         "定义二次贝塞尔曲线顶点的坐标。每次调用 quadraticVertex() 将定义贝塞尔曲线的一个控制点和一个锚点，以在线或形状上增加一个新部分。在 beginShape() 内第一次调用 quadraticVertex() 之前必须先调用一次 vertex() 以定义第一个锚点。这函数只能在 beginShape() 和 endShape() 之间使用并且也只能在 beginShape() 没有任何 MODE（模式）参数的情况下使用。",
-        ""
+        "This function must be used between <a href=\"#/p5/beginShape\">beginShape()</a> and <a href=\"#/p5/endShape\">endShape()</a> and only when there is no MODE or POINTS parameter specified to <a href=\"#/p5/beginShape\">beginShape()</a>."
       ],
       "params": {
         "cx": "数字：控制点的 x 坐标",
@@ -891,7 +891,7 @@
     "print": {
       "description": [
         "print() 函数将写入浏览器的控制台区。这函数适用于查看程式生成的资料。这函数每一次被调用将创造新的一行字串。个别元素可使用引号（\"\"）分隔并使用加号（+）连接在一起。",
-        ""
+        "Note that calling print() without any arguments invokes the window.print() function which opens the browser's print dialog. To print a blank line to console you can write print('\\n')."
       ],
       "params": {
         "contents": "任何：任何要写进控制台的数字、字符串、物件、布尔值或数组的组合"
@@ -904,7 +904,7 @@
     },
     "deltaTime": {
       "description": [
-        "The system variable <a href=\"#/p5/deltaTime\">deltaTime</a> contains the time difference between the beginning of the previous frame and the beginning of the current frame in milliseconds. ",
+        "The system variable <a href=\"#/p5/deltaTime\">deltaTime</a> contains the time difference between the beginning of the previous frame and the beginning of the current frame in milliseconds.",
         "This variable is useful for creating time sensitive animation or physics calculation that should stay constant regardless of frame rate."
       ]
     },
@@ -926,8 +926,8 @@
     "frameRate": {
       "description": [
         "定义每一秒应该显示的影格数。比如说，调用 frameRate(30) 将使绘图每秒刷新 30 次。如果处理器没法跟上所定义的速率，该帧率将不会被达到。建议在 setup() 内设置帧率。默认的帧率值为每秒 60 影格。这和调用 setFrameRate(val) 的效果一样。<br><br>调用 frameRate() 但不给予任何参数将会返回当时的帧率。draw() 函数必须至少执行一次它才会返回帧率。这和调用 getFrameRate() 的效果一样。<br><br>调用 frameRate() 并给予任何不是数字或正数的参数也将会返回当时的帧率。",
-        "",
-        ""
+        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with no arguments returns the current framerate. The draw function must run at least once before it will return a value. This is the same as <a href=\"#/p5/getFrameRate\">getFrameRate()</a>.",
+        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with arguments that are not of the type numbers or are non positive also returns current framerate."
       ],
       "params": {
         "fps": "数字：每一秒该显示的影格数"
@@ -1020,22 +1020,22 @@
     "preload": {
       "description": [
         "在 setup() 之前被调用，preload() 函数可用来以阻断的方式处理异步加载外来文件。如果 preload 函数有被定义，setup() 将等到其中的加载工作都完成后才开始执行。preload 函数只能含有加载函数（如 loadImage、loadJSON、loadFont、loadStrings 等）。如果您想使用异步加载，加载函数可在 setup() 内或任何其他地方调用，您只需使用其回调函数参数。<br><br>在默认情况下 “loading...” 字眼将会被显示。如果您想只做您自己的加载页面，只需在您也页面上加个 id 为 “p5_loading” 的 HTML 元素。更多详情请查看<a href='http://bit.ly/2kQ6Nio'>这里</a>。",
-        ""
+        "By default the text \"loading...\" will be displayed. To make your own loading page, include an HTML element with id \"p5_loading\" in your page. More information <a href=\"http://bit.ly/2kQ6Nio\">here</a>."
       ]
     },
     "setup": {
       "description": [
         "setup() 函数将在程式开始时被调用一次。它可在程序开始时被用来定义初始的环境属性如荧幕大小、背景颜色及媒体加载如图像及字体。每个程序只能有一个 setup() 函数并且他不能在一开始执行后再次被调用。<br><br>请注意：在 setup() 内定义的变量并不能在其他函数内使用，这包括 draw() 。",
-        ""
+        "Note: Variables declared within <a href=\"#/p5/setup\">setup()</a> are not accessible within other functions, including <a href=\"#/p5/draw\">draw()</a>."
       ]
     },
     "draw": {
       "description": [
         "在 setup() 之后被调用，draw() 函数将持续地重复执行其中的代码直到该程式终止或当 noLoop() 被调用。注意如果 noLoop() 在 setup() 内被调用，draw() 仍然会被执行一个然后才停止。draw() 将会自动被调用并不应该被直接调用。<br><br>您应该使用 noLoop()、redraw() 及 loop() 来控制它。当 noLoop() 停止执行 draw() 内的代码，redraw() 会使 draw() 内的代码执行一次，而 loop() 将会使 draw() 内的代码继续重复执行。<br><br>每一秒 draw() 执行的次数可使用 frameRate() 函数来控制。<br><br>每个绘图只能有一个 draw() 函数，而如果您想持续重复执行代码或处理事件如 mousePressed()，draw() 必须存在。有时候您的程式可能会有空白的 draw() 函数，如以上的范例所示。<br><br>请特别注意绘图坐标系统将在每次 draw() 在开始被调用时重置。任何在 draw() 内执行的变形指令（如 scale、rotate、translate）将会在下一个 draw() 开始时复原，所以变形指令并不会随着时间积累。另一方面，样式（如 fill、stroke等）将会持续同样的效果。",
-        "",
-        "",
-        "",
-        ""
+        "It should always be controlled with <a href=\"#/p5/noLoop\">noLoop()</a>, <a href=\"#/p5/redraw\">redraw()</a> and <a href=\"#/p5/loop\">loop()</a>. After <a href=\"#/p5/noLoop\">noLoop()</a> stops the code in <a href=\"#/p5/draw\">draw()</a> from executing, <a href=\"#/p5/redraw\">redraw()</a> causes the code inside <a href=\"#/p5/draw\">draw()</a> to execute once, and <a href=\"#/p5/loop\">loop()</a> will cause the code inside <a href=\"#/p5/draw\">draw()</a> to resume executing continuously.",
+        "The number of times <a href=\"#/p5/draw\">draw()</a> executes in each second may be controlled with the <a href=\"#/p5/frameRate\">frameRate()</a> function.",
+        "There can only be one <a href=\"#/p5/draw\">draw()</a> function for each sketch, and <a href=\"#/p5/draw\">draw()</a> must exist if you want the code to run continuously, or to process events such as <a href=\"#/p5/mousePressed\">mousePressed()</a>. Sometimes, you might have an empty call to <a href=\"#/p5/draw\">draw()</a> in your program, as shown in the above example.",
+        "It is important to note that the drawing coordinate system will be reset at the beginning of each <a href=\"#/p5/draw\">draw()</a> call. If any transformations are performed within <a href=\"#/p5/draw\">draw()</a> (ex: scale, rotate, translate), their effects will be undone at the beginning of <a href=\"#/p5/draw\">draw()</a>, so transformations will not accumulate over time. On the other hand, styling applied (ex: fill, stroke, etc) will remain in effect."
       ]
     },
     "remove": {
@@ -1050,23 +1050,23 @@
     },
     "let": {
       "description": [
-        "Creates and names a new variable. A variable is a container for a value. ",
-        "Variables that are declared with <a href=\"#/p5/let\">let</a> will have block-scope. This means that the variable only exists within the <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block\"> block</a> that it is created within. ",
+        "Creates and names a new variable. A variable is a container for a value.",
+        "Variables that are declared with <a href=\"#/p5/let\">let</a> will have block-scope. This means that the variable only exists within the <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block\"> block</a> that it is created within.",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let\">the MDN entry</a>: Declares a block scope local variable, optionally initializing it to a value."
       ]
     },
     "const": {
       "description": [
-        "Creates and names a new constant. Like a variable created with <a href=\"#/p5/let\">let</a>, a constant that is created with <a href=\"#/p5/const\">const</a> is a container for a value, however constants cannot be reassigned once they are declared. Although it is noteworthy that for non-primitive data types like objects & arrays, their elements can still be changeable. So if a variable is assigned an array, you can still add or remove elements from the array but cannot reassign another array to it. Also unlike <code>let</code>, you cannot declare variables without value using const. ",
-        "Constants have block-scope. This means that the constant only exists within the <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block\"> block</a> that it is created within. A constant cannot be redeclared within a scope in which it already exists. ",
+        "Creates and names a new constant. Like a variable created with <a href=\"#/p5/let\">let</a>, a constant that is created with <a href=\"#/p5/const\">const</a> is a container for a value, however constants cannot be reassigned once they are declared. Although it is noteworthy that for non-primitive data types like objects & arrays, their elements can still be changeable. So if a variable is assigned an array, you can still add or remove elements from the array but cannot reassign another array to it. Also unlike <code>let</code>, you cannot declare variables without value using const.",
+        "Constants have block-scope. This means that the constant only exists within the <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block\"> block</a> that it is created within. A constant cannot be redeclared within a scope in which it already exists.",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const\">the MDN entry</a>: Declares a read-only named constant. Constants are block-scoped, much like variables defined using the 'let' statement. The value of a constant can't be changed through reassignment, and it can't be redeclared."
       ]
     },
     "===": {
       "description": [
-        "The strict equality operator <a href=\"#/p5/===\">===</a> checks to see if two values are equal and of the same type. ",
-        "A comparison expression always evaluates to a <a href=\"#/p5/boolean\">boolean</a>. ",
-        "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">the MDN entry</a>: The non-identity operator returns true if the operands are not equal and/or not of the same type. ",
+        "The strict equality operator <a href=\"#/p5/===\">===</a> checks to see if two values are equal and of the same type.",
+        "A comparison expression always evaluates to a <a href=\"#/p5/boolean\">boolean</a>.",
+        "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">the MDN entry</a>: The non-identity operator returns true if the operands are not equal and/or not of the same type.",
         "Note: In some examples around the web you may see a double-equals-sign <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Equality\">==</a>, used for comparison instead. This is the non-strict equality operator in Javascript. This will convert the two values being compared to the same type before comparing them."
       ]
     },
@@ -1077,33 +1077,33 @@
     },
     ">=": {
       "description": [
-        "The greater than or equal to operator <a href=\"#/p5/>=\">>=</a> evaluates to true if the left value is greater than or equal to the right value. ",
+        "The greater than or equal to operator <a href=\"#/p5/>=\">>=</a> evaluates to true if the left value is greater than or equal to the right value.",
         "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">There is more info on comparison operators on MDN.</a>"
       ]
     },
     "<": {
       "description": [
-        "The less than operator <a href=\"#/p5/<\"><</a> evaluates to true if the left value is less than the right value. ",
+        "The less than operator <a href=\"#/p5/<\"><</a> evaluates to true if the left value is less than the right value.",
         "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">There is more info on comparison operators on MDN.</a>"
       ]
     },
     "<=": {
       "description": [
-        "The less than or equal to operator <a href=\"#/p5/<=\"><=</a> evaluates to true if the left value is less than or equal to the right value. ",
+        "The less than or equal to operator <a href=\"#/p5/<=\"><=</a> evaluates to true if the left value is less than or equal to the right value.",
         "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators\">There is more info on comparison operators on MDN.</a>"
       ]
     },
     "if-else": {
       "description": [
-        "The <a href=\"#/p5/if-else\">if-else</a> statement helps control the flow of your code. ",
-        "A condition is placed between the parenthesis following 'if', when that condition evalues to <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/truthy\">truthy</a>, the code between the following curly braces is run. Alternatively, when the condition evaluates to <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Falsy\">falsy</a>, the code between the curly braces of 'else' block is run instead. Writing an else block is optional. ",
+        "The <a href=\"#/p5/if-else\">if-else</a> statement helps control the flow of your code.",
+        "A condition is placed between the parenthesis following 'if', when that condition evalues to <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/truthy\">truthy</a>, the code between the following curly braces is run. Alternatively, when the condition evaluates to <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Falsy\">falsy</a>, the code between the curly braces of 'else' block is run instead. Writing an else block is optional.",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else\">the MDN entry</a>: The 'if' statement executes a statement if a specified condition is truthy. If the condition is falsy, another statement can be executed"
       ]
     },
     "function": {
       "description": [
-        "Creates and names a <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions\">function</a>. A <a href=\"#/p5/function\">function</a> is a set of statements that perform a task. ",
-        "Optionally, functions can have parameters. <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Parameter\">Parameters</a> are variables that are scoped to the function, that can be assigned a value when calling the function.Multiple parameters can be given by seperating them with commas. ",
+        "Creates and names a <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions\">function</a>. A <a href=\"#/p5/function\">function</a> is a set of statements that perform a task.",
+        "Optionally, functions can have parameters. <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Parameter\">Parameters</a> are variables that are scoped to the function, that can be assigned a value when calling the function.Multiple parameters can be given by seperating them with commas.",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function\">the MDN entry</a>: Declares a function with the specified parameters."
       ]
     },
@@ -1123,13 +1123,13 @@
     },
     "string": {
       "description": [
-        "A <a href=\"#/p5/string\">string</a> is one of the 7 <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values\">primitive data types</a> in Javascript. A string is a series of text characters. In Javascript, a string value must be surrounded by either single-quotation marks(') or double-quotation marks(\"). ",
+        "A <a href=\"#/p5/string\">string</a> is one of the 7 <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values\">primitive data types</a> in Javascript. A string is a series of text characters. In Javascript, a string value must be surrounded by either single-quotation marks(') or double-quotation marks(\").",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/string\">the MDN entry</a>: A string is a sequence of characters used to represent text."
       ]
     },
     "number": {
       "description": [
-        "A <a href=\"#/p5/number\">number</a> is one of the 7 <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values\">primitive data types</a> in Javascript. A number can be a whole number or a decimal number. ",
+        "A <a href=\"#/p5/number\">number</a> is one of the 7 <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values\">primitive data types</a> in Javascript. A number can be a whole number or a decimal number.",
         "<a href=\"https://developer.mozilla.org/en-US/docs/Glossary/number\">The MDN entry for number</a>"
       ]
     },
@@ -1140,32 +1140,32 @@
     },
     "class": {
       "description": [
-        "Creates and names a <a href=\"#/p5/class\">class</a> which is a template for the creation of <a href=\"#/p5/objects\">objects</a>. ",
+        "Creates and names a <a href=\"#/p5/class\">class</a> which is a template for the creation of <a href=\"#/p5/objects\">objects</a>.",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class\">the MDN entry</a>: The class declaration creates a new Class with a given name using prototype-based inheritance."
       ]
     },
     "for": {
       "description": [
-        "<a href=\"#/p5/for\">for</a> creates a loop that is useful for executing one section of code multiple times. ",
-        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are separated by ; (semi-colon).In case of an empty expression, only a semi-colon is written. ",
-        "The code inside of the loop body (in between the curly braces) is executed between the evaluation of the second and third expression. ",
-        "As with any loop, it is important to ensure that the loop can 'exit', or that the test condition will eventually evaluate to false. The test condition with a <a href=\"#/p5/for\">for</a> loop is the second expression detailed above. Ensuring that this expression can eventually become false ensures that your loop doesn't attempt to run an infinite amount of times, which can crash your browser. ",
+        "<a href=\"#/p5/for\">for</a> creates a loop that is useful for executing one section of code multiple times.",
+        "A 'for loop' consists of three different expressions inside of a parenthesis, all of which are optional.These expressions are used to control the number of times the loop is run.The first expression is a statement that is used to set the initial state for the loop.The second expression is a condition that you would like to check before each loop. If this expression returns false then the loop will exit.The third expression is executed at the end of each loop. These expression are separated by ; (semi-colon).In case of an empty expression, only a semi-colon is written.",
+        "The code inside of the loop body (in between the curly braces) is executed between the evaluation of the second and third expression.",
+        "As with any loop, it is important to ensure that the loop can 'exit', or that the test condition will eventually evaluate to false. The test condition with a <a href=\"#/p5/for\">for</a> loop is the second expression detailed above. Ensuring that this expression can eventually become false ensures that your loop doesn't attempt to run an infinite amount of times, which can crash your browser.",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for\">the MDN entry</a>: Creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once."
       ]
     },
     "while": {
       "description": [
-        "<a href=\"#/p5/while\">while</a> creates a loop that is useful for executing one section of code multiple times. ",
-        "With a 'while loop', the code inside of the loop body (between the curly braces) is run repeatedly until the test condition (inside of the parenthesis) evaluates to false. The condition is tested before executing the code body with <a href=\"#/p5/while\">while</a>, so if the condition is initially false the loop body, or statement, will never execute. ",
-        "As with any loop, it is important to ensure that the loop can 'exit', or that the test condition will eventually evaluate to false. This is to keep your loop from trying to run an infinite amount of times, which can crash your browser. ",
+        "<a href=\"#/p5/while\">while</a> creates a loop that is useful for executing one section of code multiple times.",
+        "With a 'while loop', the code inside of the loop body (between the curly braces) is run repeatedly until the test condition (inside of the parenthesis) evaluates to false. The condition is tested before executing the code body with <a href=\"#/p5/while\">while</a>, so if the condition is initially false the loop body, or statement, will never execute.",
+        "As with any loop, it is important to ensure that the loop can 'exit', or that the test condition will eventually evaluate to false. This is to keep your loop from trying to run an infinite amount of times, which can crash your browser.",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while\">the MDN entry</a>: The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true.The condition is evaluated before executing the statement."
       ]
     },
     "createCanvas": {
       "description": [
         "在文件内创造一个画布元素，并以像素定义其大小。这函数只应该在 setup() 开始时被调用一次。在同一个绘图里调用 createCanvas 多过一次将造成难以预料的行为。如果你想要使用多过一个绘图画布您可以使用 createGraphics（默认上会被隐藏可是可以被显示）。<br><br>给予这函数的宽度和高度参数将被用来定义 width 和 height 系统变量。如果 createCanvas() 没有被使用，画布将会被给予默认大小 100x100。<br><br>以知更多放置画布的方法，请参考<a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'>画布放置维基</a>（英文页面）。",
-        "",
-        "",
+        "Important note: in 2D mode (i.e. when <code>p5.Renderer</code> is not set) the origin (0,0) is positioned at the top left of the screen. In 3D mode (i.e. when <code>p5.Renderer</code> is set to <code>WEBGL</code>), the origin is positioned at the center of the canvas. See <a href=\"https://github.com/processing/p5.js/issues/1545\">this issue</a> for more information.",
+        "The system variables width and height are set by the parameters passed to this function. If <a href=\"#/p5/createCanvas\">createCanvas()</a> is not used, the window will be given a default size of 100x100 pixels.",
         "For more ways to position the canvas, see the <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'> positioning the canvas</a> wiki page."
       ],
       "returns": "p5.Renderer：",
@@ -1204,7 +1204,7 @@
     "blendMode": {
       "description": [
         "根据所设定的模式在显示窗口内混合像素。以下模式选择可用来混合源像素（A）与已经在显示窗口的像素（B）：<ul><li><code>BLEND</code> - 颜色线性插值：C = A*系数 + B。这是默认混合模式。</li><li><code>ADD</code> - A 与 B 的总和</li><li><code>DARKEST</code> - 将显示当中最深的颜色：C = min(A*系数, B)。</li><li><code>LIGHTEST </code> - 将显示当中最浅的颜色：C = max(A*系数, B)。</li><li><code>DIFFERENCE</code> - 从底下的图像中减去颜色。</li><li><code>EXCLUSION</code> - 与 DIFFERENCE 相似但不那么强烈。</li><li><code>MULTIPLY</code> - 将颜色相乘，效果一定会更暗。</li><li><code>SCREEN</code> - 与 MULTIPLY 相反，使用颜色的反值。</li><li><code>REPLACE</code> - 像素将完全盖过其他像素并将不会使用透明度值。</li><li><code>OVERLAY</code> - MULTIPLY 及 SCREEN 和混合。暗值将相乘，亮值将相乘反值。</li><li><code>HARD_LIGHT</code> - 当高于 50% 灰时 SCREEN，低于时 MULTIPLY。</li><li><code>SOFT_LIGHT</code> - DARKEST 及 LIGHTEST 的混合。与 OVERLAY 的效果相似，但不那么强烈。</li><li><code>DODGE</code> - 使浅色更浅及增加对比度，忽略暗色。</li><li><code>BURN</code> - 是深色更深及增加对比度，忽略浅色。</li></ul>",
-        ""
+        "<em>(2D)</em> indicates that this blend mode <b>only</b> works in the 2D renderer. <em>(3D)</em> indicates that this blend mode <b>only</b> works in the WEBGL renderer."
       ],
       "params": {
         "mode": "常量：画布的混合模式。BLEND、DARKEST、LIGHTEST、DIFFERENCE、MULTIPLY、EXCLUSION、SCREEN、REPLACE、OVERLAY、HARD_LIGHT、SOFT_LIGHT、DODGE、BURN、ADD 或 NORMAL"
@@ -1218,16 +1218,16 @@
     "noLoop": {
       "description": [
         "停止 p5.js 持续重复执行 draw() 内的代码。如果 loop() 被调用，draw() 内的代码将开始继续重复执行。如果 noLoop() 在 setup() 被调用，它应该是代码块的最后一行代码。<br><br>在使用 noLoop() 时，您并不能在事件处理函数如 mousePressed() 或 keyPressed() 内操纵或存取荧幕。不过您可以使用哪些函数调用 redraw() 或 loop()，从而执行 draw()，以正确的更新荧幕。这表示当 noLoop() 被调用后，您不能绘制任何东西，同时某些函数如 saveFrame() 或 loadPixels() 也不能使用。<br><br>注意如果绘图的大小改变，redraw() 将会被调用以更新绘图，即使 noLoop() 已经被调用，不然绘图将会处于一个奇怪的状态直到 loop() 再次被调用。",
-        "",
-        "",
-        ""
+        "When <a href=\"#/p5/noLoop\">noLoop()</a> is used, it's not possible to manipulate or access the screen inside event handling functions such as <a href=\"#/p5/mousePressed\">mousePressed()</a> or <a href=\"#/p5/keyPressed\">keyPressed()</a>. Instead, use those functions to call <a href=\"#/p5/redraw\">redraw()</a> or <a href=\"#/p5/loop\">loop()</a>, which will run <a href=\"#/p5/draw\">draw()</a>, which can update the screen properly. This means that when <a href=\"#/p5/noLoop\">noLoop()</a> has been called, no drawing can happen, and functions like <a href=\"#/p5/saveFrames\">saveFrames()</a> or <a href=\"#/p5/loadPixels\">loadPixels()</a> may not be used.",
+        "Note that if the sketch is resized, <a href=\"#/p5/redraw\">redraw()</a> will be called to update the sketch, even after <a href=\"#/p5/noLoop\">noLoop()</a> has been specified. Otherwise, the sketch would enter an odd state until <a href=\"#/p5/loop\">loop()</a> was called.",
+        "Use <a href=\"#/p5/isLooping\">isLooping()</a> to check current state of loop()."
       ]
     },
     "loop": {
       "description": [
         "在默认下，p5.js 将会循环执行 draw() 内的代码。不过 draw() 循环能使用 noLoop() 停止。在这情况下 draw() 循环可使用 loop() 函数恢复执行。",
-        "",
-        ""
+        "Avoid calling loop() from inside setup().",
+        "Use <a href=\"#/p5/isLooping\">isLooping()</a> to check current state of loop()."
       ]
     },
     "isLooping": {
@@ -1238,23 +1238,23 @@
     "push": {
       "description": [
         "push() 函数将储存当时的绘画样式设置及变形，而 pop() 将恢复这些设置。注意这两个函数需要一起使用。它们让您改变样式及变形设置然后再回到您之前的设置。当使用 push() 开始一个新的状态时，它将继续建立在当时的样式和变形上。push() 和 pop() 函数可被重复嵌入以提供更复杂的控制。（请参考第二个范例）<br><br>push() 将现有的变形及样式设置资料储存上来，这包括以下的函数：fill()、stroke()、tint()、strokeWeight()、strokeCap()、strokeJoin()、imageMode()、rectMode()、ellipseMode()、colorMode()、textAlign()、textFont()、textMode()、textSize()、textLeading()。",
-        "",
-        ""
+        "<a href=\"#/p5/push\">push()</a> stores information related to the current transformation state and style settings controlled by the following functions: <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/noFill\">noFill()</a>, <a href=\"#/p5/noStroke\">noStroke()</a>, <a href=\"#/p5/stroke\">stroke()</a>, <a href=\"#/p5/tint\">tint()</a>, <a href=\"#/p5/noTint\">noTint()</a>, <a href=\"#/p5/strokeWeight\">strokeWeight()</a>, <a href=\"#/p5/strokeCap\">strokeCap()</a>, <a href=\"#/p5/strokeJoin\">strokeJoin()</a>, <a href=\"#/p5/imageMode\">imageMode()</a>, <a href=\"#/p5/rectMode\">rectMode()</a>, <a href=\"#/p5/ellipseMode\">ellipseMode()</a>, <a href=\"#/p5/colorMode\">colorMode()</a>, <a href=\"#/p5/textAlign\">textAlign()</a>, <a href=\"#/p5/textFont\">textFont()</a>, <a href=\"#/p5/textSize\">textSize()</a>, <a href=\"#/p5/textLeading\">textLeading()</a>, <a href=\"#/p5/applyMatrix\">applyMatrix()</a>, <a href=\"#/p5/resetMatrix\">resetMatrix()</a>, <a href=\"#/p5/rotate\">rotate()</a>, <a href=\"#/p5/scale\">scale()</a>, <a href=\"#/p5/shearX\">shearX()</a>, <a href=\"#/p5/shearY\">shearY()</a>, <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/noiseSeed\">noiseSeed()</a>.",
+        "In WEBGL mode additional style settings are stored. These are controlled by the following functions: <a href=\"#/p5/setCamera\">setCamera()</a>, <a href=\"#/p5/ambientLight\">ambientLight()</a>, <a href=\"#/p5/directionalLight\">directionalLight()</a>, <a href=\"#/p5/pointLight\">pointLight()</a>, <a href=\"#/p5/texture\">texture()</a>, <a href=\"#/p5/specularMaterial\">specularMaterial()</a>, <a href=\"#/p5/shininess\">shininess()</a>, <a href=\"#/p5/normalMaterial\">normalMaterial()</a> and <a href=\"#/p5/shader\">shader()</a>."
       ]
     },
     "pop": {
       "description": [
         "push() 函数将储存当时的绘画样式设置及变形，而 pop() 将恢复这些设置。注意这两个函数需要一起使用。它们让您改变样式及变形设置然后再回到您之前的设置。当使用 push() 开始一个新的状态时，它将继续建立在当时的样式和变形上。push() 和 pop() 函数可被重复嵌入以提供更复杂的控制。（请参考第二个范例）<br><br>push() 将现有的变形及样式设置资料储存上来，这包括以下的函数：fill()、stroke()、tint()、strokeWeight()、strokeCap()、strokeJoin()、imageMode()、rectMode()、ellipseMode()、colorMode()、textAlign()、textFont()、textMode()、textSize()、textLeading()。",
-        "",
-        ""
+        "<a href=\"#/p5/push\">push()</a> stores information related to the current transformation state and style settings controlled by the following functions: <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/noFill\">noFill()</a>, <a href=\"#/p5/noStroke\">noStroke()</a>, <a href=\"#/p5/stroke\">stroke()</a>, <a href=\"#/p5/tint\">tint()</a>, <a href=\"#/p5/noTint\">noTint()</a>, <a href=\"#/p5/strokeWeight\">strokeWeight()</a>, <a href=\"#/p5/strokeCap\">strokeCap()</a>, <a href=\"#/p5/strokeJoin\">strokeJoin()</a>, <a href=\"#/p5/imageMode\">imageMode()</a>, <a href=\"#/p5/rectMode\">rectMode()</a>, <a href=\"#/p5/ellipseMode\">ellipseMode()</a>, <a href=\"#/p5/colorMode\">colorMode()</a>, <a href=\"#/p5/textAlign\">textAlign()</a>, <a href=\"#/p5/textFont\">textFont()</a>, <a href=\"#/p5/textSize\">textSize()</a>, <a href=\"#/p5/textLeading\">textLeading()</a>, <a href=\"#/p5/applyMatrix\">applyMatrix()</a>, <a href=\"#/p5/resetMatrix\">resetMatrix()</a>, <a href=\"#/p5/rotate\">rotate()</a>, <a href=\"#/p5/scale\">scale()</a>, <a href=\"#/p5/shearX\">shearX()</a>, <a href=\"#/p5/shearY\">shearY()</a>, <a href=\"#/p5/translate\">translate()</a>, <a href=\"#/p5/noiseSeed\">noiseSeed()</a>.",
+        "In WEBGL mode additional style settings are stored. These are controlled by the following functions: <a href=\"#/p5/setCamera\">setCamera()</a>, <a href=\"#/p5/ambientLight\">ambientLight()</a>, <a href=\"#/p5/directionalLight\">directionalLight()</a>, <a href=\"#/p5/pointLight\">pointLight()</a>, <a href=\"#/p5/texture\">texture()</a>, <a href=\"#/p5/specularMaterial\">specularMaterial()</a>, <a href=\"#/p5/shininess\">shininess()</a>, <a href=\"#/p5/normalMaterial\">normalMaterial()</a> and <a href=\"#/p5/shader\">shader()</a>."
       ]
     },
     "redraw": {
       "description": [
         "执行在 draw() 内的代码一次。这函数让该程序只在需要的时候更新显示窗口，比如说当 mousePressed() 或 keyPressed()事件被触发时。<br><br>再构造程式时，只有在如 mousePressed() 之类的时间内调用 redraw() 才有意义，因为 redraw() 并不会直接调用 draw() （它只会表示绘图有需要更新）。<br><br>redraw() 函数并不会在 draw() 内正常运作。以启用/禁用动画，请使用 loop() 及 noLoop()。<br><br>此外您也能定义每次调用 redraw() 将使 draw() 被调用几次。您这需给予一个整数参数已表示执行的次数。",
-        "",
-        "",
-        ""
+        "In structuring a program, it only makes sense to call <a href=\"#/p5/redraw\">redraw()</a> within events such as <a href=\"#/p5/mousePressed\">mousePressed()</a>. This is because <a href=\"#/p5/redraw\">redraw()</a> does not run <a href=\"#/p5/draw\">draw()</a> immediately (it only sets a flag that indicates an update is needed).",
+        "The <a href=\"#/p5/redraw\">redraw()</a> function does not work properly when called inside <a href=\"#/p5/draw\">draw()</a>.To enable/disable animations, use <a href=\"#/p5/loop\">loop()</a> and <a href=\"#/p5/noLoop\">noLoop()</a>.",
+        "In addition you can set the number of redraws per method call. Just add an integer as single parameter for the number of redraws."
       ],
       "params": {
         "n": "整数：重绘 n 次。默认值为 1"
@@ -1262,9 +1262,9 @@
     },
     "p5": {
       "description": [
-        "The <code>p5()</code> constructor enables you to activate \"instance mode\" instead of normal \"global mode\". This is an advanced topic. A short description and example is included below. Please see <a target=\"blank\" href=\"https://www.youtube.com/watch?v=Su792jEauZg&feature=youtu.be\"> Dan Shiffman's Coding Train video tutorial</a> or this <a target=\"blank\" href=\"https://github.com/processing/p5.js/wiki/p5.js-overview#instantiation--namespace\">tutorial page</a> for more info. ",
-        "By default, all p5.js functions are in the global namespace (i.e. bound to the window object), meaning you can call them simply <code>ellipse()</code>, <code>fill()</code>, etc. However, this might be inconvenient if you are mixing with other JS libraries (synchronously or asynchronously) or writing long programs of your own. p5.js currently supports a way around this problem called \"instance mode\". In instance mode, all p5 functions are bound up in a single variable instead of polluting your global namespace. ",
-        "Optionally, you can specify a default container for the canvas and any other elements to append to with a second argument. You can give the ID of an element in your html, or an html node itself. ",
+        "The <code>p5()</code> constructor enables you to activate \"instance mode\" instead of normal \"global mode\". This is an advanced topic. A short description and example is included below. Please see <a target=\"blank\" href=\"https://www.youtube.com/watch?v=Su792jEauZg&feature=youtu.be\"> Dan Shiffman's Coding Train video tutorial</a> or this <a target=\"blank\" href=\"https://github.com/processing/p5.js/wiki/p5.js-overview#instantiation--namespace\">tutorial page</a> for more info.",
+        "By default, all p5.js functions are in the global namespace (i.e. bound to the window object), meaning you can call them simply <code>ellipse()</code>, <code>fill()</code>, etc. However, this might be inconvenient if you are mixing with other JS libraries (synchronously or asynchronously) or writing long programs of your own. p5.js currently supports a way around this problem called \"instance mode\". In instance mode, all p5 functions are bound up in a single variable instead of polluting your global namespace.",
+        "Optionally, you can specify a default container for the canvas and any other elements to append to with a second argument. You can give the ID of an element in your html, or an html node itself.",
         "Note that creating instances like this also allows you to have more than one p5 sketch on a single web page, as they will each be wrapped up with their own set up variables. Of course, you could also use iframes to have multiple sketches in global mode."
       ],
       "params": {
@@ -1275,8 +1275,8 @@
     "applyMatrix": {
       "description": [
         "将现有的矩阵乘于由参数所定义的矩阵。这是个强大的功能并能够同时执行平移、缩放、切变及旋转。您能在<a href='https://zh.wikipedia.org/wiki/%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5'>维基百科</a>了解更多关于变形矩阵的资讯。<br><br>这里的参数命名跟着 <a href='https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-transform'>WHATWG 规范</a>（英文页面）的命名方式并代表着一个如下的变形矩阵：<blockquote><p><img style='max-width: 150px' src='assets/transformation-matrix.png' alt='当 applyMatrix 被调用时所使用的变形矩阵'></p></blockquote>",
-        "",
-        ""
+        "The naming of the arguments here follows the naming of the <a href= \"https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-transform\"> WHATWG specification</a> and corresponds to a transformation matrix of the form: <blockquote>",
+        "<img style=\"max-width: 150px\" src=\"assets/transformation-matrix.png\" alt=\"The transformation matrix used when applyMatrix is called\"/> </blockquote>"
       ],
       "params": {
         "a": "数字：定义该乘于的 2x3 矩阵",
@@ -1295,8 +1295,8 @@
     "rotate": {
       "description": [
         "将一个形状根据参数所定义的角度旋转。这函数将考虑角度模式，所以角度可以是弧度或角度定义。<br><br>所有物件都会绕着原点旋转而正数将使物件在顺时针方向旋转。此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积。比如说，调用 rotate(HALF_PI) 然后 rotate(HALF_PI) 效果会与 rotate(PI) 相同。所有变形将会在 draw() 重新开始时恢复。",
-        "",
-        ""
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI). All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again.",
+        "Technically, <a href=\"#/p5/rotate\">rotate()</a> multiplies the current transformation matrix by a rotation matrix. This function can be further controlled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>."
       ],
       "params": {
         "angle": "数字：旋转的角度，根据当时的角度模式，以弧度或角度定义",
@@ -1306,7 +1306,7 @@
     "rotateX": {
       "description": [
         "绕着 x 轴旋转。",
-        ""
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "数字：旋转角度，根据当时的角度模式，以弧度或角度定义"
@@ -1315,7 +1315,7 @@
     "rotateY": {
       "description": [
         "绕着 y 轴旋转。",
-        ""
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "数字：旋转角度，根据当时的角度模式，以弧度或角度定义"
@@ -1324,8 +1324,8 @@
     "rotateZ": {
       "description": [
         "绕着 x 轴旋转。只适用于 WEBGL 模式。",
-        "",
-        ""
+        "This method works in WEBGL mode only.",
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "数字：旋转角度，根据当时的角度模式，以弧度或角度定义"
@@ -1334,8 +1334,8 @@
     "scale": {
       "description": [
         "通过扩大和收缩顶点，放大或缩小形状。形状物件将会从坐标系统的原点开始缩放。缩放值为十进制百分比。比如说，调用函数 scale(2.0) 将使该形状放大 200%。<br><br>此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积相乘。比如说，调用 scale(2.0) 然后 scale(1.5) 效果会与 scale(3.0) 相同。如果 scale() 在 draw() 内被调用，变形将会在下一次循环开始时恢复。<br><br>给予此函数一个 z 参数只在 WEBGL 模式下受支持。这函数能使用 push() 及 pop() 控制。",
-        "",
-        ""
+        "Transformations apply to everything that happens after and subsequent calls to the function multiply the effect. For example, calling scale(2.0) and then scale(1.5) is the same as scale(3.0). If <a href=\"#/p5/scale\">scale()</a> is called within <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when the loop begins again.",
+        "Using this function with the z parameter is only available in WEBGL mode. This function can be further controlled with <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>."
       ],
       "params": {
         "s": "数字|p5.Vector|数字[]：缩放物件的百分比，或如果给予多个参数 x 轴的缩放百分比",
@@ -1347,8 +1347,8 @@
     "shearX": {
       "description": [
         "有角度参数所定义的形状 x 轴切变量。角度必须符合当时的角度模式。形状物件将会从坐标系统的原点开始切变而正数表示切变方向为顺时针方向。<br><br>此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积。比如说，调用 shearX(PI/2) 然后 shearX(PI/2) 效果会与 shearX(PI) 相同。如果 shearX() 在 draw() 内被调用，变形将会在下一次循环开始时恢复。<br><br>技术上，shearX() 将现有的变形矩阵乘以一个旋转矩阵。这函数能使用 push() 及 pop() 控制。",
-        "",
-        ""
+        "Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling shearX(PI/2) and then shearX(PI/2) is the same as shearX(PI). If <a href=\"#/p5/shearX\">shearX()</a> is called within the <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when the loop begins again.",
+        "Technically, <a href=\"#/p5/shearX\">shearX()</a> multiplies the current transformation matrix by a rotation matrix. This function can be further controlled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a> functions."
       ],
       "params": {
         "angle": "数字：根据当时的角度模式，以弧度或角度定义和切变角度"
@@ -1357,8 +1357,8 @@
     "shearY": {
       "description": [
         "有角度参数所定义的形状 y 轴切变量。角度必须符合当时的角度模式。形状物件将会从坐标系统的原点开始切变而正数表示切变方向为顺时针方向。<br><br>此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积。比如说，调用 shearY(PI/2) 然后 shearY(PI/2) 效果会与 shearY(PI) 相同。如果 shearY() 在 draw() 内被调用，变形将会在下一次循环开始时恢复。<br><br>技术上，shearY() 将现有的变形矩阵乘以一个旋转矩阵。这函数能使用 push() 及 pop() 控制。",
-        "",
-        ""
+        "Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling shearY(PI/2) and then shearY(PI/2) is the same as shearY(PI). If <a href=\"#/p5/shearY\">shearY()</a> is called within the <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when the loop begins again.",
+        "Technically, <a href=\"#/p5/shearY\">shearY()</a> multiplies the current transformation matrix by a rotation matrix. This function can be further controlled by the <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a> functions."
       ],
       "params": {
         "angle": "数字：根据当时的角度模式，以弧度或角度定义和切变角度"
@@ -1367,7 +1367,7 @@
     "translate": {
       "description": [
         "定义在显示窗口内平移物件的量。x 参数将定义左/右平移，y 参数将定义上/下平移。<br><br>此变形将影响接下来所有的绘图并且接下来此函数调用效果将累积。比如说，调用 translate(50, 0) 然后 translate(20, 0) 效果会与 translate(70, 0) 相同。如果 translate() 在 draw() 内被调用，变形将会在下一次循环开始时恢复。这函数能使用 push() 及 pop() 控制。",
-        ""
+        "Transformations are cumulative and apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling translate(50, 0) and then translate(20, 0) is the same as translate(70, 0). If <a href=\"#/p5/translate\">translate()</a> is called within <a href=\"#/p5/draw\">draw()</a>, the transformation is reset when the loop begins again. This function can be further controlled by using <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>."
       ],
       "params": {
         "x": "数字：左/右平移",
@@ -1411,7 +1411,7 @@
       "description": [
         "Creates a new instance of p5.StringDict using the key-value pair  or the object you provide."
       ],
-      "returns": "p5.StringDict: ",
+      "returns": "p5.StringDict:",
       "params": {
         "key": "String",
         "value": "String",
@@ -1422,7 +1422,7 @@
       "description": [
         "Creates a new instance of <a href=\"#/p5.NumberDict\">p5.NumberDict</a> using the key-value pair  or object you provide."
       ],
-      "returns": "p5.NumberDict: ",
+      "returns": "p5.NumberDict:",
       "params": {
         "key": "Number",
         "value": "Number",
@@ -1481,7 +1481,7 @@
     },
     "createP": {
       "description": [
-        "Creates a "
+        "Creates a"
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -1556,7 +1556,7 @@
       "description": [
         "Creates a dropdown menu <select></select> element in the DOM. It also helps to assign select-box methods to <a href=\"#/p5.Element\">p5.Element</a> when selecting existing select box. <ul> <li><code>.option(name, [value])</code> can be used to set options for the select after it is created.</li> <li><code>.value()</code> will return the currently selected option.</li> <li><code>.selected()</code> will return current dropdown element which is an instance of <a href=\"#/p5.Element\">p5.Element</a></li> <li><code>.selected(value)</code> can be used to make given option selected by default when the page first loads.</li> <li><code>.disable()</code> marks whole of dropdown element as disabled.</li> <li><code>.disable(value)</code> marks given option as disabled</li> </ul>"
       ],
-      "returns": "p5.Element: ",
+      "returns": "p5.Element:",
       "params": {
         "multiple": "Boolean: (Optional) true if dropdown should support multiple selections",
         "existing": "Object: DOM select element"
@@ -1625,8 +1625,8 @@
     "AUDIO": {},
     "createCapture": {
       "description": [
-        "Creates a new HTML5 <video> element that contains the audio/video feed from a webcam. The element is separate from the canvas and is displayed by default. The element can be hidden using .<a href=\"#/p5.Element/hide\">hide()</a>. The feed can be drawn onto the canvas using <a href=\"#/p5/image\">image()</a>. The loadedmetadata property can be used to detect when the element has fully loaded (see second example). ",
-        "More specific properties of the feed can be passing in a Constraints object. See the <a href='http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'> W3C spec</a> for possible properties. Note that not all of these are supported by all browsers. ",
+        "Creates a new HTML5 <video> element that contains the audio/video feed from a webcam. The element is separate from the canvas and is displayed by default. The element can be hidden using .<a href=\"#/p5.Element/hide\">hide()</a>. The feed can be drawn onto the canvas using <a href=\"#/p5/image\">image()</a>. The loadedmetadata property can be used to detect when the element has fully loaded (see second example).",
+        "More specific properties of the feed can be passing in a Constraints object. See the <a href='http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'> W3C spec</a> for possible properties. Note that not all of these are supported by all browsers.",
         "<em>Security note</em>: A new browser security specification requires that getUserMedia, which is behind <a href=\"#/p5/createCapture\">createCapture()</a>, only works when you're running the code locally, or on HTTPS. Learn more <a href='http://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https'>here</a> and <a href='https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia'>here</a>."
       ],
       "returns": "p5.Element: capture video <a href=\"#/p5.Element\">p5.Element</a>",
@@ -1683,38 +1683,38 @@
     "rotationX": {
       "description": [
         "rotationX 系统变量将会储存设备在 x 轴的旋转角度。值介于 0 与 +/-180 度之间。<br><br>注意：旋转的顺序很重要，比如说，如果同时使用它们必须依 Z-X-Y 的顺序调用或可能会有难以预料的行为。",
-        ""
+        "Note: The order the rotations are called is important, ie. if used together, it must be called in the order Z-X-Y or there might be unexpected behaviour."
       ]
     },
     "rotationY": {
       "description": [
         "rotationY 系统变量将会储存设备在 y 轴的旋转角度。值介于 0 与 +/-90 度之间。<br><br>注意：旋转的顺序很重要，比如说，如果同时使用它们必须依 Z-X-Y 的顺序调用或可能会有难以预料的行为。",
-        ""
+        "Note: The order the rotations are called is important, ie. if used together, it must be called in the order Z-X-Y or there might be unexpected behaviour."
       ]
     },
     "rotationZ": {
       "description": [
         "rotationZ 系统变量将会储存设备在 z 轴的旋转角度。值介于 0 与 359 度之间。<br><br>与 rotationX 及 rotationY 不同的是，这变量只能在有内建指南针的设备使用。<br><br>注意：旋转的顺序很重要，比如说，如果同时使用它们必须依 Z-X-Y 的顺序调用或可能会有难以预料的行为。",
-        "",
-        ""
+        "Unlike rotationX and rotationY, this variable is available for devices with a built-in compass only.",
+        "Note: The order the rotations are called is important, ie. if used together, it must be called in the order Z-X-Y or there might be unexpected behaviour."
       ]
     },
     "pRotationX": {
       "description": [
         "pRotationX 系统变量将会储存上一个影格该设备在 x 轴的旋转角度。值介于 0 与 +/-180 度之间。<br><br>pRotationX 可以和 rotationX 一起使用以找出设备 x 轴的旋转方向。",
-        ""
+        "pRotationX can also be used with rotationX to determine the rotate direction of the device along the X-axis."
       ]
     },
     "pRotationY": {
       "description": [
         "pRotationY 系统变量将会储存上一个影格该设备在 y 轴的旋转角度。值介于 0 与 +/-90 度之间。<br><br>pRotationY 可以和 rotationY 一起使用以找出设备 y 轴的旋转方向。",
-        ""
+        "pRotationY can also be used with rotationY to determine the rotate direction of the device along the Y-axis."
       ]
     },
     "pRotationZ": {
       "description": [
         "pRotationZ 系统变量将会储存上一个影格该设备在 z 轴的旋转角度。值介于 0 与 359 度之间。<br><br>pRotationZ 可以和 rotationZ 一起使用以找出设备 z 轴的旋转方向。",
-        ""
+        "pRotationZ can also be used with rotationZ to determine the rotate direction of the device along the Z-axis."
       ]
     },
     "turnAxis": {
@@ -1746,7 +1746,7 @@
     "deviceTurned": {
       "description": [
         "deviceTurned() 函数将在设备被连续旋转多过 90 度时被调用。<br><br>触发 deviceTurned() 的旋转轴将被储存在 turnAxis 变量中。deviceTurned() 函数能被锁定在 X、Y 或 Z 以确保只有所定义的轴会导致函数被调用，您只需比较 turnAxis 变量和 'X'、'Y' 或 'Z' 字符串。",
-        ""
+        "The axis that triggers the <a href=\"#/p5/deviceTurned\">deviceTurned()</a> method is stored in the turnAxis variable. The <a href=\"#/p5/deviceTurned\">deviceTurned()</a> method can be locked to trigger on any axis: X, Y or Z by comparing the turnAxis variable to 'X', 'Y' or 'Z'."
       ]
     },
     "deviceShaken": {
@@ -1772,9 +1772,9 @@
     "keyPressed": {
       "description": [
         "keyPressed() 函数将会在每一次任何键被按下时被调用。被按下的键的 keyCode 将被储存在 keyCode 变量内。<br><br>对于非 ASCII 值的键，请使用 keyCode 变量。您能查看 keyCode 是否等于 BACKSPACE、DELETE、ENTER、RETURN、TAB、ESCAPE、SHIFT、CONTROL、OPTION、ALT、UP_ARROW、DOWN_ARROW、LEFT_ARROW、RIGHT_ARROW。<br><br>至于 ASCII 键值它们的值会被储存在 key 变量内。不过，它并不会分辨大小写。因此，建议使用 keyTyped() 以读取 key 变量，因为其大小写在这里会被分辨出来。<br><br>取决于操作系统如何处理按键重复，按住一个键可能使 keyTyped() （及 keyReleased()）被调用多过一次。重复的速度应操作系统及该电脑的设置而定。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
-        "",
-        "",
-        ""
+        "For non-ASCII keys, use the keyCode variable. You can check if the keyCode equals BACKSPACE, DELETE, ENTER, RETURN, TAB, ESCAPE, SHIFT, CONTROL, OPTION, ALT, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW.",
+        "For ASCII keys, the key that was pressed is stored in the key variable. However, it does not distinguish between uppercase and lowercase. For this reason, it is recommended to use <a href=\"#/p5/keyTyped\">keyTyped()</a> to read the key variable, in which the case of the variable will be distinguished.",
+        "Because of how operating systems handle key repeats, holding down a key may cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The rate of repeat is set by the operating system and how each computer is configured. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
       ],
       "params": {
         "event": "Object: (Optional) optional KeyboardEvent callback argument."
@@ -1791,7 +1791,7 @@
     "keyTyped": {
       "description": [
         "keyTyped() 函数将会在每一次任何键被按下时被调用，可是会忽略操作键如 Ctrl、Shift 及 Alt。被按下的键的 keyCode 将被储存在 keyCode 变量内。<br><br>取决于操作系统如何处理按键重复，按住一个键可能使 keyTyped() （及 keyReleased()）被调用多过一次。重复的速度应操作系统及该电脑的设置而定。<br><br>不同浏览器可能会有不同附属于个别键盘事件的默认行为。以防止这些默认行为发生，只需在函数尾端加 “return false”。",
-        ""
+        "Because of how operating systems handle key repeats, holding down a key will cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The rate of repeat is set by the operating system and how each computer is configured. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
       ],
       "params": {
         "event": "Object: (Optional) optional KeyboardEvent callback argument."
@@ -1935,7 +1935,7 @@
     "touches": {
       "description": [
         "touches[] 系统变量将储存一个含有现在所有触动点相对于画布 (0, 0) 位置的位置数组，及分辨个别触动点移动时的 ID。数组内的每个元素都会有 x、y 及 id 属性。<br><br>touches[] 数组并不受 Safari 及 IE 移动设备（包括手提电脑）所支持。",
-        ""
+        "The touches[] array is not supported on Safari and IE on touch-based desktops (laptops)."
       ]
     },
     "touchStarted": {
@@ -1965,8 +1965,8 @@
     "createImage": {
       "description": [
         "创造一个新的 p5.Image 物件（储存图像的数据类型）。这将提供一个全新的像素缓冲供您使用。缓冲区的大小将由所提供的宽度和高度参数决定。<br><br>.pixels 将提供一个含有所有像素资料的数组。这些值都为数字。这数组的大小为（同时考虑像素密度）显示窗口的大小 x4，分别代表每个像素由左到右，上到下的 R、G、B、A 值。请参考 .pixels 文献。您也能使用更简单的 set() 或 get()。<br><br>在获取一个图像的像素之前，像素资料必须先使用 loadPixels() 函数加载。在数组资料被修改后，updatePixels() 函数必须被调用以更新图像资料。",
-        "",
-        ""
+        ".<a href=\"#/p5.Image/pixels\">pixels</a> gives access to an array containing the values for all the pixels in the display window. These values are numbers. This array is the size (including an appropriate factor for the <a href=\"#/p5/pixelDensity\">pixelDensity</a>) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. See .<a href=\"#/p5.Image/pixels\">pixels</a> for more info. It may also be simpler to use <a href=\"#/p5.Image/set\">set()</a> or <a href=\"#/p5.Image/get\">get()</a>.",
+        "Before accessing the pixels of an image, the data must loaded with the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> function. After the array data has been modified, the <a href=\"#/p5.Image/updatePixels\">updatePixels()</a> function must be run to update the changes."
       ],
       "returns": "p5.Image：p5.Image 物件",
       "params": {
@@ -1987,7 +1987,7 @@
     "saveFrames": {
       "description": [
         "捕捉一系列可用于制作影响的影格图像。接受回调函数。比如说，您可能想要将影格传送至伺服器以方便储存或转变成影像。如果回调函数没有被提供，浏览器将弹出储存文件对话框以尝试下载所有刚被创造的图像。如果提供回调函数，图像资料默认上并不会被储存而是以物件数组的形式被转送至回调函数做参数，数组大小为储存影格的总数。",
-        ""
+        "Note that <a href=\"#/p5.Image/saveFrames\">saveFrames()</a> will only save the first 15 frames of an animation. To export longer animations, you might look into a library like <a href=\"https://github.com/spite/ccapture.js/\">ccapture.js</a>."
       ],
       "params": {
         "filename": "字符串",
@@ -2000,9 +2000,9 @@
     "loadImage": {
       "description": [
         "从被给予的路径加载一个图像并使用其图像创造一个  p5.Image 物件。<br><br>该图像或许不能立刻被渲染，如果您想要保证您在图像加载完毕后才开始做任何事情，您可以将 loadImage() 函数调用在 preload() 里。您也能提供回调函数以在图像加载完毕时处理图像资料。<br><br>图像的路径应该相对于链接您的绘图的 HTML 文件。从其他 URL 或远程位置加载图像可能会被浏览器的内建安全模式阻止。",
-        "",
-        "",
-        ""
+        "The image may not be immediately available for rendering. If you want to ensure that the image is ready before doing anything with it, place the <a href=\"#/p5/loadImage\">loadImage()</a> call in <a href=\"#/p5/preload\">preload()</a>. You may also supply a callback function to handle the image when it's ready.",
+        "The path to the image should be relative to the HTML file that links in your sketch. Loading an image from a URL or other remote location may be blocked due to your browser's built-in security.",
+        "You can also pass in a string of a base64 encoded image as an alternative to the file path. Remember to add \"data:image/png;base64,\" in front of the string."
       ],
       "returns": "p5.Image：p5.Image 物件",
       "params": {
@@ -2014,8 +2014,8 @@
     "image": {
       "description": [
         "在 p5 画布上画一个图像。<br><br>此函数能使用几个不同数量的参数。最简单的用法只需要三个参数：img（图像）、x 及 y - (x, y) 为图像的位置。多两个可选参数能用来定义绘制图像的宽度及高度。<br><br>此函数也能使用所有八个数字参数。以分辨所有的参数，p5.js 在以下将使用“终点方形”（应对于 “dx”、“dy” 等）及“原图像”（应对于 “sx”、“sy”等）的名词。提供“原图像”大小可用来显示原图像的一个子部分而不需要显示整个图像。以下图表能解释得更清楚：<img src='assets/drawImage.png'>",
-        "",
-        ""
+        "This function can be used with different numbers of parameters. The simplest use requires only three parameters: img, x, and y—where (x, y) is the position of the image. Two more parameters can optionally be added to specify the width and height of the image.",
+        "This function can also be used with all eight Number parameters. To differentiate between all these parameters, p5.js uses the language of \"destination rectangle\" (which corresponds to \"dx\", \"dy\", etc.) and \"source image\" (which corresponds to \"sx\", \"sy\", etc.) below. Specifying the \"source image\" dimensions can be useful when you want to display a subsection of the source image instead of the whole thing. Here's a diagram to explain further: <img src=\"assets/drawImage.png\"></img>"
       ],
       "params": {
         "img": "p5.Image|p5.Element：该显示的图像",
@@ -2036,8 +2036,8 @@
     "tint": {
       "description": [
         "定义显示图像的填色值。图像能着色成所定义的颜色或提供透明度值以使其透明化。<br><br>如想是图像透明化但不想影响其颜色，可使用白色为着色值并定义透明度值。比如说，tint(255, 128) 将会使一个图像成为 50% 透明（假设为默认透明度范围 0-255，可使用 colorMode() 调整）。<br><br>灰阶值参数必须低于或等于当时 colorMode() 所定义的最高值。默认最高值为 255。",
-        "",
-        ""
+        "To apply transparency to an image without affecting its color, use white as the tint color and specify an alpha value. For instance, tint(255, 128) will make an image 50% transparent (assuming the default alpha range of 0-255, which can be changed with <a href=\"#/p5/colorMode\">colorMode()</a>).",
+        "The value for the gray parameter must be less than or equal to the current maximum value as specified by <a href=\"#/p5/colorMode\">colorMode()</a>. The default maximum value is 255."
       ],
       "params": {
         "v1": "数字：红彩值或色调值，需在被定义的范围内",
@@ -2058,8 +2058,8 @@
     "imageMode": {
       "description": [
         "定义图像模式。更改 image() 解读参数的方式以更改图像开始绘制的位置。默认模式为 imageMode(CORNER)，此模式将解读第二及第三个参数为图像的左上角位置。如果加多两个参数，它们则被用来定义图像的宽度和高度。<br><br>imageMode(CORNERS) 将使 image() 函数解读第二及第三个参数为一个角落的位置，而第四个第五个参数为对面角落的位置。<br><br>imageMode(CENTER) 将使 image() 函数解读第二及第三个参数为图像的中心点。如果提供多两个参数，它们将被用来定义图像的宽度和高度。",
-        "",
-        ""
+        "imageMode(CORNERS) interprets the second and third parameters of <a href=\"#/p5/image\">image()</a> as the location of one corner, and the fourth and fifth parameters as the opposite corner.",
+        "imageMode(CENTER) interprets the second and third parameters of <a href=\"#/p5/image\">image()</a> as the image's center point. If two additional parameters are specified, they are used to set the image's width and height."
       ],
       "params": {
         "mode": "常量：CORNER、CORNERS 或 CENTER"
@@ -2068,10 +2068,10 @@
     "pixels": {
       "description": [
         "此数组为一个储存显示窗口内所有像素值的 Uint8ClampedArray。这些值都为数字。这数组的大小为（同时考虑像素密度）显示窗口的大小 x4，分别代表每个像素由左到右，上到下的 R、G、B、A 值。视网膜显示及其他高密度显示器将会有更多像素（pixelDensity^2 倍）。比如说，如果图像为 100x100 像素，总共会有 40,000 个元素在 pixels[] 数组内。而在一个视网膜显示，将会有 160,000 个元素。<br><br>数组内最初四个值（指数 0-3）将会是在坐标 (0, 0) 的像素的 R、G、B、A 值。下四个值（指数 4-7）将会是在坐标 (1, 0) 的像素的 R、G、B、A 值。一般上，如果要设置像素 (x, y) 的值： <pre>CODE BLOCK PENDING</pre> 虽然以上的方式有点复杂，它能提供足够的弹性以应对任何像素密度的显示。注意 set() 将会自动处理设定所有在任何像素密度下 (x, y) 坐标在 pixels[] 内的值，不过程序性能可能在像素数组被更改很多次时时不佳。<br><br>在使用这个数组之前，像素资料必须先使用 loadPixels() 函数加载。在数组资料被修改后，updatePixels() 函数必须被调用以更新图像资料。<br><br>注意这不是个普通的 Javascript 数组。这表示 Javascript 数组函数如 <code>slice()</code> 或 <code>arrayCopy()</code> 将不会有效果。",
-        "",
-        "",
-        "",
-        ""
+        "The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class=\"language-javascript\">let d = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  } }</code></pre>",
+        "While the above method is complex, it is flexible enough to work with any pixelDensity. Note that <a href=\"#/p5/set\">set()</a> will automatically take care of setting all the appropriate values in <a href=\"#/p5/pixels\">pixels[]</a> for a given (x, y) at any pixelDensity, but the performance may not be as fast when lots of modifications are made to the pixel array.",
+        "Before accessing this array, the data must loaded with the <a href=\"#/p5/loadPixels\">loadPixels()</a> function. After the array data has been modified, the <a href=\"#/p5/updatePixels\">updatePixels()</a> function must be run to update the changes.",
+        "Note that this is not a standard javascript array. This means that standard javascript functions such as <a href=\"#/p5/slice\">slice()</a> or <a href=\"#/p5/arrayCopy\">arrayCopy()</a> do not work."
       ]
     },
     "blend": {
@@ -2110,15 +2110,15 @@
     "filter": {
       "description": [
         "在画布上使用过滤器。<br><br>预设选择为：<br><br>THRESHOLD 将图像转换成黑与白像素，取决于它们是否高于或低于所定义的 level 参数值。参数值必须在 0.0（黑色）与 1.0（白色）之间。如果并没有提供参数的话，默认将设为 0.5。<br><br>GRAY 将图像内的颜色转换成灰阶色。不使用任何参数。<br><br>OPAQUE 设置所有透明度值成完全不透明。不使用任何参数。<br><br>INVERT 设置每个像素成其反值。不使用任何参数。<br><br>POSTERIZE 将限制每个图像的彩色通道至参数所定义的颜色数。参数值可以介于 2 至 255 之间，但是效果会在较低值是比较明显。<br><br>BLUR 将使用 level 参数所定义的模糊度执行高斯模糊。如果没有提供参数，模糊度为高斯模糊半径为 1。越大的值越模糊。<br><br>ERODE 减少亮区。不使用任何参数。<br><br>DILATE 增加亮区。不使用任何参数。",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used.",
+        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used.",
+        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used.",
+        "INVERT Sets each pixel to its inverse value. No parameter is used.",
+        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges.",
+        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur.",
+        "ERODE Reduces the light areas. No parameter is used.",
+        "DILATE Increases the light areas. No parameter is used.",
+        "filter() does not work in WEBGL mode. A similar effect can be achieved in WEBGL mode using custom shaders. Adam Ferriss has written a <a href=\"https://github.com/aferriss/p5jsShaderExamples\" target='_blank'>selection of shader examples</a> that contains many of the effects present in the filter examples."
       ],
       "params": {
         "filterType": "常量：THRESHOLD、GRAY、OPAQUE、INVERT、POSTERIZE、BLUR、ERODE、DILATE 或 BLUR。",
@@ -2128,10 +2128,10 @@
     "get": {
       "description": [
         "返回任何像素值的一个为 [R,G,B,A] 的数组或捕捉图像的一部分。如果没有提供任何参数，将会返回整个图像。可使用 x 及 y 参数以取得一个像素的值。多加定义 w 及 h 参数可取的显示窗口的一部分。当在取得图像时，x 及 y 参数将定义图像的左上角坐标值，无论当时的图像模式为何。<br><br>如果欲取得的像素在图像外，将返回 [0,0,0,255]。以取得根据当时的颜色值范围及颜色模式的数字，请使用 getColor 而不是 get。<br><br>使用 get(x, y) 以取得一个像素的颜色相对来说简单，但是其速度并没有直接从 pixels[] 数组获取数据来的快。与使用 get(x, y) 有相同的效果但使用 pixels[] 及像素密度 d 的范例如下 <code>var x, y, d; // 设置这为坐标 var off = (y width + x) d * 4; var components = [ pixels[off], pixels[off + 1], pixels[off + 2], pixels[off + 3] ]; print(components);</code><br><br>请参考 pixels[] 文献以知更多详情。",
-        "",
-        "",
-        "",
-        ""
+        "Returns an array of [R,G,B,A] values for any pixel or grabs a section of an image. If no parameters are specified, the entire image is returned. Use the x and y parameters to get the value of one pixel. Get a section of the display window by specifying additional w and h parameters. When getting an image, the x and y parameters define the coordinates for the upper-left corner of the image, regardless of the current <a href=\"#/p5/imageMode\">imageMode()</a>.",
+        "Getting the color of a single pixel with get(x, y) is easy, but not as fast as grabbing the data directly from <a href=\"#/p5/pixels\">pixels[]</a>. The equivalent statement to get(x, y) using <a href=\"#/p5/pixels\">pixels[]</a> with pixel density d is <pre><code class=\"language-javascript\">let x, y, d; // set these to the coordinates let off = (y * width + x) * d * 4; let components = [  pixels[off],  pixels[off + 1],  pixels[off + 2],  pixels[off + 3] ]; print(components);</code></pre>",
+        "See the reference for <a href=\"#/p5/pixels\">pixels[]</a> for more information.",
+        "If you want to extract an array of colors or a subimage from an p5.Image object, take a look at <a href=\"#/p5.Image/get\">p5.Image.get()</a>"
       ],
       "returns": "数字[]|p5.Image：在 x,y 的像素值数组或 p5.Image",
       "params": {
@@ -2149,8 +2149,8 @@
     "set": {
       "description": [
         "改变任何像素的颜色，或直接在显示窗口内绘画一个图像。<br><br>x 及 y 参数用于定义该改变的像素而 c 参数用于定义颜色值。这可以是一个 p5.Color 物件或一个 [R, G, B, A] 像素数组。它也能是一个灰阶值。在设定一个图像时，x 及 y 参数将定义图像左上角的坐标值，无论当时的图像模式为何。<br><br>在使用 set() 后，您必须调用 updatePixels() 以使您的改变生效。这应该在所有像素都被设定后才被调用，而且也必须在调用 get() 或绘制图像之前调用。<br><br>使用 set(x, y) 设置一个像素的颜色相对来说简单，但使其速度并没有直接将数据写在 pixels[] 数组里来的快。直接使用 pixels[] 设置像素值可能在使用视网膜显示器时比较复杂，不过它会在每一个循环有很多像素需要被设定时表现得更好。<br><br>请参考 pixels[] 文献以知更多详情。",
-        "",
-        ""
+        "After using <a href=\"#/p5/set\">set()</a>, you must call <a href=\"#/p5/updatePixels\">updatePixels()</a> for your changes to appear. This should be called once all pixels have been set, and must be called before calling .<a href=\"#/p5/get\">get()</a> or drawing the image.",
+        "Setting the color of a single pixel with set(x, y) is easy, but not as fast as putting the data directly into <a href=\"#/p5/pixels\">pixels[]</a>. Setting the <a href=\"#/p5/pixels\">pixels[]</a> values directly may be complicated when working with a retina display, but will perform better when lots of pixels need to be set directly on every loop. See the reference for <a href=\"#/p5/pixels\">pixels[]</a> for more information."
       ],
       "params": {
         "x": "数字：像素的 x 坐标",
@@ -2172,8 +2172,8 @@
     "loadJSON": {
       "description": [
         "从一个文件或网址加载一个 JSON 文件，将返回一个物件。注意如果该 JSON 文件内涵一个数组，此函数仍然会返回一个以数字为指数的物件。<br><br>这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。JSONP 功能支持是由填充工具所提供而您可以使用第二个参数来定义一个有 JSON 回调定义的物件，只需跟从这里的<a href='https://github.com/camsong/fetch-jsonp'>指示</a>。",
-        "",
-        ""
+        "This method is asynchronous, meaning it may not finish before the next line in your sketch is executed. JSONP is supported via a polyfill and you can pass in as the second argument an object with definitions of the json callback following the syntax specified <a href=\"https://github.com/camsong/ fetch-jsonp\">here</a>.",
+        "This method is suitable for fetching files up to size of 64MB."
       ],
       "returns": "物件：JSON 数据",
       "params": {
@@ -2187,9 +2187,9 @@
     "loadStrings": {
       "description": [
         "读取一个文件的内容并使用个别字行创造一个字符串数组。如果文件名被用作第一个参数，如以上范例，该文件必须被储存在绘图文件夹内。<br><br>除此之外，该文件也能从本地电脑任何位置加载，只需使用绝对路径（任何在 Unix 及 Linux 内由 / 开始的路径，或在 Windows 内由驱动器符号开始的路径），又或者任何在网络上的文件网址也能用来当作 filename 参数。<br><br>这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。",
-        "",
-        "",
-        ""
+        "Alternatively, the file maybe be loaded from anywhere on the local computer using an absolute path (something that starts with / on Unix and Linux, or a drive letter on Windows), or the filename parameter can be a URL for a file found on a network.",
+        "This method is asynchronous, meaning it may not finish before the next line in your sketch is executed.",
+        "This method is suitable for fetching files up to size of 64MB."
       ],
       "returns": "字符串[]：字符串数组",
       "params": {
@@ -2201,8 +2201,8 @@
     "loadTable": {
       "description": [
         "读取一个文件的内容并使用其内容创造一个 p5.Table 物件。如果文件名被用作第一个参数，该文件必须被储存在绘图文件夹内。文件名参数也能是一个在网络上的文件的网址。默认上，该文件被假定为以逗号分隔（格式为 CSV）。该表格只会在 ‘header’ 设置被使用时才会寻找标签。<br><br>可使用的设置包括：<ul><li>csv - 将表格解析为逗号分隔值</li><li>tsv - 将表格解析为制表符分隔值</li><li>header - 这表格有标签行</li></ul><br><br>当使用多个设置时，您只需将他们分为个别的参数并使用逗号分隔。例如：<br><br><code>loadTable('my_csv_file.csv', 'csv', 'header'); </code><br><br>所有加载及储存的文件都需使用 UTF-8 编码。<br><br>这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。在 preload() 内调用 loadTable() 将保证加载工作会在 setup() 及 draw() 被调用前完成<br><br>在 preload() 外，您可以提供一个回调函数以处理加载物件。",
-        "",
-        ""
+        "This method is asynchronous, meaning it may not finish before the next line in your sketch is executed. Calling <a href=\"#/p5/loadTable\">loadTable()</a> inside <a href=\"#/p5/preload\">preload()</a> guarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called. Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the object:",
+        "All files loaded and saved use UTF-8 encoding. This method is suitable for fetching files up to size of 64MB."
       ],
       "returns": "物件：含有数据的 Table 物件",
       "params": {
@@ -2216,10 +2216,10 @@
     "loadXML": {
       "description": [
         "读取一个文件的内容并使用其内容创造一个 XML 物件。如果文件名被用作第一个参数，该文件必须被储存在绘图文件夹内。<br><br>除此之外，该文件也能从本地电脑任何位置加载，只需使用绝对路径（任何在 Unix 及 Linux 内由 / 开始的路径，或在 Windows 内由驱动器符号开始的路径），又或者任何在网络上的文件网址也能用来当作 filename 参数。<br><br>这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。在 preload() 内调用 loadTable() 将保证加载工作会在 setup() 及 draw() 被调用前完成<br><br>在 preload() 外，您可以提供一个回调函数以处理加载物件。",
-        "",
-        "",
-        "",
-        ""
+        "Alternatively, the file maybe be loaded from anywhere on the local computer using an absolute path (something that starts with / on Unix and Linux, or a drive letter on Windows), or the filename parameter can be a URL for a file found on a network.",
+        "This method is asynchronous, meaning it may not finish before the next line in your sketch is executed. Calling <a href=\"#/p5/loadXML\">loadXML()</a> inside <a href=\"#/p5/preload\">preload()</a> guarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called.",
+        "Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the object.",
+        "This method is suitable for fetching files up to size of 64MB."
       ],
       "returns": "物件：含有数据的 XML 物件",
       "params": {
@@ -2230,7 +2230,7 @@
     },
     "loadBytes": {
       "description": [
-        ""
+        "This method is suitable for fetching files up to size of 64MB."
       ],
       "returns": "物件：一个 ‘bytes’ 属性将为被加载的缓冲区的物件",
       "params": {
@@ -2281,7 +2281,7 @@
       }
     },
     "createWriter": {
-      "returns": "p5.PrintWriter: ",
+      "returns": "p5.PrintWriter:",
       "params": {
         "name": "字符串：该创造的文件的名",
         "extension": "字符串："
@@ -2422,7 +2422,7 @@
     "map": {
       "description": [
         "从一个范围内映射一个数字去另一个范围。<br><br>在以上第一个范例，25 被从 0 至 100 之间的范围映射去窗口最左方 (0) 至最右方 (width) 的范围内。",
-        ""
+        "In the first example above, the number 25 is converted from a value in the range of 0 to 100 into a value that ranges from the left edge of the window (0) to the right edge (width)."
       ],
       "returns": "数字：映射后的数字",
       "params": {
@@ -2556,7 +2556,7 @@
     "randomSeed": {
       "description": [
         "定义 random() 使用的随机种子值。<br><br>默认上，random() 将在每一次改程序被执行时生成不同的结果。只需定义 seed 参数至一个常量就能确保每一次软件执行时都会返回一样的伪随机数。",
-        ""
+        "By default, <a href=\"#/p5/random\">random()</a> produces different results each time the program is run. Set the seed parameter to a constant to return the same pseudo-random numbers each time the software is run."
       ],
       "params": {
         "seed": "数字：随机种子值"
@@ -2565,11 +2565,11 @@
     "random": {
       "description": [
         "返回一个随机的浮点数。<br><br>可使用 0、1 或 2 个参数。<br><br>如果并没有定义任何参数，将返回一个介于 0 与 1（但不包括 1）的随机数。<br><br>如果只定义一个参数并且该参数为数字，将返回一个介于 0 与 该数字（但不包括该数字）的随机数。<br><br>如果值定义一个参数并且该参数为数组，将返回该数组中随机一个元素。<br><br>如果定义两个参数，将返回一个介于第一个参数与第二个参数（但不包括第二个参数）的随机数。",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "Takes either 0, 1 or 2 arguments.",
+        "If no argument is given, returns a random number from 0 up to (but not including) 1.",
+        "If one argument is given and it is a number, returns a random number from 0 up to (but not including) the number.",
+        "If one argument is given and it is an array, returns a random element from that array.",
+        "If two arguments are given, returns a random number from the first argument up to (but not including) the second argument."
       ],
       "returns": "数字：随机数",
       "params": {
@@ -2618,7 +2618,7 @@
     "atan2": {
       "description": [
         "计算从一个被定义的点到坐标原点的弧度，并由正 x 轴开始计算。将返回介于 PI 与 -PI 之间的浮点数。atan2() 函数通常用于定向几何图形至鼠标的位置。<br><br>注意：第一个参数为 y 坐标，而第二个参数为 x 坐标，这是为了适应计算正切值的结构。",
-        ""
+        "Note: The y-coordinate of the point is the first parameter, and the x-coordinate is the second parameter, due the the structure of calculating the tangent."
       ],
       "returns": "数字：该点的反正切值",
       "params": {
@@ -2682,8 +2682,8 @@
     "textAlign": {
       "description": [
         "定义绘制问题的对齐方向。使用两个参数：horizAlign（LEFT、CENTER 或 RIGHT）及 vertAlign（TOP、BOTTOM、CENTER 或 BASELINE）。<br><br>horizAlign 参数为 text() 函数的 x 值，而 vertAlign 参数为 y 值。<br><br>因此如果您使用 textAlign(LEFT)，您将会使文字最左方对齐 text() 函数所使用的 x 参数。如果您使用 textAlign(RIGHT, TOP)，您将会使文字最右方对齐 x 值而文字最上方对齐 y 值。",
-        "",
-        ""
+        "The horizAlign parameter is in reference to the x value of the <a href=\"#/p5/text\">text()</a> function, while the vertAlign parameter is in reference to the y value.",
+        "So if you write textAlign(LEFT), you are aligning the left edge of your text to the x value you give in <a href=\"#/p5/text\">text()</a>. If you write textAlign(RIGHT, TOP), you are aligning the right edge of your text to the x value and the top of edge of the text to the y value."
       ],
       "params": {
         "horizAlign": "常量：水平对齐，LEFT、CENTER 或 RIGHT",
@@ -2737,9 +2737,9 @@
     },
     "textWrap": {
       "description": [
-        "Specifies how lines of text are wrapped within a text box. This requires a max-width set on the text area, specified in <a href=\"#/p5/text\">text()</a> as parameter <code>x2</code>. ",
-        "WORD wrap style only breaks lines at spaces. A single string without spaces that exceeds the boundaries of the canvas or text area is not truncated, and will overflow the desired area, disappearing at the canvas edge. ",
-        "CHAR wrap style breaks lines wherever needed to stay within the text box. ",
+        "Specifies how lines of text are wrapped within a text box. This requires a max-width set on the text area, specified in <a href=\"#/p5/text\">text()</a> as parameter <code>x2</code>.",
+        "WORD wrap style only breaks lines at spaces. A single string without spaces that exceeds the boundaries of the canvas or text area is not truncated, and will overflow the desired area, disappearing at the canvas edge.",
+        "CHAR wrap style breaks lines wherever needed to stay within the text box.",
         "WORD is the default wrap style, and both styles will still break lines at any line breaks (<code>\\n</code>) specified in the original text. The text area max-height parameter (<code>y2</code>) also still applies to wrapped text in both styles, lines of text that do not fit within the text area will not be drawn to the screen."
       ],
       "returns": "String: wrapStyle",
@@ -2750,7 +2750,7 @@
     "loadFont": {
       "description": [
         "从一个文件或网址加载一个 opentype 字形文件（.otf、.ttf），将返回一个 p5.Font 物件。这函数为异步进行，这表示它可能不会在您绘图的下一行代码执行前完成。<br><br>字形的路径应该相对于链接您的绘图的 HTML 文件。从其他 URL 或远程位置加载字形可能会被浏览器的内建安全模式阻止。",
-        ""
+        "The path to the font should be relative to the HTML file that links in your sketch. Loading fonts from a URL or other remote location may be blocked due to your browser's built-in security."
       ],
       "returns": "p5.Font：p5.Font 物件",
       "params": {
@@ -2762,9 +2762,9 @@
     "text": {
       "description": [
         "将文字绘制在荧幕上。显示第一个参数内的资料在荧幕上由其他参数所定义的位置。将会使用默认字形除非使用 textFont() 函数定义使用其他字形同时也将使用默认大小除非使用 textSize() 定义文字大小。文字的颜色可使用 fill() 函数定义。可使用 stroke() 及 strokeWeight() 函数添加文字外形线。<br><br>文字显示将位于 textAlign() 函数所定义的位置，您可将文字绘制在坐标的左边、右边或中间。<br><br>x2 及 y2 参数将定义一个方形文字显示区而且只适用于字符串资料类型。当这两个参数被定义时，它们将使用当时的 rectMode() 设置被解读。不符合方形大小的文字将不会被绘制在荧幕上。",
-        "",
-        "",
-        ""
+        "The text displays in relation to the <a href=\"#/p5/textAlign\">textAlign()</a> function, which gives the option to draw to the left, right, and center of the coordinates.",
+        "The x2 and y2 parameters define a rectangular area to display within and may only be used with string data. When these parameters are specified, they are interpreted based on the current <a href=\"#/p5/rectMode\">rectMode()</a> setting. Text that does not fit completely within the rectangle specified will not be drawn to the screen. If x2 and y2 are not specified, the baseline alignment is the default, which means that the text will be drawn upwards from x and y.",
+        "<b>WEBGL</b>: Only opentype/truetype fonts are supported. You must load a font using the <a href=\"#/p5/loadFont\">loadFont()</a> method (see the example above). <a href=\"#/p5/stroke\">stroke()</a> currently has no effect in webgl mode."
       ],
       "params": {
         "str": "字符串|物件|数组|数字|布尔值：该显示的字母数字符号",
@@ -2777,7 +2777,7 @@
     "textFont": {
       "description": [
         "定义使用 text() 函数绘制文字时该使用的字形。",
-        ""
+        "<b>WEBGL</b>: Only fonts loaded via <a href=\"#/p5/loadFont\">loadFont()</a> are supported."
       ],
       "returns": "Object: the current font",
       "params": {
@@ -2798,8 +2798,8 @@
     "arrayCopy": {
       "description": [
         "弃用：arrayCopy() 已被弃用并将会在未来的 p5 版本中移除。<br><br>复制一个数组（或该数组的一部分）去另外一个数组。src 数组将会被复制去 dst 数组，开端位置由 srcPosition 参数定义并复制进由 dstPosition 定义的位置。该复制的元素数量由 length 参数定义。注意在复制元素时该元素将覆盖终点数组原有的元素。如果想要添加元素，请使用 use concat()。<br><br>简化版本将只使用两个参数：arrayCopy(src, dst) 将复制整个数组去另一个相同大小的数组。这等同于使用 arrayCopy(src, 0, dst, 0, src.length)。<br><br>使用这函数将比使用 for 循环数组内每一个元素并一一复制来的更有效率。",
-        "",
-        ""
+        "The simplified version with only two arguments, arrayCopy(src, dst), copies an entire array to another of the same size. It is equivalent to arrayCopy(src, 0, dst, 0, src.length).",
+        "Using this function is far more efficient for copying array data than iterating through a for() loop and copying each element individually."
       ],
       "params": {
         "src": "数组：原数组",
@@ -2882,7 +2882,7 @@
     "float": {
       "description": [
         "将一个字符串转换成其浮点值。字符串内内容必须是数字，不然将返回 NaN（不是数字）。比如说，float(\"1234.56\") 将返回 1234.56，但 float(\"giraffe\") 将返回 NaN。<br><br>当给予一数组的值时，将返回一个等同大小的浮点数组。",
-        ""
+        "When an array of values is passed in, then an array of floats of the same length is returned."
       ],
       "returns": "数字：该字符串的浮点值",
       "params": {
@@ -2973,8 +2973,8 @@
     "match": {
       "description": [
         "这函数可被用来在一段文字上应用正则表达式，并将返回含有符合表达式的组合（在括号内的元素）的字符串数组。如果没找到任何匹配组合，将返回 null。如果正则表达式内没有定义任何组合，但有搜寻到匹配序列，将返回一个大小为 1 的数组（匹配的文字为数组的第一个元素）。<br><br>使用此函数时，先查看结果是否为 null。如果结果为 null，那表示该段文字没有匹配序列。如果有找到匹配序列，将返回一个数组。<br><br>如果正则表达式内有组合（由括号定义），那个别内容将会以数组的形式返回。正则表达式匹配返回的元素 [0] 将会是整个匹配的字符串，而匹配组合将从元素 [1] 开始（第一组为 [1]、第二组为 [2] 等）。",
-        "",
-        ""
+        "To use the function, first check to see if the result is null. If the result is null, then the sequence did not match at all. If the sequence did match, an array is returned.",
+        "If there are groups (specified by sets of parentheses) in the regular expression, then the contents of each will be returned in the array. Element [0] of a regular expression match returns the entire matching string, and the match groups start at element [1] (the first group is [1], the second [2], and so on)."
       ],
       "returns": "数组：搜寻到的字符串数组",
       "params": {
@@ -2985,8 +2985,8 @@
     "matchAll": {
       "description": [
         "这函数可被用来在一段文字上应用正则表达式，并将返回含有符合表达式的组合（在括号内的元素）的二维字符串数组。如果没找到任何匹配组合，将返回 null。如果正则表达式内没有定义任何组合，但有搜寻到匹配序列，仍然将返回一个二维数组，但第二维度数组的大小将为一。<br><br>使用此函数时，先查看结果是否为 null。如果结果为 null，那表示该段文字没有匹配序列。如果有找到匹配序列，将返回一个二维数组。<br><br>如果正则表达式内有组合（由括号定义），那个别内容将会以数组的形式返回。假设有一个有计算其变量 i 的循环，正则表达式匹配返回的元素 [i][0] 将会是整个匹配的字符串，而匹配组合将从元素 [i][1] 开始（第一组为 [i][1]、第二组为 [i][2] 等）。",
-        "",
-        ""
+        "To use the function, first check to see if the result is null. If the result is null, then the sequence did not match at all. If the sequence did match, a 2D array is returned.",
+        "If there are groups (specified by sets of parentheses) in the regular expression, then the contents of each will be returned in the array. Assuming a loop with counter variable i, element [i][0] of a regular expression match returns the entire matching string, and the match groups start at element [i][1] (the first group is [i][1], the second [i][2], and so on)."
       ],
       "returns": "字符串[]：搜寻到的二维字符串数组",
       "params": {
@@ -3044,7 +3044,7 @@
     "split": {
       "description": [
         "split() 函数映射到 String.split()，它使用一个字符或字符串为分隔号以将另一个字符串拆分成多个部分。delim 参数定义用于标示各个部分之间边界的字符或字符串。将返回一个含有各个部分的字符串数组。<br><br>splitTokens() 函数也与此函数相似，不过它将使用一系列字符以拆分字符串而不是使用特别定义的单一字符或字符串。",
-        ""
+        "The <a href=\"#/p5/splitTokens\">splitTokens()</a> function works in a similar fashion, except that it splits using a range of characters instead of a specific character or sequence."
       ],
       "returns": "字符串[]：字符串数组",
       "params": {
@@ -3055,7 +3055,7 @@
     "splitTokens": {
       "description": [
         "splitTokens() 函数将在一个或多个字符（或 “tokens”）所标示的地方拆分一个字符串。delim 参数将定义用于标示各个部分之间边界的字符或字符串。<br><br>如果 delim 参数没有被定义，此函数将使用任何空白字符拆分。空白字符包括制表符（\\t）、换行符（\\n）、回车符（\\r）、新页符（\\f）及空格。",
-        ""
+        "If no delim characters are specified, any whitespace character is used to split. Whitespace characters include tab (\\t), line feed (\\n), carriage return (\\r), form feed (\\f), and space."
       ],
       "returns": "字符串[]：字符串数组",
       "params": {
@@ -3141,7 +3141,7 @@
     "sphere": {
       "description": [
         "用给予的半径画一个球形。",
-        ""
+        "DetailX and detailY determines the number of subdivisions in the x-dimension and the y-dimension of a sphere. More subdivisions make the sphere seem smoother. The recommended maximum values are both 24. Using a value greater than 24 may cause a warning or slow down the browser."
       ],
       "params": {
         "radius": "数字：球形的半径",
@@ -3152,7 +3152,7 @@
     "cylinder": {
       "description": [
         "用给予的半径和高度画一个圆筒形。",
-        ""
+        "DetailX and detailY determines the number of subdivisions in the x-dimension and the y-dimension of a cylinder. More subdivisions make the cylinder seem smoother. The recommended maximum value for detailX is 24. Using a value greater than 24 may cause a warning or slow down the browser."
       ],
       "params": {
         "radius": "数字：表面的半径",
@@ -3166,7 +3166,7 @@
     "cone": {
       "description": [
         "用给予的半径和高度画一个锥体形。",
-        ""
+        "DetailX and detailY determine the number of subdivisions in the x-dimension and the y-dimension of a cone. More subdivisions make the cone seem smoother. The recommended maximum value for detailX is 24. Using a value greater than 24 may cause a warning or slow down the browser."
       ],
       "params": {
         "radius": "数字：底部表面的半径",
@@ -3179,7 +3179,7 @@
     "ellipsoid": {
       "description": [
         "用给予的半径画一个椭球形。",
-        ""
+        "DetailX and detailY determine the number of subdivisions in the x-dimension and the y-dimension of a cone. More subdivisions make the ellipsoid appear to be smoother. Avoid detail number above 150, it may crash the browser."
       ],
       "params": {
         "radiusx": "数字：椭球形 x 轴的半径",
@@ -3192,7 +3192,7 @@
     "torus": {
       "description": [
         "用给予的半径和管半径画一个圆环形。",
-        ""
+        "DetailX and detailY determine the number of subdivisions in the x-dimension and the y-dimension of a torus. More subdivisions make the torus appear to be smoother. The default and maximum values for detailX and detailY are 24 and 16, respectively. Setting them to relatively small values like 4 and 6 allows you to create new shapes other than a torus."
       ],
       "params": {
         "radius": "数字：整个圆环形的半径",
@@ -3213,7 +3213,7 @@
     },
     "debugMode": {
       "description": [
-        "debugMode() helps visualize 3D space by adding a grid to indicate where the ‘ground’ is in a sketch and an axes icon which indicates the +X, +Y, and +Z directions. This function can be called without parameters to create a default grid and axes icon, or it can be called according to the examples above to customize the size and position of the grid and/or axes icon. The grid is drawn using the most recently set stroke color and weight. To specify these parameters, add a call to stroke() and strokeWeight() just before the end of the draw() loop. ",
+        "debugMode() helps visualize 3D space by adding a grid to indicate where the ‘ground’ is in a sketch and an axes icon which indicates the +X, +Y, and +Z directions. This function can be called without parameters to create a default grid and axes icon, or it can be called according to the examples above to customize the size and position of the grid and/or axes icon. The grid is drawn using the most recently set stroke color and weight. To specify these parameters, add a call to stroke() and strokeWeight() just before the end of the draw() loop.",
         "By default, the grid will run through the origin (0,0,0) of the sketch along the XZ plane and the axes icon will be offset from the origin. Both the grid and axes icon will be sized according to the current canvas size. Note that because the grid runs parallel to the default camera view, it is often helpful to use debugMode along with orbitControl to allow full view of the grid."
       ],
       "params": {
@@ -3254,8 +3254,8 @@
     },
     "specularColor": {
       "description": [
-        "Set's the color of the specular highlight when using a specular material and specular light. ",
-        "This method can be combined with specularMaterial() and shininess() functions to set specular highlights. The default color is white, ie (255, 255, 255), which is used if this method is not called before specularMaterial(). If this method is called without specularMaterial(), There will be no effect. ",
+        "Set's the color of the specular highlight when using a specular material and specular light.",
+        "This method can be combined with specularMaterial() and shininess() functions to set specular highlights. The default color is white, ie (255, 255, 255), which is used if this method is not called before specularMaterial(). If this method is called without specularMaterial(), There will be no effect.",
         "Note: specularColor is equivalent to the processing function <a href=\"https://processing.org/reference/lightSpecular_.html\">lightSpecular</a>."
       ],
       "params": {
@@ -3271,7 +3271,7 @@
     "directionalLight": {
       "description": [
         "使用所定义的颜色及方向创造一个定向光。",
-        ""
+        "A maximum of 5 directionalLight can be active at one time"
       ],
       "params": {
         "v1": "数字：红彩值或色调值，需在被定义的范围内",
@@ -3287,7 +3287,7 @@
     "pointLight": {
       "description": [
         "使用所定义的颜色及灯光位置创造一个点光源。",
-        ""
+        "A maximum of 5 pointLight can be active at one time"
       ],
       "params": {
         "v1": "数字：红彩值或色调值，需在被定义的范围内",
@@ -3307,8 +3307,8 @@
     },
     "lightFalloff": {
       "description": [
-        "Sets the falloff rates for point lights. It affects only the elements which are created after it in the code. The default value is lightFalloff(1.0, 0.0, 0.0), and the parameters are used to calculate the falloff with the following equation: ",
-        "d = distance from light position to vertex position ",
+        "Sets the falloff rates for point lights. It affects only the elements which are created after it in the code. The default value is lightFalloff(1.0, 0.0, 0.0), and the parameters are used to calculate the falloff with the following equation:",
+        "d = distance from light position to vertex position",
         "falloff = 1 / (CONSTANT + d * LINEAR + ( d * d ) * QUADRATIC)"
       ],
       "params": {
@@ -3319,7 +3319,7 @@
     },
     "spotLight": {
       "description": [
-        "Creates a spotlight with a given color, position, direction of light, angle and concentration. Here, angle refers to the opening or aperture of the cone of the spotlight, and concentration is used to focus the light towards the center. Both angle and concentration are optional, but if you want to provide concentration, you will also have to specify the angle. ",
+        "Creates a spotlight with a given color, position, direction of light, angle and concentration. Here, angle refers to the opening or aperture of the cone of the spotlight, and concentration is used to focus the light towards the center. Both angle and concentration are optional, but if you want to provide concentration, you will also have to specify the angle.",
         "A maximum of 5 spotLight can be active at one time"
       ],
       "params": {
@@ -3347,9 +3347,9 @@
     "loadModel": {
       "description": [
         "从一个 OBJ 档案加载一个三维模型。<br><br>OBJ 格式的其中一个限制是它没有内建的大小值。这表示不同程式输出的模型可能有非常不同的大小。如果您的模型没被展示的话，请试着调用 loadModel() 并给予 normalized 参数“真”（true）值。这会将模型缩放成适合 p5 的大小。您也可以使用 scale() 函数对您的模型最后大小做与更多的调整。",
-        "",
-        "",
-        ""
+        "<a href=\"#/p5/loadModel\">loadModel()</a> should be placed inside of <a href=\"#/p5/preload\">preload()</a>. This allows the model to load fully before the rest of your code is run.",
+        "One of the limitations of the OBJ and STL format is that it doesn't have a built-in sense of scale. This means that models exported from different programs might be very different sizes. If your model isn't displaying, try calling <a href=\"#/p5/loadModel\">loadModel()</a> with the normalized parameter set to true. This will resize the model to a scale appropriate for p5. You can also make additional changes to the final size of your model with the <a href=\"#/p5/scale\">scale()</a> function.",
+        "Also, the support for colored STL files is not present. STL files with color will be rendered without color properties."
       ],
       "returns": "p5.Geometry：p5.Geometry 物件",
       "params": {
@@ -3371,7 +3371,7 @@
     "loadShader": {
       "description": [
         "从所定义的顶点及片断着色器文件路径加载自定的着色器。着色器是在背景异步加载的，因此此函数应该在 preload() 内使用。<br><br>现在为止有三种主要的着色器种类。只要相对的参数有在着色器内被定义，p5 将会自动提供相对的顶点、法线、颜色及灯光属性。",
-        ""
+        "For now, there are three main types of shaders. p5 will automatically supply appropriate vertices, normals, colors, and lighting attributes if the parameters defined in the shader match the names."
       ],
       "returns": "p5.Shader：由所定义的顶点及片断着色器所创造的着色器物件",
       "params": {
@@ -3411,7 +3411,7 @@
     },
     "textureMode": {
       "description": [
-        "Sets the coordinate space for texture mapping. The default mode is IMAGE which refers to the actual coordinates of the image. NORMAL refers to a normalized space of values ranging from 0 to 1. This function only works in WEBGL mode. ",
+        "Sets the coordinate space for texture mapping. The default mode is IMAGE which refers to the actual coordinates of the image. NORMAL refers to a normalized space of values ranging from 0 to 1. This function only works in WEBGL mode.",
         "With IMAGE, if an image is 100 x 200 pixels, mapping the image onto the entire size of a quad would require the points (0,0) (100, 0) (100,200) (0,200). The same mapping in NORMAL is (0,0) (1,0) (1,1) (0,1)."
       ],
       "params": {
@@ -3420,10 +3420,10 @@
     },
     "textureWrap": {
       "description": [
-        "Sets the global texture wrapping mode. This controls how textures behave when their uv's go outside of the 0 - 1 range. There are three options: CLAMP, REPEAT, and MIRROR. ",
-        "CLAMP causes the pixels at the edge of the texture to extend to the bounds REPEAT causes the texture to tile repeatedly until reaching the bounds MIRROR works similarly to REPEAT but it flips the texture with every new tile ",
-        "REPEAT & MIRROR are only available if the texture is a power of two size (128, 256, 512, 1024, etc.). ",
-        "This method will affect all textures in your sketch until a subsequent textureWrap call is made. ",
+        "Sets the global texture wrapping mode. This controls how textures behave when their uv's go outside of the 0 - 1 range. There are three options: CLAMP, REPEAT, and MIRROR.",
+        "CLAMP causes the pixels at the edge of the texture to extend to the bounds REPEAT causes the texture to tile repeatedly until reaching the bounds MIRROR works similarly to REPEAT but it flips the texture with every new tile",
+        "REPEAT & MIRROR are only available if the texture is a power of two size (128, 256, 512, 1024, etc.).",
+        "This method will affect all textures in your sketch until a subsequent textureWrap call is made.",
         "If only one argument is provided, it will be applied to both the horizontal and vertical axes."
       ],
       "params": {
@@ -3483,9 +3483,9 @@
     "camera": {
       "description": [
         "定义在一个三维绘图内相机的位置。此函数的行为与 gluLookAt 相似，不过它会覆盖原有的模型视图矩阵而不会在原有的模型视图上添加任何变形。当没有给予任何参数时，此函数将定义默认相机为 camera(0, 0, (height/2.0) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, 1, 0);",
-        "",
-        "",
-        ""
+        "This function simulates the movements of the camera, allowing objects to be viewed from various angles. Remember, it does not move the objects themselves but the camera instead. For example when the centerX value is positive, and the camera is rotating to the right side of the sketch, the object will seem like it's moving to the left.",
+        "See this <a href = \"https://www.openprocessing.org/sketch/740258\">example</a> to view the position of your camera.",
+        "If no parameters are given, the following default is used: camera(0, 0, (height/2) / tan(PI/6), 0, 0, 0, 0, 1, 0)"
       ],
       "params": {
         "x": "数字：相机在 x 轴的位置",
@@ -3502,7 +3502,7 @@
     "perspective": {
       "description": [
         "定义透视相机。当没有给予任何参数时，此函数将定义默认相机为 perspective(PI/3.0, width/height, cameraZ/10.0, cameraZ*10.0) 其中 cameraZ 为 ((height/2.0) / tan(PI60.0/360.0));",
-        "",
+        "The parameters to this function define the viewing frustum (the truncated pyramid within which objects are seen by the camera) through vertical field of view, aspect ratio (usually width/height), and near and far clipping planes.",
         "If no parameters are given, the following default is used: perspective(PI/3, width/height, eyeZ/10, eyeZ*10), where eyeZ is equal to ((height/2) / tan(PI/6))."
       ],
       "params": {
@@ -3515,7 +3515,7 @@
     "ortho": {
       "description": [
         "定义正射相机。",
-        "The parameters to this function specify the viewing frustum where left and right are the minimum and maximum x values, top and bottom are the minimum and maximum y values, and near and far are the minimum and maximum z values. ",
+        "The parameters to this function specify the viewing frustum where left and right are the minimum and maximum x values, top and bottom are the minimum and maximum y values, and near and far are the minimum and maximum z values.",
         "If no parameters are given, the following default is used: ortho(-width/2, width/2, -height/2, height/2)."
       ],
       "params": {
@@ -3529,8 +3529,8 @@
     },
     "frustum": {
       "description": [
-        "Sets a perspective matrix as defined by the parameters. ",
-        "A frustum is a geometric form: a pyramid with its top cut off. With the viewer's eye at the imaginary top of the pyramid, the six planes of the frustum act as clipping planes when rendering a 3D view. Thus, any form inside the clipping planes is visible; anything outside those planes is not visible. ",
+        "Sets a perspective matrix as defined by the parameters.",
+        "A frustum is a geometric form: a pyramid with its top cut off. With the viewer's eye at the imaginary top of the pyramid, the six planes of the frustum act as clipping planes when rendering a 3D view. Thus, any form inside the clipping planes is visible; anything outside those planes is not visible.",
         "Setting the frustum changes the perspective of the scene being rendered. This can be achieved more simply in many cases by using <a href=\"https://p5js.org/reference/#/p5/perspective\">perspective()</a>.",
         "If no parameters are given, the following default is used: frustum(-width/2, width/2, -height/2, height/2, 0, max(width, height))."
       ],
@@ -3546,7 +3546,7 @@
     "createCamera": {
       "description": [
         "Creates a new <a href=\"#/p5.Camera\">p5.Camera</a> object and tells the renderer to use that camera. Returns the p5.Camera object.",
-        "The new camera is initialized with a default position (see <a href=\"#/p5.Camera/camera\">camera()</a>) and a default perspective projection (see <a href=\"#/p5.Camera/perspective\">perspective()</a>). Its properties can be controlled with the <a href=\"#/p5.Camera\">p5.Camera</a> methods. ",
+        "The new camera is initialized with a default position (see <a href=\"#/p5.Camera/camera\">camera()</a>) and a default perspective projection (see <a href=\"#/p5.Camera/perspective\">perspective()</a>). Its properties can be controlled with the <a href=\"#/p5.Camera\">p5.Camera</a> methods.",
         "Note: Every 3D sketch starts with a default camera initialized. This camera can be controlled with the global methods <a href=\"#/p5/camera\">camera()</a>, <a href=\"#/p5/perspective\">perspective()</a>, <a href=\"#/p5/ortho\">ortho()</a>, and <a href=\"#/p5/frustum\">frustum()</a> if it is the only camera in the scene."
       ],
       "returns": "p5.Camera: The newly created camera object."
@@ -3562,15 +3562,15 @@
     "setAttributes": {
       "description": [
         "设置 WebGL 绘图环境的属性。这是调整 WebGL 渲染器的一个方法，可用于微调显示及性能。这函数应该在 setup() 内使用。可使用的属性为：<br>alpha - 表示画布是否有透明度缓冲，默认为 true<br><br>depth - 表示绘图缓冲是否有至少 16 bits 的深度缓冲 - 默认为 true<br><br>stencil - 表示绘图缓冲是否有至少 8 bits 的模版缓冲<br><br>antialias - 表示是否应该执行抗锯齿，默认为 false<br><br>premultipliedAlpha - 表示页面合成器将假设绘图缓冲存在着预乘透明值的颜色，默认为 false<br><br>preserveDrawingBuffer - 如果为真缓冲区将不会被清空并将会保留现有的值直到它们被清空或被作者覆盖（注意 p5 在绘图循环将自动清空），默认为 true<br><br>perPixelLighting - 如果为真，照明着色器将使用个别像素照明。默认为 false",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "Note that this will reinitialize the drawing context if called after the WebGL canvas is made.",
+        "If an object is passed as the parameter, all attributes not declared in the object will be set to defaults.",
+        "The available attributes are:  alpha - indicates if the canvas contains an alpha buffer default is true",
+        "depth - indicates whether the drawing buffer has a depth buffer of at least 16 bits - default is true",
+        "stencil - indicates whether the drawing buffer has a stencil buffer of at least 8 bits",
+        "antialias - indicates whether or not to perform anti-aliasing default is false (true in Safari)",
+        "premultipliedAlpha - indicates that the page compositor will assume the drawing buffer contains colors with pre-multiplied alpha default is false",
+        "preserveDrawingBuffer - if true the buffers will not be cleared and and will preserve their values until cleared or overwritten by author (note that p5 clears automatically on draw loop) default is true",
+        "perPixelLighting - if true, per-pixel lighting will be used in the lighting shader otherwise per-vertex lighting is used. default is true."
       ],
       "params": {
         "key": "字符串：属性名",
@@ -3580,15 +3580,15 @@
     },
     "getAudioContext": {
       "description": [
-        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.  ",
+        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.",
         "Some browsers require users to startAudioContext with a user gesture, such as touchStarted in the example below."
       ],
       "returns": "Object: AudioContext for this sketch"
     },
     "userStartAudio": {
       "description": [
-        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state.  ",
-        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>.  ",
+        "It is not only a good practice to give users control over starting audio. This policy is enforced by many web browsers, including iOS and <a href=\"https://goo.gl/7K7WLu\" title=\"Google Chrome's autoplay policy\">Google Chrome</a>, which create the Web Audio API's <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext\" title=\"Audio Context @ MDN\">Audio Context</a> in a suspended state.",
+        "In these browser-specific policies, sound will not play until a user interaction event (i.e. <code>mousePressed()</code>) explicitly resumes the AudioContext, or starts an audio node. This can be accomplished by calling <code>start()</code> on a <code>p5.Oscillator</code>, <code> play()</code> on a <code>p5.SoundFile</code>, or simply <code>userStartAudio()</code>.",
         "<code>userStartAudio()</code> starts the AudioContext on a user gesture. The default behavior will enable audio on any mouseUp or touchEnd event. It can also be placed in a specific interaction function, such as <code>mousePressed()</code> as in the example below. This method utilizes <a href=\"https://github.com/tambien/StartAudioContext\">StartAudioContext </a>, a library by Yotam Mann (MIT Licence, 2016)."
       ],
       "returns": "Promise: Returns a Promise that resolves when  the AudioContext state is 'running'",
@@ -3605,9 +3605,9 @@
     },
     "outputVolume": {
       "description": [
-        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.  ",
-        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal. ",
-        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.  ",
+        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.",
+        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal.",
+        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.",
         "If no value is provided, returns a Web Audio API Gain Node"
       ],
       "params": {
@@ -3678,7 +3678,7 @@
       "description": [
         "Create a p5.Convolver. Accepts a path to a soundfile that will be used to generate an impulse response."
       ],
-      "returns": "p5.Convolver: ",
+      "returns": "p5.Convolver:",
       "params": {
         "path": "String: path to a sound file",
         "callback": "Function: (Optional) function to call if loading is successful.  The object will be passed in as the argument  to the callback function.",
@@ -3697,8 +3697,8 @@
   },
   "p5.Color": {
     "description": [
-      "Each color stores the color mode and level maxes that was applied at the time of its construction. These are used to interpret the input arguments (at construction and later for that instance of color) and to format the output e.g. when <a href=\"#/p5/saturation\">saturation()</a> is requested. ",
-      "Internally, we store an array representing the ideal RGBA values in floating point form, normalized from 0 to 1. From this we calculate the closest screen color (RGBA levels from 0 to 255) and expose this to the renderer. ",
+      "Each color stores the color mode and level maxes that was applied at the time of its construction. These are used to interpret the input arguments (at construction and later for that instance of color) and to format the output e.g. when <a href=\"#/p5/saturation\">saturation()</a> is requested.",
+      "Internally, we store an array representing the ideal RGBA values in floating point form, normalized from 0 to 1. From this we calculate the closest screen color (RGBA levels from 0 to 255) and expose this to the renderer.",
       "We also cache normalized, floating point components of the color in various representations as they are calculated. This is done to prevent repeating a conversion that has already been performed."
     ],
     "setRed": {
@@ -3783,15 +3783,15 @@
       "description": [
         "The .<a href=\"#/p5.Element/doubleClicked\">doubleClicked()</a> function is called once after every time a mouse button is pressed twice over the element. This can be used to attach element and action specific event listeners."
       ],
-      "returns": "p5.Element: ",
+      "returns": "p5.Element:",
       "params": {
         "fxn": "Function|Boolean: function to be fired when mouse is  double clicked over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
       }
     },
     "mouseWheel": {
       "description": [
-        "The <a href=\"#/p5.Element/mouseWheel\">mouseWheel()</a> function is called once after every time a mouse wheel is scrolled over the element. This can be used to attach element specific event listeners. ",
-        "The function accepts a callback function as argument which will be executed when the <code>wheel</code> event is triggered on the element, the callback function is passed one argument <code>event</code>. The <code>event.deltaY</code> property returns negative values if the mouse wheel is rotated up or away from the user and positive in the other direction. The <code>event.deltaX</code> does the same as <code>event.deltaY</code> except it reads the horizontal wheel scroll of the mouse wheel. ",
+        "The <a href=\"#/p5.Element/mouseWheel\">mouseWheel()</a> function is called once after every time a mouse wheel is scrolled over the element. This can be used to attach element specific event listeners.",
+        "The function accepts a callback function as argument which will be executed when the <code>wheel</code> event is triggered on the element, the callback function is passed one argument <code>event</code>. The <code>event.deltaY</code> property returns negative values if the mouse wheel is rotated up or away from the user and positive in the other direction. The <code>event.deltaX</code> does the same as <code>event.deltaY</code> except it reads the horizontal wheel scroll of the mouse wheel.",
         "On OS X with \"natural\" scrolling enabled, the <code>event.deltaY</code> values are reversed."
       ],
       "params": {
@@ -4013,7 +4013,7 @@
     },
     "drop": {
       "description": [
-        "Registers a callback that gets called every time a file that is dropped on the element has been loaded. p5 will load every dropped file into memory and pass it as a p5.File object to the callback. Multiple files dropped at the same time will result in multiple calls to the callback. ",
+        "Registers a callback that gets called every time a file that is dropped on the element has been loaded. p5 will load every dropped file into memory and pass it as a p5.File object to the callback. Multiple files dropped at the same time will result in multiple calls to the callback.",
         "You can optionally pass a second callback which will be registered to the raw <a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/drop\">drop</a> event. The callback will thus be provided the original <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/DragEvent\">DragEvent</a>. Dropping multiple files at the same time will trigger the second callback once per drop, whereas the first callback will trigger for each loaded file."
       ],
       "params": {
@@ -4066,8 +4066,8 @@
   "console": {
     "log": {
       "description": [
-        "Prints a message to your browser's web console. When using p5, you can use <a href=\"#/p5/print\">print</a> and <a href=\"#/p5/console/log\">console.log</a> interchangeably. ",
-        "The console is opened differently depending on which browser you are using. Here are links on how to open the console in <a href=\"https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console\">Firefox</a> , <a href=\"https://developers.google.com/web/tools/chrome-devtools/open\">Chrome</a>, <a href=\"https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console\">Edge</a>, and <a href=\"https://support.apple.com/en-ca/guide/safari/sfri20948/mac\">Safari</a>. With the <a href=\"https://editor.p5js.org/\">online p5 editor</a> the console is embedded directly in the page underneath the code editor. ",
+        "Prints a message to your browser's web console. When using p5, you can use <a href=\"#/p5/print\">print</a> and <a href=\"#/p5/console/log\">console.log</a> interchangeably.",
+        "The console is opened differently depending on which browser you are using. Here are links on how to open the console in <a href=\"https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console\">Firefox</a> , <a href=\"https://developers.google.com/web/tools/chrome-devtools/open\">Chrome</a>, <a href=\"https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/console\">Edge</a>, and <a href=\"https://support.apple.com/en-ca/guide/safari/sfri20948/mac\">Safari</a>. With the <a href=\"https://editor.p5js.org/\">online p5 editor</a> the console is embedded directly in the page underneath the code editor.",
         "From <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Console/log\">the MDN entry</a>: The Console method log() outputs a message to the web console. The message may be a single <a href=\"#/p5/string\">string</a> (with optional substitution values), or it may be any one or more JavaScript <a href=\"#/p5/object\">objects</a>."
       ],
       "params": {
@@ -4200,25 +4200,25 @@
       "description": [
         "Return the lowest number currently stored in the Dictionary."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "maxValue": {
       "description": [
         "Return the highest number currently stored in the Dictionary."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "minKey": {
       "description": [
         "Return the lowest key currently used in the Dictionary."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "maxKey": {
       "description": [
         "Return the highest key currently used in the Dictionary."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     }
   },
   "p5.MediaElement": {
@@ -4310,7 +4310,7 @@
     },
     "connect": {
       "description": [
-        "Send the audio output of this element to a specified audioNode or p5.sound object. If no element is provided, connects to p5's main output. That connection is established when this method is first called. All connections are removed by the .disconnect() method. ",
+        "Send the audio output of this element to a specified audioNode or p5.sound object. If no element is provided, connects to p5's main output. That connection is established when this method is first called. All connections are removed by the .disconnect() method.",
         "This method is meant to be used with the p5.sound.js addon library."
       ],
       "params": {
@@ -4334,8 +4334,8 @@
     },
     "addCue": {
       "description": [
-        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point. ",
-        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback. ",
+        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point.",
+        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback.",
         "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
       ],
       "returns": "Number: id ID of this cue,  useful for removeCue(id)",
@@ -4402,9 +4402,9 @@
   },
   "p5.Image": {
     "description": [
-      "Creates a new <a href=\"#/p5.Image\">p5.Image</a>. A <a href=\"#/p5.Image\">p5.Image</a> is a canvas backed representation of an image. ",
-      "p5 can display .gif, .jpg and .png images. Images may be displayed in 2D and 3D space. Before an image is used, it must be loaded with the <a href=\"#/p5/loadImage\">loadImage()</a> function. The <a href=\"#/p5.Image\">p5.Image</a> class contains fields for the width and height of the image, as well as an array called <a href=\"#/p5.Image/pixels\">pixels[]</a> that contains the values for every pixel in the image. ",
-      "The methods described below allow easy access to the image's pixels and alpha channel and simplify the process of compositing. ",
+      "Creates a new <a href=\"#/p5.Image\">p5.Image</a>. A <a href=\"#/p5.Image\">p5.Image</a> is a canvas backed representation of an image.",
+      "p5 can display .gif, .jpg and .png images. Images may be displayed in 2D and 3D space. Before an image is used, it must be loaded with the <a href=\"#/p5/loadImage\">loadImage()</a> function. The <a href=\"#/p5.Image\">p5.Image</a> class contains fields for the width and height of the image, as well as an array called <a href=\"#/p5.Image/pixels\">pixels[]</a> that contains the values for every pixel in the image.",
+      "The methods described below allow easy access to the image's pixels and alpha channel and simplify the process of compositing.",
       "Before using the <a href=\"#/p5.Image/pixels\">pixels[]</a> array, be sure to use the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> method on the image to make sure that the pixel data is properly loaded."
     ],
     "params": {
@@ -4423,7 +4423,7 @@
     },
     "pixels": {
       "description": [
-        "Array containing the values for all the pixels in the display window. These values are numbers. This array is the size (include an appropriate factor for pixelDensity) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. Retina and other high density displays may have more pixels (by a factor of pixelDensity^2). For example, if the image is 100x100 pixels, there will be 40,000. With pixelDensity = 2, there will be 160,000. The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class=\"language-javascript\">let d = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  } }</code></pre> ",
+        "Array containing the values for all the pixels in the display window. These values are numbers. This array is the size (include an appropriate factor for pixelDensity) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. Retina and other high density displays may have more pixels (by a factor of pixelDensity^2). For example, if the image is 100x100 pixels, there will be 40,000. With pixelDensity = 2, there will be 160,000. The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class=\"language-javascript\">let d = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  } }</code></pre>",
         "Before accessing this array, the data must loaded with the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> function. After the array data has been modified, the <a href=\"#/p5.Image/updatePixels\">updatePixels()</a> function must be run to update the changes."
       ]
     },
@@ -4434,7 +4434,7 @@
     },
     "updatePixels": {
       "description": [
-        "Updates the backing canvas for this image with the contents of the [pixels] array. ",
+        "Updates the backing canvas for this image with the contents of the [pixels] array.",
         "If this image is an animated GIF then the pixels will be updated in the frame that is currently displayed."
       ],
       "params": {
@@ -4446,7 +4446,7 @@
     },
     "get": {
       "description": [
-        "Get a region of pixels from an image. ",
+        "Get a region of pixels from an image.",
         "If no params are passed, the whole image is returned. If x and y are the only params passed a single pixel is extracted. If all params are passed a rectangle region is extracted and a <a href=\"#/p5.Image\">p5.Image</a> is returned."
       ],
       "returns": "p5.Image: the rectangle <a href=\"#/p5.Image\">p5.Image</a>",
@@ -4459,7 +4459,7 @@
     },
     "set": {
       "description": [
-        "Set the color of a single pixel or write an image into this <a href=\"#/p5.Image\">p5.Image</a>. ",
+        "Set the color of a single pixel or write an image into this <a href=\"#/p5.Image\">p5.Image</a>.",
         "Note that for a large number of pixels this will be slower than directly manipulating the pixels array and then calling <a href=\"#/p5.Image/updatePixels\">updatePixels()</a>."
       ],
       "params": {
@@ -4504,14 +4504,14 @@
     "filter": {
       "description": [
         "Applies an image filter to a <a href=\"#/p5.Image\">p5.Image</a>",
-        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used. ",
-        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used. ",
-        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used. ",
-        "INVERT Sets each pixel to its inverse value. No parameter is used. ",
-        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges. ",
-        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur. ",
-        "ERODE Reduces the light areas. No parameter is used. ",
-        "DILATE Increases the light areas. No parameter is used. ",
+        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used.",
+        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used.",
+        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used.",
+        "INVERT Sets each pixel to its inverse value. No parameter is used.",
+        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges.",
+        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur.",
+        "ERODE Reduces the light areas. No parameter is used.",
+        "DILATE Increases the light areas. No parameter is used.",
         "filter() does not work in WEBGL mode. A similar effect can be achieved in WEBGL mode using custom shaders. Adam Ferriss has written a <a href=\"https://github.com/aferriss/p5jsShaderExamples\" target='_blank'>selection of shader examples</a> that contains many of the effects present in the filter examples."
       ],
       "params": {
@@ -4568,7 +4568,7 @@
       "description": [
         "Returns the number of frames in an animated GIF"
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "play": {
       "description": [
@@ -4641,7 +4641,7 @@
     },
     "addRow": {
       "description": [
-        "Use <a href=\"#/p5/addRow\">addRow()</a> to add a new row of data to a <a href=\"#/p5.Table\">p5.Table</a> object. By default, an empty row is created. Typically, you would store a reference to the new row in a TableRow object (see newRow in the example above), and then set individual values using <a href=\"#/p5/set\">set()</a>. ",
+        "Use <a href=\"#/p5/addRow\">addRow()</a> to add a new row of data to a <a href=\"#/p5.Table\">p5.Table</a> object. By default, an empty row is created. Typically, you would store a reference to the new row in a TableRow object (see newRow in the example above), and then set individual values using <a href=\"#/p5/set\">set()</a>.",
         "If a <a href=\"#/p5.TableRow\">p5.TableRow</a> object is included as a parameter, then that row is duplicated and added to the table."
       ],
       "returns": "p5.TableRow: the row that was added",
@@ -4676,7 +4676,7 @@
       "description": [
         "Finds the first row in the Table that contains the value provided, and returns a reference to that row. Even if multiple rows are possible matches, only the first matching row is returned. The column to search may be specified by either its ID or title."
       ],
-      "returns": "p5.TableRow: ",
+      "returns": "p5.TableRow:",
       "params": {
         "value": "String: The value to match",
         "column": "Integer|String: ID number or title of the  column to search"
@@ -4748,7 +4748,7 @@
     },
     "removeTokens": {
       "description": [
-        "Removes any of the specified characters (or \"tokens\"). ",
+        "Removes any of the specified characters (or \"tokens\").",
         "If no column is specified, then the values in all columns and rows are processed. A specific column may be referenced by either its ID or title."
       ],
       "params": {
@@ -4806,7 +4806,7 @@
       "description": [
         "Retrieves a value from the Table's specified row and column. The row is specified by its ID, while the column may be specified by either its ID or title."
       ],
-      "returns": "String|Number: ",
+      "returns": "String|Number:",
       "params": {
         "row": "Integer: row ID",
         "column": "String|Integer: columnName (string) or  ID (number)"
@@ -4816,7 +4816,7 @@
       "description": [
         "Retrieves a Float value from the Table's specified row and column. The row is specified by its ID, while the column may be specified by either its ID or title."
       ],
-      "returns": "Number: ",
+      "returns": "Number:",
       "params": {
         "row": "Integer: row ID",
         "column": "String|Integer: columnName (string) or  ID (number)"
@@ -4826,7 +4826,7 @@
       "description": [
         "Retrieves a String value from the Table's specified row and column. The row is specified by its ID, while the column may be specified by either its ID or title."
       ],
-      "returns": "String: ",
+      "returns": "String:",
       "params": {
         "row": "Integer: row ID",
         "column": "String|Integer: columnName (string) or  ID (number)"
@@ -4836,7 +4836,7 @@
       "description": [
         "Retrieves all table data and returns as an object. If a column name is passed in, each row object will be stored with that attribute as its title."
       ],
-      "returns": "Object: ",
+      "returns": "Object:",
       "params": {
         "headerColumn": "String: (Optional) Name of the column which should be used to  title each row object (optional)"
       }
@@ -4845,12 +4845,12 @@
       "description": [
         "Retrieves all table data and returns it as a multidimensional array."
       ],
-      "returns": "Array: "
+      "returns": "Array:"
     }
   },
   "p5.TableRow": {
     "description": [
-      "A TableRow object represents a single row of data values, stored in columns, from a table. ",
+      "A TableRow object represents a single row of data values, stored in columns, from a table.",
       "A Table Row contains both an ordered array, and an unordered JSON object."
     ],
     "params": {
@@ -4888,7 +4888,7 @@
       "description": [
         "Retrieves a value from the TableRow's specified column. The column may be specified by either its ID or title."
       ],
-      "returns": "String|Number: ",
+      "returns": "String|Number:",
       "params": {
         "column": "String|Integer: columnName (string) or  ID (number)"
       }
@@ -4940,7 +4940,7 @@
       "description": [
         "Checks whether or not the element has any children, and returns the result as a boolean."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "listChildren": {
       "description": [
@@ -4961,7 +4961,7 @@
       "description": [
         "Returns the first of the element's children that matches the name parameter or the child of the given index.It returns undefined if no matching child is found."
       ],
-      "returns": "p5.XML: ",
+      "returns": "p5.XML:",
       "params": {
         "name": "String|Integer: element name or index"
       }
@@ -4986,7 +4986,7 @@
       "description": [
         "Counts the specified element's number of attributes, returned as an Number."
       ],
-      "returns": "Integer: "
+      "returns": "Integer:"
     },
     "listAttributes": {
       "description": [
@@ -5007,7 +5007,7 @@
       "description": [
         "Returns an attribute value of the element as an Number. If the defaultValue parameter is specified and the attribute doesn't exist, then defaultValue is returned. If no defaultValue is specified and the attribute doesn't exist, the value 0 is returned."
       ],
-      "returns": "Number: ",
+      "returns": "Number:",
       "params": {
         "name": "String: the non-null full name of the attribute",
         "defaultValue": "Number: (Optional) the default value of the attribute"
@@ -5017,7 +5017,7 @@
       "description": [
         "Returns an attribute value of the element as an String. If the defaultValue parameter is specified and the attribute doesn't exist, then defaultValue is returned. If no defaultValue is specified and the attribute doesn't exist, null is returned."
       ],
-      "returns": "String: ",
+      "returns": "String:",
       "params": {
         "name": "String: the non-null full name of the attribute",
         "defaultValue": "Number: (Optional) the default value of the attribute"
@@ -5036,7 +5036,7 @@
       "description": [
         "Returns the content of an element. If there is no such content, defaultValue is returned if specified, otherwise null is returned."
       ],
-      "returns": "String: ",
+      "returns": "String:",
       "params": {
         "defaultValue": "String: (Optional) value returned if no content is found"
       }
@@ -5058,8 +5058,8 @@
   },
   "p5.Vector": {
     "description": [
-      "A class to describe a two or three dimensional vector, specifically a Euclidean (also known as geometric) vector. A vector is an entity that has both magnitude and direction. The datatype, however, stores the components of the vector (x, y for 2D, and x, y, z for 3D). The magnitude and direction can be accessed via the methods <a href=\"#/p5.Vector/mag\">mag()</a> and <a href=\"#/p5.Vector/heading\">heading()</a>. ",
-      "In many of the p5.js examples, you will see <a href=\"#/p5.Vector\">p5.Vector</a> used to describe a position, velocity, or acceleration. For example, if you consider a rectangle moving across the screen, at any given instant it has a position (a vector that points from the origin to its location), a velocity (the rate at which the object's position changes per time unit, expressed as a vector), and acceleration (the rate at which the object's velocity changes per time unit, expressed as a vector). ",
+      "A class to describe a two or three dimensional vector, specifically a Euclidean (also known as geometric) vector. A vector is an entity that has both magnitude and direction. The datatype, however, stores the components of the vector (x, y for 2D, and x, y, z for 3D). The magnitude and direction can be accessed via the methods <a href=\"#/p5.Vector/mag\">mag()</a> and <a href=\"#/p5.Vector/heading\">heading()</a>.",
+      "In many of the p5.js examples, you will see <a href=\"#/p5.Vector\">p5.Vector</a> used to describe a position, velocity, or acceleration. For example, if you consider a rectangle moving across the screen, at any given instant it has a position (a vector that points from the origin to its location), a velocity (the rate at which the object's position changes per time unit, expressed as a vector), and acceleration (the rate at which the object's velocity changes per time unit, expressed as a vector).",
       "Since vectors represent groupings of values, we cannot simply use traditional addition/multiplication/etc. Instead, we'll need to do some \"vector\" math, which is made easy by the methods inside the <a href=\"#/p5.Vector\">p5.Vector</a> class."
     ],
     "params": {
@@ -5398,8 +5398,8 @@
   },
   "p5.Camera": {
     "description": [
-      "This class describes a camera for use in p5's <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5\"> WebGL mode</a>. It contains camera position, orientation, and projection information necessary for rendering a 3D scene. ",
-      "New p5.Camera objects can be made through the <a href=\"#/p5/createCamera\">createCamera()</a> function and controlled through the methods described below. A camera created in this way will use a default position in the scene and a default perspective projection until these properties are changed through the various methods available. It is possible to create multiple cameras, in which case the current camera can be set through the <a href=\"#/p5/setCamera\">setCamera()</a> method. ",
+      "This class describes a camera for use in p5's <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5\"> WebGL mode</a>. It contains camera position, orientation, and projection information necessary for rendering a 3D scene.",
+      "New p5.Camera objects can be made through the <a href=\"#/p5/createCamera\">createCamera()</a> function and controlled through the methods described below. A camera created in this way will use a default position in the scene and a default perspective projection until these properties are changed through the various methods available. It is possible to create multiple cameras, in which case the current camera can be set through the <a href=\"#/p5/setCamera\">setCamera()</a> method.",
       "Note: The methods below operate in two coordinate systems: the 'world' coordinate system describe positions in terms of their relationship to the origin along the X, Y and Z axes whereas the camera's 'local' coordinate system describes positions from the camera's point of view: left-right, up-down, and forward-backward. The <a href=\"#/p5.Camera/move\">move()</a> method, for instance, moves the camera along its own axes, whereas the <a href=\"#/p5.Camera/setPosition\">setPosition()</a> method sets the camera's position in world-space.",
       "The camera object propreties <code>eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ</code> which describes camera position, orientation, and projection are also accessible via the camera object generated using <a href=\"#/p5/createCamera\">createCamera()</a>"
     ],
@@ -5575,9 +5575,9 @@
   "p5.sound": {},
   "p5.SoundFile": {
     "description": [
-      "SoundFile object with a path to a file.  ",
-      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
-      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
+      "SoundFile object with a path to a file.",
+      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.",
+      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.",
       "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatibility, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
     ],
     "params": {
@@ -5590,7 +5590,7 @@
       "description": [
         "Returns true if the sound file finished loading successfully."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "play": {
       "description": [
@@ -5614,7 +5614,7 @@
     },
     "pause": {
       "description": [
-        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen. ",
+        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen.",
         "After pausing, .play() will resume from the paused position. If p5.SoundFile had been set to loop before it was paused, it will continue to loop after it is unpaused with .play()."
       ],
       "params": {
@@ -5645,19 +5645,19 @@
       "description": [
         "Returns 'true' if a p5.SoundFile is currently looping and playing, 'false' if not."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "isPlaying": {
       "description": [
         "Returns true if a p5.SoundFile is playing, false if not (i.e. paused or stopped)."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "isPaused": {
       "description": [
         "Returns true if a p5.SoundFile is paused, false if not (i.e. playing or stopped)."
       ],
-      "returns": "Boolean: "
+      "returns": "Boolean:"
     },
     "stop": {
       "description": [
@@ -5692,7 +5692,7 @@
     },
     "setVolume": {
       "description": [
-        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class. ",
+        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.",
         "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal."
       ],
       "params": {
@@ -5742,7 +5742,7 @@
     },
     "getPeaks": {
       "description": [
-        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations. ",
+        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations.",
         "Inspired by Wavesurfer.js."
       ],
       "returns": "Float32Array: Array of peaks.",
@@ -5795,8 +5795,8 @@
     },
     "addCue": {
       "description": [
-        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point. ",
-        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback. ",
+        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point.",
+        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback.",
         "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
       ],
       "returns": "Number: id ID of this cue,  useful for removeCue(id)",
@@ -5878,8 +5878,8 @@
   },
   "p5.FFT": {
     "description": [
-      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.  ",
-      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies. ",
+      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.",
+      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies.",
       "FFT analyzes a very short snapshot of sound called a sample buffer. It returns an array of amplitude measurements, referred to as <code>bins</code>. The array is 1024 bins long by default. You can change the bin array length, but it must be a power of 2 between 16 and 1024 in order for the FFT algorithm to function correctly. The actual size of the FFT buffer is twice the number of bins, so given a standard sample rate, the buffer is 2048/44100 seconds long."
     ],
     "params": {
@@ -5969,8 +5969,8 @@
   },
   "p5.Oscillator": {
     "description": [
-      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).  ",
-      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>. "
+      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).",
+      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>."
     ],
     "params": {
       "freq": "Number: (Optional) frequency defaults to 440Hz",
@@ -5978,7 +5978,7 @@
     },
     "start": {
       "description": [
-        "Start an oscillator. ",
+        "Start an oscillator.",
         "Starting an oscillator on a user gesture will enable audio in browsers that have a strict autoplay policy, including Chrome and most mobile devices. See also: <code>userStartAudio()</code>."
       ],
       "params": {
@@ -6143,8 +6143,8 @@
   },
   "p5.Envelope": {
     "description": [
-      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>. ",
-      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime. ",
+      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>.",
+      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime.",
       "Use the <code><a href=\"#/p5.Envelope/play\">play</a></code> method to play the entire envelope, the <code><a href=\"#/p5.Envelope/ramp\">ramp</a></code> method for a pingable trigger, or <code><a href=\"#/p5.Envelope/triggerAttack\">triggerAttack</a></code>/ <code><a href=\"#/p5.Envelope/triggerRelease\">triggerRelease</a></code> to trigger noteOn/noteOff."
     ],
     "attackTime": {
@@ -6331,9 +6331,9 @@
   },
   "p5.AudioIn": {
     "description": [
-      "Get audio from an input, i.e. your computer's microphone.  ",
-      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.  ",
-      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.  ",
+      "Get audio from an input, i.e. your computer's microphone.",
+      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.",
+      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.",
       "<em>Note: This uses the <a href=\"http://caniuse.com/stream\">getUserMedia/ Stream</a> API, which is not supported by certain browsers. Access in Chrome browser is limited to localhost and https, but access over http may be limited.</em>"
     ],
     "params": {
@@ -6356,7 +6356,7 @@
     },
     "start": {
       "description": [
-        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/> ",
+        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/>",
         "Certain browsers limit access to the user's microphone. For example, Chrome only allows access from localhost and over https. For this reason, you may want to include an errorCallback—a function that is called in case the browser won't provide mic access."
       ],
       "params": {
@@ -6402,7 +6402,7 @@
     },
     "getSources": {
       "description": [
-        "Returns a list of available input sources. This is a wrapper for <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href=  \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> "
+        "Returns a list of available input sources. This is a wrapper for <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href=  \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote>"
       ],
       "returns": "Promise: Returns a Promise that can be used in place of the callbacks, similar  to the enumerateDevices() method",
       "params": {
@@ -6412,7 +6412,7 @@
     },
     "setSource": {
       "description": [
-        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href= \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> "
+        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href= \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote>"
       ],
       "params": {
         "num": "Number: position of input source in the array"
@@ -6421,7 +6421,7 @@
   },
   "p5.Effect": {
     "description": [
-      "Effect is a base class for audio effects in p5. This module handles the nodes and methods that are common and useful for current and future effects. ",
+      "Effect is a base class for audio effects in p5. This module handles the nodes and methods that are common and useful for current and future effects.",
       "This class is extended by <a href=\"/reference/#/p5.Distortion\">p5.Distortion</a>, <a href=\"/reference/#/p5.Compressor\">p5.Compressor</a>, <a href=\"/reference/#/p5.Delay\">p5.Delay</a>, <a href=\"/reference/#/p5.Filter\">p5.Filter</a>, <a href=\"/reference/#/p5.Reverb\">p5.Reverb</a>."
     ],
     "params": {
@@ -6473,8 +6473,8 @@
   },
   "p5.Filter": {
     "description": [
-      "A p5.Filter uses a Web Audio Biquad Filter to filter the frequency response of an input source. Subclasses include: <a href=\"/reference/#/p5.LowPass\"><code>p5.LowPass</code></a>: Allows frequencies below the cutoff frequency to pass through, and attenuates frequencies above the cutoff.<br/> <a href=\"/reference/#/p5.HighPass\"><code>p5.HighPass</code></a>: The opposite of a lowpass filter. <br/> <a href=\"/reference/#/p5.BandPass\"><code>p5.BandPass</code></a>: Allows a range of frequencies to pass through and attenuates the frequencies below and above this frequency range.<br/>  ",
-      "The <code>.res()</code> method controls either width of the bandpass, or resonance of the low/highpass cutoff frequency. ",
+      "A p5.Filter uses a Web Audio Biquad Filter to filter the frequency response of an input source. Subclasses include: <a href=\"/reference/#/p5.LowPass\"><code>p5.LowPass</code></a>: Allows frequencies below the cutoff frequency to pass through, and attenuates frequencies above the cutoff.<br/> <a href=\"/reference/#/p5.HighPass\"><code>p5.HighPass</code></a>: The opposite of a lowpass filter. <br/> <a href=\"/reference/#/p5.BandPass\"><code>p5.BandPass</code></a>: Allows a range of frequencies to pass through and attenuates the frequencies below and above this frequency range.<br/>",
+      "The <code>.res()</code> method controls either width of the bandpass, or resonance of the low/highpass cutoff frequency.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "params": {
@@ -6566,7 +6566,7 @@
   },
   "p5.EQ": {
     "description": [
-      "p5.EQ is an audio effect that performs the function of a multiband audio equalizer. Equalization is used to adjust the balance of frequency compoenents of an audio signal. This process is commonly used in sound production and recording to change the waveform before it reaches a sound output device. EQ can also be used as an audio effect to create interesting distortions by filtering out parts of the spectrum. p5.EQ is built using a chain of Web Audio Biquad Filter Nodes and can be instantiated with 3 or 8 bands. Bands can be added or removed from the EQ by directly modifying p5.EQ.bands (the array that stores filters). ",
+      "p5.EQ is an audio effect that performs the function of a multiband audio equalizer. Equalization is used to adjust the balance of frequency compoenents of an audio signal. This process is commonly used in sound production and recording to change the waveform before it reaches a sound output device. EQ can also be used as an audio effect to create interesting distortions by filtering out parts of the spectrum. p5.EQ is built using a chain of Web Audio Biquad Filter Nodes and can be instantiated with 3 or 8 bands. Bands can be added or removed from the EQ by directly modifying p5.EQ.bands (the array that stores filters).",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "returns": "Object: p5.EQ object",
@@ -6589,13 +6589,13 @@
   },
   "p5.Panner3D": {
     "description": [
-      "Panner3D is based on the <a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a>. This panner is a spatial processing node that allows audio to be positioned and oriented in 3D space. ",
+      "Panner3D is based on the <a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a>. This panner is a spatial processing node that allows audio to be positioned and oriented in 3D space.",
       "The position is relative to an <a title=\"Web Audio Listener docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/AudioListener\"> Audio Context Listener</a>, which can be accessed by <code>p5.soundOut.audiocontext.listener</code>"
     ],
     "panner": {
       "description": [
-        "<a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a> ",
-        "Properties include <ul> <li><a title=\"w3 spec for Panning Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"</a><blockquote> "
+        "<a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a>",
+        "Properties include <ul> <li><a title=\"w3 spec for Panning Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"</a><blockquote>"
       ]
     },
     "process": {
@@ -6696,7 +6696,7 @@
   },
   "p5.Delay": {
     "description": [
-      "Delay is an echo effect. It processes an existing sound source, and outputs a delayed version of that sound. The p5.Delay can produce different effects depending on the delayTime, feedback, filter, and type. In the example below, a feedback of 0.5 (the default value) will produce a looping delay that decreases in volume by 50% each repeat. A filter will cut out the high frequencies so that the delay does not sound as piercing as the original source. ",
+      "Delay is an echo effect. It processes an existing sound source, and outputs a delayed version of that sound. The p5.Delay can produce different effects depending on the delayTime, feedback, filter, and type. In the example below, a feedback of 0.5 (the default value) will produce a looping delay that decreases in volume by 50% each repeat. A filter will cut out the high frequencies so that the delay does not sound as piercing as the original source.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "leftDelay": {
@@ -6780,7 +6780,7 @@
   },
   "p5.Reverb": {
     "description": [
-      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has parameters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution. ",
+      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has parameters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "process": {
@@ -6830,8 +6830,8 @@
   },
   "p5.Convolver": {
     "description": [
-      "p5.Convolver extends p5.Reverb. It can emulate the sound of real physical spaces through a process called <a href=\" https://en.wikipedia.org/wiki/Convolution_reverb#Real_space_simulation\"> convolution</a>.  ",
-      "Convolution multiplies any audio input by an \"impulse response\" to simulate the dispersion of sound over time. The impulse response is generated from an audio file that you provide. One way to generate an impulse response is to pop a balloon in a reverberant space and record the echo. Convolution can also be used to experiment with sound.  ",
+      "p5.Convolver extends p5.Reverb. It can emulate the sound of real physical spaces through a process called <a href=\" https://en.wikipedia.org/wiki/Convolution_reverb#Real_space_simulation\"> convolution</a>.",
+      "Convolution multiplies any audio input by an \"impulse response\" to simulate the dispersion of sound over time. The impulse response is generated from an audio file that you provide. One way to generate an impulse response is to pop a balloon in a reverberant space and record the echo. Convolution can also be used to experiment with sound.",
       "Use the method <code>createConvolution(path)</code> to instantiate a p5.Convolver with a path to your impulse response audio file."
     ],
     "params": {
@@ -6888,8 +6888,8 @@
   },
   "p5.Phrase": {
     "description": [
-      "A phrase is a pattern of musical events over time, i.e. a series of notes and rests.  ",
-      "Phrases must be added to a p5.Part for playback, and each part can play multiple phrases at the same time. For example, one Phrase might be a kick drum, another could be a snare, and another could be the bassline.  ",
+      "A phrase is a pattern of musical events over time, i.e. a series of notes and rests.",
+      "Phrases must be added to a p5.Part for playback, and each part can play multiple phrases at the same time. For example, one Phrase might be a kick drum, another could be a snare, and another could be the bassline.",
       "The first parameter is a name so that the phrase can be modified or deleted later. The callback is a a function that this phrase will call at every step—for example it might be called <code>playNote(value){}</code>. The array determines which value is passed into the callback at each step of the phrase. It can be numbers, an object with multiple numbers, or a zero (0) indicates a rest so the callback won't be called)."
     ],
     "params": {
@@ -6905,7 +6905,7 @@
   },
   "p5.Part": {
     "description": [
-      "A p5.Part plays back one or more p5.Phrases. Instantiate a part with steps and tatums. By default, each step represents a 1/16th note.  ",
+      "A p5.Part plays back one or more p5.Phrases. Instantiate a part with steps and tatums. By default, each step represents a 1/16th note.",
       "See p5.Phrase for more about musical timing."
     ],
     "params": {
@@ -6925,7 +6925,7 @@
       "description": [
         "Returns the tempo, in Beats Per Minute, of this part."
       ],
-      "returns": "Number: "
+      "returns": "Number:"
     },
     "start": {
       "description": [
@@ -7122,7 +7122,7 @@
   },
   "p5.Compressor": {
     "description": [
-      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on individual sound sources in addition to the master output. ",
+      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on individual sound sources in addition to the master output.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "compressor": {
@@ -7209,12 +7209,12 @@
   },
   "p5.PeakDetect": {
     "description": [
-      "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum.  ",
-      " To use p5.PeakDetect, call <code>update</code> in the draw loop and pass in a p5.FFT object.  ",
-      " You can listen for a specific part of the frequency spectrum by setting the range between <code>freq1</code> and <code>freq2</code>.   ",
-      "<code>threshold</code> is the threshold for detecting a peak, scaled between 0 and 1. It is logarithmic, so 0.1 is half as loud as 1.0.  ",
-      " The update method is meant to be run in the draw loop, and <b>frames</b> determines how many loops must pass before another peak can be detected. For example, if the frameRate() = 60, you could detect the beat of a 120 beat-per-minute song with this equation: <code> framesPerPeak = 60 / (estimatedBPM / 60 );</code>   ",
-      " Based on example contribtued by @b2renger, and a simple beat detection explanation by <a href=\"http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/\" target=\"_blank\">Felix Turner</a>. "
+      "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum.",
+      "To use p5.PeakDetect, call <code>update</code> in the draw loop and pass in a p5.FFT object.",
+      "You can listen for a specific part of the frequency spectrum by setting the range between <code>freq1</code> and <code>freq2</code>.",
+      "<code>threshold</code> is the threshold for detecting a peak, scaled between 0 and 1. It is logarithmic, so 0.1 is half as loud as 1.0.",
+      "The update method is meant to be run in the draw loop, and <b>frames</b> determines how many loops must pass before another peak can be detected. For example, if the frameRate() = 60, you could detect the beat of a 120 beat-per-minute song with this equation: <code> framesPerPeak = 60 / (estimatedBPM / 60 );</code>",
+      "Based on example contribtued by @b2renger, and a simple beat detection explanation by <a href=\"http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/\" target=\"_blank\">Felix Turner</a>."
     ],
     "params": {
       "freq1": "Number: (Optional) lowFrequency - defaults to 20Hz",
@@ -7229,7 +7229,7 @@
     },
     "update": {
       "description": [
-        "The update method is run in the draw loop. ",
+        "The update method is run in the draw loop.",
         "Accepts an FFT object. You must call .analyze() on the FFT object prior to updating the peakDetect because it relies on a completed FFT analysis."
       ],
       "params": {
@@ -7248,7 +7248,7 @@
   },
   "p5.SoundRecorder": {
     "description": [
-      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput(). ",
+      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput().",
       "The record() method accepts a p5.SoundFile as a parameter. When playback is stopped (either after the given amount of time, or with the stop() method), the p5.SoundRecorder will send its recording to that p5.SoundFile for playback."
     ],
     "setInput": {
@@ -7277,7 +7277,7 @@
   },
   "p5.Distortion": {
     "description": [
-      "A Distortion effect created with a Waveshaper Node, with an approach adapted from <a href=\"http://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion\">Kevin Ennis</a> ",
+      "A Distortion effect created with a Waveshaper Node, with an approach adapted from <a href=\"http://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion\">Kevin Ennis</a>",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "params": {

@@ -145,8 +145,7 @@
       "description": [
         "색상 함수를 이용해 색상 데이터의 매개변수를 저장합니다. 이 때, 매개변수는 colorMode()의 설정에 따라 RGB 또는 HSB 값으로 처리됩니다. 기본 모드인 RGB값은 0부터 255까지이며, 따라서 color(255,204,0)와 같은 함수는 밝은 노랑색을 반환하게 됩니다.",
         "만약에 color() 함수에 매개변수가 1개만 적히면, 회색 음영(grayscale)값으로 처리됩니다. 여기에 추가되는 두번째 변수는 투명도를 설정할 수 있는 알파값으로서 처리됩니다. 세번째 변수가 추가되었을 때 비로소 RGB나 HSB값으로 처리됩니다. RGB나 HSB값을 정하는 3개의 변수가 존재할 때 추가되는 네번째 변수는 알파값으로 적용됩니다.",
-        "나아가, p5는 RGB, RGBA, Hex CSS 색상 문자열과 모든 색상명 문자열 역시 지원합니다. 그 경우, 알파값은 괄호 내 2번째 매개변수 추가를 통해서가 아닌, RGBA 형식에 따라 지정될 수 있습니다."
-      ],
+        "나아가, p5는 RGB, RGBA, Hex CSS 색상 문자열과 모든 색상명 문자열 역시 지원합니다. 그 경우, 알파값은 괄호 내 2번째 매개변수 추가를 통해서가 아닌, RGBA 형식에 따라 지정될 수 있습니다."      ],
       "returns": "색상 결과",
       "params": {
         "gray": "숫자: 흑과 백 사이의 값 지정",
@@ -211,7 +210,7 @@
     "saturation": {
       "description": [
         "색상 또는 픽셀 배열로부터 채도값을 추출합니다. 채도값은 HSB와 HSL에서 각각 다르게 측정됩니다. 이 함수는 HSL 채도를 기본값으로 제공합니다. 하지만, HSB 색상 객체가 제공 될 때 (또는 색상 모드가 HSB이면서 픽셀 배열이 제공될 때) HSB 채도값을 반환합니다.",
-        ""
+        "Saturation is scaled differently in HSB and HSL. This function will return the HSB saturation when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL saturation otherwise."
       ],
       "returns": "숫자: 채도값",
       "params": {
@@ -485,7 +484,7 @@
     "strokeCap": {
       "description": [
         "선의 양끝에 대한 렌더링 스타일을 설정합니다. 선의 양끝은 매개변수 SQAURE로 각지게, PROJECT로 조금 더 길게, 그리고 ROUND로 둥글게 처리될 수 있습니다. 이 중에서 ROUND는 기본값으로 적용됩니다.",
-        ""
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "cap": "상수：SQUARE, PROJECT 또는 ROUND"
@@ -494,7 +493,7 @@
     "strokeJoin": {
       "description": [
         "두 선분 간의 이음새에 대한 스타일을 설정합니다. 이음새는 매개변수 MITER로 각지게, BEVEL로 베벨 처리되듯 비스듬히 깎인 형태로, ROUND로 둥글게 처리될 수 있습니다. 이 중에서 MITER는 기본값으로 적용됩니다.",
-        ""
+        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
       ],
       "params": {
         "join": "상수：MITER, BEVEL 또는 ROUND"
@@ -565,8 +564,7 @@
     },
     "curve": {
       "description": [
-        "화면에 두 점 사이에 위치한 곡선을 그립니다. 이 때, 곡선의 형태는 함수의 매개변수들 중 가운데 네 개를 통해 정의됩니다. 처음 두 매개변수는 1번째 제어점의 좌표값을 지정하는데, 마치 이 제어점에서 곡선이 비롯된 것처럼 보이게 됩니다. 마지막 두 매개변수들은 마찬가지 원리로 또다른 제어점의 좌표를 지정합니다.",
-        "curve() 함수를 조합하거나 curveVertex()를 사용하여 좀 더 긴 곡선을 만들 수 있습니다. 부가적으로, curveTightness()을 통해 곡선의 화질을 조절할 수 있습니다. curve() 함수는 캣멀롬 스플라인(Catmull-Rom Spline)을 구현합니다."
+        "화면에 두 점 사이에 위치한 곡선을 그립니다. 이 때, 곡선의 형태는 함수의 매개변수들 중 가운데 네 개를 통해 정의됩니다. 처음 두 매개변수는 1번째 제어점의 좌표값을 지정하는데, 마치 이 제어점에서 곡선이 비롯된 것처럼 보이게 됩니다. 마지막 두 매개변수들은 마찬가지 원리로 또다른 제어점의 좌표를 지정합니다. curve() 함수를 조합하거나 curveVertex()를 사용하여 좀 더 긴 곡선을 만들 수 있습니다. 부가적으로, curveTightness()을 통해 곡선의 화질을 조절할 수 있습니다. curve() 함수는 캣멀롬 스플라인(Catmull-Rom Spline)을 구현합니다."
       ],
       "params": {
         "x1": "숫자: 최초 제어점의 x좌표값",
@@ -666,7 +664,7 @@
         "x4": "숫자: 고정점의 x좌표값",
         "y4": "숫자: 고정점의 y좌표값",
         "z2": "숫자: 1번째 제어점의 z좌표값 (WebGL 모드용)",
-        "z3": "숫자: 2번째 제어점의 z좌표값 (WebGL 모드용) ",
+        "z3": "숫자: 2번째 제어점의 z좌표값 (WebGL 모드용)",
         "z4": "숫자: 고정점의 z좌표값 (WebGL 모드용)"
       }
     },
@@ -1037,7 +1035,7 @@
       "description": [
         "<a href=\"#/p5/draw\">draw()</a> 함수는 <a href=\"#/p5/setup\">setup()</a> 함수 직후에 호출되며, 프로그램 실행이 중단되거나 <a href=\"#/p5/noLoop\">noLoop()</a> 함수가 호출되기 전까지 블록 내에 포함된 코드들을 계속 실행합니다. 만약 <a href=\"#/p5/setup\">setup()</a> 함수에서 <a href=\"#/p5/noLoop\">noLoop()</a>가 호출된다면, <a href=\"#/p5/draw\">draw()</a> 함수는 단 한 번 실행됩니다. <a href=\"#/p5/draw\">draw()</a> 함수는 자동으로 호출되며, 명시적으로 호출하면 안됩니다.",
         "<a href=\"#/p5/draw\">draw()</a> 함수는 항상 <a href=\"#/p5/noLoop\">noLoop()</a>, <a href=\"#/p5/redraw\">redraw()</a>, 그리고 loop() 함수로 제어됩니다. <a href=\"#/p5/noLoop\">noLoop()</a>함수가 <a href=\"#/p5/draw\">draw()</a> 함수에 포함된 코드 실행을 멈추면, <a href=\"#/p5/redraw\">redraw()</a> 함수가 <a href=\"#/p5/draw\">draw()</a> 함수 안에 포함된 코드들을 한 번만 실행하게 됩니다. loop() 함수의 경우, <a href=\"#/p5/draw\">draw()</a> 함수 안에 있는 코드를 계속해서 반복적으로 실행되게 합니다.",
-        "<a href=\"#/p5/draw\">draw()</a> 함수가 초당 호출되는 횟수는 frameRate() 함수를 통해 조정할 수 있습니다.", 
+        "<a href=\"#/p5/draw\">draw()</a> 함수가 초당 호출되는 횟수는 frameRate() 함수를 통해 조정할 수 있습니다.",
         "<a href=\"#/p5/draw\">draw()</a> 함수는 한 스케치당 한 번만 작성되어야 하며, 코드를 계속 실행하거나 mousePressed()와 같은 이벤트를 처리할 때 반드시 필요합니다. 때로는 위의 예제처럼 비어있는 <a href=\"#/p5/draw\">draw()</a> 함수를 호출하기도 합니다.",
         "드로잉의 좌표계가 매 <a href=\"#/p5/draw\">draw()</a> 함수가 호출될 때마다 리셋되는 점에 유의해야 합니다. <a href=\"#/p5/draw\">draw()</a> 함수 안에서 변형 함수(scale, rotate, translate)가 실행될 경우, <a href=\"#/p5/draw\">draw()</a> 함수가 재호출되는 시점에 그 효과들은 무효화되고, 따라서 시간이 지나도 변형 내용이 누적되지 않습니다. 반면, 한 번 선언된 스타일(fill, stroke 등)은 계속해서 적용됩니다."
       ]
@@ -1339,8 +1337,8 @@
     "rotateZ": {
       "description": [
         "z축을 따라 회전합니다. (WebGL 모드 전용)",
-        "",
-        ""
+        "This method works in WEBGL mode only.",
+        "Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. All transformations are reset when <a href=\"#/p5/draw\">draw()</a> begins again."
       ],
       "params": {
         "angle": "숫자: 현재 angleMode의 매개변수인 RADIANS(라디안) 또는 DEGREES(도)의 설정 사항에 따른 회전각"
@@ -2019,7 +2017,7 @@
     },
     "saveCanvas": {
       "description": [
-        "현재 캔버스를 이미지로 저장합니다. 브라우저에 따라 파일을 즉시 저장하거나 사용자에게 대화 상자를 표시합니다. "
+        "현재 캔버스를 이미지로 저장합니다. 브라우저에 따라 파일을 즉시 저장하거나 사용자에게 대화 상자를 표시합니다."
       ],
       "params": {
         "selectedCanvas": "p5.Element|HTMLCanvasElement: (선택 사항) 특정 HTML5 캔버스를 나타내는 변수",
@@ -2536,7 +2534,7 @@
     },
     "pow": {
       "description": [
-        "pow() 함수는 지수 식을 효율적으로 사용하는 한 방법으로, 특정 숫자(또는 그 역수)를 반복하여 곱할 수 있습니다. 예를 들어, pow(3,5)는 3 x 3 x 3 x 3 x 3과 같고, pow(3,-5)는 1 / 3 x 3 x 3 x 3 x 3과 같습니다. Math.pow()에 매핑합니다. "
+        "pow() 함수는 지수 식을 효율적으로 사용하는 한 방법으로, 특정 숫자(또는 그 역수)를 반복하여 곱할 수 있습니다. 예를 들어, pow(3,5)는 3 x 3 x 3 x 3 x 3과 같고, pow(3,-5)는 1 / 3 x 3 x 3 x 3 x 3과 같습니다. Math.pow()에 매핑합니다."
       ],
       "returns": "숫자：n^e",
       "params": {
@@ -2585,7 +2583,7 @@
       "description": [
         "새로운 <a href=\"#/p5.Vector\">p5.Vector</a>를 생성합니다. 이 <a href=\"#/p5.Vector\">p5.Vector</a>는 벡터를 저장하는 데이터형식입니다. 2차원 및 3차원 벡터, 특히 유클리드 (기하학) 벡터를 갖고 있입니다. 벡터는 크기와 방향을 모두 지닌 개체입니다."
       ],
-      "returns": "p5.Vector: ",
+      "returns": "p5.Vector:",
       "params": {
         "x": "숫자: (선택 사항) 벡터의 x성분",
         "y": "숫자: (선택 사항) 벡터의 y성분",
@@ -2632,7 +2630,7 @@
       ],
       "params": {
         "seed": "숫자: 시드값"
-      } 
+      }
     },
     "random": {
       "description": [
@@ -2885,11 +2883,11 @@
         ""
       ],
       "params": {
-        "src": "",
-        "srcPosition": "",
-        "dst": "",
-        "dstPosition": "",
-        "length": ""
+        "src": "Array: the source Array",
+        "srcPosition": "Integer: starting position in the source Array",
+        "dst": "Array: the destination Array",
+        "dstPosition": "Integer: starting position in the destination Array",
+        "length": "Integer: number of Array elements to be copied"
       }
     },
     "concat": {
@@ -2899,8 +2897,8 @@
       ],
       "returns": "배열: concatenated array",
       "params": {
-        "a": "",
-        "b": ""
+        "a": "Array: first Array to concatenate",
+        "b": "Array: second Array to concatenate"
       }
     },
     "reverse": {
@@ -2909,7 +2907,7 @@
       ],
       "returns": "배열: the reversed list",
       "params": {
-        "list": ""
+        "list": "Array: Array to reverse"
       }
     },
     "shorten": {
@@ -2919,7 +2917,7 @@
       ],
       "returns": "배열: shortened Array",
       "params": {
-        "list": ""
+        "list": "Array: Array to shorten"
       }
     },
     "shuffle": {
@@ -2929,8 +2927,8 @@
       ],
       "returns": "배열: shuffled Array",
       "params": {
-        "array": "",
-        "bool": ""
+        "array": "Array: Array to shuffle",
+        "bool": "Boolean: (Optional) modify passed array"
       }
     },
     "sort": {
@@ -2940,8 +2938,8 @@
       ],
       "returns": "배열: the sorted list",
       "params": {
-        "list": "",
-        "count": ""
+        "list": "Array: Array to sort",
+        "count": "Integer: (Optional) number of elements to sort, starting from 0"
       }
     },
     "splice": {
@@ -2951,9 +2949,9 @@
       ],
       "returns": "배열: the list",
       "params": {
-        "list": "",
-        "value": "",
-        "position": ""
+        "list": "Array: Array to splice into",
+        "value": "Any: value to be spliced in",
+        "position": "Integer: in the array from which to insert data"
       }
     },
     "subset": {
@@ -2963,9 +2961,9 @@
       ],
       "returns": "배열: Array of extracted elements",
       "params": {
-        "list": "",
-        "start": "",
-        "count": ""
+        "list": "Array: Array to extract from",
+        "start": "Integer: position to begin",
+        "count": "Integer: (Optional) number of values to extract"
       }
     },
     "float": {
@@ -3677,7 +3675,7 @@
     },
     "getAudioContext": {
       "description": [
-        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.  ",
+        "Returns the Audio Context for this sketch. Useful for users who would like to dig deeper into the <a target='_blank' href= 'http://webaudio.github.io/web-audio-api/'>Web Audio API </a>.",
         "Some browsers require users to startAudioContext with a user gesture, such as touchStarted in the example below."
       ],
       "returns": "객체: AudioContext for this sketch"
@@ -3702,9 +3700,9 @@
     },
     "outputVolume": {
       "description": [
-        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.  ",
-        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal. ",
-        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.  ",
+        "Scale the output of all sound in this sketch Scaled between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.",
+        "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal.",
+        "<b>How This Works</b>: When you load the p5.sound module, it creates a single instance of p5sound. All sound objects in this module output to p5sound before reaching your computer's output. So if you change the amplitude of p5sound, it impacts all of the sound in this module.",
         "If no value is provided, returns a Web Audio API Gain Node"
       ],
       "params": {
@@ -3766,7 +3764,7 @@
       "description": [
         "Create a p5.Convolver. Accepts a path to a soundfile that will be used to generate an impulse response."
       ],
-      "returns": "p5.Convolver: ",
+      "returns": "p5.Convolver:",
       "params": {
         "path": "문자열: path to a sound file",
         "callback": "함수: (선택 사항) function to call if loading is successful.  The object will be passed in as the argument  to the callback function.",
@@ -3797,7 +3795,6 @@
       "처음 만들었을 때의 색상모드와 레벨들의 최댓값들을 저장합니다. 이 값들은 입력 인수로 사용되거나 (창조시기, 또는 같은 색의 인스턴스가 이후에 사용될 때)  출력의 체재를 설정하는데 사용됩니다 (<a href=\"#/p5/saturation\">saturation()</a>와 같은 함수들을 사용할 때).",
       "내적으로는 RGBA 값들을 부동소수점 형식으로 배열 안에 저장하며, 이 값들은 0과 1 사이로 정규화됩니다. 이 값들로 가장 가까운 색 (0과 255 사이)를 계산하며 렌더러에 전달합니다.",
       "다양한 형식의 부동소수점 구성요소들을 케시에 임시저장하기도 합니다. 이는 최근에 이루어진 계산을 반복하지 않기 위해서입니다."
-      
     ],
     "setRed": {
       "description": [
@@ -3881,7 +3878,7 @@
       "description": [
         ".doubleClicked() 함수는 요소 위에서 마우스 버튼을 빠르게 두 번 클릭할 때마다 한 번씩 호출됩니다. 요소에 행동 특정적 이벤트 리스너를 연결하는 데에 사용됩니다."
       ],
-      "returns": "p5.Element: ",
+      "returns": "p5.Element:",
       "params": {
         "fxn": "함수|불리언: 마우스를 요소 위에서 더블클릭 할 때 호출 될 함수. 대신 <code>false</code>을 사용할 시, 함수호출은 중지됩니다."
       }
@@ -4060,7 +4057,7 @@
     },
     "attribute": {
       "description": [
-        "사용자가 지정한 요소에 새 속성을 추가하거나, 요소의 기존 속성값을 변경합니다. 별도로 지정한 값이 없는 경우 주어진 속성의 값을 반환하고, 속성이 설정되지 않은 경우 null을 반환합니다. "
+        "사용자가 지정한 요소에 새 속성을 추가하거나, 요소의 기존 속성값을 변경합니다. 별도로 지정한 값이 없는 경우 주어진 속성의 값을 반환하고, 속성이 설정되지 않은 경우 null을 반환합니다."
       ],
       "returns": "문자열: 속성의 값",
       "params": {
@@ -4501,9 +4498,9 @@
   },
   "p5.Image": {
     "description": [
-      "Creates a new <a href=\"#/p5.Image\">p5.Image</a>. A <a href=\"#/p5.Image\">p5.Image</a> is a canvas backed representation of an image. ",
-      "p5 can display .gif, .jpg and .png images. Images may be displayed in 2D and 3D space. Before an image is used, it must be loaded with the <a href=\"#/p5/loadImage\">loadImage()</a> function. The <a href=\"#/p5.Image\">p5.Image</a> class contains fields for the width and height of the image, as well as an array called <a href=\"#/p5.Image/pixels\">pixels[]</a> that contains the values for every pixel in the image. ",
-      "The methods described below allow easy access to the image's pixels and alpha channel and simplify the process of compositing. ",
+      "Creates a new <a href=\"#/p5.Image\">p5.Image</a>. A <a href=\"#/p5.Image\">p5.Image</a> is a canvas backed representation of an image.",
+      "p5 can display .gif, .jpg and .png images. Images may be displayed in 2D and 3D space. Before an image is used, it must be loaded with the <a href=\"#/p5/loadImage\">loadImage()</a> function. The <a href=\"#/p5.Image\">p5.Image</a> class contains fields for the width and height of the image, as well as an array called <a href=\"#/p5.Image/pixels\">pixels[]</a> that contains the values for every pixel in the image.",
+      "The methods described below allow easy access to the image's pixels and alpha channel and simplify the process of compositing.",
       "Before using the <a href=\"#/p5.Image/pixels\">pixels[]</a> array, be sure to use the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> method on the image to make sure that the pixel data is properly loaded."
     ],
     "params": {
@@ -4557,7 +4554,6 @@
         "w": "숫자: 너비",
         "h": "숫자: 높이"
       }
-      
     },
     "set": {
       "description": [
@@ -4646,7 +4642,6 @@
         "filename": "문자열: 파일명",
         "extension": "문자열: 'png' 또는 'jpg'. 'gif'도 가능."
       }
-      
     },
     "reset": {
       "description": [
@@ -4745,7 +4740,7 @@
     "addRow": {
       "description": [
         "addRow()를 사용하여 p5.Table 객체에 새로운 행 데이터를 추가할 수 있습니다. 기본값으로 빈 행이 생성됩니다. 일반적으로, TableRow 객체에 있는 새로운 행에 레퍼런스를 저장하고 (위의 예제 중 newRow 참고), set()을 사용하여 각각의 개별값을 설정합니다. p5.TableRow 객체를 매개변수로 지정할 경우, 행을 복제하여 테이블에 추가합니다.",
-        ""
+        "If a <a href=\"#/p5.TableRow\">p5.TableRow</a> object is included as a parameter, then that row is duplicated and added to the table."
       ],
       "returns": "p5.TableRow: 추가된 행",
       "params": {
@@ -4779,7 +4774,7 @@
       "description": [
         "지정된 값을 포함하는 테이블 행 중 1번째 행을 검색하고, 해당 행의 레퍼런스를 반환합니다. 여러 개의 행들이 지정된 값을 포함하더라도, 오직 1번째 행만 반환됩니다. ID 또는 제목(title) 설정을 통해 검색할 열도 지정가능합니다."
       ],
-      "returns": "p5.TableRow: ",
+      "returns": "p5.TableRow:",
       "params": {
         "value": "문자열: 검색할 값",
         "column": "정수|문자열: 검색할 열의 ID 또는 제목"
@@ -4852,7 +4847,7 @@
     "removeTokens": {
       "description": [
         "지정된 문자(또는 '토큰')을 제거합니다. 별도의 열을 지정하지 않는 경우, 모든 행과 열 속 값들이 처리됩니다. 열은 ID 또는 제목으로 참조가능합니다.",
-        ""
+        "If no column is specified, then the values in all columns and rows are processed. A specific column may be referenced by either its ID or title."
       ],
       "params": {
         "chars": "문자열: 제거할 문자들의 문자열",
@@ -4990,7 +4985,7 @@
     },
     "get": {
       "description": [
-        "TableRow의 지정된 열로부터 값을 받습니다. 열은 ID 또는 제목으로 지정가능합니다. "
+        "TableRow의 지정된 열로부터 값을 받습니다. 열은 ID 또는 제목으로 지정가능합니다."
       ],
       "returns": "문자열|숫자: ",
       "params": {
@@ -5065,14 +5060,14 @@
       "description": [
         "이름 매개변수 또는 지정된 인덱스의 자식과 일치하는 요소의 1번째 자식을 반환합니다. 일치하는 자식을 찾지 못하는 경우, 'undefined'를 반환합니다."
       ],
-      "returns": "p5.XML: ",
+      "returns": "p5.XML:",
       "params": {
         "name": "문자열|정수: 요소의 이름 또는 배열값"
       }
     },
     "addChild": {
       "description": [
-        "요소에 새로운 자식을 추가합니다. 자식은 문자열로 지정될 수 있으며, 이는 새로운 태그명 또는 기존 p5.XML 객체에 대한 레퍼런스로서 사용할 수 있습니다. 새로 추가된 자식에 대한 레퍼런스는 p5.XML 객체로 반환됩니다. "
+        "요소에 새로운 자식을 추가합니다. 자식은 문자열로 지정될 수 있으며, 이는 새로운 태그명 또는 기존 p5.XML 객체에 대한 레퍼런스로서 사용할 수 있습니다. 새로 추가된 자식에 대한 레퍼런스는 p5.XML 객체로 반환됩니다."
       ],
       "params": {
         "node": "p5.XML: a <a href=\"#/p5.XML\">p5.XML</a> 자식요소가 될 요소 또는 객체"
@@ -5689,9 +5684,9 @@
   "p5.sound": {},
   "p5.SoundFile": {
     "description": [
-      "SoundFile object with a path to a file.  ",
-      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.  ",
-      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.  ",
+      "SoundFile object with a path to a file.",
+      "The p5.SoundFile may not be available immediately because it loads the file information asynchronously.",
+      "To do something with the sound as soon as it loads pass the name of a function as the second parameter.",
       "Only one file path is required. However, audio file formats (i.e. mp3, ogg, wav and m4a/aac) are not supported by all web browsers. If you want to ensure compatibility, instead of a single file path, you may include an Array of filepaths, and the browser will choose a format that works."
     ],
     "params": {
@@ -5728,7 +5723,7 @@
     },
     "pause": {
       "description": [
-        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen. ",
+        "Pauses a file that is currently playing. If the file is not playing, then nothing will happen.",
         "After pausing, .play() will resume from the paused position. If p5.SoundFile had been set to loop before it was paused, it will continue to loop after it is unpaused with .play()."
       ],
       "params": {
@@ -5806,7 +5801,7 @@
     },
     "setVolume": {
       "description": [
-        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class. ",
+        "Multiply the output volume (amplitude) of a sound file between 0.0 (silence) and 1.0 (full volume). 1.0 is the maximum amplitude of a digital sound, so multiplying by greater than 1.0 may cause digital distortion. To fade, provide a <code>rampTime</code> parameter. For more complex fades, see the Envelope class.",
         "Alternately, you can pass in a signal source such as an oscillator to modulate the amplitude with an audio signal."
       ],
       "params": {
@@ -5856,7 +5851,7 @@
     },
     "getPeaks": {
       "description": [
-        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations. ",
+        "Returns an array of amplitude peaks in a p5.SoundFile that can be used to draw a static waveform. Scans through the p5.SoundFile's audio buffer to find the greatest amplitudes. Accepts one parameter, 'length', which determines size of the array. Larger arrays result in more precise waveform visualizations.",
         "Inspired by Wavesurfer.js."
       ],
       "returns": "Float32Array: Array of peaks.",
@@ -5909,8 +5904,8 @@
     },
     "addCue": {
       "description": [
-        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point. ",
-        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback. ",
+        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point.",
+        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback.",
         "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
       ],
       "returns": "숫자: id ID of this cue,  useful for removeCue(id)",
@@ -5992,8 +5987,8 @@
   },
   "p5.FFT": {
     "description": [
-      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.  ",
-      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies. ",
+      "FFT (Fast Fourier Transform) is an analysis algorithm that isolates individual <a href=\"https://en.wikipedia.org/wiki/Audio_frequency\"> audio frequencies</a> within a waveform.",
+      "Once instantiated, a p5.FFT object can return an array based on two types of analyses: • <code>FFT.waveform()</code> computes amplitude values along the time domain. The array indices correspond to samples across a brief moment in time. Each value represents amplitude of the waveform at that sample of time. • <code>FFT.analyze() </code> computes amplitude values along the frequency domain. The array indices correspond to frequencies (i.e. pitches), from the lowest to the highest that humans can hear. Each value represents amplitude at that slice of the frequency spectrum. Use with <code>getEnergy()</code> to measure amplitude at specific frequencies, or within a range of frequencies.",
       "FFT analyzes a very short snapshot of sound called a sample buffer. It returns an array of amplitude measurements, referred to as <code>bins</code>. The array is 1024 bins long by default. You can change the bin array length, but it must be a power of 2 between 16 and 1024 in order for the FFT algorithm to function correctly. The actual size of the FFT buffer is twice the number of bins, so given a standard sample rate, the buffer is 2048/44100 seconds long."
     ],
     "params": {
@@ -6083,8 +6078,8 @@
   },
   "p5.Oscillator": {
     "description": [
-      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).  ",
-      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>. "
+      "Creates a signal that oscillates between -1.0 and 1.0. By default, the oscillation takes the form of a sinusoidal shape ('sine'). Additional types include 'triangle', 'sawtooth' and 'square'. The frequency defaults to 440 oscillations per second (440Hz, equal to the pitch of an 'A' note).",
+      "Set the type of oscillation with setType(), or by instantiating a specific oscillator: <a href=\"/reference/#/p5.SinOsc\">p5.SinOsc</a>, <a href=\"/reference/#/p5.TriOsc\">p5.TriOsc</a>, <a href=\"/reference/#/p5.SqrOsc\">p5.SqrOsc</a>, or <a href=\"/reference/#/p5.SawOsc\">p5.SawOsc</a>."
     ],
     "params": {
       "freq": "숫자: (선택 사항) frequency defaults to 440Hz",
@@ -6092,7 +6087,7 @@
     },
     "start": {
       "description": [
-        "Start an oscillator. ",
+        "Start an oscillator.",
         "Starting an oscillator on a user gesture will enable audio in browsers that have a strict autoplay policy, including Chrome and most mobile devices. See also: <code>userStartAudio()</code>."
       ],
       "params": {
@@ -6257,8 +6252,8 @@
   },
   "p5.Envelope": {
     "description": [
-      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>. ",
-      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime. ",
+      "Envelopes are pre-defined amplitude distribution over time. Typically, envelopes are used to control the output volume of an object, a series of fades referred to as Attack, Decay, Sustain and Release ( <a href=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg\">ADSR</a> ). Envelopes can also control other Web Audio Parameters—for example, a p5.Envelope can control an Oscillator's frequency like this: <code>osc.freq(env)</code>.",
+      "Use <code><a href=\"#/p5.Envelope/setRange\">setRange</a></code> to change the attack/release level. Use <code><a href=\"#/p5.Envelope/setADSR\">setADSR</a></code> to change attackTime, decayTime, sustainPercent and releaseTime.",
       "Use the <code><a href=\"#/p5.Envelope/play\">play</a></code> method to play the entire envelope, the <code><a href=\"#/p5.Envelope/ramp\">ramp</a></code> method for a pingable trigger, or <code><a href=\"#/p5.Envelope/triggerAttack\">triggerAttack</a></code>/ <code><a href=\"#/p5.Envelope/triggerRelease\">triggerRelease</a></code> to trigger noteOn/noteOff."
     ],
     "attackTime": {
@@ -6445,9 +6440,9 @@
   },
   "p5.AudioIn": {
     "description": [
-      "Get audio from an input, i.e. your computer's microphone.  ",
-      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.  ",
-      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.  ",
+      "Get audio from an input, i.e. your computer's microphone.",
+      "Turn the mic on/off with the start() and stop() methods. When the mic is on, its volume can be measured with getLevel or by connecting an FFT object.",
+      "If you want to hear the AudioIn, use the .connect() method. AudioIn does not connect to p5.sound output by default to prevent feedback.",
       "<em>Note: This uses the <a href=\"http://caniuse.com/stream\">getUserMedia/ Stream</a> API, which is not supported by certain browsers. Access in Chrome browser is limited to localhost and https, but access over http may be limited.</em>"
     ],
     "params": {
@@ -6470,7 +6465,7 @@
     },
     "start": {
       "description": [
-        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/> ",
+        "Start processing audio input. This enables the use of other AudioIn methods like getLevel(). Note that by default, AudioIn is not connected to p5.sound's output. So you won't hear anything unless you use the connect() method.<br/>",
         "Certain browsers limit access to the user's microphone. For example, Chrome only allows access from localhost and over https. For this reason, you may want to include an errorCallback—a function that is called in case the browser won't provide mic access."
       ],
       "params": {
@@ -6516,7 +6511,7 @@
     },
     "getSources": {
       "description": [
-        "Returns a list of available input sources. This is a wrapper for <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href=  \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> "
+        "Returns a list of available input sources. This is a wrapper for <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href=  \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote>"
       ],
       "returns": "Promise: Returns a Promise that can be used in place of the callbacks, similar  to the enumerateDevices() method",
       "params": {
@@ -6526,7 +6521,7 @@
     },
     "setSource": {
       "description": [
-        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href= \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote> "
+        "Set the input source. Accepts a number representing a position in the array returned by getSources(). This is only available in browsers that support <a title=\"MediaDevices.enumerateDevices() - Web APIs | MDN\" target=\"_blank\" href= \"<a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"\">https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices\"</a> <blockquote>"
       ],
       "params": {
         "num": "숫자: position of input source in the array"
@@ -6535,7 +6530,7 @@
   },
   "p5.Effect": {
     "description": [
-      "Effect is a base class for audio effects in p5. This module handles the nodes and methods that are common and useful for current and future effects. ",
+      "Effect is a base class for audio effects in p5. This module handles the nodes and methods that are common and useful for current and future effects.",
       "This class is extended by <a href=\"/reference/#/p5.Distortion\">p5.Distortion</a>, <a href=\"/reference/#/p5.Compressor\">p5.Compressor</a>, <a href=\"/reference/#/p5.Delay\">p5.Delay</a>, <a href=\"/reference/#/p5.Filter\">p5.Filter</a>, <a href=\"/reference/#/p5.Reverb\">p5.Reverb</a>."
     ],
     "params": {
@@ -6587,8 +6582,8 @@
   },
   "p5.Filter": {
     "description": [
-      "A p5.Filter uses a Web Audio Biquad Filter to filter the frequency response of an input source. Subclasses include: <a href=\"/reference/#/p5.LowPass\"><code>p5.LowPass</code></a>: Allows frequencies below the cutoff frequency to pass through, and attenuates frequencies above the cutoff.<br/> <a href=\"/reference/#/p5.HighPass\"><code>p5.HighPass</code></a>: The opposite of a lowpass filter. <br/> <a href=\"/reference/#/p5.BandPass\"><code>p5.BandPass</code></a>: Allows a range of frequencies to pass through and attenuates the frequencies below and above this frequency range.<br/>  ",
-      "The <code>.res()</code> method controls either width of the bandpass, or resonance of the low/highpass cutoff frequency. ",
+      "A p5.Filter uses a Web Audio Biquad Filter to filter the frequency response of an input source. Subclasses include: <a href=\"/reference/#/p5.LowPass\"><code>p5.LowPass</code></a>: Allows frequencies below the cutoff frequency to pass through, and attenuates frequencies above the cutoff.<br/> <a href=\"/reference/#/p5.HighPass\"><code>p5.HighPass</code></a>: The opposite of a lowpass filter. <br/> <a href=\"/reference/#/p5.BandPass\"><code>p5.BandPass</code></a>: Allows a range of frequencies to pass through and attenuates the frequencies below and above this frequency range.<br/>",
+      "The <code>.res()</code> method controls either width of the bandpass, or resonance of the low/highpass cutoff frequency.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "params": {
@@ -6680,7 +6675,7 @@
   },
   "p5.EQ": {
     "description": [
-      "p5.EQ is an audio effect that performs the function of a multiband audio equalizer. Equalization is used to adjust the balance of frequency compoenents of an audio signal. This process is commonly used in sound production and recording to change the waveform before it reaches a sound output device. EQ can also be used as an audio effect to create interesting distortions by filtering out parts of the spectrum. p5.EQ is built using a chain of Web Audio Biquad Filter Nodes and can be instantiated with 3 or 8 bands. Bands can be added or removed from the EQ by directly modifying p5.EQ.bands (the array that stores filters). ",
+      "p5.EQ is an audio effect that performs the function of a multiband audio equalizer. Equalization is used to adjust the balance of frequency compoenents of an audio signal. This process is commonly used in sound production and recording to change the waveform before it reaches a sound output device. EQ can also be used as an audio effect to create interesting distortions by filtering out parts of the spectrum. p5.EQ is built using a chain of Web Audio Biquad Filter Nodes and can be instantiated with 3 or 8 bands. Bands can be added or removed from the EQ by directly modifying p5.EQ.bands (the array that stores filters).",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "returns": "객체: p5.EQ object",
@@ -6703,13 +6698,13 @@
   },
   "p5.Panner3D": {
     "description": [
-      "Panner3D is based on the <a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a>. This panner is a spatial processing node that allows audio to be positioned and oriented in 3D space. ",
+      "Panner3D is based on the <a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a>. This panner is a spatial processing node that allows audio to be positioned and oriented in 3D space.",
       "The position is relative to an <a title=\"Web Audio Listener docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/AudioListener\"> Audio Context Listener</a>, which can be accessed by <code>p5.soundOut.audiocontext.listener</code>"
     ],
     "panner": {
       "description": [
-        "<a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a> ",
-        "Properties include <ul> <li><a title=\"w3 spec for Panning Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"</a><blockquote> "
+        "<a title=\"Web Audio Panner docs\" href= \"https://developer.mozilla.org/en-US/docs/Web/API/PannerNode\"> Web Audio Spatial Panner Node</a>",
+        "Properties include <ul> <li><a title=\"w3 spec for Panning Model\" href=\"<a href=\"https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"\">https://www.w3.org/TR/webaudio/#idl-def-PanningModelType\"</a><blockquote>"
       ]
     },
     "process": {
@@ -6810,7 +6805,7 @@
   },
   "p5.Delay": {
     "description": [
-      "Delay is an echo effect. It processes an existing sound source, and outputs a delayed version of that sound. The p5.Delay can produce different effects depending on the delayTime, feedback, filter, and type. In the example below, a feedback of 0.5 (the default value) will produce a looping delay that decreases in volume by 50% each repeat. A filter will cut out the high frequencies so that the delay does not sound as piercing as the original source. ",
+      "Delay is an echo effect. It processes an existing sound source, and outputs a delayed version of that sound. The p5.Delay can produce different effects depending on the delayTime, feedback, filter, and type. In the example below, a feedback of 0.5 (the default value) will produce a looping delay that decreases in volume by 50% each repeat. A filter will cut out the high frequencies so that the delay does not sound as piercing as the original source.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "leftDelay": {
@@ -6894,7 +6889,7 @@
   },
   "p5.Reverb": {
     "description": [
-      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has parameters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution. ",
+      "Reverb adds depth to a sound through a large number of decaying echoes. It creates the perception that sound is occurring in a physical space. The p5.Reverb has parameters for Time (how long does the reverb last) and decayRate (how much the sound decays with each echo) that can be set with the .set() or .process() methods. The p5.Convolver extends p5.Reverb allowing you to recreate the sound of actual physical spaces through convolution.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "process": {
@@ -6944,8 +6939,8 @@
   },
   "p5.Convolver": {
     "description": [
-      "p5.Convolver extends p5.Reverb. It can emulate the sound of real physical spaces through a process called <a href=\" https://en.wikipedia.org/wiki/Convolution_reverb#Real_space_simulation\"> convolution</a>.  ",
-      "Convolution multiplies any audio input by an \"impulse response\" to simulate the dispersion of sound over time. The impulse response is generated from an audio file that you provide. One way to generate an impulse response is to pop a balloon in a reverberant space and record the echo. Convolution can also be used to experiment with sound.  ",
+      "p5.Convolver extends p5.Reverb. It can emulate the sound of real physical spaces through a process called <a href=\" https://en.wikipedia.org/wiki/Convolution_reverb#Real_space_simulation\"> convolution</a>.",
+      "Convolution multiplies any audio input by an \"impulse response\" to simulate the dispersion of sound over time. The impulse response is generated from an audio file that you provide. One way to generate an impulse response is to pop a balloon in a reverberant space and record the echo. Convolution can also be used to experiment with sound.",
       "Use the method <code>createConvolution(path)</code> to instantiate a p5.Convolver with a path to your impulse response audio file."
     ],
     "params": {
@@ -7002,8 +6997,8 @@
   },
   "p5.Phrase": {
     "description": [
-      "A phrase is a pattern of musical events over time, i.e. a series of notes and rests.  ",
-      "Phrases must be added to a p5.Part for playback, and each part can play multiple phrases at the same time. For example, one Phrase might be a kick drum, another could be a snare, and another could be the bassline.  ",
+      "A phrase is a pattern of musical events over time, i.e. a series of notes and rests.",
+      "Phrases must be added to a p5.Part for playback, and each part can play multiple phrases at the same time. For example, one Phrase might be a kick drum, another could be a snare, and another could be the bassline.",
       "The first parameter is a name so that the phrase can be modified or deleted later. The callback is a a function that this phrase will call at every step—for example it might be called <code>playNote(value){}</code>. The array determines which value is passed into the callback at each step of the phrase. It can be numbers, an object with multiple numbers, or a zero (0) indicates a rest so the callback won't be called)."
     ],
     "params": {
@@ -7019,7 +7014,7 @@
   },
   "p5.Part": {
     "description": [
-      "A p5.Part plays back one or more p5.Phrases. Instantiate a part with steps and tatums. By default, each step represents a 1/16th note.  ",
+      "A p5.Part plays back one or more p5.Phrases. Instantiate a part with steps and tatums. By default, each step represents a 1/16th note.",
       "See p5.Phrase for more about musical timing."
     ],
     "params": {
@@ -7236,7 +7231,7 @@
   },
   "p5.Compressor": {
     "description": [
-      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on individual sound sources in addition to the master output. ",
+      "Compressor is an audio effect class that performs dynamics compression on an audio input source. This is a very commonly used technique in music and sound production. Compression creates an overall louder, richer, and fuller sound by lowering the volume of louds and raising that of softs. Compression can be used to avoid clipping (sound distortion due to peaks in volume) and is especially useful when many sounds are played at once. Compression can be used on individual sound sources in addition to the master output.",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "compressor": {
@@ -7323,12 +7318,12 @@
   },
   "p5.PeakDetect": {
     "description": [
-      "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum.  ",
-      " To use p5.PeakDetect, call <code>update</code> in the draw loop and pass in a p5.FFT object.  ",
-      " You can listen for a specific part of the frequency spectrum by setting the range between <code>freq1</code> and <code>freq2</code>.   ",
-      "<code>threshold</code> is the threshold for detecting a peak, scaled between 0 and 1. It is logarithmic, so 0.1 is half as loud as 1.0.  ",
-      " The update method is meant to be run in the draw loop, and <b>frames</b> determines how many loops must pass before another peak can be detected. For example, if the frameRate() = 60, you could detect the beat of a 120 beat-per-minute song with this equation: <code> framesPerPeak = 60 / (estimatedBPM / 60 );</code>   ",
-      " Based on example contribtued by @b2renger, and a simple beat detection explanation by <a href=\"http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/\" target=\"_blank\">Felix Turner</a>. "
+      "PeakDetect works in conjunction with p5.FFT to look for onsets in some or all of the frequency spectrum.",
+      "To use p5.PeakDetect, call <code>update</code> in the draw loop and pass in a p5.FFT object.",
+      "You can listen for a specific part of the frequency spectrum by setting the range between <code>freq1</code> and <code>freq2</code>.",
+      "<code>threshold</code> is the threshold for detecting a peak, scaled between 0 and 1. It is logarithmic, so 0.1 is half as loud as 1.0.",
+      "The update method is meant to be run in the draw loop, and <b>frames</b> determines how many loops must pass before another peak can be detected. For example, if the frameRate() = 60, you could detect the beat of a 120 beat-per-minute song with this equation: <code> framesPerPeak = 60 / (estimatedBPM / 60 );</code>",
+      "Based on example contribtued by @b2renger, and a simple beat detection explanation by <a href=\"http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/\" target=\"_blank\">Felix Turner</a>."
     ],
     "params": {
       "freq1": "숫자: (선택 사항) lowFrequency - defaults to 20Hz",
@@ -7343,7 +7338,7 @@
     },
     "update": {
       "description": [
-        "The update method is run in the draw loop. ",
+        "The update method is run in the draw loop.",
         "Accepts an FFT object. You must call .analyze() on the FFT object prior to updating the peakDetect because it relies on a completed FFT analysis."
       ],
       "params": {
@@ -7362,7 +7357,7 @@
   },
   "p5.SoundRecorder": {
     "description": [
-      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput(). ",
+      "Record sounds for playback and/or to save as a .wav file. The p5.SoundRecorder records all sound output from your sketch, or can be assigned a specific source with setInput().",
       "The record() method accepts a p5.SoundFile as a parameter. When playback is stopped (either after the given amount of time, or with the stop() method), the p5.SoundRecorder will send its recording to that p5.SoundFile for playback."
     ],
     "setInput": {
@@ -7391,7 +7386,7 @@
   },
   "p5.Distortion": {
     "description": [
-      "A Distortion effect created with a Waveshaper Node, with an approach adapted from <a href=\"http://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion\">Kevin Ennis</a> ",
+      "A Distortion effect created with a Waveshaper Node, with an approach adapted from <a href=\"http://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion\">Kevin Ennis</a>",
       "This class extends <a href = \"/reference/#/p5.Effect\">p5.Effect</a>. Methods <a href = \"/reference/#/p5.Effect/amp\">amp()</a>, <a href = \"/reference/#/p5.Effect/chain\">chain()</a>, <a href = \"/reference/#/p5.Effect/drywet\">drywet()</a>, <a href = \"/reference/#/p5.Effect/connect\">connect()</a>, and <a href = \"/reference/#/p5.Effect/disconnect\">disconnect()</a> are available."
     ],
     "params": {

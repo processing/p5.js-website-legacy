@@ -1,5 +1,6 @@
 /**
  * @name Amplitude Modulation
+ * @arialabel White sound waves on black background change as the user moves their mouse. Labels of modulator frequency and amplitude change as the user moves their mouse too
  * @description <p>Amplitude Modulation involves two oscillators, referred
  * to as the carrier and the modulator, where the modulator controls
  * the carrier's amplitude.</p>

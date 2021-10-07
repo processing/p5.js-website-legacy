@@ -1,5 +1,6 @@
 /*
  * @name Follow 3
+ * @arialabel Long segmented snake shape follows the user’s mouse as it moves 
  * @frame 710,400
  * @description A segmented line follows the mouse. The relative angle from
  * each segment to the next is calculated with atan2() and the position of

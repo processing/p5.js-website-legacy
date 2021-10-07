@@ -1,5 +1,6 @@
 /* 
  * @name Trig Wheels and Pie Chart
+ * @arialabel Two circles on a white background. One circle has slices of various colors. One circle is comprised of rectangles spiraled into a circle shape in a rainbow gradient
  * @frame 400,400
  * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
    <b>Prof WM Harris,</b></a> <b>How</b> to create

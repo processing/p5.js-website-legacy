@@ -1,5 +1,6 @@
 /*
  * @name Variable Scope
+ * @arialabel Black background with vertical white lines condensed on the left side
  * @description Variables have a global or function "scope". For example,
  * variables declared within either the setup() or draw() functions may be
  * only used in these functions. Global variables, variables declared outside

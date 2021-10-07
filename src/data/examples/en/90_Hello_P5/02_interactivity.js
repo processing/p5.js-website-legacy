@@ -1,5 +1,6 @@
 /*
  * @name Interactivity 1
+ * @arialabel Dark grey background with a colored circle in the middle that changes color when clicked ons
  * @frame 720,425
  * @description The circle changes color when you click on it.
  */

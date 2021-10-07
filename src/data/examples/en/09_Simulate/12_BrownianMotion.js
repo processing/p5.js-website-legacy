@@ -1,5 +1,6 @@
 /*
  * @name Brownian Motion
+ * @arialabel A continuous white line draws squiggles on a grey background
  * @description Recording random movement as a continuous line.
  * Port of original example from the Processing examples page.
  */

@@ -1,5 +1,6 @@
 /*
  * @name Increment Decrement
+ * @arialabel Two black gradient rectangles on the bottom right and top left of the screen travel horizontally to the other side and leave a gradient grey path behind 
  * @description Writing "a++" is equivalent to "a = a + 1".
  * Writing "a--" is equivalent to "a = a - 1".
  */

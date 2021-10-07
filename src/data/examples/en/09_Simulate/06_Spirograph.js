@@ -1,6 +1,7 @@
 
 /*
  * @name Spirograph
+ * @arialabel A spirograph is created by interlocking black circle outlines rotating around each other on a grey background. When the user clicks the space bar, the background turns white and paths of circles of various sizes in an indigo color are visible
  * @description This sketch uses simple transformations to create a
  * Spirograph-like effect with interlocking circles (called sines).
  * Press the spacebar to switch between tracing and showing the underlying geometry.<br>

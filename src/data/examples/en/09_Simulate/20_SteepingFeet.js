@@ -1,5 +1,6 @@
 /*
  * @name Stepping Feet Illusion
+ * @arialabel Vertical black and white lines. A white rectangle moves across the screen under the white vertical lines and on top of the black ones. A black rectangle moves across the screen on top of both colored lines.
  * @description Stepping feet illusion is a very famous psychological experiment
  * Both the bricks will appear to move at different speed
  * even though they are moving at the same speed.

@@ -1,5 +1,6 @@
 /*
  * @name SmokeParticles
+ * @arialabel White circle gives off smoke on the middle of the bottom of the screen. The smoke blows in the direction of the user’s mouse as it moves side to side. There is a white arrow on the top that also points to the side where the user’s mouse is
  * @description a port of Dan Shiffman's SmokeParticleSystem example originally
  * for Processing. Creates smokey particles :p
  */

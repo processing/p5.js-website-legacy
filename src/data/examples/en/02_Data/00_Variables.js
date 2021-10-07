@@ -1,5 +1,6 @@
 /*
  * @name Variables
+ * @arialabel Black background with three sets of grey lines that form rectangles.
  * @description Variables are used for storing values. In this example, change
  * the values of variables to affect the composition.
  */

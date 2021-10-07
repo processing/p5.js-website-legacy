@@ -1,0 +1,24 @@
+description__0 = Extiende <a href="#/p5.Element">p5.Element</a> para manejar audio y video. Además de los métodos de <a href="#/p5.Element">p5.Element</a>, también contiene métodos para controlar los medios. No se llama directamente, pero <a href="#/p5.MediaElement">p5.MediaElement</a>s se crea llamando a <a href="#/p5/createVideo">createVideo</a>, <a href="#/p5/createAudio">createAudio</a> y <a href="#/p5/createCapture">createCapture</a>.
+params__elt = String: nodo DOM que está envuelto
+src__description__0 = Ruta a la fuente del elemento multimedia.
+src__returns = String: src
+play__description__0 = Reproduce un elemento multimedia HTML5.
+stop__description__0 = Detiene un elemento multimedia HTML5 (establece la hora actual en cero)
+pause__description__0 = Pausa un elemento multimedia HTML5.
+loop__description__0 = Establezca 'loop' en verdadero para un elemento multimedia HTML5 y comienza a reproducir.
+autoplay__description__0 = Establezca 'loop' en falso para un elemento multimedia HTML5. El elemento se detendrá cuando llegue al final.
+volume__description__0 = Establece el volumen para este elemento multimedia HTML5. Si no se proporciona ningún argumento, devuelve el volumen actual.
+speed__description__0 = Si no se dan argumentos, devuelve la velocidad de reproducción actual del elemento. El parámetro de velocidad establece la velocidad donde 2.0 reproducirá el elemento dos veces más rápido, 0.5 reproducirá a la mitad de la velocidad y -1 reproducirá el elemento a velocidad normal en reversa (tenga en cuenta que no todos los navegadores admiten la reproducción hacia atrás e incluso si lo hacen, la reproducción podría no ser fluido.)
+time__description__0 = Si no se dan argumentos, devuelve la hora actual del elemento. Si se proporciona un argumento, la hora actual del elemento se establece a la indicada.
+duration__description__0 = Devuelve la duración del elemento multimedia HTML5.
+onended__description__0 = Programe un evento para ser llamado cuando el elemento de audio o video llegue al final. Si el elemento está looping, esto no se llamará. El elemento se pasa como argumento para el onended callback.
+connect__description__0 = Envíe la salida de audio de este elemento a un objeto audioNode o p5.sound especificado. Si no se proporciona ningún elemento, se conecta a la salida maestra de p5. Esa conexión se establece cuando este método se llama por primera vez. Todas las conexiones se eliminan mediante el método .disconnect ().
+connect__description__1 = Este método está destinado a ser utilizado con la biblioteca de complementos p5.sound.js.
+disconnect__description__0 = Desconecta todo el enrutamiento de audio web, incluso a la salida maestra. Esto es útil si desea redirigir la salida a través de efectos de audio, por ejemplo.
+showControls__description__0 = Muestra los controles de MediaElement predeterminados, según lo determine el navegador web.
+hideControls__description__0 = Ocultar los controles predeterminados de mediaElement.
+addCue__description__0 = Programe eventos para que se activen cada vez que un MediaElement (audio / video) llegue a un punto de referencia de reproducción.
+addCue__description__1 = Acepta una función de devolución de llamada, un tiempo (en segundos) para activar el callback y un parámetro opcional para el callback.
+addCue__description__2 = El tiempo pasará como primer parámetro a la función de callback, y param será el segundo parámetro.
+removeCue__description__0 = Eliminar una devolución de llamada en función de su ID. La identificación es devuelta por el método addCue.
+clearCues__description__0 = Elimine todos los callbacks que originalmente se habían programado mediante el método addCue.

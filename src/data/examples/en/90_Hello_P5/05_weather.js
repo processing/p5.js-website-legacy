@@ -1,5 +1,6 @@
 /*
  * @name Weather
+ * @arialabel Uses weather from Metweather website to control a blue arrow and grey circle on the screen. The blue arrow is in a white circle on the bottom left corner and points in the direction of the wind. The small dark grey circle is on a grey background and moves in the window’s direction 
  * @frame 720,280
  * @description This example grabs JSON weather data from www.metaweather.com.
 */

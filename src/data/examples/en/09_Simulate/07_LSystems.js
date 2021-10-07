@@ -1,5 +1,6 @@
 /*
  * @name L-Systems
+ * @arialabel Circles of various colors and patterns connected to each other by perpendicular black lines are drawn on the screen to form a grid formation
  * @description This sketch creates an automated drawing based on a Lindenmayer
  * or (L-) system. L-systems are often used in procedural graphics to make
  * natural, geometric, or interesting "fractal-style" patterns.<br>

@@ -1,5 +1,6 @@
 /*
  * @name Distance 1D
+ * @arialabel One thin grey bar and wider grey bar travel on the top half of the screen, and another set of these two bars travel on the bottom half. The bars change speed and direction as the user’s mouse moves across the screen
  * @description Move the mouse left and right to control
  * the speed and direction of the moving shapes.
  */

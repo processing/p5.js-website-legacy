@@ -1,5 +1,6 @@
 /*
  * @name Array of Objects
+ * @arialabel Multiple sizes of small white circles placed randomly on a dark navy background that move in small amounts in various directions by itself like they are jittering 
  * @description Create a Jitter class, instantiate an array of objects
  * and move them around the screen.
  */

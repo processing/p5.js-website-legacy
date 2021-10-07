@@ -1,5 +1,6 @@
 /*
  * @name Noise2D
+ * @arialabel Two gradient, perlin noises, one on the left and one on the right
  * @frame 710,400 (optional)
  * @description Create a 2D noise with different parameters.
  *

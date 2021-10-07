@@ -1,5 +1,6 @@
 /*
  * @name Easing
+ * @arialabel Pink background with a white circle that the user can move around by hovering over the circle
  * @description Move the mouse across the screen and the symbol
  * will follow. Between drawing each frame of the animation, the
  * program calculates the difference between the position of the

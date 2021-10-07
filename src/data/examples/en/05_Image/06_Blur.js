@@ -1,5 +1,6 @@
 /*
  * @name Blur
+ * @arialabel Astronaut rendered in black and white on the left and a blurred version of the image on the right
  * @description A low-pass filter that blurs an image. This program analyzes every pixel in an image and blends it with all the neighboring pixels to blur the image.
  * <br><br><span class="small"><em>This example is ported from the <a href="https://processing.org/examples/blur.html">Blur example</a>
  * on the Processing website</em></span>

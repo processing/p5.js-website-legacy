@@ -1,5 +1,6 @@
 /**
  * @name Frequency Modulation
+ * @arialabel White sound waves on black background change as the user moves their mouse. Labels of modulator frequency and amplitude change as the user moves their mouse too. There is also a label of carrier frequency at 220 Hz 
  * @description <p>Frequency Modulation is a powerful form of synthesis.
  * In its simplest form, FM involves two oscillators, referred
  * to as the carrier and the modulator. As the modulator's waveform oscillates

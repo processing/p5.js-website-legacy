@@ -1,5 +1,6 @@
 /*
  * @name Snake game
+ * @arialabel Snake game where a snake represented by a long white oval on a black background is controlled by the i,j,k,l keys. Users use these keys to move the snake to not hit the sides of the window and to eat a small white circle which represents food and allows the snake to grow.
  * @description The famous snake game! Once you click run, click anywhere
  * inside the black area, and control the snake using i j k and l. Don't let
  * the snake hit itself or the wall!<br>

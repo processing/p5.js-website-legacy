@@ -1,6 +1,7 @@
 /*
  * @name Comments and Statements
- * @description Statements are the elements that make up programs. The ";" (semi-colon) symbol is used to end statements. It is called the "statement  * terminator". Comments are used for making notes to help people better understand programs. A comment begins with two forward slashes ("//"). (ported from https://processing.org/examples/statementscomments.html)
+ * @arialabel Mustard yellow background
+ * @description Statements are the elements that make up programs. The ";" (semi-colon) symbol is used to end statements. It is called the "statement terminator". Comments are used for making notes to help people better understand programs. A comment begins with two forward slashes ("//"). (ported from https://processing.org/examples/statementscomments.html)
  */
 // The createCanvas function is a statement that tells the computer 
 // how large to make the window.

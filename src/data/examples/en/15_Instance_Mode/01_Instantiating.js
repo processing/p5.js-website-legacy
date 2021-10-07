@@ -1,5 +1,6 @@
 /*
  * @name Instantiation
+ * @arialabel White square in the upper left quadrant on black background 
  * @description Create a p5 instance, which keeps all variables
  * out of the global scope of your page.
  */

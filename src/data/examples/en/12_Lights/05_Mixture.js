@@ -1,5 +1,6 @@
 /*
  * @name Mixture
+ * @arialabel Cube where we can see three sides, one blue and two forest green on a black background. An orange light shines where your mouse is when it is placed in the cube
  * @frame 710,400 (optional)
  * @description Display a box with three different kinds of lights.
  */

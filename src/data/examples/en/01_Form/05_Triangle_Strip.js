@@ -1,5 +1,6 @@
 /*
  * @name Triangle Strip
+ * @arialabel A ring of white triangles form a heptagon on the grey background. When a user drags their mouse from left to right, the number of triangles increase and create a smoother, circular ring 
  * @description Example by Ira Greenberg. Generate a closed ring using the
  * vertex() function and beginShape(TRIANGLE_STRIP) mode. The outsideRadius
  * and insideRadius variables control ring's radii respectively.

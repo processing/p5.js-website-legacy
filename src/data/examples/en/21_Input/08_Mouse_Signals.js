@@ -1,5 +1,6 @@
 /*
  * @name Mouse Signals
+ * @arialabel Three rows: fuschia on the top and bottom rows and white in the middle row. The top row tracks the x-coordinates of the mouse, the middle row tracks the y-coordinates, and the bottom row tracks whether or not the mouse is pressed.
  * @description Move and click the mouse to generate signals.
  * The top row is the signal from "mouseX", the middle row is
  * the signal from "mouseY", and the bottom row is the signal
