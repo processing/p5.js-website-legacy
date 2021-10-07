@@ -1,34 +1,56 @@
 description__0 = p5 인스턴스 생성자 입니다.
-description__1 = p5 인스턴스는 p5 스케치와 관련된 모든 속성과 메소드를 보유합니다. 도래할 스케치 클로저(closure)를 예상하고, 생성된 p5 캔버스를 노드에 연결하기 위해 선택적으로 노드 매개변수를 취할 수 있습니다. 스케치 클로저는 새로이 생성된 p5 인스턴스를 유일한 인수로 취하며, 또 선택적으로, 스케치 실행을 위해 <a href="#/p5/preload">preload()</a>, <a href="#/p5/setup">setup()</a>, 그리고/또는 <a href="#/p5/draw">draw()</a> 속성을 담을 수 있습니다.
+description__1 = p5 인스턴스는 p5 스케치와 관련된 모든 속성과 메소드(method)를 보유합니다. 도래할 스케치 클로저(closure)를 예상하고, 생성된 p5 캔버스를 노드에 연결하기 위해 선택적으로 노드 매개변수를 취할 수 있습니다. 스케치 클로저는 새로이 생성된 p5 인스턴스를 유일한 인수로 취하며, 또 선택적으로, 스케치 실행을 위해 <a href="#/p5/preload">preload()</a>, <a href="#/p5/setup">setup()</a>, 그리고/또는 <a href="#/p5/draw">draw()</a> 속성을 담을 수 있습니다.
 description__2 = p5 스케치는 "전역" 또는 "인스턴스" 모드에서 실행됩니다: "전역 모드" - 모든 속성과 메소드가 윈도우에 속함 "인스턴스 모드" - 모든 속성과 메소드가 특정 p5 객체에 구속됨
 returns = P5: p5 인스턴스
 params__sketch = 함수: 주어진 p5 인스턴스에 선택적으로 <a href="#/p5/preload">preload()</a>,  <a href="#/p5/setup">setup()</a>, 그리고/또는 <a href="#/p5/draw">draw()</a> 속성을 설정할 수 있는 클로저
-params__node = HTMLElement: (선택 사항) 캔버스에 속할 요소
+params__node = HTML Element: (선택 사항) 캔버스에 속할 요소
+describe__description__0 = 스크린리더 (Screen Reader)를 위한 캔버스의 전체적인 서술적 묘사를 설정합니다. 첫 번째 매개변수는 문자열이며, 설정할 묘사입니다. 두 번째 매개변수는 선택 사항이며, 묘사의 표시법을 지정합니다.
+describe__description__1 = <code class="language-javascript">describe(text, LABEL)</code>은 설명을 모든 사용자에게 <a href="https://ko.vvikipedia.org/wiki/Museum_label" target="_blank"> 박물관 라벨/캡션</a>을 캔버스 옆 <code class="language-javascript"><div class="p5Label"></div></code> 칸 안에 나타냅니다. CSS를 통해서 스타일을 자유자재로 바꿀 수 있습니다.
+describe__description__2 = <code class="language-javascript">describe(text, FALLBACK)</code>는 설정된 묘사를 스크린리더 사용자들에게만 이용가능케 하며, <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank">캔버스의 부가적 문서객체모델 (DOM)</a>에 설정됩니다. 두번 째 매개변수가 없을 시, 기본적으로 묘사는 스크린리더 사용자들에게만 이용가능합니다.
+describe__params__text = 문자열: 켄버스의 설명
+describe__params__display = 상수: (선택 사항) LABEL 또는 FALLBACK
+describeElement__description__0 = 스크린리더 (Screen Reader)를 위한 캔버스의 요소(도형, 또는 도형의 모임)의 서술적 묘사를 설정합니다. 첫 번째 매개변수는 묘사할 요소의 이름입니다. 두 번째 매개변수는 문자열이며 설정할 묘사입니다. 세 번째 매개변수는 선택 사항이며, 묘사의 표시법을 지정합니다.
+describeElement__description__1 = <code class="language-javascript">describe(text, LABEL)</code>은 설명을 모든 사용자에게 <a href="https://ko.vvikipedia.org/wiki/Museum_label" target="_blank"> 박물관 라벨/캡션</a>을 캔버스 옆 <code class="language-javascript"> <div class="p5Label"></div> </code> 칸 안에 나타냅니다. CSS를 통해서 스타일을 자유자재로 바꿀 수 있습니다.
+describeElement__description__2 = <code class="language-javascript">describeElement(name, text, FALLBACK)</code>는 설정된 묘사를 스크린리더 사용자들에게만 이용가능케 하며, <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank">캔버스의 부가적 문서객체모델 (DOM)</a>에 설정됩니다. 두번 째 매개변수가 없을 시, 기본적으로 묘사는 스크린리더 사용자들에게만 이용가능합니다.
+describeElement__params__name = 문자열: 요소의 이름
+describeElement__params__text = 문자열: 요소의 설명 및 묘사
+describeElement__params__display = 상수: (선택 사항) LABEL 또는 FALLBACK
+textOutput__description__0 = <code class="language-javascript">textOutput()</code> 함수는 스크린리더 (Screen Reader)를 위한 도형의 설명을 출력합니다. 이 설명은 자동적으로 만들어지며, 첫 부분은 캔버스의 높이 및 너비, 배경색, 그리고 캔버스상 요소 (도형, 또는 도형의 모임)의 개수를 출력합니다 (예: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). 다음은 각 요소의 색, 위치, 넓이 등의 정보를 출력합니다 (예: "orange ellipse at top left covering 1% of the canvas"). 각 요소에 대한 구체적 정보는 선택해서 볼 수 있습니다. 요소들의 목록이 제공됩니다. 이 목록에는 도형, 색, 위치, 좌표와 넓이가 묘사되어 있습니다 (예: "orange ellipse location=top left area=2").
+textOutput__description__1 = <code class="language-javascript">textOutput()</code>과 <code class="language-javascript">texOutput(FALLBACK)</code>은 출력물을 스크린리더 (Screen Reader)에 사용되는 <a href="https://developer.mozilla.org/ko/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank"> 캔버스의 부가적 문서객체모델 (DOM)</a>에 제공합니다. <code class="language-javascript">textOutput(LABEL)</code>은 캔버스 옆 추가적인 div요소를 만들고 그 안에 설명을 출력합니다. 이는 스크린리더를 사용하지 않지만 코딩하는 동안 출력물을 보면서 하고 싶어하는 유저들에게 유용합니다. 하지만 LABEL을 사용할 시 스크린리더 사용자들에게는 의미없는 중복성을 만들 수 있습니다. 그 이유로 LABEL은 스케치를 만드는 동안에만 사용하고 스케치를 출판하거나 스크린리더 사용자들에게 나누기 전에 지우는 것을 권장합니다.
+textOutput__params__display = 상수: (선택 사항) FALLBACK 또는 LABEL
+gridOutput__description__0 = <code class="language-javascript">gridOutput()</code>은 캔버스의 내용물을 위치적에 따라 격자 (grid) 형식으로 나열합니다. 이 테이블을 출력하기 전에 컨버스의 전반적 설명을 출력합니다. 캔버스의 높이 및 너비, 배경색, 그리고 캔버스상 요소 (도형, 또는 도형의 모임)의 개수를 출력합니다 (예: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). 그리드는 내용물을 위치적으로 설명하며, 각 요소는 위치의 격자 위 셀 (cell)에 놓입니다. 각 셀에는 특정 요소의 색상과 모양이 저장되어 있습니다 (예: \"orange ellipse\"). 각 요소에 대한 구체적 정보는 선택해서 볼 수 있습니다. 각 요소의 모양, 색, 위치, 넓이 등의 정보가 표기되어 있는 목록 (예: "orange ellipse location=top left area=1%")도 사용 가능합니다.
+gridOutput__description__1 = <code class="language-javascript">gridOutput()</code> and <code class="language-javascript">gridOutput(FALLBACK)</code>은 출력물을 스크린리더 (Screen Reader)에 사용되는 <a href=\"https://developer.mozilla.org/ko/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility" target="_blank"> 캔버스의 부가적 문서객체모델 (DOM)</a>에 제공합니다. <code class="language-javascript">gridOutput(LABEL)</code>은 캔버스 옆 추가적인 div요소를 만들고 그 안에 설명을 출력합니다. 이는 스크린리더를 사용하지 않지만 코딩하는 동안 출력물을 보면서 하고 싶어하는 유저들에게 유용합니다. 하지만 LABEL을 사용할 시 스크린리더 사용자들에게는 의미없는 중복성을 만들 수 있습니다. 그 이유로 LABEL은 스케치를 만드는 동안에만 사용하고 스케치를 출판하거나 스크린리더 사용자들에게 나누기 전에 지우는 것을 권장합니다.
+gridOutput__params__display = 상수: (선택 사항) FALLBACK 또는 LABEL
 alpha__description__0 = 픽셀 배열로부터 알파값을 추출합니다.
 alpha__returns = 알파값
-alpha__params__color = p5.Color|숫자 배열[]|문자열: p5.Color 객체, 색상 요소 또는 CSS 색상
+alpha__params__color = p5.Color|숫자 배열[]| 문자열: p5.Color 객체, 색상 요소 또는 CSS 색상
 blue__description__0 = 색상 또는 픽셀 배열로부터 파랑값을 추출합니다.
 blue__returns = 파랑값
 blue__params__color = p5.Color 객체, 색상 요소, CSS 색상
 brightness__description__0 = 색상 또는 픽셀 배열로부터 HSB 밝기값을 추출합니다.
 brightness__returns = 밝기값
 brightness__params__color = p5.Color 객체, 색상 요소, CSS 색상
-color__description__0 = 색상 함수를 이용해 색상 데이터의 매개변수를 저장해보세요. 이 때, 매개변수는 colorMode()의 설정에 따라 RGB 또는 HSB 값으로 처리됩니다. 기본 모드인 RGB값은 0부터 255까지이며, 따라서 color(255,204,0)와 같은 함수는 밝은 노랑색을 반환하게 됩니다. <br><br>         만약에 color() 함수에 매개변수가 1개만 적히면, 회색 음영(grayscale)값으로 처리됩니다. 여기에 추가되는 두번째 변수는 투명도를 설정할 수 있는 알파값으로서 처리됩니다. 세번째 변수가 추가되었을 때 비로소 RGB나 HSB값으로 처리되지요. RGB나 HSB값을 정하는 3개의 변수가 존재할 때 추가되는 네번째 변수는 알파값으로 적용됩니다. <br><br> 나아가, p5는 RGB, RGBA, Hex CSS 색상 문자열과 모든 색상명 문자열 역시 지원합니다. 그 경우, 알파값은 괄호 내 2번째 매개변수 추가를 통해서가 아닌, RGBA 형식에 따라 지정될 수 있습니다.
+color__description__0 = 색상 함수를 이용해 색상 데이터의 매개변수를 저장합니다. 이 때, 매개변수는 colorMode()의 설정에 따라 RGB 또는 HSB 값으로 처리됩니다. 기본 모드인 RGB값은 0부터 255까지이며, 따라서 color(255,204,0)와 같은 함수는 밝은 노랑색을 반환하게 됩니다.
+color__description__1 = 만약에 color() 함수에 매개변수가 1개만 적히면, 회색 음영(grayscale)값으로 처리됩니다. 여기에 추가되는 두번째 변수는 투명도를 설정할 수 있는 알파값으로서 처리됩니다. 세번째 변수가 추가되었을 때 비로소 RGB나 HSB값으로 처리됩니다. RGB나 HSB값을 정하는 3개의 변수가 존재할 때 추가되는 네번째 변수는 알파값으로 적용됩니다.
+color__description__2 = 나아가, p5는 RGB, RGBA, Hex CSS 색상 문자열과 모든 색상명 문자열 역시 지원합니다. 그 경우, 알파값은 괄호 내 2번째 매개변수 추가를 통해서가 아닌, RGBA 형식에 따라 지정될 수 있습니다.
 color__returns = 색상 결과
 color__params__gray = 숫자: 흑과 백 사이의 값 지정
-color__params__alpha = 숫자: 현재 색상 범위(기본값: 0-255)에 대한 알파값)
+color__params__alpha = 숫자: 현재 색상 범위(기본값: 0-255)에 대한 알파값
 color__params__v1 = 숫자: 현재 색상 범위 내 빨강색(R) 또는 색조값 지정
+color__params__v2 = 숫자: green or saturation value relative to the current color range
 color__params__v3 = 숫자: 현재 색상 범위 내 파랑색(B) 또는 색조값 지정
 color__params__value = 문자열: 색상 문자열
-color__params__values = 숫자[]: RGB 및 알파값을 포함한 숫자열
+color__params__values = 숫자 배열[]: RGB 및 알파값을 포함한 숫자 배열
 color__params__color = p5.Color
 green__description__0 = 색상 또는 픽셀 배열로부터 초록값을 추출합니다.
 green__returns = 초록값
 green__params__color = p5.Color 객체, 색상 요소, CSS 색상
-hue__description__0 = 색상 또는 픽셀 배열로부터 색조를 추출합니다. 색조는 HSB와 HSL상 모두 존재합니다. 이 함수는 HSB 색상 객체를 사용할 경우(또는 HSB 색상 모드로 지정된 픽셀 배열을 사용할 경우) HSB로 표준화된 색조 값을 반환합니다. 기본값으로는 HSL로 표준화된 색조를 반환합니다. (단, 최대 색조를 별도 지정한 경우 다른 값을 반환합니다.)
+hue__description__0 = 색상 또는 픽셀 배열로부터 색조를 추출합니다.
+hue__description__1 = 색조는 HSB와 HSL상 모두 존재합니다. 이 함수는 HSB 색상 객체를 사용할 경우(또는 HSB 색상 모드로 지정된 픽셀 배열을 사용할 경우) HSB로 표준화된 색조 값을 반환합니다. 기본값으로는 HSL로 표준화된 색조를 반환합니다. (단, 최대 색조를 별도 지정한 경우 다른 값을 반환합니다.)
 hue__returns = 색조
 hue__params__color = 객체, 색상 요소 또는 CSS 색상
-lerpColor__description__0 = 두 가지 색상을 혼합하고, 그 사이에 존재하는 제 3의 색상을 찾습니다. 여기서 매개변수 amt는 두 개의 값 사이를 선형적으로 보간합니다. 예를 들어, 0.0은 첫 번째 값과 동일한 색상값을, 0.1은 첫 번째 값에 매우 가까운 색상값을, 0.5는 두 값 사이의 중간 색상값을 나타내는 식입니다. 이 때, 0 미만의 값은 0으로, 1이상의 값은 1로 자동 변환됩니다. 이 점에서 lerpColor()는 lerp()와 다르게 작동하는 셈인데, 이처럼 lerpColor()는 색상값을 0과 1사이로 조정하여 지정된 범위를 벗어난 색상 생성을 방지합니다. 또한, 색상이 보간되는 방식은 현재 지정된 색상 모드에 따라 달라집니다.
+lerpColor__description__0 = 두 가지 색상을 혼합하고, 그 사이에 존재하는 제 3의 색상을 찾습니다. 여기서 매개변수 amt는 두 개의 값 사이를 선형적으로 보간합니다. 예를 들어, 0.0은 첫 번째 값과 동일한 색상값을, 0.1은 첫 번째 값에 매우 가까운 색상값을, 0.5는 두 값 사이의 중간 색상값을 나타내는 식입니다. 이 때, 0 미만의 값은 0으로, 1이상의 값은 1로 자동 변환됩니다. 이 점에서 lerpColor()는 lerp()와 다르게 작동하는 셈인데, 이처럼 lerpColor()는 색상값을 0과 1사이로 조정하여 지정된 범위를 벗어난 색상 생성을 방지합니다.
+lerpColor__description__1 = 색상이 보간되는 방식은 현재 지정된 색상 모드에 따라 달라집니다.
 lerpColor__returns = p5.Color: 선형적으로 보간된 색상
 lerpColor__params__c1 = 이 색상으로부터 선형 보간
 lerpColor__params__c2 = 이 색상을 향해 선형 보간
@@ -42,63 +64,75 @@ red__params__color = p5.Color|숫자 배열[]|문자열: p5.Color 객체, 색상
 saturation__description__0 = 색상 또는 픽셀 배열로부터 채도값을 추출합니다. 채도값은 HSB와 HSL에서 각각 다르게 측정됩니다. 이 함수는 HSL 채도를 기본값으로 제공합니다. 하지만, HSB 색상 객체가 제공 될 때 (또는 색상 모드가 HSB이면서 픽셀 배열이 제공될 때) HSB 채도값을 반환합니다.
 saturation__returns = 숫자: 채도값
 saturation__params__color = p5.Color|숫자 배열[]|문자열: p5.Color 객체, 색상 요소 또는 CSS 색상
-background__description__0 = background() 함수는 p5.js 캔버스의 배경색을 설정합니다. 배경색의 기본값은 투명입니다. 이 함수는 주로 draw() 함수 안에 위치하며, 매 프레임마다 윈도우 화면을 초기화하기 위해 사용됩니다. 하지만, 애니메이션의 첫 프레임 배경을 지정하거나 배경색을 최초 한번만 지정할 경우, setup() 함수 안에 쓰이기도 합니다. <br> 색상은 현재 색상 모드(colorMode)에 따라 RGB, HSB, 또는 HSL값으로 지정됩니다. (기본값으로 제공되는 색상 모드는 RGB이고, 그 색상 범위는 0부터 255까지 해당합니다.) 알파값의 기본 제공 범위 역시 0부터 255까지입니다.<br> 단일한 문자열 인수에 대해 RGB, RGBA, Hex CSS 색상 문자열과 더불어 명명된 모든 색상 문자열이 지원됩니다. 단, 투명도인 알파값을 설정하기 위해서는 반드시 RGBA를 사용해야합니다. <br> p5.Color 객체를 통해 배경색을 설정할 수 있습니다. <br> p5.Image를 통해 배경 이미지를 설정할 수 있습니다.
+background__description__0 = background() 함수는 p5.js 캔버스의 배경색을 설정합니다. 배경색의 기본값은 투명입니다. 이 함수는 주로 <a href=\"#/p5/draw\">draw()</a> 함수 안에 위치하며, 매 프레임마다 캔버스 화면을 초기화하기 위해 사용됩니다. 하지만, 애니메이션의 첫 프레임 배경을 지정하거나 배경색을 최초 한번만 지정할 경우, <a href=\"#/p5/setup\">setup()</a> 함수 안에 쓰이기도 합니다.
+background__description__1 = 색상은 현재 색상 모드(colorMode)에 따라 RGB, HSB, 또는 HSL값으로 지정됩니다. (기본값으로 제공되는 색상 모드는 RGB이고, 그 색상 범위는 0부터 255까지 해당합니다.) 알파값의 기본 제공 범위 역시 0부터 255까지입니다.
+background__description__2 = 단일한 문자열 인수에 대해 RGB, RGBA, Hex CSS 색상 문자열과 더불어 명명된 모든 색상 문자열이 지원됩니다. 단, 투명도인 알파값을 설정하기 위해서는 반드시 RGBA를 사용해야 합니다.
+background__description__3 = <a href="#/p5.Color">p5.Color</a> 객체를 통해 배경색을 설정할 수 있습니다.
+background__description__4 = <a href="#/p5.Image">p5.Image</a>를 통해 배경 이미지를 설정할 수 있습니다.
 background__params__color = p5.Color: color() 함수로 생성된 모든 값
 background__params__colorstring = 문자열, 지원되는 문자열 형식: 색상 문자열, 정수의 rgb()나 rgba(), 백분율의 rgb()나 rgba(), 3자리 숫자의 hex, 6자리 숫자의 hex
-background__params__a = 숫자: 현재 색상 범위에 따른 배경색 투명도 (기본값은 0-255) (선택 사항)
+background__params__a = 숫자: (선택 사항) 현재 색상 범위에 따른 배경색 투명도 (기본값은 0-255)
 background__params__gray = 숫자: 흑과 백 사이의 값 지정
 background__params__v1 = 숫자: 빨강값 또는 색조값 (현재 색상 모드에 따라 상이)
 background__params__v2 = 숫자: 초록값 또는 채도값 (현재 색상 모드에 따라 상이)
 background__params__v3 = 숫자: 파랑값 또는 밝기값 (현재 색상 모드에 따라 상이)
 background__params__values = 숫자 배열[]: 빨강값, 초록값, 파랑값, 알파값을 포함한 배열
 background__params__image = p5.Image: loadImage()나 createImage()로 생성된 이미지를 배경 이미지로 설정하는 경우 (스케치 화면과 반드시 동일한 사이즈일 것)
-clear__description__0 = 버퍼에 있는 픽셀들을 클리어하는 함수로, 오직 캔버스만 클리어하게 됩니다. createVideo()나 createDiv()와 같은, createX()류의 메소드로 지정된 객체들을 제거하진 않습니다. 메인 그래픽이 아닌, createGraphics()로 생성된 부가적인 그래픽의 경우, 그 전체 또는 일부를 투명하게 처리할 수 있습니다. 이 함수는 모든 픽셀을 100% 투명하게 만듭니다.
-colorMode__description__0 = colorMode()는 p5.js가 색상 데이터를 해석하는 방식을 결정합니다. 기본값으로, fill(), stroke(), background(), color()의 매개변수는 RGB 색상 모드에서 처리되며, 그 범위는 0부터 255까지입니다. 이 기본값은 colorMode(RGB, 255)와 동일한 효과를 지닙니다. colorMode(HSB)로 설정을 변경하면 HSB 색상 시스템을 사용할 수 있습니다. HSB 색상 시스템은 그 기본값으로 colorMode(HSB, 360, 100, 100, 1)와 같이 설정됩니다. 색상 모드는 HSL로도 설정가능합니다. <br>참고: 모든 색상 객체들은 생성 당시에 지정된 색상 모드를 반영합니다. 따라서, 이미 생성된 색상 객체 중 일부에만 적용되는 색상 모드를 지정할 수도 있습니다.
+clear__description__0 = 버퍼에 있는 픽셀들을 지우는 함수로, 오직 캔버스만 비게 됩니다. createVideo()나 createDiv()와 같은, createX()류의 메소드로 지정된 객체들을 제거하진 않습니다. 메인 그래픽이 아닌, createGraphics()로 생성된 부가적인 그래픽의 경우, 그 전체 또는 일부를 투명하게 처리할 수 있습니다. 이 함수는 모든 픽셀을 100% 투명하게 만듭니다.
+colorMode__description__0 = colorMode()는 p5.js가 색상 데이터를 해석하는 방식을 결정합니다. 기본값으로, fill(), stroke(), background(), color()의 매개변수는 RGB 색상 모드에서 처리되며, 그 범위는 0부터 255까지입니다. 이 기본값은 colorMode(RGB, 255)와 동일한 효과를 지닙니다. colorMode(HSB)로 설정을 변경하면 HSB 색상 시스템을 사용할 수 있습니다. HSB 색상 시스템은 그 기본값으로 colorMode(HSB, 360, 100, 100, 1)와 같이 설정됩니다. 색상 모드는 HSL로도 설정가능합니다.
+colorMode__description__1 = 참고: 모든 색상 객체들은 생성 당시에 지정된 색상 모드를 반영합니다. 따라서, 이미 생성된 색상 객체 중 일부에만 적용되는 색상 모드를 지정할 수도 있습니다.
 colorMode__params__mode = 상수: RGB(빨강Red/초록Green/파랑색Blue), HSB(색조Hue/채도Saturation/밝기Brightness), HSL(색조Hue/채도Saturation/명도Lightness) 중 하나
-colorMode__params__max1 = 숫자: 모든 값들의 범위 (선택 사항)
+colorMode__params__max = 숫자: (선택 사항) 모든 값들의 범위
+colorMode__params__max1 = 숫자: (선택 사항) 모든 값들의 범위
 colorMode__params__max2 = 숫자: 현재 지정된 색상 모드의 색상 범위에 따른 빨강값 또는 색조값
 colorMode__params__max3 = 숫자: 현재 지정된 색상 모드의 색상 범위에 따른 초록값 또는 채도값
-colorMode__params__maxA = 숫자: 알파값의 범위 (선택 사항)
-fill__description__0 = 도형의 면을 채울 색상을 지정합니다. 예를 들어, fill(204, 102, 0) 함수를 실행하면, 이 명령어 다음에 그려진 모든 도형들이 주황색으로 칠해집니다. 이 때, 색상값은 colorMode()로 지정된 현재의 색상 모드에 따라 RGB 또는 HSB로 지정됩니다. (기본값으로 제공되는 색상 모드는 RGB이고, 그 색상 범위는 0부터 255까지 해당합니다.) 알파값의 기본 제공 범위 역시 0부터 255까지입니다. <br>단일한 문자열 인수에 대해 RGB, RGBA, Hex CSS 색상 문자열과 더불어 명명된 모든 색상 문자열이 지원됩니다. 단, 투명도인 알파값을 설정하기 위해서는 반드시 RGBA를 사용해야합니다.
+colorMode__params__maxA = 숫자: (선택 사항) 알파값의 범위
+fill__description__0 = 도형의 면을 채울 색상을 지정합니다. 예를 들어, fill(204, 102, 0) 함수를 실행하면, 이 명령어 다음에 그려진 모든 도형들이 주황색으로 칠해집니다. 이 때, 색상값은 colorMode()로 지정된 현재의 색상 모드에 따라 RGB 또는 HSB로 지정됩니다. (기본값으로 제공되는 색상 모드는 RGB이고, 그 색상 범위는 0부터 255까지 해당합니다.) 알파값의 기본 제공 범위 역시 0부터 255까지입니다.
+fill__description__1 = 단일한 문자열 인수에 대해 RGB, RGBA, Hex CSS 색상 문자열과 더불어 명명된 모든 색상 문자열이 지원됩니다. 단, 투명도인 알파값을 설정하기 위해서는 반드시 RGBA를 사용해야 합니다.
+fill__description__2 = <a href="#/p5.Color">Color</a> 객체로도 색상을 지정할 수 있습니다.
 fill__params__v1 = 숫자: 현재 지정된 색상 모드의 색상 범위에 따른 빨강값 또는 색조값
 fill__params__v2 = 숫자: 현재 지정된 색상 모드의 색상 범위에 따른 초록값 또는 채도값
 fill__params__v3 = 숫자:현재 지정된 색상 모드의 색상 범위에 따른 파랑값 또는 밝기값
-fill__params__alpha = 숫자: (선택 사항)
+fill__params__alpha = 숫자: (선택사항)
 fill__params__value = 문자열: 색상 문자열
 fill__params__gray = 숫자: 회색값
 fill__params__values = 숫자 배열[]: 색상의 빨강값, 초록값, 파랑값, 그리고 알파값을 포함한 배열
 fill__params__color = p5.Color: 면채우기 색상
-noFill__description__0 = 도형에 색을 채우지 않도록 설정합니다. noStroke() 과  noFill()을 동시에 사용하면, 화면에 아무것도 나타나지 않습니다.
-noStroke__description__0 = 선이나 윤곽선을 그리지 않도록 설정합니다. noStroke() 과  noFill()을 동시에 사용하면, 화면에 아무것도 나타나지 않습니다.
-stroke__description__0 = 그려질 선 또는 도형 윤곽선의 색상을 설정합니다. 이 때, 색상값은 colorMode()로 지정된 현재의 색상 모드에 따라 RGB 또는 HSB로 지정됩니다. (기본값으로 제공되는 색상 모드는 RGB이고, 그 색상 범위는 0부터 255까지 해당합니다.) <br>단일한 문자열 인수에 대해 RGB, RGBA, Hex CSS 색상 문자열과 더불어 명명된 모든 색상 문자열이 지원됩니다. 단, 투명도인 알파값을 설정하기 위해서는 반드시 RGBA를 사용해야합니다.<br> p5.Color 객체를 통해 선의 색상을 설정할 수 있습니다.
+noFill__description__0 = 도형에 색을 채우지 않도록 설정합니다. noStroke()과 noFill()을 동시에 사용하면, 화면에 아무것도 나타나지 않습니다.
+noStroke__description__0 = 선이나 윤곽선을 그리지 않도록 설정합니다. noStroke()과 noFill()을 동시에 사용하면, 화면에 아무것도 나타나지 않습니다.
+stroke__description__0 = 그려질 선 또는 도형 윤곽선의 색상을 설정합니다. 이 때, 색상값은 colorMode()로 지정된 현재의 색상 모드에 따라 RGB 또는 HSB로 지정됩니다. (기본값으로 제공되는 색상 모드는 RGB이고, 그 색상 범위는 0부터 255까지 해당합니다.)
+stroke__description__1 = 그려질 선 또는 도형 윤곽선의 색상을 설정합니다. 이 때, 색상값은 colorMode()로 지정된 현재의 색상 모드에 따라 RGB 또는 HSB로 지정됩니다. (기본값으로 제공되는 색상 모드는 RGB이고, 그 색상 범위는 0부터 255까지 해당합니다.)
+stroke__description__2 = p5.Color 객체를 통해 선의 색상을 설정할 수 있습니다.
 stroke__params__v1 = 숫자: 현재 지정된 색상 모드의 색상 범위에 따른 빨강값 또는 색조값
 stroke__params__v2 = 숫자: 현재 지정된 색상 모드의 색상 범위에 따른 초록값 또는 채도값
 stroke__params__v3 = 숫자:현재 지정된 색상 모드의 색상 범위에 따른 파랑값 또는 밝기값
-stroke__params__alpha = 숫자: (선택 사항)
+stroke__params__alpha = 숫자: (선택사항)
 stroke__params__value = 문자열: 색상 문자열
 stroke__params__gray = 숫자: 회색값
 stroke__params__values = 숫자 배열[]: 색상의 빨강값, 초록값, 파랑값, 그리고 알파값을 포함한 배열
 stroke__params__color = p5.Color: 선의 색상
 erase__description__0 = <a href="#/p5/erase">erase()</a> 함수의 영향을 받는 모든 드로잉을 캔버스로부터 지웁니다. 지워진 영역은 캔버스 이면의 웹 페이지 화면을 드러냅니다. 이러한 지우기 행위는 <a href="#/p5/noErase">noErase()</a>로 취소할 수 있습니다.
 erase__description__1 = <a href="#/p5/erase">erase()</a> 함수와 <a href="#/p5/noErase">noErase()</a> 함수 사이에서 <a href="#/p5/image">image()</a>나 <a href="#/p5/background">background()</a>로 그려진 드로잉은 캔버스에서 지워지지 않습니다.
-erase__params__strengthFill = (선택 사항) 숫자: 도형의 면을 지우는 강도로서의 (0부터 255사이) 숫자. 별도 지정한 숫자가 없는 경우, 최고 강도인 255가 기본값으로 적용
-erase__params__strengthStroke = (선택 사항) 숫자: (Optional) 도형의 테두리를 지우는 강도로서의 (0부터 255사이) 숫자. 별도 지정한 숫자가 없는 경우, 최고 강도인 255가 기본값으로 적용
+erase__params__strengthFill = 숫자: (선택 사항) 도형의 면을 지우는 강도로서의 (0부터 255사이) 숫자. 별도 지정한 숫자가 없는 경우, 최고 강도인 255가 기본값으로 적용
+erase__params__strengthStroke = 숫자: (선택 사항) 도형의 테두리를 지우는 강도로서의 (0부터 255사이) 숫자. 별도 지정한 숫자가 없는 경우, 최고 강도인 255가 기본값으로 적용
 noErase__description__0 = <a href="#/p5/erase">erase()</a>의 지우기 행위를 중단합니다. <a href="#/p5/fill">fill()</a>, <a href="#/p5/stroke">stroke()</a>, 그리고 <a href="#/p5/blendMode">blendMode()</a> 함수로 설정된 사항들은 <a href="#/p5/erase">erase()</a> 함수가 호출되기 전의 상태로 돌아갑니다.
-arc__description__0 = 화면에 호, 즉 아치형 선을 그립니다. x좌표, y좌표, w(너비), h(높이), 시작점, 끝점을 지정하면 호는 열린 파이 조각의 형태로 그려집니다. 모드 변수를 설정하기에 따라, 호는 각각 반원(OPEN), 닫힌 반원(CHORD), 닫힌 파이 조각(PIE) 형태로 그려집니다. ellipseMode() 함수를 이용하면 시작점을 변경할 수 있습니다. 만약 원 하나를 그리기 위해 arc()의 시작점을 0으로, 끝점을 TWO_PI으로 설정할 경우, 시작점과 끝점이 동일하여 아무것도 그려지지 않습니다. 원을 그릴 때는 ellipse() 함수를, 원의 일부를 그릴 때는 arc() 함수를 이용하세요.
+arc__description__0 = 화면에 호, 즉 아치형 선을 그립니다. x좌표, y좌표, w(너비), h(높이), 시작점, 끝점을 지정하면 호는 열린 파이 조각의 형태로 그려집니다. 모드 변수를 설정하기에 따라, 호는 각각 반원(OPEN), 닫힌 반원(CHORD), 닫힌 파이 조각(PIE) 형태로 그려집니다. <a href="#/p5/ellipseMode">ellipseMode()</a> 함수를 이용하면 시작점을 변경할 수 있습니다.
+arc__description__1 = 호는 언제나 시계방향으로 시작점으로부터 끝점까지 그려집니다. 만약 원 하나를 그리기 위해 arc()의 시작점을 0으로, 끝점을 TWO_PI으로 설정할 경우, 시작점과 끝점이 동일하여 아무것도 그려지지 않습니다. 원을 그릴 때는 <a href="#/p5/ellipse">ellipse()</a> 함수를, 원의 일부를 그릴 때는 arc() 함수를 이용할 수 있습니다.
 arc__params__x = 숫자: 호를 포함하는 원의 x좌표
 arc__params__y = 숫자: 호를 포함하는 원의 y좌표값
 arc__params__w = 숫자: 호를 포함하는 원의 너비값
 arc__params__h = 숫자: 호를 포함하는 원의 높이값
-arc__params__start = 숫자: 원주호(radians)에 따른, 호의 시작점 각도값
-arc__params__stop = 숫자: 원주호(radians)에 따른, 호의 끝점 각도값
-arc__params__mode = 상수: 호를 그리는 방식들로, CHORD, PIEC, OPEN 중 선택 가능 (선택 사항)
-arc__params__detail = 숫자: WebGL 모드를 위한 선택적 변수로, 호의 윤곽선을 구성하는 꼭지점 개수를 지정. 기본값은 25. (선택 사항)
-ellipse__description__0 = 화면에 타원을 그립니다. 너비와 높이가 동일한 값으로 지정될 경우, 원이 그려집니다. 처음 두 변수는 각각 타원의 x좌표와 y좌표를, 3번째와 4번째 변수는 각각 타원의 너비와 높이를 지정합니다. 높이값 입력을 생략할 경우, 너비값이 높이값으로 동일하게 적용됩니다. 너비나 높이에 음수로 입력해도 그 절대값이 반영됩니다. ellipseMode() 함수를 이용하면 타원의 시작점을 원의 중심으로 지정할 지의 여부를 결정할 수 있습니다.
+arc__params__start = 숫자: 라디안 단위, 호의 시작점 각도값
+arc__params__stop = 숫자: 라디안 단위, 호의 끝점 각도값
+arc__params__mode = 상수: (선택 사항) 호를 그리는 방식들로, CHORD, PIEC, OPEN 중 선택 가능
+arc__params__detail = 숫자: (선택 사항) 호의 윤곽선을 구성하는 꼭짓점 개수를 지정. 기본값은 25. (WebGL 모드용)
+ellipse__description__0 = 화면에 타원을 그립니다. 너비와 높이가 동일한 값으로 지정될 경우, 원이 그려집니다. 처음 두 변수는 각각 타원의 x좌표와 y좌표를, 3번째와 4번째 변수는 각각 타원의 너비와 높이를 지정합니다. 높이값 입력을 생략할 경우, 너비값이 높이값으로 동일하게 적용됩니다. 너비나 높이에 음수로 입력해도 그 절대값이 반영됩니다.
+ellipse__description__1 = <a href=\"#/p5/ellipseMode\">ellipseMode()</a> 함수를 이용하면 타원의 시작점을 원의 중심으로 지정할 지의 여부를 결정할 수 있습니다.
 ellipse__params__x = 숫자: 타원의 x좌표
 ellipse__params__y = 숫자: 타원의 y좌표값
 ellipse__params__w = 숫자: 타원의 너비값
-ellipse__params__h = 숫자: 타원의 높이값
-ellipse__params__detail = 정수: 타원을 몇 개의 부분으로 나누어 그릴 것인지 지정 (WebGL 모드용)
+ellipse__params__h = 숫자: (선택사항) 타원의 높이값
+ellipse__params__detail = 정수: (선택사항) 타원을 몇 개의 부분으로 나누어 그릴 것인지 지정 (WebGL 모드용)
 circle__description__0 = 화면에 원을 그립니다. 원은 닫힌 도형으로, 중심점으로부터 주어진 거리에있는 모든 점들의 집합입니다.이 함수는 높이와 너비가 다른 타원을 그려내는 ellipse() 함수와는 달리, 너비와 높이가 모두 동일한 원을 그립니다. 이 경우, 높이와 너비는 원의 지름과 같습니다. 기본값으로, 처음 두 매개변수는 원의 중심 위치를 설정하고, 세 번째 매개 변수는 원의 지름을 설정합니다.
 circle__params__x = 숫자: 원 중심점의 x좌표
 circle__params__y = 숫자: 원 중심점의 y좌표
@@ -114,49 +148,64 @@ point__description__0 = 화면 좌표에 해당하는, 1픽셀 크기의 점을 
 point__params__x = 숫자: x좌표값
 point__params__y = 숫자: y좌표값
 point__params__z = 숫자: z좌표값 (WebGL 모드용)
-quad__description__0 = 사각형을 그립니다. 사각형은 4개의 변을 가진 다각형으로, 얼핏 직사각형과 유사하게 들리나 직사각형과는 달리 변 사이의 각도가 90도로 고정되어 있지 않습니다. 처음 한 쌍의 변수는 최초의 꼭지점을 설정하며, 뒤이은 다른 쌍들은 시계 방향이나 반시계 방향에 따라 나머지 3개의 꼭지점 위치를 설정합니다. z 변수는 WebGL 모드에서 quad() 함수를 사용하는 경우에만 적용됩니다.
-quad__params__x1 = 숫자: 1번째 꼭지점의 x좌표값
-quad__params__y1 = 숫자: 1번째 꼭지점의 y좌표값
-quad__params__x2 = 숫자: 2번째 꼭지점의 y좌표값
-quad__params__y2 = 숫자: 3번째 꼭지점의 x좌표값
-quad__params__x3 = 숫자: 4번째 꼭지점의 x좌표값
-quad__params__y3 = 숫자: 4번째 꼭지점의 y좌표값
-quad__params__x4 = 숫자: 2번째 꼭지점의 z좌표값
-quad__params__y4 = 숫자: 3번째 꼭지점의 z좌표값
-quad__params__z1 = 숫자: 2번째 꼭지점의 x좌표값
-quad__params__z2 = 숫자: 3번째 꼭지점의 y좌표값
-quad__params__z3 = 숫자: 1번째 꼭지점의 z좌표값
-quad__params__z4 = 숫자: 4번째 꼭지점의 z좌표값
-rect__description__0 = 화면에 직사각형을 그립니다. 직사각형은 변이 4개이고 모든 변 사이의 각도가 90도인 도형을 뜻합니다. 처음 두 변수는 좌측 상단 꼭지점의 좌표를, 3번째 변수는 사각형의 너비를, 4번째 변수는 그 높이를 설정합니다. rectMode() 함수로 사각형 그리기 모드를 변경하면, 모든 매개변수값들이 달리 해석됩니다. 5번째, 6번째, 7번째, 8번째 매개변수를 입력하면, 각각 좌측 상단, 우측 상단, 우측 하단, 좌측 하단 모퉁이들의 각도를 지정하게 됩니다. 이 때 특정 각도 변수가 누락되면, 직전에 입력된 변수와 동일한 값이 적용됩니다.
+point__params__coordinate_vector = p5.Vector: 좌표 벡터
+quad__description__0 = 사각형을 그립니다. 사각형은 4개의 변을 가진 다각형으로, 얼핏 직사각형과 유사하게 들리나 직사각형과는 달리 변 사이의 각도가 90도로 고정되어 있지 않습니다. 처음 한 쌍의 변수는 최초의 꼭짓점을 설정하며, 뒤이은 다른 쌍들은 시계 방향이나 반시계 방향에 따라 나머지 3개의 꼭짓점 위치를 설정합니다. z 변수는 WebGL 모드에서 quad() 함수를 사용하는 경우에만 적용됩니다.
+quad__params__x1 = 숫자: 1번째 꼭짓점의 x좌표값
+quad__params__y1 = 숫자: 1번째 꼭짓점의 y좌표값
+quad__params__x2 = 숫자: 2번째 꼭짓점의 y좌표값
+quad__params__y2 = 숫자: 3번째 꼭짓점의 x좌표값
+quad__params__x3 = 숫자: 4번째 꼭짓점의 x좌표값
+quad__params__y3 = 숫자: 4번째 꼭짓점의 y좌표값
+quad__params__x4 = 숫자: 2번째 꼭짓점의 z좌표값
+quad__params__y4 = 숫자: 3번째 꼭짓점의 z좌표값
+quad__params__detailX = 숫자: (선택 사항) 가로축에 있는 세그멘트의 수
+quad__params__detailY = 숫자: (선택 사항) 세로축에 있는 세그멘트의 수
+quad__params__z1 = 숫자: 2번째 꼭짓점의 x좌표값
+quad__params__z2 = 숫자: 3번째 꼭짓점의 y좌표값
+quad__params__z3 = 숫자: 1번째 꼭짓점의 z좌표값
+quad__params__z4 = 숫자: 4번째 꼭짓점의 z좌표값
+rect__description__0 = 화면에 직사각형을 그립니다. 직사각형은 변이 4개이고 모든 변 사이의 각도가 90도인 도형을 뜻합니다. 처음 두 변수는 좌측 상단 꼭짓점의 좌표를, 3번째 변수는 사각형의 너비를, 4번째 변수는 그 높이를 설정합니다. rectMode() 함수로 사각형 그리기 모드를 변경하면, 모든 매개변수값들이 달리 해석됩니다.
+rect__description__1 = 5번째, 6번째, 7번째, 8번째 매개변수를 입력하면, 각각 좌측 상단, 우측 상단, 우측 하단, 좌측 하단 모퉁이들의 각도를 지정하게 됩니다. 이 때 특정 각도 변수가 누락되면, 직전에 입력된 변수와 동일한 값이 적용됩니다.
 rect__params__x = 숫자: 직사각형의 x좌표값
 rect__params__y = 숫자: 직사각형의 y좌표값
 rect__params__w = 숫자: 직사각형의 너비값
 rect__params__h = 숫자: 직사각형의 높이값
-rect__params__tl = 숫자: 좌측 상단 모퉁이 각도값. (선택 사항)
-rect__params__tr = 숫자: 우측 상단 모퉁이 각도값. (선택 사항)
-rect__params__br = 숫자: 우측 하단 모퉁이 각도값. (선택 사항)
-rect__params__bl = 숫자: 좌측 하단 모퉁이 각도값. (선택 사항)
-rect__params__detailX = 정수: x축 방향의 선분 수 (WebGL 모드용)
-rect__params__detailY = 정수: y축 방향의 선분 수 (WebGL 모드용)
-square__description__0 = 화면에 정사각형을 그립니다. 정사각형은 동일한 길이의 네 개의 변을 갖고, 모든 변 사이의 각도가 90도인 도형을 뜻합니다. 이 함수는 rect()함수의 특수한 사례와도 같은데, 너비와 높이가 같고 변의 길이를 라는 매개변수로 처리하게 됩니다. 기본값으로, 처음 두 변수는 처음 두 변수는 좌측 상단 꼭지점의 좌표를, 3번째 변수는 변의 길이를 지정합니다. rectMode() 함수로 사각형 그리기 모드를 변경하면, 모든 매개변수값들이 달리 해석됩니다. <br> 5번째, 6번째, 7번째매개변수를 입력하면, 각각 좌측 상단, 우측 상단, 우측 하단, 좌측 하단 모퉁이들의 각도를 지정하게 됩니다. 이 때 특정 각도 변수가 누락되면, 직전에 입력된 변수와 동일한 값이 적용됩니다.
+rect__params__tl = 숫자: (선택 사항) 좌측 상단 모퉁이 각도값.
+rect__params__tr = 숫자: (선택 사항) 우측 상단 모퉁이 각도값.
+rect__params__br = 숫자: (선택 사항) 우측 하단 모퉁이 각도값.
+rect__params__bl = 숫자: (선택 사항) 좌측 하단 모퉁이 각도값.
+rect__params__detailX = 정수: (선택 사항) x축 방향의 선분 수 (WebGL 모드용)
+rect__params__detailY = 정수: (선택 사항) y축 방향의 선분 수 (WebGL 모드용)
+square__description__0 = 화면에 정사각형을 그립니다. 정사각형은 동일한 길이의 네 개의 변을 갖고, 모든 변 사이의 각도가 90도인 도형을 뜻합니다. 이 함수는 rect()함수의 특수한 사례와도 같은데, 너비와 높이가 같고 변의 길이를 라는 매개변수로 처리하게 됩니다. 기본값으로, 처음 두 변수는 처음 두 변수는 좌측 상단 꼭짓점의 좌표를, 3번째 변수는 변의 길이를 지정합니다. rectMode() 함수로 사각형 그리기 모드를 변경하면, 모든 매개변수값들이 달리 해석됩니다.
+square__description__1 = 5번째, 6번째, 7번째매개변수를 입력하면, 각각 좌측 상단, 우측 상단, 우측 하단, 좌측 하단 모퉁이들의 각도를 지정하게 됩니다. 이 때 특정 각도 변수가 누락되면, 직전에 입력된 변수와 동일한 값이 적용됩니다.
 square__params__x = 숫자: 정사각형의 x좌표값
 square__params__y = 숫자: 정사각형의 y좌표값
 square__params__s = 숫자: 정사각형의 너비 및 높이값
-square__params__tl = 숫자: 좌측 상단 모퉁이 각도값. (선택 사항)
-square__params__tr = 숫자: 우측 상단 모퉁이 각도값. (선택 사항)
-square__params__br = 숫자: 우측 하단 모퉁이 각도값. (선택 사항)
-square__params__bl = 숫자: 좌측 하단 모퉁이 각도값. (선택 사항)
-triangle__description__0 = 삼각형은 세 개의 점을 이어 만들어진 평면을 뜻합니다. 처음 두 인수는 1번째 꼭지점을, 중간의 두 변수는 2번째 꼭지점을, 마지막 두 인수는 3번째 꼭지점을 지정합니다.
-triangle__params__x1 = 숫자：1번째 꼭지점의 x좌표값
-triangle__params__y1 = 숫자：1번째 꼭지점의 y좌표값
-triangle__params__x2 = 숫자：2번째 꼭지점의 x좌표값
-triangle__params__y2 = 숫자：2번째 꼭지점의 y좌표값
-triangle__params__x3 = 숫자：3번째 꼭지점의 x좌표값
-triangle__params__y3 = 숫자：3번째 꼭지점의 y좌표값
-ellipseMode__description__0 = ellipse(), circle(), 그리고 arc() 함수의 매개변수들이 해석되는 방식을 변경하여, 타원이 그려지는 시작점 위치를 변경합니다.<br><br>기본적으로 제공되는 모드는 ellipseMode(CENTER) 함수와도 같습니다. 이는 ellipse() 함수의 처음 두 매개변수를 타원의 중심점으로, 3번째와 4번째 변수를 각각 그 너비와 높이값으로서 해석합니다.<br><br>ellipseMode(RADIUS) 역시 ellipse() 함수의 처음 두 매개변수를 타원의 중심점으로 해석하나, 3번째와 4번째 변수를 각각 너비와 높이의 중간 지점값으로 해석합니다.<br><br>ellipseMode(CORNER)는 ellipse() 함수의 처음 두 매개변수를 도형의 좌측 상단을 기준으로 해석하고, 3번째와 4번째 변수를 각각 그 너비와 높이로 해석합니다. <br><br>ellipseMode(CORNERS)는 ellipse() 함수의 처음 두 매개변수를 도형의 바운딩 박스 중 한 모퉁이의 위치값으로서 해석합니다. 그리고, 3번째와 4번째 변수는 그 정반대 모퉁이의 위치값으로 해석합니다.<br><br>이 함수의 모든 매개변수(CENTER, RADIUS, CORNER, CORNERS)들은 반드시 대문자로 작성되어야 합니다. 자바스크립트에서는 대소문자 구분이 매우 중요하답니다.
+square__params__tl = 숫자: (선택 사항) 좌측 상단 모퉁이 각도값.
+square__params__tr = 숫자: (선택 사항) 우측 상단 모퉁이 각도값.
+square__params__br = 숫자: (선택 사항) 우측 하단 모퉁이 각도값.
+square__params__bl = 숫자: (선택 사항) 좌측 하단 모퉁이 각도값.
+triangle__description__0 = 삼각형은 세 개의 점을 이어 만들어진 평면을 뜻합니다. 처음 두 인수는 1번째 꼭짓점을, 중간의 두 변수는 2번째 꼭짓점을, 마지막 두 인수는 3번째 꼭짓점을 지정합니다.
+triangle__params__x1 = 숫자：1번째 꼭짓점의 x좌표값
+triangle__params__y1 = 숫자：1번째 꼭짓점의 y좌표값
+triangle__params__x2 = 숫자：2번째 꼭짓점의 x좌표값
+triangle__params__y2 = 숫자：2번째 꼭짓점의 y좌표값
+triangle__params__x3 = 숫자：3번째 꼭짓점의 x좌표값
+triangle__params__y3 = 숫자：3번째 꼭짓점의 y좌표값
+ellipseMode__description__0 = ellipse(), circle(), 그리고 arc() 함수의 매개변수들이 해석되는 방식을 변경하여, 타원이 그려지는 시작점 위치를 변경합니다.
+ellipseMode__description__1 = 기본적으로 제공되는 모드는 ellipseMode(CENTER) 함수와도 같습니다. 이는 ellipse() 함수의 처음 두 매개변수를 타원의 중심점으로, 3번째와 4번째 변수를 각각 그 너비와 높이값으로서 해석합니다.
+ellipseMode__description__2 = ellipseMode(RADIUS) 역시 ellipse() 함수의 처음 두 매개변수를 타원의 중심점으로 해석하나, 3번째와 4번째 변수를 각각 너비와 높이의 중간 지점값으로 해석합니다.
+ellipseMode__description__3 = ellipseMode(CORNER)는 ellipse() 함수의 처음 두 매개변수를 도형의 좌측 상단을 기준으로 해석하고, 3번째와 4번째 변수를 각각 그 너비와 높이로 해석합니다.
+ellipseMode__description__4 = ellipseMode(CORNERS)는 ellipse() 함수의 처음 두 매개변수를 도형의 바운딩 박스 중 한 모퉁이의 위치값으로서 해석합니다. 그리고, 3번째와 4번째 변수는 그 정반대 모퉁이의 위치값으로 해석합니다.
+ellipseMode__description__5 = 이 함수의 모든 매개변수(CENTER, RADIUS, CORNER, CORNERS)들은 반드시 대문자로 작성되어야 합니다. 자바스크립트에서는 대소문자 구분이 매우 중요하답니다.
 ellipseMode__params__mode = 상수：CENTER, RADIUS, CORNER, 또는 CORNERS
 noSmooth__description__0 = 모든 그래픽의 가장자리를 울퉁불퉁하게 처리합니다. smooth() 함수는 2D 모드상 언제나 기본값으로 활성화되며, 그래픽을 부드럽게 처리합니다. 따라서, noSmooth() 함수를 호출해야만 도형, 이미지, 폰트 등의 부드러운 처리를 비활성화할 수 있습니다. 반면, 3D 모드에서는 noSmooth()가 기본값으로 활성화됩니다. 따라서, smooth() 함수를 호출해야만 부드러운 처리가 가능합니다.
-rectMode__description__0 = rect() 함수의 매개변수들이 해석되는 방식을 변경하여, 직사각형이 그려지는 시작점 위치를 변경합니다.<br><br>기본적으로 제공되는 모드는 rectMode(CORNER) 함수와도 같습니다. 이는 rect() 함수의 처음 두 매개변수를도형의 좌측 상단을 기준으로 해석하고, 3번째와 4번째 변수를 각각 그 너비와 높이값로서 해석합니다. <br><br>rectMode(CORNERS)는 rect() 함수의 처음 두 매개변수를 한 모퉁이의 위치값으로 서 해석합니다. 그리고, 3번째와 4번째 변수는 그 정반대 모퉁이의 위치값으로 해석합니다.<br><br>ellipseMode(CENTER)는 rect() 함수의 처음 두 매개변수를 타원의 중심점으로, 3번째와 4번째 변수를 각각 그 너비와 높이값으로서 해석합니다. <br><br>rectMode(RADIUS) 역시 rect() 함수의 처음 두 매개변수를 타원의 중심점으로 해석하나, 3번째와 4번째 변수를 각각 너비와 높이의 중간 지점값으로 해석합니다.<br><br>이 함수의 모든 매개변수(CORNER, CORNERS, CENTER, RADIUS)들은 반드시 대문자로 작성되어야 합니다. 자바스크립트에서는 대소문자 구분이 매우 중요하답니다.
+rectMode__description__0 = rect() 함수의 매개변수들이 해석되는 방식을 변경하여, 직사각형이 그려지는 시작점 위치를 변경합니다.
+rectMode__description__1 = 기본적으로 제공되는 모드는 rectMode(CORNER) 함수와도 같습니다. 이는 rect() 함수의 처음 두 매개변수를도형의 좌측 상단을 기준으로 해석하고, 3번째와 4번째 변수를 각각 그 너비와 높이값로서 해석합니다.
+rectMode__description__2 = rectMode(CORNERS)는 rect() 함수의 처음 두 매개변수를 한 모퉁이의 위치값으로 서 해석합니다. 그리고, 3번째와 4번째 변수는 그 정반대 모퉁이의 위치값으로 해석합니다.
+rectMode__description__3 = ellipseMode(CENTER)는 rect() 함수의 처음 두 매개변수를 타원의 중심점으로, 3번째와 4번째 변수를 각각 그 너비와 높이값으로서 해석합니다.
+rectMode__description__4 = rectMode(RADIUS) 역시 rect() 함수의 처음 두 매개변수를 타원의 중심점으로 해석하나, 3번째와 4번째 변수를 각각 너비와 높이의 중간 지점값으로 해석합니다.
+rectMode__description__5 = 이 함수의 모든 매개변수(CORNER, CORNERS, CENTER, RADIUS)들은 반드시 대문자로 작성되어야 합니다. 자바스크립트에서는 대소문자 구분이 매우 중요하답니다.
 rectMode__params__mode = 상수：CORNER, CORNERS, CENTER 또는 RADIUS
 smooth__description__0 = 모든 그래픽을 부드럽게 처리하며, 불러온 이미지 또는 크기가 재조정된 이미지의 화질을 향상합니다. smooth()는 2D 모드상 언제나 기본값으로 활성화되며. 따라서, noSmooth() 함수를 호출해야만 도형, 이미지, 폰트 등의 부드러운 그래픽 처리를 비활성화할 수 있습니다. 반면, 3D 모드에서는 noSmooth()가 기본값으로 활성화됩니다. 따라서, smooth() 함수를 호출해야만 부드러운 그래픽 처리가 가능합니다.
 strokeCap__description__0 = 선의 양끝에 대한 렌더링 스타일을 설정합니다. 선의 양끝은 매개변수 SQAURE로 각지게, PROJECT로 조금 더 길게, 그리고 ROUND로 둥글게 처리될 수 있습니다. 이 중에서 ROUND는 기본값으로 적용됩니다.
@@ -165,7 +214,8 @@ strokeJoin__description__0 = 두 선분 간의 이음새에 대한 스타일을 
 strokeJoin__params__join = 상수：MITER, BEVEL 또는 ROUND
 strokeWeight__description__0 = 선, 점, 그리고 도형 윤곽선을 그릴 때 쓰이는 함수인 stroke()의 결과값 두께를 설정합니다. 모든 두께는 픽셀 단위로 지정됩니다.
 strokeWeight__params__weight = 숫자：선의 두께 (픽셀 단위)
-bezier__description__0 = 화면에 3차 베지어 곡선을 그립니다. 베지어 곡선은 일련의 고정점 및 제어점들로 정의됩니다. 처음 두 매개변수는 1번째 고정점을, 마지막 두 매개변수는 마지막 고정점을 지정합니다. 중간의 두 매개변수는 두 개의 제어점을 지정하며, 이는 곧 곡선의 모양을 정의하게 됩니다. 여기서 제어점은 그 자신을 향해 곡선을 당기는 역할을 합니다. <br><br> 베지어 곡선은 프랑스 출신 자동차 엔지니어인 피에르 베지어(Pierre Bezier)가 개발하였으며, 컴퓨터 그래픽상 부드럽게 경사진 곡선을 정의하는 데에 주로 사용됩니다. curve()도 참고하세요.
+bezier__description__0 = 화면에 3차 베지에 곡선을 그립니다. 베지에 곡선은 일련의 고정점 및 제어점들로 정의됩니다. 처음 두 매개변수는 1번째 고정점을, 마지막 두 매개변수는 마지막 고정점을 지정합니다. 중간의 두 매개변수는 두 개의 제어점을 지정하며, 이는 곧 곡선의 모양을 정의하게 됩니다. 여기서 제어점은 그 자신을 향해 곡선을 당기는 역할을 합니다.
+bezier__description__1 = 베지에 곡선은 프랑스 출신 자동차 엔지니어인 피에르 베지에(Pierre Bezier)가 개발하였으며, 컴퓨터 그래픽상 부드럽게 경사진 곡선을 정의하는 데에 주로 사용됩니다. <a href=\"#/p5/curve\">curve()</a> 함수와도 관련있습니다.
 bezier__params__x1 = 숫자: 1번째 고정점의 x좌표값
 bezier__params__y1 = 숫자: 1번째 고정점의 y좌표값
 bezier__params__x2 = 숫자: 1번째 제어점의 x좌표값
@@ -178,10 +228,11 @@ bezier__params__z1 = 숫자: 1번째 고정점의 z좌표값
 bezier__params__z2 = 숫자: 1번째 제어점의 z좌표값
 bezier__params__z3 = 숫자: 2번째 제어점의 z좌표값
 bezier__params__z4 = 숫자: 2번째 고정점의 z좌표값
-bezierDetail__description__0 = 베지어 곡선들의 해상도를 설정합니다. <br>기본값은 20입니다.<br>이 함수는 WebGL 렌더러용으로만 사용되며, 기본 캔버스 렌더러에서는 이 함수를 사용하지 않습니다.
+bezierDetail__description__0 = 베지에 곡선들의 해상도를 설정합니다. 기본값은 20입니다.
+bezierDetail__description__1 = 이 함수는 WebGL 렌더러용으로만 사용되며, 기본 캔버스 렌더러에서는 이 함수를 사용하지 않습니다.
 bezierDetail__params__detail = 숫자: 곡선들의 해상도값
-bezierPoint__description__0 = 점 a, b, c, d로 정의된 베지어 곡선에서 위치 t를 계산합니다. 매개변수 a와 d는 각각 곡선의 1번째 점과 마지막 점에, b와 c는 제어점에 해당합니다. 마지막 매개변수인 t는 0과 1사이에서 표현됩니다. 함수는 먼저 x좌표를 호출한 다음, y좌표를 호출하여 위치 t를 찾게됩니다.
-bezierPoint__returns = 숫자: 위치 t에 해당하는 베지어 곡선의 값
+bezierPoint__description__0 = 점 a, b, c, d로 정의된 베지에 곡선에서 위치 t를 계산합니다. 매개변수 a와 d는 각각 곡선의 1번째 점과 마지막 점에, b와 c는 제어점에 해당합니다. 마지막 매개변수인 t는 0과 1사이에서 표현됩니다. 함수는 먼저 x좌표를 호출한 다음, y좌표를 호출하여 위치 t를 찾게됩니다.
+bezierPoint__returns = 숫자: 위치 t에 해당하는 베지에 곡선의 값
 bezierPoint__params__a = 숫자: 곡선의 1번째 점 좌표값
 bezierPoint__params__b = 숫자: 1번째 제어점 좌표값
 bezierPoint__params__c = 숫자: 2번째 제어점 좌표값
@@ -194,7 +245,7 @@ bezierTangent__params__b = 숫자: 1번째 제어점 좌표값
 bezierTangent__params__c = 숫자: 2번째 제어점 좌표값
 bezierTangent__params__d = 숫자: 곡선의 2번째 점 좌표값
 bezierTangent__params__t = 숫자: 0과 1 사이의 값
-curve__description__0 = 화면에 두 점 사이에 위치한 곡선을 그립니다. 이 때, 곡선의 형태는 함수의 매개변수들 중 가운데 네 개를 통해 정의됩니다. 처음 두 매개변수는 1번째 제어점의 좌표값을 지정하는데, 마치 이 제어점에서 곡선이 비롯된 것처럼 보이게 됩니다. 마지막 두 매개변수들은 마찬가지 원리로 또다른 제어점의 좌표를 지정합니다.<br><br>curve() 함수를 조합하거나 curveVertex()를 사용하여 좀 더 긴 곡선을 만들 수 있습니다. 부가적으로, curveTightness()을 통해 곡선의 화질을 조절할 수 있습니다. curve() 함수는 캣멀롬 스플라인(Catmull-Rom Spline)을 구현합니다.
+curve__description__0 = 화면에 두 점 사이에 위치한 곡선을 그립니다. 이 때, 곡선의 형태는 함수의 매개변수들 중 가운데 네 개를 통해 정의됩니다. 처음 두 매개변수는 1번째 제어점의 좌표값을 지정하는데, 마치 이 제어점에서 곡선이 비롯된 것처럼 보이게 됩니다. 마지막 두 매개변수들은 마찬가지 원리로 또다른 제어점의 좌표를 지정합니다. curve() 함수를 조합하거나 curveVertex()를 사용하여 좀 더 긴 곡선을 만들 수 있습니다. 부가적으로, curveTightness()을 통해 곡선의 화질을 조절할 수 있습니다. curve() 함수는 캣멀롬 스플라인(Catmull-Rom Spline)을 구현합니다.
 curve__params__x1 = 숫자: 최초 제어점의 x좌표값
 curve__params__y1 = 숫자: 최초 제어점의 y좌표값
 curve__params__x2 = 숫자: 1번째 점의 y좌표값
@@ -207,10 +258,11 @@ curve__params__z1 = 숫자: 1번째 점의 x좌표값
 curve__params__z2 = 숫자: 2번째 점의 y좌표값
 curve__params__z3 = 숫자: 최초 제어점의 z좌표값
 curve__params__z4 = 숫자: 마지막 제어점의 z좌표값
-curveDetail__description__0 = 곡선들의 해상도를 설정합니다. <br>기본값은 20이고, 최소값은 3입니다.<br>이 함수는 WebGL 렌더러용으로만 사용되며, 기본 캔버스 렌더러에서는 이 함수를 사용하지 않습니다.
+curveDetail__description__0 = 곡선들의 해상도를 설정합니다. <br>기본값은 20이고, 최소값은 3입니다.
+curveDetail__description__1 = 이 함수는 WebGL 렌더러용으로만 사용되며, 기본 캔버스 렌더러에서는 이 함수를 사용하지 않습니다.
 curveDetail__params__resolution = 숫자: 곡선들의 해상도값
-curveTightness__description__0 = curve()와 curveVertex() 함수를 사용하여 모양을 변경합니다. 곡선의 팽팽함(tightness)을 지정하는 매개변수 t는, 두 꼭지점 사이에 곡선이 들어맞는 정도를 결정합니다. 값 0.0은 곡선의 팽팽함에 대한 기본값이며(이 값을 통해 곡선을 캣멀롬 스플라인으로 정의), 값 1.0은 모든 점을 직선 상태로 연결하게 됩니다. -5.0와 5.0 사이의 값들은 화면상 인식 가능한 범위 내에서 값의 크기에 비례하여 곡선을 변형합니다.
-curveTightness__params__amount = 숫자: 원래 꼭지점으로부터 변형된 정도의 양
+curveTightness__description__0 = curve()와 curveVertex() 함수를 사용하여 모양을 변경합니다. 곡선의 팽팽함(tightness)을 지정하는 매개변수 t는, 두 꼭짓점 사이에 곡선이 들어맞는 정도를 결정합니다. 값 0.0은 곡선의 팽팽함에 대한 기본값이며(이 값을 통해 곡선을 캣멀롬 스플라인으로 정의), 값 1.0은 모든 점을 직선 상태로 연결하게 됩니다. -5.0와 5.0 사이의 값들은 화면상 인식 가능한 범위 내에서 값의 크기에 비례하여 곡선을 변형합니다.
+curveTightness__params__amount = 숫자: 원래 꼭짓점으로부터 변형된 정도의 양
 curvePoint__description__0 = 점 a, b, c, d로 정의된 곡선에서 위치 t를 계산합니다. 매개변수 a와 d는 곡선의 제어점에, b와 c는 각각 곡선의 시작점과 끝점에 해당합니다. 마지막 매개변수인 t는 0과 1사이에서 표현됩니다. 함수는 먼저 x좌표를 호출한 다음, y좌표를 호출하여 위치 t를 찾게됩니다.
 curvePoint__returns = 숫자: 위치 t에 해당하는 베지어값
 curvePoint__params__a = 숫자: 곡선의 1번째 제어점 좌표값
@@ -225,9 +277,21 @@ curveTangent__params__b = 숫자: 1번째 제어점 좌표값
 curveTangent__params__c = 숫자: 2번째 제어점 좌표값
 curveTangent__params__d = 숫자: 곡선의 2번째 점 좌표값
 curveTangent__params__t = 숫자: 0과 1 사이의 값
-beginContour__description__0 = beginContour()와 endContour() 함수를 사용하여 특정 도형 내부에 그 음수 좌표에 상응하는 동일한 도형 윤곽선을 그릴 수 있습니다. 예를 들어, 동그라미의 안쪽에 또다른 작은 동그라미를 그릴 수 있습니다. beginContour()는 도형의 꼭지점을 기록하기 시작하고, endContour()는 그 기록을 중지합니다. 이 때, 안쪽의 도형을 정의하는 꼭지점은 바깥쪽의 도형과 반대 순서로 그려져야 합니다. 먼저 바깥에 위치한 원래 도형의 꼭지점을 시계 방향으로 그리고, 그 다음 내부의 도형을 시계 반대 방향으로 그립니다.<br><br> beginContour()/endContour() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야 합니다. 또한, beingContour()/endContour() 함수 사이에는 translate(), rotate(), scale()과 같은 변형 함수나 ellipse() 및 rect()와 같은 도형그리기 함수가 사용될 수 없습니다.
-beginShape__description__0 = beginShape()과 endShape()를 사용하여 좀 더 복잡한 모양을 만들 수 있습니다. beingShape()은 도형의 꼭지점을 기록하기 시작하고, endShape()은 그 기록을 중지합니다. 함수의 매개변수를 통해 꼭지점으로 어떤 도형을 그릴지 결정할 수 있습니다. 별도의 매개변수가 지정되지 않으면, 비정형의 다각형이 그려집니다. <br><br>beginShape()에 쓰이는 매개변수로는 POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, QUAD_STRIP, 그리고 TESS(WebGL 전용)가 있습니다. beginShape() 함수를 호출한 다음, 꼭지점 지정을 위해 vertex() 명령문을 반드시 작성해야 합니다. 도형그리기를 멈추려면 endShape() 함수를 호출하면 됩니다. 각 도형은 현재 지정된 선그리기(stroke) 및 면채우기(fill) 색상으로 그려집니다.
-beginShape__params__kind = 상수: POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS 또는 QUAD_STRIP (선택 사항)
+beginContour__description__0 = beginContour()와 endContour() 함수를 사용하여 특정 도형 내부에 그 음수 좌표에 상응하는 동일한 도형 윤곽선을 그릴 수 있습니다. 예를 들어, 동그라미의 안쪽에 또다른 작은 동그라미를 그릴 수 있습니다. beginContour()는 도형의 꼭짓점을 기록하기 시작하고, endContour()는 그 기록을 중지합니다. 이 때, 안쪽의 도형을 정의하는 꼭짓점은 바깥쪽의 도형과 반대 순서로 그려져야 합니다. 먼저 바깥에 위치한 원래 도형의 꼭짓점을 시계 방향으로 그리고, 그 다음 내부의 도형을 시계 반대 방향으로 그립니다.
+beginContour__description__1 = beginContour()/endContour() 함수는 반드시 <a href=\"#/p5/beginShape\">beginShape()/</a>/Shape\">endShape()</a> 함수 사이에 작성되어야 합니다. 또한, beingContour()/endContour() 함수 사이에는 translate(), rotate(), scale()과 같은 변형 함수나 ellipse() 및 rect()와 같은 도형그리기 함수가 사용될 수 없습니다.
+beginShape__description__0 = <a href=\"#/p5/beginShape\">beginShape()</a>과 <a href=\"#/p5/endShape\">endShape()</a>를 사용하여 좀 더 복잡한 모양을 만들 수 있습니다. beingShape()은 도형의 꼭짓점을 기록하기 시작하고, <a href=\"#/p5/endShape\">endShape()</a>은 그 기록을 중지합니다. 함수의 매개변수를 통해 꼭짓점으로 어떤 도형을 그릴지 결정할 수 있습니다. 별도의 매개변수가 지정되지 않으면, 비정형의 다각형이 그려집니다.
+beginShape__description__1 = <a href="#/p5/beginShape">beginShape()</a>에 쓰이는 매개변수로는 POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS, QUAD_STRIP, 그리고 TESS(WebGL 전용)가 있습니다. <a href="#/p5/beginShape">beginShape()</a> 함수를 호출한 다음, 꼭짓점 지정을 위해 vertex() 명령문을 반드시 작성해야 합니다. 도형그리기를 멈추려면 <a href="#/p5/endShape">endShape()</a> 함수를 호출하면 됩니다. 각 도형은 현재 지정된 선그리기(stroke) 및 면채우기(fill) 색상으로 그려집니다.
+beginShape__description__2 = <a href="#/p5/beginShape">beginShape()</a>와 <a href="#/p5/endShape">endShape()</a> 함수들 사이에는 <a href="#/p5/translate">translate()</a>, <a href="#/p5/rotate">rotate()</a>, <a href="#/p5/scale">scale()</a>과 같은 변형 함수나 <a href="#/p5/ellipse">ellipse()</a>, <a href="#/p5/rect">rect()</a>와 같은 도형그리기 함수를 사용할 수 없습니다.
+beginShape__description__3 = LINES - 여려 개의 분리 된 선들을 그립니다.
+beginShape__description__4 = TRIANGLES - 여러 개의 분리 된 삼각형들을 그립니다.
+beginShape__description__5 = TRIANGLE_FAN - 여러 개의 연결 된 삼각형들을 그립니다. 이 삼각형들은 첫 꼭짓점을 공통적으로 하며 부채 모양으로 그려집니다.
+beginShape__description__6 = TRIANGLE_STRIP - 여러 개의 연결 된 삼각형들을 그립니다. 이 삼각형들은 한 줄로 그려집니다.
+beginShape__description__7 = TRIANGLE_STRIP - 여러 개의 연결 된 삼각형들을 그립니다. 이 삼각형들은 한 줄로 그려집니다.
+beginShape__description__8 = QUADS - 여러 개의 분리 된 사각형들을 그립니다.
+beginShape__description__9 = TESS (WebGl만 가능) - 모자이크 세공 (tessellation)을 위한 불규칙적 도형을 그립니다.
+beginShape__description__10 = <a href="#/p5/beginShape">beginShape()</a> 함수는 호출할 시, 이후에 여러 개의 <a href="#/p5/vertex">vertex()</a> 명령들을 호출해야 합니다.그림 그리기를 멈추려면 <a href="#/p5/endShape">endShape()</a> 함수를 호출합니다. 각 도형은 현재의 윤곽선 색으로 그려지며, 면은 현재의 면 색으로 채워집니다.
+beginShape__description__11 = <a href="#/p5/translate">translate()</a>, <a href="#/p5/rotate">rotate()</a>, 또는 <a href="#/p5/scale">scale()</a>와 같은 변형 함수들은 <a href="#/p5/beginShape">beginShape()</a> 함수 안에서 사용할 수 없습니다. 또한, <a href="#/p5/ellipse">ellipse()</a>와 <a href="#/p5/rect">rect()</a> 같은 함수들을 <a href="#/p5/beginShape">beginShape()</a> 함수 안에서 사용할 수 없습니다.
+beginShape__params__kind = 상수: (선택 사항) POINTS, LINES, TRIANGLES, TRIANGLE_FAN, TRIANGLE_STRIP, QUADS 또는 QUAD_STRIP
 bezierVertex__description__0 = 베지어 곡선의 꼭지점 좌표를 지정합니다. bezierVertex()은 매 호출마다 베지어 곡선의 제어점 2개와 고정점 1개의 위치를 정의하고, 이 새로운 선분을 선 또는 도형에 더합니다. bezierVertex()는 WebGL상 2D 및 3D 모드 모두에 적용될 수 있습니다. 2D 모드에서는 6개의 매개변수가, 3D 모드에서는 9개의 매개변수(z좌표값 포함)가 필요합니다.<br><br>beginShape() 함수 안에 작성된 bezierVertex()를 호출하기에 앞서, vertex() 함수를 bezierVertex() 윗줄에 작성하여 곡선의 1번째 고정점을 설정해야 합니다. bezierVertex() 함수는 반드시 beginShape()/endShape() 함수 사이에 작성되어야하며, beginShape() 함수에 MODE나 POINTS 매개변수가 지정되지 않은 경우에만 사용가능 합니다.
 bezierVertex__params__x2 = 숫자: 1번째 제어점의 x좌표값
 bezierVertex__params__y2 = 숫자: 1번째 제어점의 y좌표값
@@ -306,17 +370,6 @@ remove__description__0 = 전체 p5 스케치를 제거합니다. 이 함수는 �
 disableFriendlyErrors__description__0 = 스케치를 만드는 동안 '친근한 에러 시스템(Friendly Error System, FES)'을 필요시 비활성화하여 성능을 향상시킵니다. <a href='https://github.com/processing/p5.js/wiki/Optimizing-p5.js-Code-for-Performance#disable-the-friendly-error-system-fes'>친근한 에러 시스템 비활성화하기</a>를 참고하세요.
 let__description__0 = 새로운 변수를 생성하고 그 이름을 지정합니다. 변수는 값을 담는 컨테이너입니다.<br>let으로 선언된 변수는 블록 단위의 적용 범위를 갖습니다. 즉, 변수가 작성된 블록 내에서만 존재하고 사용될 수 있음을 뜻합니다.<br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let'>MDN Entry</a>에서 발췌: 블록 범위의 지역 변수를 선언하고, 선택적으로 그 값을 초기화합니다.
 const__description__0 = 새로운 상수를 생성하고 그 이름을 지정합니다. 마치 let으로 생성된 변수처럼, const로 생성된 상수는 값을 담는 컨테이너입니다. 하지만, 상수는 한 번 산언된 다음 변경할 수 없습니다.<br>const로 선언된 상수는 블록 단위의 적용 범위를 갖습니다. 즉, 상수가 작성된 블록 내에서만 존재하고 사용될 수 있음을 뜻합니다. 상수는 자신이 존재하고 있는 범위 내에서 재선언될 수 없습니다.<br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const'>MDN Entry</a>에서 발췌: 읽기만 가능한 상수를 선언합니다. const는 블록 단위로 적용되며, let으로 선언된 변수들과 유사합니다. 상수값은 재지정을 통해 변경될 수 없으며, 재선언될 수 없습니다.
-===__description__0 = 완전 항등 연산자 '===' 는 두 값이 같으면서 동시에 동일한 유형인지 여부를 확인합니다.<br>비교 표현식은 항상 불리언으로 연산됩니다.<br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators'>MDN Entry</a>에서 발췌: 이 연산자는 피연산자들이 동일한 값이 아니고/또는 동일한 유형이 아닐 때 참(true)을 반환합니다.<br>웹상의 몇몇 예제에서 피연산자 간의 비교를 위해 이중 등호(==)를 사용하는 것을 볼 수 있습니다. 이는 자바스크립트상의 완전 항등 연산자(===)에 해당하지 않으며, 두 피연산자의 값들을 비교하기에 앞서, 그 유형이 동일한지의 여부를 비교하게 됩니다.
-===__description__1 = A comparison expression always evaluates to a <a href="#/p5/boolean">boolean</a>.
-===__description__2 = From <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">the MDN entry</a>: The non-identity operator returns true if the operands are not equal and/or not of the same type.
-===__description__3 = Note: In some examples around the web you may see a double-equals-sign <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Equality">==</a>, used for comparison instead. This is the non-strict equality operator in Javascript. This will convert the two values being compared to the same type before comparing them.
->__description__0 = 비교 연산자 > 는 왼쪽 값이 오른쪽 값보다 큰 경우 참(true)으로 연산합니다.<br><br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators'>MDN 발췌 비교 연산자 상세 설명</a>
->=__description__0 = 비교 연산자 >= 는 왼쪽 값이 오른쪽 값보다 크거나 같은 경우 참(true)로 연산합니다.<br><br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators'>MDN 발췌 비교 연산자 상세 설명</a>
->=__description__1 = <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">There is more info on comparison operators on MDN.</a>
-<__description__0 = 비교 연산자 < 는 왼쪽 값이 오른쪽 값보다 작은 경우 참(true)으로 연산합니다.<br><br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators'>MDN 발췌 비교 연산자 상세 설명</a>
-<__description__1 = <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">There is more info on comparison operators on MDN.</a>
-<=__description__0 = 비교 연산자 <= 는 왼쪽 값이 오른쪽 값보다 작거나 같은 경우 참(true)로 연산합니다.<br><br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators'>MDN 발췌 비교 연산자 상세 설명</a>
-<=__description__1 = <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">There is more info on comparison operators on MDN.</a>
 if-else__description__0 = if-else문으로 코드의 흐름을 제어할 수 있습니다.<br>'if' 바로 다음 괄호 안에 조건을 지정할 수 있으며, 조건이 <a href = 'https://developer.mozilla.org/en-US/docs/Glossary/truthy'>참(truthy)</a>으로 연산되면 뒤따른 중괄호 사이의 코드가 실행됩니다. 조건이 <a href = 'https://developer.mozilla.org/en-US/docs/Glossary/Falsy'>거짓(falsy)</a>으로 연산되면 'else' 뒤에 오는 중괄호 사이의 코드가 대신 실행됩니다.<br><br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else'>MDN Entry</a>에서 발췌: 지정된 조건이 참일 경우, if문은 명령문을 실행합니다. 조건이 거짓이면 다른 명령문을 실행할 수 잇습니다.
 function__description__0 = 새로운 <a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions'>함수(function)</a>를 생성하고 그 이름을 지정합니다. 함수란, 작업을 수행하는 일련의 명령문을 뜻합니다.<br> 선택적으로, 함수는 매개변수를 가질 수 있습니다.<a href = 'https://developer.mozilla.org/en-US/docs/Glossary/Parameter'>매개변수(parameter)</a>란, 특정 함수에만 그 사용 범위가 지정된 변수를 뜻하며 함수 호출시 그 값을 지정할 수 있습니다.<br><br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function'>MDN Entry</a>에서 발췌: 사용자가 지정한 매개변수를 사용하여 함수를 선언합니다.
 return__description__0 = 함수가 반환할 값을 지정합니다. <br><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return'>MDN Entry 발췌 함수(function) 상세 설명</a>
