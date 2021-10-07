@@ -1,0 +1,3 @@
+log__description__0 = 브라우저의 메세지 콘솔에 메세지를 프린트합니다. p5에서는 <a href="#/p5/print">print</a> 또는 <a href="#/p5/console/log">console.log</a> 모두 사용가능합니다.
+log__description__1 = 콘솔은 브라우저에 따라 다르게 열립니다. 다음은 여러가지 방법이 제시되어 있습니다. <a href="https://developer.mozilla.org/ko/docs/Tools/Web_Console/Opening_the_Web_Console">Firefox</a> , <a href="https://developers.google.com/web/tools/chrome-devtools/open">Chrome</a>, <a href="https://docs.microsoft.com/ko-kr/microsoft-edge/devtools-guide/console">Edge</a>, <a href="https://support.apple.com/ko-kr/guide/safari/sfri20948/mac">Safari</a>. <br> <a href="https://editor.p5js.org/">온라인 p5 에디터</a>에서는 콘솔이 코트 에디터 바로 밑에 고정되어 있습니다.
+log__params__message = 문자열|Expression|객체: 콘솔에 프린트하고 싶은 메세지
