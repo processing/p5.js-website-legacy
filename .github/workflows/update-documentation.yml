@@ -29,6 +29,16 @@ jobs:
         run: |
           echo ::set-output name=VERSION::${P5JS_REF/refs\/tags\//}
           echo ::set-output name=SHA::${P5JS_SHA}
+      - name: Get latest p5.min.js build
+        uses: suisei-cn/actions-download-file@v1
+        with:
+          url: https://github.com/processing/p5.js/releases/download/${{github.event.client_payload.ref}}/p5.min.js
+          target: src/assets/js/
+      - name: Get latest p5.sound.min.js build
+        uses: suisei-cn/actions-download-file@v1
+        with:
+          url: https://github.com/processing/p5.js/releases/download/${{github.event.client_payload.ref}}/p5.sound.min.js
+          target: src/assets/js/
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
         with:
