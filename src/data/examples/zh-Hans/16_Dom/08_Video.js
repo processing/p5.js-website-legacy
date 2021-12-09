@@ -9,6 +9,7 @@ let fingers;
 let button;
 
 function setup() {
+  noCanvas();
   // specify multiple formats for different browsers
   fingers = createVideo(['assets/fingers.mov', 'assets/fingers.webm']);
   button = createButton('play');
