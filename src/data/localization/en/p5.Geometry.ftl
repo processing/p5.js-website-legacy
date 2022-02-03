@@ -1,6 +1,6 @@
 description__0 = p5 Geometry class
-params__detailX = Integer: (Optional) number of vertices on horizontal surface
-params__detailY = Integer: (Optional) number of vertices on horizontal surface
+params__detailX = Integer: (Optional) number of vertices along the x-axis.
+params__detailY = Integer: (Optional) number of vertices along the y-axis.
 params__callback = Function: (Optional) function to call upon object instantiation.
 computeFaces__description__0 = computes faces for geometry objects based on the vertices.
 computeNormals__description__0 = computes smooth normals per vertex as an average of each face.
