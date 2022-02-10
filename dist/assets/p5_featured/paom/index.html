@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+  <head>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.2.4/p5.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.2.4/addons/p5.dom.js'></script>
+    <script type='text/javascript' language='javascript'>
+    
+    var gifs = [];
+    function setup() {
+      var s = windowHeight/1400;
+      gifs[0] = createImg('gifs/processing01.gif'); // lower left
+      gifs[0].size(395*s, 538*s);
+      gifs[0].position(0, windowHeight-gifs[0].height);
+
+      gifs[1] = createImg('gifs/processing04.gif'); // mid left
+      gifs[1].size(468*s, 468*s);
+      gifs[1].position(150*s, windowHeight*0.5 - 0.65*gifs[1].height);
+
+      gifs[2] = createImg('gifs/processing02.gif'); // upper left
+      gifs[2].size(306*s, 500*s);
+      gifs[2].position(0, 110*s);
+
+      gifs[3] = createImg('gifs/processing06.gif'); // upper right
+      gifs[3].size(324*s, 528*s);
+      gifs[3].position(windowWidth-gifs[3].width-10*s, 110*s);
+
+      gifs[4] = createImg('gifs/processing05.gif'); // mid right
+      gifs[4].size(398*s, 534*s);
+      gifs[4].position(windowWidth-gifs[4].width-200*s, windowHeight*0.5 - 0.5*gifs[4].height);
+
+      gifs[5] = createImg('gifs/processing03.gif'); // lower right
+      gifs[5].size(299*s, 450*s);
+      gifs[5].position(windowWidth-gifs[5].width-40*s, windowHeight-gifs[5].height);
+
+      // if (windowHeight < 500) {
+      // }
+
+      if (windowWidth < 720) {
+        gifs[1].hide();
+        gifs[4].hide();
+        gifs[2].hide();
+        gifs[3].hide();
+      }
+      console.log(windowHeight, window.innerHeight)
+    }
+
+    </script>
+    <style>body{margin: 0; padding: 0}</style>
+  </head>
+  <body oncontextmenu="return false;">
+  </body>
+</html>
+

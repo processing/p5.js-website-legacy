@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=fd72a4">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../assets/img/favicon.ico">
+    <link rel="icon" href="/../assets/img/favicon.ico">
+
+
+    <script src="/../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=6be92f"></script>
+
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">Skip to content</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/">
+          <img src="/../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/">Home</a></li>
+        <li><a href="https://editor.p5js.org">Editor</a></li>
+        <li><a href="/download/">Download</a></li>
+        <li><a href="/download/support.html">Donate</a></li>
+        <li><a href="/get-started/">Get Started</a></li>
+        <li><a href="/reference/">Reference</a></li>
+        <li><a href="/libraries/">Libraries</a></li>
+        <li><a href="/learn/">Learn</a></li>
+        <li><a href="/teach/">Teach</a></li>
+        <li><a href="/examples/">Examples</a></li>
+        <li><a href="/books/">Books</a></li>
+        <li><a href="/community/">Community</a></li>
+        <li><a href="https://showcase.p5js.org">Showcase</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">Forum</a></li>
+        <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+        <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+        <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+        <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main >
+      <div class="attribution">
+      This tutorial is from the book <em>Learning Processing</em> by Daniel Shiffman, published by Morgan Kaufmann, © 2008 Elsevier Inc. All rights reserved. It was ported to p5.js by Alex Yixuan Xu. If you find any errors or have comments, please <a href="https://github.com/processing/processing-docs/issues?state=open">let us know</a>.</div>
+
+      <h1>Coordinate System and Shapes</h1>
+      <p>Before we begin programming with p5, we must first channel our eighth grade selves, pull out a piece of graph paper, and draw a line. The shortest distance between two points is a good old fashioned line, and this is where we begin, with two points on that graph paper.</p>
+      <img src="../assets/learn/coordinate-system-and-shapes/images/drawing-01.png" alt="">
+
+      <p>The above figure shows a line between point A (1,0) and point B (4,5). If you wanted to direct a friend of yours to draw that same line, you would give them a shout and say "draw a line from the point one-zero to the point four-five, please." Well, for the moment, imagine your friend was a computer and you wanted to instruct this digital pal to display that same line on its screen. The same command applies (only this time you can skip the pleasantries and you will be required to employ a precise formatting). Here, the instruction will look like this:</p>
+
+      <pre><code class="language-javascript">
+        line(1,0,4,5);
+      </code></pre>
+
+      <p>Even without having studied the syntax of writing code, the above statement should make a fair amount of sense. We are providing a command (which we will refer to as a "function") for the machine to follow entitled "line." In addition, we are specifying some arguments for how that line should be drawn, from point A (1,0) to point B (4,5). If you think of that line of code as a sentence, the function is a verb and the arguments are the objects of the sentence. The code sentence also ends with a semicolon instead of a period.</p>
+      <img src="../assets/learn/coordinate-system-and-shapes/images/drawing-02.png" alt="">
+
+      <p>The key here is to realize that the computer screen is nothing more than a fancier piece of graph paper. Each pixel of the screen is a coordinate - two numbers, an "x" (horizontal) and a "y" (vertical) - that determines the location of a point in space. And it is our job to specify what shapes and colors should appear at these pixel coordinates.</p>
+
+      <p>Nevertheless, there is a catch here. The graph paper from eighth grade ("Cartesian coordinate system") placed (0,0) in the center with the y-axis pointing up and the x-axis pointing to the right (in the positive direction, negative down and to the left). The coordinate system for pixels in a computer window, however, is reversed along the y-axis. (0,0) can be found at the top left with the positive direction to the right horizontally and down vertically.</p>
+      <img src="../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg" alt="">
+
+      <h2>Simple Shapes</h2>
+      <p>The vast majority of p5 programming examples are visual in nature. These examples, at their core, involve drawing shapes and setting pixels. Let's begin by looking at four primitive shapes.</p>
+      <img src="../assets/learn/coordinate-system-and-shapes/images/drawing-04.png" alt="">
+
+      <p>For each shape, we will ask ourselves what information is required to specify the location and size (and later color) of that shape and learn how p5 expects to receive that information. In each of the diagrams below, we'll assume a window with a width of 100 pixels and height of 100 pixels.</p>
+
+      <p>A <a href="/reference/#/p5/point">point()</a> is the easiest of the shapes and a good place to start. To draw a point, we only need an x and y coordinate.</p>
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  point(40, 50); // point(x, y)
+}
+</script>
+
+      <p>A <a href="/reference/#/p5/line">line()</a> isn't terribly difficult either and simply requires two points: (x1,y1) and (x2,y2):</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  line(10, 20, 50, 20); // line(x1, y1, x2, y2)
+}
+</script>
+
+      <p>Once we arrive at drawing a <a href="/reference/#/p5/rect">rect()</a>, things become a bit more complicated. In p5, a rectangle is specified by the coordinate for the top left corner of the rectangle, as well as its width and height.</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  rect(10, 20, 40, 30); // rect(x, y, width, height)
+}
+</script>
+
+      <p>A second way to draw a rectangle involves specifying the centerpoint, along with width and height. If we prefer this method, we first indicate that we want to use the<a href="/reference/#/p5/CENTER">CENTER</a> mode before the instruction for the rectangle itself. Note that p5 is case-sensitive.</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  rectMode(CENTER);
+}
+function draw(){
+  rect(30, 20, 40, 20); // rect(x, y, width, height)
+}
+</script>
+
+      <p>Finally, we can also draw a rectangle with two points (the top left corner and the bottom right corner). The mode here is<a href="/reference/#/p5/CORNERS">CORNERS</a>. Note this example gives the same result on screen as the example above.</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  rectMode(CORNERS);
+}
+function draw(){
+  rect(10, 10, 50, 30); // rect(x1, y1, x2, y2)
+}
+</script>
+
+      <p>Once we have become comfortable with the concept of drawing a rectangle, an <a href="/reference/#/p5/ellipse">ellipse()</a> is a snap. In fact, it is identical to <a href="/reference/#/p5/rect">rect()</a> with the difference being that an ellipse is drawn where the bounding box of the rectangle would be. The default mode for <a href="/reference/#/p5/ellipse">ellipse()</a> is <a href="/reference/#/p5/CENTER">CENTER</a>, rather than <a href="/reference/#/p5/CORNER">CORNER</a>.</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CENTER);
+}
+function draw(){
+  ellipse(30, 30, 40, 60); // ellipse(x, y, width, height)
+}
+</script>
+
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CORNER);
+}
+function draw(){
+  ellipse(10, 10, 30, 50); // ellipse(x, y, width, height)
+}
+</script>
+
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CORNERS);
+}
+function draw(){
+  ellipse(10, 10, 40, 50); // ellipse(x1, y1, x2, y2)
+}
+</script>
+
+      <p>Now let's look at what some code with shapes in more complete form, with canvas dimensions of 200 by 200. Note the use of the createCanvas() function to specify the width and height of the canvas.</p>
+
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(200, 200);
+  rectMode(CENTER);
+}
+function draw(){
+  rect(100,100,20,100);
+  ellipse(100,70,60,60);
+  ellipse(81,70,16,32);
+  ellipse(119,70,16,32);
+  line(90,150,80,160);
+  line(110,150,120,160);
+}
+</script>
+
+
+    </main>
+
+    
+    <footer>
+      <h2 class="sr-only">Credits</h2>
+      <p>
+        p5.js is currently led by <a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye</a> & <a href='http://www.outofambit.com/' target="_blank">evelyn masso</a> and was created by <a href='https://lauren-mccarthy.com' target="_blank">Lauren Lee McCarthy</a>. p5.js is developed by a community of collaborators, with support from the <a href="https://processingfoundation.org/" target="_blank">Processing Foundation</a> and <a href="https://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>Identity and graphic design by <a href="https://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/copyright.html">&copy; Info</a>.
+      </p>
+    </footer>
+
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="https://processing.org">Processing</a></li>
+        <li><a class="here" href="/">p5.js</a></li>
+        <li><a href="https://py.processing.org/">Processing.py</a></li>
+        <li><a href="https://android.processing.org/">Processing for Android</a></li>
+        <li><a href="https://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>

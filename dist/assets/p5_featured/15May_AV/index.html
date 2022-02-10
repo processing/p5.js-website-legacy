@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+	<head>
+		<title></title>
+		<script src="src/Tone.js"></script>
+        <script src="src/Player.js"></script>
+        <script src="src/Player02.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.2/p5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.2/addons/p5.dom.min.js"></script>
+        <script src="src/Splash.js"></script>
+        <script src="src/SplashSystem.js"></script>
+        <script src="src/Visualizer.js"></script>
+        
+        <!-- to load font -->
+        <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Abel|Inconsolata:400,700&amp;nftmvh" media="all"> 
+        
+        <style type="text/css">
+            body{
+                margin: 0px;
+                background-color: #fafafa;
+                font-family: 'Inconsolata', "Courier New", Courier, monospace, "Times New Roman", Times, serif;
+                font-size : 10px;
+            }
+            
+            #textarea{
+                font-family: 'Inconsolata', "Courier New", Courier, monospace, "Times New Roman", Times, serif;
+                vertical-align: text-top;
+                position: fixed;
+                border : 0px;
+                opacity: 0.7;
+                width : 400px;
+                height: 400px;
+                top: 160px;
+                left: 280px;
+                z-index: 1;
+            }
+            #textarea:focus { 
+                outline: none !important;
+            }
+            
+            #p5Canvas {
+                margin: 0px;
+                position: absolute;
+                top : 0px;
+                left : 0px;
+                z-index: -1;
+            }
+            #logo {
+                position: fixed; 
+                top: 20px;
+                left: 383px;
+                z-index: 1;
+               
+            }
+            #footer {
+                color: #aaa;
+                position:fixed;
+                text-align: center;
+                left: 255px;
+                bottom: 10px; 
+               
+            }
+            #footer a {
+                color: #aaa;
+            }
+            #footer a:hover {
+                color: #aaa;
+                text-decoration: line-through;
+            }
+        </style>
+	</head>
+	<body>
+		<script>
+            //get visualizer object
+            var mVisualizers = [];
+            var maxNumVisualizers = 7;
+            
+            for(var i = 0; i < maxNumVisualizers; i ++){
+                mVisualizers[i] = new Visualizer();
+            }
+            
+            function setup(){
+                var VisualizerWidth = mVisualizers[0].returnWindowWidth();
+                var VisualizerHeight = mVisualizers[0].returnWindowHeight();
+                canvas = createCanvas(VisualizerWidth, VisualizerHeight);
+                canvas.id("p5Canvas");
+                frameRate(60);
+                angleMode(DEGREES);
+                
+                for(var i = 0; i < maxNumVisualizers; i ++){
+                    mVisualizers[i].setup();
+                }
+            };
+
+            function draw(){
+                clear();
+                for(var i = 0; i < maxNumVisualizers; i ++){
+                    mVisualizers[i].update();
+                    mVisualizers[i].draw();
+                    
+                    if( mVisualizers[i].returnTrigger() ){
+                        // console.log("mVisualizers[i].returnTrigger() : " + mVisualizers[i].returnTrigger());
+                        
+                        var note = mPlayer.playRain();
+                        note.start();
+                    }
+                }
+            }; 
+            
+            
+            
+            
+            //create class object
+            var mPlayer = new Player02();
+            mPlayer.whiteNoise();
+            mPlayer.preSetting();
+            
+            Tone.Buffer.onload = function(){};
+
+            //when you type something then excute keyIncreas()
+            document.onkeyup = keyIncrease;
+
+            var keyCount  = 0;
+            var newInterval = 1;
+
+            function keyIncrease(event){
+                //when you type something then this function will be excuted and then make keyCount increase
+                keyCount += 3;
+
+                //set maximum of keyCount
+                if(keyCount > 100){
+                    keyCount = 100;
+                }
+
+                //typewritter
+                var key = event.keyCode;
+
+                if( key == 32 && Tone.Buffer.allLoaded){
+                    var note = mPlayer.playKeyReturn();
+                    note.start();
+                } else if (key == 13 && Tone.Buffer.allLoaded){
+                    var note = mPlayer.playKeySpace();
+                    note.start();
+                } else if (Tone.Buffer.allLoaded){
+                    var note = mPlayer.playKeyStroke();
+                    note.start();
+                }
+            }
+
+            //it will excute keyDecrease() every 50ms
+            setInterval(keyDecrease, 50);
+
+            function keyDecrease(){
+                //every 50ms, keyCount decreased
+                keyCount -= 1;
+
+                //set minimun of keyCount
+                if(keyCount < 0){
+                    keyCount = 0;
+                }
+
+                //remap keyCount to newInterval, this variable will have range of values between 0.15 to 1.00	
+                newInterval = Math.abs(0.85 - keyCount * 0.01 + 0.15);
+                if(newInterval < 0.15){
+                    //just in case..
+                    newInterval = 0.15;
+                }
+                
+                for(var i = 0; i < maxNumVisualizers; i ++){
+                    mVisualizers[i].getNewInterval(newInterval);
+                }
+            }
+            
+            
+            //html
+            function resetTextarea(){
+                document.getElementById('textarea').value = ' ';
+            }
+		</script>
+        
+        <!-- <div id="logo"><img src="../image/logo.png"></div>
+        <textarea id="textarea" onfocus="resetTextarea()" >Type what you feel with Interactive rainy sound. </textarea>
+        <div id="footer">Interactive Music @ITP 2015 Spring / Javascript/HTML/CSS/TONE.js/P5.js / <a href =" http://kimsehyun.kr" target="_blank">http://kimsehyun.kr</a></div> -->
+	</body>
+</html>
