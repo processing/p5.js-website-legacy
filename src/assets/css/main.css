@@ -2296,6 +2296,16 @@ footer {
   display: inline-block;
 }
 
+@media(max-width: 1360px)
+{
+
+  #asterisk-design-element,
+  .separator-design-element {
+    display: none !important;
+    pointer-events: none;
+  }
+
+}
 @media (min-width: 780px) {
   .container {
     width: 49em !important;
@@ -2665,7 +2675,6 @@ iframe {
 
 #asterisk-design-element {
   position: fixed;
-  z-index: -1;
   opacity: 0.6;
   pointer-events: none;
 }
@@ -2685,11 +2694,17 @@ iframe {
 }
 
 #home-page #asterisk-design-element {
-  bottom: -8%;
-  right: 20%;
+  position: absolute;
+   top: -12%;
+  left: -22%;
   height: 12em;
   width: 12em;
-  opacity: 1;
+  opacity: 0.6;
+  -webkit-transform: rotate(-21deg);
+  -moz-transform: rotate(-21deg);
+  -ms-transform: rotate(-21deg);
+  -o-transform: rotate(-21deg);
+  transform: rotate(-21deg);
 }
 
 #learn-page #asterisk-design-element,
