@@ -80,6 +80,11 @@ background__params__v3 = Number: blue or brightness value (depending on the curr
 background__params__values = Number[]: an array containing the red, green, blue  and alpha components of the color
 background__params__image = p5.Image: image created with <a href="#/p5/loadImage">loadImage()</a> or <a href="#/p5/createImage">createImage()</a>,  to set as background  (must be same size as the sketch window)
 clear__description__0 = Clears the pixels within a buffer. This function only clears the canvas. It will not clear objects created by createX() methods such as <a href="#/p5/createVideo">createVideo()</a> or <a href="#/p5/createDiv">createDiv()</a>. Unlike the main graphics context, pixels in additional graphics areas created with <a href="#/p5/createGraphics">createGraphics()</a> can be entirely or partially transparent. This function clears everything to make all of the pixels 100% transparent.
+clear__description__1 = Note: In WebGL mode, this function can be passed normalized RGBA color values in order to clear the screen to a specific color. In addition to color, it will also clear the depth buffer. If you are not using the webGL renderer these color values will have no effect.
+clear__params__r = Number: normalized red val.
+clear__params__g = Number: normalized green val.
+clear__params__b = Number: normalized blue val.
+clear__params__a = Number: normalized alpha val.
 colorMode__description__0 = <a href="#/p5/colorMode">colorMode()</a> changes the way p5.js interprets color data. By default, the parameters for <a href="#/p5/fill">fill()</a>, <a href="#/p5/stroke">stroke()</a>, <a href="#/p5/background">background()</a>, and <a href="#/p5/color">color()</a> are defined by values between 0 and 255 using the RGB color model. This is equivalent to setting colorMode(RGB, 255). Setting colorMode(HSB) lets you use the HSB system instead. By default, this is colorMode(HSB, 360, 100, 100, 1). You can also use HSL.
 colorMode__description__1 = Note: existing color objects remember the mode that they were created in, so you can change modes as you like without affecting their appearance.
 colorMode__params__mode = Constant: either RGB, HSB or HSL, corresponding to  Red/Green/Blue and Hue/Saturation/Brightness  (or Lightness)
@@ -216,6 +221,7 @@ strokeJoin__description__0 = Sets the style of the joints which connect line seg
 strokeJoin__description__1 = The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language.
 strokeJoin__params__join = Constant: either MITER, BEVEL, ROUND
 strokeWeight__description__0 = Sets the width of the stroke used for lines, points and the border around shapes. All widths are set in units of pixels.
+strokeWeight__description__1 = Note that it is affected by any transformation or scaling that has been applied previously.
 strokeWeight__params__weight = Number: the weight of the stroke (in pixels)
 bezier__description__0 = Draws a cubic Bezier curve on the screen. These curves are defined by a series of anchor and control points. The first two parameters specify the first anchor point and the last two parameters specify the other anchor point, which become the first and last points on the curve. The middle parameters specify the two control points which define the shape of the curve. Approximately speaking, control points "pull" the curve towards them.
 bezier__description__1 = Bezier curves were developed by French automotive engineer Pierre Bezier, and are commonly used in computer graphics to define gently sloping curves. See also <a href="#/p5/curve">curve()</a>.
@@ -289,7 +295,7 @@ beginShape__description__3 = LINES Draw a series of unconnected line segments (i
 beginShape__description__4 = TRIANGLES Draw a series of separate triangles
 beginShape__description__5 = TRIANGLE_FAN Draw a series of connected triangles sharing the first vertex in a fan-like fashion
 beginShape__description__6 = TRIANGLE_STRIP Draw a series of connected triangles in strip fashion
-beginShape__description__7 = QUADS Draw a series of seperate quad
+beginShape__description__7 = QUADS Draw a series of separate quad
 beginShape__description__8 = QUAD_STRIP Draw quad strip using adjacent edges to form the next quad
 beginShape__description__9 = TESS (WebGl only) Handle irregular polygon for filling curve by explicit tessellation
 beginShape__description__10 = After calling the <a href="#/p5/beginShape">beginShape()</a> function, a series of <a href="#/p5/vertex">vertex()</a> commands must follow. To stop drawing the shape, call <a href="#/p5/endShape">endShape()</a>. Each shape will be outlined with the current stroke color and filled with the fill color.
@@ -307,7 +313,7 @@ bezierVertex__params__z2 = Number: z-coordinate for the first control point (for
 bezierVertex__params__z3 = Number: z-coordinate for the second control point (for WebGL mode)
 bezierVertex__params__z4 = Number: z-coordinate for the anchor point (for WebGL mode)
 curveVertex__description__0 = Specifies vertex coordinates for curves. This function may only be used between <a href="#/p5/beginShape">beginShape()</a> and <a href="#/p5/endShape">endShape()</a> and only when there is no MODE parameter specified to <a href="#/p5/beginShape">beginShape()</a>. For WebGL mode curveVertex() can be used in 2D as well as 3D mode. 2D mode expects 2 parameters, while 3D mode expects 3 parameters.
-curveVertex__description__1 = The first and last points in a series of curveVertex() lines will be used to guide the beginning and end of a the curve. A minimum of four points is required to draw a tiny curve between the second and third points. Adding a fifth point with curveVertex() will draw the curve between the second, third, and fourth points. The curveVertex() function is an implementation of Catmull-Rom splines.
+curveVertex__description__1 = The first and last points in a series of curveVertex() lines will be used to guide the beginning and end of the curve. A minimum of four points is required to draw a tiny curve between the second and third points. Adding a fifth point with curveVertex() will draw the curve between the second, third, and fourth points. The curveVertex() function is an implementation of Catmull-Rom splines.
 curveVertex__params__x = Number: x-coordinate of the vertex
 curveVertex__params__y = Number: y-coordinate of the vertex
 curveVertex__params__z = Number: (Optional) z-coordinate of the vertex (for WebGL mode)
@@ -353,7 +359,7 @@ frameCount__description__0 = The system variable <a href="#/p5/frameCount">frame
 deltaTime__description__0 = The system variable <a href="#/p5/deltaTime">deltaTime</a> contains the time difference between the beginning of the previous frame and the beginning of the current frame in milliseconds.
 deltaTime__description__1 = This variable is useful for creating time sensitive animation or physics calculation that should stay constant regardless of frame rate.
 focused__description__0 = Confirms if the window a p5.js program is in is "focused," meaning that the sketch will accept mouse or keyboard input. This variable is "true" if the window is focused and "false" if not.
-cursor__description__0 = Sets the cursor to a predefined symbol or an image, or makes it visible if already hidden. If you are trying to set an image as the cursor, the recommended size is 16x16 or 32x32 pixels. The values for parameters x and y must be less than the dimensions of the image.
+cursor__description__0 = Sets the cursor to a predefined symbol or an image, or makes it visible if already hidden. If you are trying to set an image as the cursor, the recommended size is 16×16 or 32×32 pixels. The values for parameters x and y must be less than the dimensions of the image.
 cursor__params__type = String|Constant: Built-In: either ARROW, CROSS, HAND, MOVE, TEXT and WAIT  Native CSS properties: 'grab', 'progress', 'cell' etc.  External: path for cursor's images  (Allowed File extensions: .cur, .gif, .jpg, .jpeg, .png)  For more information on Native CSS cursors and url visit:  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor">https://developer.mozilla.org/en-US/docs/Web/CSS/cursor</a>
 cursor__params__x = Number: (Optional) the horizontal active spot of the cursor (must be less than 32)
 cursor__params__y = Number: (Optional) the vertical active spot of the cursor (must be less than 32)
@@ -393,7 +399,9 @@ draw__description__2 = The number of times <a href="#/p5/draw">draw()</a> execut
 draw__description__3 = There can only be one <a href="#/p5/draw">draw()</a> function for each sketch, and <a href="#/p5/draw">draw()</a> must exist if you want the code to run continuously, or to process events such as <a href="#/p5/mousePressed">mousePressed()</a>. Sometimes, you might have an empty call to <a href="#/p5/draw">draw()</a> in your program, as shown in the above example.
 draw__description__4 = It is important to note that the drawing coordinate system will be reset at the beginning of each <a href="#/p5/draw">draw()</a> call. If any transformations are performed within <a href="#/p5/draw">draw()</a> (ex: scale, rotate, translate), their effects will be undone at the beginning of <a href="#/p5/draw">draw()</a>, so transformations will not accumulate over time. On the other hand, styling applied (ex: fill, stroke, etc) will remain in effect.
 remove__description__0 = Removes the entire p5 sketch. This will remove the canvas and any elements created by p5.js. It will also stop the draw loop and unbind any properties or methods from the window global scope. It will leave a variable p5 in case you wanted to create a new p5 sketch. If you like, you can set p5 = null to erase it. While all functions and variables and objects created by the p5 library will be removed, any other global variables created by your code will remain.
-disableFriendlyErrors__description__0 = Allows for the friendly error system (FES) to be turned off when creating a sketch, which can give a significant boost to performance when needed. See <a href='https://github.com/processing/p5.js/wiki/Optimizing-p5.js-Code-for-Performance#disable-the-friendly-error-system-fes'> disabling the friendly error system</a>.
+disableFriendlyErrors__description__0 = Turn off some features of the friendly error system (FES), which can give a significant boost to performance when needed.
+disableFriendlyErrors__description__1 = Note that this will disable the parts of the FES that cause performance slowdown (like argument checking). Friendly errors that have no performance cost (like giving an descriptive error if a file load fails, or warning you if you try to override p5.js functions in the global space), will remain in place.
+disableFriendlyErrors__description__2 = See <a href='https://github.com/processing/p5.js/wiki/Optimizing-p5.js-Code-for-Performance#disable-the-friendly-error-system-fes'> disabling the friendly error system</a>.
 let__description__0 = Creates and names a new variable. A variable is a container for a value.
 let__description__1 = Variables that are declared with <a href="#/p5/let">let</a> will have block-scope. This means that the variable only exists within the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block"> block</a> that it is created within.
 let__description__2 = From <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">the MDN entry</a>: Declares a block scope local variable, optionally initializing it to a value.
@@ -439,7 +447,7 @@ while__description__2 = As with any loop, it is important to ensure that the loo
 while__description__3 = From <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while">the MDN entry</a>: The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true.The condition is evaluated before executing the statement.
 createCanvas__description__0 = Creates a canvas element in the document, and sets the dimensions of it in pixels. This method should be called only once at the start of setup. Calling <a href="#/p5/createCanvas">createCanvas</a> more than once in a sketch will result in very unpredictable behavior. If you want more than one drawing canvas you could use <a href="#/p5/createGraphics">createGraphics</a> (hidden by default but it can be shown).
 createCanvas__description__1 = Important note: in 2D mode (i.e. when <code>p5.Renderer</code> is not set) the origin (0,0) is positioned at the top left of the screen. In 3D mode (i.e. when <code>p5.Renderer</code> is set to <code>WEBGL</code>), the origin is positioned at the center of the canvas. See <a href="https://github.com/processing/p5.js/issues/1545">this issue</a> for more information.
-createCanvas__description__2 = The system variables width and height are set by the parameters passed to this function. If <a href="#/p5/createCanvas">createCanvas()</a> is not used, the window will be given a default size of 100x100 pixels.
+createCanvas__description__2 = The system variables width and height are set by the parameters passed to this function. If <a href="#/p5/createCanvas">createCanvas()</a> is not used, the window will be given a default size of 100×100 pixels.
 createCanvas__description__3 = For more ways to position the canvas, see the <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'> positioning the canvas</a> wiki page.
 createCanvas__returns = p5.Renderer:
 createCanvas__params__w = Number: width of the canvas
@@ -487,12 +495,12 @@ p5__params__node = String|Object: ID or pointer to HTML DOM node to contain sket
 applyMatrix__description__0 = Multiplies the current matrix by the one specified through the parameters. This is a powerful operation that can perform the equivalent of translate, scale, shear and rotate all at once. You can learn more about transformation matrices on <a href="https://en.wikipedia.org/wiki/Transformation_matrix"> Wikipedia</a>.
 applyMatrix__description__1 = The naming of the arguments here follows the naming of the <a href= "https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-transform"> WHATWG specification</a> and corresponds to a transformation matrix of the form: <blockquote>
 applyMatrix__description__2 = <img style="max-width: 150px" src="assets/transformation-matrix.png" alt="The transformation matrix used when applyMatrix is called"/> </blockquote>
-applyMatrix__params__a = Number|Array: numbers which define the 2x3 matrix to be multiplied, or an array of numbers
-applyMatrix__params__b = Number: numbers which define the 2x3 matrix to be multiplied
-applyMatrix__params__c = Number: numbers which define the 2x3 matrix to be multiplied
-applyMatrix__params__d = Number: numbers which define the 2x3 matrix to be multiplied
-applyMatrix__params__e = Number: numbers which define the 2x3 matrix to be multiplied
-applyMatrix__params__f = Number: numbers which define the 2x3 matrix to be multiplied
+applyMatrix__params__a = Number|Array: numbers which define the 2×3 matrix to be multiplied, or an array of numbers
+applyMatrix__params__b = Number: numbers which define the 2×3 matrix to be multiplied
+applyMatrix__params__c = Number: numbers which define the 2×3 matrix to be multiplied
+applyMatrix__params__d = Number: numbers which define the 2×3 matrix to be multiplied
+applyMatrix__params__e = Number: numbers which define the 2×3 matrix to be multiplied
+applyMatrix__params__f = Number: numbers which define the 2×3 matrix to be multiplied
 resetMatrix__description__0 = Replaces the current matrix with the identity matrix.
 rotate__description__0 = Rotates a shape by the amount specified by the angle parameter. This function accounts for <a href="#/p5/angleMode">angleMode</a>, so angles can be entered in either RADIANS or DEGREES.
 rotate__description__1 = Objects are always rotated around their relative position to the origin and positive numbers rotate objects in a clockwise direction. Transformations apply to everything that happens after and subsequent calls to the function accumulates the effect. For example, calling rotate(HALF_PI) and then rotate(HALF_PI) is the same as rotate(PI). All transformations are reset when <a href="#/p5/draw">draw()</a> begins again.
@@ -600,7 +608,7 @@ createSelect__description__0 = Creates a dropdown menu <code>&lt;select&gt;&lt;/
 createSelect__returns = p5.Element:
 createSelect__params__multiple = Boolean: (Optional) true if dropdown should support multiple selections
 createSelect__params__existing = Object: DOM select element
-createRadio__description__0 = Creates a radio button element in the DOM.It also helps existing radio buttons assign methods of <a href="#/p5.Element/">p5.Element</a>. <ul> <li><code>.option(value, [label])</code> can be used to create a new option for the element. If an option with a value already exists, it will be returned. Optionally, a label can be provided as second argument for the option.</li> <li><code>.remove(value)</code> can be used to remove an option for the element.</li> <li><code>.value()</code> method will return the currently selected value.</li> <li><code>.selected()</code> method will return the currently selected input element.</li> <li><code>.selected(value)</code> method will select the option and return it.</li> <li><code>.disable(Boolean)</code> method will enable/disable the whole radio button element.</li> </ul>
+createRadio__description__0 = Creates a radio button element in the DOM.It also helps existing radio buttons assign methods of <a href="#/p5.Element/">p5.Element</a>. <ul> <li><code>.option(value, [label])</code> can be used to create a new option for the element. If an option with a value already exists, it will be returned. It is recommended to use string values as input for <code>value</code>. Optionally, a label can be provided as second argument for the option.</li> <li><code>.remove(value)</code> can be used to remove an option for the element. String values recommended as input for <code>value</code>.</li> <li><code>.value()</code> method will return the currently selected value.</li> <li><code>.selected()</code> method will return the currently selected input element.</li> <li><code>.selected(value)</code> method will select the option and return it. String values recommended as input for <code>value</code>.</li> <li><code>.disable(Boolean)</code> method will enable/disable the whole radio button element.</li> </ul>
 createRadio__returns = p5.Element: pointer to <a href="#/p5.Element">p5.Element</a> holding created node
 createRadio__params__containerElement = Object: An container HTML Element either a div or span inside which all existing radio inputs will be considered as options.
 createRadio__params__name = String: (Optional) A name parameter for each Input Element.
@@ -616,11 +624,11 @@ createFileInput__returns = p5.Element: pointer to <a href="#/p5.Element">p5.Elem
 createFileInput__params__callback = Function: callback function for when a file is loaded
 createFileInput__params__multiple = Boolean: (Optional) optional, to allow multiple files to be selected
 createVideo__description__0 = Creates an HTML5 <code>&lt;video&gt;</code> element in the DOM for simple playback of audio/video. Shown by default, can be hidden with .<a href="#/p5.Element/hide">hide()</a> and drawn into canvas using <a href="#/p5/image">image()</a>. The first parameter can be either a single string path to a video file, or an array of string paths to different formats of the same video. This is useful for ensuring that your video can play across different browsers, as each supports different formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this page</a> for further information about supported formats.
-createVideo__returns = p5.MediaElement: pointer to video <a href="#/p5.Element">p5.Element</a>
+createVideo__returns = p5.MediaElement: pointer to video <a href="#/p5.MediaElement">p5.MediaElement</a>
 createVideo__params__src = String|String[]: path to a video file, or array of paths for  supporting different browsers
 createVideo__params__callback = Function: (Optional) callback function to be called upon  'canplaythrough' event fire, that is, when the  browser can play the media, and estimates that  enough data has been loaded to play the media  up to its end without having to stop for  further buffering of content
 createAudio__description__0 = Creates a hidden HTML5 <code>&lt;audio&gt;</code> element in the DOM for simple audio playback. The first parameter can be either a single string path to a audio file, or an array of string paths to different formats of the same audio. This is useful for ensuring that your audio can play across different browsers, as each supports different formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this page for further information about supported formats</a>.
-createAudio__returns = p5.MediaElement: pointer to audio <a href="#/p5.Element">p5.Element</a>
+createAudio__returns = p5.MediaElement: pointer to audio <a href="#/p5.MediaElement">p5.MediaElement</a>
 createAudio__params__src = String|String[]: (Optional) path to an audio file, or array of paths  for supporting different browsers
 createAudio__params__callback = Function: (Optional) callback function to be called upon  'canplaythrough' event fire, that is, when the  browser can play the media, and estimates that  enough data has been loaded to play the media  up to its end without having to stop for  further buffering of content
 createCapture__description__0 = Creates a new HTML5 <code>&lt;video&gt;</code> element that contains the audio/video feed from a webcam. The element is separate from the canvas and is displayed by default. The element can be hidden using .<a href="#/p5.Element/hide">hide()</a>. The feed can be drawn onto the canvas using <a href="#/p5/image">image()</a>. The loadedmetadata property can be used to detect when the element has fully loaded (see second example).
@@ -742,7 +750,7 @@ loadImage__params__failureCallback = Function(Event): (Optional) called with eve
 image__description__0 = Draw an image to the p5.js canvas.
 image__description__1 = This function can be used with different numbers of parameters. The simplest use requires only three parameters: img, x, and y—where (x, y) is the position of the image. Two more parameters can optionally be added to specify the width and height of the image.
 image__description__2 = This function can also be used with all eight Number parameters. To differentiate between all these parameters, p5.js uses the language of "destination rectangle" (which corresponds to "dx", "dy", etc.) and "source image" (which corresponds to "sx", "sy", etc.) below. Specifying the "source image" dimensions can be useful when you want to display a subsection of the source image instead of the whole thing. Here's a diagram to explain further: <img src="assets/drawImage.png"></img>
-image__params__img = p5.Image|p5.Element: the image to display
+image__params__img = p5.Image|p5.Element|p5.Texture: the image to display
 image__params__x = Number: the x-coordinate of the top-left corner of the image
 image__params__y = Number: the y-coordinate of the top-left corner of the image
 image__params__width = Number: (Optional) the width to draw the image
@@ -771,7 +779,7 @@ imageMode__description__0 = Set image mode. Modifies the location from which ima
 imageMode__description__1 = imageMode(CORNERS) interprets the second and third parameters of <a href="#/p5/image">image()</a> as the location of one corner, and the fourth and fifth parameters as the opposite corner.
 imageMode__description__2 = imageMode(CENTER) interprets the second and third parameters of <a href="#/p5/image">image()</a> as the image's center point. If two additional parameters are specified, they are used to set the image's width and height.
 imageMode__params__mode = Constant: either CORNER, CORNERS, or CENTER
-pixels__description__0 = <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference /Global_Objects/Uint8ClampedArray' target='_blank'>Uint8ClampedArray</a> containing the values for all the pixels in the display window. These values are numbers. This array is the size (include an appropriate factor for <a href="#/p5/pixelDensity">pixelDensity</a>) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. Retina and other high density displays will have more pixels[] (by a factor of pixelDensity^2). For example, if the image is 100x100 pixels, there will be 40,000. On a retina display, there will be 160,000.
+pixels__description__0 = <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference /Global_Objects/Uint8ClampedArray' target='_blank'>Uint8ClampedArray</a> containing the values for all the pixels in the display window. These values are numbers. This array is the size (include an appropriate factor for <a href="#/p5/pixelDensity">pixelDensity</a>) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. Retina and other high density displays will have more pixels[] (by a factor of pixelDensity^2). For example, if the image is 100×100 pixels, there will be 40,000. On a retina display, there will be 160,000.
 pixels__description__1 = The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class="language-javascript">let d = pixelDensity(); for (let i = 0; i < d; i++) {"{"}  for (let j = 0; j < d; j++) {"{"}  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  {"}"} {"}"}</code></pre>
 pixels__description__2 = While the above method is complex, it is flexible enough to work with any pixelDensity. Note that <a href="#/p5/set">set()</a> will automatically take care of setting all the appropriate values in <a href="#/p5/pixels">pixels[]</a> for a given (x, y) at any pixelDensity, but the performance may not be as fast when lots of modifications are made to the pixel array.
 pixels__description__3 = Before accessing this array, the data must loaded with the <a href="#/p5/loadPixels">loadPixels()</a> function. After the array data has been modified, the <a href="#/p5/updatePixels">updatePixels()</a> function must be run to update the changes.
@@ -1088,7 +1096,7 @@ loadFont__params__onError = Function: (Optional) function to be executed if  an 
 text__description__0 = Draws text to the screen. Displays the information specified in the first parameter on the screen in the position specified by the additional parameters. A default font will be used unless a font is set with the <a href="#/p5/textFont">textFont()</a> function and a default size will be used unless a font is set with <a href="#/p5/textSize">textSize()</a>. Change the color of the text with the <a href="#/p5/fill">fill()</a> function. Change the outline of the text with the <a href="#/p5/stroke">stroke()</a> and <a href="#/p5/strokeWeight">strokeWeight()</a> functions.
 text__description__1 = The text displays in relation to the <a href="#/p5/textAlign">textAlign()</a> function, which gives the option to draw to the left, right, and center of the coordinates.
 text__description__2 = The x2 and y2 parameters define a rectangular area to display within and may only be used with string data. When these parameters are specified, they are interpreted based on the current <a href="#/p5/rectMode">rectMode()</a> setting. Text that does not fit completely within the rectangle specified will not be drawn to the screen. If x2 and y2 are not specified, the baseline alignment is the default, which means that the text will be drawn upwards from x and y.
-text__description__3 = <b>WEBGL</b>: Only opentype/truetype fonts are supported. You must load a font using the <a href="#/p5/loadFont">loadFont()</a> method (see the example above). <a href="#/p5/stroke">stroke()</a> currently has no effect in webgl mode.
+text__description__3 = <b>WEBGL</b>: Only opentype/truetype fonts are supported. You must load a font using the <a href="#/p5/loadFont">loadFont()</a> method (see the example above). <a href="#/p5/stroke">stroke()</a> currently has no effect in webgl mode. Learn more about working with text in webgl mode on the <a href="https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#text">wiki</a>.
 text__params__str = String|Object|Array|Number|Boolean: the alphanumeric  symbols to be displayed
 text__params__x = Number: x-coordinate of text
 text__params__y = Number: y-coordinate of text
@@ -1188,7 +1196,10 @@ matchAll__description__2 = If there are groups (specified by sets of parentheses
 matchAll__returns = String[]: 2d Array of Strings found
 matchAll__params__str = String: the String to be searched
 matchAll__params__regexp = String: the regexp to be used for matching
-nf__description__0 = Utility function for formatting numbers into strings. There are two versions: one for formatting floats, and one for formatting ints. The values for the digits, left, and right parameters should always be positive integers. (NOTE): Be cautious when using left and right parameters as it prepends numbers of 0's if the parameter if greater than the current length of the number. For example if number is 123.2 and left parameter passed is 4 which is greater than length of 123 (integer part) i.e 3 than result will be 0123.2. Same case for right parameter i.e. if right is 3 than the result will be 123.200.
+nf__description__0 = Utility function for formatting numbers into strings. There are two versions: one for formatting floats, and one for formatting ints.
+nf__description__1 = The values for the digits, left, and right parameters should always be positive integers.
+nf__description__2 = (NOTE): Be cautious when using left and right parameters as it prepends numbers of 0's if the parameter if greater than the current length of the number.
+nf__description__3 = For example if number is 123.2 and left parameter passed is 4 which is greater than length of 123 (integer part) i.e 3 than result will be 0123.2. Same case for right parameter i.e. if right is 3 than the result will be 123.200.
 nf__returns = String: formatted String
 nf__params__num = Number|String: the Number to format
 nf__params__left = Integer|String: (Optional) number of digits to the left of the  decimal point
@@ -1205,7 +1216,12 @@ nfp__params__num = Number: the Number to format
 nfp__params__left = Integer: (Optional) number of digits to the left of the decimal  point
 nfp__params__right = Integer: (Optional) number of digits to the right of the  decimal point
 nfp__params__nums = Number[]: the Numbers to format
-nfs__description__0 = Utility function for formatting numbers into strings. Similar to <a href="#/p5/nf">nf()</a> but puts an additional "_" (space) in front of positive numbers just in case to align it with negative numbers which includes "-" (minus) sign. The main usecase of nfs() can be seen when one wants to align the digits (place values) of a non-negative number with some negative number (See the example to get a clear picture). There are two versions: one for formatting float, and one for formatting int. The values for the digits, left, and right parameters should always be positive integers. (IMP): The result on the canvas basically the expected alignment can vary based on the typeface you are using. (NOTE): Be cautious when using left and right parameters as it prepends numbers of 0's if the parameter if greater than the current length of the number. For example if number is 123.2 and left parameter passed is 4 which is greater than length of 123 (integer part) i.e 3 than result will be 0123.2. Same case for right parameter i.e. if right is 3 than the result will be 123.200.
+nfs__description__0 = Utility function for formatting numbers into strings. Similar to <a href="#/p5/nf">nf()</a> but puts an additional "_" (space) in front of positive numbers just in case to align it with negative numbers which includes "-" (minus) sign.
+nfs__description__1 = The main usecase of nfs() can be seen when one wants to align the digits (place values) of a non-negative number with some negative number (See the example to get a clear picture). There are two versions: one for formatting float, and one for formatting int.
+nfs__description__2 = The values for the digits, left, and right parameters should always be positive integers.
+nfs__description__3 = (IMP): The result on the canvas basically the expected alignment can vary based on the typeface you are using.
+nfs__description__4 = (NOTE): Be cautious when using left and right parameters as it prepends numbers of 0's if the parameter if greater than the current length of the number.
+nfs__description__5 = For example if number is 123.2 and left parameter passed is 4 which is greater than length of 123 (integer part) i.e 3 than result will be 0123.2. Same case for right parameter i.e. if right is 3 than the result will be 123.200.
 nfs__returns = String: formatted String
 nfs__params__num = Number: the Number to format
 nfs__params__left = Integer: (Optional) number of digits to the left of the decimal  point
@@ -1378,28 +1394,38 @@ loadModel__params__failureCallback = Function(Event): (Optional) called with eve
 loadModel__params__fileType = String: (Optional) The file extension of the model  (<code>.stl</code>, <code>.obj</code>).
 model__description__0 = Render a 3d model to the screen.
 model__params__model = p5.Geometry: Loaded 3d model to be rendered
-loadShader__description__0 = Loads a custom shader from the provided vertex and fragment shader paths. The shader files are loaded asynchronously in the background, so this method should be used in <a href="#/p5/preload">preload()</a>.
-loadShader__description__1 = For now, there are three main types of shaders. p5 will automatically supply appropriate vertices, normals, colors, and lighting attributes if the parameters defined in the shader match the names.
+loadShader__description__0 = Creates a new <a href="#/p5.Shader">p5.Shader</a> object from the provided vertex and fragment shader files.
+loadShader__description__1 = The shader files are loaded asynchronously in the background, so this method should be used in <a href="#/p5/preload">preload()</a>.
+loadShader__description__2 = Note, shaders can only be used in WEBGL mode.
 loadShader__returns = p5.Shader: a shader object created from the provided vertex and fragment shader files.
 loadShader__params__vertFilename = String: path to file containing vertex shader source code
 loadShader__params__fragFilename = String: path to file containing fragment shader source code
-loadShader__params__callback = Function: (Optional) callback to be executed after loadShader completes. On success, the Shader object is passed as the first argument.
+loadShader__params__callback = Function: (Optional) callback to be executed after loadShader completes. On success, the p5.Shader object is passed as the first argument.
 loadShader__params__errorCallback = Function: (Optional) callback to be executed when an error occurs inside loadShader. On error, the error is passed as the first argument.
+createShader__description__0 = Creates a new <a href="#/p5.Shader">p5.Shader</a> object from the provided vertex and fragment shader code.
+createShader__description__1 = Note, shaders can only be used in WEBGL mode.
 createShader__returns = p5.Shader: a shader object created from the provided vertex and fragment shaders.
 createShader__params__vertSrc = String: source code for the vertex shader
 createShader__params__fragSrc = String: source code for the fragment shader
-shader__description__0 = The <a href="#/p5/shader">shader()</a> function lets the user provide a custom shader to fill in shapes in WEBGL mode. Users can create their own shaders by loading vertex and fragment shaders with <a href="#/p5/loadShader">loadShader()</a>.
-shader__params__s = p5.Shader: (Optional) the desired <a href="#/p5.Shader">p5.Shader</a> to use for rendering shapes.
-resetShader__description__0 = This function restores the default shaders in WEBGL mode. Code that runs after resetShader() will not be affected by previously defined shaders. Should be run after <a href="#/p5/shader">shader()</a>.
-texture__description__0 = Texture for geometry. You can view other possible materials in this <a href="https://p5js.org/examples/3d-materials.html">example</a>.
-texture__params__tex = p5.Image|p5.MediaElement|p5.Graphics: 2-dimensional graphics  to render as texture
-textureMode__description__0 = Sets the coordinate space for texture mapping. The default mode is IMAGE which refers to the actual coordinates of the image. NORMAL refers to a normalized space of values ranging from 0 to 1. This function only works in WEBGL mode.
-textureMode__description__1 = With IMAGE, if an image is 100 x 200 pixels, mapping the image onto the entire size of a quad would require the points (0,0) (100, 0) (100,200) (0,200). The same mapping in NORMAL is (0,0) (1,0) (1,1) (0,1).
+shader__description__0 = Sets the <a href="#/p5.Shader">p5.Shader</a> object to be used to render subsequent shapes.
+shader__description__1 = Custom shaders can be created using the <a href="#/p5/createShader">createShader()</a> and <a href="#/p5/loadShader">loadShader()</a> functions.
+shader__description__2 = Use <a href="#/p5/resetShader">resetShader()</a> to restore the default shaders.
+shader__description__3 = Note, shaders can only be used in WEBGL mode.
+shader__params__s = p5.Shader: the <a href="#/p5.Shader">p5.Shader</a> object to use for rendering shapes.
+resetShader__description__0 = Restores the default shaders. Code that runs after resetShader() will not be affected by the shader previously set by <a href="#/p5/shader">shader()</a>
+texture__description__0 = Sets the texture that will be used to render subsequent shapes.
+texture__description__1 = A texture is like a "skin" that wraps around a 3D geometry. Currently supported textures are images, video, and offscreen renders.
+texture__description__2 = To texture a geometry created with <a href="#/p5/beginShape">beginShape()</a>, you will need to specify uv coordinates in <a href="#/p5/vertex">vertex()</a>.
+texture__description__3 = Note, texture() can only be used in WEBGL mode.
+texture__description__4 = You can view more materials in this <a href="https://p5js.org/examples/3d-materials.html">example</a>.
+texture__params__tex = p5.Image|p5.MediaElement|p5.Graphics|p5.Texture: image to use as texture
+textureMode__description__0 = Sets the coordinate space for texture mapping. The default mode is IMAGE which refers to the actual coordinates of the image. NORMAL refers to a normalized space of values ranging from 0 to 1.
+textureMode__description__1 = With IMAGE, if an image is 100×200 pixels, mapping the image onto the entire size of a quad would require the points (0,0) (100, 0) (100,200) (0,200). The same mapping in NORMAL is (0,0) (1,0) (1,1) (0,1).
 textureMode__params__mode = Constant: either IMAGE or NORMAL
-textureWrap__description__0 = Sets the global texture wrapping mode. This controls how textures behave when their uv's go outside of the 0 - 1 range. There are three options: CLAMP, REPEAT, and MIRROR.
-textureWrap__description__1 = CLAMP causes the pixels at the edge of the texture to extend to the bounds REPEAT causes the texture to tile repeatedly until reaching the bounds MIRROR works similarly to REPEAT but it flips the texture with every new tile
+textureWrap__description__0 = Sets the global texture wrapping mode. This controls how textures behave when their uv's go outside of the 0 to 1 range. There are three options: CLAMP, REPEAT, and MIRROR.
+textureWrap__description__1 = CLAMP causes the pixels at the edge of the texture to extend to the bounds. REPEAT causes the texture to tile repeatedly until reaching the bounds. MIRROR works similarly to REPEAT but it flips the texture with every new tile.
 textureWrap__description__2 = REPEAT & MIRROR are only available if the texture is a power of two size (128, 256, 512, 1024, etc.).
-textureWrap__description__3 = This method will affect all textures in your sketch until a subsequent textureWrap call is made.
+textureWrap__description__3 = This method will affect all textures in your sketch until a subsequent textureWrap() call is made.
 textureWrap__description__4 = If only one argument is provided, it will be applied to both the horizontal and vertical axes.
 textureWrap__params__wrapX = Constant: either CLAMP, REPEAT, or MIRROR
 textureWrap__params__wrapY = Constant: (Optional) either CLAMP, REPEAT, or MIRROR
@@ -1472,7 +1498,7 @@ setCamera__params__cam = p5.Camera: p5.Camera object
 setAttributes__description__0 = Set attributes for the WebGL Drawing context. This is a way of adjusting how the WebGL renderer works to fine-tune the display and performance.
 setAttributes__description__1 = Note that this will reinitialize the drawing context if called after the WebGL canvas is made.
 setAttributes__description__2 = If an object is passed as the parameter, all attributes not declared in the object will be set to defaults.
-setAttributes__description__3 = The available attributes are:  alpha - indicates if the canvas contains an alpha buffer default is true
+setAttributes__description__3 = The available attributes are:  alpha - indicates if the canvas contains an alpha buffer default is false
 setAttributes__description__4 = depth - indicates whether the drawing buffer has a depth buffer of at least 16 bits - default is true
 setAttributes__description__5 = stencil - indicates whether the drawing buffer has a stencil buffer of at least 8 bits
 setAttributes__description__6 = antialias - indicates whether or not to perform anti-aliasing default is false (true in Safari)
