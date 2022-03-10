@@ -1,7 +1,7 @@
 /*
  * @name Chain
  * @description One mass is attached to the mouse position and the other is attached the position of the other mass. The gravity in the environment pulls down on both.
- * Ported from the Processing Examples page.
+ * <br><br><span class="small"><em>This example is ported from the Processing website</em></span>
  */
 let s1, s2;
 let gravity = 9.0;
