@@ -3,8 +3,8 @@
  * @arialabel Mustard yellow background
  * @description Statements are the elements that make up programs. The ";" (semi-colon) symbol is used to end statements.
  * It is called the "statement terminator". Comments are used for making notes to help people better understand programs. A comment begins with two forward slashes ("//").
- * <br><br><span class="small"><em>This example is ported from the <a href="https://processing.org/examples/statementscomments.html">Statements and Comments example</a>
- * on the Processing website</em></span>
+ * <br><br><small><em>This example is ported from the <a href="https://processing.org/examples/statementscomments.html">Statements and Comments example</a>
+ * on the Processing website</em></small>
  */
 // The createCanvas function is a statement that tells the computer 
 // how large to make the window.

@@ -2,8 +2,8 @@
  * @name Brownian Motion
  * @arialabel A continuous white line draws squiggles on a grey background, forming a random pattern
  * @description Recording random movement as a continuous line.
- * <br><br><span class="small"><em>This example is ported from the <a href="https://processing.org/examples/brownian.html">Brownian motion example</a>
- * on the Processing website</em></span>
+ * <br><br><small><em>This example is ported from the <a href="https://processing.org/examples/brownian.html">Brownian motion example</a>
+ * on the Processing website</em></small>
  */
 
 let num = 2000;

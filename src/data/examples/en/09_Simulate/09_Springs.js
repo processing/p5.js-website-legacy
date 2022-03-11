@@ -5,7 +5,7 @@
  * @description Move the mouse over one of the circles and click to re-position.
  * When you release the mouse, it will snap back into position.
  * Each circle has a slightly different behavior.
- * <br><br><span class="small"><em>This example is ported from the Processing website</em></span>
+ * <br><br><small><em>This example is ported from the <a href="https://processing.org/examples/">Processing website</a></em></small>
  */
 let num = 3;
 let springs = [];

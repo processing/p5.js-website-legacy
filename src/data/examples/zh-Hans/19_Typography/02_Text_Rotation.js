@@ -1,8 +1,8 @@
 /*
  * @name Text Rotation
  * @description Draws letters to the screen and rotates them at different angles.
- * <br><br><span class="small"><em>This example is ported from the <a href="https://processing.org/examples/textrotation.html">Text Rotation example</a>
- * on the Processing website</em></span>
+ * <br><br><small><em>This example is ported from the <a href="https://processing.org/examples/textrotation.html">Text Rotation example</a>
+ * on the Processing website</em></small>
  */
 
 let font,
