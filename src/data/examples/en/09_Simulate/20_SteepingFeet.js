@@ -10,7 +10,7 @@
  */
 
 // this class describes the structure
-// and movents of the brick
+// and movements of the brick
 class Brick{
   constructor(bc, y){
     this.brickColor = bc;
@@ -30,7 +30,7 @@ class Brick{
     this.xSpeed = 1;
   }
 
-  // this function set the bricks in motion
+  // this function sets the bricks in motion
   moveBrick(){
     this.xPos+=this.xSpeed;
     if(this.xPos+100 >= width || this.xPos <= 0){
@@ -40,8 +40,8 @@ class Brick{
 }
 
 function setup() {
-  createCanvas(720, 400);
-  createP("Keep the mouse clicked").style('color','#ffffff');
+  createCanvas(720, 400); // createCanvas must be the first statement
+  createP("Keep the mouse clicked").style('color','#ffffff'); // sets the color to black
   createP("to check whether the bricks").style('color','#ffffff');
   createP("are moving at same speed or not").style('color','#ffffff');
 }
@@ -51,7 +51,8 @@ function setup() {
 let brick1 = new Brick("white",100);
 let brick2 = new Brick("black",250);
 
-//
+//this function sets speed of
+// brick 1 and brick2 to 1.
 brick1.setSpeed();
 brick2.setSpeed();
 
@@ -75,7 +76,7 @@ function createBars() {
   let len = 12;
   for(let i = 0;i<width/len;i++){
     fill("white");
-    if(i%2 == 0)
+    if(i%2 === 0)
     rect(i*len,height,len,-height);
   }
 }
