@@ -1,7 +1,7 @@
 /*
  * @name No Loop
  * @arialabel Horizontal white line across the middle of a black background
- * @description Loop() फ़ंक्शन draw() फ़ंक्शन को केवल एक बार निष्पादित करने का कारण बनता है।.
+ * @description NoLoop() फ़ंक्शन draw() फ़ंक्शन को केवल एक बार निष्पादित करने का कारण बनता है।.
  * NoLoop() को कॉल किए बिना, draw() के अंदर का कोड लगातार चलाया जाता है।.
  */
 let y;
