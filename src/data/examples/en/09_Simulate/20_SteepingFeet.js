@@ -40,8 +40,8 @@ class Brick{
 }
 
 function setup() {
-  createCanvas(720, 400); // createCanvas must be the first statement
-  createP("Keep the mouse clicked").style('color','#ffffff'); // sets the color to black
+  createCanvas(720, 400); 
+  createP("Keep the mouse clicked").style('color','#ffffff'); 
   createP("to check whether the bricks").style('color','#ffffff');
   createP("are moving at same speed or not").style('color','#ffffff');
 }
