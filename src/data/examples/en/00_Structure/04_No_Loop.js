@@ -1,8 +1,8 @@
 /*
  * @name No Loop
  * @arialabel Horizontal white line across the middle of a black background
- * @description NoLoop() फ़ंक्शन draw() फ़ंक्शन को केवल एक बार निष्पादित करने का कारण बनता है।.
- * NoLoop() को कॉल किए बिना, draw() के अंदर का कोड लगातार चलाया जाता है।.
+ * @description The noLoop() function causes draw() to only execute once.
+ * Without calling noLoop(), the code inside draw() is run continually.
  */
 let y;
 
