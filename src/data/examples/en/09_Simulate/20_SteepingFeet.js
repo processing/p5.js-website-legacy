@@ -51,7 +51,7 @@ function setup() {
 let brick1 = new Brick("white",100);
 let brick2 = new Brick("black",250);
 
-//this function sets speed of
+// This function sets speed of
 // brick 1 and brick2 to 1.
 brick1.setSpeed();
 brick2.setSpeed();
