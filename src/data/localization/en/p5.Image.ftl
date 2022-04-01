@@ -13,7 +13,7 @@ updatePixels__description__0 = Updates the backing canvas for this image with th
 updatePixels__description__1 = If this image is an animated GIF then the pixels will be updated in the frame that is currently displayed.
 updatePixels__params__x = Integer: x-offset of the target update area for the  underlying canvas
 updatePixels__params__y = Integer: y-offset of the target update area for the  underlying canvas
-updatePixels__params__w = Integer: height of the target update area for the  underlying canvas
+updatePixels__params__w = Integer: width of the target update area for the  underlying canvas
 updatePixels__params__h = Integer: height of the target update area for the  underlying canvas
 get__description__0 = Get a region of pixels from an image.
 get__description__1 = If no params are passed, the whole image is returned. If x and y are the only params passed a single pixel is extracted. If all params are passed a rectangle region is extracted and a <a href="#/p5.Image">p5.Image</a> is returned.
