@@ -4,6 +4,7 @@
  * @description Creative particle movement using cos(), sin() and tan(). You can sort 
  * through the different functions.
  */
+
 let f = 0;
 let value = 0;
 let clicked = 0;
@@ -11,7 +12,7 @@ let x = 0;
 let y = 0;
 
 function Super_Tornado() {
-   ratio = frameCount * 0.01;
+  ratio = frameCount * 0.01;
   points = [];
   fill(255);
   for (let i = 0; i <= 360; i += 0.1) {
