@@ -10,7 +10,6 @@ let value = 0;
 let clicked = 0;
 let x = 0;
 let y = 0;
-
 function Super_Tornado() {
   ratio = frameCount * 0.01;
   points = [];
@@ -37,21 +36,17 @@ function Super_Tornado() {
       x = cos(theta) * i / 3 * sin(theta) * tan(f + 1);
       y = sin(1 / theta) * i / 3 * log(i) * tan(i);
     }
-
     ellipse(x, y, 3, 3);
-
     points.push({
       'x': x,
       'y': y
     })
   }
 }
-
 function setup() {
   createCanvas(400, 400);
   noStroke();
 }
-
 function draw() {
   background(30);
   translate(width / 2, height / 2);
@@ -59,7 +54,6 @@ function draw() {
   points = [];
   Super_Tornado();
 }
-
 function mouseClicked() {
   if (clicked < 5) {
     clicked++;
