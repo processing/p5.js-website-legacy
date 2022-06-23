@@ -2,6 +2,8 @@
 
 If you want to contribute with p5.js website translations, you are in the right place. The translation of the p5.js website to languages other than English is part of its internationalization - abbreviated [*i18n*](https://en.wikipedia.org/wiki/Internationalization_and_localization) - process. You can improve content that has been already translated - the reference, examples or other pages within the website - or start a new language translation.
 
+Regarding website translation, we are rolling out new languages slowly to be absolutely sure that we can support the full translation and maintenance of each language. We want to avoid the situation where we have many languages and it's beyond our means to support. So for this reason, we are holding now with the translations we already have on our website (Spanish, Chinese, Korean, and Hindi) and getting those fully completed and updated before we take on others. If we begin with the language you’ve proposed, we will certainly be in touch. However, we very much welcome translations that are hosted elsewhere. Please feel free to translate any of the website content and host it on an external blog or site. All of the website content is licensed under Creative Commons which makes it possible to reuse this content for non-commercial purposes if it is credited. We would be happy to share links and make connections so others can find and use this material.
+
 ## Table of Contents
 
 * [How the website works](#how-the-website-works)
