@@ -23,10 +23,10 @@ Once added, a steward's username will remain in the [stewards section of the rea
 | ---------------------------- | -------------------------------------------------------- |
 | Overall                      | [@Qianqianye](https://github.com/Qianqianye), [@limzykenneth](https://github.com/limzykenneth) |
 | Reference                    |                                                          |
-| Example                      | GSoC 2022: [@Malayvasa](https://github.com/Malayvasa) (Contributor), [@tyler-yin](https://github.com/tyler-yin)(Mentor) |
+| Example                      | GSoC 2022: [@Malayvasa](https://github.com/Malayvasa) (Contributor), [@tyler-yin](https://github.com/tyler-yin)(Mentor); [@3ru](https://github.com/3ru) |
 | Teach                        | GSoC 2022: [@Gracia-zhang](https://github.com/Gracia-zhang) (Contributor), [@yinhwa](https://github.com/yinhwa)(Mentor) |
 | Showcase                     | GSoC 2022:  [@anniezhengg](https://github.com/anniezhengg) (Contributor), [@raclim](https://github.com/raclim)(Mentor) |
-| Learn                        |                                                          |
+| Learn                        | [@nickmcintyre](https://github.com/nickmcintyre)                                  |
 | Libraries                    | [@Qianqianye](https://github.com/Qianqianye)                                           |
 | Community/Books/Social Media | [@Qianqianye](https://github.com/Qianqianye)                                           |
 | Contributor Docs             | SoD 2022: [@limzykenneth](https://github.com/limzykenneth) |
@@ -37,9 +37,9 @@ Once added, a steward's username will remain in the [stewards section of the rea
 | -------- | ------------------------- |
 | Overall  |[@Qianqianye](https://github.com/Qianqianye), [@limzykenneth](https://github.com/limzykenneth) |
 | Spanish  |[@Guirdo](https://github.com/Guirdo), [@Andreu-G](https://github.com/Andreu-G)                |
-| Chinese  | [@unicar9](https://github.com/unicar9)              |
-| Korean   | [@yinhwa](https://github.com/yinhwa), [@almchung](https://github.com/almchung), [@jhongover9000](https://github.com/jhongover9000) |
-| Hindi    |                           |
+| Chinese  | [@unicar9](https://github.com/unicar9), [@Gracia-zhang](https://github.com/Gracia-zhang)              |
+| Korean   | [@yinhwa](https://github.com/yinhwa), [@almchung](https://github.com/almchung), [@jhongover9000](https://github.com/jhongover9000), [@sssueing](https://github.com/sssueing) |
+| Hindi    | [@adarrssh](https://github.com/adarrssh)                         |
 
 ## Setup
 
