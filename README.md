@@ -36,7 +36,7 @@ Once added, a steward's username will remain in the [stewards section of the rea
 | Language | Steward(s)                |
 | -------- | ------------------------- |
 | Overall  |  [@Qianqianye](https://github.com/Qianqianye),[@limzykenneth](https://github.com/limzykenneth) |
-| Spanish  |                           |
+| Spanish  |   [@Guirdo](https://github.com/Guirdo)                        |
 | Chinese  |                           |
 | Korean   |                           |
 | Hindi    |                           |
