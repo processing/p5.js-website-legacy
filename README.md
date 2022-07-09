@@ -35,10 +35,10 @@ Once added, a steward's username will remain in the [stewards section of the rea
 ### Translation Steward(s) 
 | Language | Steward(s)                |
 | -------- | ------------------------- |
-| Overall  |[@Qianqianye](https://github.com/Qianqianye),[@limzykenneth](https://github.com/limzykenneth) |
+| Overall  |[@Qianqianye](https://github.com/Qianqianye), [@limzykenneth](https://github.com/limzykenneth) |
 | Spanish  |[@Guirdo](https://github.com/Guirdo), [@Andreu-G](https://github.com/Andreu-G)                |
-| Chinese  |                           |
-| Korean   | [@yinhwa](https://github.com/yinhwa)                         |
+| Chinese  | [@unicar9](https://github.com/unicar9)              |
+| Korean   | [@yinhwa](https://github.com/yinhwa), [@almchung](https://github.com/almchung), [@jhongover9000](https://github.com/jhongover9000) |
 | Hindi    |                           |
 
 ## Setup
