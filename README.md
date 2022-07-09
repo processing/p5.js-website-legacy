@@ -83,3 +83,7 @@ If you've contributed to this website (or any other part of the p5.js project), 
 ## Externally hosted language versions
 * [https://p5js.jp](https://p5js.jp/) - 日本語 (Japanese), translated and hosted by [Katsuya Endoh](https://enkatsu.org/)
 
+Regarding website translation, we are rolling out new languages slowly to be absolutely sure that we can support the full translation and maintenance of each language. We want to avoid the situation where we have many languages and it's beyond our means to support. So for this reason, we are holding now with Spanish, Chinese, Korean, and Hindi and getting those fully complete before we take on others.
+
+We very much welcome translations that are hosted elsewhere. For example, https://p5js.jp/ - 日本語 (Japanese), translated and hosted by [Katsuya Endoh](https://enkatsu.org/). Please feel free to translate any of the website content and host it on an external blog or site. All of the website content is licensed under Creative Commons which makes it possible to reuse this content for non-commercial purposes if it is credited. We would be happy to share links and make connections so others can find and use this material.
+
