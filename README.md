@@ -82,7 +82,7 @@ If you've contributed to this website (or any other part of the p5.js project), 
 
 ## Externally hosted language versions
 * [https://p5js.jp](https://p5js.jp/) - 日本語 (Japanese), translated and hosted by [Katsuya Endoh](https://enkatsu.org/)
-* [https://p5js-unofficial-french-translation.vercel.app](https://p5js-unofficial-french-translation.vercel.app) - French, translated and hosted by [LEMIBANDDEXARI](https://github.com/LEMIBANDDEXARI)
+* [https://p5js-unofficial-french-translation.vercel.app](https://p5js-unofficial-french-translation.vercel.app) - French, translated and hosted by [LEMIBANDDEXARI](https://github.com/LEMIBANDDEXARI/p5js-unofficial-french-translation)
 
 Regarding website translation, we are rolling out new languages slowly to be absolutely sure that we can support the full translation and maintenance of each language. We want to avoid the situation where we have many languages and it's beyond our means to support. So for this reason, we are holding now with Spanish, Chinese, Korean, and Hindi and getting those fully complete before we take on others.
 
