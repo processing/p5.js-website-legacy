@@ -22,11 +22,11 @@ Once added, a steward's username will remain in the [stewards section of the rea
 | Area                         | Steward(s)                                               |
 | ---------------------------- | -------------------------------------------------------- |
 | Overall                      | [@Qianqianye](https://github.com/Qianqianye), [@limzykenneth](https://github.com/limzykenneth) |
-| Reference                    |                                                          |
-| Example                      | GSoC 2022: [@Malayvasa](https://github.com/Malayvasa) (Contributor), [@tyler-yin](https://github.com/tyler-yin)(Mentor) |
+| Reference                    |  [@Divyansh013](https://github.com/Divyansh013)                      |
+| Example                      | GSoC 2022: [@Malayvasa](https://github.com/Malayvasa) (Contributor), [@tyler-yin](https://github.com/tyler-yin)(Mentor); [@3ru](https://github.com/3ru) |
 | Teach                        | GSoC 2022: [@Gracia-zhang](https://github.com/Gracia-zhang) (Contributor), [@yinhwa](https://github.com/yinhwa)(Mentor) |
 | Showcase                     | GSoC 2022:  [@anniezhengg](https://github.com/anniezhengg) (Contributor), [@raclim](https://github.com/raclim)(Mentor) |
-| Learn                        |                                                          |
+| Learn                        | [@nickmcintyre](https://github.com/nickmcintyre)                                  |
 | Libraries                    | [@Qianqianye](https://github.com/Qianqianye)                                           |
 | Community/Books/Social Media | [@Qianqianye](https://github.com/Qianqianye)                                           |
 | Contributor Docs             | SoD 2022: [@limzykenneth](https://github.com/limzykenneth) |
@@ -35,11 +35,11 @@ Once added, a steward's username will remain in the [stewards section of the rea
 ### Translation Steward(s) 
 | Language | Steward(s)                |
 | -------- | ------------------------- |
-| Overall  |[@Qianqianye](https://github.com/Qianqianye),[@limzykenneth](https://github.com/limzykenneth) |
+| Overall  |[@Qianqianye](https://github.com/Qianqianye), [@limzykenneth](https://github.com/limzykenneth) |
 | Spanish  |[@Guirdo](https://github.com/Guirdo), [@Andreu-G](https://github.com/Andreu-G)                |
-| Chinese  |                           |
-| Korean   | [@yinhwa](https://github.com/yinhwa)                         |
-| Hindi    |                           |
+| Chinese  | [@unicar9](https://github.com/unicar9), [@Gracia-zhang](https://github.com/Gracia-zhang)              |
+| Korean   | [@yinhwa](https://github.com/yinhwa), [@almchung](https://github.com/almchung), [@jhongover9000](https://github.com/jhongover9000), [@sssueing](https://github.com/sssueing) |
+| Hindi    | [@adarrssh](https://github.com/adarrssh), [@Divyansh013](https://github.com/Divyansh013)             |
 
 ## Setup
 
@@ -82,4 +82,9 @@ If you've contributed to this website (or any other part of the p5.js project), 
 
 ## Externally hosted language versions
 * [https://p5js.jp](https://p5js.jp/) - 日本語 (Japanese), translated and hosted by [Katsuya Endoh](https://enkatsu.org/)
+* [https://p5js-unofficial-french-translation.vercel.app](https://p5js-unofficial-french-translation.vercel.app) - French, translated and hosted by [LEMIBANDDEXARI](https://github.com/LEMIBANDDEXARI/p5js-unofficial-french-translation)
+
+Regarding website translation, we are rolling out new languages slowly to be absolutely sure that we can support the full translation and maintenance of each language. We want to avoid the situation where we have many languages and it's beyond our means to support. So for this reason, we are holding now with Spanish, Chinese, Korean, and Hindi and getting those fully complete before we take on others.
+
+We very much welcome translations that are hosted elsewhere. For example, https://p5js.jp/ - 日本語 (Japanese), translated and hosted by [Katsuya Endoh](https://enkatsu.org/). Please feel free to translate any of the website content and host it on an external blog or site. All of the website content is licensed under Creative Commons which makes it possible to reuse this content for non-commercial purposes if it is credited. We would be happy to share links and make connections so others can find and use this material.
 
