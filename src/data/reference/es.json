@@ -64,129 +64,129 @@
   "Camera": "Cámara",
   "p5": {
     "description": [
-      "This is the p5 instance constructor.",
-      "A p5 instance holds all the properties and methods related to a p5 sketch. It expects an incoming sketch closure and it can also take an optional node parameter for attaching the generated p5 canvas to a node. The sketch closure takes the newly created p5 instance as its sole argument and may optionally set <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on it for running a sketch.",
-      "A p5 sketch can run in \"global\" or \"instance\" mode: \"global\" - all properties and methods are attached to the window \"instance\" - all properties and methods are bound to this p5 object"
+      "Este es el constructor para una instancia de p5.",
+      "Una instancia de p5 contiene todas la propiedades y métodos relacionados a un boceto de p5. Recibe una clausura (closure) de un boceto y tambien puede tomar un nodo opcional como parametro para adjuntar el lienzo de p5 generado para un nodo. La clausura del boceto toma la recién creada instancia de p5 como su único argumento y podra poner opcionalmente las propiedades <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, y/o <a href=\"#/p5/draw\">draw()</a> en ella para ejecutar el boceto.",
+      "Un boceto de p5 puede correr en los modos \"global\" o \"instance\": \"global\" - todas las propiedades y métodos están adjuntas a la ventana. \"instance\" - todas las propiedades y métodos estan unidos a este objeto de p5."
     ],
-    "returns": "P5: a p5 instance",
+    "returns": "P5: una instancia de p5",
     "params": {
-      "sketch": "Function: a closure that can set optional <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on the  given p5 instance",
-      "node": "HTMLElement: (Optional) element to attach canvas to"
+      "sketch": "Función: una clausura que puede poner opcionalmente las propiedades <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, y/o <a href=\"#/p5/draw\">draw()</a> en la instancia de p5 dada",
+      "node": "HTMLElement: (Opcional) elemento para adjuntar al lienzo"
     },
     "describe": {
       "description": [
-        "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed.",
-        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS.",
-        "<code class=\"language-javascript\">describe(text, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users."
+        "Crea una descripción del lienzo accesible para lectores de pantalla. El primer parametro debera ser una cadena de texto con una descripción del lienzo. El segundo parametro es opcional. Si se especifica, determina como la descripción es mostrada.",
+        "<code class=\"language-javascript\">describe(text, LABEL)</code> muestra la descripción para todos los usuarios como una <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\">lápida o como una etiqueta o leyenda de exhibición</a> en un <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adyacente al lienzo. Puedes estilizarlo como desees en tu CSS.",
+        "<code class=\"language-javascript\">describe(text, FALLBACK)</code> hace a la descripción accesible solo para los usuarios de lectores de pantalla, en <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> un sub DOM dentro del elemento del lienzo</a>. Si un segundo parametro no es especificado, por defecto, la descripción solo estará disponible para usuarios de lectores de pantalla."
       ],
       "params": {
-        "text": "String: description of the canvas",
-        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+        "text": "String: descripción del lienzo",
+        "display": "Constante: (Opcional) ya sea LABEL o FALLBACK (Opcional)"
       }
     },
     "describeElement": {
       "description": [
-        "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed.",
-        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS.",
-        "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users."
+        "Esta función crear una descripción accesible para los elementos (formas o grupos de formas que juntas crean un sentido) en el lienzo. El primer parametro debe ser el nombre del elemento. El segundo parametro debe ser una cadena de texto con una descripción del elemento. El tercer parametro es opcional. Si se especifica, determina como la descripción del elemento es mostrada.",
+        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> muestra la descripción del elemento a todos los usuarios como <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> lápida o como una etiqueta o leyenda de exhibición</a> en un <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adyacente al lienzo. Puedes estilizarlo como desees en tu CSS.",
+        "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> hace a la descripción accesible solo para los usuarios de lectores de pantalla, en <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> un sub DOM dentro del elemento del lienzo</a>. Si un segundo parametro no es especificado, por defecto, la descripción solo estará disponible para usuarios de lectores de pantalla."
       ],
       "params": {
-        "name": "String: name of the element",
-        "text": "String: description of the element",
-        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+        "name": "String: nombre del elemento",
+        "text": "String: descripción del elemento",
+        "display": "Constante: (Opcional) ya sea LABEL o FALLBACK (Opcional)"
       }
     },
     "textOutput": {
       "description": [
-        "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\").",
-        "<code class=\"language-javascript\">textOutput()</code> and <code class=\"language-javascript\">texOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">textOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+        "<code class=\"language-javascript\">textOutput()</code> crea una salida accesible para lectores de pantalla que describe las figuras presentes en el lienzo. La descripción general del lienzo incluye el tamaño del lienzo, su color, y el numero de elementos en el lienzo (por ejemplo: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). Esta descripción es seguida por una lista de formas donde el color, la posición, y el área de cada figura son describidas (por ejemplo: \"orange ellipse at top left covering 1% of the canvas\"). Cada elemento puede ser seleccionado para obtener más detalles. También se provee de una tabla de elementos. En esta tabla la forma, el color, la posición, las coordenadas y el área son descritas (por ejemplo: \"orange ellipse location=top left area=2\"). ",
+        "<code class=\"language-javascript\">textOutput()</code> y <code class=\"language-javascript\">texOutput(FALLBACK)</code> hacen disponible el resultado en <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> un sub DOM dentro del elementos del lienzo</a> el cual es accesible para los lectores de pantalla. <code class=\"language-javascript\">textOutput(LABEL)</code> crea un div adicional con el resultado cerca del lienzo, esto es util para los usuarios que no utilicen lectores de pantalla que podran querer mostrar el resultado afuera del sub DOM del lienzo a medida que programan. Sin embargo, utilizar LABEL creará redundancia innecesaria para los usuario de lectores de pantalla. Recomendamos utilizar LABEL solo como parte del proceso de desarrollo de un boceto y removerlo antes de publicar o compartir con los usuarios de lectores de pantalla."
       ],
       "params": {
-        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+        "display": "Constante: (Opcional) ya sea FALLBACK o LABEL (Opcional)"
       }
     },
     "gridOutput": {
       "description": [
-        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape. A brief description of the canvas is available before the table output. This description includes: color of the background, size of the canvas, number of objects, and object types (example: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). The grid describes the content spatially, each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: \"orange ellipse\"). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, and area are described (example: \"orange ellipse location=top left area=1%\") is also available.",
-        "<code class=\"language-javascript\">gridOutput()</code> and <code class=\"language-javascript\">gridOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">gridOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+        "<code class=\"language-javascript\">gridOutput()</code> establece el contenido del lienzo en la forma de una cuadrícula (tabla de html) basada en la posición espacial de cada figura. Una breve descripción del lienzo esta disponible antes de la tabla resultante. La descripción incluye: el color del fondo, el tamaño del lienzo, el numero de objetos, y los tipos de objeto (por ejemplo: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). La cuadrícula describe el contenido espacialmente, cada elemento es colocado en una celda de la tabla dependiendo su posición. Dentro de cada celda un elemento, el color y el tipo de forma de ese elemento esta disponible (por ejemplo: \"orange ellipse\"). Estas descripciones pueden ser seleccionadas individualmente para obtener más detalles. Tambien esta disponible una lista de elementos donde la forma, el color, la posición, y el área son descritos (por ejemplo: \"orange ellipse location=top left area=1%\").",
+        "<code class=\"language-javascript\">gridOutput()</code> y <code class=\"language-javascript\">gridOutput(FALLBACK)</code> hace el resultado disponible en <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> un sub DOM dentro del elemento del lienzo</a> el cual es accesible para los lectores de pantalla. <code class=\"language-javascript\">gridOutput(LABEL)</code> crea un div adicional con el resultado cerca del lienzo, esto es util para los usuarios que no utilizan lectores de pantalla que podran querer mostrar el resultado afuera del sub DOM del lienzo a medida que van programando. Sin embargo, utilizar LABEL creará redundancia innecesaria para usuarios de lectores de pantalla. Recomendamos utilizar LABEL solo como parte del proceso de desarrollo de un boceto y removerlo antes de publicarlo o compartirlo con usuarios de lectores de pantalla."
       ],
       "params": {
-        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+        "display": "Constante: (Opcional) ya sea FALLBACK o LABEL (Opcional)"
       }
     },
     "alpha": {
       "description": [
         "Extrae el valor de alpha de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Numero: el valor alpha",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "blue": {
       "description": [
         "Extrae el valor de azul de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor azul",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "brightness": {
       "description": [
         "Extrae el valor de brillo HSB de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor de brillo",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "color": {
       "description": [
-        "Crea colores para ser almacenados en variables del tipo color. Los parámetros son interpretados como valores RGB o HSB, dependiendo del modo actual de color según colorMode)(). El modo por defecto es RGB con valores entre 0 y 255 y, por lo tanto, la función color(255, 204, 0) retorna un color amarillo brillante. Nota que si solo se provee un valor a la función color(), será interpretado como un valor en escala de grises. Añade un segundo valor, y será usado como transparencia alpha. Cuando se especifican tres valores, son interpretados como valores RGB o HSB. Al añadir un cuarto valor se aplica transparencia alpha. Si se provee solo un parámetro de tipo string, será interpretado como un string de color compatible con CSS.Los colores son almacenados como números o arreglos.",
-        "Note that if only one value is provided to <a href=\"#/p5/color\">color()</a>, it will be interpreted as a grayscale value. Add a second value, and it will be used for alpha transparency. When three values are specified, they are interpreted as either RGB or HSB values. Adding a fourth value applies alpha transparency.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used."
+        "Crea colores para ser almacenados en variables del tipo color. Los parámetros son interpretados como valores RGB o HSB, dependiendo del modo actual de color según <a href=\"https://p5js.org/es/reference/#/p5/colorMode\">colorMode()</a>. El modo por defecto son valores RGB entre 0 y 255 y, por lo tanto, la función color(255, 204, 0) retorna un color amarillo brillante.",
+        "Nota que si solo se provee un valor a la función color(), será interpretado como un valor en escala de grises. Añade un segundo valor, y será usado como transparencia alpha. Cuando se especifican tres valores, son interpretados como valores RGB o HSB. Al añadir un cuarto valor se aplica transparencia alpha.",
+        "Si se provee solo un parámetro de tipo string, colores RGB, RGBA y HEX de CSS todos los coloers nombrados son soportados. En este caso, un valor alpha como un segundo argumento no es soportado, la forma RGBA deberia ser usada."
       ],
-      "returns": "Arreglo: color resultante",
+      "returns": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: color resultante",
       "params": {
         "gray": "Número|String: número especificando el valor entre blanco y negro.",
         "alpha": "Número: valor de alpha relativo al rango de color actual (por defecto es 0-255)",
         "v1": "Número|String: valor de rojo o tinte relativo al rango de color actual, o un string de color",
         "v2": "Número: valor de verde o saturación relativo al rango de color actual",
         "v3": "Número: valor de azul o brillo relativo al rango de color actual",
-        "value": "String: a color string",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
-        "color": "p5.Color"
+        "value": "String: un string de un color",
+        "values": "Númbero[]: un arreglo que contiene los componentes rojo, azul, verde, azul y alpha del color",
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>"
       }
     },
     "green": {
       "description": [
         "Extrae el valor de verde de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor verde",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "hue": {
       "description": [
-        "Extrae el valor de tinte de un color o de un arreglo de pixeles. El tinte (hue) existe en HSB y HSL. Esta función retorna el tinte normalizado HSB que cuando se le provee un objeto de color HSB (o cuando se le provee un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará el tinte normalizado según HSB en otro caso. (Estos valores solo son diferentes si la configuración de valor de tinte máximo de cada sistema es diferente.)",
-        "Hue exists in both HSB and HSL. This function will return the HSB-normalized hue when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL-normalized hue otherwise. (The values will only be different if the maximum hue setting for each system is different.)"
+        "Extrae el valor del matiz de un color o de un arreglo de pixeles.",
+        "El matiz (hue) existe en HSB y HSL. Esta función retorna el matiz normalizado HSB que cuando se le provee un objeto de color HSB (o cuando se le provee un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará el matiz normalizado según HSB en otro caso. (Estos valores solo son diferentes si la configuración de valor de matiz máximo de cada sistema es diferente.)"
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el matiz",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "lerpColor": {
       "description": [
-        "Mezcla dos colores para encontrar un tercer color según la combinación de ambos. El parámetro amt es la cantidad a interpolar entre los dos valores, donde 0.0 es igual al primer color, 0.1 es muy cercano al primer color, 0.5 está a medio camino entre ambos, etc. Un valor menor que 0 será tratado como 0. Del mismo modo, valores sobre 1 serán tratados como 1. Esto es distinto al comportamiento de lerp(), pero necesario porque de otra manera los números fuera de rango producirían colores no esperados y extraños. La manera en que los colores son interpolados depende del modo de color actual.",
-        "The way that colors are interpolated depends on the current color mode."
+        "Mezcla dos colores para encontrar un tercer color según la combinación de ambos. El parámetro amt es la cantidad a interpolar entre los dos valores, donde 0.0 es igual al primer color, 0.1 es muy cercano al primer color, 0.5 está a medio camino entre ambos, etc. Un valor menor que 0 será tratado como 0. Del mismo modo, valores sobre 1 serán tratados como 1. Esto es distinto al comportamiento de <a href=\"https://p5js.org/es/reference/#/p5/lerp\">lerp()</a>, pero necesario porque de otra manera los números fuera de rango producirían colores no esperados y extraños.",
+        "La manera en que los colores son interpolados depende del modo de color actual."
       ],
-      "returns": "Arreglo/Número: color interpolado",
+      "returns": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: color interpolado",
       "params": {
-        "c1": "Arreglo/Número: interpola desde este color",
-        "c2": "Arreglo/Número: interpola hacia este color",
+        "c1": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: interpola desde este color",
+        "c2": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: interpola hacia este color",
         "amt": "Número: número entre 0 y 1"
       }
     },
@@ -194,28 +194,28 @@
       "description": [
         "Extrae el valor de luminosidad HSL de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: la luminosidad",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "red": {
       "description": [
         "Extrae el valor de rojo de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor rojo",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "saturation": {
       "description": [
-        "Extrae el valor de saturación de un color o de un arreglo de pixeles. La saturación es escalada en HSB y HSL de forma distinta. Esta función retornará la saturación HSB cuando le sea provisto un objeto de color HSB (o cuando le sea provisto un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará saturación HSL.",
-        "Saturation is scaled differently in HSB and HSL. This function will return the HSB saturation when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL saturation otherwise."
+        "Extrae el valor de saturación de un color o de un arreglo de pixeles.",
+        "La saturación es escalada en HSB y HSL de forma distinta. Esta función retornará la saturación HSB cuando le sea provisto un objeto de color HSB (o cuando le sea provisto un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará saturación HSL."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor de la saturación",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "background": {
