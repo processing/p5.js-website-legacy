@@ -3,10 +3,10 @@
   "reference-search": "Busca en la API",
   "reference-description1": "¿No encuentras lo que buscas? Quizás debas revisar en",
   "reference-description3": "Puedes descargar una versión de la referencia.",
-  "reference-contribute2": "por favor dinos",
+  "reference-contribute2": "Por favor dinos.",
   "reference-error1": "¿Encontraste algún error?",
-  "reference-error3": "Por favor siéntete libre de",
-  "reference-error5": "y de indicar un pull request.",
+  "reference-error3": "Por favor, siéntete libre de editar",
+  "reference-error5": "y de publicar un pull request.",
   "reference-example": "Ejemplo",
   "reference-description": "Descripción",
   "reference-extends": "Extiende",
@@ -220,90 +220,98 @@
     },
     "background": {
       "description": [
-        "La función background() define el color usado como fondo del lienzo p5.js. El fondo por defecto es gris claro. Esta función es típicamente usada dentro de draw() para despejar o borrar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de setup() para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
-        "The color is either specified in terms of the RGB, HSB, or HSL color depending on the current <a href=\"#/p5/colorMode\">colorMode</a>. (The default color space is RGB, with each value in the range from 0 to 255). The alpha range by default is also 0 to 255.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
-        "A <a href=\"#/p5.Color\">p5.Color</a> object can also be provided to set the background color.",
-        "A <a href=\"#/p5.Image\">p5.Image</a> can also be provided to set the background image."
+        "La función background() define el color usado como fondo del lienzo de p5.js. El fondo por defecto es transparente. Esta función es típicamente usada dentro de <a href=\"https://p5js.org/es/reference/#/p5/draw\">draw()</a> para limpiar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de <a href=\"https://p5js.org/es/reference/#/p5/setup\">setup()</a> para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
+        "El color es tambien especificado en termino de colores RGB, HSB, o HSL dependiendo del <a href=\"https://p5js.org/es/reference/#/p5/colorMode\">colorMode</a>. (El espacio de color por defeco es RGB, con cada valor dentro del rango de 0 a 255). El rango alpha por defecto es también de 0 a 255.",
+        "Si un solo argumento de tipo string es dado, cadena de colores RGB, RGBA y HEX y todos los nombres de colores son soportados. En este caso, el valor alpha como un segundo argumento no es soportado, la forma RGBA deberia ser usado.",
+        "Un objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a> también puede ser proveido para asignar el color de fondo",
+        "Un <a href=\"https://p5js.org/es/reference/#/p5.Image\">p5.Image</a> también pueder ser proporcionado para asignar la imagen de fondo."
       ],
       "params": {
-        "color": "Color: cualquier valor creado con la función color()",
-        "colorstring": "colorstring: string de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex 3 dígitos, hex 6 dígitos",
-        "a": "Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-255)",
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>cualquier valor creado con la función <a href=\"https://p5js.org/es/reference/#/p5/color\">color()</a>",
+        "colorstring": "String: string de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex de 3 dígitos, hex de 6 dígitos",
+        "a": "Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-255) (Opcional)",
         "gray": "Número: especifica un valor entre blanco y negro",
-        "v1": "Número: valor de rojo o hue (dependiendo del modo de color actual)",
+        "v1": "Número: valor de rojo o matiz (dependiendo del modo de color actual)",
         "v2": "Número: valor de verde o saturación (dependiendo del modo de color actual)",
         "v3": "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-        "values": "Number[]: an array containing the red, green, blue  and alpha components of the color",
-        "image": "p5.Image: imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo)"
+        "values": "Number[]: un arreglo que contenga los componentes rojo, verde, azul y alpha del color",
+        "image": "<a href=\"https://p5js.org/es/reference/#/p5.Image\">p5.Image</a>: imagen creada con <a href=\"https://p5js.org/es/reference/#/p5/loadImage\">loadImage()</a> o <a href=\"https://p5js.org/es/reference/#/p5/createImage\">createImage()</a>, para ser definida como fondo (debe ser del mismo tamaño que la ventana del boceto)"
       }
     },
     "clear": {
       "description": [
-        "Borra los pixeles del buffer. Esta función solo funciona en objetos p5.Canvas creados con la función createCanvas(); no funcionará con la ventana principal. A diferencia del contexto principal de gráficas, los pixeles en las áreas gráficas adicionales creadas con createGraphics() pueden ser entera o parcialmente transparentes. Esta función borra todo para hacer los pixeles 100% transparentes."
-      ]
+        "Borra los pixeles dentro de un búfer. Esta función solo funciona en lienzos. No funcionara con objetos creados por funciones de createX(), como <a href=\"https://p5js.org/es/reference/#/p5/createVideo\">createVideo()</a> o <a href=\"https://p5js.org/es/reference/#/p5/createDiv\">createDiv()</a>. A diferencia del contexto de los graficos principales, pixeles en áreas graficas adicionales creadas con <a href=\"https://p5js.org/es/reference/#/p5/createGraphics\">createGraphics()</a> pueden ser completa o parcialmente transparentes. Esta función limpia todo para hacer a todos los pixeles 100% transparantes.",
+        "Nota: En el modo WebGL, esta función puede pasar valores normalizados para limpiar la pantalla a un color específico. Adicionalmente al color, tambien limpiará el búfer profundo. Si no esta usando el renderizador de WebGL estos valores de color no tendrán efecto."
+      ],
+      "params": {
+        "r": "Número: valor normalizado de rojo.",
+        "g": "Número: valor normalizado de verde.",
+        "b": "Número: valor normalizado de azul.",
+        "a": "Número: valor normalizado de alpha."
+      }
     },
     "colorMode": {
       "description": [
-        "colorMode() cambia la manera en que p5.js interpreta los datos de color. Por defecto, los parámetros de fill(), stroke(), background() y color() son definidos por valores entre 0 y 255 en modo RGB. Esto es equivalente a definir el modo de color según colorMode(RGB, 255). Definir el modo de color en colorMode(HSB) permite usar el sistema HSB. Por defecto, este modo de color es colorMode(HSB, 360, 100, 100, 1). También se puede usar HSL. Nota: los objetos de color existentes recuerdan el modo en que fueron creados, por lo que puedes cambiar el modo como quieras, sin afectar su apariencia.",
-        "Note: existing color objects remember the mode that they were created in, so you can change modes as you like without affecting their appearance."
+        "colorMode() cambia la manera en que p5.js interpreta los datos de color. Por defecto, los parámetros de <a href=\"https://p5js.org/es/reference/#/p5/fill\">fill()</a>, <a href=\"https://p5js.org/es/reference/#/p5/stroke\">stroke()</a>, <a href=\"https://p5js.org/es/reference/#/p5/background\">background()</a> y <a href=\"https://p5js.org/es/reference/#/p5/color\">color()</a> son definidos por valores entre 0 y 255 usando el modelo de color RGB. Esto es equivalente a definir el modo de color según colorMode(RGB, 255). Definir el modo de color en colorMode(HSB) permite usar el sistema HSB en su lugar. Por defecto, este modo de color es colorMode(HSB, 360, 100, 100, 1). También se puede usar HSL.",
+        "Nota: los objetos de color existentes recuerdan el modo en que fueron creados, por lo que puedes cambiar los modos como quieras, sin afectar su apariencia."
       ],
       "params": {
-        "mode": "Constante: RGB o HSB, correspondiente a Rojo/Verde/Azul o tinte/saturación/brillo (o luminosidad)",
-        "max": "Number: (Optional) range for all values",
-        "max1": "Número: rango de rojo o tinte, dependiendo del modo de color actual, o rango para todos los valores",
+        "mode": "Constante: ya sea RGB, HSB o HSL, correspondiente a Rojo/Verde/Azul o Matiz/Saturación/brillo (o luminosidad)",
+        "max": "Número: rango para todos los colores (Opcional)",
+        "max1": "Número: rango de rojo o matiz, dependiendo del modo de color actual",
         "max2": "Número: rango de verde o saturación, dependiendo del modo de color actual.",
         "max3": "Número: rango de azul o brillo/luminosidad, dependiendo del modo de color actual.",
-        "maxA": "Número: rango de transparencia alpha"
+        "maxA": "Número: rango de transparencia alpha (Opcional)"
       }
     },
     "fill": {
       "description": [
-        "Define el color usado para el relleno de figuras geométricas. Por ejemplo, si ejecutas fill(204, 102, 0), todas las figuras a continuación tendrán relleno naranja. Este color es especificado en términos de color RGB o HSB, dependiendo del modo de color según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del relleno.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
-        "A p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the fill color."
+        "Define el color usado para rellenar las figuras. Por ejemplo, si ejecutas fill(204, 102, 0), todas las figuras a continuación tendrán relleno naranja. Este color también es especificado en términos de color RGB o HSB, dependiendo del modo de color según <a href=\"https://p5js.org/es/reference/#/p5/colorMode\">colorMode()</a>. (El espacio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). El rango de alpha por defecto es también de 0 a 255.",
+        "Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal y todos los nombre de los colores son soportados. En este caso, valor alpha como un segundo argumento no es soportado, la forma RGBA debería ser usada.",
+        "Un objeto p5 <a href=\"#/p5.Color\">Color</a> también puede ser dado para definir el color de relleno."
       ],
       "params": {
-        "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
-        "v2": "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-        "v3": "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-        "alpha": "Número: opacidad del fondo",
-        "value": "String: a color string",
-        "gray": "Number: a gray value",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
-        "color": "p5.Color: the fill color"
+        "v1": "Número: el valor de rojo o matiz relativo al rango de color",
+        "v2": "Número: valor de verde o saturación relativo al rango de color",
+        "v3": "Número: valor de azul o brillo relativo al rango de color",
+        "alpha": "Número: opacidad del fondo (Opcional)",
+        "value": "String: una cadena de color",
+        "gray": "Number: un valor de gris",
+        "values": "Número[]: un arreglo que contenga los componentes rojo, verde, azul y alpha del color",
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: el color de relleno"
       }
     },
     "noFill": {
       "description": [
-        "Deshabilita el relleno de figuras geométricas. Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla."
+        "Deshabilita el relleno de figuras geométricas. Si tanto <a href=\"https://p5js.org/es/reference/#/p5/noStroke\">noStroke()</a> como <a href=\"https://p5js.org/es/reference/#/p5/noFill\">noFill()</a> son ejecutados, nada será dibujado en pantalla."
       ]
     },
     "noStroke": {
       "description": [
-        "Deshabilita el dibujo de los trazos (bordes). Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla."
+        "Deshabilita el dibujo de los trazos (bordes). Si tanto <a href=\"https://p5js.org/es/reference/#/p5/noStroke\">noStroke()</a> como <a href=\"https://p5js.org/es/reference/#/p5/noFill\">noFill()</a> son ejecutados, nada será dibujado en pantalla."
       ]
     },
     "stroke": {
       "description": [
-        "Define el color usado para dibujar líneas y bordes de figuras. Este color especificado en términos de color RGB o HSB, dependiendo del modo de color actual según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del trazado.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
-        "A p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the stroke color."
+        "Define el color usado para dibujar líneas y bordes de figuras. Este color especificado en términos de color RGB o HSB, dependiendo del modo de color actual según <a href=\"https://p5js.org/es/reference/#/p5/colorMode\">colorMode()</a> (el espacio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). El rango de valor de alpha por defecto es también de 0 a 255.",
+        "Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal y todos los nombres de los colores son soportados. En este acaso, valor de alpha como segundo argumento no es soportado, la forma RGBA debería ser usada.",
+        "Un objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">Color</a> p5 puede ser provisto para definir el color del trazado."
       ],
       "params": {
-        "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
-        "v2": "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-        "v3": "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-        "alpha": "Número: opacidad del fondo",
-        "value": "String: a color string",
-        "gray": "Number: a gray value",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
-        "color": "p5.Color: the stroke color"
+        "v1": "Número: el valor de rojo o matiz relativo al rango de color",
+        "v2": "Número: valor de verde o saturación relativo al rango de color",
+        "v3": "Número: valor de azul o brillo relativo al rango de color",
+        "alpha": "Número: opacidad del fondo (Opcional)",
+        "value": "String: una cadena de color",
+        "gray": "Number: un valor de gris",
+        "values": "Número[]: un arreglo que contenga los componentes rojo, verde, azul y alpha del color",
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: el color de trazado"
       }
     },
     "erase": {
       "description": [
-        "All drawing that follows <a href=\"#/p5/erase\">erase()</a> will subtract from the canvas.Erased areas will reveal the web page underneath the canvas.Erasing can be canceled with <a href=\"#/p5/noErase\">noErase()</a>.",
+        "Todos los diujos que siguen de <a href=\"https://p5js.org/es/reference/#/p5/erase\">erase()</a> serán eliminados del lienzo. La áreas borradas revelarán la pagina web debajo del lienzo. Borrar puede ser canceldo con <a href=\"https://p5js.org/es/reference/#/p5/noErase\">noErase()</a>.",
+        "Dibujos hechos con <a href=\"https://p5js.org/es/reference/#/p5/image\">image()</a> y <a href=\"ttps://p5js.org/es/reference/#/p5/background\"> background()</a> entre <a href=\"https://p5js.org/es/reference/#/p5/erase\">erase()</a> and <a href=\"https://p5js.org/es/reference/#/p5/noErase\">noErase()</a> no borrarán el lienzo pero funciona como es usual.",
         "Drawing done with <a href=\"#/p5/image\">image()</a> and <a href=\"#/p5/background\"> background()</a> in between <a href=\"#/p5/erase\">erase()</a> and <a href=\"#/p5/noErase\">noErase()</a> will not erase the canvas but works as usual."
       ],
       "params": {
@@ -313,7 +321,7 @@
     },
     "noErase": {
       "description": [
-        "Ends erasing that was started with <a href=\"#/p5/erase\">erase()</a>. The <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/stroke\">stroke()</a>, and <a href=\"#/p5/blendMode\">blendMode()</a> settings will return to what they were prior to calling <a href=\"#/p5/erase\">erase()</a>."
+        "Termina borrando lo que fue empezado con <a href=\"https://p5js.org/es/reference/#/p5/erase\">erase()</a>. Las configuraciones de <a href=\"https://p5js.org/es/reference/#/p5/fill\">fill()</a>, <a href=\"https://p5js.org/es/reference/#/p5/stroke\">stroke()</a>, y <a href=\"https://p5js.org/es/reference/#/p5/blendMode\">blendMode()</a> volverán a lo que eran antes de llamar <a href=\"https://p5js.org/es/reference/#/p5/erase\">erase()</a>."
       ]
     },
     "arc": {
