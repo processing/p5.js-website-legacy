@@ -37,9 +37,12 @@ Once added, a steward's username will remain in the [stewards section of the rea
 | -------- | ------------------------- |
 | Overall  |[@Qianqianye](https://github.com/Qianqianye), [@limzykenneth](https://github.com/limzykenneth) |
 | Spanish  |[@Guirdo](https://github.com/Guirdo), [@Andreu-G](https://github.com/Andreu-G)                |
-| Chinese  | [@unicar9](https://github.com/unicar9), [@Gracia-zhang](https://github.com/Gracia-zhang)              |
-| Korean   | [@yinhwa](https://github.com/yinhwa), [@almchung](https://github.com/almchung), [@jhongover9000](https://github.com/jhongover9000), [@sssueing](https://github.com/sssueing) |
-| Hindi    | [@adarrssh](https://github.com/adarrssh), [@Divyansh013](https://github.com/Divyansh013)             |
+| Chinese  | [@unicar9](https://github.com/unicar9), [@Gracia-zhang](https://github.com/Gracia-zhang), [@pentalei](https://github.com/pentalei)              |
+| Korean   | [@yinhwa](https://github.com/yinhwa), [@almchung](https://github.com/almchung), [@jhongover9000](https://github.com/jhongover9000), [@sssueing](https://github.com/sssueing), [@GeryGeryGery](https://github.com/GeryGeryGery) |
+| Hindi    | [@adarrssh](https://github.com/adarrssh), [@Divyansh013](https://github.com/Divyansh013), [@deepchauhan](https://github.com/deepchauhan), [@SarveshLimaye](https://github.com/SarveshLimaye)|
+
+Other Language Steward(s):
+* Portuguese: [@pentalei](https://github.com/pentalei)
 
 ## Setup
 
