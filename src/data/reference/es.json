@@ -898,27 +898,27 @@
     "FALLBACK": {},
     "print": {
       "description": [
-        "La función print() escribe en la consola del navegador. Esta función es a menudo de ayuda para observar los datos que un programa está produciendo. Esta función crea una nueva línea de texto por cada ejecución de la función. Elementos individuales pueden ser separados por comillas ('') y unidos con el operador de adición (+). Aunque print() es similar a console.log(), no llama a console.log() directamente, para simular una manera más simple de entender el comportamiento del programa. Por esto mismo, es más lento. Para resultados más rápidos, usar directamente console.log().",
-        "Note that calling print() without any arguments invokes the window.print() function which opens the browser's print dialog. To print a blank line to console you can write print('\\n')."
+        "La función print() escribe en la consola del navegador. Esta función es a menudo de ayuda para observar los datos que un programa está produciendo. Esta función crea una nueva línea de texto por cada ejecución de la función. Elementos individuales pueden ser separados por comillas (\"\") y unidos con el operador de adición (+). Aunque print() es similar a console.log(), no llama a console.log() directamente, para simular una manera más simple de entender el comportamiento del programa. Por esto mismo, es más lento. Para resultados más rápidos, usar directamente console.log().",
+        "Nota que llamar a print() sin ningún argumento invoca la función window.print() la cual abre el dialogo de impresión del navegador. Para imprimir una línea vacia en la consola puedes escribir print('\\n')"
       ],
       "params": {
-        "contents": "Cualquiera: cualquier combinación de número, string, objeto, boolean o arreglo a imprimir"
+        "contents": "Cualquiera: cualquier combinación de número, string, objeto, booleano o arreglo a imprimir"
       }
     },
     "frameCount": {
       "description": [
-        "La variable de sistema frameCount contiene el número de cuadros (frames) que se han mostrado desde que el programa empezó a ejecutarse. Dentro de setup() el valor es 0, después de la primera iteración de draw() es 1, etc."
+        "La variable de sistema <a href=\"#/p5/frameCount\">frameCount</a> contiene el número de cuadros (frames) que se han mostrado desde que el programa empezó a ejecutarse. Dentro de <a href=\"#/p5/setup\">setup()</a> el valor es 0, después de la primera iteración de <a href=\"#/p5/draw\">draw()</a> es 1, etc."
       ]
     },
     "deltaTime": {
       "description": [
-        "The system variable <a href=\"#/p5/deltaTime\">deltaTime</a> contains the time difference between the beginning of the previous frame and the beginning of the current frame in milliseconds.",
-        "This variable is useful for creating time sensitive animation or physics calculation that should stay constant regardless of frame rate."
+        "La variable del sistema <a href=\"#/p5/deltaTime\">deltaTime</a> contiene la diferencia de tiempo entre cuando empezo el cuadro (frame) anterior y cuando empezo el cuadro actual en milisegundos.",
+        "Esta variable es util para crear animaciones sensibles al tiempo o cálculos físicos que deberian mantenerse constantes independientemente de los cuadros por segundo."
       ]
     },
     "focused": {
       "description": [
-        "Confirma si la ventana de un programa de p5.js está en foco, lo que significa que el bosquejo aceptará entradas desde el ratón o teclado. Esta variable es verdadera (true) si la ventana está en foco y falsa (false) si no."
+        "Confirma si la ventana de un programa de p5.js está en foco, lo que significa que el boceto aceptará entradas desde el ratón o teclado. Esta variable es verdadera (true) si la ventana está en foco y falsa (false) si no."
       ]
     },
     "cursor": {
@@ -926,16 +926,16 @@
         "Define el cursor como un símbolo predeterminado o una imagen, o hace el cursor visible si es que estaba escondido. Si estás tratando de asignar una imagen al cursor, el tamaño recomendado es 16x16 o 32x32 pixeles. No es posible cargar una imagen al cursor si estás exportando tu programa a la Web, y no todos los modos funcionan con todos los navegadores. Los valores de los parámetros x e y deben ser menores a la dimensión de la imagen."
       ],
       "params": {
-        "type": "Número|Constante: puede ser ARROW, CROSS, HAND, MOVE, TEXT, o WAIT, o la dirección de una imagen",
-        "x": "Número: el punto activo horizontal del cursor",
-        "y": "Número: el punto activo vertical del cursor"
+        "type": "String|Constante: puede ser las propiedades ARROW, CROSS, HAND, MOVE, TEXT, y WAIT. Propiedades nativas de CSS: 'grab', 'progress', 'cell', etc. Externos: rutas para imagenes del cursos (Se permiten las extensiones de archivo: .cur, .gif, .jpg, .jpeg, .png). Para más información acerca de los cursores nativos de CSS y url visita: <a href=\"https://developer.mozilla.org/es/docs/Web/CSS/cursor\">https://developer.mozilla.org/es/docs/Web/CSS/cursor</a>.",
+        "x": "Número: el punto activo horizontal del cursor (Deberá ser menor que 32) (Opcional)",
+        "y": "Número: el punto activo vertical del cursor (Deberá ser menor que 32) (Opcional)"
       }
     },
     "frameRate": {
       "description": [
-        "Especifica el número de cuadros mostrados por segundo. Por ejemplo, la llamada a la función frameRate(30), tratará de refrescar 30 veces por segundo. Si el procesador no es lo suficientemente rápido para mantener la tasa especificada, la tasa de cuadros por segundo no será lograda. Definir la tasa de cuadros por segundo dentro de setup() es lo recomendable. La tasa por defecto es de 60 veces por segundo. Esto es lo mismo que setFrameRate(val). Llamar a la función frameRate() sin argumentos retorna la tasa actual. Esto es lo mismo que getFrameRate(). Llamar a la función frameRate() con arugmentos que no son de tipo número o no son positivos también retornarán la tasa actual.",
-        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with no arguments returns the current framerate. The draw function must run at least once before it will return a value. This is the same as <a href=\"#/p5/getFrameRate\">getFrameRate()</a>.",
-        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with arguments that are not of the type numbers or are non positive also returns current framerate."
+        "Especifica el número de cuadros mostrados por segundo. Por ejemplo, la llamada a la función frameRate(30), tratará de refrescar 30 veces por segundo. Si el procesador no es lo suficientemente rápido para mantener la tasa especificada, la tasa de cuadros por segundo no será lograda. Se recomienda definir la tasa de cuadros por segundo dentro de <a href=\"#/p5/setup\">setup()</a>. La tasa cuadros por segundo por defecto esta basada en la tasa del monitos (tambien llamada \"tasa de actualización\") es de 60 veces por segundo en la mayoría de computadores. Un tasa de 24 cuadros por segundo (usualmente para películas) o por debajo será suficiente para animaciones fluidas. Esto es lo mismo que setFrameRate(val).",
+        "Llamar a <a href=\"#/p5/frameRate\">frameRate()</a> sin argumentos retorna la tasa de cuadros por segundo actual. La funcion draw() deberá ejecutarse por lo menos una vez antes de que retorne un valor. Esto es lo mismo que <a href=\"#/p5/getFrameRate\">getFrameRate()</a>.",
+        "Llamar a <a href=\"#/p5/frameRate\">frameRate()</a> con argumentos que no son de tipo numérico o no son positivos tambien retorna la tasa de cuadros por segundo."
       ],
       "params": {
         "fps": "Número: número de cuadros a ser mostrados cada segundo."
@@ -948,12 +948,12 @@
     },
     "displayWidth": {
       "description": [
-        "Variable de sistema que almacena el ancho de la pantalla mostrada. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla."
+        "Variable de sistema que almacena el ancho de la pantalla del monitor de acuerdo con el <a href=\"https://p5js.org/reference/#/p5/pixelDensity\">pixelDensity</a> por defecto. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla. Para retornar el tamaño real de la pantalla, multiplica este por pixelDensity."
       ]
     },
     "displayHeight": {
       "description": [
-        "Variable de sistema que almacena la altura de la pantalla mostrada. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla."
+        "Variable de sistema que almacena la altura de la pantalla del monitor de acuerdo con el <a href=\"https://p5js.org/reference/#/p5/pixelDensity\">pixelDensity</a> por defecto. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla. Para retornar el tamaño real de la pantalla, multiplica este por pixelDensity."
       ]
     },
     "windowWidth": {
@@ -968,34 +968,34 @@
     },
     "windowResized": {
       "description": [
-        "La función windowResized() es llamada cada vez que la ventana del navegador cambia de tamaño. Es un buen lugar para cambiar las dimensiones del lienzo o hacer cualquier otro ajuste necesario para acomodar las nuevas dimensiones de la ventana."
+        "La función windowResized() es llamada cada vez que la ventana del navegador cambia de tamaño. Es un buen lugar para cambiar las dimensiones del lienzo o hacer cualquier otros ajustes para acomodar las nuevas dimensiones de la ventana."
       ],
       "params": {
-        "event": "Object: (Optional) optional Event callback argument."
+        "event": "Objecto: (Opcional) Callback opcional de Event"
       }
     },
     "width": {
       "description": [
-        "Variable de sistema que almacena el ancho del lienzo dibujado. Este valor es definido por el primer parámetro de la función createCanvas(). Por ejemplo, la llamada a la función (320, 240) define la variable width al valor 320. El valor por defecto de ancho es de 100 si que createCanvas() no ha sido usado en el programa."
+        "Variable de sistema que almacena el ancho del lienzo dibujado. Este valor es definido por el primer parámetro de la función <a href=\"#/p5/createCanvas\">createCanvas()</a>. Por ejemplo, la llamada a la función createCanvas(320, 240) define la variable width al valor 320. El valor por defecto del ancho es de 100 si <a href=\"#/p5/createCanvas\">createCanvas()</a> no ha sido usado en el programa."
       ]
     },
     "height": {
       "description": [
-        "Variable de sistema que almacena la altura del lienzo dibujado. Este valor es definido por el segundo parámetro de la función createCanvas(). Por ejemplo, la llamada a la función (320, 240) define la variable height al valor 240. El valor por defecto de la altura es de 100 si que createCanvas() no ha sido usado en el programa."
+        "Variable de sistema que almacena la altura del lienzo dibujado. Este valor es definido por el segundo parámetro de la función <a href=\"#/p5/createCanvas\">createCanvas()</a>. Por ejemplo, la llamada a la función createCanvas(320, 240) define la variable height al valor 240. El valor por defecto de la altura es de 100 si <a href=\"#/p5/createCanvas\">createCanvas()</a> no ha sido usado en el programa."
       ]
     },
     "fullscreen": {
       "description": [
-        "Si se da un argumento, define que el bosquejo esté a pantalla completa basado en el valor del argumento. Si no se da un argumento, retorna el estado actual de pantalla completa. Notar que debido a restricciones del navegador esto solo puede ser llamado con una entrada de parte del usuario, por ejemplo, cuando se presiona el ratón como en el ejemplo."
+        "Si se da un argumento, define que el boceto esté a pantalla completa o no basado en el valor del argumento. Si no se da un argumento, retorna el estado actual de pantalla completa. Nota que debido a restricciones del navegador esto solo puede ser llamado con una entrada de parte del usuario, por ejemplo, cuando se presiona el ratón como en el ejemplo."
       ],
-      "returns": "Boolean: estado de pantalla completa actual",
+      "returns": "Booleano: estado de pantalla completa actual",
       "params": {
-        "val": "Boolean: define si el bosquejo debe estar a pantalla completa o no."
+        "val": "Booleano: define si el boceto debe estar a pantalla completa o no."
       }
     },
     "pixelDensity": {
       "description": [
-        "Define el escalamiento de pixeles para monitores de alta densidad de pixeles. Por defecto, la densidad de pixeles es definida para calzar con la densidad del monitor, ejecuta pixelDensity() para que no sea así. Llamar a pixelDensity() sin argumentos retorna la densidad de pixeles actual del bosquejo."
+        "Define el escalamiento de pixeles para monitores de alta densidad de pixeles. Por defecto, la densidad de pixeles es definida para calzar con la densidad del monitor, ejecuta pixelDensity(1) para que no sea así. Llamar a pixelDensity() sin argumentos retorna la densidad de pixeles actual del bosquejo."
       ],
       "params": {
         "val": "Número: si es que el bosquejo debe ser escalado y cuánto."
@@ -1003,25 +1003,25 @@
     },
     "displayDensity": {
       "description": [
-        "Retorna la densidad de pixeles del monitor actual en que el bosquejo está corriendo."
+        "Retorna la densidad de pixeles del monitor actual en que el boceto está corriendo."
       ],
       "returns": "Número: la densidad de pixeles actual del monitor"
     },
     "getURL": {
       "description": [
-        "Retorna la URL actual."
+        "Retorna la URL actual. Nota: cuando se usa el p5 Editor, esto retornará un objeto vacio porque el boceto esta embebido en un ifram. Esto funcionará correctamente si tú visualizas el boceto usando las URLs presentes o compartidas del editor."
       ],
       "returns": "String: URL"
     },
     "getURLPath": {
       "description": [
-        "Retorna la dirección URL como un arreglo"
+        "Retorna la dirección URL como un arreglo. Nota: cuando se usa el p5 Editor, esto retornará un objeto vacio porque el boceto esta embebido en un ifram. Esto funcionará correctamente si tú visualizas el boceto usando las URLs presentes o compartidas del editor."
       ],
-      "returns": "Arreglo: los componentes de la dirección"
+      "returns": "String[]: los componentes de la dirección"
     },
     "getURLParams": {
       "description": [
-        "Retorna los parámetros de la URL actual como un objeto."
+        "Retorna los parámetros de la URL actual como un objeto. Nota: cuando se usa el p5 Editor, esto retornará un objeto vacio porque el boceto esta embebido en un ifram. Esto funcionará correctamente si tú visualizas el boceto usando las URLs presentes o compartidas del editor."
       ],
       "returns": "Objeto: parámetros de la URL"
     },
