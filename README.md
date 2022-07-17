@@ -46,9 +46,9 @@ Other Language Steward(s):
 
 ## Setup
 
-0. Ensure Java is installed. Not installed?  Head over to https://java.oracle.com
+0. Ensure Java is installed. Not installed?  Head over to [Java](https://www.oracle.com/java/technologies/downloads/) for installation.
 1. Install [node.js](https://nodejs.org/en/download/).
-2. [Clone this repository](https://help.github.com/articles/cloning-a-repository/). 
+2. Clone this repo by typing ```git clone https://github.com/processing/p5.js-website/``` in terminal.
 3. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
 
 ## Running
