@@ -42,7 +42,7 @@ Once added, a steward's username will remain in the [stewards section of the rea
 | Hindi    | [@adarrssh](https://github.com/adarrssh), [@Divyansh013](https://github.com/Divyansh013), [@deepchauhan](https://github.com/deepchauhan), [@SarveshLimaye](https://github.com/SarveshLimaye)|
 
 Other Language Steward(s):
-* Portuguese: [@pentalei](https://github.com/pentalei)
+* Portuguese: [@raphaelavelar](https://github.com/raphaelavelar)
 
 ## Setup
 
