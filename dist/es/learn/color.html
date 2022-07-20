@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=fd72a4">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=6be92f"></script>
+
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">Ir al contenido</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">Preferencias de idioma</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/es/">
+          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">Navegación del sitio</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/es/">Inicio</a></li>
+        <li><a href="https://editor.p5js.org">Editor</a></li>
+        <li><a href="/es/download/">Descargar</a></li>
+        <li><a href="/es/download/support.html">Donar</a></li>
+        <li><a href="/es/get-started/">Empezar</a></li>
+        <li><a href="/es/reference/">Referencia</a></li>
+        <li><a href="/es/libraries/">Bibliotecas</a></li>
+        <li><a href="/es/learn/">Aprender</a></li>
+        <li><a href="/es/teach/">Enseñar</a></li>
+        <li><a href="/es/examples/">Ejemplos</a></li>
+        <li><a href="/es/books/">Libros</a></li>
+        <li><a href="/es/community/">Comunidad</a></li>
+        <li><a href="https://showcase.p5js.org">Showcase</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">Foro</a></li>
+        <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+        <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+        <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+        <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main >
+
+      <div class="attribution">Este tutorial proviene del libro Learning Processing de Daniel Shiffman, publicado por Morgan Kaufmann, © 2008 Elsevier Inc. Todos los derechos reservados. Fue transcrito a p5 por Kelly Chang. Si detectas algún error o tienes comentarios, <a href="https://github.com/processing/p5.js/issues"> por favor escríbenos.</a>
+
+      </div>
+
+      <h1>Color</h1>
+
+      <p>
+      En el mundo digital hablar de color requiere precisión. No basta con decir, por ejemplo: ¿Puedes hacer un círculo verde azulado?, ya que el color se define como un arreglo de números. Comencemos con el caso más simple: negro, blanco y escala de grises. 0 significa negro, 255 significa blanco. Entre medio, cualquier otro número -50, 87, 162, 209, etc- es un tono gris que va entre negro y blanco.
+      </p>
+
+      <img src="../../assets/learn/color/grayscale.svg">
+
+      <p>
+      Al agregar las funciones <a href="/es/reference/#/p5/stroke"> stroke()</a> y <a href="/es/reference/#/p5/fill">fill()</a> antes de dibujar podemos definir el color de cualquier forma deseada. También existe la función <a href="/es/reference/#/p5/background">background()</a>, que define el color del lienzo en nuestra pantalla. A continuación hay un ejemplo.
+      </p>
+
+      <pre><code class="language-javascript">
+        background(255);    // Define el color del lienzo como blanco 
+ stroke(0);          // Define el contorno de la forma (stroke) como negro 
+ fill(150);          // Define el interior de la forma (fill) como gris 
+ rect(50,50,75,100); // Dibuja un rectángulo
+      </code></pre>
+
+      <p>
+      Tanto el contorno como el interior de la forma pueden ser eliminados con las funciones: <a href="/es/reference/#/p5/noStroke">noStroke()</a> y <a href="/es/reference/#/p5/noFill">noFill()</a>. Instintivamente podríamos pensar en utilizar "stroke(0)" para eliminar el contorno, sin embargo, es importante recordar que 0 no significa "nada", sino que indica un color negro. Además, recuerda no eliminar ambos, con <b>noStroke()</b> y <b>noFill()</b>, porque ¡nada aparecerá!
+      </p>
+
+      <p>Adicionalmente si dibujamos dos figuras, p5.js siempre utilizará la última especificación de contorno y llenado, leyendo el código de arriba a abajo.</p>
+
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+      <script type="text/p5" data-autoplay data-p5-version="1.4.1">
+        function draw() {
+  background(150);
+  stroke(0);
+  line(0, 0, 100, 100);
+  stroke(255);
+  noFill();
+  rect(25, 25, 50, 50);
+}
+      </script>
+
+      <h2>Color RGB</h2>
+
+      <p>
+      ¿Alguna vez pintaste con las manos? Al mezclar los colores "primarios" podías generar cualquier otro color. Mezclar todos los colores resultaba en un color café fango, y mientras más pintura añadías más oscuro era el resultado. En el mundo digital los colores también se construyen mezclando los tres colores primarios, pero funciona un poco diferente. Primero, los tres colores primarios son otros: rojo, verde y azul (en inglés red, green and blue, es decir, "RGB"). Luego, con los colores en tu pantalla estás mezclando luz, no pintura, por lo que las reglas de esta mezcla también son otras.
+      </p>
+
+      <img src="../../assets/learn/color/rgb.jpg">
+      <p>
+        <ul class="list_view">
+          <li>Rojo + Verde = Amarillo</li>
+          <li>Rojo + Azul = Púrpura</li>
+          <li>Verde + Azul = Cian (azul-verde)</li>
+          <li>Rojo + Verde + Azul = Blanco</li>
+          <li>Ausencia de colores = Negro</li>
+        </ul>
+      </p>
+
+      <p>Lo anterior presupone que los colores son tan brillantes como sea posible, pero por supuesto, hay un rango de color disponible, por lo que un poco de rojo más un poco de verde y azul genera gris, mientras que un poco de rojo más un poco de azul genera púrpura oscuro. 
+ Si bien puede tomar tiempo acostumbrarte a esto, mientras más programes y experimentes con color RGB, más rápido se hará instintivo, como mezclar pintura con los dedos. 
+ Y por supuesto no puedes decir "Mezcla un poco de de rojo con un poco de azul", debes proveer una cantidad. Así como en la escala de grises, los elementos de color son expresados en rangos desde 0 (ausencia del color) hasta 255 (presencia máxima del color), y son listados en orden R (rojo), G (verde) y B (azul). Obtendrás el resultado de mezclar color RGB por experimentación, pero en adelante cubriremos mediante ejercicios colores más comunes.</p>
+
+      <script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function draw() {
+  background(255);
+  noStroke();
+
+  // Bright red
+  fill(255,0,0);
+  ellipse(20,20,16,16);
+
+  // Dark red
+  fill(127,0,0);
+  ellipse(40,20,16,16);
+
+  // Pink (pale red)
+  fill(255,200,200);
+  ellipse(60,20,16,16);
+}
+      </script>
+
+
+
+      <h2>Transparencia</h2>
+
+      <p>Además de los componentes rojo, verde y azul de cada color, existe un cuarto componente opcional denominado "alfa" (alpha, en inglés). Alfa significa transparencia y es particularmente útil cuando deseas dibujar figuras que se superponen y a través de las cuales quieres ver. Los valores de alfa de una imagen son llamados también "canal alfa" de una imagen.</p>
+      <p>Es importante notar que los pixeles no son literalmente transparentes, esto es simplemente una ilusión lograda al mezclar colores. Tras bambalinas p5.js toma los valores de cada color y les asigna un porcentaje, creando una percepción óptica de la mezcla (Si estás interesado en programar vidrios "color rosa", aquí es donde debes comenzar).</p>
+
+      <p>Los valores de alfa también se definen en un rango de 0 a 255, donde 0 es completamente transparente (es decir, 0% de opacidad) y 255 es completamente opaco (es decir, 100% opaco).</p>
+
+      <script type="text/p5" data-autoplay  data-p5-version="1.4.1">
+  createCanvas(100, 100);
+  fill(0,0,255);
+  rect(0,0,50,100);
+
+  // 255 means 100% opacity.
+  fill(255,0,0,255);
+  rect(0,0,100,20);
+
+  // 75% opacity.
+  fill(255,0,0,191);
+  rect(0,25,100,20);
+
+  // 55% opacity.
+  fill(255,0,0,127);
+  rect(0,50,100,20);
+
+  // 25% opacity.
+  fill(255,0,0,63);
+  rect(0,75,100,20);
+
+      </script>
+
+      <h2>Rangos de Color Personalizados</h2>
+
+      <p>
+      El modo RGB con rangos de 0 a 255 no es la única forma en que podemos manipular color en p5.js, de hecho p5.js nos permite pensar el color de la manera que deseemos. Por ejemplo, tu podrías preferir pensar el color en rangos de 0 a 100 (como un porcentaje). Esto lo puedes hacer especificando un modo específico de color con la función <a href="/es/reference/#/p5/colorMode">colorMode()</a>.
+      </p>
+
+      <pre><code>
+      colorMode(RGB,100);
+      </code></pre>
+
+      <p>La expresión anterior dice: "Ok, queremos pensar el color en términos de rojo, verde y azul, o RGB, en que el rango de cada color pueda estar entre 0  100."</p>
+
+      <p>Aunque rara vez sea conveniente, tu también puedes definir distintos rangos para cada componente de color:</p>
+
+      <pre><code>
+      colorMode(RGB,100,500,10,255);
+      </code></pre>
+
+      <p>Con la expresión anterior queremos decir: "Rango valores en color rojo va de 0 a 100, verde de 0 a 500, azul de 0 a 10 y alfa de 0 a 255."</p>
+
+      <p>Finalmente, si bien es probable que tu código requiera sólamente el modo de color RGB, también puedes especificar colores en el modo HSB (tono, saturación y brillo). Sin entrar mayormente en detalle, el color HSB funciona como sigue:</p>
+
+      <img src="../../assets/learn/color/hsb.png">
+      <ul class="list_view">
+        <li><b>Tono o Matiz</b>—El tipo de color, valores por definición van de 0 a 360.</li>
+        <li><b>Saturación</b>—La vivacidad del color, 0 a 100 por definición.</li>
+        <li><b>Brillo</b>—Es el brillo del color, 0 a 100 por definición.</li>
+      </ul>
+
+      <p>Con <a href="/es/reference/#/p5/colorMode">colorMode()</a> puedes definir tu propio rango de valores. Algunos prefieren un rango de 0-360 para el tono (piensa en los 360 grados de la rueda de color) y 0-100 para la saturación y brillo (piensa en 0-100%).</p>
+
+    </main>
+
+    
+    <footer>
+      <h2 class="sr-only">Créditos</h2>
+      <p>
+        p5.js actualmente está dirigido por <a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye</a>y fue creado por<a href='http://www.outofambit.com/' target="_blank">evelyn masso</a> p5.js es desarrollado por una comunidad de colaboradores, con apoyo de <a href='https://lauren-mccarthy.com' target="_blank">Lauren Lee McCarthy</a> y <a href="https://processingfoundation.org/" target="_blank">Processing Foundation</a>Identidad y diseño gráfico por <a href="https://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>Identity and graphic design by <a href="https://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/es/copyright.html">&copy; Info</a>.
+      </p>
+    </footer>
+
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="https://processing.org">Processing</a></li>
+        <li><a class="here" href="/es/">p5.js</a></li>
+        <li><a href="https://py.processing.org/">Processing.py</a></li>
+        <li><a href="https://android.processing.org/">Processing for Android</a></li>
+        <li><a href="https://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>

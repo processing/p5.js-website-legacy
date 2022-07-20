@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=fd72a4">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=6be92f"></script>
+
+    <script src="/../../assets/js/vendor/pangu.min.js"></script>
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">跳到内容</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">语言设定</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/zh-Hans/">
+          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">网站导航</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/zh-Hans/">主页</a></li>
+        <li><a href="https://editor.p5js.org">编辑器</a></li>
+        <li><a href="/zh-Hans/download/">下载</a></li>
+        <li><a href="/zh-Hans/download/support.html">捐赠</a></li>
+        <li><a href="/zh-Hans/get-started/">入门</a></li>
+        <li><a href="/zh-Hans/reference/">参考文献</a></li>
+        <li><a href="/zh-Hans/libraries/">程式库</a></li>
+        <li><a href="/zh-Hans/learn/">学习</a></li>
+        <li><a href="/zh-Hans/teach/">教学</a></li>
+        <li><a href="/zh-Hans/examples/">范例</a></li>
+        <li><a href="/zh-Hans/books/">书籍</a></li>
+        <li><a href="/zh-Hans/community/">社群</a></li>
+        <li><a href="https://showcase.p5js.org">案例展示</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">论坛</a></li>
+        <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+        <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+        <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+        <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main >
+
+      <div class="attribution">以下教程来自于由 Daniel Shiffman 篇写的《 Learning Processing 》（原文英文），并由 Morgan Kaufmann 出版，© 2008 Elsevier Inc。版权所有。此教程由 Kelly Chang 移植成 P5 代码。如果您发现任何错误或有任何评论，<a href="https://github.com/processing/p5.js/issues">请联络我们。</a>
+
+      </div>
+
+      <h1>颜色</h1>
+
+      <p>
+      在数码世界中，当我们要介绍一个颜色时，我们需要有一定的精确度。单纯说“嘿，你能把那圆形变成蓝绿色吗？”并不足够。在这，颜色可以被定义为在一个范围内的数字。让我们从最简单的范例开始：黑白色或灰渐色。0 为纯黑色，255 为纯白色。在两者之间任何数字 – 50、87、162、209 等等 – 都是介于黑与白之间的灰色。
+      </p>
+
+      <img src="../../assets/learn/color/grayscale.svg">
+
+      <p>
+      只要在任何东西被画在画布上之前使用 <a href="/zh-Hans/reference/#/p5/stroke"> stroke()</a> 及 <a href="/zh-Hans/reference/#/p5/fill">fill()</a> 函数，我们能设置任何图形的颜色。我们也能使用 <a href="/zh-Hans/reference/#/p5/background">background()</a> 函数来设定窗口的背景颜色。如下范例。
+      </p>
+
+      <pre><code class="language-javascript">
+        background(255);    // 设置背景颜色为白色
+ stroke(0);          // 设置外线颜色为黑色
+ fill(150);          // 设置填充色为灰色
+ rect(50,50,75,100); // 绘制四方形
+      </code></pre>
+
+      <p>
+      使用 <a href="/zh-Hans/reference/#/p5/noStroke">noStroke()</a> 及 <a href="/zh-Hans/reference/#/p5/noFill">noFill()</a>函数将会分别去除外线色灰填充色。我们直觉上可能会以为“ stroke(0) ”表示没有外线，可是我们必须记得 0 在这并不代表“无”，然而是代表黑色。此外，我们必须记得不要同时去除<b>noStroke()</b> 及 <b>noFill()</b> 不然不会有任何图形出现在画布上！
+      </p>
+
+      <p>以此同时，如果我们绘制两个图形，p5.js 将会使用最近（代码内从上至下）所定义的外线色及填充色值。</p>
+
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+      <script type="text/p5" data-autoplay data-p5-version="1.4.1">
+        function draw() {
+  background(150);
+  stroke(0);
+  line(0, 0, 100, 100);
+  stroke(255);
+  noFill();
+  rect(25, 25, 50, 50);
+}
+      </script>
+
+      <h2>RGB 颜色值</h2>
+
+      <p>
+      您还记得手指绘画吗？选择混合三原色，我们能混合出任何颜色。同时混合所有颜色的结果是个浑浊的褐色。添加越多颜料，给颜色将会变得更暗。数码颜色也是使用三原色的混合来构造新的颜色的，但是它和颜料的混合原理不一样。首先，其原色为：红、绿、蓝（也为 RGB 颜色，Red、Green、Blue）。而当您在混合荧幕上的颜色时，您将混合的是光而不是颜料，因此它的混合原理并不一样。
+      </p>
+
+      <img src="../../assets/learn/color/rgb.jpg">
+      <p>
+        <ul class="list_view">
+          <li>红 + 绿 = 黄</li>
+          <li>红 + 蓝 = 紫</li>
+          <li>绿 + 蓝 = 青（蓝绿色）</li>
+          <li>红 + 绿 + 蓝 = 白</li>
+          <li>无色 = 黑</li>
+        </ul>
+      </p>
+
+      <p>这假设所有色颜色都为最亮的亮度，但是您也能同时使用一系列的颜色值，因此一些红加上一些绿再加上一些蓝将等于灰，而一点红加上一点蓝将等于深紫色。虽然这可能需要一点时间来习惯，随着您编程及使用 RGB 颜色值来试验的经验越多，您会对它越熟悉，就如使用您的手指来混合颜色一样。当然您不能单纯说“混合一些红与一点蓝”，您必须提供确切的数值。就如灰渐值，个别颜色的值也是由介于 0（不使用任何该颜色）与 255（完全使用该颜色）之间，而他们的顺序为红（R）、绿（G）及蓝（B）。通过更多的试验您将会对 RGB 颜色更加熟悉，不过接下来我们将介绍一些使用常用颜色的代码。</p>
+
+      <script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function draw() {
+  background(255);
+  noStroke();
+
+  // Bright red
+  fill(255,0,0);
+  ellipse(20,20,16,16);
+
+  // Dark red
+  fill(127,0,0);
+  ellipse(40,20,16,16);
+
+  // Pink (pale red)
+  fill(255,200,200);
+  ellipse(60,20,16,16);
+}
+      </script>
+
+
+
+      <h2>颜色透明度</h2>
+
+      <p>除了个别颜色的红、绿、蓝值之外，我们也能提供多一个可选性的值，此值被称为该颜色的 “alpha” 值。Alpha 代表透明度，当您要绘制多个重叠部分透视的图形时，透明度在这就特别有用。一个图像的 alpha 值有时也会被称为该图像的 “alpha channel”。</p>
+      <p>我们必须记得像素并不是真的透明的，这单纯是个使用混合颜色所达成的便利错觉。p5.js 在幕后将会使用该颜色的数值再加上一定百分率的另外一个颜色，创作出混合颜色的视觉错觉。（如果您有兴趣编程一个“粉色镜片”，您可以从这开始。）</p>
+
+      <p>Alpha 值也是介于 0 与 255 之间，0 代表完全透明而 255 代表完全不透明。</p>
+
+      <script type="text/p5" data-autoplay  data-p5-version="1.4.1">
+  createCanvas(100, 100);
+  fill(0,0,255);
+  rect(0,0,50,100);
+
+  // 255 means 100% opacity.
+  fill(255,0,0,255);
+  rect(0,0,100,20);
+
+  // 75% opacity.
+  fill(255,0,0,191);
+  rect(0,25,100,20);
+
+  // 55% opacity.
+  fill(255,0,0,127);
+  rect(0,50,100,20);
+
+  // 25% opacity.
+  fill(255,0,0,63);
+  rect(0,75,100,20);
+
+      </script>
+
+      <h2>自定义颜色值范围</h2>
+
+      <p>
+      介于 0 与 255 之间的 RGB 颜色值并不是 p5.js 唯一定义颜色的方法，事实上，我们能使用多种方法来定义颜色。比如说，您可能比较偏向于使用 0 至 100（如百分比）来定义颜色。为此您可以使用<a href="/zh-Hans/reference/#/p5/colorMode">colorMode()</a>.
+      </p>
+
+      <pre><code>
+      colorMode(RGB,100);
+      </code></pre>
+
+      <p>以上函数表示：“OK，我们要使用红、绿、蓝值来定义颜色。而他们的值将介于 0 至 100 之间。</p>
+
+      <p>虽然一般上这么做不会提供任何便利，您可以为个别颜色值提供不同的数值范围：</p>
+
+      <pre><code>
+      colorMode(RGB,100,500,10,255);
+      </code></pre>
+
+      <p>这时此函数表示：“红色值将会是介于 0 至 100 之间，绿色值将会是介于 0 至 500 之间，蓝色值将会是介于 0 至 10 之间，而 alpha 至将会是介于 0 至 255 之间。</p>
+
+      <p>最后，虽然您通常在编程时只需要用到 RGB 色值，您也能使用 HSB（色调、饱和度及亮度）模式来定义颜色。简单来说，HSB 色值使用方法如下：</p>
+
+      <img src="../../assets/learn/color/hsb.png">
+      <ul class="list_view">
+        <li><b>色调</b>—色调值，默认上介于 0 至 360 之间。</li>
+        <li><b>饱和度</b>—该颜色的饱和度，默认上介于 0 至 100 之间。</li>
+        <li><b>亮度</b>—该颜色的亮度，默认上介于 0 至 100 之间。</li>
+      </ul>
+
+      <p>使用函数 <a href="/zh-Hans/reference/#/p5/colorMode">colorMode()</a> 您就能设定您自选的数字范围。有些人会比较偏好使用介于 0 至 360 之间的数值来定义色调（就如色轮的 360 度一样）及 0 至 100 之间的数值来定义饱和度及亮度（介于 0% 至 100%）。</p>
+
+    </main>
+
+    
+    <footer>
+      <h2 class="sr-only">归功于</h2>
+      <p>
+        p5.js 目前由<a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye</a>与<a href='http://www.outofambit.com/' target="_blank">evelyn masso</a>领导，原创者为<a href='https://lauren-mccarthy.com' target="_blank">Lauren Lee McCarthy</a>。p5.js 是在<a href="https://processingfoundation.org/" target="_blank">Processing Foundation</a>和<a href="https://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>的支持下由其合作社群所开发。形象及平面设计<a href="https://jereljohnson.com/" target="_blank">Jerel Johnson</a>。<a href="/zh-Hans/copyright.html">&copy; 版权信息</a>。
+      </p>
+    </footer>
+
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="https://processing.org">Processing</a></li>
+        <li><a class="here" href="/zh-Hans/">p5.js</a></li>
+        <li><a href="https://py.processing.org/">Processing.py</a></li>
+        <li><a href="https://android.processing.org/">Processing for Android</a></li>
+        <li><a href="https://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>

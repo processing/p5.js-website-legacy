@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=fd72a4">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=6be92f"></script>
+
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">건너뛰기</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">언어 설정</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/ko/">
+          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">사이트 둘러보기</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/ko/">홈</a></li>
+        <li><a href="https://editor.p5js.org">에디터</a></li>
+        <li><a href="/ko/download/">다운로드</a></li>
+        <li><a href="/ko/download/support.html">후원하기</a></li>
+        <li><a href="/ko/get-started/">시작하기</a></li>
+        <li><a href="/ko/reference/">레퍼런스</a></li>
+        <li><a href="/ko/libraries/">라이브러리</a></li>
+        <li><a href="/ko/learn/">배우기</a></li>
+        <li><a href="/ko/teach/">가르치기</a></li>
+        <li><a href="/ko/examples/">예제</a></li>
+        <li><a href="/ko/books/">출판물</a></li>
+        <li><a href="/ko/community/">커뮤니티</a></li>
+        <li><a href="https://showcase.p5js.org">쇼케이스</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">포럼</a></li>
+        <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+        <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+        <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+        <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main >
+
+      <div class="attribution">이 튜토리얼은 다니엘 쉬프만(Daniel Shiffman) 저, 모건 카우프만(Morgan Kaufmann) 출판 도서 Learning Processing에서 발췌하였습니다 © 2008 Elsevier Inc. 또한, 발췌본은 켈리 장(Kelly Chang)에 의해 p5로 옮겨졌습니다. 오류를 발견하거나 의견을 남기고 싶다면 <a href="https://github.com/processing/p5.js/issues">언제든 알려주세요.</a>
+
+      </div>
+
+      <h1>색상</h1>
+
+      <p>
+      디지털 세상에서 색상에 대해 이야기할 땐, 아주 정밀한 표현이 필요합니다. 아쉽게도, "푸른빛의 초록색 원을 만들 수 있어?" 와 같은 표현은 통하지 않습니다. 이 곳에서의 색상은 언제나 숫자와 범위값에 의해 정의됩니다. 간단한 예시로 시작해볼까요. 검정색, 하얀색, 또는 회색 음영. 0은 검정색을, 255은 하얀색을, 그리고 그 사이에 존재하는 50, 87, 162, 209와 같은 다른 숫자들은 흑과 백 사이의 회색 음영을 뜻합니다.
+      </p>
+
+      <img src="../../assets/learn/color/grayscale.svg">
+
+      <p>
+      도형을 그리기에 앞서 선그리기<a href="/ko/reference/#/p5/stroke"> stroke()</a> 와 면채우기<a href="/ko/reference/#/p5/fill">fill()</a> 함수를 사용하면 색상을 지정할 수 있습니다. 또, 배경<a href="/ko/reference/#/p5/background">background()</a> 함수를 통해 윈도우창의 배경색을 지정할 수 있습니다. 한 번 예시를 볼까요.
+      </p>
+
+      <pre><code class="language-javascript">
+        background(255);    // 배경색을 하얀색으로 정하기 
+ stroke(0);          // 윤곽선(stroke)색을 검정색으로 정하기 
+ fill(150);          // 면(fill)색을 회색으로 정하기 
+ rect(50,50,75,100); // 사각형 그리기
+      </code></pre>
+
+      <p>
+      선그리기(Stroke)나 면채우기(fill)는 다음의 함수를 통해 제거할 수 있습니다: <a href="/ko/reference/#/p5/noStroke">noStroke()</a> 과<a href="/ko/reference/#/p5/noFill">noFill()</a>. 본능적으로 우리는 "stroke(0)" 를 통해 윤곽선을 제거할 수 있을 거라 생각하지만, 코딩 언어의 세계에서 0은 "아무것도 없음"이 아니라, 검정색을 지칭합니다. <b>noStroke()</b> 과 <b>noFill()</b>를 사용하면 선도 색상도, 아무것도 보이지 않을 거에요!
+      </p>
+
+      <p>또한, 두개의 도형을 그릴 때 p5.js는 가장 마지막 줄에 지정된 stroke와 fill을 반영합니다. 코드를 위에서부터 아래로 읽고 수행하기 때문이지요.</p>
+
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+      <script type="text/p5" data-autoplay data-p5-version="1.4.1">
+        function draw() {
+  background(150);
+  stroke(0);
+  line(0, 0, 100, 100);
+  stroke(255);
+  noFill();
+  rect(25, 25, 50, 50);
+}
+      </script>
+
+      <h2>RGB 색상</h2>
+
+      <p>
+      어린 시절 손가락으로 물감을 섞어본 기억이 있나요? 세가지의 "원색"을 사용하면, 그 어떠한 색상도 만들어 낼 수 있었지요. 여러가지 물감을 섞다보면 진흙빛의 갈색이 탄생하기도 합니다. 물감을 더할 수록 색이 어두워지고요. 디지털 색상들 역시 삼원색을 섞는 원리를 바탕으로 만들어졌지만, 물감과는 또다르게 작동합니다. 먼저, 디지털 색상에서의 삼원색은 빨강(red), 초록(green), 파랑(blue) (일명, "RGB" 색상)을 뜻합니다. 또, 화면상 보이는 색상은 기본적으로 물감이 아닌 빛의 조합입니다. 따라서, 색상이 조합되는 방식이 다른 것이지요.
+      </p>
+
+      <img src="../../assets/learn/color/rgb.jpg">
+      <p>
+        <ul class="list_view">
+          <li>빨강 + 초록 = 노랑</li>
+          <li>빨강 + 파랑 = 보라</li>
+          <li>초록 + 파랑 = 청록</li>
+          <li>빨강 + 초록 + 파랑 = 하양</li>
+          <li>무채색 = 검정</li>
+        </ul>
+      </p>
+
+      <p>이는 디지털 색상을 밝은 빛으로서 가정하는 데에서 비롯된 것인데, 색상 범위를 조정하여 원하는 색을 만들 수 있습니다. 예를 들어, 빨강색에 초록색, 파랑색을 더하면 회색이 됩니다. 그리고 약간의 빨강색에 약간의 파랑색을 더하면 어두운 보라색이 됩니다. RGB 색상을 더 많이 프로그래밍하고 실험할수록, 손가락으로 물감을 휘젔던 색상 본능만큼 디지털 색상에 따른 본능 역시 커질 것입니다. 한편, 우리는 "빨강색 적당하게 쓰고 여기에 약간의 파란색을 섞어줘"라는 식으로도 말할 수 없습니다. 반드시 정확한 양을 지정해야합니다. 회색 음영과 마찬가지로, 각각의 색상 요소는 0(색상 0가지)부터 255(최대한 많은 색상 수)에 이르는 범위 내에서 표현됩니다. 그리고 R, G, B의 순서에 따라 정렬됩니다. 이번엔 좀 더 일반적인 색상에 대해 알아볼까요</p>
+
+      <script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function draw() {
+  background(255);
+  noStroke();
+
+  // Bright red
+  fill(255,0,0);
+  ellipse(20,20,16,16);
+
+  // Dark red
+  fill(127,0,0);
+  ellipse(40,20,16,16);
+
+  // Pink (pale red)
+  fill(255,200,200);
+  ellipse(60,20,16,16);
+}
+      </script>
+
+
+
+      <h2>색상 투명도</h2>
+
+      <p>R, G, B값에 더해, 각 색상을 구성하는 네 번째 요소가 있습니다. 일명 "알파(alpha)값"인데요, 알파는 색상의 투명도를 말하고, 한 도형 위에 다른 도형을 얹을시 겹치는 지점을 보이게 할 때 유용하겠지요? 한 이미지에 대한 여러 알파값들을 통칭 "알파 채널(alpha channel)"이라 부르기도 합니다.</p>
+      <p>픽셀은 그 자체로는 투명하지 않아요. 다만, 여러가지 색상을 섞어 마치 투명해보이는 듯한 착시현상을 만드는 것이지요. 이처럼 p5.js는 한 색상값과 다른 색상값들 간의 비율차를 이용하여 마치 이들이 섞인것처럼 보이게 만든답니다. (만약 여러분이 "장밋빛" 안경을 프로그래밍하고자 했다면 바로 이 지점부터 이해하고 넘어가면 되겠지요?)</p>
+
+      <p>알파값은 0부터 255 사이 조정가능합니다. 0은 완전히 투명한 상태(즉, 0% 투명도)이고 255는 완전히 불투명한 상태(즉, 100% 투명도)입니다.</p>
+
+      <script type="text/p5" data-autoplay  data-p5-version="1.4.1">
+  createCanvas(100, 100);
+  fill(0,0,255);
+  rect(0,0,50,100);
+
+  // 255 means 100% opacity.
+  fill(255,0,0,255);
+  rect(0,0,100,20);
+
+  // 75% opacity.
+  fill(255,0,0,191);
+  rect(0,25,100,20);
+
+  // 55% opacity.
+  fill(255,0,0,127);
+  rect(0,50,100,20);
+
+  // 25% opacity.
+  fill(255,0,0,63);
+  rect(0,75,100,20);
+
+      </script>
+
+      <h2>색상 조정 범위</h2>
+
+      <p>
+       p5.js에서 다룰 수 있는 색채는 0부터 255까지에 이르는 RGB뿐만이 아닙니다. 사실 우리가 원하는대로 그 범위를 조정할 수도 있지요! 예를 들어, 색상 범위를 마치 퍼센티지처럼 0부터 100으로 설정할 수도 있습니다. 색상 범위 커스터마이징은 다음의 간단한 함수를 통해 가능합니다:<a href="/ko/reference/#/p5/colorMode">colorMode()</a>.
+      </p>
+
+      <pre><code>
+      colorMode(RGB,100);
+      </code></pre>
+
+      <p>위의 함수는: "난 RGB색상에 대해 조정하고싶고, 그 색상 범위는 0부터 100으로 설정하고 싶어"라고 말하는 것입니다.</p>
+
+      <p>조금 더 복잡하긴 하지만, 아래와 같은 방법을 통해 R, G, B 각 색상별로도 조정 범위를 설정할 수 있습니다:</p>
+
+      <pre><code>
+      colorMode(RGB,100,500,10,255);
+      </code></pre>
+
+      <p>위의 내용은 "빨강(R)은 0부터 100까지, 초록(G)은 0부터 500가지, 파랑(B)은 0부터 10까지, 그리고 투명도는 0부터 255까지 설정하고 싶어"라고 말하는 것이지요.</p>
+
+      <p>여러분은 사실상 RGB값 설정만으로도 프로그래밍에 필요한 모든 색상을 누릴 수 있을텐데요, 마지막으로 RGB 외에 조정할 수 있는 색상 요소인 HSB(색조 Hue, 채도 Saturation, 밝기 Brightness)를 소개합니다</p>
+
+      <img src="../../assets/learn/color/hsb.png">
+      <ul class="list_view">
+        <li><b>색조 Hue</b>—색상의 종류, 기본 범위 0부터 360까지</li>
+        <li><b>채도 Saturation</b>—색상의 생생함 정도, 기본 범위 0부터 100까지</li>
+        <li><b>밝기 Brightness</b>—(당연히) 색상의 밝은 정도, 기본 범위 0부터 100까지</li>
+      </ul>
+
+      <p>이 <a href="/ko/reference/#/p5/colorMode">colorMode()</a> 함수를 이용하여 HSB값 범위 또한 설정할 수 있습니다. 어떤 사람들은 색조(Hue)를 0부터 360까지 설정하거나(위의 사진처럼 360도의 둥근 색상띠가 생각나지요), 채도와 밝기는 0부터 100까지 설정(0-100% 퍼센티지와 유비되지요)하는 것을 선호하기도 합니다.</p>
+
+    </main>
+
+    
+    <footer>
+      <h2 class="sr-only">크레딧</h2>
+      <p>
+        p5.js는 현재 치안치안 예<a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye</a> & 에블린 마소<a href='http://www.outofambit.com/' target="_blank">evelyn masso</a> 가 리드하고, 로렌 맥카시 <a href='https://lauren-mccarthy.com' target="_blank">Lauren Lee McCarthy</a> 가 창안하였습니다. p5.js는 프로세싱 재단 <a href="https://processingfoundation.org/" target="_blank">Processing Foundation</a> 과 <a href="https://itp.nyu.edu/itp/" target="_blank">NYU ITP</a> 의 지원으로, 협력자 커뮤니티와 함께 개발되었습니다. 아이덴티티 및 그래픽 디자인: 제럴 존슨 <a href="https://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/ko/copyright.html">&copy; Info</a>.
+      </p>
+    </footer>
+
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="https://processing.org">Processing</a></li>
+        <li><a class="here" href="/ko/">p5.js</a></li>
+        <li><a href="https://py.processing.org/">Processing.py</a></li>
+        <li><a href="https://android.processing.org/">Processing for Android</a></li>
+        <li><a href="https://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>

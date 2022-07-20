@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hi">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=fd72a4">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=6be92f"></script>
+
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">Skip to content</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/hi/">
+          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/hi/">सभी</a></li>
+        <li><a href="https://editor.p5js.org">एडीटर</a></li>
+        <li><a href="/hi/download/">डाउनलोड</a></li>
+        <li><a href="/hi/download/support.html">दान दिजिये</a></li>
+        <li><a href="/hi/get-started/">आरंभ करें</a></li>
+        <li><a href="/hi/reference/">संदर्भ</a></li>
+        <li><a href="/hi/libraries/">लाइब्रिरी</a></li>
+        <li><a href="/hi/learn/">सीखिए</a></li>
+        <li><a href="/hi/teach/">सिखाना</a></li>
+        <li><a href="/hi/examples/">उदाहरण</a></li>
+        <li><a href="/hi/books/">पुस्तकें</a></li>
+        <li><a href="/hi/community/">समुदाय</a></li>
+        <li><a href="https://showcase.p5js.org">प्रदर्शन</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">फोरम</a></li>
+        <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+        <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+        <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+        <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main >
+
+      <div class="attribution">यह शिक्षण डैनियल शिफमैन की पुस्तक लर्निंग प्रोसेसिंग से है, जिसे मॉर्गन कॉफमैन द्वारा प्रकाशित किया गया था, © 2008 एल्सेवियर इंक। सभी अधिकार सुरक्षित। इसे केली चांग ने P5 में रखा था। यदि आप कोई त्रुटि देखते हैं या टिप्पणी करते हैं, <a href="https://github.com/processing/p5.js/issues"> तो कृपया हमें बताएं।</a>
+
+      </div>
+
+      <h1>रंग</h1>
+
+      <p>
+      डिजिटल दुनिया में, जब हम किसी रंग के बारे में बात करना चाहते हैं, तो सटीकता की आवश्यकता होती है। "अरे, क्या आप उस सर्कल को हरा-हरा बना सकते हैं?" नहीं करूँगा। रंग, बल्कि, संख्याओं की एक सीमा के रूप में परिभाषित किया गया है। चलो सबसे सरल मामले से शुरू करते हैं: काले और सफेद या ग्रेस्केल। 0 का मतलब है काला, 255 का मतलब है सफेद। बीच में, हर दूसरे नंबर- 50, 87, 162, 209, और इसी तरह से ग्रे की एक छाया है जो काले से सफेद तक होती है।
+      </p>
+
+      <img src="../../assets/learn/color/grayscale.svg">
+
+      <p>
+      कुछ खींचने से पहले <a href="/hi/reference/#/p5/stroke"> stroke()</a> और <a href="/hi/reference/#/p5/fill">fill()</a>  कार्य करने से पहले, हम किसी भी दिए गए आकार का रंग निर्धारित कर सकते हैं.  ़ ंक्शन <a href="/hi/reference/#/p5/background">background()</a> भी है ,  ो खिड़की के लिए एक पृष्ठभूमि रंग सेट करता है। यहाँ एक उदाहरण है 
+      </p>
+
+      <pre><code class="language-javascript">
+        background(255);    // सफेद करने के लिए पृष्ठभूमि की स्थापना 
+ stroke(0);          // काला करने के लिए रूपरेखा (स्ट्रोक) की स्थापना 
+ fill(150);          // एक आकृति के इंटीरियर को सेट करना (भरना) ग्रे करने के लिए 
+ rect(50,50,75,100); // आयत खींचना
+      </code></pre>
+
+      <p>
+      स्ट्रोक या भरण को कार्यों के साथ समाप्त किया जा सकता है: <a href="/hi/reference/#/p5/noStroke">noStroke()</a> और <a href="/hi/reference/#/p5/noFill">noFill()</a> हमारी प्रवृत्ति को बिना किसी रूपरेखा के "स्ट्रोक (0)" कहना हो सकता है, हालांकि, यह याद रखना महत्वपूर्ण है कि 0 "कुछ भी नहीं" है, बल्कि रंग काले को दर्शाता है। इसके अलावा, दोनों को खत्म करने के लिए याद रखें - <b>noStroke()</b> और  <b>noFill()</b> ,कुछ भी नहीं दिखाई देगा!
+      </p>
+
+      <p>इसके अलावा, अगर हम दो आकृतियाँ बनाते हैं, तो p5.js हमेशा सबसे हाल ही में निर्दिष्ट स्ट्रोक का उपयोग करेगा और ऊपर से नीचे तक कोड को पढ़ेगा।</p>
+
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+      <script type="text/p5" data-autoplay data-p5-version="1.4.1">
+        function draw() {
+  background(150);
+  stroke(0);
+  line(0, 0, 100, 100);
+  stroke(255);
+  noFill();
+  rect(25, 25, 50, 50);
+}
+      </script>
+
+      <h2>RGB रंग</h2>
+
+      <p>
+      फिंगर पेंटिंग याद है? तीन " प्राथमिक " रंगों को मिलाकर, किसी भी रंग को उत्पन्न किया जा सकता है। सभी रंगों को एक साथ घूमने से मैला भूरा हुआ। जितना अधिक पेंट आपने जोड़ा, उतना ही गहरा। डिजिटल रंगों का निर्माण भी तीन प्राथमिक रंगों को मिलाकर किया जाता है, लेकिन यह पेंट से अलग तरह से काम करता है। सबसे पहले, प्राइमरी अलग हैं: लाल, हरा और नीला (यानी, " RGB " रंग)। और स्क्रीन पर रंग के साथ, आप प्रकाश मिश्रण कर रहे हैं, पेंट नहीं कर रहे हैं, इसलिए मिश्रण के नियम भी अलग हैं।
+      </p>
+
+      <img src="../../assets/learn/color/rgb.jpg">
+      <p>
+        <ul class="list_view">
+          <li>लाल + हरा = पीला</li>
+          <li>लाल + नीला = बैंगनी</li>
+          <li>हरा + नीला = सियान (नीला-हरा)</li>
+          <li>लाल + हरा + नीला = सफेद</li>
+          <li>कोई रंग नहीं = काला</li>
+        </ul>
+      </p>
+
+      <p>यह मानता है कि रंग सभी के रूप में संभव के रूप में उज्ज्वल हैं, लेकिन निश्चित रूप से, आपके पास उपलब्ध रंग की एक सीमा है, इसलिए कुछ लाल प्लस कुछ हरे रंग के साथ कुछ नीले बराबर ग्रे, और लाल रंग का एक सा नीला नीला बैंगनी के बराबर है। हालांकि यह कुछ करने के लिए इस्तेमाल किया जा सकता है, जितना अधिक आप आरजीबी रंग के साथ कार्यक्रम और प्रयोग करते हैं, उतना ही यह सहज हो जाएगा, बहुत कुछ अपनी उंगलियों के साथ घूमता रंगों की तरह। और निश्चित रूप से आप कुछ नीले रंग के साथ कुछ लाल मिश्रण नहीं कर सकते, आपको एक सटीक राशि प्रदान करनी होगी। ग्रेस्केल के साथ, व्यक्तिगत रंग तत्वों को 0 (उस रंग में से कोई भी) से लेकर 255 तक (जितना संभव हो) के रूप में व्यक्त किया जाता है, और वे आर, जी और बी क्रम में सूचीबद्ध होते हैं। प्रयोग के माध्यम से रंग मिश्रण, लेकिन अगले हम कुछ सामान्य रंगों का उपयोग करके कुछ कोड को कवर करेंगे।</p>
+
+      <script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function draw() {
+  background(255);
+  noStroke();
+
+  // Bright red
+  fill(255,0,0);
+  ellipse(20,20,16,16);
+
+  // Dark red
+  fill(127,0,0);
+  ellipse(40,20,16,16);
+
+  // Pink (pale red)
+  fill(255,200,200);
+  ellipse(60,20,16,16);
+}
+      </script>
+
+
+
+      <h2>रंग पारदर्शिता</h2>
+
+      <p>प्रत्येक रंग के लाल, हरे और नीले रंग के घटकों के अलावा, एक अतिरिक्त वैकल्पिक चौथा घटक है, जिसे रंग के " अल्फा " के रूप में जाना जाता है। अल्फा का अर्थ पारदर्शिता है और विशेष रूप से उपयोगी है जब आप उन तत्वों को आकर्षित करना चाहते हैं जो आंशिक रूप से एक-दूसरे के ऊपर से देखते हैं। किसी छवि के लिए अल्फा मान कभी-कभी सामूहिक रूप से एक छवि के " अल्फा चैनल " के रूप में संदर्भित होते हैं।</p>
+      <p>यह महसूस करना महत्वपूर्ण है कि पिक्सेल सचमुच पारदर्शी नहीं हैं, यह बस एक सुविधाजनक भ्रम है जो रंगों को सम्मिश्रण करने से पूरा होता है। पर्दे के पीछे, p5.js रंग संख्या लेता है और सम्मिश्रण की ऑप्टिकल धारणा बनाते हुए एक प्रतिशत को दूसरे के प्रतिशत में जोड़ता है। (यदि आप प्रोग्रामिंग में रुचि रखते हैं " गुलाब के रंग का " चश्मा, तो यह वह जगह है जहाँ आप शुरू करेंगे।)</p>
+
+      <p>अल्फा मान भी 0 से 255 तक होता है, जिसमें 0 पूरी तरह से पारदर्शी होता है (यानी, 0% अपारदर्शी) और 255 पूरी तरह से अपारदर्शी (यानी, 100% अपारदर्शी).</p>
+
+      <script type="text/p5" data-autoplay  data-p5-version="1.4.1">
+  createCanvas(100, 100);
+  fill(0,0,255);
+  rect(0,0,50,100);
+
+  // 255 means 100% opacity.
+  fill(255,0,0,255);
+  rect(0,0,100,20);
+
+  // 75% opacity.
+  fill(255,0,0,191);
+  rect(0,25,100,20);
+
+  // 55% opacity.
+  fill(255,0,0,127);
+  rect(0,50,100,20);
+
+  // 25% opacity.
+  fill(255,0,0,63);
+  rect(0,75,100,20);
+
+      </script>
+
+      <h2>कस्टम रंग रेंज</h2>
+
+      <p>
+       0 से 255 के बीच आरजीबी रंग एकमात्र तरीका नहीं है जो आप पी 5.js में रंग संभाल सकते हैं, वास्तव में, यह हमें किसी भी तरह से रंग के बारे में सोचने की अनुमति देता है। उदाहरण के लिए, आप रंग के बारे में सोचना पसंद कर सकते हैं जो 0 से लेकर 100 (प्रतिशत की तरह) तक हो सकता है। आप एक कस्टम colorMode () निर्दिष्ट करके ऐसा कर सकते हैं। <a href="/hi/reference/#/p5/colorMode">colorMode()</a>.
+      </p>
+
+      <pre><code>
+      colorMode(RGB,100);
+      </code></pre>
+
+      <p>उपरोक्त फ़ंक्शन कहता है: " ठीक है, हम लाल, हरे और नीले रंग के संदर्भ में रंग के बारे में सोचना चाहते हैं। RGB मूल्यों की सीमा 0 से 100 तक होगी। " </p>
+
+      <p>हालाँकि ऐसा करने के लिए यह शायद ही सुविधाजनक है, आप प्रत्येक रंग घटक के लिए अलग-अलग रेंज भी रख सकते हैं: </p>
+
+      <pre><code>
+      colorMode(RGB,100,500,10,255);
+      </code></pre>
+
+      <p>अब हम कह रहे हैं कि "लाल मान 0 से 100 तक जाते हैं, 0 से 500 तक हरा, 0 से 10 तक नीला और 0 से 255 तक अल्फा। "</p>
+
+      <p>अंत में, जबकि आपको अपनी सभी प्रोग्रामिंग जरूरतों के लिए केवल RGB रंग की आवश्यकता होगी, आप HSB (ह्यू, संतृप्ति और चमक) मोड में भी रंग निर्दिष्ट कर सकते हैं। बहुत अधिक विस्तार में आए बिना, एचएसबी रंग निम्नानुसार काम करता है:</p>
+
+      <img src="../../assets/learn/color/hsb.png">
+      <ul class="list_view">
+        <li><b>रंग</b>- रंग प्रकार, डिफ़ॉल्ट रूप से 0 से 255 तक होता है।</li>
+        <li><b>परिपूर्णता</b>- रंग की जीवंतता, डिफ़ॉल्ट रूप से 0 से 255।</li>
+        <li><b>चमक</b>, रंग की चमक, डिफ़ॉल्ट रूप से 0 से 255।</li>
+      </ul>
+
+      <p>साथ में <a href="/hi/reference/#/p5/colorMode">colorMode()</a> आप इन मूल्यों के लिए अपनी सीमाएं निर्धारित कर सकते हैं। कुछ लोग ह्यू के लिए 0-360 (रंग व्हील पर 360 डिग्री सोचते हैं) और संतृप्ति और चमक के लिए 0-100 (0-100% के बारे में सोचें) की एक सीमा पसंद करते हैं।</p>
+
+    </main>
+
+    
+    <footer>
+      <h2 class="sr-only">आभार सूची</h2>
+      <p>
+        p5.js <a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye</a> द्वारा बनाया गया था और सहयोगियों के एक समुदाय द्वारा विकसित किया गया है| इस्का समरथ करन वले थे <a href='http://www.outofambit.com/' target="_blank">evelyn masso</a> और <a href='https://lauren-mccarthy.com' target="_blank">Lauren Lee McCarthy</a>पहचान और ग्राफिक डिजाइन करने वाले थे <a href="https://processingfoundation.org/" target="_blank">Processing Foundation</a>Identity and graphic design by <a href="https://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>Identity and graphic design by <a href="https://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/hi/copyright.html">&copy; Info</a>.
+      </p>
+    </footer>
+
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="https://processing.org">Processing</a></li>
+        <li><a class="here" href="/hi/">p5.js</a></li>
+        <li><a href="https://py.processing.org/">Processing.py</a></li>
+        <li><a href="https://android.processing.org/">Processing for Android</a></li>
+        <li><a href="https://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>

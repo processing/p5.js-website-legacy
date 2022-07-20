@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hi">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=fd72a4">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=6be92f"></script>
+
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">Skip to content</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/hi/">
+          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/hi/">सभी</a></li>
+        <li><a href="https://editor.p5js.org">एडीटर</a></li>
+        <li><a href="/hi/download/">डाउनलोड</a></li>
+        <li><a href="/hi/download/support.html">दान दिजिये</a></li>
+        <li><a href="/hi/get-started/">आरंभ करें</a></li>
+        <li><a href="/hi/reference/">संदर्भ</a></li>
+        <li><a href="/hi/libraries/">लाइब्रिरी</a></li>
+        <li><a href="/hi/learn/">सीखिए</a></li>
+        <li><a href="/hi/teach/">सिखाना</a></li>
+        <li><a href="/hi/examples/">उदाहरण</a></li>
+        <li><a href="/hi/books/">पुस्तकें</a></li>
+        <li><a href="/hi/community/">समुदाय</a></li>
+        <li><a href="https://showcase.p5js.org">प्रदर्शन</a></li>
+        <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">फोरम</a></li>
+        <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+        <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+        <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+        <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main >
+      <div class="attribution">
+      यह शिक्षण डैनियल शिफमैन की पुस्तक <em>लर्निंग प्रोसेसिंग</em> से है, जिसे मॉर्गन कॉफमैन द्वारा प्रकाशित किया गया था, © 2008 एल्सेवियर इंक। सभी अधिकार सुरक्षित इसे एलेक्स Yixuan Xu द्वारा p5.js पर पोर्ट किया गया था। यदि आप कोई त्रुटि देखते हैं या टिप्पणी करते हैं <a href="https://github.com/processing/processing-docs/issues?state=open">कृपया हमें बताएं</a>।</div>
+
+      <h1>समन्वय प्रणाली और आकृतियाँ</h1>
+      <p>पी 5 के साथ प्रोग्रामिंग शुरू करने से पहले, हमें पहले अपने आठवीं कक्षा के स्वयं को चैनल करना चाहिए, ग्राफ पेपर के एक टुकड़े को बाहर निकालना चाहिए, और एक रेखा खींचना चाहिए। दो बिंदुओं के बीच की सबसे छोटी दूरी एक अच्छी पुरानी जमाने की रेखा है, और यह वह जगह है जहाँ हम शुरू करते हैं, उस ग्राफ़ पेपर पर दो बिंदुओं के साथ।</p>
+      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-01.png" alt="">
+
+      <p>उपरोक्त आंकड़ा बिंदु A (1,0) और बिंदु B (4,5) के बीच एक रेखा दिखाता है। यदि आप अपने किसी मित्र को उसी रेखा को खींचने के लिए निर्देशित करना चाहते हैं, तो आप उन्हें एक चिल्लाहट देंगे और कहेंगे " बिंदु वन-शून्य से बिंदु चार-पाँच तक एक रेखा खींचिए, कृपया। " , कल्पना कीजिए कि आपका दोस्त एक कंप्यूटर था और आप इस डिजिटल पाल को उसकी स्क्रीन पर उसी लाइन को प्रदर्शित करने का निर्देश देना चाहते थे। एक ही आदेश लागू होता है (केवल इस बार आप सुखदताओं को छोड़ सकते हैं और आपको एक सटीक स्वरूपण को लागू करने की आवश्यकता होगी)। यहाँ, निर्देश इस तरह दिखेगा:</p>
+
+      <pre><code class="language-javascript">
+        line(1,0,4,5);
+      </code></pre>
+
+      <p>यहां तक ​​कि लेखन कोड के वाक्यविन्यास का अध्ययन किए बिना, उपरोक्त कथन को उचित मात्रा में समझ में आना चाहिए। हम एक आदेश प्रदान कर रहे हैं (जिसे हम मशीन के लिए " फ़ंक्शन " के रूप में संदर्भित करेंगे) "लाइन।" (1,0) से बी तक (4,5)। यदि आप एक वाक्य के रूप में कोड की उस पंक्ति के बारे में सोचते हैं, तो फ़ंक्शन एक क्रिया है और तर्क वाक्य की वस्तुएं हैं। कोड की सजा भी एक अवधि के बजाय एक अर्धविराम के साथ समाप्त होती है।</p>
+      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-02.png" alt="">
+
+      <p>यहां कुंजी यह महसूस करना है कि कंप्यूटर स्क्रीन ग्राफ पेपर के एक कट्टर टुकड़े से ज्यादा कुछ नहीं है। स्क्रीन का प्रत्येक पिक्सेल एक समन्वय होता है - दो नंबर, एक " x " (क्षैतिज) और एक " y " (ऊर्ध्वाधर) - जो अंतरिक्ष में एक बिंदु के स्थान को निर्धारित करता है। और यह निर्दिष्ट करना हमारा काम है कि इन पिक्सेल निर्देशांक में किस आकार और रंग दिखाई देने चाहिए।</p>
+
+      <p>फिर भी, यहाँ एक पकड़ है। आठवीं कक्षा से ग्राफ पेपर (" कार्टेशियन कोऑर्डिनेट सिस्टम ") केंद्र में रखा गया (0,0) y- अक्ष की ओर इशारा करता है और x- अक्ष दाईं ओर इंगित करता है (सकारात्मक दिशा में, नकारात्मक नीचे और) छोडा)। कंप्यूटर विंडो में पिक्सेल के लिए समन्वय प्रणाली, हालांकि, y- अक्ष के साथ उलट है। (0,0) सकारात्मक दिशा के साथ बाईं ओर शीर्ष पर क्षैतिज और लंबवत नीचे पाया जा सकता है।</p>
+      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg" alt="">
+
+      <h2>सरल आकृतियाँ</h2>
+      <p>P5 के साथ आपके द्वारा देखे जाने वाले अधिकांश प्रोग्रामिंग उदाहरण प्रकृति में दृश्य हैं। इन उदाहरणों में, उनके मूल में, आकृतियाँ आरेखित करना और पिक्सेल सेट करना शामिल है। चलो चार आदिम आकृतियों को देखकर शुरू करते हैं।</p>
+      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png" alt="">
+
+      <p>प्रत्येक आकृति के लिए, हम स्वयं से पूछेंगे कि उस आकृति के स्थान और आकार (और बाद में रंग) को निर्दिष्ट करने के लिए कौन सी जानकारी आवश्यक है और जानें कि p5 उस जानकारी को प्राप्त करने की अपेक्षा करता है। नीचे दिए गए प्रत्येक चित्र में, हम 10 पिक्सेल की चौड़ाई और 10 पिक्सेल की ऊँचाई के साथ एक विंडो मानेंगे। यह विशेष रूप से वास्तविक नहीं है क्योंकि जब आप वास्तव में कोडिंग शुरू करते हैं, तो आप बहुत अधिक बड़ी खिड़कियों के साथ काम करने की संभावना करेंगे (10x10 पिक्सेल स्क्रीन स्पेस के मुश्किल से कुछ मिलीमीटर हैं।) फिर भी प्रदर्शन प्रयोजनों के लिए, क्रम में छोटी संख्या के साथ काम करना अच्छा है। पिक्सेल को प्रस्तुत करें क्योंकि वे कोड के प्रत्येक पंक्ति के आंतरिक कामकाज को बेहतर ढंग से चित्रित करने के लिए ग्राफ पेपर (अभी के लिए) पर दिखाई दे सकते हैं।</p>
+
+      <p>A <a href="/reference/#/p5/point">point()</a> (बिंदु) आकृतियों का सबसे आसान और शुरू करने के लिए एक अच्छी जगह है। एक बिंदु खींचने के लिए, हमें केवल एक x और y समन्वय की आवश्यकता है।</p>
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  point(40, 50); // point(x, y)
+}
+</script>
+
+      <p>A <a href="/reference/#/p5/line">line()</a> लाइन बहुत मुश्किल नहीं है और बस दो बिंदुओं की आवश्यकता है: (X1, y1) और (x2, y2):</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  line(10, 20, 50, 20); // line(x1, y1, x2, y2)
+}
+</script>
+
+      <p>एक बार जब हम एक <a href="/reference/#/p5/rect">rect()</a> (आयत) बनाने आए, चीजें थोड़ी और जटिल हो जाती हैं। P5 में, एक आयत आयत के शीर्ष बाएं कोने के लिए समन्वय द्वारा निर्दिष्ट किया गया है, साथ ही इसकी चौड़ाई और ऊंचाई भी।</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+}
+function draw(){
+  rect(10, 20, 40, 30); // rect(x, y, width, height)
+}
+</script>
+
+      <p>आयत बनाने का दूसरा तरीका चौड़ाई और ऊंचाई के साथ-साथ केंद्र बिंदु को निर्दिष्ट करना शामिल है। यदि हम इस विधि को पसंद करते हैं, तो हम पहले संकेत करते हैं कि हम आयत के लिए निर्देश से पहले <a href="/reference/#/p5/CENTER">CENTER</a> (केंद्र) मोड का उपयोग करना चाहते हैं।. ध्यान दें कि पी 5 केस-संवेदी है।</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  rectMode(CENTER);
+}
+function draw(){
+  rect(30, 20, 40, 20); // rect(x, y, width, height)
+}
+</script>
+
+      <p>अंत में, हम दो बिंदुओं (शीर्ष बाएं कोने और नीचे दाएं कोने) के साथ एक आयत भी खींच सकते हैं। यहां मोड  <a href="/reference/#/p5/CORNERS">CORNERS</a>  (कॉर्नर) है। ध्यान दें कि यह उदाहरण ऊपर दिए गए उदाहरण के समान स्क्रीन पर परिणाम देता है।</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  rectMode(CORNERS);
+}
+function draw(){
+  rect(10, 10, 50, 30); // rect(x1, y1, x2, y2)
+}
+</script>
+
+      <p>एक बार जब हम एक आयत बनाने की अवधारणा के साथ सहज हो गए हैं, <a href="/reference/#/p5/ellipse">ellipse()</a> (दीर्घवृत्त ()) एक तस्वीर है।. वास्तव में, यह <a href="/reference/#/p5/rect">rect()</a> के समान है () इस अंतर के साथ कि एक दीर्घवृत्त खींचा जाता है जहां आयत का बाउंडिंग बॉक्स होगा। <a href="/reference/#/p5/ellipse">ellipse()</a> है <a href="/reference/#/p5/CENTER">CENTER</a>, ना की <a href="/reference/#/p5/CORNER">CORNER</a>.</p>
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CENTER);
+}
+function draw(){
+  ellipse(30, 30, 40, 60); // ellipse(x, y, width, height)
+}
+</script>
+
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CORNER);
+}
+function draw(){
+  ellipse(10, 10, 30, 50); // ellipse(x, y, width, height)
+}
+</script>
+
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(100, 100);
+  ellipseMode(CORNERS);
+}
+function draw(){
+  ellipse(10, 10, 40, 50); // ellipse(x1, y1, x2, y2)
+}
+</script>
+
+      <p>अब देखते हैं कि 200 से 200 के विंडो आयाम के साथ अधिक यथार्थवादी सेटिंग में आकृतियों के साथ कुछ कोड क्या हैं। विंडो की चौड़ाई और ऊंचाई को निर्दिष्ट करने के लिए createCanvas () फ़ंक्शन के उपयोग पर ध्यान दें।</p>
+
+<script type="text/p5" data-autoplay data-p5-version="1.4.1">
+function setup(){
+  createCanvas(200, 200);
+  rectMode(CENTER);
+}
+function draw(){
+  rect(100,100,20,100);
+  ellipse(100,70,60,60);
+  ellipse(81,70,16,32);
+  ellipse(119,70,16,32);
+  line(90,150,80,160);
+  line(110,150,120,160);
+}
+</script>
+
+
+    </main>
+
+    
+    <footer>
+      <h2 class="sr-only">आभार सूची</h2>
+      <p>
+        p5.js <a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye</a> द्वारा बनाया गया था और सहयोगियों के एक समुदाय द्वारा विकसित किया गया है| इस्का समरथ करन वले थे <a href='http://www.outofambit.com/' target="_blank">evelyn masso</a> और <a href='https://lauren-mccarthy.com' target="_blank">Lauren Lee McCarthy</a>पहचान और ग्राफिक डिजाइन करने वाले थे <a href="https://processingfoundation.org/" target="_blank">Processing Foundation</a>Identity and graphic design by <a href="https://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>Identity and graphic design by <a href="https://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/hi/copyright.html">&copy; Info</a>.
+      </p>
+    </footer>
+
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="https://processing.org">Processing</a></li>
+        <li><a class="here" href="/hi/">p5.js</a></li>
+        <li><a href="https://py.processing.org/">Processing.py</a></li>
+        <li><a href="https://android.processing.org/">Processing for Android</a></li>
+        <li><a href="https://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>
