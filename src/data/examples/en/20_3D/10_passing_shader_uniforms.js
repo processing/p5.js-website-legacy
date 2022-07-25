@@ -17,6 +17,8 @@
    // shaders require WEBGL mode to work
    createCanvas(710, 400, WEBGL);
    noStroke();
+
+   describe('a 2d example containing a sage green polygon, rotating in the middle of the sketch. As the mouse moves horizontally, the number of sides for the polygon change.')
  }
 
  function draw() {
@@ -24,6 +26,7 @@
    shader(theShader);
 
    // lets send the resolution, mouse, and time to our shader
+   // the mouse x position will change the number of sides
    // before sending mouse + time we modify the data so it's more easily usable by the shader
    theShader.setUniform('resolution', [width, height]);
    theShader.setUniform('mouse', map(mouseX, 0, width, 0, 7));
