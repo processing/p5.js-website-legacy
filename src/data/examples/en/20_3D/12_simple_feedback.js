@@ -13,6 +13,10 @@ function setup() {
   pg = createGraphics(710, 400, WEBGL);
   // this will hold the previous frame
   swap = createGraphics(710, 400, WEBGL);
+
+  describe(
+    'a WebGL example that achieves a simple feedback effect, displaying a slowly moving, radiating white circle.'
+  );
 }
 
 function draw() {
