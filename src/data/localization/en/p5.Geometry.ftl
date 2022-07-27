@@ -1,0 +1,9 @@
+description__0 = p5 Geometry class
+params__detailX = Integer: (Optional) number of vertices along the x-axis.
+params__detailY = Integer: (Optional) number of vertices along the y-axis.
+params__callback = Function: (Optional) function to call upon object instantiation.
+computeFaces__description__0 = computes faces for geometry objects based on the vertices.
+computeNormals__description__0 = computes smooth normals per vertex as an average of each face.
+averageNormals__description__0 = Averages the vertex normals. Used in curved surfaces
+averagePoleNormals__description__0 = Averages pole normals. Used in spherical primitives
+normalize__description__0 = Modifies all vertices to be centered within the range -100 to 100.

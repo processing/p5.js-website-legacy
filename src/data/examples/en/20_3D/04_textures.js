@@ -1,5 +1,6 @@
 /*
  * @name Textures
+ * @arialabel One sphere and one cube rotating on a white background. The sphere is covered with a video display and the cube is covered with an image. 
  * @description Images and videos are supported for texture.
  */
 // video source: https://vimeo.com/90312869

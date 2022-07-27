@@ -1,5 +1,6 @@
 /* 
  * @name Weight Line
+ * @arialabel Light yellow background and the user’s mouse draws lines of various shades and thicknesses as it hovers over the background
  * @frame 710,400
  * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
    <b>Prof WM Harris,</b></a> using the random function with events to color/weight a line<br/>

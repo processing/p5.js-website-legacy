@@ -1,5 +1,6 @@
 /*
  * @name Points and Lines
+ * @arialabel White outline of a square on a black background
  * @description Points and lines can be used to draw basic geometry.
  * Change the value of the variable 'd' to scale the form. The four
  * variables set the positions based on the value of 'd'.

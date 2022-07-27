@@ -1,5 +1,6 @@
 /*
  * @name Animation
+ * @arialabel Light grey background with a dark grey circle that is traveling up from the middle of the bottom of the screen as it moves slightly side-to-side
  * @description The circle moves.
  */
 // Where is the circle

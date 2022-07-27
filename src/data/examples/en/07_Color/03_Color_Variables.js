@@ -1,5 +1,6 @@
 /*
  * @name Color Variables
+ * @arialabel Two squares on a brown background. Both squares are made up of two squares in a larger square. On the left, the outer square is burnt umber, the middle square is golden, and the center square is orange. On the right, the outer square is orange, the middle is burnt umber, and the middle is golden
  * @description (Homage to Albers.) This example creates variables for colors
  * that may be referred to in the program by a name, rather than a number.
  */

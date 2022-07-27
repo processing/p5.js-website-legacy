@@ -1,0 +1,10 @@
+description__0 = A gain node is usefull to set the relative volume of sound. It's typically used to build mixers.
+setInput__description__0 = Connect a source to the gain node.
+setInput__params__src = Object: p5.sound / Web Audio object with a sound  output.
+connect__description__0 = Send output to a p5.sound or web audio object
+connect__params__unit = Object
+disconnect__description__0 = Disconnect all output.
+amp__description__0 = Set the output level of the gain node.
+amp__params__volume = Number: amplitude between 0 and 1.0
+amp__params__rampTime = Number: (Optional) create a fade that lasts rampTime
+amp__params__timeFromNow = Number: (Optional) schedule this event to happen  seconds from now

@@ -1,5 +1,6 @@
 /*
  * @name Mouse Functions
+ * @arialabel Fuschia background with a slightly opaque white square. The user can click on the square, which turns it white, and drag it around the background.
  * @description Click on the box and drag it across the screen.
  */
 let bx;

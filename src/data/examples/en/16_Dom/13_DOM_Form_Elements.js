@@ -1,5 +1,6 @@
 /* 
  * @name DOM Form Elements
+ * @arialabel Light yellow box with “checked” written with form elements such as checking boxes, sliders, and empty text input below
  * @frame 600,400
  * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
    <b>Prof WM Harris,</b></a> <b>How </b>to use p5 DOM form elements to create a slider,

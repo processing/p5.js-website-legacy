@@ -1,5 +1,6 @@
 /*
  * @name The Mandelbrot Set
+ * @arialabel A fractal that roughly resembles a series of heart-shaped disks, to which smaller disks are attached and consists of a connected set
  * @description Simple rendering of the Mandelbrot set.
  * Based on Daniel Shiffman's <a href="https://processing.org/examples/mandelbrot.html">Mandelbrot Example</a> for Processing.
  */

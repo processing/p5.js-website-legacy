@@ -1,5 +1,6 @@
 /*
  * @name Multiple Lights
+ * @arialabel Rotating iridescent cube on the left of the screen and an iridescent sphere on the right. The user’s mouse acts as a light illuminating the shapes and can control the direction of the light
  * @description All types of lights could be used in one sketch.
  */
 function setup() {

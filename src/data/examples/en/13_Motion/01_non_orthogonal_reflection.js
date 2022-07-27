@@ -1,5 +1,6 @@
 /*
  * @name Non Orthogonal Reflection
+ * @arialabel A white circle bounces around a black screen and on a grey slanted floor leaving a white streak behind it. The grey slanted floor changes every couple of frames
  * @frame 710,400 (optional)
  * @description This is a port by David Blitz of the "Reflection 1" example from processing.org/examples
  */

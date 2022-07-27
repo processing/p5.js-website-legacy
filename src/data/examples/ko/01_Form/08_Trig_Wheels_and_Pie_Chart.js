@@ -1,16 +1,13 @@
 /* 
- * @name Trig Wheels and Pie Chart
+ * @name 단위원과 파이 차트
  * @frame 400,400
- * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
-   <b>Prof WM Harris,</b></a> <b>How</b> to create
-a trig color wheel and a visualization of a population age data as a
-pie chart.<br/>
-	Functions are
-created for the canvas setup, trig color wheel, drawslice, and pie
-chart. The size of the slices are determined as well as their color
-range. The pie chart is separated by definitive color per value
-whereas the trig color wheel has a fixed slice amount with a range
-color fill.
+ * @description 해리스 교수 (<a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
+   <b>Prof WM Harris,</b></a>)의 기고 예시, '삼각함수 컬러 휠 만드는 법과 인구 연령 데이터로 파이차트 그리기'
+   (How to create a trig color wheel and a visualization of a population age data as a pie chart).
+   <br/>
+   켄바스 설정, 삼각함수 컬러 휠, 휠 조각 그리기와 파이차트를 위한 함수르 만듭니다. 컬러 휠 조각들의 크기와
+   색상범위 (color range)를 정합니다. 파이차트는 값에 따라 색깔로 나누어지는 반면, 삼각함수 컬러 휠은 조각의 수가
+   고정되어있고 색상 범위로 나누어집니다.
 */
 
 function setup() {
@@ -18,7 +15,7 @@ function setup() {
   colorMode(HSB);
   angleMode(DEGREES);
 
-  //vars for color wheel center point
+  //색깔 컬러 휠 중점을 위한 
   let x = width / 2;
   let y = height / 2 + 100;
   colorWheel(x, y, 100); //slide 11

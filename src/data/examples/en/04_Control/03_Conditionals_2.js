@@ -1,5 +1,6 @@
 /*
  * @name Conditionals 2
+ * @arialabel The top half of the window has spaced out vertical lines. The bottom half of the window has more condensed vertical lines
  * @description We extend the language of conditionals from the previous
  * example by adding the keyword "else". This allows conditionals
  * to ask two or more sequential questions, each with a different

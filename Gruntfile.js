@@ -11,7 +11,6 @@ const fs = require('fs').promises;
 const fse = require('fs-extra');
 const git = require('simple-git');
 const pkg = require('./package.json');
-const update_i18n = require('./updatei18nFiles.js');
 const mozjpeg = require('imagemin-mozjpeg');
 const pngquant = require('imagemin-pngquant');
 
@@ -116,7 +115,7 @@ module.exports = function(grunt) {
               },
               {
                 pattern: ':base',
-                replacement: function () {
+                replacement: function() {
                   var check = this.basename.lastIndexOf(this.language.toLowerCase());
                   if (check > -1) {
                     return this.basename.substring(0, check - 1);
@@ -154,14 +153,17 @@ module.exports = function(grunt) {
       images: {
         options: {
           optimizationLevel: 2,
-          use: [mozjpeg({quality: 70}), pngquant()] //plugins for jpeg & png image compression
+          //plugins for jpeg & png image compression
+          use: [mozjpeg({ quality: 70 }), pngquant()]
         },
-        files: [{
-          expand: true,
-          cwd: '<%= config.src %>/assets/img',
-          src: ['**/*.{png,jpg,gif,svg,ico}'],
-          dest: '<%= config.dist %>/assets/img/'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.src %>/assets/img',
+            src: ['**/*.{png,jpg,gif,svg,ico}'],
+            dest: '<%= config.dist %>/assets/img/'
+          }
+        ]
       }
     },
 
@@ -186,16 +188,18 @@ module.exports = function(grunt) {
           annotation: '<%= config.dist %>/assets/css/maps/'
         },
         processors: [
-          require('autoprefixer')({browsers: [
-            'Android 2.3',
-            'Android >= 4',
-            'Chrome >= 20',
-            'Firefox >= 24',
-            'Explorer >= 8',
-            'iOS >= 6',
-            'Opera >= 12',
-            'Safari >= 6'
-          ]}),
+          require('autoprefixer')({
+            browsers: [
+              'Android 2.3',
+              'Android >= 4',
+              'Chrome >= 20',
+              'Firefox >= 24',
+              'Explorer >= 8',
+              'iOS >= 6',
+              'Opera >= 12',
+              'Safari >= 6'
+            ]
+          }),
           require('cssnano')()
         ]
       },
@@ -376,43 +380,22 @@ module.exports = function(grunt) {
 
     const version = require('./src/templates/pages/reference/data.json').project.version;
 
-    fs.readFile('./src/data/data.yml').then((str) => {
-      const data = yaml.safeLoad(str);
-      data.version = version;
+    fs.readFile('./src/data/data.yml')
+      .then(str => {
+        const data = yaml.safeLoad(str);
+        data.version = version;
 
-      const dump = yaml.safeDump(data);
+        const dump = yaml.safeDump(data);
 
-      return fs.writeFile('./src/data/data.yml', dump);
-    }).then(() => {
-      done();
-    });
+        return fs.writeFile('./src/data/data.yml', dump);
+      })
+      .then(() => {
+        done();
+      });
   });
 
-  // runs the updateJSON() function from update18nFiles.js
-  // is run by the update-translation-files workflow every time one of them is modified
-  grunt.registerTask('update-json-i18n-files', function() {
-    const JSONfiles_URL = 'src/data/reference/';
-    const lang = pkg.languages.filter(v => v !== 'en');
-    lang.forEach(langCode => {
-      update_i18n.updateJSON(
-        JSONfiles_URL + 'en.json',
-        JSONfiles_URL + langCode + '.json'
-      );
-    });
-  });
-
-  // runs the updateYAML() function from update18nFiles.js
-  // is run by the update-translation-files workflow every time one of them is modified
-  grunt.registerTask('update-yaml-i18n-files', function() {
-    const YAMLfiles_URL = 'src/data/';
-    const lang = pkg.languages.filter(v => v !== 'en');
-    lang.forEach(langCode => {
-      update_i18n.updateYAML(
-        YAMLfiles_URL + 'en.yml',
-        YAMLfiles_URL + langCode + '.yml'
-      );
-    });
-  });
+  // Load modular tasks from the tasks folder
+  grunt.loadTasks('tasks');
 
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-assemble');
@@ -420,6 +403,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-html');
+
+  // i18n tracking task
+  grunt.registerTask('i18n', function() {
+    var done = this.async();
+    require('./i18n.js')(done);
+  });
 
   grunt.registerTask('make_tmp_dir', function() {
     const tmp_path = 'tmp/p5.js';
@@ -462,7 +451,8 @@ module.exports = function(grunt) {
     'clone_p5js_repo',
     'generate_dataJSON',
     'move_dataJSON',
-    'generate_enJSON'
+    'generate_enJSON',
+    // 'json-to-fluent'
   ]);
 
   // multi-tasks: collections of other tasks
@@ -484,12 +474,6 @@ module.exports = function(grunt) {
     'postcss'
   ]);
 
-  // i18n tracking task
-  grunt.registerTask('i18n', function() {
-    var done = this.async();
-    require('./i18n.js')(done);
-  });
-
   // runs tasks in order
   grunt.registerTask('build', [
     'update-version',
@@ -497,6 +481,7 @@ module.exports = function(grunt) {
     'clean',
     'requirejs:yuidoc_theme',
     'requirejs',
+    // 'fluent-to-json',
     'copy',
     'optimize',
     'assemble',

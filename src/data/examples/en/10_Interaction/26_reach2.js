@@ -1,5 +1,6 @@
 /*
  * @name Reach 2
+ * @arialabel Grey triangle segmented and attached to the bottom of the black screen. The tip of the triangle follows the direction of the user’s mouse
  * @frame 710,400
  * @description The arm follows the position of the mouse by calculating the
  * angles with atan2(). Based on code from Keith Peters.

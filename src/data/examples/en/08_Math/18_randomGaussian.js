@@ -1,8 +1,10 @@
 /*
  * @name Random Gaussian
+ * @arialabel Translucent white circles are drawn in a line left and right multiple times until they overlap to form a white streak
  * @frame 720,400
  * @description This sketch draws ellipses with x and y locations tied to a gaussian distribution of random numbers.
- *  (ported from https://processing.org/examples/randomgaussian.html)
+ * <br><br><small><em>This example is ported from the <a href="https://processing.org/examples/randomgaussian.html">Random Gaussian example</a>
+ * on the Processing website</em></small>
  */
 
   function setup() {

@@ -1,5 +1,6 @@
 /*
  * @name Rotate
+ * @arialabel White square on a dark grey background rotates side to side 
  * @description Rotating a square around the Z axis.
  * To get the results you expect, send the rotate function angle
  * parameters that are values between 0 and PI*2 (TWO_PI which is

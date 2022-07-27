@@ -1,5 +1,6 @@
 /*
  * @name Basic Shader
+ * @arialabel Background with a cyan to purple gradient
  * @description This is a basic example showing how to load shaders in p5.js.
  * <br> To learn more about using shaders in p5.js: <a href="https://itp-xstory.github.io/p5js-shaders/">p5.js Shaders</a>
  */

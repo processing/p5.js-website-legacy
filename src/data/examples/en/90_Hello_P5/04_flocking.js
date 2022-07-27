@@ -1,5 +1,6 @@
 /*
  * @name Flocking
+ * @arialabel Light grey circles on a dark grey background that travel across the screen in flocks or groups
  * @description Demonstration of <a href="http://www.red3d.com/cwr/">Craig Reynolds' "Flocking" behavior</a>.<br>
  * (Rules: Cohesion, Separation, Alignment.)<br>
  * From <a href="http://natureofcode.com">natureofcode.com</a>.

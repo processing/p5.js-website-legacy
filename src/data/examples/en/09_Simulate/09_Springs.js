@@ -1,10 +1,11 @@
 /*
  * @name Springs
+ * @arialabel Three white circles on a dark grey background. The user can drag each circle and the circle springs back and forth till finally settling in the original position
  * @frame 710,400
  * @description Move the mouse over one of the circles and click to re-position.
  * When you release the mouse, it will snap back into position.
  * Each circle has a slightly different behavior.
- * (ported from https://processing.org/examples/springs.html)
+ * <br><br><small><em>This example is ported from the <a href="https://processing.org/examples/">Processing website</a></em></small>
  */
 let num = 3;
 let springs = [];

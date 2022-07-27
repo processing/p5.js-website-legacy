@@ -1,9 +1,12 @@
 /*
  * @name Loop
- * @description The code inside the draw() function runs continuously from top
- * to bottom until the program is stopped.
+ * @arialabel Horizontal white line on a black background that moves from the bottom to the top of the screen parallel to the x-axis
+ * @description If noLoop() is run in setup(), the code in draw() 
+ * is only run once. In this example, click the mouse 
+ * to run the loop() function to cause the draw() the 
+ * run continuously. 
  */
-let y = 100;
+let y = 0;
 
 // The statements in the setup() function
 // execute once when the program begins
@@ -11,6 +14,7 @@ function setup() {
   createCanvas(720, 400); // Size must be the first statement
   stroke(255); // Set line drawing color to white
   frameRate(30);
+  noLoop();
 }
 // The statements in draw() are executed until the
 // program is stopped. Each statement is executed in
@@ -23,4 +27,8 @@ function draw() {
     y = height;
   }
   line(0, y, width, y);
+}
+
+function mousePressed(){
+  loop();
 }

@@ -1,0 +1,15 @@
+description__0 = 폰트 조정을 위한 기본 클래스
+params__pInst = P5: (선택 사항) p5 인스턴스 포인터
+font__description__0 = 기본 개방형 글꼴 구현
+textBounds__description__0 = 이 폰트로 지정된 텍스트 문자열에 대한 바운딩 박스를 반환합니다. (현재 텍스트 한 줄씩만 지원합니다.)
+textBounds__returns = 객체: x, y, w, h의 속성을 가진 직사각형의 객체
+textBounds__params__line = 문자열: 텍스트 한 줄
+textBounds__params__x = 숫자: x 위치
+textBounds__params__y = 숫자: y 위치
+textBounds__params__fontSize = 숫자: (선택 사항) 사용할 폰트의 크기. 기본값은 12.
+textBounds__params__options = 객체: (선택 사항) OTF (OpenType Font) 파일의 설정 옵션. OpenType 폰트는 정렬과 기준 선 (baseline) 옵션이 있습니다. 기본값은 'LEFT'와 'alphabetic'입니다.
+textToPoints__description__0 = 지정된 텍스트 경로를 따르는 점들의 배열을 계산합니다.
+textToPoints__params__txt = 문자열: 텍스트 한 줄
+textToPoints__params__x = 숫자: x 위치
+textToPoints__params__y = 숫자: y 위치
+textToPoints__params__fontSize = 숫자: (선택 사항) 사용할 폰트의 크기. 기본값은 12.

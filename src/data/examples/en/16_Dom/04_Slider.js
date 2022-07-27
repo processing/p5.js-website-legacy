@@ -1,5 +1,6 @@
 /*
  * @name Slider
+ * @arialabel The background starts off in a vibrant shade of purple with three sliders in the upper left corner labeled red, green, and blue. The user can drag each slider and the color of the background will change accordingly with the increase or decrease of each of these three colors. 
  * @description Move the sliders to control the R, G, B values of the background.
  */
 let rSlider, gSlider, bSlider;

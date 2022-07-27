@@ -1,5 +1,6 @@
 /*
  * @name Copy() method
+ * @arialabel Parrot rendered in black and white. The user’s cursor is a paint brush and as the user presses and holds on the image, the area becomes colored
  * @frame 600,400
  * @description An example of how to simulate coloring image with the copy() method.
  */

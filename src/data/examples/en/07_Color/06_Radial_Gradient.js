@@ -1,5 +1,6 @@
 /*
  * @name Radial Gradient
+ * @arialabel Three circles on a black background. The middle circle is completely visible but the user can only see half of the other two. There is a gradiant from the center of the circle to the outer edge that changes every second
  * @description Draws a series of concentric circles to create a gradient
  * from one color to another.
  */

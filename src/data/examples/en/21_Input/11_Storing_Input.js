@@ -1,5 +1,6 @@
 /*
  * @name Storing Input
+ * @arialabel User draws white circles on a fuschia background. Circles fade in color as the next circle is drawn.
  * @description Move the mouse across the screen to
  * change the position of the circles. The positions
  * of the mouse are recorded into an array and played

@@ -1,5 +1,6 @@
 /*
  * @name Linear Interpolation
+ * @arialabel White circle follows the user’s mouse around the screen
  * @frame 720, 400
  * @description Move the mouse across the screen and the symbol will follow.
  * Between drawing each frame of the animation, the ellipse moves part

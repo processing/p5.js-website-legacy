@@ -1,5 +1,6 @@
 /*
  * @name Video
+ * @arialabel Video of fingers walking 
  * @frame 710,250
  * @description Load a video with multiple formats and toggle between playing
  * and paused with a button press.
@@ -9,6 +10,7 @@ let fingers;
 let button;
 
 function setup() {
+  noCanvas();
   // specify multiple formats for different browsers
   fingers = createVideo(['assets/fingers.mov', 'assets/fingers.webm']);
   button = createButton('play');

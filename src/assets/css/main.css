@@ -444,12 +444,13 @@ textarea {
 #get-started-page .edit_space {
   position: relative;
   order: 3;
+  margin-bottom: 4.8125em;
 }
 #get-started-page .edit_space .copy_button{
   color: #2d7bb6;
   border-color: rgba(45, 123, 182, 0.25);
   float: right;
-  margin: 0.5em 0 0 0.5em;
+  margin: 1.5em 0 1.5em 0.5em;
   background: rgba(255, 255, 255, 0.7);
   position: absolute;
   z-index: 2;
@@ -661,6 +662,9 @@ div.reference-subgroup {
   width: 30.5em;
   padding-top: 1.5rem;
   display: none;
+  font-family: monospace;
+  padding: 1.5em 0.5em 0.5em 0.5em;
+  font-size: 15pt;
 }
 
 .display_button {
@@ -917,6 +921,11 @@ h3 {
 .bullet-list {
   padding: 0 0 0 40px;
   list-style: disc;
+}
+
+#libraries-page .label h3{
+  background-color: black;
+  padding:0px 5px;
 }
 
 #learn-page .label .nounderline img {
@@ -2712,6 +2721,7 @@ iframe {
   pointer-events: none;
 }
 
+
 /*  variations for asterisks on pages */
 
 .separator-design-element {
@@ -2785,6 +2795,12 @@ iframe {
   -ms-transform: rotate(-21deg);
   -o-transform: rotate(-21deg);
   transform: rotate(-21deg);
+}
+@media(max-width:1352px){
+  #reference-page #asterisk-design-element,
+  #download-page #asterisk-design-element{
+    display: none !important;
+  }
 }
 
 .email-octopus-email-address {

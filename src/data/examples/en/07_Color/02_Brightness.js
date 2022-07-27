@@ -1,5 +1,6 @@
 /*
  * @name Brightness
+ * @arialabel A black and white photograph of an astronaut on the moon covered by black. The mouse acts as a light and a circular area of the photograph is illuminated where the mouse hovers
  * @description By Dan Shiffman. This program adjusts the brightness of a part
  * of the image by calculating the distance of each pixel to the mouse.
  * <p><em><span class="small"> To run this example locally, you will need

@@ -1,5 +1,6 @@
 /**
  *  @name Reverb
+ *  @arialabel When the user clicks on the black screen, sound with reverb is played
  *  @description Reverb gives depth and perceived space to a sound. Here,
  *  noise is processed with reverb.
  *

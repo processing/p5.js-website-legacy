@@ -1,5 +1,6 @@
 /**
  * @name Mic Threshold
+ * @arialabel Black rectangle is drawn on the bottom of a bar based on the amplitude of the user’s audio input. At a certain minimum amplitude, grey squares are randomly drawn on the right side of the screen
  * @description <p>Trigger an event (draw a rectangle) when the Audio Input
  * volume surpasses a threshold.</p>
  * <p><em><span class="small"> To run this example locally, you will need the

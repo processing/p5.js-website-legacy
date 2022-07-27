@@ -1,5 +1,6 @@
 /*
  * @name Pan Sound
+ * @arialabel User moves a white ball on black screen, sound effect plays when the user clicks the screen and the sound comes out more of the speaker closer to the side the ball is on
  * @description <p>Click mouse to play the sound.
  * Ball position follows mouse and correlates to panning of sound.</p>
  * <p><em><span class="small"> To run this example locally, you will need the

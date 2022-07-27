@@ -1,5 +1,6 @@
 /*
  * @name Bounce
+ * @arialabel White circle moving on a grey background. When it hits the edge of the background window, it changes it’s direction 
  * @frame 720,400
  * @description When the shape hits the edge of the window, it reverses its direction.
  */

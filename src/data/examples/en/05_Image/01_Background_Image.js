@@ -1,5 +1,6 @@
 /*
  * @name Background Image
+ * @arialabel An astronaut on a planet with a horizontal yellow line traveling from the top to the bottom of the image
  * @description This example presents the fastest way to load a
  * background image. To load an image as the background,
  * it must be the same width and height as the program.

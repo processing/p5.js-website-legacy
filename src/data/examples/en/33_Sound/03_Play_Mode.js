@@ -1,5 +1,6 @@
 /*
  * @name Play Mode
+ * @arialabel Yellow screen plays music when user clicks on it
  * @description
  * <p>In 'sustain' mode, the sound will overlap with itself.
  * In 'restart' mode it will stop and then start again.

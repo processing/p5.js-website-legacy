@@ -1,5 +1,6 @@
 /*
  * @name Bubble Sort
+ * @arialabel Dark grey bars of different heights on a light grey background are sorted from tallest to shortest from the right to the left side of the screen
  * @description Sorts the randomly distributed bars 
  * according to their height in ascending order
  * while simulating the whole sorting process.

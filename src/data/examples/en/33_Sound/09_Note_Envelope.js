@@ -1,5 +1,6 @@
 /**
  *  @name Note Envelope
+ *  @arialabel Red bars rise on the screen based on the amplitude and the note played 
  *  @description  <p>An Envelope is a series of fades, defined
  *  as time / value pairs. In this example, the envelope
  *  will be used to "play" a note by controlling the output

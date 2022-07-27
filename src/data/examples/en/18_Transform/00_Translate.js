@@ -1,5 +1,6 @@
 /*
  * @name Translate
+ * @arialabel Two squares one white one black travel horizontally across a grey background. The black square moves faster than the white
  * @description The translate() function allows objects to be
  * moved to any location within the window. The first parameter
  * sets the x-axis offset and the second parameter sets the

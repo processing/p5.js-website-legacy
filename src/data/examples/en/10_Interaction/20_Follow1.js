@@ -1,5 +1,6 @@
 /*
  * @name Follow 1
+ * @arialabel Circle connected to a long oval. The user’s mouse is attached to the end of the oval. When the mouse moves, the oval and circle moves with it.
  * @frame 710,400
  * @description A line segment is pushed and pulled by the cursor.
  * Based on code from Keith Peters.

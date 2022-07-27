@@ -1,5 +1,6 @@
 /*
  * @name Pulses
+ * @arialabel Continuous black flowers with a white circle center draw on a dark grey background as you move your mouse. The circles get bigger as you move your mouse faster and smaller as you move your mouse slower. When you stop your mouse, the last flower rotates slightly.
  * @description Software drawing instruments can follow a rhythm or abide by
  * rules independent of drawn gestures. This is a form of collaborative drawing
  * in which the draftsperson controls some aspects of the image and the software
