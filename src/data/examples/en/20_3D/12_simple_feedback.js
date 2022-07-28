@@ -9,25 +9,32 @@ let pg, swap;
 function setup() {
   createCanvas(710, 400);
 
-  // this will hold our main graphic
-  pg = createGraphics(710, 400, WEBGL);
   // this will hold the previous frame
+  pg = createGraphics(710, 400, WEBGL);
+  // this will hold our main graphic
   swap = createGraphics(710, 400, WEBGL);
 
   describe(
-    'a WebGL example that achieves a simple feedback effect, displaying a slowly moving, radiating white circle.'
+    'a WebGL example that achieves a simple feedback effect, displaying a slowly moving, radiating white sphere.'
   );
 }
 
 function draw() {
   // draw the previous frame
   pg.texture(swap);
-  pg.noStroke();  
+  pg.noStroke();
   pg.plane(width, height);
 
-  // draw our circle graphic on top
+  // p5.Graphics sometimes requires us to use reset() before drawing
+  pg.reset();
+
+  // draw our sphere on top
+  pg.push();
+  // slowly move the sphere in a circle
+  pg.translate(sin(millis() / 200) * 5, cos(millis() / 200) * 5, 0);
   pg.fill(255);
-  pg.ellipse(Math.sin(millis()/200)*5, Math.cos(millis()/200)*5, 150, 150);
+  pg.sphere(90);
+  pg.pop();
 
   // draw a slightly scaled up copy of the texture
   swap.push();
