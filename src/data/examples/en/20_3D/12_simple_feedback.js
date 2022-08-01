@@ -20,13 +20,13 @@ function setup() {
 }
 
 function draw() {
+  // clears and resets the p5.Graphics so that 3D objects draw correctly
+  pg.reset();
+
   // draw the previous frame
   pg.texture(swap);
   pg.noStroke();
   pg.plane(width, height);
-
-  // p5.Graphics sometimes requires us to use reset() before drawing
-  pg.reset();
 
   // draw our sphere on top
   pg.push();
