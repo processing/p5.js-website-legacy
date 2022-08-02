@@ -18,7 +18,7 @@ function preload() {
 function setup() {
 
   // 캔버스 사이즈 설정
-  createCanvas(640, 360);
+  createCanvas(740, 360);
 
   // 파티클 시스템 초기화
   ps = new ParticleSystem(0, createVector(width / 2, height - 60), particle_texture);

@@ -18,7 +18,7 @@ function preload() {
 function setup() {
 
   //set the canvas size
-  createCanvas(640, 360);
+  createCanvas(740, 360);
 
   //initialize our particle system
   ps = new ParticleSystem(0, createVector(width / 2, height - 60), particle_texture);

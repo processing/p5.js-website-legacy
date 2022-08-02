@@ -15,7 +15,7 @@ let movers = [];
 let liquid;
 
 function setup() {
-  createCanvas(640, 360);
+  createCanvas(740, 360);
   reset();
   // Crear objeto líquido
   liquid = new Liquid(0, height / 2, width, height / 2, 0.1);

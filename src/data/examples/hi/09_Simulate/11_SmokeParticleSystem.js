@@ -17,7 +17,7 @@ function preload() {
 function setup() {
 
  // कैनवास का आकार निर्धारित करें
-  createCanvas(640, 360);
+  createCanvas(740, 360);
 
   // हमारे कण प्रणाली को इनिशियलाइज़ करें
   ps = new ParticleSystem(0, createVector(width / 2, height - 60), particle_texture);

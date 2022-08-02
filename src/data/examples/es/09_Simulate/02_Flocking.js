@@ -13,7 +13,7 @@ let flock;
 let text;
 
 function setup() {
-  createCanvas(640, 360);
+  createCanvas(740, 360);
   createP("Drag the mouse to generate new boids.");
 
   flock = new Flock();

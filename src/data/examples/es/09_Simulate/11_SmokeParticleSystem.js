@@ -16,7 +16,7 @@ function preload() {
 function setup() {
 
     //definir el tamaño del lienzo
-    createCanvas(640, 360);
+    createCanvas(740, 360);
 
     //inicializar nuestro sistema de partículas
     ps = new ParticleSystem(0,createVector(width / 2, height - 60),particle_texture);
