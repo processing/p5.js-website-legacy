@@ -1,0 +1,353 @@
+---
+title: learn
+slug: learn/
+---
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main>
+      <h1>Getting Started with 3D in p5.js</h1>
+
+      <h2>Introduction</h2>
+
+      <p>If you have been learning p5.js for a while you might have seen a number of examples on this site using 3d
+        graphics or shaders. This can be done using the WebGL mode in p5.js. While there are some new concepts to learn
+        when working with this mode, p5.js can make it easy to get started creating 3d graphics in the browser. This
+        document will hopefully introduce you to some of the bideas that will make 3d in p5.js easier to understand and
+        learn.</p>
+
+      <h3>What is 3D? Coordinate spaces</h3>
+
+      <p>One of the most fundamental differences between working in 2d and working in 3d is the most obvious: we are
+        working with one more dimension. In addition to the horizontal and vertical position (x and y axes) of an
+        element in our drawing, 3D adds depth, (the z-axis). </p>
+
+      <!-- iframe for the curve and dragging points -->
+      <iframe src="{{assets}}/learn/basic3d/transformExample.html" width="350" height="350">
+      </iframe>
+
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+      {{!--
+      <!-- this script only needs to get added once even if there are multiple widget instances -->
+
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+        let xSlider, ySlider, zSlider;
+        let p;
+
+        function setup() {
+            createCanvas(150, 200, WEBGL);
+            
+            debugMode();
+            
+            xSlider = createSlider(-100,100,0);
+            ySlider = createSlider(-100,100,0);
+            zSlider = createSlider(-100,100,0);
+            
+            p = createP('');
+            p.style('font-size', '16px');
+            p.position(10, height - 50);
+        }
+
+        function draw() {
+            background(220);
+            camera(0,-200,200,0,0,0)
+            
+            translate(xSlider.value(),ySlider.value(),zSlider.value())
+            box(50);
+            
+            p.html('('+xSlider.value()+', '+ySlider.value()+', '+zSlider.value()+')');
+        }
+        </script> --}}
+
+      <p>When you are drawing in 2d, the point (0,0) is located at the top left corner of the screen. In WebGL mode, the
+        origin of the sketch (0,0,0) is located in the middle of the screen. By default, the X axis goes left-to-right,
+        Y goes up-to-down, and Z goes from further-to-closer.</p>
+
+      <h3>Transformations</h3>
+
+      <p>Many of the same concepts apply from drawing in 2d. You can still move (translate), rotate, and scale objects
+        (collectively known as the transformation of an object), but each of those methods now have one more axis.</p>
+
+      <p>One thing that might feel a little different than working in 2d is that our 3d sketch has a camera. The camera
+        is a 3d object of its own, with rotation and position that can affect the way that we see the geometry in our
+        scene. When we move our object, keep in mind that rotate and translate operate independently from the position
+        of your camera. These transformations happen in world space, relative to the world origin.</p>
+
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+        let xSlider, ySlider, zSlider;
+        let p;
+
+        function setup() {
+            createCanvas(150, 200, WEBGL);
+            
+            debugMode();
+            
+            xSlider = createSlider(-100,100,0);
+            ySlider = createSlider(-100,100,0);
+            zSlider = createSlider(-100,100,0);
+            
+            p = createP('');
+            p.style('font-size', '16px');
+            p.position(10, height - 50);
+        }
+
+        function draw() {
+            background(220);
+            camera(0,-200,200,0,0,0)
+            
+            translate(xSlider.value(),ySlider.value(),zSlider.value())
+            box(50);
+            
+            p.html('('+xSlider.value()+', '+ySlider.value()+', '+zSlider.value()+')');
+        }
+      </script>
+
+      <p>Something that can feel unpredictable at first is the order of transformations. In general, the order that you
+        want to perform transformations is scale, rotation, then translation. If you perform these out of order it can
+        be a little more difficult to control. Each of these transformations can have an effect on each other, and this
+        order makes it much more intuitive. </p>
+
+      <p>When you call scale, rotate, or translate, each of these calls will affect any objects that are drawn after. If
+        you want to move things independently, without having to account for prior transformations, you can use the
+        methods push() and pop(). The combination of these two methods allow you to "detach" the current coordinate
+        space, which you can then transform, and with pop() you can return to the original coordinate space. </p>
+
+      <p>In the below example, try removing push() and pop() to see how the transformations affect the second object
+        that is drawn. </p>
+
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+        let xSlider, ySlider, zSlider;
+        let p;
+
+        function setup() {
+            createCanvas(150, 200, WEBGL);
+            
+            debugMode();
+            
+            xSlider = createSlider(-100,100,0);
+            ySlider = createSlider(-100,100,0);
+            zSlider = createSlider(-100,100,0);
+            
+            p = createP('');
+            p.style('font-size', '16px');
+            p.position(10, height - 50);
+        }
+
+        function draw() {
+            background(220);
+            camera(0,-200,200,0,0,0)
+            
+            translate(xSlider.value(),ySlider.value(),zSlider.value())
+            box(50);
+            
+            p.html('('+xSlider.value()+', '+ySlider.value()+', '+zSlider.value()+')');
+        }
+      </script>
+
+      <h3>Camera and View</h3>
+
+      <p>The camera is an important piece to the 3d scene. In p5.js, the WebGL mode uses a perspective camera by
+        default, meaning that as the view of the camera extends into the distance, geometry appears smaller. This is in
+        contrast to an orthographic camera, where the geometry stays the same size as it gets further away, it has no
+        vanishing point. </p>
+
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+        let fovSlider;
+        let selectCameraType;
+        let cameraType;
+
+        function setup() {
+          createCanvas(400, 400, WEBGL);
+          
+          debugMode();
+          
+          fovSlider = createSlider(0,PI,PI/2,0.01);
+          selectCameraType = createSelect();
+          selectCameraType.option('ortho');
+          selectCameraType.option('perspective');
+          selectCameraType.selected('perspective');
+        }
+
+        function draw() {
+          background(220);
+          camera(200,-200,200)
+
+          cameraType = selectCameraType.value();
+          
+          if(cameraType === 'ortho') {
+            ortho(-width / 2, width / 2, height / 2, -height / 2, 0, 500);
+          } else {
+            perspective(fovSlider.value())
+          }
+          
+          box(50);
+        }
+
+        function cameraTypeChanged(e) {
+          console.log(selectCameraType.value())
+        }
+      </script>
+
+      <h2>Vertices and Faces</h2>
+
+      <p>3d geometry is ultimately a collection of points, called vertices, that are connected into faces. </p>
+
+      <p>In many 3d environments there is a collection of 3d primitives, simple built-in objects like boxes, spheres,
+        torus', etc. </p>
+
+      <p>It is certainly possible to create your own custom geometry, vertex but vertex, but that is outside of the
+        scope of this article. </p>
+
+      <p>Another common method for working with custom geometry in WebGL is to use a 3d model exported from software
+        like Blender (for p5.js, an obj or stl file).</p>
+
+      <h2>Lights</h2>
+
+      <p>Lighting is another essential part of a 3d scene. To be able to convey shape and depth in 3d is necessary to
+        have a light source. </p>
+
+      <p>In p5 we have: </p>
+
+      <ul>
+        <li>ambientLight()</li>
+        <li>directionalLight()</li>
+        <li>pointLight()</li>
+        <li>spotLight()</li>
+        <li>noLights()</li>
+      </ul>
+
+      <p>Ambient light makes everything display a little brighter, with no consideration for light position or
+        direction. A directional light on the other hand can be moved and rotated to shine directly on a geometry. The
+        spot light is similar, but casts light evenly within a cone shape. Finally, noLights can be used when you want
+        everything to be a solid color or texture, unaffected by lights. </p>
+
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+        let fovSlider;
+        let selectLightType;
+        let cameraType;
+
+        function setup() {
+          createCanvas(400, 400, WEBGL);
+
+          debugMode();
+
+          fovSlider = createSlider(0, PI, PI / 2, 0.01);
+          selectLightType = createSelect();
+
+          selectLightType.option("ambient");
+          selectLightType.option("directional");
+          selectLightType.option("spotlight");
+          selectLightType.option("point");
+
+          selectLightType.selected("directional");
+        }
+
+        function draw() {
+          background(220);
+          camera(200, -200, 200);
+
+          lightType = selectLightType.value();
+
+          switch (lightType) {
+            case "ambient":
+              ambientLight(50);
+              break;
+            case "directional":
+              directionalLight(255, 0, 0, 0.25, 0.25, 0);
+              break;
+            case "spotlight":
+              spotLight(0, 255, 0, 150, 0, 250, 0, 0, -1);
+              break;
+            case "point":
+              pointLight(0, 0, 255, locX, locY, 250);
+              break;
+          }
+
+          box(50);
+        }
+      </script>
+
+      <h2>Materials and Textures</h2>
+      <p>3d is not all about geometry, objects can appear differently based on their material. Materials dictate how
+        light interacts with the geometry and how color (or texture) gets applied to the object. Materials can be really
+        flexible and each can have unique properties. </p>
+
+      <p>In p5 we have </p>
+
+      <ul>
+
+        <li>normalMaterial()</li>
+        <li>ambientMaterial()</li>
+        <li>emissiveMaterial()</li>
+        <li>specularMaterial()</li>
+
+      </ul>
+
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+        let fovSlider;
+        let selectMaterialType;
+        let materialType;
+
+        function setup() {
+          createCanvas(400, 400, WEBGL);
+
+          debugMode();
+
+          selectMaterialType = createSelect();
+
+          selectMaterialType.option("normalMaterial");
+          selectMaterialType.option("ambientMaterial");
+          selectMaterialType.option("emissiveMaterial");
+          selectMaterialType.option("specularMaterial");
+
+          selectMaterialType.selected("normalMaterial");
+        }
+
+        function draw() {
+          background(220);
+          camera(200, -200, 200);
+
+          materialType = selectMaterialType.value();
+          
+          let locX = mouseX - width / 2;
+          let locY = mouseY - height / 2;
+          pointLight(255, 255, 255, locX, locY, 50);
+
+          switch (materialType) {
+            case "normalMaterial":
+              normalMaterial();
+              break;
+            case "ambientMaterial":
+              ambientMaterial(255, 0, 0);
+              break;
+            case "emissiveMaterial":
+              emissiveMaterial(0, 255, 0);
+              break;
+            case "specularMaterial":
+              specularMaterial(0, 0, 255);
+              break;
+          }
+
+          box(50);
+        }
+      </script>
+
+      <p>You can even draw to another image and apply it as a texture to the object. </p>
+
+      <p>and more custom materials can be achieved through texture() and shaders, which will be discussed more at length
+        later. </p>
+
+
+    </main>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->
