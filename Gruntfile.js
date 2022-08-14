@@ -365,7 +365,7 @@ module.exports = function(grunt) {
     },
     shell: {
       generate_dataJSON: {
-        command: 'npm ci && npm run grunt yui',
+        command: `git checkout ${grunt.option('target')} && npm ci && npm run grunt yui build`,
         options: {
           execOptions: {
             cwd: 'tmp/p5.js'
@@ -378,7 +378,7 @@ module.exports = function(grunt) {
   grunt.registerTask('update-version', function() {
     const done = this.async();
 
-    const version = require('./src/templates/pages/reference/data.json').project.version;
+    const version = grunt.option('target').substring(1);
 
     fs.readFile('./src/data/data.yml')
       .then(str => {
@@ -436,6 +436,14 @@ module.exports = function(grunt) {
     // move the data.json files from the cloned p5.js repository to the p5.js-website repository
     fse.moveSync(dataJSON_p5js, dataJSON_p5jswebsite, { overwrite: true });
     fse.moveSync(dataJSONmin_p5js, dataJSONmin_p5jswebsite, { overwrite: true });
+
+    const p5min_src = 'tmp/p5.js/lib/p5.min.js';
+    const p5min_dest = 'src/assets/js/p5.min.js';
+    const p5Soundmin_src = 'tmp/p5.js/lib/addons/p5.sound.min.js';
+    const p5Soundmin_dest = 'src/assets/js/p5.sound.min.js';
+    fse.moveSync(p5min_src, p5min_dest, { overwrite: true });
+    fse.moveSync(p5Soundmin_src, p5Soundmin_dest, { overwrite: true });
+
     // delete the tmp folder that contained the p5.js repository
     fse.removeSync('tmp/');
   });
@@ -451,8 +459,8 @@ module.exports = function(grunt) {
     'clone_p5js_repo',
     'generate_dataJSON',
     'move_dataJSON',
-    'generate_enJSON',
-    // 'json-to-fluent'
+    'update-version',
+    'generate_enJSON'
   ]);
 
   // multi-tasks: collections of other tasks
@@ -476,12 +484,11 @@ module.exports = function(grunt) {
 
   // runs tasks in order
   grunt.registerTask('build', [
-    'update-version',
+    // 'update-version',
     'exec',
     'clean',
     'requirejs:yuidoc_theme',
     'requirejs',
-    // 'fluent-to-json',
     'copy',
     'optimize',
     'assemble',
