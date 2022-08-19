@@ -1,0 +1,100 @@
+---
+title: learn
+slug: learn/
+---
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main>
+      <h1>Introduction to Shaders</h1>
+
+      <p>Shaders are programs that run on the GPU that can do some incredible things. Shaders were first created to
+        address the challenges that come along with simulating light and shadow on polygons, but today they are used for
+        a wide variety of effects. </p>
+
+
+      <p>Shaders don't need to be complicated! This document will try to outline the basics of shader programming and
+        point you towards other resources. </p>
+
+      <p>Shaders are separate programs that run on the graphics card, and as a result, they have a very different syntax
+        and structure than what we are familiar with in p5.js. They are written in a shader language, which has a syntax
+        similar to the programming language, C. They are also programs that run on a single pixel, and as a result, they
+        sometimes require you to think a little bit differently. </p>
+
+      <p>A shader program consists of two parts, a vertex shader and a fragment shader. The vertex shader affects where
+        the 3D geometry is drawn on the screen. </p>
+
+      https://github.com/aferriss/p5jsShaderExamples/blob/gh-pages/1_basics/1-1_red/basic.vert
+      <pre>
+
+ // this is an attribute sent to the shader by p5  
+ // it contains all of our vertex position information 
+ // it is a vec3, meaning it contains x, y, and z data 
+ // attribute signals that this is a global variable sent by the sketch 
+ // it is read only, meaning it cannot be changed directly (you can copy it though) 
+ // attributes exist in vertex shaders only 
+ attribute vec3 aPosition; 
+  
+ // all shaders have one main function 
+ // the vertex shader requires there to be a vec4 output called gl_Position 
+ void main() { 
+     
+   // copy the position data into a vec4, using 1.0 as the w component 
+   vec4 positionVec4 = vec4(aPosition, 1.0); 
+  
+   // scale the rect by two, and move it to the center of the screen 
+   // if we don't do this, it will appear with its bottom left corner in the center of the sketch 
+   // try commenting this line out to see what happens 
+   positionVec4.xy = positionVec4.xy * 2.0 - 1.0; 
+  
+   // send the vertex information on to the fragment shader 
+   gl_Position = positionVec4; 
+ }
+</pre>
+
+<p>The fragment shader, which you'll likely be working with the most, decides what color a pixel will be.</p>
+      
+
+      https://github.com/aferriss/p5jsShaderExamples/blob/gh-pages/1_basics/1-1_red/basic.frag
+<pre>
+ // webgl requires that the first line of the fragment shader specify the precision 
+ // precision is dependent on device, but higher precision variables have more zeros 
+ // sometimes you'll see bugs if you use lowp so stick to mediump or highp 
+ precision mediump float; 
+  
+ // the fragment shader has one main function too 
+ // this is kinda of like the draw() function in p5 
+ // main outputs a variable called gl_FragColor which will contain all the colors of our shader 
+ // the word void means that the function doesn't return a value 
+ // this function is always called main() 
+ void main() { 
+  
+   // lets just send the color red out 
+   // colors in shaders go from 0.0 to 1.0 
+   // glsl is very finicky about the decimal points  
+   // gl_FragColor is a vec4 and is expecting red, green, blue, alpha 
+   // the line below will make a solid red color for every pixel, with full alpha 
+   vec4 redColor = vec4(1.0, 0.0, 0.0, 1.0); 
+  
+   // assign redColor to be output to the screen 
+   gl_FragColor = redColor; 
+  
+   // how would you make a solid green screen? 
+   // yellow? 
+   // gray? 
+ }
+<pre>
+
+    </main>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->
