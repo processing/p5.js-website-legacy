@@ -1,12 +1,12 @@
 let textModel, asteriskModel;
 
 function preload() {
-  textModel = loadModel("../../assets/learn/models/basicScene.obj", true);
-  asteriskModel = loadModel("../../assets/learn/models/asterisk.obj", true);
+  textModel = loadModel("../basic3d/models/basicScene.obj", true);
+  asteriskModel = loadModel("../basic3d/models/asterisk.obj", true);
 }
 
 function setup() {
-  createCanvas(720, 300, WEBGL);
+  createCanvas(window.innerWidth, window.innerHeight, WEBGL);
   debugMode();
   describe("a basic 3d scene with animation and webgl");
 }
@@ -52,11 +52,6 @@ function draw() {
     specularMaterial(255, 34, 93);
     noStroke();
     translate(swarmCenter.add(offset));
-    // translate(
-    //   sin((millis() / rotateSpeed) * (0.2*i)) * 200,
-    //   sin((millis() / rotateSpeed) * (0.5*i)) * 100,
-    //   cos((millis() / rotateSpeed) * (0.2*i)) * 200
-    // )
 
     rotateX(PI);
     rotateY((i * millis()) / 2000);
@@ -65,4 +60,9 @@ function draw() {
     model(asteriskModel);
     pop();
   }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight)
+  console.log('check')
 }
