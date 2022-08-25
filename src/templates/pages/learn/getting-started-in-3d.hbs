@@ -75,7 +75,7 @@ slug: learn/
 
       <h2>Transformations</h2>
 
-      <p>p5.js has a few methods, translate(), rotate(), and scale(), that we can use to position and orient objects
+      <p>p5.js has a few methods, <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a>, <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>, and <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects
         within space. Collectively these are known as the <em>transformation</em> of an object. These methods are
         available for
         both 2D and 3D drawing.</p>
@@ -106,6 +106,8 @@ slug: learn/
           href="{{root}}/reference/#/p5/rotateZ">rotateZ(angle)</a> apply an angle to the
         specific axis, but each can be called in combination. </p>
 
+      {{!-- TODO explain Euler angles --}}
+
       <h3>scale()</h3>
 
       {{!-- sketch illustrating scaling of geometry --}}
@@ -117,20 +119,61 @@ slug: learn/
 
       <h2>Order</h2>
 
-      <p>One thing that might feel a little different than working in 2d is that our 3d sketch has a camera. The camera
-        is a 3d object of its own, with rotation and position that can affect the way that we see the geometry in our
-        scene. When we move our object, keep in mind that rotate and translate operate independently from the position
-        of your camera. These transformations happen in world space, relative to the world origin.</p>
+      <p>Something that can feel unpredictable at first is the order of transformations. Each transformation can affect
+        the next one. For example if you call rotate(), followed by translate(), the direction of that translation will
+        be affected by the rotation. You can think of it as your entire coordinate system rotating and moving, not just
+        the object itself.</p>
 
-      <p>Something that can feel unpredictable at first is the order of transformations. In general, the order that you
-        want to perform transformations is scale, rotation, then translation. If you perform these out of order it can
-        be a little more difficult to control. Each of these transformations can have an effect on each other, and this
-        order makes it much more intuitive. </p>
+      <p>The order that you use will depend on what you’re trying to do, but a good place to start is to follow the
+        order of translate, rotate, and then scale. If you perform these out of order you might find that your
+        transformations don’t act the way that you expect them to.</p>
+      </p>
 
-      <p>When you call scale, rotate, or translate, each of these calls will affect any objects that are drawn after. If
-        you want to move things independently, without having to account for prior transformations, you can use the
-        methods push() and pop(). The combination of these two methods allow you to "detach" the current coordinate
-        space, which you can then transform, and with pop() you can return to the original coordinate space. </p>
+      <p>Another tool we have in p5.js is <a class="code" href="{{root}}/reference/#/p5/push">push()</a> and <a class="code" href="{{root}}/reference/#/p5/pop">pop()</a>. Since transformations accumulate and affect each other, you
+        might want to control which objects are affected by a certain transformation. push() saves and sets aside our
+        current transformations (and certain styling, like stroke() or fill()), which allows you to perform other
+        transformations. pop() restores those transformations.</p>
+      </p>
+
+      <p>You might use push() and pop() so that you can move each object individually. If you don’t use push() and
+        pop(), you have to keep track of whatever transformations have already taken place, which can get complicated
+        and difficult to follow. </p>
+      </p>
+
+      <pre><code class="language-javascript">
+      // draw a box 100 units to the right
+      translate(100,0,0);
+      box();
+
+      // now, to draw another box 100 units to the left
+      // since transformations accumulate, we have to
+      // subtract 200 to do this
+      translate(-200,0,0);
+      box();
+      </code></pre>
+
+      <p>Now, the same thing with push() and pop(). Now we can just translate the object where we want it, without
+        having to remember where our coordinate system lies.</p>
+
+      <pre><code class="language-javascript">
+      push(); // detach our coordinate system
+      // draw a box 100 units to the right
+      translate(100,0,0);
+      box();
+      pop(); // return to our original coordinate system
+
+      push(); // detach our coordinate system
+      // draw a box 100 units to the left
+      translate(-100,0,0);
+      box();
+      pop(); // return to our original coordinate system
+      </code></pre>
+
+      <p>While this is a more advanced topic, each of these transformations affect what is called the model matrix. The
+        transformation matrix is combined with the view matrix and the projection matrix, both of which help simulate
+        the view of a camera, and this combination results in our 3D scene! </p>
+
+      https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection
 
       <p>In the below example, try removing push() and pop() to see how the transformations affect the second object
         that is drawn. </p>
@@ -204,14 +247,14 @@ slug: learn/
 
       </ul>
 
-      {{!-- sketch illustrating materials --}}
-      <iframe src="{{assets}}/learn/basic3d/materialsExample.html" width="720" height="350">
-      </iframe>
-
       <p>You can even draw to another image and apply it as a texture to the object. </p>
 
       <p>and more custom materials can be achieved through texture() and shaders, which will be discussed more at length
         later. </p>
+
+      {{!-- sketch illustrating materials --}}
+      <iframe src="{{assets}}/learn/basic3d/materialsExample.html" width="720" height="350">
+      </iframe>
 
       <h2>Glossary</h2>
 
