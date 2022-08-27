@@ -100,7 +100,7 @@ function comprobarEstadoJuego() {
     detectarColision()
   ) {
     noLoop();
-      const puntajeValor = parseInt(elementoPuntaje.html().substring(10));
+    const puntajeValor = parseInt(elementoPuntaje.html().substring(10));
     elementoPuntaje.html('Juego finalizado! Tu puntaje fue: ' + puntajeValor);
   }
 }
