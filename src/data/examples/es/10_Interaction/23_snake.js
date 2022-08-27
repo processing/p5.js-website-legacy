@@ -100,7 +100,7 @@ function comprobarEstadoJuego() {
     detectarColision()
   ) {
     noLoop();
-    const puntajeValor = parseInt(elementoPuntaje.html().substring(8));
+      const puntajeValor = parseInt(elementoPuntaje.html().substring(10));
     elementoPuntaje.html('Juego finalizado! Tu puntaje fue: ' + puntajeValor);
   }
 }
@@ -130,8 +130,8 @@ function comprobarFruta() {
     xCuerpo[xCuerpo.length - 1] === xFruta &&
     yCuerpo[yCuerpo.length - 1] === yFruta
   ) {
-    const prevScore = parseInt(elementoPuntaje.html().substring(8));
-    elementoPuntaje.html('Score = ' + (prevScore + 1));
+    const prevScore = parseInt(elementoPuntaje.html().substring(10));
+    elementoPuntaje.html('Puntaje = ' + (prevScore + 1));
     xCuerpo.unshift(xCuerpo[0]);
     yCuerpo.unshift(yCuerpo[0]);
     numeroSegmentos++;
