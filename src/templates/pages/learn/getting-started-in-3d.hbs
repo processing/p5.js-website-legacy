@@ -41,11 +41,8 @@ slug: learn/
         well suited to 3D graphics is that it can process many things at once, which is important when you are drawing
         many shapes. </p>
 
-      <p>Working with WebGL can be difficult, so p5.js helps us by handling a lot of things in the background. </p>
-
-      <p>Before we can do anything else, we need to set up our canvas to use the p5.js WebGL mode. This will give us
-        access
-        to some new methods and tools that will help us with the challenges that come with 3D.
+      <p>Working with WebGL can be difficult, so p5.js helps us by handling a lot of things in the background. Before we
+        can do anything else, we need to set up our canvas to use the p5.js WebGL mode.
       </p>
 
       <pre><code class="language-javascript">
@@ -59,24 +56,26 @@ slug: learn/
       }
       </code></pre>
 
-      <h2>What is 3D? Coordinate spaces</h2>
+      <h2>3D Coordinate Space</h2>
 
       <p>One of the most fundamental differences between working in 2d and working in 3d is the most obvious: we are
         working with one more dimension. In addition to the horizontal and vertical position (x and y axes) of an
         element in our drawing, 3D adds depth, (the z-axis). </p>
 
-      {{!-- sketch illustrating coordinate space --}}
-      {{!-- <iframe src="{{assets}}/learn/basic3d/transformExample.html" width="720" height="350">
-      </iframe> --}}
-
       <p>When you are drawing in 2d, the point (0,0) is located at the top left corner of the screen. In WebGL mode, the
         origin of the sketch (0,0,0) is located in the middle of the screen. By default, the X axis goes left-to-right,
         Y goes up-to-down, and Z goes from further-to-closer.</p>
 
+      <img style="padding:60px;" src='{{assets}}/learn/basic3d/images/2d3d_coordinates.png'
+        alt="an illustration showing a 2d coordinate system on the left, showing an origin of (0,0) and a 3d coordinate system on the right, showing an origin of (0,0,0)">
+
       <h2>Transformations</h2>
 
-      <p>p5.js has a few methods, <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a>, <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>, and <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects
-        within space. Collectively these are known as the <em>transformation</em> of an object. These methods are
+      <p>p5.js has a few methods, <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a>, <a
+          class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>, and <a class="code"
+          href="{{root}}/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects
+        within space. Each of these methods affect what is known as the <em>model matrix</em>. Collectively these are
+        known as the <em>transformation</em> of an object. These methods are
         available for
         both 2D and 3D drawing.</p>
 
@@ -90,6 +89,14 @@ slug: learn/
         given direction. Anything drawn after we call translate will be
         positioned relative to that point.</p>
 
+      <pre><code class="language-javascript">
+      ...
+      // draw a box 100 units to the right
+      translate(100,0,0);
+      box();
+      ..
+      </code></pre>
+
       <h3>rotate()</h3>
 
       {{!-- sketch illustrating rotation of geometry --}}
@@ -99,14 +106,51 @@ slug: learn/
       <p><a class="code" href="{{root}}/reference/#/p5/rotate">rotate(angle, [axis])</a> reorients whatever ever is
         drawn after it.</p>
 
-      <p>When given one argument it rotates around the Z-axis, but you can rotate
-        in any direction by passing a vector as the second argument. Methods like <a class="code"
-          href="{{root}}/reference/#/p5/rotateX">rotateX(angle)</a>, <a class="code"
+      <p>There are a few methods that we can use to rotate an object in 3d. Most of the time it's easiest to call
+        methods like like <a class="code" href="{{root}}/reference/#/p5/rotateX">rotateX(angle)</a>, <a class="code"
           href="{{root}}/reference/#/p5/rotateY">rotateY(angle)</a>, and <a class="code"
-          href="{{root}}/reference/#/p5/rotateZ">rotateZ(angle)</a> apply an angle to the
-        specific axis, but each can be called in combination. </p>
+          href="{{root}}/reference/#/p5/rotateZ">rotateZ(angle)</a>, which allow you to rotate around a specific axis.
+      </p>
 
-      {{!-- TODO explain Euler angles --}}
+      <pre><code class="language-javascript">
+      ...
+      // rotate each axis by 45 degrees
+      rotateX(PI/4);
+      rotateY(PI/4);
+      rotateZ(PI/4);
+      box();
+      ..
+      </code></pre>
+
+      <p>By default p5.js will want you to supply an angle in radians. Radians use numbers from 0 - 2PI to specify an
+        angle. If you want to use degrees, you can either convert degrees to radians using radians(), or you can use
+        angleMode(DEGREES).</p>
+
+      <pre><code class="language-javascript">
+      ...
+      // rotate each axis by 45 degrees
+      rotateX(radians(45));
+      box();
+      //or
+      angleMode(DEGREES);
+      rotateY(45);
+      box();
+      ..
+      </code></pre>
+
+      <p>You can also use <a class="code" href="{{root}}/reference/#/p5/rotate">rotate(angle, [axis])</a>, which allows
+        you to specify which axis you'd like to rotate around using a vector as the second argument.</p>
+
+      <pre><code class="language-javascript">
+      ...
+      // rotate 90 degrees around the Y axis
+      let axis = createVector(0,1,0);
+      rotate(PI/2, axis);
+      box();
+      ..
+      </code></pre>
+
+      {{!-- TODO explain Euler angles or maybe note that quaternions exist but not yet in p5.js? --}}
 
       <h3>scale()</h3>
 
@@ -125,19 +169,62 @@ slug: learn/
         the object itself.</p>
 
       <p>The order that you use will depend on what you’re trying to do, but a good place to start is to follow the
-        order of translate, rotate, and then scale. If you perform these out of order you might find that your
-        transformations don’t act the way that you expect them to.</p>
+        order of <strong>translate</strong>, <strong>rotate</strong>, and then <strong>scale</strong>. If you perform
+        these out of order you might find that your
+        transformations don’t act the way that you expect them to.
       </p>
 
-      <p>Another tool we have in p5.js is <a class="code" href="{{root}}/reference/#/p5/push">push()</a> and <a class="code" href="{{root}}/reference/#/p5/pop">pop()</a>. Since transformations accumulate and affect each other, you
-        might want to control which objects are affected by a certain transformation. push() saves and sets aside our
-        current transformations (and certain styling, like stroke() or fill()), which allows you to perform other
-        transformations. pop() restores those transformations.</p>
-      </p>
+      <p>In the below example, try changing the order of translate and rotate and see how it affects where the object is
+        drawn.</p>
 
-      <p>You might use push() and pop() so that you can move each object individually. If you don’t use push() and
+      {{!--
+      <pre><code class="language-javascript">
+      ...
+      // 
+      translate(100,0,0);
+      rotateZ(PI/4);
+      scale(2);
+
+      box();
+      ...
+
+      ...
+      // 
+      rotateZ(PI/4);
+      translate(100,0,0);
+      
+      scale(2);
+
+      box();
+      ...
+      </code></pre> --}}
+
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(150, 216, WEBGL);
+  debugMode();
+}
+
+function draw(){
+  background(255);
+  camera(100,-100,100)
+  
+  translate(25,0,25); 
+  rotateY(PI/3);
+          
+  scale(2);
+
+  box(10);
+}
+      </script>
+
+      <p>Another tool we have in p5.js is <a class="code" href="{{root}}/reference/#/p5/push">push()</a> and <a
+          class="code" href="{{root}}/reference/#/p5/pop">pop()</a>. push() and pop() makes it easier to move objects
+        individually. If you don’t use push() and
         pop(), you have to keep track of whatever transformations have already taken place, which can get complicated
-        and difficult to follow. </p>
+        and difficult to follow. push() saves and sets aside our
+        current transformations (and certain styling, like stroke() or fill()), which allows you to perform other
+        transformations. pop() restores those transformations.
       </p>
 
       <pre><code class="language-javascript">
@@ -180,32 +267,64 @@ slug: learn/
 
       {{!-- TODO push and pop example --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+      function setup() {
+        createCanvas(windowWidth, windowHeight, WEBGL);
+      }
 
+      function draw(){
+        background(255);
+        // 
+        push(); // detach our coordinate system
+        // draw a box 100 units to the right
+        translate(100,0,0);
+        box();
+        pop(); // return to our original coordinate system
+
+        translate(-100,0,0);
+        box();    
+      }
       </script>
+
+      <h2>3d Primitives</h2>
+
+      <p>So far we have only been using box() but p5.js has seven different predefined geometries that you can use in
+        your sketch.</p>
+
+      <ul>
+        <li><a class="code" href="{{root}}/reference/#/p5/box">box(width, height, depth, detailX, detailY)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/plane">plane(width, height, detailX, detailY)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/sphere">sphere(radius, detailX, detailY)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/ellipsoid">ellipsoid(radiusx, radiusy, radiusz, detailX, detailY)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/cone">cone(radius, height, detailX, detailY, cap)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/cylinder">cylinder(radius, height, detailX, detailY, bottomCap, topCap)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/torus">torus(radius, tubeRadius, detailX, detailY)</a>
+        </li>
+      </ul>
+
+      <p>You can also load a custom 3d geometry using <a class="code"
+          href="{{root}}/reference/#/p5/loadModel">loadModel()</a>.</p>
+
+      {{!-- TODO how should I include a minimal example of how to import geometry from files? --}}
 
       <h2>Camera and View</h2>
 
-      <p>The camera is an important piece to the 3d scene. In p5.js, the WebGL mode uses a perspective camera by
-        default, meaning that as the view of the camera extends into the distance, geometry appears smaller. This is in
-        contrast to an orthographic camera, where the geometry stays the same size as it gets further away, it has no
-        vanishing point. </p>
+      <p>The camera is an important piece to the 3d scene. In p5.js, the WebGL mode provides us with a perspective
+        camera by
+        default, but we can change this using perspective() or ortho().</p>
+
+      <p> A perspective camera skews objects so they appear to get smaller as they get further away, vanishing at a
+        single point in the distance.This is in contrast to an orthographic camera, where the geometry stays the same
+        size as it gets further away and has no vanishing point. </p>
+
+      <ul>
+        <li><a class="code" href="{{root}}/reference/#/p5/ortho">ortho(left, right, bottom, top, near, far)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/perspective">perspective(fovy, aspect, near, far)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/camera">camera(x, y, z, centerX, centerY, centerZ, upX, upY, upZ)</a></li>
+      </ul>
 
       {{!-- sketch illustrating 3d camera --}}
       <iframe src="{{assets}}/learn/basic3d/cameraExample.html" width="720" height="350">
       </iframe>
-
-      {{!-- <h2>Vertices and Faces</h2>
-
-      <p>3d geometry is ultimately a collection of points, called vertices, that are connected into faces. </p>
-
-      <p>In many 3d environments there is a collection of 3d primitives, simple built-in objects like boxes, spheres,
-        torus', etc. </p>
-
-      <p>It is certainly possible to create your own custom geometry, vertex but vertex, but that is outside of the
-        scope of this article. </p>
-
-      <p>Another common method for working with custom geometry in WebGL is to use a 3d model exported from software
-        like Blender (for p5.js, an obj or stl file).</p> --}}
 
       <h2>Lights</h2>
 
