@@ -342,8 +342,22 @@ module.exports = function(grunt) {
         dest: 'p5-reference/'
       }
     },
-    htmllint: {
-      all: {
+
+    htmlhint: {
+      html1: {
+        options: {
+          'attr-value-double-quotes': false,
+          'alt-require': true,
+          'doctype-first': true,
+          'title-require': true,
+          'attr-no-duplication': true,
+          'input-requires-label': true,
+          'tags-check': true,
+          'tagname-lowercase': true,
+          'tagname-specialchars': true,
+          'empty-tag-not-self-closed': true,
+          'id-unique': true
+        },
         src: [
           '<%= config.dist %>/**/*.html',
           '!<%= config.dist %>/**/CHANGES.html',
@@ -352,17 +366,10 @@ module.exports = function(grunt) {
           '!<%= config.dist %>/**/learn/*.html',
           '!<%= config.dist %>/**/examples/*.html',
           '!<%= config.dist %>/**/reference/assets/index.html'
-        ],
-        options: {
-          ignore: [
-            /^This document appears to be written in English/,
-            /^Bad value “https:/,
-            /^Consider adding a “lang” attribute to the “html”/,
-            /^Attribute “paypalexpress” not allowed on element “script” at this point./
-          ]
-        }
+        ]
       }
     },
+
     shell: {
       generate_dataJSON: {
         command: `git checkout ${grunt.option('target')} && npm ci && npm run grunt yui build`,
@@ -402,7 +409,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-file-append');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-html');
+  grunt.loadNpmTasks('grunt-htmlhint');
 
   // i18n tracking task
   grunt.registerTask('i18n', function() {
@@ -495,7 +502,7 @@ module.exports = function(grunt) {
     'file_append',
     'compress',
     'i18n',
-    'htmllint'
+    'htmlhint'
   ]);
 
   // runs with just grunt command
