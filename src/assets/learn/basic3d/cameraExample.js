@@ -14,14 +14,18 @@ function setup() {
 
 function draw() {
   background(220);
-  camera(200,-200,200)
+  
 
   cameraType = selectCameraType.value;
   
   if(cameraType === 'ortho') {
+    camera(200,-200,200)
     ortho(-width / 2, width / 2, height / 2, -height / 2, 0, 500);
-  } else {
+  } else if(cameraType === 'perspective'){
+    camera(200,-200,200)
     perspective(fovSlider.value)
+  } else {
+    orbitControl()
   }
   
   box(50);
