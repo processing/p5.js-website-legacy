@@ -1416,6 +1416,7 @@ h2.featuring {
 }
 
 #teach-page .heading {
+    width: 100%;
     font: 400 1.4rem "Montserrat", sans-serif;
     color: black;
     line-height: 1.2em;
@@ -1425,6 +1426,84 @@ h2.featuring {
 
 #teach-page h3.title {
     margin-top: 3em;
+}
+
+/*workshop contents*/
+
+#teach-page section.workshopS{
+    overflow: auto;
+}
+
+#teach-page .workshop-content{
+    padding: 0.6em;
+}
+
+#teach-page ul.workshops{
+    padding-top: .4em;
+    width: 41%;
+    float: left;
+}
+
+#teach-page .btn{
+    margin-bottom: 0.8em;
+    padding-bottom: .4em;
+
+    font: 400 0.9rem "Times", sans-serif;
+    line-height: 1.2em;
+
+    border-bottom: 0.1em dashed #ffe8e8;
+}
+
+#teach-page li.workshop .active,li.workshop p:hover{
+    margin-bottom: 0.8em;
+    padding-bottom: .4em;
+
+    font: 400 0.9rem "Times", sans-serif;
+    line-height: 1.2em;
+    color: #ed225d;
+
+    border-bottom: 0.1em dashed #ffe8e8;
+}
+
+/*workshop banners*/
+
+#teach-page .upcoming-banners{
+    width: 59%;
+    float: right;
+    padding-top: 0.8em;
+    padding-left: 1em;
+    border: none;
+
+}
+
+#teach-page .banner2, .banner3, .time2, .time3{
+    display: none;
+}
+
+#teach-page .banner1:hover, .banner2:hover, .banner3:hover{
+    border: none;
+}
+
+#teach-page .banner-img{
+    float: left;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border: none;
+}
+
+#teach-page .banner-img:hover{
+    box-shadow: 0px 0px 5px 2px #e088a1;
+    border-radius: 5px;
+    border: none;
+}
+
+#teach-page .upcoming-time p{
+    float: right;
+    margin-bottom: 0.8em;
+    padding-bottom: .4em;
+
+    font: 400 0.8rem "Times", sans-serif;
+    line-height: 0.01em;
 }
 
 /*search-filter label*/
@@ -1815,15 +1894,53 @@ h2.featuring {
 }
 
 #teach-page .case-list {
-
     margin-bottom: 0.8em;
     padding-bottom: .4em;
+    display:flex;
 
     font: 400 1.0rem "Times", sans-serif;
     line-height: 1.2em;
 
     border-bottom: 0.1em dashed #ffe8e8;
 
+}
+
+#teach-page .labels {
+    width: 40%;
+}
+
+#teach-page .tags.selected{
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin: 2px 2px;
+    padding: 5px 8px;
+    border-radius: 25px;
+    font: 200 0.7rem "Montserrat", sans-serif;
+    color: white;
+    white-space: nowrap;
+    background: #ed225d;
+}
+
+#teach-page .caseBtn {
+    padding-top: 0.2em;
+    padding-bottom:0.2em;
+    width: 60%;
+    height:max-content;
+    float: left;
+}
+
+#teach-page .case-list label {
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin: 2px 2px;
+    padding: 5px 8px;
+    border-radius: 25px;
+    font: 200 0.7rem "Montserrat", sans-serif;
+    color: black;
+    white-space: nowrap;
+    background: #fafafa;
 }
 
 /* ==========================================================================
@@ -2705,6 +2822,34 @@ iframe {
 .cnv_div > * {
     width: 100px;
     height: auto;
+}
+/* teach page */
+
+@media (max-width: 780px) {
+ 
+    #teach-page ul.workshops{
+        width: 100%;
+    }
+    
+     #teach-page .upcoming-banners{
+        width: 100%;
+        float: left;
+        padding-top: 0em;
+        padding-left: 0em;
+        border: none;
+    }
+
+    #teach-page .case-list {
+        display:block;
+    }
+    
+    #teach-page .labels {
+        min-width: 100%;
+    }
+
+    #teach-page .caseBtn {
+        min-width: 100%;
+    }
 }
 
 /*
