@@ -97,6 +97,11 @@ slug: learn/
 
       <h2 id="coordinate_space">3D Coordinate Space: Positioning in 3D</h2>
 
+      <div class="additionalInformation">
+        It might be helpful to revisit the tutorial titled
+        <a href="{{root}}/learn/coordinate-system-and-shapes.html">Coordinate System in Shapes</a>
+      </div>
+
       <p>One of the most fundamental differences between working in 2D and working in 3D is the most obvious: there is
         one more dimension to work with. In addition to the horizontal and vertical position (x and y axes) of an
         element in our drawing, 3D adds depth, (the z-axis). </p>
@@ -108,11 +113,6 @@ slug: learn/
       <img style="padding:60px;" src='{{assets}}/learn/basic3D/images/2d3d_coordinates.png'
         alt="an illustration showing a 2D coordinate system on the left, showing an origin of (0,0) and a 3D coordinate system on the right, showing an origin of (0,0,0)">
 
-      <div class="additionalInformation">
-        It might be helpful to revisit the tutorial titled
-        <a href="{{root}}/learn/coordinate-system-and-shapes.html">Coordinate System in Shapes</a>
-      </div>
-
       <h2 id="transformations">Transformations: Position and Size of 3D Shapes</h2>
 
       <p>p5.js has a few methods, <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a>, <a
@@ -123,7 +123,7 @@ slug: learn/
         available for
         both 2D and 3D drawing.</p>
 
-      <h3>translate()</h3>
+      <h3>translate(): Moving Objects in Space</h3>
 
       {{!-- sketch illustrating translation of geometry --}}
       <iframe src="{{assets}}/learn/basic3D/translateExample.html" width="720" height="350">
@@ -142,7 +142,7 @@ slug: learn/
       ..
       </code></pre>
 
-      <h3>rotate()</h3>
+      <h3>rotate(): Orienting Objects in Space</h3>
 
       {{!-- sketch illustrating rotation of geometry --}}
       <iframe src="{{assets}}/learn/basic3D/rotateExample.html" width="720" height="350">
@@ -203,7 +203,7 @@ slug: learn/
         TODO: FIND LINK TO A RELIABLE RESOURCE
       </div>
 
-      <h3>scale()</h3>
+      <h3>scale(): Size in Space</h3>
 
       {{!-- sketch illustrating scaling of geometry --}}
       <iframe src="{{assets}}/learn/basic3D/scaleExample.html" width="720" height="350">
@@ -379,16 +379,20 @@ function draw(){
 
       <h2 id="camera">Camera and View</h2>
 
-      <p>The camera is an important piece to the 3D scene. In p5.js, the WebGL mode provides us with a perspective
-        camera by
-        default, but we can change this using <a class="code">perspective()</a> or <a class="code">ortho()</a>.</p>
+      <p>The camera is an important piece to the 3D scene; it gives us the sense of space and dimension that we are
+        often looking for in 3D. In p5.js, the WebGL mode provides us with a perspective camera by default, but we can
+        change this using <a class="code">perspective()</a> or <a class="code">ortho()</a>.</p>
+
+      <img style="padding:60px;" src='{{assets}}/learn/basic3D/images/cameraTypeIllustration.png'
+        alt="an illustration showing the difference between perspective and orthographic camera types">
 
       <p>A perspective camera skews objects so they appear to get smaller as they get further away, vanishing at a
         single point in the distance.This is in contrast to an orthographic camera, where the geometry stays the same
         size as it gets further away and has no vanishing point. </p>
 
-      <p>To control your camera by interacting with the canvas, use <a class="code">orbitControl()</a>. <a
-          class="code">orbitControl()</a> allows for zooming, panning, and positioning the camera using the mouse.</p>
+      <p>Constantly moving and adjusting the camera in code can be tedious, especially when you are experimenting with
+        ideas. p5.js has a special camera method, <a class="code">orbitControl()</a>, that can be used to zoom, pan, 
+        and position the camera using the mouse.</p>
 
       <ul>
         <li><a class="code" href="{{root}}/reference/#/p5/ortho">ortho(left, right, bottom, top, near, far)</a></li>
