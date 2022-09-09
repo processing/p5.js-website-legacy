@@ -28,7 +28,7 @@
   "DOM": "DOM",
   "Rendering": "Render",
   "Foundation": "Foundation",
-  "Transform": "Transformar",
+  "Transform": "Transformaciones",
   "Data": "Datos",
   "LocalStorage": "LocalStorage",
   "Dictionary": "Diccionario",
@@ -57,7 +57,7 @@
   "Time & Date": "Tiempo & Fecha",
   "3D Primitives": "Primitivas 3D",
   "Lights, Camera": "Luces, cámara",
-  "Interaction": "Interaction",
+  "Interaction": "Interacción",
   "Lights": "Luces",
   "3D Models": "Modelos 3D",
   "Material": "Materiales",
@@ -2526,7 +2526,7 @@
       "description": [
         "Crea un nuevo objeto p5.Vector (el tipo de datos para almacenar vectores). Esto provee un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección."
       ],
-      "returns": "el objeto p5",
+      "returns": "p5.Vector",
       "params": {
         "x": "Número: componente x del vector",
         "y": "Número: componente y del vector",
@@ -5066,9 +5066,9 @@
   },
   "p5.Vector": {
     "description": [
-      "Una clase para describir un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección. El tipo de datos, sin embargo, graba los componentes del vector (x, y para 2D y x,y,z para 3D). La magnitud y la dirección pueden ser calculados con los métodos mag() y heading(). En muchos de los ejemplos de p5.js, verás que p5.Vector es usado para describir una posición, velocidad o aceleración. Por ejemplo, si consideras un rectángulo moviéndose a lo largo de la pantalla, en cada instante tiene una posición (un vector que apunta desde el origen hasta su ubicación), una velocidad(la tasa a la que la posición del objeto cambia por unidad de tiempo, expresada como vector), y aceleración (la tasa a la que la velocidad del objeto cambia por unidad de tiempo, expresada como vector). Como los vectores representan grupos de valores, no podemos simplemente usar las operaciones tradicionales de adición, multiplicación, etc. En vez de eso, necesitaremos hacer matemática de vectores, lo que es simplificado con los métodos dentro de la clase p5.Vector.",
-      "In many of the p5.js examples, you will see <a href=\"#/p5.Vector\">p5.Vector</a> used to describe a position, velocity, or acceleration. For example, if you consider a rectangle moving across the screen, at any given instant it has a position (a vector that points from the origin to its location), a velocity (the rate at which the object's position changes per time unit, expressed as a vector), and acceleration (the rate at which the object's velocity changes per time unit, expressed as a vector).",
-      "Since vectors represent groupings of values, we cannot simply use traditional addition/multiplication/etc. Instead, we'll need to do some \"vector\" math, which is made easy by the methods inside the <a href=\"#/p5.Vector\">p5.Vector</a> class."
+      "Una clase para describir un vector de dos o tres dimensiones, específicamente un vector euclidiano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección. El tipo de datos, sin embargo, graba los componentes del vector (<code>x</code>, <code>y</code> para 2D y <code>x</code>, <code>y</code>, <code>z</code> para 3D). La magnitud y la dirección pueden ser calculados con los métodos <a href=\"#/p5.Vector/mag\">mag()</a> y <a href=\"#/p5.Vector/heading\">heading()</a>.",
+      "En muchos de los ejemplos de p5.js, verás que <a href=\"#/p5.Vector\">p5.Vector</a> es usado para describir una posición, velocidad o aceleración. Por ejemplo, si consideras un rectángulo moviéndose a lo largo de la pantalla, en cada instante tiene una posición (un vector que apunta desde el origen hasta su ubicación), una velocidad (la tasa a la que la posición del objeto cambia por unidad de tiempo, expresada como vector), y aceleración (la tasa a la que la velocidad del objeto cambia por unidad de tiempo, expresada como vector).",
+      "Como los vectores representan grupos de valores, no podemos simplemente usar las operaciones tradicionales de adición, multiplicación, etc. En vez de eso, necesitaremos hacer matemática de vectores, lo que es simplificado con los métodos dentro de la clase <a href=\"#/p5.Vector\">p5.Vector</a>."
     ],
     "params": {
       "x": "Número: componente x del vector",
@@ -5077,22 +5077,28 @@
     },
     "x": {
       "description": [
-        "The x component of the vector"
+        "Componente x del vector"
       ]
     },
     "y": {
       "description": [
-        "The y component of the vector"
+        "Componente y del vector"
       ]
     },
     "z": {
       "description": [
-        "The z component of the vector"
+        "Componente z del vector"
       ]
+    },
+    "toString": {
+          "description": [
+         "Devuelve la representación de un vector <code>v</code> llamando a <code>String(v)</code> o <code>v.toString()</code>. Este método es util para imprimir vectores en la consola."
+          ],
+       "returns": "String:"
     },
     "set": {
       "description": [
-        "Sets the x, y, and z component of the vector using two or three separate variables, the data from a <a href=\"#/p5.Vector\">p5.Vector</a>, or the values from a float array."
+        "Asigna las componentes <code>x</code>, <code>y</code>, <code>z</code> de un vector usando dos o tres variables, los datos de otro <a href=\"#/p5.Vector\">p5.Vector</a>, o los valores de un arreglo de números de punto flotante."
       ],
       "params": {
         "x": "Number: (Optional) the x component of the vector",
@@ -5103,13 +5109,13 @@
     },
     "copy": {
       "description": [
-        "Gets a copy of the vector, returns a <a href=\"#/p5.Vector\">p5.Vector</a> object."
+        "Crea una copia del vector, devuelve un objeto <a href=\"#/p5.Vector\">p5.Vector</a>."
       ],
       "returns": "p5.Vector: the copy of the <a href=\"#/p5.Vector\">p5.Vector</a> object"
     },
     "add": {
       "description": [
-        "Adds x, y, and z components to a vector, adds one vector to another, or adds two independent vectors together. The version of the method that adds two vectors together is a static method and returns a <a href=\"#/p5.Vector\">p5.Vector</a>, the others acts directly on the vector. Additionally, you may provide arguments to this function as an array. See the examples for more context."
+        "Suma las componentes <code>x</code>, <code>y</code>, <code>z</code> a un vector, suma un vector a otro, o suma dos vectores independientes. La version del método que suma dos vectores independientes es un método estático y regresa un objeto <a href=\"#/p5.Vector\">p5.Vector</a>, las otras versiones actúan directamente sobre el vector. Adicionalmente, se pueden pasar arreglos como argumentos de esta función. Ver el ejemplo para más detalles ."
       ],
       "params": {
         "x": "Number: the x component of the vector to be added",
@@ -5123,7 +5129,7 @@
     },
     "rem": {
       "description": [
-        "Gives remainder of a vector when it is divided by another vector. See examples for more context."
+        "Devuelve el residuo de un vector cuando es dividido(componente a componente) por otro vector. Ver el ejemplo para más detalles."
       ],
       "params": {
         "x": "Number: the x component of divisor vector",
@@ -5136,7 +5142,7 @@
     },
     "sub": {
       "description": [
-        "Subtracts x, y, and z components from a vector, subtracts one vector from another, or subtracts two independent vectors. The version of the method that subtracts two vectors is a static method and returns a <a href=\"#/p5.Vector\">p5.Vector</a>, the other acts directly on the vector. Additionally, you may provide arguments to this function as an array. See the examples for more context."
+        "Resta las componentes <code>x</code>, <code>y</code>, <code>z</code> a un vector, resta un vector de otro o resta dos vectores independientes. La versión del método que resta dos vectores independientes es un método estático y regresa un objeto <a href=\"#/p5.Vector\">p5.Vector</a>, los otras versiones actúan directamente sobre el vector. Adicionalmente , se pueden pasar arreglos como argumentos de esta función. Ver el ejemplo para más detalles"
       ],
       "params": {
         "x": "Number: the x component of the vector to subtract",
@@ -5150,7 +5156,7 @@
     },
     "mult": {
       "description": [
-        "Multiplies the vector by a scalar, multiplies the x, y, and z components from a vector, or multiplies the x, y, and z components of two independent vectors. When multiplying a vector by a scalar, the x, y, and z components of the vector are all multiplied by the scalar. When multiplying a vector by a vector, the x, y, z components of both vectors are multiplied by each other (for example, with two vectors a and b: a.x * b.x, a.y * b.y, a.z * b.z). The static version of this method creates a new <a href=\"#/p5.Vector\">p5.Vector</a> while the non static version acts on the vector directly. Additionally, you may provide arguments to this function as an array. See the examples for more context."
+        "Multiplica un vector por un escalar, multiplica las componentes <code>x</code>, <code>y</code>, <code>z</code> de un vector, o multiplica las componentes  <code>x</code>, <code>y</code>, <code>z</code> de dos vectores independientes. Cuando se multiplica un vector por un escalar, las componentes <code>x</code>, <code>y</code>, <code>z</code> del vector se multiplican todas por el escalar. Cuando se multiplican un vector por otro vector, las componentes <code>x</code>, <code>y</code>, <code>z</code> de ambos vectores se multiplican una a una (por ejemplo, con los vectores <code>a</code> y <code>b</code>: <code>a.x*b.x</code>, <code>a.y*b.y</code>, <code>a.z*b.z</code>). La versión estática de este método crea un objeto <a href=\"#/p5.Vector\">p5.Vector</a> mientras que las no estáticas actúan directamente sobre el vector. Adicionalmente, se pueden pasar arreglos como argumentos a esta función. Ver ejemplo para más detalles."
       ],
       "params": {
         "n": "Number: The number to multiply with the vector",
@@ -5165,8 +5171,8 @@
       }
     },
     "div": {
-      "description": [
-        "Divides the vector by a scalar, divides a vector by the x, y, and z arguments, or divides the x, y, and z components of two vectors against each other. When dividing a vector by a scalar, the x, y, and z components of the vector are all divided by the scalar. When dividing a vector by a vector, the x, y, z components of the source vector are treated as the dividend, and the x, y, z components of the argument is treated as the divisor (for example with two vectors a and b: a.x / b.x, a.y / b.y, a.z / b.z). The static version of this method creates a new <a href=\"#/p5.Vector\">p5.Vector</a> while the non static version acts on the vector directly. Additionally, you may provide arguments to this function as an array. See the examples for more context."
+      "description": [ 
+        "Divide un vector por un escalar, divide las componentes <code>x</code>, <code>y</code>, <code>z</code> de un vector, o divide las componentes <code>x</code>, <code>y</code>, <code>z</code> de dos vectores independientes. Cuando se divide un vector por un escalar, las componentes <code>x</code>, <code>y</code>, <code>z</code> del vector se dividen todas por el escalar. Cuando se divide un vector por otro vector, las componentes <code>x</code>, <code>y</code>, <code>z</code> de ambos vectores se dividen una a una (por ejemplo, con los vectores <code>a</code> y <code>b</code>: <code>a.x/b.x,</code>, <code>a.y/b.y</code>, <code>a.z/b.z</code>). La versión estática de este método crea un objeto <a href=\"#/p5.Vector\">p5.Vector</a> mientras que las no estáticas actúan directamente sobre el vector. Adicionalmente, se pueden pasar arreglos como argumentos a esta función. Ver ejemplo para más detalles."
       ],
       "params": {
         "n": "Number: The number to divide the vector by",
@@ -5182,22 +5188,22 @@
     },
     "mag": {
       "description": [
-        "Calculates the magnitude (length) of the vector and returns the result as a float (this is simply the equation sqrt(x*x + y*y + z*z).)"
+        "Calcula la magnitud (longitud) de un vector y devuelve el resultado como un numero de punto flotante. (Se calcula como <code>sqrt(x*x+y*y+z*z)</code>)"
       ],
       "returns": "Number: magnitude of the vector",
       "params": {
-        "vecT": "p5.Vector: the vector to return the magnitude of"
+        "vec": "p5.Vector: the vector to return the magnitude of"
       }
     },
     "magSq": {
       "description": [
-        "Calculates the squared magnitude of the vector and returns the result as a float (this is simply the equation <em>(x*x + y*y + z*z)</em>.) Faster if the real length is not required in the case of comparing vectors, etc."
+        "Calcula el cuadrado de la magnitud de un vector y devuelve el resultado como un numero de punto flotante. (Se calcula como <code>x*x+y*y+z*z</code>). Mas rápido si no se necesita la longitud real, por ejemplo al comparar vectores."
       ],
       "returns": "Number: squared magnitude of the vector"
     },
     "dot": {
       "description": [
-        "Calculates the dot product of two vectors. The version of the method that computes the dot product of two independent vectors is a static method. See the examples for more context."
+        "Calcula el producto punto de dos vectores. La versión del método que calcula el producto punto de dos vectores independientes es un método estático. Ver los ejemplos para más detalles."
       ],
       "returns": "Number: the dot product",
       "params": {
@@ -5211,7 +5217,7 @@
     },
     "cross": {
       "description": [
-        "Calculates and returns a vector composed of the cross product between two vectors. Both the static and non static methods return a new <a href=\"#/p5.Vector\">p5.Vector</a>. See the examples for more context."
+        "Calcula y devuelve el producto cruz de dos vectores. Tanto el método estático como en lo estático devuelven un nuevo objeto <a href=\"#/p5.Vector\">p5.Vector</a>. Ver los ejemplos para más detalles."
       ],
       "returns": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> composed of cross product",
       "params": {
@@ -5222,7 +5228,7 @@
     },
     "dist": {
       "description": [
-        "Calculates the Euclidean distance between two points (considering a point as a vector object)."
+        "Calcula la distancia Euclidiana entre dos puntos (considerando los puntos como un vector). Si quieres calcular la distancia entre dos puntos revisa <a href=\"#/p5/dist\">dist()</a>."
       ],
       "returns": "Number: the distance",
       "params": {
@@ -5233,7 +5239,7 @@
     },
     "normalize": {
       "description": [
-        "Normalize the vector to length 1 (make it a unit vector)."
+        "Normaliza la longitud de un vector a 1 (vector unitario)."
       ],
       "returns": "p5.Vector: normalized <a href=\"#/p5.Vector\">p5.Vector</a>",
       "params": {
@@ -5243,7 +5249,7 @@
     },
     "limit": {
       "description": [
-        "Limit the magnitude of this vector to the value used for the <b>max</b> parameter."
+        "Restringe la magnitud de este vector al valor establecido por el parámetro <code>max</code>."
       ],
       "params": {
         "max": "Number: the maximum magnitude for the vector"
@@ -5251,7 +5257,7 @@
     },
     "setMag": {
       "description": [
-        "Set the magnitude of this vector to the value used for the <b>len</b> parameter."
+        "Asigna el parámetro <code>len</code> a la magnitud del vector."
       ],
       "params": {
         "len": "Number: the new length for this vector"
@@ -5259,13 +5265,13 @@
     },
     "heading": {
       "description": [
-        "Calculate the angle of rotation for this vector(only 2D vectors). p5.Vectors created using <a src=\"#/p5/createVector\">createVector()</a> will take the current <a = src=\"#/p5/angleMode\">angleMode</a> into consideration, and give the angle in radians or degree accordingly."
+        "Calcula el ángulo de rotación para este vector (solo para vectores 2D). Los p5.Vectors que son creados usando <a src=\"#/p5/createVector\">createVector()</a> tomaran en cuenta el <a = src=\"#/p5/angleMode\">angleMode</a>, y devolverá el ángulo en radianes o grados respectivamente."
       ],
       "returns": "Number: the angle of rotation"
     },
     "setHeading": {
       "description": [
-        "Rotate the vector to a specific angle (only 2D vectors), magnitude remains the same"
+        "Rota el vector a un ángulo especifico (solamente vectores 2D); la magnitud se conserva."
       ],
       "params": {
         "angle": "Number: the angle of rotation"
@@ -5273,7 +5279,7 @@
     },
     "rotate": {
       "description": [
-        "Rotate the vector by an angle (only 2D vectors), magnitude remains the same"
+        "Rota el vector por un ángulo (solamente vectores 2D); la magnitud se conserva."
       ],
       "params": {
         "angle": "Number: the angle of rotation",
@@ -5283,7 +5289,7 @@
     },
     "angleBetween": {
       "description": [
-        "Calculates and returns the angle (in radians) between two vectors."
+        "Calcula y devuelve el ángulo entre dos vectores. Este método considera el <a = src=\"#/p5/angleMode\">angleMode</a> y devuelve el ángulo en radias o grados respectivamente."
       ],
       "returns": "Number: the angle between (in radians)",
       "params": {
@@ -5292,8 +5298,7 @@
     },
     "lerp": {
       "description": [
-        "Linear interpolate the vector to another vector"
-      ],
+        "Interpola linealmente entre dos vectores."      ],
       "params": {
         "x": "Number: the x component",
         "y": "Number: the y component",
@@ -5307,7 +5312,7 @@
     },
     "reflect": {
       "description": [
-        "Reflect the incoming vector about a normal to a line in 2D, or about a normal to a plane in 3D This method acts on the vector directly"
+        "Refleja un vector respecto a la normal a una linea en 2D, o respecto a la normal a un plano en 3D. Este método actúa directamente sobre el vector."
       ],
       "params": {
         "surfaceNormal": "p5.Vector: the <a href=\"#/p5.Vector\">p5.Vector</a> to reflect about, will be normalized by this method"
@@ -5315,13 +5320,13 @@
     },
     "array": {
       "description": [
-        "Return a representation of this vector as a float array. This is only for temporary use. If used in any other fashion, the contents should be copied by using the <b>p5.Vector.<a href=\"#/p5.Vector/copy\">copy()</a></b> method to copy into your own array."
+        "Devuelve la representación de un vector como un arreglo de números con punto flotante. Esto es solo par uso temporal. Para otros usos, el contenido debe ser copiado usado <b>p5.Vector.<a href=\"#/p5.Vector/copy\">copy()</a></b>."
       ],
       "returns": "Number[]: an Array with the 3 values"
     },
     "equals": {
       "description": [
-        "Equality check against a <a href=\"#/p5.Vector\">p5.Vector</a>"
+        "Verifica cuando dos <a href=\"#/p5.Vector\">p5.Vector</a> son iguales."
       ],
       "returns": "Boolean: whether the vectors are equals",
       "params": {
@@ -5333,7 +5338,7 @@
     },
     "fromAngle": {
       "description": [
-        "Make a new 2D vector from an angle"
+        "Crea un nuevo vector 2D a partir de un ángulo."
       ],
       "returns": "p5.Vector: the new <a href=\"#/p5.Vector\">p5.Vector</a> object",
       "params": {
@@ -5343,7 +5348,7 @@
     },
     "fromAngles": {
       "description": [
-        "Make a new 3D vector from a pair of ISO spherical angles"
+        "Crea un nuevo vector 3D a partir de sus coordenadas esféricas."
       ],
       "returns": "p5.Vector: the new <a href=\"#/p5.Vector\">p5.Vector</a> object",
       "params": {
@@ -5354,13 +5359,13 @@
     },
     "random2D": {
       "description": [
-        "Make a new 2D unit vector from a random angle"
+        "Crea un nuevo vector 2D a partir de un ángulo aleatorio."
       ],
       "returns": "p5.Vector: the new <a href=\"#/p5.Vector\">p5.Vector</a> object"
     },
     "random3D": {
       "description": [
-        "Make a new random 3D unit vector."
+        "Crea un nuevo vector 3D (unitario) aleatorio."
       ],
       "returns": "p5.Vector: the new <a href=\"#/p5.Vector\">p5.Vector</a> object"
     }
