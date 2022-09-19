@@ -1,0 +1,170 @@
+---
+title: learn
+slug: learn/
+---
+
+<style>
+  .methodsList {
+    font-family: monospace;
+    /*white-space: pre;*/
+  }
+
+  .additionalInformation {
+    width: 100%;
+    background-color: #dedeff;
+    font-size: 15px;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc {
+    width: 100%;
+    background-color: #eee;
+    font-size: 15px;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc h3 {
+    margin-top: 15px;
+  }
+</style>
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main>
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+      {{!-- large title sketch --}}
+      {{!-- <iframe src="{{assets}}/learn/basic3D/titleExample.html" width="720" height="350">
+      </iframe> --}}
+
+      <h1>Getting Started with 3D in p5.js: Appearance and Style</h1>
+
+      <p>p5.js is a powerful tool for creating 2D graphics but it's also capable of 3D graphics.
+        Before we can get started in 3D there are some new concepts to learn and this document will introduce some ideas
+        that will be important to any 3D sketch.</p>
+
+      <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+          <li><a href="#camera">Camera and View</a></li>
+          <li><a href="#lighting">Lighting</a></li>
+          <li><a href="#materials">Materials and Textures</a></li>
+          <li><a href="#glossary">Glossary</a></li>
+        </ol>
+      </div>
+
+      <h2 id="camera">Camera and View</h2>
+
+      <p>The camera is an important piece to the 3D scene; it gives us the sense of space and dimension that we are
+        often looking for in 3D. In p5.js, the WebGL mode provides us with a perspective camera by default, but we can
+        change this using <a class="code">perspective()</a> or <a class="code">ortho()</a>.</p>
+
+      <img style="padding:60px;" src='{{assets}}/learn/basic3D/images/cameraTypeIllustration.png'
+        alt="an illustration showing the difference between perspective and orthographic camera types">
+
+      <p>A perspective camera skews objects so they appear to get smaller as they get further away, vanishing at a
+        single point in the distance.This is in contrast to an orthographic camera, where the geometry stays the same
+        size as it gets further away and has no vanishing point. </p>
+
+      <p>Constantly moving and adjusting the camera in code can be tedious, especially when you are experimenting with
+        ideas. p5.js has a special camera method, <a class="code">orbitControl()</a>, that can be used to zoom, pan,
+        and position the camera using the mouse.</p>
+
+      <ul>
+        <li><a class="code" href="{{root}}/reference/#/p5/ortho">ortho(left, right, bottom, top, near, far)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/perspective">perspective(fovy, aspect, near, far)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/camera">camera(x, y, z, centerX, centerY, centerZ, upX, upY,
+            upZ)</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/orbitControl">orbitControl(sensitivityX, sensitivityY,
+            sensitivityZ)</a></li>
+      </ul>
+
+      {{!-- sketch illustrating 3D camera --}}
+      <iframe src="{{assets}}/learn/basic3D/cameraExample.html" width="720" height="350">
+      </iframe>
+
+      <h2 id="lighting">Lighting</h2>
+
+      <p>Lighting is another essential part of a 3D scene. To be able to convey shape and depth in 3D is necessary to
+        have a light source. </p>
+
+      <p>In p5 we have: </p>
+
+      <ul>
+        <li><a class="code" href="{{root}}/reference/#/p5/ambientLight">ambientLight()</a>
+          <ul style="margin-left:15px;">
+            <li>Ambient light makes everything display a little brighter, with no consideration for light position or
+              direction.</li>
+          </ul>
+        </li>
+        <li><a class="code" href="{{root}}/reference/#/p5/directionalLight">directionalLight()</a>
+          <ul style="margin-left:15px;">
+            <li>A directional light shines from one direction, which can be especially useful for communicating depth in
+              a scene, or when a scene needs a 'sun' light. This method accepts a color and direction.</li>
+          </ul>
+        </li>
+        <li><a class="code" href="{{root}}/reference/#/p5/pointLight">pointLight()</a>
+          <ul style="margin-left:15px;">
+            <li>A point light emits from a single point in all directions, similar to something like a lightbulb. This method accepts a color and a position for the light.</li>
+          </ul>
+        </li>
+        <li><a class="code" href="{{root}}/reference/#/p5/spotLight">spotLight()</a>
+          <ul style="margin-left:15px;">
+            <li>A spot light emits from a single point in a single direction. This light is cast in a conical shape and it's radius and concentration can be adjusted.</li>
+          </ul>
+        </li>
+        <li><a class="code" href="{{root}}/reference/#/p5/noLights">noLights()</a>
+          <ul style="margin-left:15px;">
+            <li>noLights() makes it so that all subsequent geometry is rendered without any lighting. This can be useful when you want flat, unshaded geometry.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <br />
+
+      {{!-- sketch illustrating lighting of geometry --}}
+      <iframe src="{{assets}}/learn/basic3D/lightingExample.html" width="720" height="350">
+      </iframe>
+
+      <h2 id="materials">Materials and Textures</h2>
+      <p>3D is not all about geometry, objects can appear differently based on their material. Materials dictate how
+        light interacts with the geometry and how color (or texture) gets applied to the object. Materials can be really
+        flexible and each can have unique properties. </p>
+
+      <p>In p5 we have </p>
+
+      <ul>
+        <li><a class="code" href="{{root}}/reference/#/p5/normalMaterial">normalMaterial()</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/ambientMaterial">ambientMaterial()</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/emissiveMaterial">emissiveMaterial()</a></li>
+        <li><a class="code" href="{{root}}/reference/#/p5/specularMaterial">specularMaterial()</a></li>
+      </ul>
+
+      <p>More custom materials can be achieved through using <a class="code">texture()</a> and shaders. These are a bit
+        beyond the scope of this tutorial, so make sure to check out the <a
+          href="{{root}}/learn/introduction-to-shaders.html">Introduction to Shaders</a> page when you are ready. </p>
+
+      {{!-- sketch illustrating materials --}}
+      {{!-- <iframe src="{{assets}}/learn/basic3D/materialsExample.html" width="720" height="350">
+      </iframe> --}}
+
+      <h2 id="glossary">Glossary</h2>
+
+      <h3>Camera</h3>
+      <p>The viewpoint of a 3D scene</p>
+
+    </main>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->

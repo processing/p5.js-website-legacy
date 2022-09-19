@@ -1,0 +1,207 @@
+---
+title: learn
+slug: learn/
+---
+
+<style>
+  .methodsList {
+    font-family: monospace;
+    /*white-space: pre;*/
+  }
+
+  .additionalInformation {
+    width: 100%;
+    background-color: #dedeff;
+    font-size: 15px;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc {
+    width: 100%;
+    background-color: #eee;
+    font-size: 15px;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc h3 {
+    margin-top: 15px;
+  }
+</style>
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main>
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+      {{!-- large title sketch --}}
+      {{!-- <iframe src="{{assets}}/learn/basic3D/titleExample.html" width="720" height="350">
+      </iframe> --}}
+
+      <h1>Creating Custom Geometry in WebGL</h1>
+
+      <p>p5.js has a number of 3D primitives that can be used to create basic shapes, like box() or sphere(), but p5.js
+        is also capable of rendering complex custom geometry, either from files that are created in other 3D software
+        (like Blender) or from code. This tutorial will walk through how to import 3D models into p5.js, as well as how
+        to create a basic geometry from scratch. </p>
+
+      <div class="additionalInformation">If you are new to 3D it's recommended that you check out the <a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">Getting Started
+        With 3D</a> tutorial before continuing with this tutorial. </div>
+
+      <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+          <li><a href="#3dModels">Loading 3D Models from File</a></li>
+          <li><a href="#proceduralGeometry">Creating Basic Procedural Geometry</a></li>
+          <li><a href="#glossary">Glossary</a></li>
+        </ol>
+      </div>
+
+      <h2 id="3dModels">Loading 3D Models from File</h2>
+
+      <p>Custom geometry can be imported into p5.js using either OBJ or STL files. These files are usually generated in
+        a 3D modeling tool like Blender, which offers much more control when constructing a 3D scene. This is done using
+        the loadModel method, which should be used within preload().</p>
+
+      <p>A common issue that can come up with custom models is scaling. Depending on how the model is constructed, it
+        might be a much different size when rendered in p5.js, or even be too small to be rendered at all. The
+        loadModel() method includes a normalize parameter that will resize the model to something that works better in
+        p5.js.</p>
+
+      Widget example of teapot model and loadModel
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+var teapotModel;
+
+function preload() {
+  teapotModel = loadModel('{{assets}}/learn/basic3D/models/teapot.obj', true);
+}
+
+function setup() {
+  createCanvas(150, 216, WEBGL);
+  debugMode();
+}
+
+function draw(){
+  background(255);
+  normalMaterial(); // For effect
+  model(teapotModel);
+}
+      </script>
+
+      <div class="additionalInformation">Note that there is currently no support for STL files with color, although you
+        can add color using materials or textures, which you can learn about in the (LINKED NAME OF MATERIAL TUTORIAL).
+      </div>
+
+      <h2 id="proceduralGeometry">Creating Basic Procedural Geometry</h2>
+      <p>Geometry can also be defined procedurally using code. This is a great way to create geometry that moves or is
+        formed using your own set of rules. There are a number of methods that can be used to create 3D geometry in a
+        way that is similar to 2D drawing in p5.js.</p>
+
+      Example using triangle and quad
+            {{!-- TODO push and pop example --}}
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+      function setup() {
+        createCanvas(windowWidth, windowHeight, WEBGL);
+      }
+
+      function draw(){
+        background(255);
+        // 
+        push(); // detach our coordinate system
+        // draw a box 100 units to the right
+        translate(100,0,0);
+        box();
+        pop(); // return to our original coordinate system
+
+        translate(-100,0,0);
+        box();    
+      }
+      </script>
+
+      <p>There are also methods that offer greater control of the geometry</p>
+
+      Example using beginShape and endShape
+            {{!-- TODO push and pop example --}}
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+      function setup() {
+        createCanvas(windowWidth, windowHeight, WEBGL);
+      }
+
+      function draw(){
+        background(255);
+        // 
+        push(); // detach our coordinate system
+        // draw a box 100 units to the right
+        translate(100,0,0);
+        box();
+        pop(); // return to our original coordinate system
+
+        translate(-100,0,0);
+        box();    
+      }
+      </script>
+
+      <p>There is also a powerful class, p5.Geometry, which p5 uses internally for loadModel() but can also be used to
+        define custom geometry, offering tools that can be helpful in calculating faces and normals. </p>
+
+      Example using p5.Geometry
+            {{!-- TODO push and pop example --}}
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+      function setup() {
+        createCanvas(windowWidth, windowHeight, WEBGL);
+      }
+
+      function draw(){
+        background(255);
+        // 
+        push(); // detach our coordinate system
+        // draw a box 100 units to the right
+        translate(100,0,0);
+        box();
+        pop(); // return to our original coordinate system
+
+        translate(-100,0,0);
+        box();    
+      }
+      </script>
+
+      <h2 id="glossary">Glossary</h2>
+
+      <h3>Procedural</h3>
+      <p></p>
+
+      <h3>Model</h3>
+      <p>A representation of geometry.</p>
+
+      <h3>STL</h3>
+      <p>STL (most often standing for "standard tesselation language") is a file format for 3D models. It only stores
+        information about the geometry.</p>
+
+      <h3>OBJ</h3>
+      <p>OBJ is an open file format that stores geometry data as well as some material and texture data. In p5.js, we
+        are limited to its geometry, although an image can still be mapped to the surface using textures.</p>
+
+      <h3>Faces</h3>
+      <p>The solid surface that is generated between three points.</p>
+
+      <h3>Normals</h3>
+      <p>The direction that is perpendicular to a face, which is often needed when calculating lighting or using
+        materials. </p>
+
+      <h3>Normalization</h3>
+      <p>Taking something in changing its size so that it fits within a standard range.</p>
+
+    </main>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->
