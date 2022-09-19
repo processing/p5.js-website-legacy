@@ -50,8 +50,9 @@ slug: learn/
         (like Blender) or from code. This tutorial will walk through how to import 3D models into p5.js, as well as how
         to create a basic geometry from scratch. </p>
 
-      <div class="additionalInformation">If you are new to 3D it's recommended that you check out the <a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">Getting Started
-        With 3D</a> tutorial before continuing with this tutorial. </div>
+      <div class="additionalInformation">If you are new to 3D it's recommended that you check out the <a
+          href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">Getting Started
+          With 3D</a> tutorial before continuing with this tutorial. </div>
 
       <div class="toc">
         <h3>Table of Contents</h3>
@@ -73,7 +74,7 @@ slug: learn/
         loadModel() method includes a normalize parameter that will resize the model to something that works better in
         p5.js.</p>
 
-      Widget example of teapot model and loadModel
+      {{!-- Widget example of teapot model and loadModel --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 var teapotModel;
 
@@ -102,8 +103,8 @@ function draw(){
         formed using your own set of rules. There are a number of methods that can be used to create 3D geometry in a
         way that is similar to 2D drawing in p5.js.</p>
 
-      Example using triangle and quad
-            {{!-- TODO push and pop example --}}
+
+      {{!-- Example using triangle and quad --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup() {
         createCanvas(windowWidth, windowHeight, WEBGL);
@@ -123,51 +124,95 @@ function draw(){
       }
       </script>
 
-      <p>There are also methods that offer greater control of the geometry</p>
+      <p>There are also methods that offer greater control of the geometry. A shape can be defined point-by-point using
+        <a class="code" href="{{root}}/reference/#/p5/beginShape">beginShape()</a>, <a class="code"
+          href="{{root}}/reference/#/p5/vertex">vertex()</a>, and <a class="code"
+          href="{{root}}/reference/#/p5/endShape">endShape()</a></p>
 
-      Example using beginShape and endShape
-            {{!-- TODO push and pop example --}}
+      {{!-- Example using beginShape and endShape --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
-      function setup() {
-        createCanvas(windowWidth, windowHeight, WEBGL);
-      }
+function setup() {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+}
 
-      function draw(){
-        background(255);
-        // 
-        push(); // detach our coordinate system
-        // draw a box 100 units to the right
-        translate(100,0,0);
-        box();
-        pop(); // return to our original coordinate system
-
-        translate(-100,0,0);
-        box();    
-      }
+function draw(){
+  background(220);
+  
+  // click+drag on canvas to look around the shape
+  orbitControl();
+  
+  fill(255,0,0,128)
+    
+  var numVertices = 100;
+  translate(0,numVertices,0)
+  rotateY(millis()/1000)
+  scale(20)
+  beginShape();
+  // a simple spiral shape
+  for(let i = 0; i < numVertices; i++) {
+    vertex(
+      sin((i/numVertices*TWO_PI)*5)*sin(i/numVertices*PI)*2,
+      -i/10, 
+      cos((i/numVertices*TWO_PI)*5)*sin(i/numVertices*PI)*2,
+    );
+  }
+  endShape();
+}
       </script>
 
       <p>There is also a powerful class, p5.Geometry, which p5 uses internally for loadModel() but can also be used to
         define custom geometry, offering tools that can be helpful in calculating faces and normals. </p>
 
-      Example using p5.Geometry
-            {{!-- TODO push and pop example --}}
+
+      {{!-- Example using p5.Geometry --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
-      function setup() {
-        createCanvas(windowWidth, windowHeight, WEBGL);
-      }
+var myGeometry
 
-      function draw(){
-        background(255);
-        // 
-        push(); // detach our coordinate system
-        // draw a box 100 units to the right
-        translate(100,0,0);
-        box();
-        pop(); // return to our original coordinate system
-
-        translate(-100,0,0);
-        box();    
+function setup() {
+  createCanvas(400, 400, WEBGL);
+  
+  // debugMode()
+  
+  let detailX = 20;
+  let detailY = 20;
+  myGeometry = new p5.Geometry(detailX,detailY, function() {
+    
+    // must be detailX + 1, detailY + 1
+    for(let x = 0; x <= detailX; x++) {
+      for(let y = 0; y <= detailY; y++) {
+        this.vertices.push(new p5.Vector(
+          x/detailX,
+          y/detailY,
+          (sin(x/detailX*TWO_PI*4) + cos(y/detailY*TWO_PI)) / 10
+          // random()/10
+        ))
       }
+    }
+
+    // this will attach all our vertices and create faces automatically
+    this.computeFaces()
+    // this will calculate the normals to help with lighting
+    this.computeNormals()
+  })
+}
+
+function draw() {
+  background(220);
+  
+  orbitControl()
+  
+  //set a basic light
+  pointLight(255,255,0,0,50,-50)
+  
+  push();
+  stroke(128)
+  var geoSize = width/2
+  rotateY(cos(millis() / 1000)*PI/4)
+  translate(-geoSize/2,-geoSize/2)
+  scale(geoSize)
+  model(myGeometry)
+  pop()
+}
       </script>
 
       <h2 id="glossary">Glossary</h2>
@@ -194,7 +239,7 @@ function draw(){
         materials. </p>
 
       <h3>Normalization</h3>
-      <p>Taking something in changing its size so that it fits within a standard range.</p>
+      <p>Changing something so that it fits within a standard range.</p>
 
     </main>
 
