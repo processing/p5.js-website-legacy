@@ -366,8 +366,68 @@ learn:
   getting-started-in-webgl-title: Getting Started in WebGL
   getting-started-in-webgl-coords-and-transform-title: Coordinates and Transformations
   getting-started-in-webgl-coords-and-transform: Basics of 3D setup, coordinates, and transformations
-  getting-started-in-webgl-custom-geometry-title: Creating Custom Geometry
+
+  getting-started-in-webgl-custom-geometry-title: Creating Custom Geometry in WebGL
   getting-started-in-webgl-custom-geometry: Creating custom geometry in WebGL
+  getting-started-in-webgl-custom-geometry-p1x1: >-
+    p5.js has a number of 3D primitives that can be used to create basic shapes, like <a class="code">box()</a> or <a class="code">sphere()</a>, but p5.js
+    is also capable of rendering complex custom geometry, either from files that are created in other 3D software
+    (like Blender) or from code. This tutorial will walk through how to import 3D models into p5.js, as well as how
+    to create a basic geometry from scratch.
+  getting-started-in-webgl-custom-geometry-info1x1: >-
+    If you are new to 3D it's recommended that you check out the 
+    <a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">
+    Coordinates and Transformations</a> tutorial before continuing with this tutorial.
+  getting-started-in-webgl-custom-geometry-toc-title: Table of Contents 
+  getting-started-in-webgl-custom-geometry-toc1: Loading 3D Models from File
+  getting-started-in-webgl-custom-geometry-toc2: Creating Basic Procedural Geometry
+  getting-started-in-webgl-custom-geometry-toc3: Glossary
+  getting-started-in-webgl-custom-geometry-heading1: Loading 3D Models from File
+  getting-started-in-webgl-custom-geometry-p2x1: >-
+    Custom geometry can be imported into p5.js using either OBJ or STL files. These files are usually generated in
+    a 3D modeling tool like Blender, which offers much more control when constructing a 3D scene. This is done using
+    the <a class="code" href="{{root}}/reference/#/p5/loadModel">loadModel()</a> method, which should be used within <a class="code">preload()</a>.
+  getting-started-in-webgl-custom-geometry-p3x1: >-
+    A common issue that can come up with custom models is scaling. Depending on how the model is constructed, it
+    might be a much different size when rendered in p5.js, or even be too small to be rendered at all. The
+    <a class="code">loadModel()</a> method includes a normalize parameter that will resize the model to something that works better in
+    p5.js.
+  getting-started-in-webgl-custom-geometry-info2x1: >-
+    Note that there is currently no support for STL files with color, although you
+    can add color using materials or textures, which you can learn about in the <a href="{{root}}/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a> tutorial.
+  getting-started-in-webgl-custom-geometry-heading2: Creating Basic Procedural Geometry
+  getting-started-in-webgl-custom-geometry-p4x1: >-
+    Geometry can also be defined procedurally using code. This is a great way to create geometry that moves or is
+    formed using your own set of rules. There are a number of methods that can be used to create 3D geometry in a
+    way that is similar to 2D drawing in p5.js.
+  getting-started-in-webgl-custom-geometry-p5x1: >-
+    There are also methods that offer greater control of the geometry. A shape can be defined point-by-point using
+    <a class="code" href="{{root}}/reference/#/p5/beginShape">beginShape()</a>, <a class="code"
+    href="{{root}}/reference/#/p5/vertex">vertex()</a>, and <a class="code"
+    href="{{root}}/reference/#/p5/endShape">endShape()</a>
+  getting-started-in-webgl-custom-geometry-p6x1: >-
+    There is also a powerful class, p5.Geometry, which p5 uses internally for <a class="code">loadModel()</a> but can also be used to
+    define custom geometry, offering tools that can be helpful in calculating faces and normals. 
+  getting-started-in-webgl-custom-geometry-glossary-title: Glossary
+  getting-started-in-webgl-custom-geometry-glossary-term1-title: Procedural
+  getting-started-in-webgl-custom-geometry-glossary-term1-definition: Meaning that something is defined mathematically, instead of from stored data, like a file.
+  getting-started-in-webgl-custom-geometry-glossary-term2-title: Model
+  getting-started-in-webgl-custom-geometry-glossary-term2-definition: A representation of geometry.
+  getting-started-in-webgl-custom-geometry-glossary-term3-title: STL
+  getting-started-in-webgl-custom-geometry-glossary-term3-definition: >-
+    STL (most often standing for "standard tesselation language") is a file format for 3D models. 
+    It only stores information about the geometry.
+  getting-started-in-webgl-custom-geometry-glossary-term4-title: OBJ
+  getting-started-in-webgl-custom-geometry-glossary-term4-definition: >- 
+    OBJ is an open file format that stores geometry data as well as some material and texture data. In p5.js, we
+    are limited to its geometry, although an image can still be mapped to the surface using textures.
+  getting-started-in-webgl-custom-geometry-glossary-term5-title: Faces
+  getting-started-in-webgl-custom-geometry-glossary-term5-definition: The solid surface that is generated between three points.
+  getting-started-in-webgl-custom-geometry-glossary-term6-title: Normals
+  getting-started-in-webgl-custom-geometry-glossary-term6-definition: The direction that is perpendicular to a face, which is often needed when calculating lighting or using materials. 
+  getting-started-in-webgl-custom-geometry-glossary-term7-title: Normalization
+  getting-started-in-webgl-custom-geometry-glossary-term7-definition: Changing something so that it fits within a standard range.
+  
   getting-started-in-webgl-appearance-title: Styling and Appearance
   getting-started-in-webgl-appearance: The basics of materials and lighting in WebGL
   getting-started-in-webgl-shaders-title: Introduction to Shaders
