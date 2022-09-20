@@ -70,7 +70,7 @@ slug: learn/
       <p>Working in 3D introduces a lot of complexity, especially when a sketch involves motion, texture, lighting, and
         more.
 
-        Luckily for us computers have special hardware that is particularly
+        Luckily for us, computers have special hardware that is particularly
         well suited to performing those calculations, the graphics processing unit (GPU). The GPU is capable of
         processing many
         things simultaneously, which is especially important when we're dealing with pixels and many shapes in space.
@@ -193,12 +193,6 @@ slug: learn/
       ..
       </code></pre>
 
-      <div class="additionalInformation">
-        There's a lot more to rotation in 3d space. Check out this resource if you'd like to learn more about
-        transformation and rotation in 3D:
-        TODO: FIND LINK TO A RELIABLE RESOURCE
-      </div>
-
       <h3>scale(): Size in Space</h3>
 
       {{!-- sketch illustrating scaling of geometry --}}
@@ -206,46 +200,20 @@ slug: learn/
       </iframe>
 
       <p><a class="code" href="{{root}}/reference/#/p5/scale">scale()</a> changes the size of whatever is
-        drawn after it. </p>
+        drawn after it. Like the other methods described so far, it accepts arguments for x, y, and z values.</p>
 
       <h2 id="order">Order</h2>
 
       <p>Something that can feel unpredictable at first is the order of transformations. Each transformation can affect
-        the next one. For example if you call rotate(), followed by translate(), the direction of that translation will
-        be affected by the rotation. You can think of it as your entire coordinate system rotating and moving, not just
-        the object itself.</p>
-
-      <p>The order that you use will depend on what you’re trying to do, but a good place to start is to follow the
-        order of <strong>translate</strong>, <strong>rotate</strong>, and then <strong>scale</strong>. If you perform
-        these out of order you might find that your
-        transformations don’t act the way that you expect them to.
+        the next one. For example, if <a class="code">rotate()</a> is called, followed by <a class="code">translate()</a>, the direction of that translation will
+        be affected by the rotation. The entire coordinate system is rotating and moving, not just the shape itself. 
       </p>
+
+      <p>Transformations can be performed in any order, but using <strong>translate</strong>, <strong>rotate</strong>, and then <strong>scale</strong> will be the most intuitive.</p>
 
       <p>In the below example, try changing the order of <a class="code">translate()</a> and <a
           class="code">rotateY()</a> and see how it affects where the object is
         drawn.</p>
-
-      {{!--
-      <pre><code class="language-javascript">
-      ...
-      // 
-      translate(100,0,0);
-      rotateZ(QUARTER_PI);
-      scale(2);
-
-      box();
-      ...
-
-      ...
-      // 
-      rotateZ(QUARTER_PI);
-      translate(100,0,0);
-      
-      scale(2);
-
-      box();
-      ...
-      </code></pre> --}}
 
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 function setup() {
@@ -269,10 +237,10 @@ function draw(){
       <p>Another tool we have in p5.js is <a class="code" href="{{root}}/reference/#/p5/push">push()</a> and <a
           class="code" href="{{root}}/reference/#/p5/pop">pop()</a>. <a class="code">push()</a> and <a
           class="code">pop()</a> makes it easier to move objects
-        individually. <a class="code">push()</a> saves and sets aside our
-        current transformations (and certain styling, like <a class="code">stroke()</a> or <a class="code">fill()</a>),
-        which allows you to perform other
-        transformations. <a class="code">pop()</a> restores those transformations. If you don’t use <a
+        individually. The <a class="code">push()</a> method saves and sets aside the
+        current transformations. The <a class="code">pop()</a> method restores those transformations. Whatever transformations that
+        are made between <a
+          class="code">push()</a> and <a class="code">pop()</a> will be isolated to that portion of the code. If you don’t use <a
           class="code">push()</a> and
         <a class="code">pop()</a>, you have to keep track of whatever transformations have already taken place, which
         can get complicated
@@ -323,7 +291,7 @@ function draw(){
         transformations affect the second object
         that is drawn. </p>
 
-      {{!-- TODO push and pop example --}}
+      {{!-- push and pop example --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
       function setup() {
         createCanvas(windowWidth, windowHeight, WEBGL);
@@ -343,7 +311,6 @@ function draw(){
       }
       </script>
 
-      {{!-- <h2>3D Primitives: Basic Shapes</h2> --}}
       <h2 id="basic_shapes">Basic Shapes in 3D</h2>
 
       <p>So far we have only been using <a class="code">box()</a> but p5.js has seven different predefined geometries
@@ -370,8 +337,6 @@ function draw(){
         More information about custom geometry can be found the <a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">Custom
           Geometry tutorial</a>.
       </p>
-
-      {{!-- TODO create a separate tutorial and link to it from here --}}
 
       <h2 id="glossary">Glossary</h2>
 

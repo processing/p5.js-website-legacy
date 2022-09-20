@@ -45,14 +45,13 @@ slug: learn/
 
       <h1>Creating Custom Geometry in WebGL</h1>
 
-      <p>p5.js has a number of 3D primitives that can be used to create basic shapes, like box() or sphere(), but p5.js
+      <p>p5.js has a number of 3D primitives that can be used to create basic shapes, like <a class="code">box()</a> or <a class="code">sphere()</a>, but p5.js
         is also capable of rendering complex custom geometry, either from files that are created in other 3D software
         (like Blender) or from code. This tutorial will walk through how to import 3D models into p5.js, as well as how
         to create a basic geometry from scratch. </p>
 
       <div class="additionalInformation">If you are new to 3D it's recommended that you check out the <a
-          href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">Getting Started
-          With 3D</a> tutorial before continuing with this tutorial. </div>
+          href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">Coordinates and Transformations</a> tutorial before continuing with this tutorial. </div>
 
       <div class="toc">
         <h3>Table of Contents</h3>
@@ -67,11 +66,11 @@ slug: learn/
 
       <p>Custom geometry can be imported into p5.js using either OBJ or STL files. These files are usually generated in
         a 3D modeling tool like Blender, which offers much more control when constructing a 3D scene. This is done using
-        the loadModel method, which should be used within preload().</p>
+        the <a class="code" href="{{root}}/reference/#/p5/loadModel">loadModel()</a> method, which should be used within <a class="code">preload()</a>.</p>
 
       <p>A common issue that can come up with custom models is scaling. Depending on how the model is constructed, it
         might be a much different size when rendered in p5.js, or even be too small to be rendered at all. The
-        loadModel() method includes a normalize parameter that will resize the model to something that works better in
+        <a class="code">loadModel()</a> method includes a normalize parameter that will resize the model to something that works better in
         p5.js.</p>
 
       {{!-- Widget example of teapot model and loadModel --}}
@@ -95,33 +94,19 @@ function draw(){
       </script>
 
       <div class="additionalInformation">Note that there is currently no support for STL files with color, although you
-        can add color using materials or textures, which you can learn about in the (LINKED NAME OF MATERIAL TUTORIAL).
+        can add color using materials or textures, which you can learn about in the <a href="{{root}}/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a> tutorial.
       </div>
 
       <h2 id="proceduralGeometry">Creating Basic Procedural Geometry</h2>
+
       <p>Geometry can also be defined procedurally using code. This is a great way to create geometry that moves or is
         formed using your own set of rules. There are a number of methods that can be used to create 3D geometry in a
         way that is similar to 2D drawing in p5.js.</p>
 
 
       {{!-- Example using triangle and quad --}}
+      {{!-- PENDING WebGL quad / triangle bug fix --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
-      function setup() {
-        createCanvas(windowWidth, windowHeight, WEBGL);
-      }
-
-      function draw(){
-        background(255);
-        // 
-        push(); // detach our coordinate system
-        // draw a box 100 units to the right
-        translate(100,0,0);
-        box();
-        pop(); // return to our original coordinate system
-
-        translate(-100,0,0);
-        box();    
-      }
       </script>
 
       <p>There are also methods that offer greater control of the geometry. A shape can be defined point-by-point using
@@ -160,7 +145,7 @@ function draw(){
 }
       </script>
 
-      <p>There is also a powerful class, p5.Geometry, which p5 uses internally for loadModel() but can also be used to
+      <p>There is also a powerful class, p5.Geometry, which p5 uses internally for <a class="code">loadModel()</a> but can also be used to
         define custom geometry, offering tools that can be helpful in calculating faces and normals. </p>
 
 
@@ -170,9 +155,7 @@ var myGeometry
 
 function setup() {
   createCanvas(400, 400, WEBGL);
-  
-  // debugMode()
-  
+
   let detailX = 20;
   let detailY = 20;
   myGeometry = new p5.Geometry(detailX,detailY, function() {
@@ -201,7 +184,7 @@ function draw() {
   
   orbitControl()
   
-  //set a basic light
+  //set a basic light to see that normals are calculated
   pointLight(255,255,0,0,50,-50)
   
   push();
