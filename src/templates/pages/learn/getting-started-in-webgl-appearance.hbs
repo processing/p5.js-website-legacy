@@ -43,11 +43,13 @@ slug: learn/
       {{!-- <iframe src="{{assets}}/learn/basic3D/titleExample.html" width="720" height="350">
       </iframe> --}}
 
-      <h1>Getting Started with 3D in p5.js: Appearance and Style</h1>
+      <h1>WebGL: Appearance and Style</h1>
 
-      <p>p5.js is a powerful tool for creating 2D graphics but it's also capable of 3D graphics.
-        Before we can get started in 3D there are some new concepts to learn and this document will introduce some ideas
-        that will be important to any 3D sketch.</p>
+      <p>
+        Creating in 3D is about more than just geometry. Cameras, lights, and materials are an
+        important part of creating a visually interesting 3D scene. p5.js has a number of tools
+        that make it possible to transform the appearance of our geometry.
+      </p>
 
       <div class="toc">
         <h3>Table of Contents</h3>
@@ -56,25 +58,28 @@ slug: learn/
           <li><a href="#lighting">Lighting</a></li>
           <li><a href="#materials">Materials and Textures</a></li>
           <li><a href="#glossary">Glossary</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
         </ol>
       </div>
 
       <h2 id="camera">Camera and View</h2>
 
-      <p>The camera is an important piece to the 3D scene; it gives us the sense of space and dimension that we are
+      <p>The camera is an essential piece of a 3D scene; it gives us the sense of space and dimension that we are
         often looking for in 3D. In p5.js, the WebGL mode provides us with a perspective camera by default, but we can
         change this using <a class="code" href="{{root}}/reference/#/p5/perspective">perspective()</a> or <a class="code" href="{{root}}/reference/#/p5/ortho">ortho()</a>.</p>
 
       <img style="padding:60px;" src='{{assets}}/learn/basic3D/images/cameraTypeIllustration.png'
         alt="an illustration showing the difference between perspective and orthographic camera types">
 
-      <p>A perspective camera skews objects so they appear to get smaller as they get further away, vanishing at a
-        single point in the distance.This is in contrast to an orthographic camera, where the geometry stays the same
+      <p>A <em>perspective camera</em> skews objects so they appear to get smaller as they get further away, vanishing at a
+        single point in the distance. This is in contrast to an <em>orthographic camera</em>, where the geometry stays the same
         size as it gets further away and has no vanishing point. </p>
 
       <p>Constantly moving and adjusting the camera in code can be tedious, especially when you are experimenting with
         ideas. p5.js has a special camera method, <a class="code" href="{{root}}/reference/#/p5/orbitControl">orbitControl()</a>, that can be used to zoom, pan,
         and position the camera using the mouse.</p>
+
+      <p>The following camera methods are available in p5.js:</p>
 
       <ul>
         <li><a class="code" href="{{root}}/reference/#/p5/ortho">ortho(left, right, bottom, top, near, far)</a></li>
@@ -85,6 +90,60 @@ slug: learn/
             sensitivityZ)</a></li>
       </ul>
 
+      <p>        
+        A scene can have multiple cameras, but only one camera can be active at a time. Sketches in p5.js will default 
+        to having a single perspective camera, but that can be changed by calling either <a class="code">perspective()</a> 
+        (with new parameters) or <a class="code">ortho()</a>. <a class="code">camera()</a> can be used to change the 
+        position of the active camera and the position that the camera is looking at.
+      </p>
+
+      {{!-- camera example --}}
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  debugMode()
+  // uncomment to change the perspective camera to orthographic
+  // ortho();
+
+  // setting initial camera position
+  camera(400,-40, 400);
+}
+
+function draw() {
+  background(220);
+  
+  let sphere_x = 0
+  let sphere_y = 90
+  let sphere_z = 0
+  
+  let box_x = 0
+  let box_y = -90
+  let box_z = 0
+  
+  // uncomment to point camera at sphere
+  // camera(
+  //   400,-40, 400, // camera position
+  //   sphere_x, sphere_y, sphere_z // position to look at
+  // )
+  
+  // uncomment to point camera at box
+  // camera(
+  //   400,-40, 400, // camera position
+  //   box_x, box_y, box_z // position to look at
+  // )
+  
+  push()
+  translate(sphere_x, sphere_y, sphere_z)
+  sphere(40,8)
+  pop()
+  
+  push()
+  translate(box_x, box_y, box_z)
+  box()
+  pop()
+}
+      </script>
+
       {{!-- sketch illustrating 3D camera --}}
       <iframe src="{{assets}}/learn/basic3D/cameraExample.html" width="720" height="350">
       </iframe>
@@ -92,7 +151,7 @@ slug: learn/
       <h2 id="lighting">Lighting</h2>
 
       <p>Lighting is another essential part of a 3D scene. To be able to convey shape and depth in 3D is necessary to
-        have a light source. </p>
+        have a light source. p5.js has a few different types of light that can be used in a sketch.</p>
 
       <p>In p5 we have: </p>
 
@@ -126,6 +185,54 @@ slug: learn/
         </li>
       </ul>
 
+      <p>
+        These lights should be used within <a class="code">draw()</a>. Up to 5 lights can be used in a scene simultaneously, 
+        allowing you to compose a scene with varied and complex lighting sources.
+      </p>
+
+      {{!-- lighting example --}}
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  debugMode();
+  
+  camera(200,-80, 200);
+}
+
+function draw() {
+  background(220);
+  
+  orbitControl()
+  
+  // uncomment to enable / disable lights
+  
+  // ambientLight(20);
+  
+  // pointLight(
+  //   255, 0, 0, // color
+  //   40, -40,0  // position
+  // );
+  
+  // directionalLight(
+  //   0,255,0, // color
+  //   1, 1, 0  // direction
+  // );
+  
+  // let locX = mouseX - width / 2;
+  // let locY = mouseY - height / 2;
+  // spotLight(
+  //   0, 0, 255,       // color
+  //   locX, locY, 100, // position
+  //   0, 0, -1,        // direction
+  //   40               // radius of the spotlight cone
+  // );
+  
+  // noLights();
+  
+  box();
+}
+      </script>
+
       <br />
 
       {{!-- sketch illustrating lighting of geometry --}}
@@ -158,6 +265,12 @@ slug: learn/
 
       <h3>Camera</h3>
       <p>The viewpoint of a 3D scene</p>
+
+      <h3>Perspective</h3>
+      <p></p>
+
+      <h3>Orthographic</h3>
+      <p></p>
 
     </main>
 
