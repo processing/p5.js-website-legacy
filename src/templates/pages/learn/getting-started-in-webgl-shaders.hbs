@@ -19,22 +19,17 @@ slug: learn/
       <h1>Introduction to Shaders</h1>
 
       <p>Shaders are special programs that run on the GPU that can do some incredible things. They take advantage of the
-        GPU
-        to process many pixels at once, making them fast and particularly well suited for certain tasks, like generating
-        noise,
-        applying filters like blur, or shading polygons. Shader programming can feel daunting at first, it requires a
-        different
-        approach than the 2d drawing of p5.js and it can often involve more advanced math. Shaders don't need to be
-        complicated!
-        This document will try to outline the basics of shader programming and point you towards other resources.</p>
+        GPU to process many pixels at once, making them fast and particularly well suited for certain tasks, like
+        generating noise, applying filters like blur, or shading polygons. Shader programming can feel daunting at
+        first, they require a different approach than the 2d drawing of p5.js and it can often involve more advanced
+        math. This document will outline the basics of shader programming and point you towards other resources.</p>
 
       <h2>Setup</h2>
 
-      <p>p5.js is a great tool for working with shaders because it handles a lot of the WebGL for you so you can focus
-        on
+      <p>p5.js is a great tool for working with shaders because it handles a lot of the WebGL setup so you can focus on
         the shader code itself. Before we can get started with shaders we have to set up our canvas so that it uses
-        p5.js
-        WebGL model.</p>
+        p5.js WebGL model.
+      </p>
 
       <pre><code class="language-javascript">
       ...
@@ -45,130 +40,165 @@ slug: learn/
       </code></pre>
 
       <p>A shader program consists of two parts, a <strong>vertex shader</strong> and a <strong>fragment
-          shader</strong>. The vertex shader affects where
-        the 3D geometry is drawn on the screen and the fragment shader is responsible for affecting the color output.
-        Each of these will live in separate
-        files and will be loaded into p5.js using loadShader(). Once a shader is loaded it can be used within draw().
-        The following example will show how
-        to set up a basic shader within p5.js:
+          shader</strong>. The vertex shader affects where the 3D geometry is drawn on the screen and the fragment
+        shader is responsible for affecting the color output. Each of these live in separate files and are loaded into
+        p5.js using loadShader(). Once a shader is loaded it can be used within draw(). The following example will show
+        how to set up a basic shader within p5.js:
       </p>
 
       <pre><code class="language-javascript">
-      let myShader;
-    
-      function preload() {
-        // load each shader file (don't worry, we will come back to these!) 
-        myShader = loadShader('shader.vert', 'shader.frag');
-      }
+let myShader;
 
-      function setup() {
-        // the canvas has to be created with WEBGL mode
-        createCanvas(windowWidth, windowHeight, WEBGL);
-      }
+function preload() {
+  // load each shader file (don't worry, we will come back to these!)
+  myShader = loadShader('shader.vert', 'shader.frag');
+}
 
-      function draw() {
-        // shader() sets the active shader, which will be applied to what is drawn next
-        shader(myShader);
-        // apply the shader to a rectangle taking up the full canvas
-        rect(0,0,width,height);
-      }
+function setup() {
+  // the canvas has to be created with WEBGL mode
+  createCanvas(windowWidth, windowHeight, WEBGL);
+}
+
+function draw() {
+  // shader() sets the active shader, which will be applied to what is drawn next
+  shader(myShader);
+  // apply the shader to a rectangle taking up the full canvas
+  rect(0,0,width,height);
+}
       </code></pre>
+
+      <h2>Shading Language</h2>
 
       <p>So now you might be wondering what we actually write in these shader files! Shader files are written in a
-        different language and have a very difference syntax and structure than we are familiar with. First let's
-        look at a basic vertex shader:</p>
+        shading language and have a very different syntax and structure than we are familiar with. WebGL Shading
+        language has a syntax that resembles C, which means it comes with a handful of concepts that aren't present in
+        JavaScript.
+      </p>
+      <p>For one, the shading language is much more strict about types. Each variable you create has to be labeled with
+        the kind of data it is storing. Here is a list of some of the common types
+      </p>
+      <pre><code class="language-javascript">
+vec2(x,y)     // a vector of two floats
+vec3(r,g,b)   // a vector of three floats
+vec4(r,g,b,a) // a vector of four floats
+float         // a number with decimal points
+int           // a whole number without decimal points
+sampler2D     // a reference to a texture
+      </code></pre>
+      <p>In general the shading language is much more strict than JavaScript. A missing semicolon for example is not
+        allowed and will result in an error message. You also can't use floats and integers interchangeably.
+      </p>
+      <p>First let's look at a basic vertex shader:</p>
 
       <pre><code class="language-javascript">
-      // shader.vert
-      // this is an attribute sent to the shader by p5  
-      // it contains all of our vertex position information 
-      // it is a vec3, meaning it contains x, y, and z data 
-      // attribute signals that this is a global variable sent by the sketch 
-      // it is read only, meaning it cannot be changed directly (you can copy it though) 
-      // attributes exist in vertex shaders only 
+// shader.vert
+// this is an attribute sent to the shader by p5
+// it contains all of our vertex position information
+// it is a vec3, meaning it contains x, y, and z data
+// attribute signals that this is a global variable sent by the sketch
+// it is read only, meaning it cannot be changed directly (you can copy it though)
+// attributes exist in vertex shaders only
 
-      /*
-        an attribute is used to communicate certain information about the vertices being processed.
-        p5.js handles most of these attributes for you, you just need to define it here
+/*
+  an attribute is used to communicate certain information about the vertices being processed.
+  p5.js handles most of these attributes for you, you just need to define it here
 
-        vec3 is the type of data, in this case a vector of three numbers (x,y,z)
-      */
-      attribute vec3 aPosition; 
+  vec3 is the type of data, in this case a vector of three numbers (x,y,z)
+*/
+attribute vec3 aPosition;
 
-      /*
-        all vertex shaders need a main() function. this function needs to have a value assigned
-        to gl_Position
+/*
+  all vertex shaders need a main() function. this function needs to have a value assigned
+  to gl_Position
 
-        'void' means that this function doesn't return anything
-      */
-      void main() {           
-        // copy the position data into a vec4, using 1.0 as the w component 
-        vec4 positionVec4 = vec4(aPosition, 1.0); 
+  'void' means that this function doesn't return anything
+*/
+void main() {
+  // copy the position data into a vec4, using 1.0 as the w component
+  vec4 positionVec4 = vec4(aPosition, 1.0);
 
-        // scale the rect by two, and move it to the center of the screen 
-        // if we don't do this, it will appear with its bottom left corner in the center of the sketch 
-        // try commenting this line out to see what happens 
-        positionVec4.xy = positionVec4.xy * 2.0 - 1.0; 
+  // scale the rect by two, and move it to the center of the screen
+  // if we don't do this, it will appear with its bottom left corner in the center of the sketch
+  // try commenting this line out to see what happens
+  positionVec4.xy = positionVec4.xy * 2.0 - 1.0;
 
-        // send the vertex information on to the fragment shader 
-        gl_Position = positionVec4; 
-      }
+  // send the vertex information on to the fragment shader
+  gl_Position = positionVec4;
+}
+Don't worry if this doesn't make a ton of sense yet. The vertex shader plays an important role but it is often just responsible for making sure what we create in our fragment shader displays properly on the geometry. You'll probably find yourself reusing the same vertex shaders in many of your projects.
+The fragment shader on the other hand is responsible for the color output of our shader and is where we will do a lot of our shader programming. Here is a very simple fragment shader that will just display the color red: 
+/*
+  the fragment shader begins with a line specifying the float 'precision'.
+  this value you can either be lowp, mediump, or highp, although you will likely
+  use mediump, or highp in certain situations
+*/
+precision mediump float;
+
+/*
+  the fragment shader has to have a main() function, where you will do most of your
+  programming. main() is responsible for setting the color of the current pixel, by
+  assigning a vec4 (r,g,b,a) to the built-in gl_FragColor.
+*/
+void main() {
+
+  // this vector is just the color red
+  // colors are between 0.0 and 1.0, instead of 0 and 255
+  vec4 myColor = vec4(1.0, 0.0, 0.0, 1.0);
+
+  // and now this color is assigned to the current pixel
+  gl_FragColor = myColor;
+}
       </code></pre>
 
-      <p>Don't worry if this doesn't make a ton of sense yet. The vertex shader plays an important role but it is often just responsible for making sure what we create in
-        our
-        fragment shader displays properly on the geometry. You'll probably find yourself reusing the same vertex shaders
-        in many of your projects.</p>
 
-      <p>The fragment shader is responsible for the color output of our shader and is where will do a lot of our shader programming.</p>
+      <p>Now that we have a vertex shader and a fragment shader, these can be saved to separate files (shader.vert and
+        shader.frag respectively), and loaded into our sketch using loadShader().
+      </p>
 
-      <pre><code class="language-javascript">
-      /* 
-        the fragment shader begins with a line specifying the float 'precision'.
-        this value you can either be lowp, mediump, or highp, although you will likely 
-        use mediump, or highp in certain situations
-      */
-      precision mediump float; 
-
-      /*
-        the fragment shader has to have a main() function, where you will do most of your
-        programming. main() is responsible for setting the color of the current pixel, by
-        assigning a vec4 (r,g,b,a) to the built-in gl_FragColor.
-      */
-      void main() { 
-
-        // this vector is just the color red
-        vec4 myColor = vec4(1.0, 0.0, 0.0, 1.0);
-
-        // and now this color is to the current pixel
-        gl_FragColor = myColor; 
-      }
-      </code></pre>
-
-      <p>A few other things that you should know about the syntax of these shader files. First of all, the shading language
-        requires you to specify a <em>type</em> of data you are storing in a variable. Here is a list of the common types
-        
+      <h2>Uniforms</h2>
+      <p>A simple shader like this can be useful by itself, but there are times when it's necessary to communicate
+        variables from the p5.js sketch to a shader. This is when uniforms come in. Uniforms are special variables that
+        can be sent from a sketch to a shader. These make it possible to have much more control over a shader, including
+        give it motion. A shader can be set up at the top of a shader, outside of main(). In this following example
+        fragments shader, we are creating a color uniform that will allow us to change the color from our sketch.
       </p>
 
       <pre><code class="language-javascript">
-        vec2(x,y)     // a vector of two floats
-        vec3(r,g,b)   // a vector of three floats
-        vec4(r,g,b,a) // a vector of four floats
-        float         // a number with decimal points
-        int           // a whole number without decimal points
-        sampler2D     // a reference to a texture
+
+precision mediump float;
+
+uniform vec3 myColor;
+
+void main() {
+
+  // this vector is just the color red
+  vec4 myColor = vec4(myColor, 1.0);
+
+  // and now this color is assigned to the current pixel
+  gl_FragColor = myColor;
+}
       </code></pre>
 
-      <p>
-        The shading language is much more strict than JavaScript. A missing semicolon for example is not allowed and will
-        result in an error message. 
+      <p>Back in our sketch, this color can now be sent using setUniform():
       </p>
 
-      {{!-- <p>Shaders are separate programs that run on the graphics card, and as a result, they have a very different
-        syntax
-        and structure than what we are familiar with in p5.js. They are written in a shader language, which has a syntax
-        similar to the programming language, C. They are also programs that run on a single pixel, and as a result, they
-        sometimes require you to think a little bit differently. </p> --}}
+      <strong>EXAMPLE SHOWING UNIFORM</strong>
+
+      <h2>Conclusion</h2>
+      <p>With these skills you will be able to create some basic shaders, but shader programming can go incredibly deep,
+        and there are many shader topics that go beyond this tutorial. Shaders in p5.js can be a powerful tool for
+        creating visuals, effects, and even textures that can be mapped to your 3D geometry.
+      </p>
+
+
+      <p>The following websites are great resources for shader programming:
+      </p>
+
+      <ul>
+        <li>Book of Shaders</li>
+        <li>P5.js shaders</li>
+        <li>Shadertoy</li>
+      </ul>
 
       {{!-- https://itp-xstory.github.io/p5js-shaders/#/ --}}
       {{!-- https://github.com/aferriss/p5jsShaderExamples/blob/gh-pages/1_basics/1-1_red/basic.vert --}}
@@ -179,6 +209,10 @@ slug: learn/
       <p>A special graphics card program that can efficiently produce many visual effects and filters. </p>
       <h3>Uniform</h3>
       <p>A variable that is passed from your sketch to a shader</p>
+      <h3>Texture</h3>
+      <h3>Type</h3>
+      <h3>Vertex Shader</h3>
+      <h3>Fragment Shader</h3>
 
     </main>
 
