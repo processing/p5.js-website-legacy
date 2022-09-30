@@ -16,7 +16,7 @@ function setup() {
 
   debugMode();
 
-  p = document.querySelector('#axisText')
+  p = document.querySelector('#axisText');
 }
 
 function draw() {
@@ -40,8 +40,11 @@ function draw() {
   
   // also added: draw lines along x, y, z axes in rotated space
   strokeWeight(4);
+  stroke('red');
   line(0, 0, 0, 100, 0, 0);
+  stroke('green');
   line(0, 0, 0, 0, 100, 0);
+  stroke('blue');
   line(0, 0, 0, 0, 0, 100);
   
   normalMaterial();
@@ -50,59 +53,8 @@ function draw() {
 
   noFill();
 
-  p.innerHTML = 'rotateX('+parseFloat(xAxisSlider.value).toFixed(3)+') <br />';
-  p.innerHTML += 'rotateY('+parseFloat(yAxisSlider.value).toFixed(3)+') <br />';
-  p.innerHTML += 'rotateZ('+parseFloat(zAxisSlider.value).toFixed(3)+') <br />'
-
-//   // draw axes vector
-//   push();
-  
-//   /*  
-//     here I should be able to apply a rotation
-//     that will align the visualization to the rotateAxis
-    
-//     I can't seem to figure out how calculate the right rotation.
-//   */
-  
-//   let a = rotateVector
-//   let b = createVector(0,-1,0)
-//   let na = a.copy() 
-//   let nb = b.copy()
-  
-//   na.normalize()
-//   nb.normalize()
-  
-//   let angle = acos(p5.Vector.dot(na,nb))
-//   let c = p5.Vector.cross(a,b)
-  
-//   rotate(-angle, c)
-
-//   stroke(0);
-//   strokeWeight(5);
-//   // line(
-//   //   -100,
-//   //   0,
-//   //   0,
-//   //   100,
-//   //   0,
-//   //   0
-//   // );
-  
-//   // rotate so that arc is oriented correctly
-//   // this seems to work correctly
-//   rotateX(PI / 2);
-//   stroke(255, 0, 255);
-//   arc(0, 0, 200, 200, 0, angleSlider.value());
-//   pop();
-  
-//   scale(1000);
-  
-//     line(
-//     -xAxisSlider.value(),
-//     -yAxisSlider.value(),
-//     -zAxisSlider.value(),
-//     xAxisSlider.value(),
-//     yAxisSlider.value(),
-//     zAxisSlider.value()
-//   );
+  p.innerHTML = 'angleMode(DEGREES) <br /><br />';
+  p.innerHTML += 'rotateX('+parseFloat(degrees(xAxisSlider.value)).toFixed(1)+') <br />';
+  p.innerHTML += 'rotateY('+parseFloat(degrees(yAxisSlider.value)).toFixed(1)+') <br />';
+  p.innerHTML += 'rotateZ('+parseFloat(degrees(zAxisSlider.value)).toFixed(1)+') <br />'
 }
