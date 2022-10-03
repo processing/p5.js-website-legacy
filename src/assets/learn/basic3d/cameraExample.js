@@ -20,7 +20,7 @@ function draw() {
   
   if(cameraType === 'ortho') {
     camera(200,-200,200)
-    ortho(-width / 2, width / 2, height / 2, -height / 2, 0, 500);
+    ortho(-width / 2, width / 2, -height / 2, height / 2, 0, 500);
   } else if(cameraType === 'perspective'){
     camera(200,-200,200)
     perspective(fovSlider.value)
