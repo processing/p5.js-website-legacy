@@ -57,8 +57,8 @@ slug: learn/
           <li><a href="#camera">Camera and View</a></li>
           <li><a href="#lighting">Lighting</a></li>
           <li><a href="#materials">Materials and Textures</a></li>
-          <li><a href="#glossary">Glossary</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
+          <li><a href="#glossary">Glossary</a></li>          
         </ol>
       </div>
 
@@ -73,26 +73,32 @@ slug: learn/
         alt="an illustration showing the difference between perspective and orthographic camera types">
 
       <p>A <em>perspective camera</em> skews objects so they appear to get smaller as they get further away, vanishing
-        at a
-        single point in the distance. This is in contrast to an <em>orthographic camera</em>, where the geometry stays
-        the same
-        size as it gets further away and has no vanishing point. </p>
+        at a single point in the distance. This is in contrast to an <em>orthographic camera</em>, where the 
+        geometry stays the same size as it gets further away and has no vanishing point. </p>
 
-      <p>Constantly moving and adjusting the camera in code can be tedious, especially when you are experimenting with
+      {{!-- sketch illustrating 3D camera --}}
+      <iframe src="{{assets}}/learn/basic3D/cameraExample.html" width="720" height="350">
+      </iframe>
+
+      <p>One setting that we can change with a perspective camera is the <em>field-of-view</em>, or FOV. This is the 
+      term that is used to describe how much our camera can see, measured as an angle. In simple examples it might appear
+      to have a zoom-like effect, but it will change way that shapes will change size in the distance.</p>
+
+      <p>Another important term when working with cameras in 3D is the camera <em>frustum</em>. The frustum of the camera the
+      shape of the camera's view, a pyramid-like shape within which geometry can be displayed. The frustum includes a <em>near and far plane</em>.
+      The near plane defines the minimum distance that geometry must be from the camera to be rendered. The far plane defines the maximum
+      distance that the geometry can be from the camera. Each of these can be changed to affect how close and how far the camera can see. This process
+      of selectively including geometry is sometimes referred to as 'clipping'.</p>
+
+      <div style="display:flex; align-items:center; justify-content: center;">
+      <img style="width:50%;" src='{{assets}}/learn/basic3D/images/frustum_example.png'
+        alt="an illustration showing the the camera frustum, near plane, and far plane">
+      </div>
+
+      <p>Cameras can be moved by passing arguments to <a class="code">camera()</a>, but constantly moving and adjusting the camera in code can be tedious, especially when you are experimenting with
         ideas. p5.js has a special camera method, <a class="code"
           href="{{root}}/reference/#/p5/orbitControl">orbitControl()</a>, that can be used to zoom, pan,
         and position the camera using the mouse.</p>
-
-      <p>The following camera methods are available in p5.js:</p>
-
-      <ul>
-        <li><a class="code" href="{{root}}/reference/#/p5/ortho">ortho(left, right, bottom, top, near, far)</a></li>
-        <li><a class="code" href="{{root}}/reference/#/p5/perspective">perspective(fovy, aspect, near, far)</a></li>
-        <li><a class="code" href="{{root}}/reference/#/p5/camera">camera(x, y, z, centerX, centerY, centerZ, upX, upY,
-            upZ)</a></li>
-        <li><a class="code" href="{{root}}/reference/#/p5/orbitControl">orbitControl(sensitivityX, sensitivityY,
-            sensitivityZ)</a></li>
-      </ul>
 
       <p>
         A scene can have multiple cameras, but only one camera can be active at a time. Sketches in p5.js will default
@@ -111,7 +117,7 @@ function setup() {
   // ortho();
 
   // setting initial camera position
-  camera(400,-40, 400);
+  camera(200,-40, 200);
 }
 
 function draw() {
@@ -149,43 +155,39 @@ function draw() {
 }
       </script>
 
-      {{!-- sketch illustrating 3D camera --}}
-      <iframe src="{{assets}}/learn/basic3D/cameraExample.html" width="720" height="350">
-      </iframe>
+
 
       <h2 id="lighting">Lighting</h2>
 
       <p>Lighting is another essential part of a 3D scene. To be able to convey shape and depth in 3D is necessary to
         have a light source. p5.js has a few different types of light that can be used in a sketch.</p>
 
-      <p>In p5 we have: </p>
-
       <ul>
-        <li><a class="code" href="{{root}}/reference/#/p5/ambientLight">ambientLight()</a>
+        <li><h3><a class="code" href="{{root}}/reference/#/p5/ambientLight">ambientLight()</a></h3>
           <ul style="margin-left:15px;">
             <li>Ambient light makes everything display a little brighter, with no consideration for light position or
               direction.</li>
           </ul>
         </li>
-        <li><a class="code" href="{{root}}/reference/#/p5/directionalLight">directionalLight()</a>
+        <li><h3><a class="code" href="{{root}}/reference/#/p5/directionalLight">directionalLight()</a></h3>
           <ul style="margin-left:15px;">
             <li>A directional light shines from one direction, which can be especially useful for communicating depth in
               a scene, or when a scene needs a 'sun' light. This method accepts a color and direction.</li>
           </ul>
         </li>
-        <li><a class="code" href="{{root}}/reference/#/p5/pointLight">pointLight()</a>
+        <li><h3><a class="code" href="{{root}}/reference/#/p5/pointLight">pointLight()</a></h3>
           <ul style="margin-left:15px;">
             <li>A point light emits from a single point in all directions, similar to something like a lightbulb. This
               method accepts a color and a position for the light.</li>
           </ul>
         </li>
-        <li><a class="code" href="{{root}}/reference/#/p5/spotLight">spotLight()</a>
+        <li><h3><a class="code" href="{{root}}/reference/#/p5/spotLight">spotLight()</a></h3>
           <ul style="margin-left:15px;">
             <li>A spot light emits from a single point in a single direction. This light is cast in a conical shape and
               it's radius and concentration can be adjusted.</li>
           </ul>
         </li>
-        <li><a class="code" href="{{root}}/reference/#/p5/noLights">noLights()</a>
+        <li><h3><a class="code" href="{{root}}/reference/#/p5/noLights">noLights()</a></h3>
           <ul style="margin-left:15px;">
             <li>noLights() makes it so that all subsequent geometry is rendered without any lighting. This can be useful
               when you want flat, unshaded geometry.</li>
@@ -196,16 +198,14 @@ function draw() {
       <p>
         These lights should be used within <a class="code">draw()</a>. Up to 5 lights can be used in a scene
         simultaneously,
-        allowing you to compose a scene with varied and complex lighting sources.
+        allowing you to compose a scene with varied and complex lighting sources. In the following sketch there are a number of different lights commented out. Try uncommenting them to see how the lights can be combined.
       </p>
 
       {{!-- lighting example --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
-  debugMode();
-  
-  camera(200,-80, 200);
+  camera(100,-80, 100);
 }
 
 function draw() {
@@ -213,28 +213,28 @@ function draw() {
   
   orbitControl()
   
-  // uncomment to enable / disable lights
+  // use comments to enable / disable lights
   
-  // ambientLight(20);
+  ambientLight(20);
   
-  // pointLight(
-  //   255, 0, 0, // color
-  //   40, -40,0  // position
-  // );
+  pointLight(
+    255, 0, 0, // color
+    40, -40,0  // position
+  );
   
-  // directionalLight(
-  //   0,255,0, // color
-  //   1, 1, 0  // direction
-  // );
+  directionalLight(
+    0,255,0, // color
+    1, 1, 0  // direction
+ );
   
-  // let locX = mouseX - width / 2;
-  // let locY = mouseY - height / 2;
-  // spotLight(
-  //   0, 0, 255,       // color
-  //   locX, locY, 100, // position
-  //   0, 0, -1,        // direction
-  //   40               // radius of the spotlight cone
-  // );
+   let locX = mouseX - width / 2;
+   let locY = mouseY - height / 2;
+   spotLight(
+     0, 0, 255,       // color
+     locX, locY, 100, // position
+    0, 0, -1,        // direction
+    40               // radius of the spotlight cone
+  );
   
   // noLights();
   
@@ -244,9 +244,9 @@ function draw() {
 
       <br />
 
-      {{!-- sketch illustrating lighting of geometry --}}
+      {{!-- sketch illustrating lighting of geometry
       <iframe src="{{assets}}/learn/basic3D/lightingExample.html" width="720" height="350">
-      </iframe>
+      </iframe> --}}
 
       <h2 id="materials">Materials and Textures</h2>
       <p>3D is not all about geometry, objects can appear differently based on their material. Materials dictate how
@@ -269,30 +269,32 @@ function draw() {
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 function setup() {
   createCanvas(innerWidth, innerHeight, WEBGL);
-  debugMode();
 }
 
 function draw() {
   background(220);
   camera(200, -200, 200);
+  
+  noStroke();
 
   ambientLight(128)
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
   pointLight(255, 255, 255, locX, locY, 100);
 
-  // normalMaterial();
+  // normal material shows the geometry normals
+  normalMaterial();
 
   // ambient materials reflect under any light
   ambientMaterial(255, 0, 0);
 
   // emissive materials show the same color regardless of light
-  // emissiveMaterial(0, 255, 0);
+  emissiveMaterial(0, 255, 0);
 
   // specular materials reflect the color of the light source 
   // and can vary in 'shininess'
-  // shininess(10)
-  // specularMaterial(0, 0, 255);
+  shininess(10)
+  specularMaterial(0, 0, 255);
 
   // box(50);
   sphere();
@@ -358,6 +360,18 @@ function draw() {
       <h3>Orthographic</h3>
       <p>A projection that is <em>orthogonal</em> and unaffected by depth. It gives the appearance of being
         two-dimensional. </p>
+
+      <h3>Field-of-View</h3>
+      <p></p>
+
+      <h3>Frustum</h3>
+      <p></p>
+
+      <h3>Near and Far Plane</h3>
+      <p></p>
+
+      <h3>Clipping</h3>
+      <p></p>
 
     </main>
 

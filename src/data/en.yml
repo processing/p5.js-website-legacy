@@ -370,19 +370,18 @@ learn:
   getting-started-in-webgl-custom-geometry-title: Creating Custom Geometry in WebGL
   getting-started-in-webgl-custom-geometry: Creating custom geometry in WebGL
   getting-started-in-webgl-custom-geometry-p1x1: >-
-    p5.js has a number of 3D primitives that can be used to create basic shapes, like <a class="code">box()</a> or <a class="code">sphere()</a>, but p5.js
-    is also capable of rendering complex custom geometry, either from files that are created in other 3D software
-    (like Blender) or from code. This tutorial will walk through how to import 3D models into p5.js, as well as how
+    p5.js has a number of basic shapes, like <a class="code">box()</a> or <a class="code">sphere()</a>, but p5.js
+    is also capable of rendering complex custom geometry, both from 3D model files or from code. This tutorial will walk through how to import 3D models into p5.js, as well as how
     to create a basic geometry from scratch.
   getting-started-in-webgl-custom-geometry-info1x1: >-
-    If you are new to 3D it's recommended that you check out the 
+    If you are new to 3D check out the 
     <a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">
-    Coordinates and Transformations</a> tutorial before continuing with this tutorial.
+    Coordinates and Transformations</a> tutorial.
   getting-started-in-webgl-custom-geometry-toc-title: Table of Contents 
   getting-started-in-webgl-custom-geometry-toc1: Loading 3D Models from File
   getting-started-in-webgl-custom-geometry-toc2: Creating Basic Procedural Geometry
-  getting-started-in-webgl-custom-geometry-toc3: Glossary
-  getting-started-in-webgl-custom-geometry-toc4: Conclusion
+  getting-started-in-webgl-custom-geometry-toc3: Conclusion
+  getting-started-in-webgl-custom-geometry-toc4: Glossary
   getting-started-in-webgl-custom-geometry-heading1: Loading 3D Models from File
   getting-started-in-webgl-custom-geometry-p2x1: >-
     Custom geometry can be imported into p5.js using either OBJ or STL files. These files are usually generated in
@@ -405,10 +404,17 @@ learn:
     There are also methods that offer greater control of the geometry. A shape can be defined point-by-point using
     <a class="code" href="{{root}}/reference/#/p5/beginShape">beginShape()</a>, <a class="code"
     href="{{root}}/reference/#/p5/vertex">vertex()</a>, and <a class="code"
-    href="{{root}}/reference/#/p5/endShape">endShape()</a>
+    href="{{root}}/reference/#/p5/endShape">endShape()</a>. This following example shows how
+    these methods can be used to construct a 3D shape mathematically.
   getting-started-in-webgl-custom-geometry-p6x1: >-
-    There is also a powerful class, p5.Geometry, which p5 uses internally for <a class="code">loadModel()</a> but can also be used to
+    There is also a powerful class, <a class="code" href="{{root}}/reference/#/p5/p5.Geometry">p5.Geometry</a>, which p5 uses internally for <a class="code">loadModel()</a> but can also be used to
     define custom geometry, offering tools that can be helpful in calculating faces and normals. 
+  getting-started-in-webgl-custom-geometry-p6x2: >-
+    In 3D, a face refers to a collection of three or four points that make up a surface, giving our
+    geometry the appearance of being solid. A normal is the direction that is perpendicular to the face, which helps p5.js calculate lighting across the surface.
+  getting-started-in-webgl-custom-geometry-p6x3: >-
+    In the following example, <a class="code">p5.Geometry</a> is used to plot the points for the geometry. Then, <a class="code">computeFaces()</a> is used to give the geometry
+    a solid appearance and <a class="code">computeNormals()</a> allows our geometry to have proper lighting.
   getting-started-in-webgl-custom-geometry-heading3: Conclusion
   getting-started-in-webgl-custom-geometry-p7x1: >-
     Now you should be able to create custom geometry, making it possible to create

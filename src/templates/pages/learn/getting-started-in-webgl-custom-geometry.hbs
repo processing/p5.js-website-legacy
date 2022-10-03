@@ -39,10 +39,6 @@ slug: learn/
     <main>
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
-      {{!-- large title sketch --}}
-      {{!-- <iframe src="{{assets}}/learn/basic3D/titleExample.html" width="720" height="350">
-      </iframe> --}}
-
       <h1>{{#i18n "getting-started-in-webgl-custom-geometry-title"}}{{/i18n}}</h1>
 
       <p>{{#i18n "getting-started-in-webgl-custom-geometry-p1x1"}}{{/i18n}}</p>
@@ -54,8 +50,8 @@ slug: learn/
         <ol>
           <li><a href="#3dModels">{{#i18n "getting-started-in-webgl-custom-geometry-toc1"}}{{/i18n}}</a></li>
           <li><a href="#proceduralGeometry">{{#i18n "getting-started-in-webgl-custom-geometry-toc2"}}{{/i18n}}</a></li>
-          <li><a href="#glossary">{{#i18n "getting-started-in-webgl-custom-geometry-toc3"}}{{/i18n}}</a></li>
-          <li><a href="#conclusion">Conclusion</a></li>
+          <li><a href="#conclusion">{{#i18n "getting-started-in-webgl-custom-geometry-toc3"}}{{/i18n}}</a></li>
+          <li><a href="#glossary">{{#i18n "getting-started-in-webgl-custom-geometry-toc4"}}{{/i18n}}</a></li>
         </ol>
       </div>
 
@@ -110,12 +106,12 @@ function draw(){
   // click+drag on canvas to look around the shape
   orbitControl();
   
-  fill(255,0,0,128)
+  fill(255,0,0,128);
     
   var numVertices = 100;
-  translate(0,numVertices,0)
-  rotateY(millis()/1000)
-  scale(20)
+  translate(0,numVertices,0);
+  rotateY(millis()/1000);
+  scale(20);
   beginShape();
   // a simple spiral shape
   for(let i = 0; i < numVertices; i++) {
@@ -130,6 +126,15 @@ function draw(){
       </script>
 
       <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x1"}}{{/i18n}}</p>
+
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x2"}}{{/i18n}}</p>
+
+        <img style="padding:30px; width:50%;" src='{{assets}}/learn/basic3D/images/normals_face_example.png'
+          alt="an illustration a collection of three points, constituting a face, and an arrow extending perpendicular to it, the normal" />
+      </div>
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x3"}}{{/i18n}}</p>
 
       {{!-- Example using p5.Geometry --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
