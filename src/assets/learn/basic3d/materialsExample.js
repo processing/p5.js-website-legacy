@@ -1,6 +1,9 @@
-let fovSlider;
-let selectMaterialType;
-let materialType;
+let shapeType;
+
+let toggleNormalMaterial,
+toggleAmbientMaterial,
+toggleEmissiveMaterial,
+toggleSpecularMaterial;
 
 function setup() {
   let canvas = createCanvas(350, 350, WEBGL);
@@ -8,33 +11,53 @@ function setup() {
 
   debugMode();
 
-  selectMaterialType = document.querySelector('#materialType')
+  shapeType = document.querySelector('#shapeType')
+
+  toggleNormalMaterial = document.querySelector('#toggleNormalMaterial')
+  toggleAmbientMaterial = document.querySelector('#toggleAmbientMaterial')
+  toggleEmissiveMaterial = document.querySelector('#toggleEmissiveMaterial')
+  toggleSpecularMaterial = document.querySelector('#toggleSpecularMaterial')
 }
 
 function draw() {
   background(220);
-  camera(200, -200, 200);
+  camera(0, -100, 250);
 
-  materialType = selectMaterialType.value;
-  
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
   pointLight(255, 255, 255, locX, locY, 50);
 
-  switch (materialType) {
-    case "normalMaterial":
-      normalMaterial();
-      break;
-    case "ambientMaterial":
-      ambientMaterial(255, 0, 0);
-      break;
-    case "emissiveMaterial":
-      emissiveMaterial(0, 255, 0);
-      break;
-    case "specularMaterial":
-      specularMaterial(0, 0, 255);
-      break;
+  if(toggleNormalMaterial.checked) {
+    normalMaterial();
   }
 
-  box(50);
+  if(toggleAmbientMaterial.checked) {
+    ambientMaterial(255, 0, 0);
+  }
+
+  if(toggleEmissiveMaterial.checked) {
+    emissiveMaterial(0, 255, 0);
+  }
+
+  if(toggleSpecularMaterial.checked) {
+    specularMaterial(0, 0, 255);
+  }
+
+  if(shapeType.checked) {
+    sphere(50);
+  } else {
+    push();
+    rotateY(PI/4)
+    box(50);
+    pop();
+  }  
+  
+  // draw debug point light
+  push();
+  translate(locX, locY, 50);
+  scale(0.2);
+  noLights()
+  fill('blue');
+  sphere();
+  pop();
 }

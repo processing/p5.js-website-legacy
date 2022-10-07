@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title>3d Lighting Example</title>
+  <title>3D Materials Example</title>
   <script src="../../../assets/js/p5.min.js"></script>
   <!-- uncomment lines below to include extra p5 libraries -->
   <!--<script src="../addons/p5.sound.js"></script>-->
@@ -45,13 +45,24 @@
   <div id="pageContainer">
     <div id="sketchContainer"></div>
     <div id="controlsContainer">
-      <label>Material Type: 
-        <select id="materialType">
-          <option value="normalMaterial">normalMaterial</option>
-          <option value="ambientMaterial">ambientMaterial</option>
-          <option value="emissiveMaterial">emissiveMaterial</option>
-          <option value="specularMaterial">specularMaterial</option>
-        </select>
+      <label>Sphere:
+        <input id="shapeType" type="checkbox" />          
+      </label>
+
+      <label style="color:black;">
+        normalMaterial: <input id="toggleNormalMaterial" type="checkbox" checked/>
+      </label>
+      
+      <label style="color:red;">
+        ambientMaterial: <input id="toggleAmbientMaterial" type="checkbox"/>
+      </label>
+      
+      <label style="color:green;">
+        emissiveMaterial: <input id="toggleEmissiveMaterial" type="checkbox"/>
+      </label>
+      
+      <label style="color:blue;">
+        specularMaterial: <input id="toggleSpecularMaterial" type="checkbox"/>
       </label>
     </div>
   </div>
