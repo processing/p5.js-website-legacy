@@ -24,7 +24,7 @@ Once added, a steward's username will remain in the [stewards section of the rea
 | Overall                      | [@Qianqianye](https://github.com/Qianqianye), [@limzykenneth](https://github.com/limzykenneth) |
 | Reference                    |  [@Divyansh013](https://github.com/Divyansh013)                      |
 | Example                      | GSoC 2022: [@Malayvasa](https://github.com/Malayvasa) (Contributor), [@tyler-yin](https://github.com/tyler-yin)(Mentor); [@3ru](https://github.com/3ru) |
-| Teach                        | GSoC 2022: [@Gracia-zhang](https://github.com/Gracia-zhang) (Contributor), [@yinhwa](https://github.com/yinhwa)(Mentor) |
+| Teach                        | GSoC 2022: [@Gracia-zhang](https://github.com/Gracia-zhang) (Contributor), [@yinhwa](https://github.com/yinhwa)(Mentor); [@SarveshLimaye](https://github.com/SarveshLimaye)|
 | Showcase                     | GSoC 2022:  [@anniezhengg](https://github.com/anniezhengg) (Contributor), [@raclim](https://github.com/raclim)(Mentor) |
 | Learn                        | [@nickmcintyre](https://github.com/nickmcintyre)                                  |
 | Libraries                    | [@Qianqianye](https://github.com/Qianqianye)                                           |
@@ -36,9 +36,9 @@ Once added, a steward's username will remain in the [stewards section of the rea
 | Language | Steward(s)                |
 | -------- | ------------------------- |
 | Overall  |[@Qianqianye](https://github.com/Qianqianye), [@limzykenneth](https://github.com/limzykenneth) |
-| Spanish  |[@Guirdo](https://github.com/Guirdo), [@Andreu-G](https://github.com/Andreu-G)                |
+| Spanish  |[@Guirdo](https://github.com/Guirdo), [@Andreu-G](https://github.com/Andreu-G), [@dnd-alv](https://github.com/dnd-alv)                  |
 | Chinese  | [@unicar9](https://github.com/unicar9), [@Gracia-zhang](https://github.com/Gracia-zhang), [@pentalei](https://github.com/pentalei)              |
-| Korean   | [@yinhwa](https://github.com/yinhwa), [@almchung](https://github.com/almchung), [@jhongover9000](https://github.com/jhongover9000), [@sssueing](https://github.com/sssueing), [@GeryGeryGery](https://github.com/GeryGeryGery) |
+| Korean   | [@yinhwa](https://github.com/yinhwa), [@almchung](https://github.com/almchung), [@jhongover9000](https://github.com/jhongover9000), [@sssueing](https://github.com/sssueing), [@GeryGeryGery](https://github.com/GeryGeryGery), [@sosunnyproject](https://github.com/sosunnyproject) |
 | Hindi    | [@adarrssh](https://github.com/adarrssh), [@Divyansh013](https://github.com/Divyansh013), [@deepchauhan](https://github.com/deepchauhan), [@SarveshLimaye](https://github.com/SarveshLimaye)|
 
 Other Language Steward(s):
@@ -46,7 +46,6 @@ Other Language Steward(s):
 
 ## Setup
 
-0. Ensure Java is installed. Not installed?  Head over to [Java](https://www.oracle.com/java/technologies/downloads/) for installation.
 1. Install [node.js](https://nodejs.org/en/download/).
 2. Clone this repo by typing ```git clone https://github.com/processing/p5.js-website/``` in terminal.
 3. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
