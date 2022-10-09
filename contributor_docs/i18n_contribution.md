@@ -211,7 +211,7 @@ The en.json is made up of three sections:
   - p5.js documentation, also extracted from the data.json file. This section contains a key for each p5.js Class (i.e., "p5.Color"), which holds information about the Class itself and its Methods and Fields.
   In this section, you might find HTML Anchor elements. You only need to translate the text between the two tags. For example, in `<a href=\"#/p5.Color\">p5.Color</a>`, you need to translate the second 'p5.Color' and leave the rest as is.
 
-All the translation swaps of the Reference pages happen is [this function](https://github.com/processing/p5.js-website/blob/main/src/templates/pages/reference/index.hbs#L61).
+All the translation swaps of the Reference pages happen in [this function](https://github.com/processing/p5.js-website/blob/main/src/templates/pages/reference/index.hbs#L61).
 Any entries in the JSON object which are not filled in will be left in English when the page is loaded.
 
 The translated versions of the JSON file need to be manually created and updated.
