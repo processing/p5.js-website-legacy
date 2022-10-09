@@ -68,7 +68,7 @@ slug: learn/
 
       {{!-- Widget example of teapot model and loadModel --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
-var teapotModel;
+let teapotModel;
 
 function preload() {
   teapotModel = loadModel('{{assets}}/learn/basic3D/models/teapot.obj', true);
@@ -77,6 +77,7 @@ function preload() {
 function setup() {
   createCanvas(150, 216, WEBGL);
   debugMode();
+  describe('displays a model of a teapot using normalMaterial()');
 }
 
 function draw(){
@@ -92,17 +93,13 @@ function draw(){
 
       <p>{{#i18n "getting-started-in-webgl-custom-geometry-p4x1"}}{{/i18n}}</p>
 
-      {{!-- Example using triangle and quad --}}
-      {{!-- PENDING WebGL quad / triangle bug fix --}}
-      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
-      </script>
-
       <p>{{#i18n "getting-started-in-webgl-custom-geometry-p5x1"}}{{/i18n}}</p>
 
       {{!-- Example using beginShape and endShape --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
+  describe('a red 3d spiral shape created with beginShape and endShape');
 }
 
 function draw(){
@@ -132,18 +129,27 @@ function draw(){
 
       <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x1"}}{{/i18n}}</p>
 
-      <div style="display: flex; align-items: center; justify-content: center;">
+      {{!-- <div style="display: flex; align-items: center; justify-content: center;">
         <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x2"}}{{/i18n}}</p>
 
         <img style="padding:30px; width:50%;" src='{{assets}}/learn/basic3D/images/normals_face_example.png'
           alt="an illustration a collection of three points, constituting a face, and an arrow extending perpendicular to it, the normal" />
+      </div> --}}
+
+      
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x2"}}{{/i18n}}</p>
+
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <img style="padding:30px; width:60%;" src='{{assets}}/learn/basic3D/images/normals_face_example.png'
+          alt="an illustration a collection of three points, constituting a face, and an arrow extending perpendicular to it, the normal" />
       </div>
+        
 
       <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x3"}}{{/i18n}}</p>
 
       {{!-- Example using p5.Geometry --}}
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
-var myGeometry
+let myGeometry
 
 function setup() {
   createCanvas(400, 400, WEBGL);
@@ -152,7 +158,8 @@ function setup() {
   let detailY = 20;
   myGeometry = new p5.Geometry(detailX,detailY, function() {
     
-    // must be detailX + 1, detailY + 1
+    // these nested for loops create a simple grid of vertices
+    // which are affected by sin() and cos() on the z-axis
     for(let x = 0; x <= detailX; x++) {
       for(let y = 0; y <= detailY; y++) {
         this.vertices.push(new p5.Vector(
@@ -160,33 +167,35 @@ function setup() {
           y/detailY,
           (sin(x/detailX*TWO_PI*4) + cos(y/detailY*TWO_PI)) / 10
           // random()/10
-        ))
+        ));
       }
     }
 
     // this will attach all our vertices and create faces automatically
-    this.computeFaces()
+    this.computeFaces();
     // this will calculate the normals to help with lighting
-    this.computeNormals()
-  })
+    this.computeNormals();
+  });
+
+  describe('a greenish plane shape that is warped and lit');
 }
 
 function draw() {
   background(220);
   
-  orbitControl()
+  orbitControl();
   
   //set a basic light to see that normals are calculated
-  pointLight(255,255,0,0,50,-50)
+  pointLight(255,255,0,0,50,-50);
   
   push();
-  stroke(128)
-  var geoSize = width/2
-  rotateY(cos(millis() / 1000)*PI/4)
-  translate(-geoSize/2,-geoSize/2)
-  scale(geoSize)
-  model(myGeometry)
-  pop()
+  stroke(128);
+  let geoSize = width/2;
+  rotateY(cos(millis() / 1000)*PI/4);
+  translate(-geoSize/2,-geoSize/2);
+  scale(geoSize);
+  model(myGeometry);
+  pop();
 }
       </script>
 
@@ -194,11 +203,11 @@ function draw() {
 
       <p>{{#i18n "getting-started-in-webgl-custom-geometry-p7x1"}}{{/i18n}}</p>
 
-      <h2>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h2>
+      <h3>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h3>
       <p>{{#i18n "getting-started-in-webgl-other-tutorials-p"}}{{/i18n}}</p>
       <ul class="indexList">
         <li><a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut1"}}{{/i18n}}</a></li>
-        <li><a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut2"}}{{/i18n}}</a></li>
+        <li>{{#i18n "getting-started-in-webgl-other-tutorials-tut2"}}{{/i18n}} {{#i18n "getting-started-in-webgl-other-tutorials-you-are-here"}}{{/i18n}}</li>
         <li><a href="{{root}}/learn/getting-started-in-webgl-appearance.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut3"}}{{/i18n}}</a></li>
         <li><a href="{{root}}/learn/getting-started-in-webgl-shaders.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut4"}}{{/i18n}}</a></li>
       </ul>

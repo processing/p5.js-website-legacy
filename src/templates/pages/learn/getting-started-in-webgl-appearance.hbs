@@ -44,10 +44,6 @@ slug: learn/
     <main>
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
-      {{!-- large title sketch --}}
-      {{!-- <iframe src="{{assets}}/learn/basic3D/titleExample.html" width="720" height="350">
-      </iframe> --}}
-
       <h1>{{#i18n "getting-started-in-webgl-appearance-title"}}{{/i18n}}</h1>
 
       <p>
@@ -101,44 +97,44 @@ function setup() {
 
   // setting initial camera position
   camera(200,-40, 200);
+
+  describe('a 3d scene with a sphere on the bottom and box on the top');
 }
 
 function draw() {
   background(220);
   
-  let sphere_x = 0
-  let sphere_y = 90
-  let sphere_z = 0
+  let sphere_x = 0;
+  let sphere_y = 90;
+  let sphere_z = 0;
   
-  let box_x = 0
-  let box_y = -90
-  let box_z = 0
+  let box_x = 0;
+  let box_y = -90;
+  let box_z = 0;
   
   // uncomment to point camera at sphere
   // camera(
   //   400,-40, 400, // camera position
   //   sphere_x, sphere_y, sphere_z // position to look at
-  // )
+  // );
   
   // uncomment to point camera at box
   // camera(
   //   400,-40, 400, // camera position
   //   box_x, box_y, box_z // position to look at
-  // )
+  // );
   
-  push()
-  translate(sphere_x, sphere_y, sphere_z)
-  sphere(40,8)
-  pop()
+  push();
+  translate(sphere_x, sphere_y, sphere_z);
+  sphere(40,8);
+  pop();
   
-  push()
-  translate(box_x, box_y, box_z)
-  box()
-  pop()
+  push();
+  translate(box_x, box_y, box_z);
+  box();
+  pop();
 }
       </script>
-
-
 
       <h2 id="lighting">{{#i18n "getting-started-in-webgl-appearance-heading2"}}{{/i18n}}</h2>
 
@@ -189,12 +185,13 @@ function draw() {
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   camera(100,-80, 100);
+  describe('a box geometry with a number of lights affecting its appearance');
 }
 
 function draw() {
   background(220);
   
-  orbitControl()
+  orbitControl();
   
   // use comments to enable / disable lights
   
@@ -208,13 +205,13 @@ function draw() {
   directionalLight(
     0,255,0, // color
     1, 1, 0  // direction
- );
+  );
   
-   let locX = mouseX - width / 2;
-   let locY = mouseY - height / 2;
-   spotLight(
-     0, 0, 255,       // color
-     locX, locY, 100, // position
+  let locX = mouseX - width / 2;
+  let locY = mouseY - height / 2;
+  spotLight(
+    0, 0, 255,       // color
+    locX, locY, 100, // position
     0, 0, -1,        // direction
     40               // radius of the spotlight cone
   );
@@ -247,6 +244,7 @@ function draw() {
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
 function setup() {
   createCanvas(innerWidth, innerHeight, WEBGL);
+  describe('a sphere geometry with multiple materials applied to it');
 }
 
 function draw() {
@@ -255,7 +253,7 @@ function draw() {
   
   noStroke();
 
-  ambientLight(128)
+  ambientLight(128);
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
   pointLight(255, 255, 255, locX, locY, 100);
@@ -271,7 +269,7 @@ function draw() {
 
   // specular materials reflect the color of the light source 
   // and can vary in 'shininess'
-  shininess(10)
+  shininess(10);
   specularMaterial(0, 0, 255);
 
   // box(50);
@@ -286,26 +284,27 @@ function draw() {
 let myTexture;
 
 function preload() {
-  myTexture = loadImage("{{assets}}/learn/basic3D/images/simpleTexture.png")
+  myTexture = loadImage("{{assets}}/learn/basic3D/images/simpleTexture.png");
   // map textures between 0 and 1 to match geometry uvs
-  textureMode(NORMAL)
+  textureMode(NORMAL);
 }
 
 function setup() {
   createCanvas(innerWidth, innerHeight, WEBGL);
+  describe('a rotating box with a texture of a pink scribble mapped onto it');
 }
 
 function draw() {
   background(220);
   
   // apply the texture to the box
-  texture(myTexture)
+  texture(myTexture);
   
-  push()
-  rotateX(millis()/1000)
-  rotateY(millis()/700)
-  box()
-  pop()
+  push();
+  rotateX(millis()/1000);
+  rotateY(millis()/700);
+  box();
+  pop();
 }
       </script>
 
@@ -316,12 +315,16 @@ function draw() {
         </p>
       </div>
 
-      <h2>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h2>
+      <h2 id="conclusion">{{#i18n "getting-started-in-webgl-appearance-heading4"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-appearance-p14x1"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h3>
       <p>{{#i18n "getting-started-in-webgl-other-tutorials-p"}}{{/i18n}}</p>
       <ul class="indexList">
         <li><a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut1"}}{{/i18n}}</a></li>
         <li><a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut2"}}{{/i18n}}</a></li>
-        <li><a href="{{root}}/learn/getting-started-in-webgl-appearance.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut3"}}{{/i18n}}</a></li>
+        <li>{{#i18n "getting-started-in-webgl-other-tutorials-tut3"}}{{/i18n}} {{#i18n "getting-started-in-webgl-other-tutorials-you-are-here"}}{{/i18n}}</li>
         <li><a href="{{root}}/learn/getting-started-in-webgl-shaders.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut4"}}{{/i18n}}</a></li>
       </ul>
 

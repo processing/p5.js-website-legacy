@@ -14,6 +14,10 @@ function setup() {
   toggleDirectional = document.querySelector("#toggleDirectional");
   toggleSpotlight = document.querySelector("#toggleSpotlight");
   togglePoint = document.querySelector("#togglePoint");
+
+  describe(
+    'an interactive sketch that allows you to toggle on and off a number of different lights with indicators on a box shape.'
+  );
 }
 
 function draw() {

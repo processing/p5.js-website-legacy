@@ -63,6 +63,5 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight)
-  console.log('check')
+  resizeCanvas(windowWidth, windowHeight);
 }

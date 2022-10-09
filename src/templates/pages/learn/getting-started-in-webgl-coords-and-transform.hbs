@@ -75,10 +75,12 @@ slug: learn/
       <pre><code class="language-javascript">
       function setup() {
         createCanvas(windowWidth, windowHeight, WEBGL);
+        describe('a red box on a white background');
       }
 
       function draw(){
         background(255);
+        fill(255,0,0);
         box();
       }
       </code></pre>
@@ -172,6 +174,7 @@ slug: learn/
 function setup() {
   createCanvas(150, 216, WEBGL);
   debugMode();
+  describe('a white box with a number of transformations applied');
 }
 
 function draw(){
@@ -179,8 +182,7 @@ function draw(){
   camera(100,-100,100);
   
   translate(25,0,25); 
-  rotateY(PI/3);
-          
+  rotateY(PI/3);          
   scale(2);
 
   box(10);
@@ -228,6 +230,7 @@ function draw(){
 function setup() {
   createCanvas(150, 216, WEBGL);
   debugMode();
+  describe('two white boxes with a number of transformations applied');
 }
 
 function draw() {
@@ -264,10 +267,12 @@ function draw() {
 
       <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p22x1"}}{{/i18n}}</p>
 
-      <h2>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h2>
+      <h3>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h3>
+      
       <p>{{#i18n "getting-started-in-webgl-other-tutorials-p"}}{{/i18n}}</p>
+
       <ul class="indexList">
-        <li><a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut1"}}{{/i18n}}</a></li>
+        <li>{{#i18n "getting-started-in-webgl-other-tutorials-tut1"}}{{/i18n}} {{#i18n "getting-started-in-webgl-other-tutorials-you-are-here"}}{{/i18n}}</li>
         <li><a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut2"}}{{/i18n}}</a></li>
         <li><a href="{{root}}/learn/getting-started-in-webgl-appearance.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut3"}}{{/i18n}}</a></li>
         <li><a href="{{root}}/learn/getting-started-in-webgl-shaders.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut4"}}{{/i18n}}</a></li>

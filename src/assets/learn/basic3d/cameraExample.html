@@ -12,7 +12,7 @@
       padding: 0;
       margin: 0;
       font-family: monospace;
-      font-size: 16px;
+      font-size: 14px;
       background-color: #dcdcdc
     }
 
@@ -27,7 +27,7 @@
       flex-direction: column;
       text-align: center;
       justify-content: space-evenly;
-      margin: 0px 10px;
+      margin: 0px 5px;
     }
 
     #controlsContainer {
@@ -36,7 +36,7 @@
     }
 
     #controlsContainer label {
-      padding: 15px;
+      padding: 10px;
     }
   </style>
 </head>
@@ -45,9 +45,13 @@
   <div id="pageContainer">
     <div id="sketchContainer"></div>
     <div id="controlsContainer">
-      <label>Ortho?:
-        <input id="cameraType" type="checkbox" />          
+      <label>Ortho:
+        <input id="cameraTypeOrtho" name="cameraType" type="radio" />          
       </label>
+      <label>Perspective:
+        <input id="cameraTypePerspective" name="cameraType" type="radio" checked/>          
+      </label>
+
       <label>camera fov: <input id="cameraFov" type="range" step="0.001" min="69" max="72.5" value="70"/></label>    
 
       <label>x position: <input id="cameraPosX" type="range" step="0.1" min="-500" max="500" value="200"/></label>    
