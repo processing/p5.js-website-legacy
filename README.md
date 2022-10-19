@@ -10,6 +10,10 @@ If you discover a bug or have an idea for a new feature you'd like to add, begin
 
 We recognize all types of contributions. This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Add yourself to the [p5.js repository readme](https://github.com/processing/p5.js/blob/main/README.md#contributors) by following the [instructions here](https://github.com/processing/p5.js/issues/2309)!
 
+## Add Yourself to Contributors
+
+If you've contributed to this website (or any other part of the p5.js project), add yourself [here](https://github.com/processing/p5.js#contributors). Instructions to do this can be found at the bottom of the section.
+
 ## Stewards
 Stewards are contributors that are particularly involved, familiar, or responsive to certain areas of the project. Their role is to help provide context and guidance to others working on p5.js website. If you have a question about contributing to a particular area, you can tag the listed steward in an issue or pull request. They may also weigh in on feature requests and guide the overall direction of their area, with the input of the community. You can read more about the organization of the project at [contributor_docs/organization.md](https://github.com/processing/p5.js/blob/main/contributor_docs/organization.md).
 
@@ -44,6 +48,8 @@ Once added, a steward's username will remain in the [stewards section of the rea
 Other Language Steward(s):
 * Portuguese: [@raphaelavelar](https://github.com/raphaelavelar)
 
+
+
 ## Setup
 
 1. Install [node.js](https://nodejs.org/en/download/).
@@ -74,13 +80,8 @@ Once you've setup the site, type `npm run watch` to run the website. This should
 * [grunt-assemble-i18n](https://github.com/assemble/grunt-assemble-i18n) renders a set of pages for each language specified in the gruntfile, based on the handlebars templates and yml data. There is not a lot of documentation, but this [example](https://github.com/LaurentGoderre/i18n-demo) demonstrates the functionality well.
 * [assemble-contrib-permalinks](https://github.com/assemble/assemble-permalinks) allows us to customize the permalinks (file structure of the rendered static site).
 
-## Add yourself to contributors!
-
-If you've contributed to this website (or any other part of the p5.js project), add yourself [here](https://github.com/processing/p5.js#contributors). Instructions to do this can be found at the bottom of the section.
-
-## Etc
-* [Instructions for contributing to website translation/internationalization](https://github.com/processing/p5.js-website/blob/main/contributor_docs/i18n_contribution.md)
-* [Introducción a p5.js](https://github.com/processing/p5.js-getting-started-es) - The repository for the book and PDF production of [Introducción a p5.js](http://p5js.org/books/).
+## Translation/i18n
+* [Instructions](https://github.com/processing/p5.js-website/blob/main/contributor_docs/i18n_contribution.md) for contributing to website translation/internationalization
 
 ## Externally hosted language versions
 * [https://p5js.jp](https://p5js.jp/) - 日本語 (Japanese), translated and hosted by [Katsuya Endoh](https://enkatsu.org/)
