@@ -10,12 +10,10 @@ let columns;
 let rows;
 let board;
 let next;
-let framerate;
 
 function setup() {
   // Set simulation framerate to 10 to avoid flickering
-  framerate = 10;
-  frameRate(framerate);
+  frameRate(10);
   createCanvas(720, 400);
   w = 20;
   // Calculate columns and rows
