@@ -1,11 +1,10 @@
 /*
- * @name Arm
- * @description This example uses transform matrices to create
- * an arm. The angle of each segment is controlled with the
- * mouseX and mouseY position. The transformations applied to
- * the first segment are also applied to the second segment
- * because they are inside the same push() and
- * pop() matrix group.
+ * @name 手臂
+ * @description 此示例使用变换矩阵创建
+ * 一只手臂。 每一段的角度都由
+ * 鼠标在画布上的位置控制。 应用于第一段变换方式
+ * 也适用于第二段因为它们在同一个 push()和pop()
+ * 矩阵组中。
  */
 
 let x, y;
@@ -17,10 +16,10 @@ function setup() {
   createCanvas(720, 400);
   strokeWeight(30);
 
-  //Stroke with a semi-transparent white
+  //用半透明的白色划线
   stroke(255, 160);
 
-  //Position the "shoulder" of the arm in the center of the canvas
+  //将手臂的 "肩膀 "放在画布的中心。
   x = width * 0.5;
   y = height * 0.5;
 }
@@ -28,20 +27,20 @@ function setup() {
 function draw() {
   background(0);
 
-  //Change the angle of the segments according to the mouse positions
+  //根据鼠标的位置来改变片段的角度
   angle1 = (mouseX / float(width) - 0.5) * -TWO_PI;
   angle2 = (mouseY / float(height) - 0.5) * PI;
 
-  //use push and pop to "contain" the transforms. Note that
-  // even though we draw the segments using a custom function,
-  // the transforms still accumulate
+  //使用push和pop来 "包含 "这些变换。请注意
+  // 即使我们使用一个自定义函数来画段。
+  // 变换仍然会累积
   push();
   segment(x, y, angle1);
   segment(segLength, 0, angle2);
   pop();
 }
 
-//a custom function for drawing segments
+//一个用于绘制分段的自定义函数。
 function segment(x, y, a) {
   translate(x, y);
   rotate(a);
