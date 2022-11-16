@@ -6,13 +6,11 @@ slug: learn/
 <style>
   .methodsList {
     font-family: monospace;
-    /*white-space: pre;*/
   }
 
   .additionalInformation {
     width: 100%;
     background-color: #dedeff;
-    font-size: 15px;
     padding: 10px;
     margin: 30px 0;
   }
@@ -20,7 +18,6 @@ slug: learn/
   .toc {
     width: 100%;
     background-color: #eee;
-    font-size: 15px;
     padding: 10px;
     margin: 30px 0;
   }
@@ -55,11 +52,11 @@ slug: learn/
       <div class="toc">
         <h3>{{#i18n "getting-started-in-webgl-shaders-toc-title"}}{{/i18n}}</h3>
         <ol>
-          <li><a href="#setup">{{#i18n "getting-started-in-webgl-shaders-toc1"}}{{/i18n}}</a></li>
-          <li><a href="#shadinglanguage">{{#i18n "getting-started-in-webgl-shaders-toc2"}}{{/i18n}}</a></li>
-          <li><a href="#uniforms">{{#i18n "getting-started-in-webgl-shaders-toc3"}}{{/i18n}}</a></li>
-          <li><a href="#conclusion">{{#i18n "getting-started-in-webgl-shaders-toc4"}}{{/i18n}}</a></li>
-          <li><a href="#glossary">{{#i18n "getting-started-in-webgl-shaders-toc5"}}{{/i18n}}</a></li>
+          <li><a href="#setup">{{#i18n "getting-started-in-webgl-shaders-heading1"}}{{/i18n}}</a></li>
+          <li><a href="#shadinglanguage">{{#i18n "getting-started-in-webgl-shaders-heading2"}}{{/i18n}}</a></li>
+          <li><a href="#uniforms">{{#i18n "getting-started-in-webgl-shaders-heading3"}}{{/i18n}}</a></li>
+          <li><a href="#conclusion">{{#i18n "getting-started-in-webgl-shaders-heading4"}}{{/i18n}}</a></li>          
+          <li><a href="#glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</a></li>          
         </ol>
       </div>
 
@@ -167,12 +164,8 @@ precision mediump float;
 uniform vec3 myColor;
 
 void main() {
-
-  // this vector is just the color red
-  vec4 myColor = vec4(myColor, 1.0);
-
-  // and now this color is assigned to the current pixel
-  gl_FragColor = myColor;
+  // the color we have passed in as a uniform is assigned to the pixel
+  gl_FragColor = vec4(myColor, 1.0);
 }
       </code></pre>
 
@@ -193,6 +186,7 @@ function draw() {
       <p>{{#i18n "getting-started-in-webgl-shaders-p16x1"}}{{/i18n}}</p>
 
       <pre><code class="language-javascript">
+// (thank you to Adam Ferriss for the foundation of these example shaders)
 // position information that is used with gl_Position
 attribute vec3 aPosition;
 
@@ -248,9 +242,6 @@ void main() {
         {{#i18n "getting-started-in-webgl-shaders-resources"}}{{/i18n}}
       </ul>
 
-      {{!-- https://github.com/aferriss/p5jsShaderExamples/blob/gh-pages/1_basics/1-1_red/basic.vert --}}
-      {{!-- https://github.com/aferriss/p5jsShaderExamples/blob/gh-pages/1_basics/1-1_red/basic.frag --}}
-
       <h3>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h3>
       <p>{{#i18n "getting-started-in-webgl-other-tutorials-p"}}{{/i18n}}</p>
       <ul class="indexList">
@@ -260,7 +251,7 @@ void main() {
         <li>{{#i18n "getting-started-in-webgl-other-tutorials-tut4"}}{{/i18n}} {{#i18n "getting-started-in-webgl-other-tutorials-you-are-here"}}{{/i18n}}</li>
       </ul>
 
-      <h2 id="glossary">{{#i18n "getting-started-in-webgl-shaders-glossary-title"}}{{/i18n}}</h2>
+      <h2 id="glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</h2>
 
       <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term1-title"}}{{/i18n}}</h3>
       <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term1-definition"}}{{/i18n}}</p>

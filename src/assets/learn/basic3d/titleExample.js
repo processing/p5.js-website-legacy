@@ -8,7 +8,7 @@ function preload() {
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight, WEBGL);
   debugMode();
-  describe("a basic 3d scene with animation and webgl");
+  describe("3D pink text that reads: p5.js getting started with 3D, with swirling 3D p5.js asterisk logo and coordinate system illustration");
 }
 
 function draw() {

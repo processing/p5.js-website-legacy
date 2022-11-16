@@ -371,23 +371,17 @@ learn:
   getting-started-in-webgl-other-tutorials-tut4: Introduction to Shaders
   getting-started-in-webgl-other-tutorials-you-are-here: (you are here)
   getting-started-in-webgl-title: Getting Started in WebGL
+  getting-started-in-webgl-glossary-title: Glossary
   getting-started-in-webgl-coords-and-transform-title: Coordinates and Transformations
   getting-started-in-webgl-coords-and-transform: Basics of 3D setup, coordinates, and transformations
   getting-started-in-webgl-coords-and-transform-p1x1: >- 
     p5.js is a powerful tool for creating 2D graphics but it's also capable of 3D graphics.
-    To get started in 3D there are some new concepts to learn and this document will introduce some ideas
-    that will be important to any 3D sketch.
+    This tutorial will introduce new concepts for creating 3D sketches with p5.js.
   getting-started-in-webgl-coords-and-transform-toc-title: Table of Contents 
-  getting-started-in-webgl-coords-and-transform-toc1: What is WebGL
-  getting-started-in-webgl-coords-and-transform-toc2: 3D Coordinate Space
-  getting-started-in-webgl-coords-and-transform-toc3: Transformations
-  getting-started-in-webgl-coords-and-transform-toc4: Order
-  getting-started-in-webgl-coords-and-transform-toc5: Basic Shapes in 3D
-  getting-started-in-webgl-coords-and-transform-toc6: Conclusion
-  getting-started-in-webgl-coords-and-transform-heading1: What is WebGL
+  getting-started-in-webgl-coords-and-transform-heading1: What is WebGL?
   getting-started-in-webgl-coords-and-transform-p2x1: >- 
     WebGL is a library that gives us the tools we need to create 3D graphics within a web browser. To put it simply,
-    it allows us to do all kinds of math that help arrange and display objects in 3D. p5.js makes it easier to work with WebGL
+    it allows us to do all kinds of math to help arrange and display objects in 3D. p5.js makes it easier to work with WebGL
     through its special WebGL mode.
   getting-started-in-webgl-coords-and-transform-p3x1: >- 
       Working in 3D introduces a lot of complexity, especially when a sketch involves motion, texture, lighting, and
@@ -395,12 +389,13 @@ learn:
       well suited to performing those calculations, the graphics processing unit (GPU). The GPU is capable of
       processing many things simultaneously, which is especially important when we're dealing with pixels and many shapes in space.
   getting-started-in-webgl-coords-and-transform-p4x1: >- 
-    Let's get started by setting up the p5.js to use WebGL, by passing a third parameter into <a class="code">createCanvas()</a>.
+    Let's get started by setting up the p5.js to use WebGL, by passing WEBGL as a third parameter into <a class="code">createCanvas()</a>.
   getting-started-in-webgl-coords-and-transform-heading2: >-
     3D Coordinate Space: Positioning in 3D
   getting-started-in-webgl-coords-and-transform-info1x1: >-
-    If coordinates systems aren't making sense it might be helpful to revisit the tutorial titled
-    <a href="{{root}}/learn/coordinate-system-and-shapes.html">Coordinate System and Shapes</a>.
+    If coordinates systems aren't making sense it might be helpful to revisit the tutorial titled 
+  getting-started-in-webgl-coords-and-transform-info1x2: >-
+    Coordinate System and Shapes
   getting-started-in-webgl-coords-and-transform-p5x1: >- 
     One of the most fundamental differences between working in 2D and working in 3D is the most obvious: there is
     one more dimension to work with. In addition to the horizontal and vertical position (x and y axes) of an
@@ -412,15 +407,17 @@ learn:
   getting-started-in-webgl-coords-and-transform-heading3: >-
     Transformations: Position and Size of 3D Shapes
   getting-started-in-webgl-coords-and-transform-p7x1: >-
-    p5.js has a few methods, <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a>, <a
-    class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>, and <a class="code"
-    href="{{root}}/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects
+    p5.js has a few methods, 
+  getting-started-in-webgl-coords-and-transform-p7x2: >-  
+    and 
+  getting-started-in-webgl-coords-and-transform-p7x3: >-  
+    that we can use to position and orient objects
     within space. Each of these methods affect what is known as the <em>model matrix</em>. Collectively these are
     known as the <em>transformation</em> of an object. These methods are available for both 2D and 3D drawing.
   getting-started-in-webgl-coords-and-transform-subheading1: >-
     translate(): Moving Objects in Space
   getting-started-in-webgl-coords-and-transform-p8x1: >-
-    <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a> moves the origin in a
+    moves the origin in a
     given direction. Anything drawn after we call <a class="code">translate()</a> will be
     positioned relative to that point. <a class="code">translate()</a> accepts arguments for x, y, and z
     values. Use the sliders in the sketch above to change the translation of the box and see how it moves along
@@ -428,13 +425,15 @@ learn:
   getting-started-in-webgl-coords-and-transform-subheading2: >-
     rotate(): Orienting Objects in Space
   getting-started-in-webgl-coords-and-transform-p9x1: >-
-    <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a> reorients whatever is
+    reorients whatever is
     drawn after it.
   getting-started-in-webgl-coords-and-transform-p10x1: >-
     There are a few methods that can be used to rotate an object in 3D. Most of the time it's easiest to call
-    methods like like <a class="code" href="{{root}}/reference/#/p5/rotateX">rotateX()</a>, <a class="code"
-      href="{{root}}/reference/#/p5/rotateY">rotateY()</a>, and <a class="code"
-      href="{{root}}/reference/#/p5/rotateZ">rotateZ()</a>, which each allow for rotation around a specific axis.
+    methods like 
+  getting-started-in-webgl-coords-and-transform-p10x2: >-
+    and 
+  getting-started-in-webgl-coords-and-transform-p10x3: >-   
+    , which each allow for rotation around a specific axis.
     Each of these methods accept a single argument specifying the angle of rotation. Try moving the sliders in the
     example above to see how rotation is performed on each axis. The code below shows each of these methods
     in use.
@@ -443,12 +442,14 @@ learn:
     angle. To use degrees, either convert degrees to radians using <a class="code">radians()</a>, or use
     <a class="code">angleMode(DEGREES)</a>.
   getting-started-in-webgl-coords-and-transform-info2x1: >-
-    <p>You can also use <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>, which allows
-    you to specify which axis you'd like to rotate around using a vector as the second argument.</p>
+    You can also use 
+  getting-started-in-webgl-coords-and-transform-info2x2: >- 
+    , which allows
+    you to specify which axis you'd like to rotate around using a vector as the second argument.
   getting-started-in-webgl-coords-and-transform-subheading3: >-
     scale(): Size in Space
   getting-started-in-webgl-coords-and-transform-p12x1: >-
-    <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a> changes the size of whatever is
+    changes the size of whatever is
     drawn after it. Like the other methods described so far, it accepts arguments for x, y, and z values.
   getting-started-in-webgl-coords-and-transform-heading4: >-
     The Order of Transformations Matters!
@@ -464,14 +465,17 @@ learn:
     class="code">rotateY()</a> and see how it affects where the object is
     drawn.
   getting-started-in-webgl-coords-and-transform-p16x1: >-
-    p5.js also has some methods that can control when transformations are applied: <a class="code" href="{{root}}/reference/#/p5/push">push()</a> and <a
-    class="code" href="{{root}}/reference/#/p5/pop">pop()</a>. <a class="code">push()</a> and <a
+    p5.js also has some methods that can control when transformations are applied: 
+  getting-started-in-webgl-coords-and-transform-p16x2: >-
+    and
+  getting-started-in-webgl-coords-and-transform-p16x3: >-
+    . <a class="code">push()</a> and <a
     class="code">pop()</a> make it easier to move objects
-    individually. The <a class="code">push()</a> method saves and sets aside the
-    current transformations. The <a class="code">pop()</a> method restores those transformations. Whatever transformations that
-    are made between <a
-    class="code">push()</a> and <a class="code">pop()</a> will be isolated to that portion of the code. If you don’t use <a
-    class="code">push()</a> and
+    individually. The <a class="code">push()</a> method saves the current transformations and 
+    style settings. Then, after performing new transformations, the <a class="code">pop()</a> method is used to restore us to the the original transformations. The result is that 
+    whatever transformations or styling changes that are made between <a class="code">push()
+    </a> and <a class="code">pop()</a> are isolated to that portion of the code. If you don’t 
+    use <a class="code">push()</a> and
     <a class="code">pop()</a>, you have to keep track of whatever transformations have already taken place, which
     can get complicated
     and difficult to follow. Consider this following example, which places two boxes in our sketch. To position the second box
@@ -499,18 +503,15 @@ learn:
     So far we have only been using <a class="code">box()</a> but p5.js has seven different predefined geometries
     that you can use in your sketch. These basic predefined geometries are often referred to as 'primitives'.
   getting-started-in-webgl-coords-and-transform-p20x1: >- 
-    These primitive shape methods are: <a class="code" href="{{root}}/reference/#/p5/box">box()</a>,
-    <a class="code" href="{{root}}/reference/#/p5/plane">plane()</a>,
-    <a class="code" href="{{root}}/reference/#/p5/sphere">sphere()</a>,
-    <a class="code" href="{{root}}/reference/#/p5/ellipsoid">ellipsoid()</a>,
-    <a class="code" href="{{root}}/reference/#/p5/cone">cone()</a>,
-    <a class="code" href="{{root}}/reference/#/p5/cylinder">cylinder()</a>, and
-    <a class="code" href="{{root}}/reference/#/p5/torus">torus()</a>.
+    These primitive shape methods are:     
+  getting-started-in-webgl-coords-and-transform-p20x2: >-
+    and
   getting-started-in-webgl-coords-and-transform-p21x1: >- 
     It is also possible to create custom geometry, either from scratch or from 3D models created in another
     program.
-    More information about custom geometry can be found the <a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">Custom
-    Geometry tutorial</a>.
+    More information about custom geometry can be found in the 
+  getting-started-in-webgl-coords-and-transform-p21x2: >-   
+    Custom Geometry tutorial    
   getting-started-in-webgl-coords-and-transform-heading6: >-
     Conclusion
   getting-started-in-webgl-coords-and-transform-p22x1: >-
@@ -520,7 +521,6 @@ learn:
     will introduce custom geometries, allow you to tweak the appearance of 
     the scene, and introduce you to some basic shader programming to push
     your sketches further.
-  getting-started-in-webgl-coords-and-transform-glossary-title: Glossary
   getting-started-in-webgl-coords-and-transform-glossary-term1-title: GPU
   getting-started-in-webgl-coords-and-transform-glossary-term1-definition: >-
     The GPU (Graphics Processing Unit) is a piece of hardware that is particularly well
@@ -545,26 +545,30 @@ learn:
     to create geometry from scratch.
   getting-started-in-webgl-custom-geometry-info1x1: >-
     If you are new to 3D check out the 
-    <a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">
-    Coordinates and Transformations</a> tutorial.
+  getting-started-in-webgl-custom-geometry-info1x2: >-  
+    tutorial.
   getting-started-in-webgl-custom-geometry-toc-title: Table of Contents 
-  getting-started-in-webgl-custom-geometry-toc1: Loading 3D Models from File
-  getting-started-in-webgl-custom-geometry-toc2: Creating Basic Procedural Geometry
-  getting-started-in-webgl-custom-geometry-toc3: Conclusion
-  getting-started-in-webgl-custom-geometry-toc4: Glossary
   getting-started-in-webgl-custom-geometry-heading1: Loading 3D Models from File
   getting-started-in-webgl-custom-geometry-p2x1: >-
     Custom geometry can be imported into p5.js using either OBJ or STL files. These files are usually generated in
     a 3D modeling tool like Blender, which offers much more control when constructing a 3D scene. This is done using
-    the <a class="code" href="{{root}}/reference/#/p5/loadModel">loadModel()</a> method, which should be used within <a class="code">preload()</a>.
+    the 
+  getting-started-in-webgl-custom-geometry-p2x2: >-  
+    method, which should be used within <a class="code">preload()</a>. Then you can use the 
+  getting-started-in-webgl-custom-geometry-p2x3: >-     
+    function to draw the model, as demonstrated in the example below.
   getting-started-in-webgl-custom-geometry-p3x1: >-
     A common issue that can come up with custom models is scaling. Depending on how the model is constructed, it
-    might be a much different size when rendered in p5.js, or even be too small to be rendered at all. The
+    might be a much different size when drawn in p5.js, or even be too small to be drawn at all. The
     <a class="code">loadModel()</a> method includes a normalize parameter that will resize the model to something that works better in
     p5.js.
   getting-started-in-webgl-custom-geometry-info2x1: >-
     Note that there is currently no support for STL files with color, although you
-    can add color using materials or textures, which you can learn about in the <a href="{{root}}/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a> tutorial.
+    can add color using materials or textures, which you can learn about in the 
+  getting-started-in-webgl-custom-geometry-info2x2: >-  
+    Styling and Appearance    
+  getting-started-in-webgl-custom-geometry-info2x3: >-  
+    tutorial.
   getting-started-in-webgl-custom-geometry-heading2: Creating Basic Procedural Geometry
   getting-started-in-webgl-custom-geometry-p4x1: >-
     Geometry can also be defined procedurally using code. This is a great way to create geometry that moves or is
@@ -572,12 +576,15 @@ learn:
     way that is similar to 2D drawing in p5.js. For example, methods like <a class="code">quad()</a>, <a class="code">triangle()</a>, <a class="code">rect()</a>, and <a class="code">circle()</a> each have extra parameters that make it possible to use them in 3D.
   getting-started-in-webgl-custom-geometry-p5x1: >-
     There are other methods that offer greater control of the geometry. A shape can be defined point-by-point using
-    <a class="code" href="{{root}}/reference/#/p5/beginShape">beginShape()</a>, <a class="code"
-    href="{{root}}/reference/#/p5/vertex">vertex()</a>, and <a class="code"
-    href="{{root}}/reference/#/p5/endShape">endShape()</a>. This following example shows how
+  getting-started-in-webgl-custom-geometry-p5x2: >-
+    and 
+  getting-started-in-webgl-custom-geometry-p5x3: >-
+    This following example shows how
     these methods can be used to construct a 3D shape mathematically.
   getting-started-in-webgl-custom-geometry-p6x1: >-
-    There is also a powerful class, <a class="code" href="{{root}}/reference/#/p5/p5.Geometry">p5.Geometry</a>, which p5 uses internally for <a class="code">loadModel()</a> but can also be used to
+    There is also a powerful class, 
+  getting-started-in-webgl-custom-geometry-p6x1_: >-  
+    , which p5.js uses internally for <a class="code">loadModel()</a> but can also be used to
     define custom geometry, offering tools that can be helpful in calculating faces and normals. 
   getting-started-in-webgl-custom-geometry-p6x2: >-
     In 3D, a face refers to a collection of three or four points that make up a surface, giving our
@@ -590,7 +597,6 @@ learn:
     Now you should be able to create custom geometry, making it possible to create
     unique shapes, both from other tools and from code. Spend some time working
     with a variety of 3D modeling tools so you can find the one that works best for you.
-  getting-started-in-webgl-custom-geometry-glossary-title: Glossary
   getting-started-in-webgl-custom-geometry-glossary-term1-title: Procedural
   getting-started-in-webgl-custom-geometry-glossary-term1-definition: Meaning that something is defined mathematically, instead of from stored data, like a file.
   getting-started-in-webgl-custom-geometry-glossary-term2-title: Model
@@ -616,17 +622,13 @@ learn:
     important part of creating a visually interesting 3D scene. p5.js has a number of tools
     that make it possible to transform the appearance of our geometry.
   getting-started-in-webgl-appearance-toc-title: Table of Contents 
-  getting-started-in-webgl-appearance-toc1: Camera and View
-  getting-started-in-webgl-appearance-toc2: Lighting
-  getting-started-in-webgl-appearance-toc3: Materials and Textures
-  getting-started-in-webgl-appearance-toc4: Conclusion
-  getting-started-in-webgl-appearance-toc5: Glossary
   getting-started-in-webgl-appearance-heading1: Camera and View
   getting-started-in-webgl-appearance-p1x1: >-
     The camera is an essential piece of a 3D scene; it gives us the sense of space and dimension that we are
     often looking for in 3D. In p5.js, the WebGL mode provides us with a perspective camera by default, but we can
-    change this using <a class="code" href="{{root}}/reference/#/p5/perspective">perspective()</a> or <a
-      class="code" href="{{root}}/reference/#/p5/ortho">ortho()</a>.
+    change this using 
+  getting-started-in-webgl-appearance-p1x2: >-  
+    or 
   getting-started-in-webgl-appearance-p2x1: >-
     A <em>perspective camera</em> skews objects so they appear to get smaller as they get further away, vanishing
     at a single point in the distance. This is in contrast to an <em>orthographic camera</em>, where the 
@@ -634,17 +636,18 @@ learn:
   getting-started-in-webgl-appearance-p3x1: >-
     One setting that we can change with a perspective camera is the <em>field-of-view</em>, or FOV. This is the 
     term that is used to describe how much our camera can see, measured as an angle. In simple examples it might appear
-    to have a zoom-like effect, but it will change way that shapes will change size in the distance.
+    to have a zoom-like effect, but it also affects the way that shapes change size in the distance.
   getting-started-in-webgl-appearance-p4x1: >-
-    Another important term when working with cameras in 3D is the camera <em>frustum</em>. The frustum of the camera the
+    Another important term when working with cameras in 3D is the camera <em>frustum</em>. The frustum of the camera is the
     shape of the camera's view, a pyramid-like shape within which geometry can be displayed. The frustum includes a <em>near and far plane</em>.
     The near plane defines the minimum distance that geometry must be from the camera to be rendered. The far plane defines the maximum
     distance that the geometry can be from the camera. Each of these can be changed to affect how close and how far the camera can see. This process
     of selectively including geometry is sometimes referred to as 'clipping'.
   getting-started-in-webgl-appearance-p5x1: >-
     Cameras can be moved by passing arguments to <a class="code">camera()</a>, but constantly moving and adjusting the camera in code can be tedious, especially when you are experimenting with
-    ideas. p5.js has a special camera method, <a class="code"
-      href="{{root}}/reference/#/p5/orbitControl">orbitControl()</a>, that can be used to zoom, pan,
+    ideas. p5.js has a special camera method, 
+  getting-started-in-webgl-appearance-p5x2: >-  
+    , that can be used to zoom, pan,
     and position the camera using the mouse.
   getting-started-in-webgl-appearance-p6x1: >-
     A scene can have multiple cameras, but only one camera can be active at a time. Sketches in p5.js will default
@@ -696,7 +699,10 @@ learn:
     within <a class="code">preload()</a>, then call <a class="code">texture()</a> before drawing your shape.
   getting-started-in-webgl-appearance-info1x1: >-
     While they are useful for changing the appearance of your geometry, shaders are a bit beyond the scope of this 
-    tutorial, so make sure to check out the <a href="{{root}}/learn/introduction-to-shaders.html">Introduction to Shaders</a> 
+    tutorial, so make sure to check out the 
+  getting-started-in-webgl-appearance-info1x2: >-  
+    Introduction to Shaders
+  getting-started-in-webgl-appearance-info1x3: >-    
     page when you are ready. 
   getting-started-in-webgl-appearance-heading4: Conclusion
   getting-started-in-webgl-appearance-p14x1: >-
@@ -704,14 +710,13 @@ learn:
     to decide how your sketch looks, and it will open up the possibilities for you to introduce your own
     style to your 3D sketches. The following tutorial in the Getting Started in WebGL series will introduce you
     to shaders, which will make it possible to change the appearance of your sketch in even more interesting ways.
-  getting-started-in-webgl-appearance-glossary-title: Glossary
   getting-started-in-webgl-appearance-glossary-term1-title: Camera
   getting-started-in-webgl-appearance-glossary-term1-definition: The viewpoint of a 3D scene
   getting-started-in-webgl-appearance-glossary-term2-title: Perspective
-  getting-started-in-webgl-appearance-glossary-term2-definition: A projection that gives the appearance of depth, achieved by making objects in the distance appear smaller.
+  getting-started-in-webgl-appearance-glossary-term2-definition: A camera projection that gives the appearance of depth, achieved by making objects in the distance appear smaller.
   getting-started-in-webgl-appearance-glossary-term3-title: Orthographic
   getting-started-in-webgl-appearance-glossary-term3-definition: >-
-    A projection that is <em>orthogonal</em> and unaffected by depth. It gives the appearance of being
+    A camera projection that is <em>orthogonal</em> and unaffected by depth. It gives the appearance of being
     two-dimensional.
   getting-started-in-webgl-appearance-glossary-term4-title: Field-of-View
   getting-started-in-webgl-appearance-glossary-term4-definition: The angle representing how much can be seen by the camera.
@@ -733,11 +738,6 @@ learn:
     first, requiring a different approach than the 2D drawing of p5.js. This document will outline the basics 
     of shader programming and point you towards other resources.
   getting-started-in-webgl-shaders-toc-title: Table of Contents 
-  getting-started-in-webgl-shaders-toc1: Setup
-  getting-started-in-webgl-shaders-toc2: Shading Language (GLSL)
-  getting-started-in-webgl-shaders-toc3: Uniforms
-  getting-started-in-webgl-shaders-toc4: Conclusion
-  getting-started-in-webgl-shaders-toc5: Glossary
   getting-started-in-webgl-shaders-heading1: Setup
   getting-started-in-webgl-shaders-p1x1: >-
     p5.js is a great tool for working with shaders because it handles a lot of the WebGL setup so you can focus on
@@ -777,7 +777,8 @@ learn:
     with the shader. This
     attribute is a <a class="code">vec3</a>, meaning it contains a value for x, y, and z. Attributes are special
     variable types that are
-    only used in the vertex shader and are typically provided by p5.js.
+    only used in the vertex shader and are typically provided by p5.js. When you use p5.js methods like <a class="code">rect()</a> or 
+    <a class="code">vertex()</a>, p5.js passes the vertex information to the shader automatically.
   getting-started-in-webgl-shaders-p8x1: >-
     All vertex shaders require a function, <a class="code">main()</a>, within which we position our vertices. In
     this example, the
@@ -792,8 +793,8 @@ learn:
     a lot of our shader programming. Here is a very simple fragment shader that will just display the color red:
   getting-started-in-webgl-shaders-p10x1: >-
     The fragment shader begins with a line specifying the float 'precision'.
-    this value you can either be lowp, mediump, or highp, although you will likely
-    use mediump, or highp in certain situations.
+    This value can either be <a class="code">lowp</a>, <a class="code">mediump</a>, or <a class="code">highp</a>, although you will likely
+    use <a class="code">mediump</a>, or <a class="code">highp</a> in certain situations.
   getting-started-in-webgl-shaders-p11x1: >-
     And similar to the vertex shader, our fragment shader also requires a <a class="code">main()</a> function, but instead of
     setting <a class="code">gl_Position</a>, we will assign a color to <a class="code">gl_FragColor</a>.
@@ -847,7 +848,6 @@ learn:
     <li><a href="https://github.com/aferriss/p5jsShaderExamples">p5jsShaderExamples</a>, a collection of resources
       by
       Adam Ferriss.</li>
-  getting-started-in-webgl-shaders-glossary-title: Glossary
   getting-started-in-webgl-shaders-glossary-term1-title: Shader
   getting-started-in-webgl-shaders-glossary-term1-definition: >-
     A special graphics card program that can efficiently produce many visual effects and filters.
@@ -856,7 +856,7 @@ learn:
     Graphics Library Shader Language (GLSL) is a programming language that is used to write shaders.
   getting-started-in-webgl-shaders-glossary-term3-title: Uniform
   getting-started-in-webgl-shaders-glossary-term3-definition: >-
-    A variable that is passed from your sketch to a shader
+    A variable that is passed from your sketch to a shader.
   getting-started-in-webgl-shaders-glossary-term4-title: Vector
   getting-started-in-webgl-shaders-glossary-term4-definition: >-
     A data type that stores a group of numbers, most commonly two, three, or four, to represent colors, positions,
@@ -876,7 +876,7 @@ learn:
     situations these are provided by p5.js.
   getting-started-in-webgl-shaders-glossary-term9-title: Texture
   getting-started-in-webgl-shaders-glossary-term9-definition: >-
-    An image that passed into a shader program.
+    An image that is passed into a shader program.
   getting-started-in-webgl-shaders-glossary-term10-title: Type
   getting-started-in-webgl-shaders-glossary-term10-definition: >-
     A label describing the characterics of a piece of data, such as an int, a float, a vector, etc.

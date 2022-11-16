@@ -6,13 +6,11 @@ slug: learn/
 <style>
   .methodsList {
     font-family: monospace;
-    /*white-space: pre;*/
   }
 
   .additionalInformation {
     width: 100%;
     background-color: #dedeff;
-    font-size: 15px;
     padding: 10px;
     margin: 30px 0;
   }
@@ -20,7 +18,6 @@ slug: learn/
   .toc {
     width: 100%;
     background-color: #eee;
-    font-size: 15px;
     padding: 10px;
     margin: 30px 0;
   }
@@ -53,17 +50,18 @@ slug: learn/
       <div class="toc">
         <h3>{{#i18n "getting-started-in-webgl-appearance-toc-title"}}{{/i18n}}</h3>
         <ol>
-          <li><a href="#camera">{{#i18n "getting-started-in-webgl-appearance-toc1"}}{{/i18n}}</a></li>
-          <li><a href="#lighting">{{#i18n "getting-started-in-webgl-appearance-toc2"}}{{/i18n}}</a></li>
-          <li><a href="#materials">{{#i18n "getting-started-in-webgl-appearance-toc3"}}{{/i18n}}</a></li>
-          <li><a href="#conclusion">{{#i18n "getting-started-in-webgl-appearance-toc4"}}{{/i18n}}</a></li>
-          <li><a href="#glossary">{{#i18n "getting-started-in-webgl-appearance-toc5"}}{{/i18n}}</a></li>          
+          <li><a href="#camera">{{#i18n "getting-started-in-webgl-appearance-heading1"}}{{/i18n}}</a></li>
+          <li><a href="#lighting">{{#i18n "getting-started-in-webgl-appearance-heading2"}}{{/i18n}}</a></li>
+          <li><a href="#materials">{{#i18n "getting-started-in-webgl-appearance-heading3"}}{{/i18n}}</a></li>          
+          <li><a href="#conclusion">{{#i18n "getting-started-in-webgl-appearance-heading4"}}{{/i18n}}</a></li>          
+          <li><a href="#glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</a></li>          
         </ol>
       </div>
 
       <h2 id="camera">{{#i18n "getting-started-in-webgl-appearance-heading1"}}{{/i18n}}</h2>
 
-      <p>{{#i18n "getting-started-in-webgl-appearance-p1x1"}}{{/i18n}}</p>
+      <p>{{#i18n "getting-started-in-webgl-appearance-p1x1"}}{{/i18n}} <a class="code" href="{{root}}/reference/#/p5/perspective">perspective()</a> {{#i18n "getting-started-in-webgl-appearance-p1x2"}}{{/i18n}} <a
+      class="code" href="{{root}}/reference/#/p5/ortho">ortho()</a>.</p>
 
       <img style="padding:60px;" src='{{assets}}/learn/basic3D/images/cameraTypeIllustration.png'
         alt="an illustration showing the difference between perspective and orthographic camera types">
@@ -80,10 +78,12 @@ slug: learn/
 
       <div style="display:flex; align-items:center; justify-content: center;">
       <img style="width:50%;" src='{{assets}}/learn/basic3D/images/frustum_example.png'
-        alt="an illustration showing the the camera frustum, near plane, and far plane">
+        alt="an illustration showing the the camera frustum in purple, the near plane represented by a 
+        yellow rectangle near the camera, and far plane as a green rectangle on the opposite end of the frustum volume.">
       </div>
 
-      <p>{{#i18n "getting-started-in-webgl-appearance-p5x1"}}{{/i18n}}</p>
+      <p>{{#i18n "getting-started-in-webgl-appearance-p5x1"}}{{/i18n}}<a class="code"
+      href="{{root}}/reference/#/p5/orbitControl">orbitControl()</a>{{#i18n "getting-started-in-webgl-appearance-p5x2"}}{{/i18n}}</p>
 
       <p>{{#i18n "getting-started-in-webgl-appearance-p6x1"}}{{/i18n}}</p>
 
@@ -140,33 +140,18 @@ function draw() {
 
       <p>{{#i18n "getting-started-in-webgl-appearance-p7x1"}}{{/i18n}}</p>
 
-      <ul>
-        <li><h3><a class="code" href="{{root}}/reference/#/p5/ambientLight">ambientLight()</a></h3>
-          <ul style="margin-left:15px;">
-            <li>{{#i18n "getting-started-in-webgl-appearance-lighting-list1"}}{{/i18n}}</li>
-          </ul>
-        </li>
-        <li><h3><a class="code" href="{{root}}/reference/#/p5/directionalLight">directionalLight()</a></h3>
-          <ul style="margin-left:15px;">
-            <li>{{#i18n "getting-started-in-webgl-appearance-lighting-list2"}}{{/i18n}}</li>
-          </ul>
-        </li>
-        <li><h3><a class="code" href="{{root}}/reference/#/p5/pointLight">pointLight()</a></h3>
-          <ul style="margin-left:15px;">
-            <li>{{#i18n "getting-started-in-webgl-appearance-lighting-list3"}}{{/i18n}}</li>
-          </ul>
-        </li>
-        <li><h3><a class="code" href="{{root}}/reference/#/p5/spotLight">spotLight()</a></h3>
-          <ul style="margin-left:15px;">
-            <li>{{#i18n "getting-started-in-webgl-appearance-lighting-list4"}}{{/i18n}}</li>
-          </ul>
-        </li>
-        <li><h3><a class="code" href="{{root}}/reference/#/p5/noLights">noLights()</a></h3>
-          <ul style="margin-left:15px;">
-            <li>{{#i18n "getting-started-in-webgl-appearance-lighting-list5"}}{{/i18n}}</li>
-          </ul>
-        </li>
-      </ul>
+      <dl>
+        <dt><a class="code" href="{{root}}/reference/#/p5/ambientLight">ambientLight()</a></dt>
+        <dd>{{#i18n "getting-started-in-webgl-appearance-lighting-list1"}}{{/i18n}}</dd>
+        <dt><a class="code" href="{{root}}/reference/#/p5/directionalLight">directionalLight()</a></dt>
+        <dd>{{#i18n "getting-started-in-webgl-appearance-lighting-list2"}}{{/i18n}}</dd>
+        <dt><a class="code" href="{{root}}/reference/#/p5/pointLight">pointLight()</a></dt>
+        <dd>{{#i18n "getting-started-in-webgl-appearance-lighting-list3"}}{{/i18n}}</dd>
+        <dt><a class="code" href="{{root}}/reference/#/p5/spotLight">spotLight()</a></dt>
+        <dd>{{#i18n "getting-started-in-webgl-appearance-lighting-list4"}}{{/i18n}}</dd>
+        <dt><a class="code" href="{{root}}/reference/#/p5/noLights">noLights()</a></dt>
+        <dd>{{#i18n "getting-started-in-webgl-appearance-lighting-list5"}}{{/i18n}}</dd>
+      </dl>
 
       <p>
         {{#i18n "getting-started-in-webgl-appearance-p8x1"}}{{/i18n}}
@@ -311,7 +296,7 @@ function draw() {
 
       <div class="additionalInformation">
         <p> 
-          {{#i18n "getting-started-in-webgl-appearance-info1x1"}}{{/i18n}}
+          {{#i18n "getting-started-in-webgl-appearance-info1x1"}}{{/i18n}} <a href="{{root}}/learn/getting-started-in-webgl-shaders.html">{{#i18n "getting-started-in-webgl-appearance-info1x2"}}{{/i18n}}</a> {{#i18n "getting-started-in-webgl-appearance-info1x3"}}{{/i18n}}
         </p>
       </div>
 
@@ -328,7 +313,7 @@ function draw() {
         <li><a href="{{root}}/learn/getting-started-in-webgl-shaders.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut4"}}{{/i18n}}</a></li>
       </ul>
 
-      <h2 id="glossary">{{#i18n "getting-started-in-webgl-appearance-glossary-title"}}{{/i18n}}</h2>
+      <h2 id="glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</h2>
 
       <h3>{{#i18n "getting-started-in-webgl-appearance-glossary-term1-title"}}{{/i18n}}</h3>
       <p>{{#i18n "getting-started-in-webgl-appearance-glossary-term1-definition"}}{{/i18n}}</p>
