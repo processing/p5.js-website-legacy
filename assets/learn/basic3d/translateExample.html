@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+  <title>3d Translate Example</title>
+  <script src="../../../assets/js/p5.min.js"></script>
+  <!-- uncomment lines below to include extra p5 libraries -->
+  <!--<script src="../addons/p5.sound.js"></script>-->
+  <script src="translateExample.js"></script>
+  <!-- this line removes any default padding and style. you might only need one of these values set. -->
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: monospace;
+      font-size: 16px;
+      background-color: #dcdcdc
+    }
+
+    #pageContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #pageContainer>div {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: space-evenly;
+      margin: 0px 10px;
+    }
+
+    #controlsContainer {
+      width: 250px;
+      flex-grow: 2;
+    }
+
+    #controlsContainer label {
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="pageContainer">
+    <div id="sketchContainer"></div>
+    <div id="controlsContainer">
+      <label>x: <input id="xAxis" type="range" step="0.001" min="-100" max="100" /></label>
+      <label>y: <input id="yAxis" type="range" step="0.001" min="-100" max="100" /></label>
+      <label>z: <input id="zAxis" type="range" step="0.001" min="-100" max="100" /></label>
+
+      <p id="axisText"></p>
+    </div>
+  </div>
+</body>
+
+</html>

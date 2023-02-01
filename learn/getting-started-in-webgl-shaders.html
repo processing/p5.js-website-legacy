@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=8dd5ca">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../assets/img/favicon.ico">
+    <link rel="icon" href="/../assets/img/favicon.ico">
+
+
+    <script src="/../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=97b4f7"></script>
+
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">Skip to content</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/">
+          <img src="/../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<style>
+  .methodsList {
+    font-family: monospace;
+  }
+
+  .additionalInformation {
+    width: 100%;
+    background-color: #dedeff;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc {
+    width: 100%;
+    background-color: #eee;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc h3 {
+    margin-top: 15px;
+  }
+
+  .indexList {
+    padding: 15px;
+    background-color: whitesmoke;
+  }
+</style>
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/">Home</a></li>
+        <li><a href="https://editor.p5js.org">Editor</a></li>
+        <li><a href="/download/">Download</a></li>
+        <li><a href="/download/support.html">Donate</a></li>
+        <li><a href="/get-started/">Get Started</a></li>
+        <li><a href="/reference/">Reference</a></li>
+        <li><a href="/libraries/">Libraries</a></li>
+        <li><a href="/learn/">Learn</a></li>
+        <li><a href="/teach/">Teach</a></li>
+        <li><a href="/examples/">Examples</a></li>
+        <li><a href="https://p5js.org/contributor-docs/#/">Contribute</a></li>
+        <li><a href="/books/">Books</a></li>
+        <li><a href="/community/">Community</a></li>
+        <li><a href="https://showcase.p5js.org">Showcase</a></li>
+  
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main>
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+      <iframe src="../assets/learn/shaderIntro/titleExample.html" width="720" height="350">
+      </iframe>
+
+      <h1>Introduction to Shaders</h1>
+
+      <p>Shaders are special programs that run on the graphics processing unit, or GPU, that can do some incredible things. They take advantage of the GPU to process many pixels at once, making them fast and particularly well suited for certain tasks, like generating noise, applying filters like blur, or shading polygons. Shader programming can feel daunting at first, requiring a different approach than the 2D drawing of p5.js. This document will outline the basics  of shader programming and point you towards other resources.</p>
+
+      <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+          <li><a href="#setup">Setup</a></li>
+          <li><a href="#shadinglanguage">Shading Language (GLSL)</a></li>
+          <li><a href="#uniforms">Uniforms: Passing data from sketch to shader</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>          
+          <li><a href="#glossary">Glossary</a></li>          
+        </ol>
+      </div>
+
+      <h2 id="setup">Setup</h2>
+
+      <p>p5.js is a great tool for working with shaders because it handles a lot of the WebGL setup so you can focus on the shader code itself. Before we can get started with shaders we have to set up our canvas so that it uses p5.js WebGL model.
+      </p>
+
+      <pre><code class="language-javascript">
+      ...
+      function setup() {
+        createCanvas(windowWidth, windowHeight, WEBGL);
+      }
+      ..
+      </code></pre>
+
+      <p>A shader program consists of two parts, a <strong>vertex shader</strong> and a <strong>fragment
+  shader</strong>. The vertex shader affects where the 3D geometry is drawn on the screen and the fragment
+shader is responsible for affecting the color output. Each of these live in separate files and are loaded into p5.js using <a class="code">loadShader()</a>. Once a shader is loaded it can be used within <a
+  class="code">draw()</a>. The following example will show
+how to set up a basic shader within p5.js:
+      </p>
+
+      <pre><code class="language-javascript">
+let myShader;
+
+function preload() {
+  // load each shader file (don't worry, we will come back to these!)
+  myShader = loadShader('shader.vert', 'shader.frag');
+}
+
+function setup() {
+  // the canvas has to be created with WEBGL mode
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  describe('a simple shader example that outputs the color red')
+}
+
+function draw() {
+  // shader() sets the active shader, which will be applied to what is drawn next
+  shader(myShader);
+  // apply the shader to a rectangle taking up the full canvas
+  rect(0,0,width,height);
+}
+      </code></pre>
+
+      <h2 id="shadinglanguage">Shading Language (GLSL)</h2>
+
+      <p>So now you might be wondering what we actually write in these shader files! Shader files are written in Graphics Library Shading Language, or GLSL, and have a very different syntax and structure than we are familiar with. GLSL has a syntax that resembles C, which means it comes with a handful of concepts that aren't present in JavaScript.</p>
+
+      <p>For one, the shading language is much more strict about types. Each variable you create has to be labeled with the kind of data it is storing. Here is a list of some of the common types:</p>
+
+      <pre><code class="language-javascript">
+vec2(x,y)     // a vector of two floats
+vec3(r,g,b)   // a vector of three floats
+vec4(r,g,b,a) // a vector of four floats
+float         // a number with decimal points
+int           // a whole number without decimal points
+sampler2D     // a reference to a texture
+
+      </code></pre>
+
+      <p>In general the shading language is much more strict than JavaScript. A missing semicolon for example is not allowed and will result in an error message. You can't use different types of numbers, like floats or integers interchangeably.</p>
+
+      <p>First let's look at a basic vertex shader:</p>
+
+      <pre><code class="language-javascript">
+attribute vec3 aPosition;
+
+void main() {
+  vec4 positionVec4 = vec4(aPosition, 1.0);
+  positionVec4.xy = positionVec4.xy * 2.0 - 1.0;
+  gl_Position = positionVec4;
+}
+</code></pre>
+
+      <p>This vertex shader begins with an <em>attribute</em>, which p5.js uses to share vertex position information with the shader. This attribute is a <a class="code">vec3</a>, meaning it contains a value for x, y, and z. Attributes are special variable types that are only used in the vertex shader and are typically provided by p5.js. When you use p5.js methods like <a class="code">rect()</a> or  <a class="code">vertex()</a>, p5.js passes the vertex information to the shader automatically.</p>
+
+      <p>All vertex shaders require a function, <a class="code">main()</a>, within which we position our vertices. In this example, the vertex shader repositions our vertices so that the shader output takes up the full sketch. At the end of <a
+  class="code">main()</a>,
+we have to assign a value to <a class="code">gl_Position</a>.</p>
+
+      <p>Don't worry if this doesn't make a ton of sense yet. The vertex shader plays an important role but it is often just responsible for making sure what we create in our fragment shader displays properly on the geometry. You'll probably find yourself reusing the same vertex shaders in many of your projects. The fragment shader on the other hand is responsible for the color output of our shader and is where we will do a lot of our shader programming. Here is a very simple fragment shader that will just display the color red:</p>
+
+      <pre><code class="language-javascript">
+precision mediump float;
+
+void main() {
+  vec4 myColor = vec4(1.0, 0.0, 0.0, 1.0);
+  gl_FragColor = myColor;
+}
+</code></pre>
+
+      <p>The fragment shader begins with a line specifying the float 'precision'. This value can either be <a class="code">lowp</a>, <a class="code">mediump</a>, or <a class="code">highp</a>, although you will likely use <a class="code">mediump</a>, or <a class="code">highp</a> in certain situations.</p>
+
+      <pre><code class="language-javascript">precision mediump float;</code></pre>
+
+<p>And similar to the vertex shader, our fragment shader also requires a <a class="code">main()</a> function, but instead of setting <a class="code">gl_Position</a>, we will assign a color to <a class="code">gl_FragColor</a>.</p>
+
+<pre><code class="language-javascript">
+...
+vec4 myColor = vec4(1.0, 0.0, 0.0, 1.0);
+gl_FragColor = myColor;
+...
+</code></pre>
+
+<p>The variable, <a class="code">myColor</a>, is defined as a <a class="code">vec4</a>, meaning it stores 4 values. Since we are dealing with color, those four values are red, green, blue, and alpha. Shaders don't use 0 - 255 for colors like our sketches do, instead they use values between 0.0 and 1.0.</p>
+
+      <p>Now that we have a vertex shader and a fragment shader, these can be saved to separate files (shader.vert and shader.frag respectively), and loaded into our sketch using <a class="code">loadShader()</a>.</p>
+
+      <h2 id="uniforms">Uniforms: Passing data from sketch to shader</h2>
+
+      <p>A simple shader like this can be useful by itself, but there are times when it's necessary to communicate variables from the p5.js sketch to a shader. This is when uniforms come in. Uniforms are special variables that can be sent from a sketch to a shader. These make it possible to have much more control over a shader. For example, you could use the p5.js method <a class="code">millis()</a> to pass a 'time' uniform to our sketch to introduce motion. In the shader, uniforms are defined at the top of the file, outside of <a class="code">main()</a>. In this following fragment shader we are creating a color uniform, <a class="code">myColor</a>, that will allow us to change the color from our sketch.</p>
+
+      <pre><code class="language-javascript">
+precision mediump float;
+
+uniform vec3 myColor;
+
+void main() {
+  // the color we have passed in as a uniform is assigned to the pixel
+  gl_FragColor = vec4(myColor, 1.0);
+}
+      </code></pre>
+
+      <p>Back in our p5.js sketch, this color can now be sent using <a class="code">setUniform()</a>:</p>
+
+      <pre><code class="language-javascript">
+...
+function draw() {
+  shader(myShader);
+  // setUniform can then be used to pass data to our shader variable, myColor
+  myShader.setUniform('myColor', [1.0,0.0,0.0]); // send red as a uniform
+  // apply the shader to a rectangle taking up the full canvas
+  rect(0,0,width,height);
+}
+...
+      </code></pre>
+
+      <p>There are also <em>attributes</em>, which are usually used to share certain data about the geometry between the sketch and the vertex shader, and <em>varying</em> variables, which share data between the vertex shader and the fragment shader. This makes it possible to use position or other geometry data within our fragment shaders.</p>
+
+      <pre><code class="language-javascript">
+// (thank you to Adam Ferriss for the foundation of these example shaders)
+// position information that is used with gl_Position
+attribute vec3 aPosition;
+
+// texture coordinates 
+attribute vec2 aTexCoord;
+
+// the varying variable will pass the texture coordinate to our fragment shader
+varying vec2 vTexCoord;
+
+void main() {
+  // assign attribute to varying, so it can be used in the fragment
+  vTexCoord = aTexCoord;
+
+  vec4 positionVec4 = vec4(aPosition, 1.0);
+  positionVec4.xy = positionVec4.xy * 2.0 - 1.0;
+  gl_Position = positionVec4;
+}
+</code></pre>
+
+      <p>Now with the texture coordinate attribute assigned to the varying variable, we can use the texture coordinate in our fragment shader. The result in the example below is a blue and magenta visualization of our texture coordinates.</p>
+
+      <div style="display:flex; align-items: center; justify-content: center;">
+        <pre><code class="language-javascript">
+precision mediump float;
+
+varying vec2 vTexCoord;
+
+void main() {
+  // now because of the varying vTexCoord, we can access the current texture coordinate
+  vec2 uv = vTexCoord;
+  
+  // and now these coordinates are assigned to the color output of the shader
+  gl_FragColor = vec4(uv,1.0,1.0);
+}
+</code></pre>
+        <img style="padding:30px;width:30%;" src='../assets/learn/basic3D/images/uv_example.png'
+          alt="an illustration showing UV coordinates, the x axis in red, and the y axis in blue.">
+      </div>
+
+
+      <div class="additionalInformation">
+        p5.js handles a lot of attributes and uniforms for us, and <a href="https://github.com/processing/p5.js/blob/374acfb44588bfd565c54d61264df197d798d121/contributor_docs/webgl_mode_architecture.md">you can view a list of all of the attributes that p5.js sends to the shader</a>.
+      </div>
+
+      <h2 id="conclusion">Conclusion</h2>
+
+      <p>With these skills you will be able to create some basic shaders, but shader programming can go incredibly deep, and there are many shader topics that go beyond this tutorial. Shaders in p5.js can be a powerful tool for creating visuals, effects, and even textures that can be mapped to your 3D geometry.
+      </p>
+
+      <p>Want to keep learning more about shaders? Check out some of these websites!</p>
+
+      <ul class="indexList">
+        <li><a href="https://thebookofshaders.com/">The Book of Shaders</a>, a shader guide by Patricio Gonzalez Vivo
+  and
+  Jen Lowe.</li>
+<li><a href="https://itp-xstory.github.io/p5js-shaders/#/">P5.js shaders</a>, a shader guide by Casey Conchinha
+  and
+  Louise Lessél.</li>
+<li><a href="https://www.shadertoy.com/">Shadertoy</a>, a massive online collection of shaders that are written in a browser editor.</li> <li><a href="https://github.com/aferriss/p5jsShaderExamples">p5jsShaderExamples</a>, a collection of resources
+  by
+  Adam Ferriss.</li>
+      </ul>
+
+      <h3>Other Tutorials</h3>
+      <p>This tutorial is part of a series about the basics of using WebGL in p5.js. Check out each of these other tutorials below.</p>
+      <ul class="indexList">
+        <li><a href="/learn/getting-started-in-webgl-coords-and-transform.html">Coordinates and Transformations</a></li>
+        <li><a href="/learn/getting-started-in-webgl-custom-geometry.html">Creating Custom Geometry in WebGL</a></li>
+        <li><a href="/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a></li>
+        <li>Introduction to Shaders (you are here)</li>
+      </ul>
+
+      <h2 id="glossary">Glossary</h2>
+
+      <h3>Shader</h3>
+      <p>A special graphics card program that can efficiently produce many visual effects and filters.</p>
+
+      <h3>GLSL</h3>
+      <p>Graphics Library Shader Language (GLSL) is a programming language that is used to write shaders.</p>
+
+      <h3>Uniform</h3>
+      <p>A variable that is passed from your sketch to a shader.</p>
+
+      <h3>Vector</h3>
+      <p>A data type that stores a group of numbers, most commonly two, three, or four, to represent colors, positions, and more.</p>
+
+      <h3>Float</h3>
+      <p>A data type that stores floating point numbers, which can have a decimal point.</p>
+
+      <h3>Int</h3>
+      <p>A data type that stores integers, which are whole numbers without a decimal.</p>
+
+      <h3>Sampler</h3>
+      <p>A data type that represents a texture being passed into the shader.</p>
+
+      <h3>Attribute</h3>
+      <p>A GLSL variable that is generated in the p5.js sketch and made available in the vertex shader. For most situations these are provided by p5.js.</p>
+
+      <h3>Texture</h3>
+      <p>An image that is passed into a shader program.</p>
+
+      <h3>Type</h3>
+      <p>A label describing the characterics of a piece of data, such as an int, a float, a vector, etc.</p>
+
+      <h3>Vertex Shader</h3>
+      <p>The part of a shader program that is responsible for positioning geometry in 3D space.</p>
+
+      <h3>Fragment Shader</h3>
+      <p>The part of a shader program that is responsible for the color and appearance of each pixel output by the shader.</p>
+
+    </main>
+
+    
+    <footer>
+        <h2 class="sr-only">Credits</h2>
+        <ul id="footer-menu" aria-labelledby="menu-title">   
+          <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">Forum</a></li>
+          <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+          <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+          <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+          <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+        </ul>  
+        
+        <p>
+            p5.js is currently led by <a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye</a> and was created by <a href='https://lauren-mccarthy.com' target="_blank">Lauren Lee McCarthy</a>. p5.js is developed by a community of collaborators, with support from the <a href="https://processingfoundation.org/" target="_blank">Processing Foundation</a> and <a href="https://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. Identity and graphic design by <a href="https://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/copyright.html">&copy; Info</a>.
+        </p>
+    </footer>
+
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="https://processing.org">Processing</a></li>
+        <li><a class="here" href="/">p5.js</a></li>
+        <li><a href="https://py.processing.org/">Processing.py</a></li>
+        <li><a href="https://android.processing.org/">Processing for Android</a></li>
+        <li><a href="https://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>

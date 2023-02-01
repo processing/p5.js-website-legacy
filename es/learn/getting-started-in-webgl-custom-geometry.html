@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=8dd5ca">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../assets/img/favicon.ico">
+
+
+    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=97b4f7"></script>
+
+
+  </head>
+  <body>
+
+    <a href="#content" class="sr-only">Ir al contenido</a>
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">Preferencias de idioma</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/es/">
+          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<style>
+  .methodsList {
+    font-family: monospace;
+  }
+
+  .additionalInformation {
+    width: 100%;
+    background-color: #dedeff;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc {
+    width: 100%;
+    background-color: #eee;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc h3 {
+    margin-top: 15px;
+  }
+
+  .indexList {
+    padding: 15px;
+    background-color: whitesmoke;
+  }
+</style>
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">Navegación del sitio</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/es/">Inicio</a></li>
+        <li><a href="https://editor.p5js.org">Editor</a></li>
+        <li><a href="/es/download/">Descargar</a></li>
+        <li><a href="/es/download/support.html">Donar</a></li>
+        <li><a href="/es/get-started/">Empezar</a></li>
+        <li><a href="/es/reference/">Referencia</a></li>
+        <li><a href="/es/libraries/">Bibliotecas</a></li>
+        <li><a href="/es/learn/">Aprender</a></li>
+        <li><a href="/es/teach/">Enseñar</a></li>
+        <li><a href="/es/examples/">Ejemplos</a></li>
+        <li><a href="https://p5js.org/contributor-docs/#/">Contribuir</a></li>
+        <li><a href="/es/books/">Libros</a></li>
+        <li><a href="/es/community/">Comunidad</a></li>
+        <li><a href="https://showcase.p5js.org">Showcase</a></li>
+  
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main>
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+      <h1>Creating Custom Geometry in WebGL</h1>
+
+      <p>p5.js has a number of basic shapes, like <a class="code">box()</a> or <a class="code">sphere()</a>, but p5.js is also capable of rendering complex custom geometry, both from 3D model files or from code. This tutorial will walk through how to import 3D models into p5.js, as well as how to create geometry from scratch.</p>
+
+      <div class="additionalInformation">If you are new to 3D check out the  <a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html"> Coordinates and Transformations</a> tutorial.<a
+          href="/es/learn/getting-started-in-webgl-coords-and-transform.html">Coordinates and
+          Transformations</a></div>
+
+      <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+          <li><a href="#3dModels">Loading 3D Models from File</a></li>
+          <li><a href="#proceduralGeometry">Creating Basic Procedural Geometry</a>
+          </li>
+          <li><a href="#conclusion">Conclusion</a></li>
+          <li><a href="#glossary"></a></li>
+        </ol>
+      </div>
+
+      <h2 id="3dModels">Loading 3D Models from File</h2>
+
+      <p>Custom geometry can be imported into p5.js using either OBJ or STL files. These files are usually generated in a 3D modeling tool like Blender, which offers much more control when constructing a 3D scene. This is done using the <a class="code" href="{{root}}/reference/#/p5/loadModel">loadModel()</a> method, which should be used within <a class="code">preload()</a>.<a class="code"
+          href="/es/reference/#/p5/loadModel">loadModel()</a>  <a class="code"
+          href="/es/reference/#/p5/model">model()</a> </p>
+
+      <script type="text/p5" data-autoplay data-p5-version="1.5.0">
+let teapotModel;
+
+function preload() {
+  teapotModel = loadModel('../../assets/learn/basic3D/models/teapot.obj', true);
+}
+
+function setup() {
+  createCanvas(150, 216, WEBGL);
+  debugMode();
+  describe('displays a model of a teapot using normalMaterial()');
+}
+
+function draw(){
+  background(255);
+  normalMaterial(); // For effect
+  model(teapotModel);
+}
+      </script>
+
+      <p>A common issue that can come up with custom models is scaling. Depending on how the model is constructed, it might be a much different size when rendered in p5.js, or even be too small to be rendered at all. The <a class="code">loadModel()</a> method includes a normalize parameter that will resize the model to something that works better in p5.js.</p>
+
+      <div class="additionalInformation">Note that there is currently no support for STL files with color, although you can add color using materials or textures, which you can learn about in the <a href="{{root}}/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a> tutorial.<a
+          href="/es/learn/getting-started-in-webgl-appearance.html"> </a> </div>
+
+      <h2 id="proceduralGeometry">Creating Basic Procedural Geometry</h2>
+
+      <p>Geometry can also be defined procedurally using code. This is a great way to create geometry that moves or is formed using your own set of rules. There are a number of methods that can be used to create 3D geometry in a way that is similar to 2D drawing in p5.js. For example, methods like <a class="code">quad()</a>, <a class="code">triangle()</a>, <a class="code">rect()</a>, and <a class="code">circle()</a> each have extra parameters that make it possible to use them in 3D.</p>
+
+      <p>There are other methods that offer greater control of the geometry. A shape can be defined point-by-point using <a class="code" href="{{root}}/reference/#/p5/beginShape">beginShape()</a>, <a class="code" href="{{root}}/reference/#/p5/vertex">vertex()</a>, and <a class="code" href="{{root}}/reference/#/p5/endShape">endShape()</a>. This following example shows how these methods can be used to construct a 3D shape mathematically. <a class="code"
+          href="/es/reference/#/p5/beginShape">beginShape()</a>, <a class="code"
+          href="/es/reference/#/p5/vertex">vertex()</a>,  <a class="code"
+          href="/es/reference/#/p5/endShape">endShape()</a>. </p>
+
+      <script type="text/p5" data-autoplay data-p5-version="1.5.0">
+function setup() {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  describe('a red 3d spiral shape created with beginShape and endShape');
+}
+
+function draw(){
+  background(220);
+  
+  // click+drag on canvas to look around the shape
+  orbitControl();
+  
+  fill(255,0,0,128);
+    
+  var numVertices = 100;
+  translate(0,numVertices,0);
+  rotateY(millis()/1000);
+  scale(20);
+  beginShape();
+  // a simple spiral shape
+  for(let i = 0; i < numVertices; i++) {
+    vertex(
+      sin((i/numVertices*TWO_PI)*5)*sin(i/numVertices*PI)*2,
+      -i/10, 
+      cos((i/numVertices*TWO_PI)*5)*sin(i/numVertices*PI)*2,
+    );
+  }
+  endShape();
+}
+      </script>
+
+      <p>There is also a powerful class, <a class="code" href="{{root}}/reference/#/p5/p5.Geometry">p5.Geometry</a>, which p5 uses internally for <a class="code">loadModel()</a> but can also be used to define custom geometry, offering tools that can be helpful in calculating faces and normals.  <a class="code" href="/es/reference/#/p5/p5.Geometry">p5.Geometry</a></p>
+
+
+
+      <p>In 3D, a face refers to a collection of three or four points that make up a surface, giving our geometry the appearance of being solid. A normal is the direction that is perpendicular to the face, which helps p5.js calculate lighting across the surface.</p>
+
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <img style="padding:30px; width:60%;" src='../../assets/learn/basic3D/images/normals_face_example.png'
+          alt="an illustration a collection of three points, constituting a face, and an arrow extending perpendicular to it, the normal" />
+      </div>
+
+
+      <p>In the following example, <a class="code">p5.Geometry</a> is used to plot a grid of points for the geometry. Then, <a class="code">computeFaces()</a> is used to give the geometry a solid appearance and <a class="code">computeNormals()</a> allows our geometry to have proper lighting.</p>
+
+      <script type="text/p5" data-autoplay data-p5-version="1.5.0">
+let myGeometry
+
+function setup() {
+  createCanvas(400, 400, WEBGL);
+
+  let detailX = 20;
+  let detailY = 20;
+  myGeometry = new p5.Geometry(detailX,detailY, function() {
+    
+    // these nested for loops create a simple grid of vertices
+    // which are affected by sin() and cos() on the z-axis
+    for(let x = 0; x <= detailX; x++) {
+      for(let y = 0; y <= detailY; y++) {
+        this.vertices.push(new p5.Vector(
+          x/detailX,
+          y/detailY,
+          (sin(x/detailX*TWO_PI*4) + cos(y/detailY*TWO_PI)) / 10
+          // random()/10
+        ));
+      }
+    }
+
+    // this will attach all our vertices and create faces automatically
+    this.computeFaces();
+    // this will calculate the normals to help with lighting
+    this.computeNormals();
+  });
+
+  describe('a greenish plane shape that is warped and lit');
+}
+
+function draw() {
+  background(220);
+  
+  orbitControl();
+  
+  //set a basic light to see that normals are calculated
+  pointLight(255,255,0,0,50,-50);
+  
+  push();
+  stroke(128);
+  let geoSize = width/2;
+  rotateY(cos(millis() / 1000)*PI/4);
+  translate(-geoSize/2,-geoSize/2);
+  scale(geoSize);
+  model(myGeometry);
+  pop();
+}
+      </script>
+
+      <h2 id="conclusion">Conclusion</h2>
+
+      <p>Now you should be able to create custom geometry, making it possible to create unique shapes, both from other tools and from code. Spend some time working with a variety of 3D modeling tools so you can find the one that works best for you.</p>
+
+      <h3></h3>
+      <p>This tutorial is part of a series about the basics of using WebGL in p5.js. Check out each of these other tutorials below.</p>
+      <ul class="indexList">
+        <li><a href="/es/learn/getting-started-in-webgl-coords-and-transform.html">Coordinates and Transformations</a></li>
+        <li>Creating Custom Geometry in WebGL (you are here)</li>
+        <li><a href="/es/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a></li>
+        <li><a href="/es/learn/getting-started-in-webgl-shaders.html">Introduction to Shaders</a></li>
+      </ul>
+
+      <h2 id="glossary"></h2>
+
+      <h3>Procedural</h3>
+      <p>Meaning that something is defined mathematically, instead of from stored data, like a file.</p>
+
+      <h3>Model</h3>
+      <p>A representation of geometry.</p>
+
+      <h3>STL</h3>
+      <p>STL (most often standing for "standard tesselation language") is a file format for 3D models.  It only stores information about the geometry.</p>
+
+      <h3>OBJ</h3>
+      <p>OBJ is an open file format that stores geometry data as well as some material and texture data. In p5.js, we are limited to its geometry, although an image can still be mapped to the surface using textures.</p>
+
+      <h3>Faces</h3>
+      <p>The solid surface that is generated between three points.</p>
+
+      <h3>Normals</h3>
+      <p>The direction that is perpendicular to a face, which is often needed when calculating lighting or using materials.</p>
+
+      <h3>Normalization</h3>
+      <p>Changing something so that it fits within a standard range.</p>
+
+
+    </main>
+
+    
+    <footer>
+        <h2 class="sr-only">Créditos</h2>
+        <ul id="footer-menu" aria-labelledby="menu-title">   
+          <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">Foro</a></li>
+          <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+          <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+          <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+          <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+        </ul>  
+        
+        <p>
+            p5.js está actualmente dirigido por <a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye</a> y fue creado por <a href='https://lauren-mccarthy.com' target="_blank">Lauren Lee McCarthy</a>. p5.js es desarrollado por una comunidad de colaboradores, con el apoyo de <a href="https://processingfoundation.org/" target="_blank">Processing Foundation</a> y <a href="https://itp.nyu.edu/itp/" target="_blank">NYU ITP</a>. Identidad y diseño gráfico por <a href="https://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/es/copyright.html">&copy; Info</a>.
+        </p>
+    </footer>
+
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="https://processing.org">Processing</a></li>
+        <li><a class="here" href="/es/">p5.js</a></li>
+        <li><a href="https://py.processing.org/">Processing.py</a></li>
+        <li><a href="https://android.processing.org/">Processing for Android</a></li>
+        <li><a href="https://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>
