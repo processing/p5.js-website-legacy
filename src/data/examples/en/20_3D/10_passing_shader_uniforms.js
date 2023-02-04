@@ -28,7 +28,7 @@
    // lets send the resolution, mouse, and time to our shader
    // the mouse x position will change the number of sides
    // before sending mouse + time we modify the data so it's more easily usable by the shader
-   theShader.setUniform('resolution', [width, height]);
+   theShader.setUniform('resolution', [width * displayDensity(), height * displayDensity()]);
    theShader.setUniform('mouse', map(mouseX, 0, width, 0, 7));
    theShader.setUniform('time', frameCount * 0.01);
 
