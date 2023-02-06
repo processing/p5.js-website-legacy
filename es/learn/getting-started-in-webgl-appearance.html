@@ -126,22 +126,22 @@
           <li><a href="#lighting">Lighting</a></li>
           <li><a href="#materials">Materials and Textures</a></li>          
           <li><a href="#conclusion">Conclusion</a></li>          
-          <li><a href="#glossary"></a></li>          
+          <li><a href="#glossary">Glossary</a></li>          
         </ol>
       </div>
 
       <h2 id="camera">Camera and View</h2>
 
       <p>The camera is an essential piece of a 3D scene; it gives us the sense of space and dimension that we are often looking for in 3D. In p5.js, the WebGL mode provides us with a perspective camera by default, but we can change this using <a class="code" href="{{root}}/reference/#/p5/perspective">perspective()</a> or <a
-  class="code" href="{{root}}/reference/#/p5/ortho">ortho()</a>. <a class="code" href="/es/reference/#/p5/perspective">perspective()</a>  <a
+  class="code" href="{{root}}/reference/#/p5/ortho">ortho()</a>. <a class="code" href="/es/reference/#/p5/perspective">perspective()</a> or  <a
       class="code" href="/es/reference/#/p5/ortho">ortho()</a>.</p>
 
-      <img style="padding:60px;" src='../../assets/learn/basic3D/images/cameraTypeIllustration.png'
+      <img style="padding:60px;" src='../../assets/learn/basic3d/images/cameraTypeIllustration.png'
         alt="an illustration showing the difference between perspective and orthographic camera types">
 
       <p>A <em>perspective camera</em> skews objects so they appear to get smaller as they get further away, vanishing at a single point in the distance. This is in contrast to an <em>orthographic camera</em>, where the  geometry stays the same size as it gets further away and has no vanishing point. </p>
 
-      <iframe src="../../assets/learn/basic3D/cameraExample.html" width="720" height="350">
+      <iframe src="../../assets/learn/basic3d/cameraExample.html" width="720" height="350">
       </iframe>
 
       <p>One setting that we can change with a perspective camera is the <em>field-of-view</em>, or FOV. This is the  term that is used to describe how much our camera can see, measured as an angle. In simple examples it might appear to have a zoom-like effect, but it will change way that shapes will change size in the distance.</p>
@@ -149,7 +149,7 @@
       <p>Another important term when working with cameras in 3D is the camera <em>frustum</em>. The frustum of the camera the shape of the camera's view, a pyramid-like shape within which geometry can be displayed. The frustum includes a <em>near and far plane</em>. The near plane defines the minimum distance that geometry must be from the camera to be rendered. The far plane defines the maximum distance that the geometry can be from the camera. Each of these can be changed to affect how close and how far the camera can see. This process of selectively including geometry is sometimes referred to as 'clipping'.</p>
 
       <div style="display:flex; align-items:center; justify-content: center;">
-      <img style="width:50%;" src='../../assets/learn/basic3D/images/frustum_example.png'
+      <img style="width:50%;" src='../../assets/learn/basic3d/images/frustum_example.png'
         alt="an illustration showing the the camera frustum in purple, the near plane represented by a 
         yellow rectangle near the camera, and far plane as a green rectangle on the opposite end of the frustum volume.">
       </div>
@@ -157,7 +157,7 @@
       <p>Cameras can be moved by passing arguments to <a class="code">camera()</a>, but constantly moving and adjusting the camera in code can be tedious, especially when you are experimenting with ideas. p5.js has a special camera method, <a class="code"
   href="{{root}}/reference/#/p5/orbitControl">orbitControl()</a>, that can be used to zoom, pan,
 and position the camera using the mouse.<a class="code"
-      href="/es/reference/#/p5/orbitControl">orbitControl()</a></p>
+      href="/es/reference/#/p5/orbitControl">orbitControl()</a>, that can be used to zoom, pan, and position the camera using the mouse.</p>
 
       <p>A scene can have multiple cameras, but only one camera can be active at a time. Sketches in p5.js will default to having a single perspective camera, but that can be changed by calling either <a
   class="code">perspective()</a>
@@ -232,7 +232,7 @@ function draw() {
         These lights should be used within <a class="code">draw()</a>. Up to 5 lights can be used in a scene simultaneously, allowing you to compose a scene with varied and complex lighting sources.  Try checking and unchecking the boxes in the following interactive example to see how lighting can be blended together. For each active light source there are visual indicators of their position or direction, just know that these are here for illustrative purposes!
       </p>
 
-      <iframe src="../../assets/learn/basic3D/lightingExample.html" width="720" height="350">
+      <iframe src="../../assets/learn/basic3d/lightingExample.html" width="720" height="350">
       </iframe>
 
       <p>In this next example, try commenting and uncommenting each light and experiment with their parameters.</p>
@@ -292,7 +292,7 @@ function draw() {
 
       <p>In this interactive example, try selecting each of the different materials to see how they affect the appearance of the geometry. You can move your mouse and see the effect that a directional light has on the material. </p>
 
-      <iframe src="../../assets/learn/basic3D/materialsExample.html" width="720" height="350">
+      <iframe src="../../assets/learn/basic3d/materialsExample.html" width="720" height="350">
       </iframe>
 
       <p>Try commenting and uncommenting the different lights in this example:</p>
@@ -339,7 +339,7 @@ function draw() {
 let myTexture;
 
 function preload() {
-  myTexture = loadImage("../../assets/learn/basic3D/images/simpleTexture.png");
+  myTexture = loadImage("../../assets/learn/basic3d/images/simpleTexture.png");
   // map textures between 0 and 1 to match geometry uvs
   textureMode(NORMAL);
 }
@@ -366,7 +366,7 @@ function draw() {
 
       <div class="additionalInformation">
         <p> 
-          While they are useful for changing the appearance of your geometry, shaders are a bit beyond the scope of this  tutorial, so make sure to check out the <a href="{{root}}/learn/introduction-to-shaders.html">Introduction to Shaders</a>  page when you are ready.  <a href="/es/learn/getting-started-in-webgl-shaders.html"></a> 
+          While they are useful for changing the appearance of your geometry, shaders are a bit beyond the scope of this  tutorial, so make sure to check out the <a href="{{root}}/learn/introduction-to-shaders.html">Introduction to Shaders</a>  page when you are ready.  <a href="/es/learn/getting-started-in-webgl-shaders.html">Introduction to Shaders</a> page when you are ready. 
         </p>
       </div>
 
@@ -374,7 +374,7 @@ function draw() {
 
       <p>Being able to have control over the camera, lighting, and materials will give you much more flexibility to decide how your sketch looks, and it will open up the possibilities for you to introduce your own style to your 3D sketches. The following tutorial in the Getting Started in WebGL series will introduce you to shaders, which will make it possible to change the appearance of your sketch in even more interesting ways.</p>
 
-      <h3></h3>
+      <h3>Other Tutorials</h3>
       <p>This tutorial is part of a series about the basics of using WebGL in p5.js. Check out each of these other tutorials below.</p>
       <ul class="indexList">
         <li><a href="/es/learn/getting-started-in-webgl-coords-and-transform.html">Coordinates and Transformations</a></li>
@@ -383,7 +383,7 @@ function draw() {
         <li><a href="/es/learn/getting-started-in-webgl-shaders.html">Introduction to Shaders</a></li>
       </ul>
 
-      <h2 id="glossary"></h2>
+      <h2 id="glossary">Glossary</h2>
 
       <h3>Camera</h3>
       <p>The viewpoint of a 3D scene</p>

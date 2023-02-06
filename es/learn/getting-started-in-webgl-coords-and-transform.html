@@ -114,7 +114,7 @@
     <main>
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
-      <iframe src="../../assets/learn/basic3D/titleExample.html" width="720" height="350">
+      <iframe src="../../assets/learn/basic3d/titleExample.html" width="720" height="350">
       </iframe>
 
       <h1>Coordinates and Transformations</h1>
@@ -133,7 +133,7 @@
           <li><a href="#basic_shapes">Basic Shapes in 3D</a>
           </li>
           <li><a href="#conclusion">Conclusion</a></li>
-          <li><a href="#glossary"></a></li>
+          <li><a href="#glossary">Glossary</a></li>
         </ol>
       </div>
 
@@ -161,25 +161,25 @@
       <h2 id="coordinate_space">3D Coordinate Space: Positioning in 3D</h2>
 
       <div class="additionalInformation">If coordinates systems aren't making sense it might be helpful to revisit the tutorial titled <a href="{{root}}/learn/coordinate-system-and-shapes.html">Coordinate System and Shapes</a>.<a
-          href="/es/learn/coordinate-system-and-shapes.html"></a>.</div>
+          href="/es/learn/coordinate-system-and-shapes.html">Coordinate System and Shapes</a>.</div>
 
       <p>One of the most fundamental differences between working in 2D and working in 3D is the most obvious: there is one more dimension to work with. In addition to the horizontal and vertical position (x and y axes) of an element in our drawing, 3D adds depth, the z-axis. </p>
 
       <p>When drawing in 2D, the point (0,0) is located at the top left corner of the screen. In WebGL mode, the origin of the sketch (0,0,0) is located in the middle of the screen. By default, the x-axis goes left-to-right, y-axis goes up-to-down, and the z-axis goes from further-to-closer.</p>
 
-      <img style="padding:60px;" src='../../assets/learn/basic3D/images/2d3d_coordinates.png'
+      <img style="padding:60px;" src='../../assets/learn/basic3d/images/2d3d_coordinates.png'
         alt="an illustration showing a 2D coordinate system on the left, showing an origin of (0,0) and a 3D coordinate system on the right, showing an origin of (0,0,0)">
 
       <h2 id="transformations">Transformations: Position and Size of 3D Shapes</h2>
 
       <p>p5.js has a few methods, <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a>, <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>, and <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects within space. Each of these methods affect what is known as the <em>model matrix</em>. Collectively these are known as the <em>transformation</em> of an object. These methods are available for both 2D and 3D drawing.<a class="code"
           href="/es/reference/#/p5/translate">translate()</a>, <a class="code"
-          href="/es/reference/#/p5/rotate">rotate()</a>,  <a class="code"
-          href="/es/reference/#/p5/scale">scale()</a>, </p>
+          href="/es/reference/#/p5/rotate">rotate()</a>, and  <a class="code"
+          href="/es/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects within space. Each of these methods affect what is known as the <em>model matrix</em>. Collectively these are known as the <em>transformation</em> of an object. These methods are available for both 2D and 3D drawing.</p>
 
       <h3>translate(): Moving Objects in Space</h3>
 
-      <iframe src="../../assets/learn/basic3D/translateExample.html" width="720" height="350">
+      <iframe src="../../assets/learn/basic3d/translateExample.html" width="720" height="350">
       </iframe>
 
       <p><a class="code" href="/es/reference/#/p5/translate">translate()</a> <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a> moves the origin in a given direction. Anything drawn after we call <a class="code">translate()</a> will be positioned relative to that point. <a class="code">translate()</a> accepts arguments for x, y, and z values. Use the sliders in the sketch above to change the translation of the box and see how it moves along each axis. The code below demonstrates simple translation on a <a class="code">box()</a> shape.</p>
@@ -194,7 +194,7 @@
 
       <h3>rotate(): Orienting Objects in Space</h3>
 
-      <iframe src="../../assets/learn/basic3D/rotateExample.html" width="720" height="350">
+      <iframe src="../../assets/learn/basic3d/rotateExample.html" width="720" height="350">
       </iframe>
 
       <p><a class="code" href="/es/reference/#/p5/rotate">rotate()</a> <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a> reorients whatever is drawn after it.</p>
@@ -204,8 +204,8 @@
   href="{{root}}/reference/#/p5/rotateZ">rotateZ()</a>, which each allow for rotation around a specific axis.
 Each of these methods accept a single argument specifying the angle of rotation. Try moving the sliders in the example above to see how rotation is performed on each axis. The code below shows each of these methods in use.<a class="code"
           href="/es/reference/#/p5/rotateX">rotateX()</a>, <a class="code"
-          href="/es/reference/#/p5/rotateY">rotateY()</a>,  <a class="code"
-          href="/es/reference/#/p5/rotateZ">rotateZ()</a> </p>
+          href="/es/reference/#/p5/rotateY">rotateY()</a>, and  <a class="code"
+          href="/es/reference/#/p5/rotateZ">rotateZ()</a> , which each allow for rotation around a specific axis. Each of these methods accept a single argument specifying the angle of rotation. Try moving the sliders in the example above to see how rotation is performed on each axis. The code below shows each of these methods in use.</p>
 
       <pre><code class="language-javascript">
       ...
@@ -233,12 +233,12 @@ Each of these methods accept a single argument specifying the angle of rotation.
 
       <div class="additionalInformation">
         <p><p>You can also use <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>, which allows you to specify which axis you'd like to rotate around using a vector as the second argument.</p> <a class="code"
-            href="/es/reference/#/p5/rotate">rotate()</a> </p>
+            href="/es/reference/#/p5/rotate">rotate()</a> , which allows you to specify which axis you'd like to rotate around using a vector as the second argument.</p>
       </div>
 
       <h3>scale(): Size in Space</h3>
 
-      <iframe src="../../assets/learn/basic3D/scaleExample.html" width="720" height="350">
+      <iframe src="../../assets/learn/basic3d/scaleExample.html" width="720" height="350">
       </iframe>
 
       <p><a class="code" href="/es/reference/#/p5/scale">scale()</a> <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a> changes the size of whatever is drawn after it. Like the other methods described so far, it accepts arguments for x, y, and z values.</p>
@@ -271,8 +271,8 @@ function draw(){
       </script>
 
       <p>p5.js also has some methods that can control when transformations are applied: <a class="code" href="{{root}}/reference/#/p5/push">push()</a> and <a class="code" href="{{root}}/reference/#/p5/pop">pop()</a>. <a class="code">push()</a> and <a class="code">pop()</a> make it easier to move objects individually. The <a class="code">push()</a> method saves and sets aside the current transformations. The <a class="code">pop()</a> method restores those transformations. Whatever transformations that are made between <a class="code">push()</a> and <a class="code">pop()</a> will be isolated to that portion of the code. If you don’t use <a class="code">push()</a> and <a class="code">pop()</a>, you have to keep track of whatever transformations have already taken place, which can get complicated and difficult to follow. Consider this following example, which places two boxes in our sketch. To position the second box without <a class="code">push()</a> and <a class="code">pop()</a>, you have to account for the first transformation. This  can be a lot to keep track of in a more complex 3D scene. <a class="code"
-          href="/es/reference/#/p5/push">push()</a>  <a class="code"
-          href="/es/reference/#/p5/pop">pop()</a> </p>
+          href="/es/reference/#/p5/push">push()</a> and <a class="code"
+          href="/es/reference/#/p5/pop">pop()</a> . <a class="code">push()</a> and <a class="code">pop()</a> make it easier to move objects individually. The <a class="code">push()</a> method saves the current transformations and  style settings. Then, after performing new transformations, the <a class="code">pop()</a> method is used to restore us to the the original transformations. The result is that  whatever transformations or styling changes that are made between <a class="code">push() </a> and <a class="code">pop()</a> are isolated to that portion of the code. If you don’t  use <a class="code">push()</a> and <a class="code">pop()</a>, you have to keep track of whatever transformations have already taken place, which can get complicated and difficult to follow. Consider this following example, which places two boxes in our sketch. To position the second box without <a class="code">push()</a> and <a class="code">pop()</a>, you have to account for the first transformation. This  can be a lot to keep track of in a more complex 3D scene. </p>
 
       <pre><code class="language-javascript">
       // draw a box 100 units to the right
@@ -338,7 +338,7 @@ function draw() {
 
       <p>So far we have only been using <a class="code">box()</a> but p5.js has seven different predefined geometries that you can use in your sketch. These basic predefined geometries are often referred to as 'primitives'.</p>
 
-      <img style="padding:60px;" src='../../assets/learn/basic3D/images/primitives_example.png'
+      <img style="padding:60px;" src='../../assets/learn/basic3d/images/primitives_example.png'
         alt="an illustration showing each of the available primitives in p5.js">
 
       <p>These primitive shape methods are: <a class="code" href="{{root}}/reference/#/p5/box">box()</a>, <a class="code" href="{{root}}/reference/#/p5/plane">plane()</a>, <a class="code" href="{{root}}/reference/#/p5/sphere">sphere()</a>, <a class="code" href="{{root}}/reference/#/p5/ellipsoid">ellipsoid()</a>, <a class="code" href="{{root}}/reference/#/p5/cone">cone()</a>, <a class="code" href="{{root}}/reference/#/p5/cylinder">cylinder()</a>, and <a class="code" href="{{root}}/reference/#/p5/torus">torus()</a>.<a class="code"
@@ -346,18 +346,18 @@ function draw() {
         <a class="code" href="/es/reference/#/p5/sphere">sphere()</a>, 
         <a class="code" href="/es/reference/#/p5/ellipsoid">ellipsoid()</a>, 
         <a class="code" href="/es/reference/#/p5/cone">cone()</a>, 
-        <a class="code" href="/es/reference/#/p5/cylinder">cylinder()</a>,  <a class="code"
+        <a class="code" href="/es/reference/#/p5/cylinder">cylinder()</a>, and <a class="code"
           href="/es/reference/#/p5/torus">torus()</a>.
       </p>
 
       <p>It is also possible to create custom geometry, either from scratch or from 3D models created in another program. More information about custom geometry can be found the <a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">Custom Geometry tutorial</a>.<a
-          href="/es/learn/getting-started-in-webgl-custom-geometry.html"></a>.</p>
+          href="/es/learn/getting-started-in-webgl-custom-geometry.html">Custom Geometry tutorial    </a>.</p>
 
       <h2 id="conclusion">Conclusion</h2>
 
       <p>By having basic control over a 3D coordinate space, transformations,  and basic shapes, you should be able to begin creating basic scenes in 3D. The tutorials that follow this in the Getting Started in WebGL series will introduce custom geometries, allow you to tweak the appearance of  the scene, and introduce you to some basic shader programming to push your sketches further.</p>
 
-      <h3></h3>
+      <h3>Other Tutorials</h3>
 
       <p>This tutorial is part of a series about the basics of using WebGL in p5.js. Check out each of these other tutorials below.</p>
 
@@ -368,7 +368,7 @@ function draw() {
         <li><a href="/es/learn/getting-started-in-webgl-shaders.html">Introduction to Shaders</a></li>
       </ul>
 
-      <h2 id="glossary"></h2>
+      <h2 id="glossary">Glossary</h2>
 
       <h3>GPU</h3>
       <p>The GPU (Graphics Processing Unit) is a piece of hardware that is particularly well suited for performing many calculations in parallel, making it powerful for 3D graphics.</p>

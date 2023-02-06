@@ -119,7 +119,7 @@
 
       <div class="additionalInformation">If you are new to 3D check out the  <a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html"> Coordinates and Transformations</a> tutorial.<a
           href="/ko/learn/getting-started-in-webgl-coords-and-transform.html">Coordinates and
-          Transformations</a></div>
+          Transformations</a>tutorial.</div>
 
       <div class="toc">
         <h3>Table of Contents</h3>
@@ -128,21 +128,21 @@
           <li><a href="#proceduralGeometry">Creating Basic Procedural Geometry</a>
           </li>
           <li><a href="#conclusion">Conclusion</a></li>
-          <li><a href="#glossary"></a></li>
+          <li><a href="#glossary">Glossary</a></li>
         </ol>
       </div>
 
       <h2 id="3dModels">Loading 3D Models from File</h2>
 
       <p>Custom geometry can be imported into p5.js using either OBJ or STL files. These files are usually generated in a 3D modeling tool like Blender, which offers much more control when constructing a 3D scene. This is done using the <a class="code" href="{{root}}/reference/#/p5/loadModel">loadModel()</a> method, which should be used within <a class="code">preload()</a>.<a class="code"
-          href="/ko/reference/#/p5/loadModel">loadModel()</a>  <a class="code"
-          href="/ko/reference/#/p5/model">model()</a> </p>
+          href="/ko/reference/#/p5/loadModel">loadModel()</a> method, which should be used within <a class="code">preload()</a>. Then you can use the  <a class="code"
+          href="/ko/reference/#/p5/model">model()</a> function to draw the model, as demonstrated in the example below.</p>
 
       <script type="text/p5" data-autoplay data-p5-version="1.5.0">
 let teapotModel;
 
 function preload() {
-  teapotModel = loadModel('../../assets/learn/basic3D/models/teapot.obj', true);
+  teapotModel = loadModel('../../assets/learn/basic3d/models/teapot.obj', true);
 }
 
 function setup() {
@@ -161,7 +161,7 @@ function draw(){
       <p>A common issue that can come up with custom models is scaling. Depending on how the model is constructed, it might be a much different size when rendered in p5.js, or even be too small to be rendered at all. The <a class="code">loadModel()</a> method includes a normalize parameter that will resize the model to something that works better in p5.js.</p>
 
       <div class="additionalInformation">Note that there is currently no support for STL files with color, although you can add color using materials or textures, which you can learn about in the <a href="{{root}}/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a> tutorial.<a
-          href="/ko/learn/getting-started-in-webgl-appearance.html"> </a> </div>
+          href="/ko/learn/getting-started-in-webgl-appearance.html"> Styling and Appearance    </a> tutorial.</div>
 
       <h2 id="proceduralGeometry">Creating Basic Procedural Geometry</h2>
 
@@ -169,8 +169,8 @@ function draw(){
 
       <p>There are other methods that offer greater control of the geometry. A shape can be defined point-by-point using <a class="code" href="{{root}}/reference/#/p5/beginShape">beginShape()</a>, <a class="code" href="{{root}}/reference/#/p5/vertex">vertex()</a>, and <a class="code" href="{{root}}/reference/#/p5/endShape">endShape()</a>. This following example shows how these methods can be used to construct a 3D shape mathematically. <a class="code"
           href="/ko/reference/#/p5/beginShape">beginShape()</a>, <a class="code"
-          href="/ko/reference/#/p5/vertex">vertex()</a>,  <a class="code"
-          href="/ko/reference/#/p5/endShape">endShape()</a>. </p>
+          href="/ko/reference/#/p5/vertex">vertex()</a>, and  <a class="code"
+          href="/ko/reference/#/p5/endShape">endShape()</a>. This following example shows how these methods can be used to construct a 3D shape mathematically.</p>
 
       <script type="text/p5" data-autoplay data-p5-version="1.5.0">
 function setup() {
@@ -203,14 +203,14 @@ function draw(){
 }
       </script>
 
-      <p>There is also a powerful class, <a class="code" href="{{root}}/reference/#/p5/p5.Geometry">p5.Geometry</a>, which p5 uses internally for <a class="code">loadModel()</a> but can also be used to define custom geometry, offering tools that can be helpful in calculating faces and normals.  <a class="code" href="/ko/reference/#/p5/p5.Geometry">p5.Geometry</a></p>
+      <p>There is also a powerful class, <a class="code" href="{{root}}/reference/#/p5/p5.Geometry">p5.Geometry</a>, which p5 uses internally for <a class="code">loadModel()</a> but can also be used to define custom geometry, offering tools that can be helpful in calculating faces and normals.  <a class="code" href="/ko/reference/#/p5/p5.Geometry">p5.Geometry</a>, which p5.js uses internally for <a class="code">loadModel()</a> but can also be used to define custom geometry, offering tools that can be helpful in calculating faces and normals. </p>
 
 
 
       <p>In 3D, a face refers to a collection of three or four points that make up a surface, giving our geometry the appearance of being solid. A normal is the direction that is perpendicular to the face, which helps p5.js calculate lighting across the surface.</p>
 
       <div style="display: flex; align-items: center; justify-content: center;">
-        <img style="padding:30px; width:60%;" src='../../assets/learn/basic3D/images/normals_face_example.png'
+        <img style="padding:30px; width:60%;" src='../../assets/learn/basic3d/images/normals_face_example.png'
           alt="an illustration a collection of three points, constituting a face, and an arrow extending perpendicular to it, the normal" />
       </div>
 
@@ -281,7 +281,7 @@ function draw() {
         <li><a href="/ko/learn/getting-started-in-webgl-shaders.html">Introduction to Shaders</a></li>
       </ul>
 
-      <h2 id="glossary"></h2>
+      <h2 id="glossary">Glossary</h2>
 
       <h3>Procedural</h3>
       <p>Meaning that something is defined mathematically, instead of from stored data, like a file.</p>
