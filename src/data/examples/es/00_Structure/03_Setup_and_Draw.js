@@ -1,7 +1,9 @@
 /*
  * @name Setup y Draw
+* @arialabel Linea blanca horizontal animada en un fondo de color negro la cual se mueve de abajo hacia arriba en la pantalla
  * @description El código dentro de la función draw() corre continuamente de arriba
- * a a bajo hasta que el programa es parado.
+ * abajo hasta que el programa es detenido. El
+ * código en setup() es ejecutado una vez cuando el programa empieza.
  */
 let y = 100;
 
@@ -15,7 +17,7 @@ function setup() {
 }
 
 // Las instrucciones en draw() son ejecutadas hasta que
-// el programa es parado. Cada instrucción es ejecutada
+// el programa es detenido. Cada instrucción es ejecutada
 // en orden y luego de que la última línea es leída,
 // se vuelve a ejecutar draw() desde el principio
 function draw() {
