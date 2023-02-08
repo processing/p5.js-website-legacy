@@ -1,5 +1,5 @@
 /*
- * @name Comments and Statements
+ * @name Sentencias y comentarios
  * @description Las sentencias son los elementos que construyen a los programas. El símbolo ";" (punto y coma) se utiliza para cerrar las sentencias.
  * Se le llama el "statement terminator". Los comentarios son usados para hacer notas para ayudar a las personas a entender mejor los programas. Un comentario empieza con dos diagonales ("//").
  * <br><br><small><em>Este ejemplo es traído desde <a href="https://processing.org/examples/statementscomments.html">Statements and Comments example</a>
