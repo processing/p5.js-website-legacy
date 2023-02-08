@@ -5,12 +5,12 @@
  */
 let y;
 
-// The statements in the setup() function
-// execute once when the program begins
+// Las sentencias en la función setup()
+// se ejecutan una vez cuando el programa empieza.
 function setup() {
-  // createCanvas should be the first statement
+  // createCanvas deberá ser la primera sentencia
   createCanvas(720, 400);
-  stroke(255); // Set line drawing color to white
+  stroke(255); // Pone al color blanco para dibujar lineas
   noLoop();
 
   y = height * 0.5;
@@ -21,7 +21,7 @@ function setup() {
 // en orden y luego de que la última línea es leída,
 // se vuelve a ejecutar draw() desde el principio
 function draw() {
-  background(0); // Set the background to black
+  background(0); // Pone el fondo en negro
   y = y - 1;
   if (y < 0) {
     y = height;
