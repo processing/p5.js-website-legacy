@@ -1,5 +1,6 @@
 /*
  *@name Recursión
+ *@arialabel Círculo gris con dos círculos de color gris en medio. Cada uno de estos dos círculos grises tiene más círculos en medio. Este patrón continua hasta que no posible dibujar más dentro de ellos.
  *@description Una demostración de recursión, que significa funciones llamándose a sí mismas.
  * Una función recursiva debe tener una condición que la termine, sin ella la función caerá
  * en un ciclo infinito. Fíjate cómo la función drawCircle() se llama a sí misma al final del bloque de código.
