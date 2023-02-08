@@ -1,8 +1,9 @@
 /*
  *@name Funciones
- *@description La función drawTarget() hace fácil dibujar muchas dianas distintos.
+ *@arialabel Tres dianas son creados con la forma de círculos negros. Hay un gradiente de blanco a negro desde el centro  del círculo hacia el borde exterior.
+ *@description La función drawTarget() hace fácil dibujar muchas dianas distintas.
  * Cada llamada a drawTarget() especifica la posición, tamaño y número de
- * anillos por cada diana.
+ * anillos para cada diana.
  */
 
 function setup() {
