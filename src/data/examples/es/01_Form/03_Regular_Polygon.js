@@ -1,8 +1,9 @@
 /*
  * @name Polígono regular
+ * @arialabel Tres figuras blancas con contornos negros rotando sobre un fondo gris. De izquierda a derecha: un triángulo, un icoságono, y un heptágono 
  * @description ¿Cuál es tu favorito? ¿Pentágono? ¿Hexágono? ¿Heptágono? ¿No?
- * ¿O el icoságono? La función polygon() creada para este ejemplo es
- * capaz de dibujar cualquier polígono regular. Trata con distintos números en los paráemtros de
+ * ¿Qué tal el icoságono? La función polygon() creada para este ejemplo es
+ * capaz de dibujar cualquier polígono regular. Trata con distintos números en los parámetros de
  * la función polygon() dentro de draw() para explorar.
  */
 function setup() {
