@@ -1,7 +1,8 @@
 /*
  * @name Primitivas 3D
+ * @arialabel Fondo gris con un cubo gris oscuro en la esquiza inferior izquierda y una esfera delineada en blanco en la esquina inferior derecha 
  * @frame 720,400 (optional)
- * @description Ubicar matemáticamente objetos 3D en un espacio sintétito.
+ * @description Ubicando matemáticamente objetos 3D en un espacio sintético.
  * Las funciones box() y sphere() toman al menos un parámetro para especificar su
  * tamaño. Estas figuras son posicionadas usando la función translate().
  */

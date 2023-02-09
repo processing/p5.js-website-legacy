@@ -1,16 +1,15 @@
 /* 
- * @name Trig Wheels and Pie Chart
+ * @name Ruedas trigonométricas y gráfico circular
+ * @arialabel Dos círculos sobre un fondo blanco. Un círculo tiene rebanadas de diferentes colores. Un círculo consta de rectángulo en espiral dentro de la forma de un círculo en un gradiente de arco iris 
  * @frame 400,400
- * @description contributed by <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
-   <b>Prof WM Harris,</b></a> <b>How</b> to create
-a trig color wheel and a visualization of a population age data as a
-pie chart.<br/>
-	Functions are
-created for the canvas setup, trig color wheel, drawslice, and pie
-chart. The size of the slices are determined as well as their color
-range. The pie chart is separated by definitive color per value
-whereas the trig color wheel has a fixed slice amount with a range
-color fill.
+ * @description Contribuido por <a href="https://www.rit.edu/directory/wmhics-w-michelle-harris">
+   <b>Prof WM Harris,</b></a> <b>Cómo</b> crear una rueda trigonométrica de colores y una visualización de los datos de edad de una población como un gráfico circular.<br/>
+   Las funciones son creadas 
+   para la configuración del lienzo, la rueda de colores trigonométrica, el sector del dibujo, y el gráfico circular. 
+   El tamaño de las rebanadas son determinadas así como su 
+   rango de color. El gráfico circular esta separado color definitivo por valor 
+   mientras que la rueda de colores trigonométrica tiene una cantidad fija de rebanadas con un relleno de 
+   color de rango.
 */
 
 function setup() {
@@ -18,16 +17,16 @@ function setup() {
   colorMode(HSB);
   angleMode(DEGREES);
 
-  //vars for color wheel center point
+  //Variables para el punto central de la rueda de colores
   let x = width / 2;
   let y = height / 2 + 100;
-  colorWheel(x, y, 100); //slide 11
+  colorWheel(x, y, 100); //diapositiva 11
 
   noStroke();
-  pieChartPop(200, 100); //slide 12
+  pieChartPop(200, 100); //diapositiva 12
 }
 
-//**** slide 12 pie chart trig demo 
+//**** diapositiva 12 demostración trigonométrica de gráfico circular
 function pieChartPop(x, y) {
   let [total, child, young, adult, senior, elder] = [577, 103, 69,
     122, 170, 113
@@ -35,23 +34,23 @@ function pieChartPop(x, y) {
   let startValue = 0;
   let range = 0;
 
-  //child slice
+  //Rebanada de niño
   range = child / total;
   drawSlice("blue", x, y, 200, startValue, startValue + range);
   startValue += range;
-  //young slice
+  //Rebanada de joven
   range = young / total;
   drawSlice("orange", x, y, 200, startValue, startValue + range);
   startValue += range;
-  //adult slice
+  //Rebanada de adulto
   range = adult / total;
   drawSlice("green", x, y, 200, startValue, startValue + range);
   startValue += range;
-  //senior slice
+  //Rebanada de adulto mayor
   range = senior / total;
   drawSlice("tan", x, y, 200, startValue, startValue + range);
   startValue += range;
-  //elder slice
+  //Rebanada de anciano
   range = elder / total;
   drawSlice("pink", x, y, 200, startValue, startValue + range);
   startValue += range;
@@ -59,29 +58,29 @@ function pieChartPop(x, y) {
 }
 
 /**
- * drawSlice - draw colored arc based on angle percentages. slide 13
- * Adjust angles so that 0% starts at top (actually -90).
- * @param {color} fColor - fill color
- * @param {number} x - center x
- * @param {number} y - center y
- * @param {number} d - diameter
- * @param {float} percent1 - starting percentage
- * @param {float} percent2 - ending percentage
+ * drawSlice - dibuja un arco basado en los porcentajes de ángulos. Diapositiva 13
+ * Ajusta los ángulos para que el 0% empiece en la parte superior (de hecho, -90)
+ * @param {color} fColor - color de relleno
+ * @param {number} x - coordenada x del centro
+ * @param {number} y - coordenada y del centro
+ * @param {number} d - diámetro
+ * @param {float} percent1 - porcentaje inicial
+ * @param {float} percent2 - porcentaje final
  */
 function drawSlice(fColor, x, y, d, percent1, percent2) {
   fill(fColor);
   arc(x, y, d, d, -90 + percent1 * 360, -90 + percent2 * 360);
 }
 
-//**** slide 11 trig demo 
+//**** diapositiva 11 demostración de trigonometría 
 function colorWheel(x, y, rad) {
   strokeWeight(10);
   strokeCap(SQUARE);
 
-  //Iterate 360 degrees of lines, +10deg per turn
+  //Itera 360 grados de lineas, 10 grados por turno
   for (let a = 0; a < 360; a += 10) {
-    stroke(a, 150, 200); //hue based on a
-    //radius is 100, angle is a degrees
+    stroke(a, 150, 200); //hue basado en un
+    //radio es 100, ángulo es un grado
     line(x, y, x + rad * cos(a),
       y + rad * sin(a));
   }
