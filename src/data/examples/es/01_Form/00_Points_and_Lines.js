@@ -1,5 +1,6 @@
 /*
  * @name Puntos y líneas
+ * @arialabel Contorno blanco de un cuadrado sobre un fondo de color negro
  * @description Puntos y líneas pueden ser usados para dibujar geometría básica.
  * Cambia el valor de la variable 'd' para escalar la figura. Las cuatro
  * variables definen las posiciones basadas en el valor de 'd'.
