@@ -2,7 +2,7 @@
  * @name Coordenadas
  * @description Todas las formas dibujadas en la pantalla tienen una posición que es
  * especificada como una coordenada. Todas las coordenadas son medidas como una distancia desde el origen, usando el pixel como unidad de medida.
- * El origen [0, 0] es la coordenada en la esquina superior izquierda de la ventana y la coordenada de la esquina inferior derecha es [ancho-1, altura-1].
+ * El origen [0, 0] es la coordenada en la esquina superior izquierda de la ventana y la coordenada de la esquina inferior derecha es [width-1, height-1].
  */
 function setup() {
   // Definir lienzo de 720 pixeles de ancho y 400 pixeles de alto
