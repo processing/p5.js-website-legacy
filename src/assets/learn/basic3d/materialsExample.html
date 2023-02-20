@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<head>
+  <title>3D Materials Example</title>
+  <script src="../../../assets/js/p5.min.js"></script>
+  <!-- uncomment lines below to include extra p5 libraries -->
+  <!--<script src="../addons/p5.sound.js"></script>-->
+  <script src="materialsExample.js"></script>
+  <!-- this line removes any default padding and style. you might only need one of these values set. -->
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: monospace;
+      font-size: 16px;
+      background-color: #dcdcdc
+    }
+
+    #pageContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #pageContainer>div {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: space-evenly;
+      margin: 0px 10px;
+    }
+
+    #controlsContainer {
+      width: 250px;
+      flex-grow: 2;
+    }
+
+    #controlsContainer label {
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="pageContainer">
+    <div id="sketchContainer"></div>
+    <div id="controlsContainer">
+      <label>Sphere:
+        <input id="shapeType" type="checkbox" />          
+      </label>
+
+      <label style="color:black;">
+        normalMaterial: <input id="toggleNormalMaterial" name="materialSelect" type="radio" checked/>
+      </label>
+      
+      <label style="color:red;">
+        ambientMaterial: <input id="toggleAmbientMaterial" name="materialSelect" type="radio"/>
+      </label>
+      
+      <label style="color:blue;">
+        emissiveMaterial: <input id="toggleEmissiveMaterial" name="materialSelect" type="radio"/>
+      </label>
+      
+      <label style="color:green;">
+        specularMaterial: <input id="toggleSpecularMaterial" name="materialSelect" type="radio"/>
+      </label>
+    </div>
+  </div>
+</body>
+
+</html>

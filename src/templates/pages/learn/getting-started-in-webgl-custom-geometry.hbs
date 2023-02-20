@@ -1,0 +1,262 @@
+---
+title: learn
+slug: learn/
+---
+
+<style>
+  .methodsList {
+    font-family: monospace;
+  }
+
+  .additionalInformation {
+    width: 100%;
+    background-color: #dedeff;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc {
+    width: 100%;
+    background-color: #eee;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc h3 {
+    margin-top: 15px;
+  }
+
+  .indexList {
+    padding: 15px;
+    background-color: whitesmoke;
+  }
+</style>
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main>
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+      <h1>{{#i18n "getting-started-in-webgl-custom-geometry-title"}}{{/i18n}}</h1>
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p1x1"}}{{/i18n}}</p>
+
+      <div class="additionalInformation">{{#i18n "getting-started-in-webgl-custom-geometry-info1x1"}}{{/i18n}}<a
+          href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">Coordinates and
+          Transformations</a>{{#i18n "getting-started-in-webgl-custom-geometry-info1x2"}}{{/i18n}}</div>
+
+      <div class="toc">
+        <h3>{{#i18n "getting-started-in-webgl-custom-geometry-toc-title"}}{{/i18n}}</h3>
+        <ol>
+          <li><a href="#3dModels">{{#i18n "getting-started-in-webgl-custom-geometry-heading1"}}{{/i18n}}</a></li>
+          <li><a href="#proceduralGeometry">{{#i18n "getting-started-in-webgl-custom-geometry-heading2"}}{{/i18n}}</a>
+          </li>
+          <li><a href="#conclusion">{{#i18n "getting-started-in-webgl-custom-geometry-heading3"}}{{/i18n}}</a></li>
+          <li><a href="#glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</a></li>
+        </ol>
+      </div>
+
+      <h2 id="3dModels">{{#i18n "getting-started-in-webgl-custom-geometry-heading1"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p2x1"}}{{/i18n}}<a class="code"
+          href="{{root}}/reference/#/p5/loadModel">loadModel()</a> {{#i18n
+        "getting-started-in-webgl-custom-geometry-p2x2"}}{{/i18n}} <a class="code"
+          href="{{root}}/reference/#/p5/model">model()</a> {{#i18n "getting-started-in-webgl-custom-geometry-p2x3"}}{{/i18n}}</p>
+
+      {{!-- Widget example of teapot model and loadModel --}}
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+let teapotModel;
+
+function preload() {
+  teapotModel = loadModel('{{assets}}/learn/basic3d/models/teapot.obj', true);
+}
+
+function setup() {
+  createCanvas(150, 216, WEBGL);
+  debugMode();
+  describe('displays a model of a teapot using normalMaterial()');
+}
+
+function draw(){
+  background(255);
+  normalMaterial(); // For effect
+  model(teapotModel);
+}
+      </script>
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p3x1"}}{{/i18n}}</p>
+
+      <div class="additionalInformation">{{#i18n "getting-started-in-webgl-custom-geometry-info2x1"}}{{/i18n}}<a
+          href="{{root}}/learn/getting-started-in-webgl-appearance.html"> {{#i18n
+          "getting-started-in-webgl-custom-geometry-info2x2"}}{{/i18n}}</a> {{#i18n
+        "getting-started-in-webgl-custom-geometry-info2x3"}}{{/i18n}}</div>
+
+      <h2 id="proceduralGeometry">{{#i18n "getting-started-in-webgl-custom-geometry-heading2"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p4x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p5x1"}}{{/i18n}} <a class="code"
+          href="{{root}}/reference/#/p5/beginShape">beginShape()</a>, <a class="code"
+          href="{{root}}/reference/#/p5/vertex">vertex()</a>, {{#i18n
+        "getting-started-in-webgl-custom-geometry-p5x2"}}{{/i18n}} <a class="code"
+          href="{{root}}/reference/#/p5/endShape">endShape()</a>. {{#i18n
+        "getting-started-in-webgl-custom-geometry-p5x3"}}{{/i18n}}</p>
+
+      {{!-- Example using beginShape and endShape --}}
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  describe('a red 3d spiral shape created with beginShape and endShape');
+}
+
+function draw(){
+  background(220);
+  
+  // click+drag on canvas to look around the shape
+  orbitControl();
+  
+  fill(255,0,0,128);
+    
+  var numVertices = 100;
+  translate(0,numVertices,0);
+  rotateY(millis()/1000);
+  scale(20);
+  beginShape();
+  // a simple spiral shape
+  for(let i = 0; i < numVertices; i++) {
+    vertex(
+      sin((i/numVertices*TWO_PI)*5)*sin(i/numVertices*PI)*2,
+      -i/10, 
+      cos((i/numVertices*TWO_PI)*5)*sin(i/numVertices*PI)*2,
+    );
+  }
+  endShape();
+}
+      </script>
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x1"}}{{/i18n}} <a class="code" href="{{root}}/reference/#/p5/p5.Geometry">p5.Geometry</a>{{#i18n "getting-started-in-webgl-custom-geometry-p6x1_"}}{{/i18n}}</p>
+
+      {{!-- <div style="display: flex; align-items: center; justify-content: center;">
+        <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x2"}}{{/i18n}}</p>
+
+        <img style="padding:30px; width:50%;" src='{{assets}}/learn/basic3d/images/normals_face_example.png'
+          alt="an illustration a collection of three points, constituting a face, and an arrow extending perpendicular to it, the normal" />
+      </div> --}}
+
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x2"}}{{/i18n}}</p>
+
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <img style="padding:30px; width:60%;" src='{{assets}}/learn/basic3d/images/normals_face_example.png'
+          alt="an illustration a collection of three points, constituting a face, and an arrow extending perpendicular to it, the normal" />
+      </div>
+
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p6x3"}}{{/i18n}}</p>
+
+      {{!-- Example using p5.Geometry --}}
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+let myGeometry
+
+function setup() {
+  createCanvas(400, 400, WEBGL);
+
+  let detailX = 20;
+  let detailY = 20;
+  myGeometry = new p5.Geometry(detailX,detailY, function() {
+    
+    // these nested for loops create a simple grid of vertices
+    // which are affected by sin() and cos() on the z-axis
+    for(let x = 0; x <= detailX; x++) {
+      for(let y = 0; y <= detailY; y++) {
+        this.vertices.push(new p5.Vector(
+          x/detailX,
+          y/detailY,
+          (sin(x/detailX*TWO_PI*4) + cos(y/detailY*TWO_PI)) / 10
+          // random()/10
+        ));
+      }
+    }
+
+    // this will attach all our vertices and create faces automatically
+    this.computeFaces();
+    // this will calculate the normals to help with lighting
+    this.computeNormals();
+  });
+
+  describe('a greenish plane shape that is warped and lit');
+}
+
+function draw() {
+  background(220);
+  
+  orbitControl();
+  
+  //set a basic light to see that normals are calculated
+  pointLight(255,255,0,0,50,-50);
+  
+  push();
+  stroke(128);
+  let geoSize = width/2;
+  rotateY(cos(millis() / 1000)*PI/4);
+  translate(-geoSize/2,-geoSize/2);
+  scale(geoSize);
+  model(myGeometry);
+  pop();
+}
+      </script>
+
+      <h2 id="conclusion">{{#i18n "getting-started-in-webgl-custom-geometry-heading3"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-p7x1"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-other-tutorials-p"}}{{/i18n}}</p>
+      <ul class="indexList">
+        <li><a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">{{#i18n
+            "getting-started-in-webgl-other-tutorials-tut1"}}{{/i18n}}</a></li>
+        <li>{{#i18n "getting-started-in-webgl-other-tutorials-tut2"}}{{/i18n}} {{#i18n
+          "getting-started-in-webgl-other-tutorials-you-are-here"}}{{/i18n}}</li>
+        <li><a href="{{root}}/learn/getting-started-in-webgl-appearance.html">{{#i18n
+            "getting-started-in-webgl-other-tutorials-tut3"}}{{/i18n}}</a></li>
+        <li><a href="{{root}}/learn/getting-started-in-webgl-shaders.html">{{#i18n
+            "getting-started-in-webgl-other-tutorials-tut4"}}{{/i18n}}</a></li>
+      </ul>
+
+      <h2 id="glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</h2>
+
+      <h3>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term1-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term1-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term2-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term2-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term3-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term3-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term4-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term4-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term5-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term5-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term6-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term6-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term7-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-custom-geometry-glossary-term7-definition"}}{{/i18n}}</p>
+
+
+    </main>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->

@@ -1,8 +1,12 @@
 /*
- * @name Bucle
- * @description El código dentro de la función draw() corre continuamente de arriba a abajo hasta que el prorgrama para.
+ * @name Loop
+ * @arialabel Linea horizontal de color blanco en un fondo de color negro la cual se mueve de abajo hacia arriba de la pantalla paralelamente al eje x
+ * @description Si la función noLoop() es ejecutada dentro de setup(), el código en draw() 
+ * solo se ejecuta una vez. En este ejemplo, da click en el ratón
+ * para ejecutar la function loop() y así provocar que la draw()
+ * corra continuamente.
  */
-let y = 100;
+let y = 0;
 
 // Las instrucciones dentro de la función setup()
 // se ejecutan una vez, cuando el programa empieza
@@ -10,10 +14,10 @@ function setup() {
   createCanvas(720, 400); // El tamaño debe ser la primera instrucción
   stroke(255); // Definir que el color del trazado sea blanco
   frameRate(30);
+  noLoop()
 }
-
 // Las instrucciones en draw() son ejecutadas hasta que
-// el programa es parado. Cada instrucción es ejecutada
+// el programa es detenido. Cada instrucción es ejecutada
 // en orden y luego de que la última línea es leída,
 // se vuelve a ejecutar draw() desde el principio
 function draw() {
@@ -23,4 +27,8 @@ function draw() {
     y = height;
   }
   line(0, y, width, y);
+}
+
+function mousePressed(){
+  loop();
 }

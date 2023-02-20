@@ -1,5 +1,6 @@
 /*
  * @name Estrella
+ * @arialabel Fondo gris con tres figuras blancas con contorno negro rotando. De izquierda a derecha: una estrella de tres puntas, una figura de 40 puntas, y una estrella de 5 puntas
  * @description La función star() creada para este ejemplo es capaz de
  * dibujar una gran grama de figuras. Prueba poniendo distintos números en los parámetros de
  * la función star() dentro de draw() para explorar.

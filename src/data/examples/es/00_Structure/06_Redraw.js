@@ -1,5 +1,6 @@
 /*
  * @name Redraw
+ * @arialabel Linea horizontal de color blanco en medio de un fondo color negro que se mueve hacia arriba en la pantalla con cada click del ratón
  * @description La función redraw() hace que draw() se ejecute una vez. En este ejemplo,
  * draw() se ejecutado una vez cada vez que el ratón hace click.
  */

@@ -1,21 +1,21 @@
 /*
- * @name Comments and Statements
- * @description Statements are the elements that make up programs. The ";" (semi-colon) symbol is used to end statements.
- * It is called the "statement terminator". Comments are used for making notes to help people better understand programs. A comment begins with two forward slashes ("//").
- * <br><br><small><em>This example is ported from the <a href="https://processing.org/examples/statementscomments.html">Statements and Comments example</a>
- * on the Processing website</em></small>
+ * @name Sentencias y comentarios
+ * @description Las sentencias son los elementos que construyen a los programas. El símbolo ";" (punto y coma) se utiliza para cerrar las sentencias.
+ * Se le llama el "statement terminator". Los comentarios son usados para hacer notas para ayudar a las personas a entender mejor los programas. Un comentario empieza con dos diagonales ("//").
+ * <br><br><small><em>Este ejemplo es traído desde <a href="https://processing.org/examples/statementscomments.html">Statements and Comments example</a>
+ * en la página de Processing</em></small>
  */
-// The createCanvas function is a statement that tells the computer 
-// how large to make the window.
-// Each function statement has zero or more parameters. 
-// Parameters are data passed into the function
-// and are used as values for telling the computer what to do.
+// La función createCanvas es una sentencia que le dice a la computadora
+// que tan grande hacer la ventana.
+// Cada sentencia de función tiene cero o más parámetros.
+// Los parámetros son datos que pasan dentro de la función
+// y son usados como valores para decirle a la computadora que hacer.
 function setup() {
    createCanvas(710, 400);
 }
 
-// The background function is a statement that tells the computer
-// which color (or gray value) to make the background of the display window 
+// La función background es una sentencia que le dice a la computadora
+// con que color (o que valor de gris) hacer el fondo de la ventana mostrada.
 function draw() {
    background(204, 153, 0);
 }
