@@ -1,16 +1,5 @@
 <h2><%=item.name%><% if (item.isMethod) { %>()<% } %></h2>
 
-<% if (item.example) { %>
-<div class="example">
-  <h3 id="reference-example">Examples</h3>
-
-  <div class="example-content" data-alt="<%= item.alt %>">
-    <% _.each(item.example, function(example, i){ %>
-      <%= example %>
-    <% }); %>
-  </div>
-</div>
-<% } %>
 
 <div class="description">
 
@@ -58,6 +47,19 @@
     </p>
   <% } %>
 </div>
+
+<% if (item.example) { %>
+  <div class="example">
+    <h3 id="reference-example">Examples</h3>
+  
+    <div class="example-content" data-alt="<%= item.alt %>">
+      <% _.each(item.example, function(example, i){ %>
+        <%= example %>
+      <% }); %>
+    </div>
+  </div>
+  <% } %>
+  
 
 <% if (isConstructor || !isClass) { %>
 
