@@ -391,18 +391,12 @@ learn:
     与迄今为止描述的其他方法一样，它接受x、y和z值的参数。
   getting-started-in-webgl-coords-and-transform-heading4: 变换的顺序很重要！
   getting-started-in-webgl-coords-and-transform-p13x1: >-
-    Something that can feel unpredictable at first is the order of
-    transformations. Each transformation always affects the next one. For
-    example, if <a class="code">rotate()</a> is called, followed by <a
-    class="code">translate()</a>, the direction of that translation will be
-    affected by the rotation. The entire coordinate system is rotating and
-    moving, not just the shape itself. 
+    一开始可能感觉难以预测的是变换的顺序。每个变换都会影响下一个变换。例如，如果调用 <a class="code">rotate()</a>，然后是 <a
+    class="code">translate()</a>，那么该平移的方向将受到旋转的影响。整个坐标系在旋转和移动，不仅仅是形状本身。
+
   getting-started-in-webgl-coords-and-transform-p14x1: >-
-    Transformations can be performed in any order, but using
-    <strong>translate</strong>, <strong>rotate</strong>, and then
-    <strong>scale</strong> will be the most intuitive. Translation, followed by
-    rotation, produces the effect of moving the shape <em>and then</em> rotating
-    around that new location.
+    变换可以以任何顺序执行，但是使用<strong>translate</strong>、<strong>rotate</strong>，然后<strong>scale</strong>会是最直观的。
+    先进行平移，然后进行旋转，产生将形状移动到新位置并围绕该位置旋转的效果。
   getting-started-in-webgl-coords-and-transform-p15x1: >-
     在下面的例子中，尝试改变<a class="code">translate()</a>和<a class="code">rotateY()</a>的顺序，看看它如何影响对象的绘制位置。
 
@@ -448,13 +442,10 @@ learn:
     href="{{root}}/reference/#/p5/torus">torus()</a>。
   getting-started-in-webgl-coords-and-transform-p20x2: and
   getting-started-in-webgl-coords-and-transform-p21x1: >-
-    It is also possible to create custom geometry, either from scratch or from
-    3D models created in another program. More information about custom geometry
-    can be found the <a
-    href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">Custom
-    Geometry tutorial</a>.
-  getting-started-in-webgl-coords-and-transform-p21x2: 'Custom Geometry tutorial    '
-  getting-started-in-webgl-coords-and-transform-heading6: Conclusion
+    可以从头开始或从另一个程序创建的3D模型创建自定义几何体。有关自定义几何体的更多信息，请参阅
+    <a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">自定义几何体教程</a>.
+  getting-started-in-webgl-coords-and-transform-p21x2: '自定义几何体教程    '
+  getting-started-in-webgl-coords-and-transform-heading6: 结论
   getting-started-in-webgl-coords-and-transform-p22x1: >-
     By having basic control over a 3D coordinate space, transformations,  and
     basic shapes, you should be able to begin creating basic scenes in 3D. The
@@ -622,37 +613,23 @@ learn:
     might appear to have a zoom-like effect, but it will change way that shapes
     will change size in the distance.
   getting-started-in-webgl-appearance-p4x1: >-
-    Another important term when working with cameras in 3D is the camera
-    <em>frustum</em>. The frustum of the camera the shape of the camera's view,
-    a pyramid-like shape within which geometry can be displayed. The frustum
-    includes a <em>near and far plane</em>. The near plane defines the minimum
-    distance that geometry must be from the camera to be rendered. The far plane
-    defines the maximum distance that the geometry can be from the camera. Each
-    of these can be changed to affect how close and how far the camera can see.
-    This process of selectively including geometry is sometimes referred to as
-    'clipping'.
+    在 3D 中使用相机时，另一个重要的术语是相机的视锥体<em>frustum</em>。
+    相机的视锥体是相机视图的形状，一个金字塔形状，其中可以显示几何形状。视锥体包括<em>近平面和远平面</em>。
+    近平面定义了几何形状与相机之间必须呈现的最小距离。远平面定义了几何形状与相机之间可以呈现的最大距离。
+    每个平面都可以更改，以影响相机可以看到多近和多远。有时将这种有选择地包含几何形状的过程称为“裁剪”。
   getting-started-in-webgl-appearance-p5x1: >-
-    Cameras can be moved by passing arguments to <a class="code">camera()</a>,
-    but constantly moving and adjusting the camera in code can be tedious,
-    especially when you are experimenting with ideas. p5.js has a special camera
-    method, <a class="code"
-      href="{{root}}/reference/#/p5/orbitControl">orbitControl()</a>, that can be used to zoom, pan,
-    and position the camera using the mouse.
-  getting-started-in-webgl-appearance-p5x2: ', that can be used to zoom, pan, and position the camera using the mouse.'
+    相机可以通过向 <a class="code">camera()</a> 传递参数来移动，
+    但在代码中不断移动和调整相机可能会很繁琐，特别是当你在尝试各种想法时。
+    p5.js 有一个特殊的相机方法 <a class="code"
+      href="{{root}}/reference/#/p5/orbitControl">orbitControl()</a>，可以使用鼠标缩放、平移和定位相机。
+  getting-started-in-webgl-appearance-p5x2: '可以使用鼠标缩放、平移和定位相机。'
   getting-started-in-webgl-appearance-p6x1: >-
-    A scene can have multiple cameras, but only one camera can be active at a
-    time. Sketches in p5.js will default to having a single perspective camera,
-    but that can be changed by calling either <a
-      class="code">perspective()</a>
-    (with new parameters) or <a class="code">ortho()</a>. <a
-    class="code">camera()</a> can be used to change the position of the active
-    camera and the position that the camera is looking at. Try it out in the
-    sketch below.
-  getting-started-in-webgl-appearance-heading2: Lighting
+    一个场景可以有多个相机，但一次只能有一个相机处于活动状态。
+    在 p5.js 中，草图默认只有一个透视相机，但可以通过调用 <a class="code">perspective()</a>（使用新参数）或 <a class="code">ortho()</a> 来更改相机类型。
+    <a class="code">camera()</a> 可以用于更改活动相机的位置和相机所看向的位置。在下面的草图中试试吧。
+  getting-started-in-webgl-appearance-heading2: 照明
   getting-started-in-webgl-appearance-p7x1: >-
-    Lighting is another essential part of a 3D scene. To be able to convey shape
-    and depth in 3D is necessary to have a light source. p5.js has a few
-    different types of light that can be used in a sketch.
+    照明是 3D 场景中的另一个重要组成部分。为了能够传达形状和深度，必须拥有光源。p5.js 中有一些不同类型的光源可供草图使用。
   getting-started-in-webgl-appearance-lighting-list1: >-
     在场景中使用环境光会使得所有物体都显示得更亮，不考虑光源的位置或方向。
   getting-started-in-webgl-appearance-lighting-list2: >-
