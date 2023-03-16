@@ -117,24 +117,24 @@
       <iframe src="../../assets/learn/shaderIntro/titleExample.html" width="720" height="350">
       </iframe>
 
-      <h1>Introduction to Shaders</h1>
+      <h1>着色器入门</h1>
 
-      <p>Shaders are special programs that run on the graphics processing unit, or GPU, that can do some incredible things. They take advantage of the GPU to process many pixels at once, making them fast and particularly well suited for certain tasks, like generating noise, applying filters like blur, or shading polygons. Shader programming can feel daunting at first, requiring a different approach than the 2D drawing of p5.js. This document will outline the basics  of shader programming and point you towards other resources.</p>
+      <p>着色器是在图形处理单元（GPU）上运行的特殊程序，可以完成一些令人难以置信的任务。 它们利用 GPU 一次处理多个像素，使其快速且特别适用于某些任务，例如生成噪声、应用模糊滤镜或对多边形进行着色。 一开始学习着色器编程可能会让人望而却步，需要与 p5.js 的二维绘图不同的思路。本文档将概述着色器编程的基础知识，并指向其他资源。</p>
 
       <div class="toc">
-        <h3>Table of Contents</h3>
+        <h3>目录</h3>
         <ol>
-          <li><a href="#setup">Setup</a></li>
-          <li><a href="#shadinglanguage">Shading Language (GLSL)</a></li>
+          <li><a href="#setup">设置</a></li>
+          <li><a href="#shadinglanguage">着色语言 (GLSL)</a></li>
           <li><a href="#uniforms">Uniforms: Passing data from sketch to shader</a></li>
           <li><a href="#conclusion">Conclusion</a></li>          
-          <li><a href="#glossary">Glossary</a></li>          
+          <li><a href="#glossary">词汇表</a></li>          
         </ol>
       </div>
 
-      <h2 id="setup">Setup</h2>
+      <h2 id="setup">设置</h2>
 
-      <p>p5.js is a great tool for working with shaders because it handles a lot of the WebGL setup so you can focus on the shader code itself. Before we can get started with shaders we have to set up our canvas so that it uses p5.js WebGL model.
+      <p>p5.js 是处理着色器的好工具，因为它处理了大部分 WebGL 的设置，使您可以专注于着色器代码本身。在开始使用着色器之前，我们必须设置画布，使其使用 p5.js WebGL 模型。
       </p>
 
       <pre><code class="language-javascript">
@@ -145,11 +145,7 @@
       ..
       </code></pre>
 
-      <p>A shader program consists of two parts, a <strong>vertex shader</strong> and a <strong>fragment
-  shader</strong>. The vertex shader affects where the 3D geometry is drawn on the screen and the fragment
-shader is responsible for affecting the color output. Each of these live in separate files and are loaded into p5.js using <a class="code">loadShader()</a>. Once a shader is loaded it can be used within <a
-  class="code">draw()</a>. The following example will show
-how to set up a basic shader within p5.js:
+      <p>着色器程序由两部分组成，一个<strong>顶点着色器</strong>和一个<strong>片元着色器</strong>。 顶点着色器影响3D几何图形在屏幕上的绘制位置，片元着色器则负责影响颜色输出。这两个部分分别存储在不同的文件中，并通过<a class="code">loadShader()</a>加载到p5.js中。一旦着色器被加载，它就可以在<a class="code">draw()</a>中使用。下面的示例将展示如何在p5.js中设置基本着色器：
       </p>
 
       <pre><code class="language-javascript">
@@ -174,25 +170,25 @@ function draw() {
 }
       </code></pre>
 
-      <h2 id="shadinglanguage">Shading Language (GLSL)</h2>
+      <h2 id="shadinglanguage">着色语言 (GLSL)</h2>
 
-      <p>So now you might be wondering what we actually write in these shader files! Shader files are written in Graphics Library Shading Language, or GLSL, and have a very different syntax and structure than we are familiar with. GLSL has a syntax that resembles C, which means it comes with a handful of concepts that aren't present in JavaScript.</p>
+      <p>现在你可能想知道我们实际上在这些着色器文件中写了什么！着色器文件是用图形库着色语言 (GLSL)编写的，它具有非常不同的语法和结构，与我们熟悉的语法和结构有很大不同。GLSL具有类似C的语法，这意味着它具有一些JavaScript中不存在的概念。</p>
 
-      <p>For one, the shading language is much more strict about types. Each variable you create has to be labeled with the kind of data it is storing. Here is a list of some of the common types:</p>
+      <p>首先，着色语言在类型方面要严格得多。每个你创建的变量都必须用存储的数据类型进行标记。以下是一些常见类型的列表：</p>
 
       <pre><code class="language-javascript">
-vec2(x,y)     // a vector of two floats
-vec3(r,g,b)   // a vector of three floats
-vec4(r,g,b,a) // a vector of four floats
-float         // a number with decimal points
-int           // a whole number without decimal points
-sampler2D     // a reference to a texture
+vec2(x,y) // 由两个浮点数组成的向量
+vec3(r,g,b) // 由三个浮点数组成的向量
+vec4(r,g,b,a) // 由四个浮点数组成的向量
+float // 带小数点的数字
+int // 不带小数点的整数
+sampler2D // 对纹理的引用
 
       </code></pre>
 
-      <p>In general the shading language is much more strict than JavaScript. A missing semicolon for example is not allowed and will result in an error message. You can't use different types of numbers, like floats or integers interchangeably.</p>
+      <p>通常情况下，着色语言比 JavaScript 更加严格。例如，缺少分号将导致错误信息。 不能在不同类型的数字之间进行交换，如浮点数或整数。</p>
 
-      <p>First let's look at a basic vertex shader:</p>
+      <p>首先，让我们看一个基本的顶点着色器：</p>
 
       <pre><code class="language-javascript">
 attribute vec3 aPosition;
@@ -204,13 +200,11 @@ void main() {
 }
 </code></pre>
 
-      <p>This vertex shader begins with an <em>attribute</em>, which p5.js uses to share vertex position information with the shader. This attribute is a <a class="code">vec3</a>, meaning it contains a value for x, y, and z. Attributes are special variable types that are only used in the vertex shader and are typically provided by p5.js.</p>
+      <p>这个顶点着色器以一个 <em>attribute</em> 开始，p5.js 使用它来与着色器共享顶点位置信息。这个 attribute 是一个 <a class="code">vec3</a>，意味着它包含一个 x、y 和 z 值。 Attributes 是特殊的变量类型，只在顶点着色器中使用，并且通常由 p5.js 提供。</p>
 
-      <p>All vertex shaders require a function, <a class="code">main()</a>, within which we position our vertices. In this example, the vertex shader repositions our vertices so that the shader output takes up the full sketch. At the end of <a
-  class="code">main()</a>,
-we have to assign a value to <a class="code">gl_Position</a>.</p>
+      <p>所有顶点着色器都需要一个函数 <a class="code">main()</a>，在其中我们定位我们的顶点。 在这个例子中，顶点着色器重新定位我们的顶点，使着色器输出占据整个画布。在 <a class="code">main()</a> 的末尾，我们必须给 <a class="code">gl_Position</a> 赋值。</p>
 
-      <p>Don't worry if this doesn't make a ton of sense yet. The vertex shader plays an important role but it is often just responsible for making sure what we create in our fragment shader displays properly on the geometry. You'll probably find yourself reusing the same vertex shaders in many of your projects. The fragment shader on the other hand is responsible for the color output of our shader and is where we will do a lot of our shader programming. Here is a very simple fragment shader that will just display the color red:</p>
+      <p>如果这还不是很清楚，也不要担心。顶点着色器起着重要的作用， 但通常只负责确保我们在片段着色器中创建的内容在几何体上正确地显示。 在许多项目中，您可能会发现自己反复使用相同的顶点着色器。 另一方面，片段着色器负责着色器的颜色输出，是我们进行大量着色器编程的地方。 以下是一个非常简单的片段着色器，它只会显示红色：</p>
 
       <pre><code class="language-javascript">
 precision mediump float;
@@ -334,16 +328,16 @@ void main() {
   Adam Ferriss.</li>
       </ul>
 
-      <h3>Other Tutorials</h3>
-      <p>This tutorial is part of a series about the basics of using WebGL in p5.js. Check out each of these other tutorials below.</p>
+      <h3>其他教程</h3>
+      <p>这个教程是关于使用 p5.js 中 WebGL 基础的系列之一。以下是其他教程： </p>
       <ul class="indexList">
-        <li><a href="/zh-Hans/learn/getting-started-in-webgl-coords-and-transform.html">Coordinates and Transformations</a></li>
-        <li><a href="/zh-Hans/learn/getting-started-in-webgl-custom-geometry.html">Creating Custom Geometry in WebGL</a></li>
-        <li><a href="/zh-Hans/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a></li>
-        <li>Introduction to Shaders (you are here)</li>
+        <li><a href="/zh-Hans/learn/getting-started-in-webgl-coords-and-transform.html">坐标和变换</a></li>
+        <li><a href="/zh-Hans/learn/getting-started-in-webgl-custom-geometry.html">在 WebGL 中创建自定义几何图形</a></li>
+        <li><a href="/zh-Hans/learn/getting-started-in-webgl-appearance.html">样式和外观</a></li>
+        <li>入门 Shaders （你现在处于这里）</li>
       </ul>
 
-      <h2 id="glossary">Glossary</h2>
+      <h2 id="glossary">词汇表</h2>
 
       <h3>Shader</h3>
       <p>A special graphics card program that can efficiently produce many visual effects and filters.</p>

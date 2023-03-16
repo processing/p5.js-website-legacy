@@ -118,33 +118,33 @@
       <iframe src="../../assets/learn/basic3d/titleExample.html" width="720" height="350">
       </iframe>
 
-      <h1>Coordinates and Transformations</h1>
+      <h1>坐标和变换</h1>
 
-      <p>p5.js is a powerful tool for creating 2D graphics but it's also capable of 3D graphics. To get started in 3D there are some new concepts to learn and this document will introduce some ideas that will be important to any 3D sketch.</p>
+      <p>p5.js 是创建 2D 图形的强大工具，同时也能够实现 3D 图形。 要开始使用 3D，需要学习一些新概念，本文档将介绍一些对于任何 3D 程序都非常重要的想法。</p>
 
       <div class="toc">
         <h3>Table of Contents</h3>
         <ol>
           <li><a href="#what_is_webgl">What is WebGL</a>
           </li>
-          <li><a href="#coordinate_space">3D Coordinate Space: Positioning in 3D</a></li>
-          <li><a href="#transformations">Transformations: Position and Size of 3D Shapes</a>
+          <li><a href="#coordinate_space">3D 坐标空间：在 3D 中定位</a></li>
+          <li><a href="#transformations">变换：3D 图形的位置和大小</a>
           </li>
-          <li><a href="#order">The Order of Transformations Matters!</a></li>
-          <li><a href="#basic_shapes">Basic Shapes in 3D</a>
+          <li><a href="#order">变换的顺序很重要！</a></li>
+          <li><a href="#basic_shapes">3D中的基本形状</a>
           </li>
-          <li><a href="#conclusion">Conclusion</a></li>
-          <li><a href="#glossary">Glossary</a></li>
+          <li><a href="#conclusion">结论</a></li>
+          <li><a href="#glossary">词汇表</a></li>
         </ol>
       </div>
 
       <h2 id="what_is_webgl">What is WebGL</h2>
 
-      <p>WebGL is a library that gives us the tools we need to create 3D graphics within a web browser. To put it simply, it allows us to do all kinds of math that help arrange and display objects in 3D. p5.js makes it easier to work with WebGL through its special WebGL mode.</p>
+      <p>WebGL 是一个库，为我们在 Web 浏览器中创建 3D 图形提供了所需的工具。 简单地说，它允许我们做各种数学运算，帮助排列和显示 3D 对象。 通过其特殊的 WebGL 模式，p5.js 可以更容易地与 WebGL 一起使用。</p>
 
-      <p>Working in 3D introduces a lot of complexity, especially when a sketch involves motion, texture, lighting, and more. Luckily for us, computers have special hardware that is particularly well suited to performing those calculations, the graphics processing unit (GPU). The GPU is capable of processing many things simultaneously, which is especially important when we're dealing with pixels and many shapes in space.</p>
+      <p>在 3D 中工作引入了许多复杂性，尤其是当一个画面涉及到运动、纹理、光照等方面。 幸运的是，计算机有专门的硬件，非常适合执行这些计算，即图形处理单元（GPU）。 GPU 能够同时处理许多事情，这在处理像素和空间中的许多形状时特别重要。</p>
 
-      <p>Let's get started by setting up the p5.js to use WebGL, by passing a third parameter into <a class="code">createCanvas()</a>.</p>
+      <p>让我们开始设置 p5.js 来使用 WebGL， 通过将第三个参数传递到 <a class="code">createCanvas()</a>。</p>
 
       <pre><code class="language-javascript">
       function setup() {
@@ -159,23 +159,23 @@
       }
       </code></pre>
 
-      <h2 id="coordinate_space">3D Coordinate Space: Positioning in 3D</h2>
+      <h2 id="coordinate_space">3D 坐标空间：在 3D 中定位</h2>
 
-      <div class="additionalInformation">If coordinates systems aren't making sense it might be helpful to revisit the tutorial titled <a href="{{root}}/learn/coordinate-system-and-shapes.html">Coordinate System and Shapes</a>.<a
-          href="/zh-Hans/learn/coordinate-system-and-shapes.html">Coordinate System and Shapes</a>.</div>
+      <div class="additionalInformation">如果坐标系统不太清楚，可以重新查看名为 <a href="{{root}}/learn/coordinate-system-and-shapes.html">坐标系和形状</a> 的教程。<a
+          href="/zh-Hans/learn/coordinate-system-and-shapes.html">坐标系和形状</a>.</div>
 
-      <p>One of the most fundamental differences between working in 2D and working in 3D is the most obvious: there is one more dimension to work with. In addition to the horizontal and vertical position (x and y axes) of an element in our drawing, 3D adds depth, the z-axis. </p>
+      <p>在 2D 和 3D 中工作最基本的区别之一是最明显的：多了一个维度。 除了我们图纸中元素的水平和垂直位置（x 和 y 轴）之外，3D 还增加了深度，即 z 轴。</p>
 
       <p>When drawing in 2D, the point (0,0) is located at the top left corner of the screen. In WebGL mode, the origin of the sketch (0,0,0) is located in the middle of the screen. By default, the x-axis goes left-to-right, y-axis goes up-to-down, and the z-axis goes from further-to-closer.</p>
 
       <img style="padding:60px;" src='../../assets/learn/basic3d/images/2d3d_coordinates.png'
         alt="an illustration showing a 2D coordinate system on the left, showing an origin of (0,0) and a 3D coordinate system on the right, showing an origin of (0,0,0)">
 
-      <h2 id="transformations">Transformations: Position and Size of 3D Shapes</h2>
+      <h2 id="transformations">变换：3D 图形的位置和大小</h2>
 
-      <p>p5.js has a few methods, <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a>, <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>, and <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects within space. Each of these methods affect what is known as the <em>model matrix</em>. Collectively these are known as the <em>transformation</em> of an object. These methods are available for both 2D and 3D drawing.<a class="code"
+      <p>p5.js 有一些方法，<a class="code" href="{{root}}/reference/#/p5/translate">translate()</a>、<a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a> 和 <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a>，可以用来在空间中定位和定向对象。每个方法都会影响所谓的<em>模型矩阵</em>，它们的集合被称为对象的<em>变换</em>。这些方法对于 2D 和 3D 绘制都可用。<a class="code"
           href="/zh-Hans/reference/#/p5/translate">translate()</a>, <a class="code"
-          href="/zh-Hans/reference/#/p5/rotate">rotate()</a>, and  <a class="code"
+          href="/zh-Hans/reference/#/p5/rotate">rotate()</a>, 和  <a class="code"
           href="/zh-Hans/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects within space. Each of these methods affect what is known as the <em>model matrix</em>. Collectively these are known as the <em>transformation</em> of an object. These methods are available for both 2D and 3D drawing.</p>
 
       <h3>translate(): Moving Objects in Space</h3>
@@ -206,7 +206,7 @@
 Each of these methods accept a single argument specifying the angle of rotation. Try moving the sliders in the example above to see how rotation is performed on each axis. The code below shows each of these methods in use.<a class="code"
           href="/zh-Hans/reference/#/p5/rotateX">rotateX()</a>, <a class="code"
           href="/zh-Hans/reference/#/p5/rotateY">rotateY()</a>, and  <a class="code"
-          href="/zh-Hans/reference/#/p5/rotateZ">rotateZ()</a> , which each allow for rotation around a specific axis. Each of these methods accept a single argument specifying the angle of rotation. Try moving the sliders in the example above to see how rotation is performed on each axis. The code below shows each of these methods in use.</p>
+          href="/zh-Hans/reference/#/p5/rotateZ">rotateZ()</a> 它们分别允许围绕特定轴进行旋转。每种方法都接受一个指定旋转角度的参数。 尝试在上面的示例中移动滑块，查看如何在每个轴上执行旋转。 以下代码展示了这些方法的使用。</p>
 
       <pre><code class="language-javascript">
       ...
@@ -218,7 +218,7 @@ Each of these methods accept a single argument specifying the angle of rotation.
       ..
       </code></pre>
 
-      <p>By default p5.js will expect angles to be in radians. Radians use numbers from 0 - <a class="code">TWO_PI</a> to specify an angle. To use degrees, either convert degrees to radians using <a class="code">radians()</a>, or use <a class="code">angleMode(DEGREES)</a>.</p>
+      <p>默认情况下，p5.js将期望角度以弧度为单位。 弧度使用从0- <a class="code">TWO_PI</a>的数字来指定角度。 要使用度数，可以使用<a class="code">radians()</a>将度数转换为弧度， 或使用<a class="code">angleMode(DEGREES)</a>。</p>
 
       <pre><code class="language-javascript">
       ...
@@ -233,24 +233,24 @@ Each of these methods accept a single argument specifying the angle of rotation.
       </code></pre>
 
       <div class="additionalInformation">
-        <p><p>You can also use <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>, which allows you to specify which axis you'd like to rotate around using a vector as the second argument.</p> <a class="code"
-            href="/zh-Hans/reference/#/p5/rotate">rotate()</a> , which allows you to specify which axis you'd like to rotate around using a vector as the second argument.</p>
+        <p><p>您还可以使用<a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>， 它允许您使用向量作为第二个参数指定要围绕哪个轴旋转。</p> <a class="code"
+            href="/zh-Hans/reference/#/p5/rotate">rotate()</a> , 它允许您使用向量作为第二个参数指定要围绕哪个轴旋转。</p>
       </div>
 
-      <h3>scale(): Size in Space</h3>
+      <h3>scale(): 空间尺寸</h3>
 
       <iframe src="../../assets/learn/basic3d/scaleExample.html" width="720" height="350">
       </iframe>
 
-      <p><a class="code" href="/zh-Hans/reference/#/p5/scale">scale()</a> <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a> changes the size of whatever is drawn after it. Like the other methods described so far, it accepts arguments for x, y, and z values.</p>
+      <p><a class="code" href="/zh-Hans/reference/#/p5/scale">scale()</a> <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a>会改变其后绘制的任何内容的大小。 与迄今为止描述的其他方法一样，它接受x、y和z值的参数。</p>
 
-      <h2 id="order">The Order of Transformations Matters!</h2>
+      <h2 id="order">变换的顺序很重要！</h2>
 
-      <p>Something that can feel unpredictable at first is the order of transformations. Each transformation always affects the next one. For example, if <a class="code">rotate()</a> is called, followed by <a class="code">translate()</a>, the direction of that translation will be affected by the rotation. The entire coordinate system is rotating and moving, not just the shape itself. </p>
+      <p>一开始可能感觉难以预测的是变换的顺序。每个变换都会影响下一个变换。例如，如果调用 <a class="code">rotate()</a>，然后是 <a class="code">translate()</a>，那么该平移的方向将受到旋转的影响。整个坐标系在旋转和移动，不仅仅是形状本身。</p>
 
-      <p>Transformations can be performed in any order, but using <strong>translate</strong>, <strong>rotate</strong>, and then <strong>scale</strong> will be the most intuitive. Translation, followed by rotation, produces the effect of moving the shape <em>and then</em> rotating around that new location.</p>
+      <p>变换可以以任何顺序执行，但是使用<strong>translate</strong>、<strong>rotate</strong>，然后<strong>scale</strong>会是最直观的。 先进行平移，然后进行旋转，产生将形状移动到新位置并围绕该位置旋转的效果。</p>
 
-      <p>In the below example, try changing the order of <a class="code">translate()</a> and <a class="code">rotateY()</a> and see how it affects where the object is drawn.</p>
+      <p>在下面的例子中，尝试改变<a class="code">translate()</a>和<a class="code">rotateY()</a>的顺序，看看它如何影响对象的绘制位置。</p>
 
       <script type="text/p5" data-autoplay data-p5-version="1.6.0">
 function setup() {
@@ -271,9 +271,9 @@ function draw(){
 }
       </script>
 
-      <p>p5.js also has some methods that can control when transformations are applied: <a class="code" href="{{root}}/reference/#/p5/push">push()</a> and <a class="code" href="{{root}}/reference/#/p5/pop">pop()</a>. <a class="code">push()</a> and <a class="code">pop()</a> make it easier to move objects individually. The <a class="code">push()</a> method saves and sets aside the current transformations. The <a class="code">pop()</a> method restores those transformations. Whatever transformations that are made between <a class="code">push()</a> and <a class="code">pop()</a> will be isolated to that portion of the code. If you don’t use <a class="code">push()</a> and <a class="code">pop()</a>, you have to keep track of whatever transformations have already taken place, which can get complicated and difficult to follow. Consider this following example, which places two boxes in our sketch. To position the second box without <a class="code">push()</a> and <a class="code">pop()</a>, you have to account for the first transformation. This  can be a lot to keep track of in a more complex 3D scene. <a class="code"
-          href="/zh-Hans/reference/#/p5/push">push()</a> and <a class="code"
-          href="/zh-Hans/reference/#/p5/pop">pop()</a> . <a class="code">push()</a> and <a class="code">pop()</a> make it easier to move objects individually. The <a class="code">push()</a> method saves the current transformations and  style settings. Then, after performing new transformations, the <a class="code">pop()</a> method is used to restore us to the the original transformations. The result is that  whatever transformations or styling changes that are made between <a class="code">push() </a> and <a class="code">pop()</a> are isolated to that portion of the code. If you don’t  use <a class="code">push()</a> and <a class="code">pop()</a>, you have to keep track of whatever transformations have already taken place, which can get complicated and difficult to follow. Consider this following example, which places two boxes in our sketch. To position the second box without <a class="code">push()</a> and <a class="code">pop()</a>, you have to account for the first transformation. This  can be a lot to keep track of in a more complex 3D scene. </p>
+      <p>p5.js还有一些方法可以控制何时应用变换：<a class="code" href="{{root}}/reference/#/p5/push">push()</a>和<a class="code" href="{{root}}/reference/#/p5/pop">pop()</a>。 <a class="code">push()</a>和<a class="code">pop()</a>使单独移动对象更容易。 <a class="code">push()</a>方法保存并设置当前变换，<a class="code">pop()</a>方法恢复这些变换。 在<a class="code">push()</a>和<a class="code">pop()</a>之间进行的任何变换都将隔离到代码的该部分。 如果不使用<a class="code">push()</a>和<a class="code">pop()</a>，则必须跟踪已经发生的任何变换，这可能会变得复杂并且难以理解。 考虑下面的示例，在我们的草图中放置了两个盒子。 如果不使用<a class="code">push()</a>和<a class="code">pop()</a>来定位第二个盒子，则必须考虑第一个变换。 在更复杂的3D场景中，这可能会很难跟踪。<a class="code"
+          href="/zh-Hans/reference/#/p5/push">push()</a> 和 <a class="code"
+          href="/zh-Hans/reference/#/p5/pop">pop()</a> <a class="code">push()</a>和<a class="code">pop()</a>使单独移动对象更容易。 <a class="code">push()</a>方法保存当前变换和样式设置。 然后，在执行新的变换之后，使用<a class="code">pop()</a>方法将我们恢复到原始变换。 结果是，在<a class="code">push()</a>和<a class="code">pop()</a>之间进行的任何变换或样式更改都会隔离到代码的该部分。 如果不使用<a class="code">push()</a>和<a class="code">pop()</a>，则必须跟踪已经发生的任何变换，这可能会变得复杂并且难以理解。 考虑下面的示例，在我们的草图中放置了两个盒子。如果不使用<a class="code">push()</a>和<a class="code">pop()</a>来定位第二个盒子，则必须考虑第一个变换。 在更复杂的3D场景中，这可能会很难跟踪。</p>
 
       <pre><code class="language-javascript">
       // draw a box 100 units to the right
@@ -287,7 +287,7 @@ function draw(){
       box();
       </code></pre>
 
-      <p>Now, let's try the same code with <a class="code">push()</a> and <a class="code">pop()</a>. Now we can just translate the object where we want it, without having to remember where our coordinate system lies.</p>
+      <p>现在让我们尝试使用<a class="code">push()</a>和<a class="code">pop()</a>来做同样的事情。 现在，我们可以将对象平移至想要的位置，而无需记住坐标系统的位置。</p>
 
       <pre><code class="language-javascript">
       push(); // detach our coordinate system
@@ -304,10 +304,10 @@ function draw(){
       </code></pre>
 
       <div class="additionalInformation">
-        <p>While this is a more advanced topic, each of these transformations affect what is called the model matrix. The transformation matrix is combined with the view matrix and the projection matrix, both of which help simulate the view of a camera, and this combination results in our 3D scene! </p> <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection"> Learn more about Model View Projection </a>
+        尽管这是一个更高级的主题，但每个变换都会影响到所谓的模型矩阵。 变换矩阵与视图矩阵和投影矩阵相结合，这两个矩阵帮助模拟相机的视图， 这种组合结果形成了我们的3D场景！<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection">了解有关模型视图投影的更多信息</a>
       </div>
 
-      <p>In the below example, try removing <a class="code">push()</a> and <a class="code">pop()</a> to see how the transformations affect the second object that is drawn. </p>
+      <p>在下面的示例中，尝试删除<a class="code">push()</a>和<a class="code">pop()</a>，看看这些变换如何影响绘制的第二个对象。</p>
 
       <script type="text/p5" data-autoplay data-p5-version="1.6.0">
 function setup() {
@@ -335,14 +335,14 @@ function draw() {
 }
       </script>
 
-      <h2 id="basic_shapes">Basic Shapes in 3D</h2>
+      <h2 id="basic_shapes">3D中的基本形状</h2>
 
-      <p>So far we have only been using <a class="code">box()</a> but p5.js has seven different predefined geometries that you can use in your sketch. These basic predefined geometries are often referred to as 'primitives'.</p>
+      <p>到目前为止，我们只使用了<a class="code">box()</a>，但p5.js还有七个不同的预定义几何形状，您可以在您的草图中使用这些基本的预定义几何形状，这些基本的预定义几何形状通常被称为“原语”。</p>
 
       <img style="padding:60px;" src='../../assets/learn/basic3d/images/primitives_example.png'
         alt="an illustration showing each of the available primitives in p5.js">
 
-      <p>These primitive shape methods are: <a class="code" href="{{root}}/reference/#/p5/box">box()</a>, <a class="code" href="{{root}}/reference/#/p5/plane">plane()</a>, <a class="code" href="{{root}}/reference/#/p5/sphere">sphere()</a>, <a class="code" href="{{root}}/reference/#/p5/ellipsoid">ellipsoid()</a>, <a class="code" href="{{root}}/reference/#/p5/cone">cone()</a>, <a class="code" href="{{root}}/reference/#/p5/cylinder">cylinder()</a>, and <a class="code" href="{{root}}/reference/#/p5/torus">torus()</a>.<a class="code"
+      <p>这些原语形状方法包括：<a class="code" href="{{root}}/reference/#/p5/box">box()</a>，<a class="code" href="{{root}}/reference/#/p5/plane">plane()</a>，<a class="code" href="{{root}}/reference/#/p5/sphere">sphere()</a>，<a class="code" href="{{root}}/reference/#/p5/ellipsoid">ellipsoid()</a>，<a class="code" href="{{root}}/reference/#/p5/cone">cone()</a>，<a class="code" href="{{root}}/reference/#/p5/cylinder">cylinder()</a>和<a class="code" href="{{root}}/reference/#/p5/torus">torus()</a>。<a class="code"
           href="/zh-Hans/reference/#/p5/box">box()</a>, <a class="code" href="/zh-Hans/reference/#/p5/plane">plane()</a>, 
         <a class="code" href="/zh-Hans/reference/#/p5/sphere">sphere()</a>, 
         <a class="code" href="/zh-Hans/reference/#/p5/ellipsoid">ellipsoid()</a>, 
@@ -351,25 +351,25 @@ function draw() {
           href="/zh-Hans/reference/#/p5/torus">torus()</a>.
       </p>
 
-      <p>It is also possible to create custom geometry, either from scratch or from 3D models created in another program. More information about custom geometry can be found the <a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">Custom Geometry tutorial</a>.<a
-          href="/zh-Hans/learn/getting-started-in-webgl-custom-geometry.html">Custom Geometry tutorial    </a>.</p>
+      <p>可以从头开始或从另一个程序创建的3D模型创建自定义几何体。有关自定义几何体的更多信息，请参阅 <a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">自定义几何体教程</a>.<a
+          href="/zh-Hans/learn/getting-started-in-webgl-custom-geometry.html">自定义几何体教程    </a>.</p>
 
-      <h2 id="conclusion">Conclusion</h2>
+      <h2 id="conclusion">结论</h2>
 
       <p>By having basic control over a 3D coordinate space, transformations,  and basic shapes, you should be able to begin creating basic scenes in 3D. The tutorials that follow this in the Getting Started in WebGL series will introduce custom geometries, allow you to tweak the appearance of  the scene, and introduce you to some basic shader programming to push your sketches further.</p>
 
-      <h3>Other Tutorials</h3>
+      <h3>其他教程</h3>
 
-      <p>This tutorial is part of a series about the basics of using WebGL in p5.js. Check out each of these other tutorials below.</p>
+      <p>这个教程是关于使用 p5.js 中 WebGL 基础的系列之一。以下是其他教程： </p>
 
       <ul class="indexList">
-        <li>Coordinates and Transformations (you are here)</li>
-        <li><a href="/zh-Hans/learn/getting-started-in-webgl-custom-geometry.html">Creating Custom Geometry in WebGL</a></li>
-        <li><a href="/zh-Hans/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a></li>
-        <li><a href="/zh-Hans/learn/getting-started-in-webgl-shaders.html">Introduction to Shaders</a></li>
+        <li>坐标和变换 （你现在处于这里）</li>
+        <li><a href="/zh-Hans/learn/getting-started-in-webgl-custom-geometry.html">在 WebGL 中创建自定义几何图形</a></li>
+        <li><a href="/zh-Hans/learn/getting-started-in-webgl-appearance.html">样式和外观</a></li>
+        <li><a href="/zh-Hans/learn/getting-started-in-webgl-shaders.html">入门 Shaders</a></li>
       </ul>
 
-      <h2 id="glossary">Glossary</h2>
+      <h2 id="glossary">词汇表</h2>
 
       <h3>GPU</h3>
       <p>The GPU (Graphics Processing Unit) is a piece of hardware that is particularly well suited for performing many calculations in parallel, making it powerful for 3D graphics.</p>
