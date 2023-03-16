@@ -708,33 +708,23 @@ learn:
     int // 不带小数点的整数
     sampler2D // 对纹理的引用
   getting-started-in-webgl-shaders-p5x1: >-
-    In general the shading language is much more strict than JavaScript. A
-    missing semicolon for example is not allowed and will result in an error
-    message. You can't use different types of numbers, like floats or integers
-    interchangeably.
-  getting-started-in-webgl-shaders-p6x1: 'First let''s look at a basic vertex shader:'
+    通常情况下，着色语言比 JavaScript 更加严格。例如，缺少分号将导致错误信息。
+    不能在不同类型的数字之间进行交换，如浮点数或整数。
+  getting-started-in-webgl-shaders-p6x1: '首先，让我们看一个基本的顶点着色器：'
   getting-started-in-webgl-shaders-p7x1: >-
-    This vertex shader begins with an <em>attribute</em>, which p5.js uses to
-    share vertex position information with the shader. This attribute is a <a
-    class="code">vec3</a>, meaning it contains a value for x, y, and z.
-    Attributes are special variable types that are only used in the vertex
-    shader and are typically provided by p5.js.
+    这个顶点着色器以一个 <em>attribute</em> 开始，p5.js 使用它来与着色器共享顶点位置信息。这个 attribute 是一个 <a
+    class="code">vec3</a>，意味着它包含一个 x、y 和 z 值。
+    Attributes 是特殊的变量类型，只在顶点着色器中使用，并且通常由 p5.js 提供。
   getting-started-in-webgl-shaders-p8x1: >-
-    All vertex shaders require a function, <a class="code">main()</a>, within
-    which we position our vertices. In this example, the vertex shader
-    repositions our vertices so that the shader output takes up the full sketch.
-    At the end of <a
-      class="code">main()</a>,
-    we have to assign a value to <a class="code">gl_Position</a>.
+    所有顶点着色器都需要一个函数 <a class="code">main()</a>，在其中我们定位我们的顶点。
+    在这个例子中，顶点着色器重新定位我们的顶点，使着色器输出占据整个画布。在 <a
+    class="code">main()</a> 的末尾，我们必须给 <a class="code">gl_Position</a> 赋值。
   getting-started-in-webgl-shaders-p9x1: >-
-    Don't worry if this doesn't make a ton of sense yet. The vertex shader plays
-    an important role but it is often just responsible for making sure what we
-    create in our fragment shader displays properly on the geometry. You'll
-    probably find yourself reusing the same vertex shaders in many of your
-    projects. The fragment shader on the other hand is responsible for the color
-    output of our shader and is where we will do a lot of our shader
-    programming. Here is a very simple fragment shader that will just display
-    the color red:
+    如果这还不是很清楚，也不要担心。顶点着色器起着重要的作用，
+    但通常只负责确保我们在片段着色器中创建的内容在几何体上正确地显示。
+    在许多项目中，您可能会发现自己反复使用相同的顶点着色器。
+    另一方面，片段着色器负责着色器的颜色输出，是我们进行大量着色器编程的地方。
+    以下是一个非常简单的片段着色器，它只会显示红色：
   getting-started-in-webgl-shaders-p10x1: >-
     The fragment shader begins with a line specifying the float 'precision'.
     this value you can either be lowp, mediump, or highp, although you will
