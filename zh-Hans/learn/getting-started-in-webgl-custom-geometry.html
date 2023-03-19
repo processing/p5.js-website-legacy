@@ -114,30 +114,30 @@
     <main>
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
-      <h1>Creating Custom Geometry in WebGL</h1>
+      <h1>在 WebGL 中创建自定义几何体</h1>
 
-      <p>p5.js has a number of basic shapes, like <a class="code">box()</a> or <a class="code">sphere()</a>, but p5.js is also capable of rendering complex custom geometry, both from 3D model files or from code. This tutorial will walk through how to import 3D models into p5.js, as well as how to create geometry from scratch.</p>
+      <p>p5.js 有许多基本形状，如<a class="code">box()</a>或<a class="code">sphere()</a>，但 p5.js 也能够呈现复杂的自定义几何体，无论是从3D模型文件还是从代码中。本教程将演示如何将3D模型导入到 p5.js，以及如何从头开始创建几何体。</p>
 
-      <div class="additionalInformation">If you are new to 3D check out the  <a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html"> Coordinates and Transformations</a> tutorial.<a
+      <div class="additionalInformation">如果您是 3D 新手，请查看<a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">坐标和变换</a>教程。<a
           href="/zh-Hans/learn/getting-started-in-webgl-coords-and-transform.html">Coordinates and
-          Transformations</a>tutorial.</div>
+          Transformations</a>教程。</div>
 
       <div class="toc">
-        <h3>Table of Contents</h3>
+        <h3>目录</h3>
         <ol>
-          <li><a href="#3dModels">Loading 3D Models from File</a></li>
-          <li><a href="#proceduralGeometry">Creating Basic Procedural Geometry</a>
+          <li><a href="#3dModels">从文件中加载3D模型</a></li>
+          <li><a href="#proceduralGeometry">创建基本过程几何体</a>
           </li>
-          <li><a href="#conclusion">Conclusion</a></li>
+          <li><a href="#conclusion">结论</a></li>
           <li><a href="#glossary">词汇表</a></li>
         </ol>
       </div>
 
-      <h2 id="3dModels">Loading 3D Models from File</h2>
+      <h2 id="3dModels">从文件中加载3D模型</h2>
 
-      <p>Custom geometry can be imported into p5.js using either OBJ or STL files. These files are usually generated in a 3D modeling tool like Blender, which offers much more control when constructing a 3D scene. This is done using the <a class="code" href="{{root}}/reference/#/p5/loadModel">loadModel()</a> method, which should be used within <a class="code">preload()</a>.<a class="code"
-          href="/zh-Hans/reference/#/p5/loadModel">loadModel()</a> method, which should be used within <a class="code">preload()</a>. Then you can use the  <a class="code"
-          href="/zh-Hans/reference/#/p5/model">model()</a> function to draw the model, as demonstrated in the example below.</p>
+      <p>可以使用 OBJ 或 STL 文件将自定义几何体导入 p5.js。这些文件通常是在诸如 Blender 之类的 3D 建模工具中生成的，该工具在构建 3D 场景时提供了更多控制。 这是使用<a class="code" href="{{root}}/reference/#/p5/loadModel">loadModel()</a>方法完成的，应在<a class="code">preload()</a>中使用。<a class="code"
+          href="/zh-Hans/reference/#/p5/loadModel">loadModel()</a> 方法，应在 <a class="code">preload()</a> 中使用。然后可以使用<a class="code">function</a> 在模型中进行绘制，如下面的示例所示。 <a class="code"
+          href="/zh-Hans/reference/#/p5/model">model()</a> ，使用绘制函数在模型中进行绘制，如下面的示例所示。</p>
 
       <script type="text/p5" data-autoplay data-p5-version="1.6.0">
 let teapotModel;
@@ -159,19 +159,19 @@ function draw(){
 }
       </script>
 
-      <p>A common issue that can come up with custom models is scaling. Depending on how the model is constructed, it might be a much different size when rendered in p5.js, or even be too small to be rendered at all. The <a class="code">loadModel()</a> method includes a normalize parameter that will resize the model to something that works better in p5.js.</p>
+      <p>自定义模型可能遇到的常见问题是缩放。根据模型的构建方式，在 p5.js 中呈现时其大小可能会完全不同，甚至过小以至于无法渲染。 <a class="code">loadModel()</a>方法包括一个 normalize 参数，可以将模型调整为在p5.js中更好运行的大小。</p>
 
-      <div class="additionalInformation">Note that there is currently no support for STL files with color, although you can add color using materials or textures, which you can learn about in the <a href="{{root}}/learn/getting-started-in-webgl-appearance.html">Styling and Appearance</a> tutorial.<a
-          href="/zh-Hans/learn/getting-started-in-webgl-appearance.html"> Styling and Appearance    </a> tutorial.</div>
+      <div class="additionalInformation">请注意，当前不支持带有颜色的 STL 文件，但是您可以使用材料或纹理添加颜色，您可以在<a href="{{root}}/learn/getting-started-in-webgl-appearance.html">样式和外观</a>教程中学习。<a
+          href="/zh-Hans/learn/getting-started-in-webgl-appearance.html"> 样式和外观</a> 教程。</div>
 
-      <h2 id="proceduralGeometry">Creating Basic Procedural Geometry</h2>
+      <h2 id="proceduralGeometry">创建基本过程几何体</h2>
 
-      <p>Geometry can also be defined procedurally using code. This is a great way to create geometry that moves or is formed using your own set of rules. There are a number of methods that can be used to create 3D geometry in a way that is similar to 2D drawing in p5.js. For example, methods like <a class="code">quad()</a>, <a class="code">triangle()</a>, <a class="code">rect()</a>, and <a class="code">circle()</a> each have extra parameters that make it possible to use them in 3D.</p>
+      <p>几何体还可以使用代码进行过程化定义。这是创建可以移动或使用您自己的一组规则形成的几何体的绝佳方式。 有许多方法可以使用它们在 p5.js 中类似于 2D 绘图的方式创建 3D 几何体。例如， <a class="code">quad()</a>、<a class="code">triangle()</a>、<a class="code">rect()</a> 和 <a class="code">circle()</a> 等方法都有额外的参数，使它们可以用于 3D。</p>
 
-      <p>There are other methods that offer greater control of the geometry. A shape can be defined point-by-point using <a class="code" href="{{root}}/reference/#/p5/beginShape">beginShape()</a>, <a class="code" href="{{root}}/reference/#/p5/vertex">vertex()</a>, and <a class="code" href="{{root}}/reference/#/p5/endShape">endShape()</a>. This following example shows how these methods can be used to construct a 3D shape mathematically. <a class="code"
+      <p>还有其他方法可以更好地控制几何体。可以使用<a class="code" href="{{root}}/reference/#/p5/beginShape">beginShape()</a>、 <a class="code" href="{{root}}/reference/#/p5/vertex">vertex()</a> 和 <a class="code" href="{{root}}/reference/#/p5/endShape">endShape()</a> 逐点定义形状。 下面的示例演示了如何使用这些方法在数学上构建 3D 形状。 <a class="code"
           href="/zh-Hans/reference/#/p5/beginShape">beginShape()</a>, <a class="code"
-          href="/zh-Hans/reference/#/p5/vertex">vertex()</a>, and  <a class="code"
-          href="/zh-Hans/reference/#/p5/endShape">endShape()</a>. This following example shows how these methods can be used to construct a 3D shape mathematically.</p>
+          href="/zh-Hans/reference/#/p5/vertex">vertex()</a>, 和  <a class="code"
+          href="/zh-Hans/reference/#/p5/endShape">endShape()</a>. 下面的示例演示了如何使用这些方法在数学上构建 3D 形状。</p>
 
       <script type="text/p5" data-autoplay data-p5-version="1.6.0">
 function setup() {
@@ -204,11 +204,11 @@ function draw(){
 }
       </script>
 
-      <p>There is also a powerful class, <a class="code" href="{{root}}/reference/#/p5/p5.Geometry">p5.Geometry</a>, which p5 uses internally for <a class="code">loadModel()</a> but can also be used to define custom geometry, offering tools that can be helpful in calculating faces and normals.  <a class="code" href="/zh-Hans/reference/#/p5/p5.Geometry">p5.Geometry</a>, which p5.js uses internally for <a class="code">loadModel()</a> but can also be used to define custom geometry, offering tools that can be helpful in calculating faces and normals. </p>
+      <p>还有一个强大的类，<a class="code" href="{{root}}/reference/#/p5/p5.Geometry">p5.Geometry</a>，p5.js 内部使用 <a class="code">loadModel()</a>，但也可用于定义自定义几何体，提供可以有助于计算面和法线的工具。 <a class="code" href="/zh-Hans/reference/#/p5/p5.Geometry">p5.Geometry</a>，p5.js 内部使用<a class="code">loadModel()</a>，但也可用于定义自定义几何体，提供可以有助于计算面和法线的工具。</p>
 
 
 
-      <p>In 3D, a face refers to a collection of three or four points that make up a surface, giving our geometry the appearance of being solid. A normal is the direction that is perpendicular to the face, which helps p5.js calculate lighting across the surface.</p>
+      <p>在 3D 中，面指的是由三个或四个点组成的集合，这些点形成了一个表面，使我们的几何体具有实体的外观。法线是垂直于面的方向，这有助于 p5.js 计算表面上的光照。</p>
 
       <div style="display: flex; align-items: center; justify-content: center;">
         <img style="padding:30px; width:60%;" src='../../assets/learn/basic3d/images/normals_face_example.png'
@@ -216,7 +216,7 @@ function draw(){
       </div>
 
 
-      <p>In the following example, <a class="code">p5.Geometry</a> is used to plot a grid of points for the geometry. Then, <a class="code">computeFaces()</a> is used to give the geometry a solid appearance and <a class="code">computeNormals()</a> allows our geometry to have proper lighting.</p>
+      <p>在下面的示例中，使用 <a class="code">p5.Geometry</a> 绘制几何体的网格点。然后，<a class="code">computeFaces()</a> 用于使几何体具有实体外观， <a class="code">computeNormals()</a> 允许我们的几何体具有适当的照明。</p>
 
       <script type="text/p5" data-autoplay data-p5-version="1.6.0">
 let myGeometry
@@ -269,9 +269,9 @@ function draw() {
 }
       </script>
 
-      <h2 id="conclusion">Conclusion</h2>
+      <h2 id="conclusion">结论</h2>
 
-      <p>Now you should be able to create custom geometry, making it possible to create unique shapes, both from other tools and from code. Spend some time working with a variety of 3D modeling tools so you can find the one that works best for you.</p>
+      <p>现在，您应该能够创建自定义的几何体，从其他工具或代码中创建独特的形状变为可能。花一些时间使用各种 3D 建模工具，以便找到最适合您的那个。</p>
 
       <h3>其他教程</h3>
       <p>这个教程是关于使用 p5.js 中 WebGL 基础的系列之一。以下是其他教程： </p>
@@ -284,26 +284,26 @@ function draw() {
 
       <h2 id="glossary">词汇表</h2>
 
-      <h3>Procedural</h3>
-      <p>Meaning that something is defined mathematically, instead of from stored data, like a file.</p>
+      <h3>过程化的</h3>
+      <p>意味着某物是通过数学定义的，而不是通过存储的数据，例如文件。</p>
 
-      <h3>Model</h3>
-      <p>A representation of geometry.</p>
+      <h3>模型</h3>
+      <p>几何形状的表示。</p>
 
       <h3>STL</h3>
-      <p>STL (most often standing for "standard tesselation language") is a file format for 3D models.  It only stores information about the geometry.</p>
+      <p>"STL"（通常代表“标准制图语言”）是用于 3D 模型的文件格式。它仅存储有关几何形状的信息。</p>
 
       <h3>OBJ</h3>
-      <p>OBJ is an open file format that stores geometry data as well as some material and texture data. In p5.js, we are limited to its geometry, although an image can still be mapped to the surface using textures.</p>
+      <p>"OBJ" 是一种开放的文件格式，它存储几何数据以及一些材质和纹理数据。在 p5.js 中，我们只能使用它的几何数据，尽管仍可以使用纹理将图像映射到表面。</p>
 
-      <h3>Faces</h3>
-      <p>The solid surface that is generated between three points.</p>
+      <h3>面</h3>
+      <p>介于三点之间生成的固定表面。</p>
 
-      <h3>Normals</h3>
-      <p>The direction that is perpendicular to a face, which is often needed when calculating lighting or using materials.</p>
+      <h3>法线</h3>
+      <p>垂直于面的方向，通常在计算照明或使用材料时需要。</p>
 
-      <h3>Normalization</h3>
-      <p>Changing something so that it fits within a standard range.</p>
+      <h3>规范化</h3>
+      <p>更改某物以适应标准范围。</p>
 
 
     </main>

@@ -114,16 +114,16 @@
     <main>
       <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
-      <h1>Styling and Appearance</h1>
+      <h1>样式和外观</h1>
 
       <p>
-        Creating in 3D is about more than just geometry. Cameras, lights, and materials are an important part of creating a visually interesting 3D scene. p5.js has a number of tools that make it possible to transform the appearance of our geometry.
+        创作 3D 作品不仅仅是关于几何形状。相机、灯光和材质是创建视觉上有趣的 3D 场景的重要组成部分。p5.js 提供了许多工具，使我们可以改变我们几何形状的外观。
       </p>
 
       <div class="toc">
-        <h3>Table of Contents</h3>
+        <h3>目录</h3>
         <ol>
-          <li><a href="#camera">Camera and View</a></li>
+          <li><a href="#camera">相机和视图</a></li>
           <li><a href="#lighting">照明</a></li>
           <li><a href="#materials">材料和纹理</a></li>          
           <li><a href="#conclusion">结论</a></li>          
@@ -131,21 +131,20 @@
         </ol>
       </div>
 
-      <h2 id="camera">Camera and View</h2>
+      <h2 id="camera">相机和视图</h2>
 
-      <p>The camera is an essential piece of a 3D scene; it gives us the sense of space and dimension that we are often looking for in 3D. In p5.js, the WebGL mode provides us with a perspective camera by default, but we can change this using <a class="code" href="{{root}}/reference/#/p5/perspective">perspective()</a> or <a
-  class="code" href="{{root}}/reference/#/p5/ortho">ortho()</a>. <a class="code" href="/zh-Hans/reference/#/p5/perspective">perspective()</a> or  <a
+      <p>相机是 3D 场景的基本组成部分；它为我们提供 3D 所特有的空间和维度感。 在 p5.js 中，WebGL 模式默认提供透视相机，但我们可以使用 <a class="code" href="{{root}}/reference/#/p5/perspective">perspective()</a> 或  <a class="code" href="{{root}}/reference/#/p5/ortho">ortho()</a>  来更改这一点。 <a class="code" href="/zh-Hans/reference/#/p5/perspective">perspective()</a> 或  <a
       class="code" href="/zh-Hans/reference/#/p5/ortho">ortho()</a>.</p>
 
       <img style="padding:60px;" src='../../assets/learn/basic3d/images/cameraTypeIllustration.png'
         alt="an illustration showing the difference between perspective and orthographic camera types">
 
-      <p>A <em>perspective camera</em> skews objects so they appear to get smaller as they get further away, vanishing at a single point in the distance. This is in contrast to an <em>orthographic camera</em>, where the  geometry stays the same size as it gets further away and has no vanishing point. </p>
+      <p>透视相机会使对象倾斜，因此它们随着远离视角点的距离而变小，在远处消失。 这与正交相机形成对比，后者的几何形状随着距离增加而保持相同大小，并且没有消失点。</p>
 
       <iframe src="../../assets/learn/basic3d/cameraExample.html" width="720" height="350">
       </iframe>
 
-      <p>One setting that we can change with a perspective camera is the <em>field-of-view</em>, or FOV. This is the  term that is used to describe how much our camera can see, measured as an angle. In simple examples it might appear to have a zoom-like effect, but it will change way that shapes will change size in the distance.</p>
+      <p>我们可以使用透视相机更改的一个设置是视场（FOV）。这是用来描述我们相机看到的角度。 在简单的示例中，它可能会产生缩放效果，但它将改变形状在远处改变大小的方式。</p>
 
       <p>在 3D 中使用相机时，另一个重要的术语是相机的视锥体<em>frustum</em>。 相机的视锥体是相机视图的形状，一个金字塔形状，其中可以显示几何形状。视锥体包括<em>近平面和远平面</em>。 近平面定义了几何形状与相机之间必须呈现的最小距离。远平面定义了几何形状与相机之间可以呈现的最大距离。 每个平面都可以更改，以影响相机可以看到多近和多远。有时将这种有选择地包含几何形状的过程称为“裁剪”。</p>
 
@@ -155,8 +154,7 @@
         yellow rectangle near the camera, and far plane as a green rectangle on the opposite end of the frustum volume.">
       </div>
 
-      <p>相机可以通过向 <a class="code">camera()</a> 传递参数来移动， 但在代码中不断移动和调整相机可能会很繁琐，特别是当你在尝试各种想法时。 p5.js 有一个特殊的相机方法 <a class="code"
-  href="{{root}}/reference/#/p5/orbitControl">orbitControl()</a>，可以使用鼠标缩放、平移和定位相机。<a class="code"
+      <p>相机可以通过向 <a class="code">camera()</a> 传递参数来移动， 但在代码中不断移动和调整相机可能会很繁琐，特别是当你在尝试各种想法时。 p5.js 有一个特殊的相机方法 <a class="code" href="{{root}}/reference/#/p5/orbitControl">orbitControl()</a>，可以使用鼠标缩放、平移和定位相机。<a class="code"
       href="/zh-Hans/reference/#/p5/orbitControl">orbitControl()</a>可以使用鼠标缩放、平移和定位相机。</p>
 
       <p>一个场景可以有多个相机，但一次只能有一个相机处于活动状态。 在 p5.js 中，草图默认只有一个透视相机，但可以通过调用 <a class="code">perspective()</a>（使用新参数）或 <a class="code">ortho()</a> 来更改相机类型。 <a class="code">camera()</a> 可以用于更改活动相机的位置和相机所看向的位置。在下面的草图中试试吧。</p>
@@ -331,7 +329,7 @@ function draw() {
 }
       </script>
 
-      <p>通过使用<a class="code">texture()</a>可以实现更多自定义材料。简而言之，这些是可以映射到几何图形表面的图像。 这些纹理可以从图像中导入，甚至可以使用着色器在代码中生成。 要将纹理映射到几何图形上，请在preload()中使用<a class="code">loadImage()</a>，然后在绘制形状之前调用<a class="code">texture()</a>。</p>
+      <p>通过使用<a class="code">texture()</a>可以实现更多自定义材料。简而言之，这些是可以映射到几何图形表面的图像。 这些纹理可以从图像中导入，甚至可以使用着色器在代码中生成。 要将纹理映射到几何图形上，请在preload()中使用 <a class="code">loadImage()</a>，然后在绘制形状之前调用<a class="code">texture()</a>。</p>
 
       <script type="text/p5" data-autoplay data-p5-version="1.6.0">
 let myTexture;
@@ -364,7 +362,7 @@ function draw() {
 
       <div class="additionalInformation">
         <p> 
-          尽管着色器可以用于改变几何体的外观，但在本教程范围之外。因此，请确保在准备好时查看<a href="{{root}}/learn/introduction-to-shaders.html">着色器简介</a>页面。 <a href="/zh-Hans/learn/getting-started-in-webgl-shaders.html">着色器简介</a> 页面准备就绪时
+          尽管着色器可以用于改变几何体的外观，但在本教程范围之外。因此，请确保在准备好时查看 <a href="{{root}}/learn/introduction-to-shaders.html">着色器简介</a>页面。 <a href="/zh-Hans/learn/getting-started-in-webgl-shaders.html">着色器简介</a> 页面准备就绪时
         </p>
       </div>
 

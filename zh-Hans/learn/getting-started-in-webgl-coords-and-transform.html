@@ -176,14 +176,14 @@
       <p>p5.js 有一些方法，<a class="code" href="{{root}}/reference/#/p5/translate">translate()</a>、<a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a> 和 <a class="code" href="{{root}}/reference/#/p5/scale">scale()</a>，可以用来在空间中定位和定向对象。每个方法都会影响所谓的<em>模型矩阵</em>，它们的集合被称为对象的<em>变换</em>。这些方法对于 2D 和 3D 绘制都可用。<a class="code"
           href="/zh-Hans/reference/#/p5/translate">translate()</a>, <a class="code"
           href="/zh-Hans/reference/#/p5/rotate">rotate()</a>, 和  <a class="code"
-          href="/zh-Hans/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects within space. Each of these methods affect what is known as the <em>model matrix</em>. Collectively these are known as the <em>transformation</em> of an object. These methods are available for both 2D and 3D drawing.</p>
+          href="/zh-Hans/reference/#/p5/scale">scale()</a>, 我们可以使用一些方法在空间中定位和定向对象。每种方法都会影响所谓的<strong>模型矩阵</strong>。 这些方法的集合被称为对象的<strong>变换</strong>。这些方法适用于2D和3D绘图。</p>
 
-      <h3>translate(): Moving Objects in Space</h3>
+      <h3>translate()：将对象移动到指定位置</h3>
 
       <iframe src="../../assets/learn/basic3d/translateExample.html" width="720" height="350">
       </iframe>
 
-      <p><a class="code" href="/zh-Hans/reference/#/p5/translate">translate()</a> <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a> moves the origin in a given direction. Anything drawn after we call <a class="code">translate()</a> will be positioned relative to that point. <a class="code">translate()</a> accepts arguments for x, y, and z values. Use the sliders in the sketch above to change the translation of the box and see how it moves along each axis. The code below demonstrates simple translation on a <a class="code">box()</a> shape.</p>
+      <p><a class="code" href="/zh-Hans/reference/#/p5/translate">translate()</a> <a class="code" href="{{root}}/reference/#/p5/translate">translate()</a> 可以将原点沿指定方向移动， 调用<a class="code">translate()</a>之后绘制的任何内容都将相对于该点定位。 <a class="code">translate()</a> 接受x、y和z值的参数。使用上面的滑块更改盒子的平移量，看看它沿每个轴如何移动。 下面的代码演示了如何在<a class="code">box()</a> 形状上进行简单的平移。</p>
 
       <pre><code class="language-javascript">
       ...
@@ -193,19 +193,16 @@
       ..
       </code></pre>
 
-      <h3>rotate(): Orienting Objects in Space</h3>
+      <h3>rotate()：将对象定向到指定位置</h3>
 
       <iframe src="../../assets/learn/basic3d/rotateExample.html" width="720" height="350">
       </iframe>
 
-      <p><a class="code" href="/zh-Hans/reference/#/p5/rotate">rotate()</a> <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a> reorients whatever is drawn after it.</p>
+      <p><a class="code" href="/zh-Hans/reference/#/p5/rotate">rotate()</a> <a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a>可以将之后绘制的内容重新定向方向。</p>
 
-      <p>There are a few methods that can be used to rotate an object in 3D. Most of the time it's easiest to call methods like like <a class="code" href="{{root}}/reference/#/p5/rotateX">rotateX()</a>, <a class="code"
-  href="{{root}}/reference/#/p5/rotateY">rotateY()</a>, and <a class="code"
-  href="{{root}}/reference/#/p5/rotateZ">rotateZ()</a>, which each allow for rotation around a specific axis.
-Each of these methods accept a single argument specifying the angle of rotation. Try moving the sliders in the example above to see how rotation is performed on each axis. The code below shows each of these methods in use.<a class="code"
+      <p>有几种方法可以使对象在3D中旋转。大多数情况下，最简单的方法是调用像<a class="code" href="{{root}}/reference/#/p5/rotateX">rotateX()</a>、 <a class="code" href="{{root}}/reference/#/p5/rotateY">rotateY()</a>和 <a class="code" href="{{root}}/reference/#/p5/rotateZ">rotateZ()</a>这样的方法<a class="code"
           href="/zh-Hans/reference/#/p5/rotateX">rotateX()</a>, <a class="code"
-          href="/zh-Hans/reference/#/p5/rotateY">rotateY()</a>, and  <a class="code"
+          href="/zh-Hans/reference/#/p5/rotateY">rotateY()</a>, 和  <a class="code"
           href="/zh-Hans/reference/#/p5/rotateZ">rotateZ()</a> 它们分别允许围绕特定轴进行旋转。每种方法都接受一个指定旋转角度的参数。 尝试在上面的示例中移动滑块，查看如何在每个轴上执行旋转。 以下代码展示了这些方法的使用。</p>
 
       <pre><code class="language-javascript">
@@ -356,7 +353,7 @@ function draw() {
 
       <h2 id="conclusion">结论</h2>
 
-      <p>By having basic control over a 3D coordinate space, transformations,  and basic shapes, you should be able to begin creating basic scenes in 3D. The tutorials that follow this in the Getting Started in WebGL series will introduce custom geometries, allow you to tweak the appearance of  the scene, and introduce you to some basic shader programming to push your sketches further.</p>
+      <p>通过掌握基本的 3D 坐标空间控制、变换和基本形状，您应该能够开始创建基本的 3D 场景。在《WebGL 入门》系列中，本教程后面的教程将介绍自定义几何、允许您调整场景外观，并向您介绍一些基本着色器编程，以推进您的草图更进一步。</p>
 
       <h3>其他教程</h3>
 
@@ -371,26 +368,26 @@ function draw() {
 
       <h2 id="glossary">词汇表</h2>
 
-      <h3>GPU</h3>
-      <p>The GPU (Graphics Processing Unit) is a piece of hardware that is particularly well suited for performing many calculations in parallel, making it powerful for 3D graphics.</p>
+      <h3>GPU（图形处理单元）</h3>
+      <p>GPU（图形处理单元）是一种特别适合并行计算的硬件，使其在3D图形方面非常强大。</p>
 
-      <h3>Model</h3>
-      <p>A custom 3D geometry that can be saved and loaded from a file.</p>
+      <h3>模型</h3>
+      <p>可以从文件中保存和加载的自定义3D几何图形。</p>
 
-      <h3>Matrix</h3>
-      <p>A special array that can hold information about the transformation of a geometry.</p>
+      <h3>矩阵</h3>
+      <p>一种特殊的数组，可以保存关于几何变换的信息。</p>
 
-      <h3>Camera</h3>
-      <p>The viewpoint of a 3D scene.</p>
+      <h3>相机</h3>
+      <p>3D场景的视点。</p>
 
-      <h3>Transform</h3>
-      <p>Also referred to as <em>transformation</em>, this refers to the combined scale, rotation, and translation of a geometry.</p>
+      <h3>变换</h3>
+      <p>也称为 <em>transformation</em>，这指的是几何体的组合缩放、旋转和平移。</p>
 
-      <h3>Vertex</h3>
-      <p>A point in 3D space, with an x, y, z position.</p>
+      <h3>顶点</h3>
+      <p>3D空间中的一个点，具有 x、y、z 位置。</p>
 
-      <h3>Face</h3>
-      <p>A collection of three points that create a solid surface.</p>
+      <h3>面</h3>
+      <p>由三个点组成的实体表面。</p>
 
     </main>
 

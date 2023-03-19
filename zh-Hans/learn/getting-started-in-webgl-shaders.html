@@ -126,8 +126,8 @@
         <ol>
           <li><a href="#setup">设置</a></li>
           <li><a href="#shadinglanguage">着色语言 (GLSL)</a></li>
-          <li><a href="#uniforms">Uniforms: Passing data from sketch to shader</a></li>
-          <li><a href="#conclusion">Conclusion</a></li>          
+          <li><a href="#uniforms">Uniforms：从草图传递数据到着色器</a></li>
+          <li><a href="#conclusion">结论</a></li>          
           <li><a href="#glossary">词汇表</a></li>          
         </ol>
       </div>
@@ -145,7 +145,7 @@
       ..
       </code></pre>
 
-      <p>着色器程序由两部分组成，一个<strong>顶点着色器</strong>和一个<strong>片元着色器</strong>。 顶点着色器影响3D几何图形在屏幕上的绘制位置，片元着色器则负责影响颜色输出。这两个部分分别存储在不同的文件中，并通过<a class="code">loadShader()</a>加载到p5.js中。一旦着色器被加载，它就可以在<a class="code">draw()</a>中使用。下面的示例将展示如何在p5.js中设置基本着色器：
+      <p>着色器程序由两部分组成，一个<strong>顶点着色器</strong>和一个<strong>片元着色器</strong>。 顶点着色器影响3D几何图形在屏幕上的绘制位置，片元着色器则负责影响颜色输出。这两个部分分别存储在不同的文件中，并通过 <a class="code">loadShader()</a>加载到p5.js中。一旦着色器被加载，它就可以在 <a class="code">draw()</a>中使用。下面的示例将展示如何在p5.js中设置基本着色器：
       </p>
 
       <pre><code class="language-javascript">
@@ -215,11 +215,11 @@ void main() {
 }
 </code></pre>
 
-      <p>The fragment shader begins with a line specifying the float 'precision'. this value you can either be lowp, mediump, or highp, although you will likely use mediump, or highp in certain situations.</p>
+      <p>片段着色器以指定 float 'precision' 开始。你可以选择低精度 lowp、中精度 mediump 或高精度 highp， 不过在某些情况下，你可能会选择使用中精度或高精度。</p>
 
       <pre><code class="language-javascript">precision mediump float;</code></pre>
 
-<p>And similar to the vertex shader, our fragment shader also requires a <a class="code">main()</a> function, but instead of setting <a class="code">gl_Position</a>, we will assign a color to <a class="code">gl_FragColor</a>.</p>
+<p>和顶点着色器类似，片段着色器也需要一个 <a class="code">main()</a> 函数， 但我们不会设置 <a class="code">gl_Position</a>， 而是将颜色分配给 <a class="code">gl_FragColor</a>。</p>
 
 <pre><code class="language-javascript">
 ...
@@ -228,13 +228,13 @@ gl_FragColor = myColor;
 ...
 </code></pre>
 
-<p>The variable, <a class="code">myColor</a>, is defined as a <a class="code">vec4</a>, meaning it stores 4 values. Since we are dealing with color, those four values are red, green, blue, and alpha. Shaders don't use 0 - 255 for colors like our sketches do, instead they use values between 0.0 and 1.0.</p>
+<p>变量 <a class="code">myColor</a> 被定义为一个 <a class="code">vec4</a>， 这意味着它可以存储 4 个值。由于我们处理的是颜色，因此这四个值分别是红、绿、蓝和 alpha。 着色器不使用像我们的草图一样的 0-255 颜色，而是使用介于 0.0 和 1.0 之间的值。</p>
 
-      <p>Now that we have a vertex shader and a fragment shader, these can be saved to separate files (shader.vert and shader.frag respectively), and loaded into our sketch using <a class="code">loadShader()</a>.</p>
+      <p>现在我们已经有了一个顶点着色器和一个片段着色器， 可以将它们保存到单独的文件中（shader.vert 和 shader.frag）， 并使用 <a class="code">loadShader()</a> 加载到我们的草图中。</p>
 
-      <h2 id="uniforms">Uniforms: Passing data from sketch to shader</h2>
+      <h2 id="uniforms">Uniforms：从草图传递数据到着色器</h2>
 
-      <p>A simple shader like this can be useful by itself, but there are times when it's necessary to communicate variables from the p5.js sketch to a shader. This is when uniforms come in. Uniforms are special variables that can be sent from a sketch to a shader. These make it possible to have much more control over a shader. For example, you could use the p5.js method <a class="code">millis()</a> to pass a 'time' uniform to our sketch to introduce motion. In the shader, uniforms are defined at the top of the file, outside of <a class="code">main()</a>. In this following fragment shader we are creating a color uniform, <a class="code">myColor</a>, that will allow us to change the color from our sketch.</p>
+      <p>单独使用这样一个简单的着色器是有用的，但有时需要从 p5.js 草图向着色器传递变量。 这就是 uniforms 的作用。Uniforms 是特殊的变量，可以从草图发送到着色器。 这使得能够更好地控制着色器。例如，您可以使用 p5.js 方法 <a class="code">millis()</a>  向我们的草图传递一个“时间” uniform，以引入运动。在着色器中，uniforms 在文件顶部定义， 在 <a class="code">main()</a> 之外。在下面的片段着色器中， 我们创建了一个颜色 uniform <a class="code">myColor</a>，这将允许我们从草图中更改颜色。</p>
 
       <pre><code class="language-javascript">
 precision mediump float;
@@ -247,7 +247,7 @@ void main() {
 }
       </code></pre>
 
-      <p>Back in our p5.js sketch, this color can now be sent using <a class="code">setUniform()</a>:</p>
+      <p>回到我们的 p5.js 草图，现在可以使用 <a class="code">setUniform()</a> 发送这个颜色：</p>
 
       <pre><code class="language-javascript">
 ...
@@ -261,7 +261,7 @@ function draw() {
 ...
       </code></pre>
 
-      <p>There are also <em>attributes</em>, which are usually used to share certain data about the geometry between the sketch and the vertex shader, and <em>varying</em> variables, which share data between the vertex shader and the fragment shader. This makes it possible to use position or other geometry data within our fragment shaders.</p>
+      <p>还有 <em>attributes</em>，通常用于在草图和顶点着色器之间共享关于几何体的某些数据，和 <em>varying</em> 变量，它们在顶点着色器和片段着色器之间共享数据。这使得可以在我们的片段着色器中使用位置或其他几何数据。</p>
 
       <pre><code class="language-javascript">
 // (thank you to Adam Ferriss for the foundation of these example shaders)
@@ -284,7 +284,7 @@ void main() {
 }
 </code></pre>
 
-      <p>Now with the texture coordinate attribute assigned to the varying variable, we can use the texture coordinate in our fragment shader. The result in the example below is a blue and magenta visualization of our texture coordinates.</p>
+      <p>现在，将纹理坐标属性分配给变量之后，我们可以在片段着色器中使用纹理坐标。下面的示例结果是蓝色和紫红色的纹理坐标可视化。</p>
 
       <div style="display:flex; align-items: center; justify-content: center;">
         <pre><code class="language-javascript">
@@ -306,26 +306,18 @@ void main() {
 
 
       <div class="additionalInformation">
-        p5.js handles a lot of attributes and uniforms for us, and <a href="https://github.com/processing/p5.js/blob/374acfb44588bfd565c54d61264df197d798d121/contributor_docs/webgl_mode_architecture.md">you can view a list of all of the attributes that p5.js sends to the shader</a>.
+        p5.js 为我们处理了许多属性和 uniforms，<a href="https://github.com/processing/p5.js/blob/374acfb44588bfd565c54d61264df197d798d121/contributor_docs/webgl_mode_architecture.md">您可以查看 p5.js 发送到着色器的所有属性列表</a>。
       </div>
 
-      <h2 id="conclusion">Conclusion</h2>
+      <h2 id="conclusion">结论</h2>
 
-      <p>With these skills you will be able to create some basic shaders, but shader programming can go incredibly deep, and there are many shader topics that go beyond this tutorial. Shaders in p5.js can be a powerful tool for creating visuals, effects, and even textures that can be mapped to your 3D geometry.
+      <p>通过这些技能，您将能够创建一些基本的着色器，但着色器编程可以深入到无限深处，有许多着色器主题超出了本教程。在 p5.js 中，着色器可以成为创建可映射到 3D 几何体的视觉、效果甚至纹理的强大工具。
       </p>
 
-      <p>Want to keep learning more about shaders? Check out some of these websites!</p>
+      <p>想继续了解更多有关着色器的知识吗？请查看以下网站！</p>
 
       <ul class="indexList">
-        <li><a href="https://thebookofshaders.com/">The Book of Shaders</a>, a shader guide by Patricio Gonzalez Vivo
-  and
-  Jen Lowe.</li>
-<li><a href="https://itp-xstory.github.io/p5js-shaders/#/">P5.js shaders</a>, a shader guide by Casey Conchinha
-  and
-  Louise Lessél.</li>
-<li><a href="https://www.shadertoy.com/">Shadertoy</a>, a massive online collection of shaders that are written in a browser editor.</li> <li><a href="https://github.com/aferriss/p5jsShaderExamples">p5jsShaderExamples</a>, a collection of resources
-  by
-  Adam Ferriss.</li>
+        <li><a href="https://thebookofshaders.com/">The Book of Shaders</a>，由 Patricio Gonzalez Vivo 和 Jen Lowe 撰写的着色器指南。</li> <li><a href="https://itp-xstory.github.io/p5js-shaders/#/">P5.js着色器</a>，由Casey Conchinha和Louise Lessél编写的着色器指南。</li> <li><a href="https://www.shadertoy.com/">Shadertoy</a>，一个庞大的在线着色器集合，这些着色器都是在浏览器编辑器中编写的。</li> <li><a href="https://github.com/aferriss/p5jsShaderExamples">p5jsShaderExamples</a>，由Adam Ferriss编写的资源集。</li>
       </ul>
 
       <h3>其他教程</h3>
@@ -339,41 +331,41 @@ void main() {
 
       <h2 id="glossary">词汇表</h2>
 
-      <h3>Shader</h3>
-      <p>A special graphics card program that can efficiently produce many visual effects and filters.</p>
+      <h3>着色器 Shader</h3>
+      <p>可以有效地产生许多视觉效果和滤镜的特殊图形卡程序。</p>
 
       <h3>GLSL</h3>
-      <p>Graphics Library Shader Language (GLSL) is a programming language that is used to write shaders.</p>
+      <p>图形库着色器语言（GLSL）是一种用于编写着色器的编程语言。</p>
 
       <h3>Uniform</h3>
-      <p>A variable that is passed from your sketch to a shader</p>
+      <p>从你的草图传递到着色器的变量。</p>
 
-      <h3>Vector</h3>
-      <p>A data type that stores a group of numbers, most commonly two, three, or four, to represent colors, positions, and more.</p>
+      <h3>矢量 Vector</h3>
+      <p>一种数据类型，它存储一组数字，通常是两个、三个或四个数字，表示颜色、位置等。</p>
 
-      <h3>Float</h3>
-      <p>A data type that stores floating point numbers, which can have a decimal point.</p>
+      <h3>浮点数 Float</h3>
+      <p>一种存储浮点数的数据类型，可以有小数点。</p>
 
-      <h3>Int</h3>
-      <p>A data type that stores integers, which are whole numbers without a decimal.</p>
+      <h3>整数 Int</h3>
+      <p>一种存储整数的数据类型，没有小数。</p>
 
-      <h3>Sampler</h3>
-      <p>A data type that represents a texture being passed into the shader.</p>
+      <h3>取样器 Sampler</h3>
+      <p>表示传递到着色器中的纹理的数据类型。</p>
 
-      <h3>Attribute</h3>
-      <p>A GLSL variable that is generated in the p5.js sketch and made available in the vertex shader. For most situations these are provided by p5.js.</p>
+      <h3>属性 Attribute</h3>
+      <p>在 p5.js 草图中生成并在顶点着色器中提供的 GLSL 变量。对于大多数情况，这些由 p5.js 提供。</p>
 
-      <h3>Texture</h3>
-      <p>An image that passed into a shader program.</p>
+      <h3>纹理 Texture</h3>
+      <p>传递到着色器程序中的图像。</p>
 
-      <h3>Type</h3>
-      <p>A label describing the characterics of a piece of data, such as an int, a float, a vector, etc.</p>
+      <h3>类型 Type</h3>
+      <p>描述数据类型的特征的标签，例如 int、float、vector 等。</p>
 
-      <h3>Vertex Shader</h3>
-      <p>The part of a shader program that is responsible for positioning geometry in 3D space.</p>
+      <h3>顶点着色器 Vertex Shader</h3>
+      <p>该着色器程序的一部分负责将几何体定位在 3D 空间中。</p>
 
-      <h3>Fragment Shader</h3>
-      <p>The part of a shader program that is responsible for the color and appearance of each pixel output by the shader.  </p>
+      <h3>片段着色器 Fragment Shader</h3>
+      <p>该着色器程序的一部分负责每个像素输出的颜色和外观。</p>
 
     </main>
 
