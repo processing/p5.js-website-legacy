@@ -270,7 +270,7 @@ function draw() {
       <div>本教程的部分内容改编自Lauren McCarthy、Casey Reas和Ben Fry的书籍《从p5.js开始》， O'Reilly / Make 2015年版权所有。所有权利均已保留。 上一次修改是在 2019 年 p5.js 贡献者会议上。</div>
 
       <script>
-        $.getJSON('../download/version.json', function(data) {
+        $.getJSON('/download/version.json', function(data) {
           $('.p5-replace').each(function() {
             var html = $(this).html().replace('[p5_version]', data.version);
             $(this).html(html);
