@@ -1218,6 +1218,93 @@ learn:
   coordinate-system-simple-shapes-p9x1: >-
     자, 이제 좀 더 완성도있는 그림을 그려볼까요! 아래의 코드는 200x200 픽셀 크기의 캔버스 위에 여러개의 도형을 그립니다.
     createCanvas() 함수를 사용하여 캔버스의 너비(width)와 높이(height)를 설정할 수 있습니다.
+  curves-description1: >-
+    This tutorial is written by J David Eisenberg and ported by Sally Chen. If
+    you see any errors or have comments, 
+  curves-description2: ' please let us know.'
+  curves-description3: 'This work is licensed under a '
+  curves-description4: ' Creative Commons Attribution-NonCommercial-ShareAlinke 4.0 International License.'
+  curves-p1x1: >-
+    This short tutorial introduces you to the three types of curves in p5.js:
+    arcs, spline curves, and Bézier curves.
+  curves-arcs-title: ' Arcs '
+  curves-arcs-p1x1: >-
+    Arcs are the simplest curves to draw, it is defined an arc as a section of
+    an ellipse. You call the function with these parameters:
+  curves-arcs-p2x1: 'arc (x, y, w, h, start, stop, [mode])'
+  curves-arcs-p3x1: >-
+    The first four parameters (x,y,w,h) define the boundary box for your arc and
+    the next two (start, stop), are the start and stop angles for the arc. These
+    angles are given in radians and are measured clockwise with zero degrees
+    pointing east and PI radians equals 180°.
+  curves-spline-curves-title: Spline Curves
+  curves-spline-curves-p1x1: >-
+    Arcs are fine, but they’re plain. The next function, curve(), lets you draw
+    curves that aren’t necessarily part of an arc. This function draws what is
+    technically called a Rom-Catmull Spline. To draw the curve, you must specify
+    the (x, y) coordinates of the points where the curve starts and ends. You
+    must also specify two control points which determine the direction and
+    amount of curvature. The first two and last two parameters are the control
+    points of the curve. A call to curve() uses these parameters:
+  curves-spline-curves-p2x1: 'curve (cpx1, cpy1, x1, y1, x2, y2, cpx2, cpy2);'
+  curves-spline-curves-p3x1: How do the control points affect the way the curve looks?
+  curves-spline-curves-p4x1: >-
+    The tangent to the curve at the start point is parallel to the line between
+    control point one and the end of the curve. The tangent to the curve at the
+    end point is parallel to the line between the start point and control point
+    2.
+  curves-spline-curves-p5x1: >-
+    The following diagram shows a curve and the points can be dragged to show
+    how the control point affects the curve:
+  curves-continuous-spline-curves-title: Continuous Spline Curves
+  curves-continuous-spline-curves-p1x1: >-
+    In isolation, a single curve() is not particularly appealing. To draw a
+    continuous curve through several points, you are better off using the
+    curveVertex() function. You can only use this function when you are creating
+    a shape with the beginShape() and endShape() functions.In common usage,
+    people use the first point of the curve as the first control point and the
+    last point of the curve as the last control point.
+  curves-bezier-curves-title: Bézier Curves
+  curves-bezier-curves-p1x1: >-
+    Though better than arcs, spline curves don’t seem to have those graceful,
+    swooping curves that say “art.” For those, you need to draw Bézier curves
+    with the bezier() function. As with spline curves, the bezier() function has
+    eight parameters, but the order is different. The first two and last two
+    parameters are the start and end points while middle  four points are the
+    control points.
+  curves-bezier-curves-p2x1: ' bezier(x1, y1, cpx1, cpy1, cpx2, cpy2, x2, y2); '
+  curves-bezier-curves-p3x1: >-
+    While it is difficult to visualize how the control points affect a curve(),
+    it is slightly easier to see how the control points affect Bézier curves.
+    Imagine two poles and several rubber bands. The poles connect the control
+    points to the endpoints of the curve. A rubber band connects the tops of the
+    poles. Two more rubber bands connect the midpoints of the poles to the
+    midpoint of the first rubber band. One more rubber band connects their
+    midpoints. The center of that last rubber band is tied to the curve. This
+    diagram helps to explain, the points can be moved to change the curve.
+  curves-continuous-bezier-curves-title: ' Continuous Bézier Curves'
+  curves-continuous-bezier-curves-p1x1: >-
+    Just as curveVertex() allows you to make continuous spline curves,
+    bezierVertex() lets you make continuous Bézier curves. Again, you must be
+    within a beginShape() / endShape() sequence. You must use vertex(startX,
+    startY) to specify the starting anchor point of the curve. Subsequent points
+    are specified with a call to:
+  curves-continuous-bezier-curves-p2x1: 'bezierVertex(cpx1, cpy1, cpx2, cpy2, x, y);'
+  curves-continuous-bezier-curves-p3x1: >-
+    Here is a continuous Bézier curve, but it doesn’t join smoothly. In order to
+    make two curves A and B smoothly continuous, the last control point of A,
+    the last point of A, and the first control point of B have to be on a
+    straight line.
+  curves-summary-title: Summary
+  curves-summary-li1: >-
+    Use arc() when you need a segment of a circle or an ellipse. You can’t make
+    continuous arcs or use them as part of a shape.
+  curves-summary-li2: >-
+    Use curve() when you need a small curve between two points. Use
+    curveVertex() to make a continuous series of curves as part of a shape.
+  curves-summary-li3: >-
+    Use bezier() when you need long, smooth curves. Use bezierVertex() to make a
+    continuous series of Bézier curves as part of a shape.
   teach-desc: 'Teach a p5 workshop or class, or create teaching materials!'
 libraries:
   Libraries: 라이브러리
