@@ -12,30 +12,29 @@ slug: learn/
     <main >
 
       <div class="attribution">
-      This tutorial is written by J David Eisenberg and ported by Sally Chen. If you see any errors or have comments, <a href="https://github.com/processing/p5.js/issues"> please let us know.</a>
-      This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons Attribution-NonCommercial-ShareAlinke 4.0 International License.</a>
+      {{#i18n "curves-description1"}}{{/i18n}}<a href="https://github.com/processing/p5.js/issues">{{#i18n "curves-description2"}}{{/i18n}}</a>
+      {{#i18n "curves-description3"}}{{/i18n}}<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">{{#i18n "curves-description4"}}{{/i18n}}</a>
 
       </div>
 
-      <h1>Curves</h1>
+      <h1>{{#i18n "curves-title"}}{{/i18n}}</h1>
 
       <p>
-      This short tutorial introduces you to the three types of curves in p5.js: arcs, spline curves, and Bézier curves.
+      {{#i18n "curves-p1x1"}}{{/i18n}}
       </p>
 
-      <h2> Arcs </h2>
+      <h2>{{#i18n "curves-arcs-title"}}{{/i18n}}</h2>
 
       <p>
-      Arcs are the simplest curves to draw, it is defined an arc as a section of an ellipse. You call the function with these parameters:
-      </p>
-
-      <p>
-      arc (x, y, w, h, start, stop, [mode])
+      {{#i18n "curves-arcs-p1x1"}}{{/i18n}}
       </p>
 
       <p>
-      The first four parameters (x,y,w,h) define the boundary box for your arc and the next two (start, stop), are the start and stop angles for the arc. These angles are given in radians
-      and are measured clockwise with zero degrees pointing east and PI radians equals 180°.
+      {{#i18n "curves-arcs-p2x1"}}{{/i18n}}
+      </p>
+
+      <p>
+      {{#i18n "curves-arcs-p3x1"}}{{/i18n}}
       </p>
 
       <!-- this script only needs to get added once even if there are multiple widget instances -->
@@ -53,29 +52,26 @@ slug: learn/
         }
       </script>
 
-      <h2>Spline Curves</h2>
+      <h2>{{#i18n "curves-spline-curves-title"}}{{/i18n}}</h2>
 
       <p>
-      Arcs are fine, but they’re plain. The next function, curve(), lets you draw curves that aren’t necessarily part of an arc. This function draws what is technically called a Rom-Catmull Spline.
-      To draw the curve, you must specify the (x, y) coordinates of the points where the curve starts and ends. You must also specify two control points which determine the direction and amount of curvature.
-      The first two and last two parameters are the control points of the curve.
-      A call to curve() uses these parameters:
+      {{#i18n "curves-spline-curves-p1x1"}}{{/i18n}}
       </p>
 
       <p>
-      curve (cpx1, cpy1, x1, y1, x2, y2, cpx2, cpy2);
+      {{#i18n "curves-spline-curves-p2x1"}}{{/i18n}}
       </p>
 
       <p>
-      How do the control points affect the way the curve looks?
+      {{#i18n "curves-spline-curves-p3x1"}}{{/i18n}}
       </p>
 
       <p>
-        The tangent to the curve at the start point is parallel to the line between control point one and the end of the curve. The tangent to the curve at the end point is parallel to the line between the start point and control point 2.
+        {{#i18n "curves-spline-curves-p4x1"}}{{/i18n}}
       </p>
 
       <p>
-      The following diagram shows a curve and the points can be dragged to show how the control point affects the curve:
+      {{#i18n "curves-spline-curves-p5x1"}}{{/i18n}}
       </p>
 
       <!-- iframe for the curve and dragging points -->
@@ -83,12 +79,10 @@ slug: learn/
       </iframe>
 
 
-      <h2>Continuous Spline Curves</h2>
+      <h2>{{#i18n "curves-continuous-spline-curves-title"}}{{/i18n}}</h2>
 
       <p>
-      In isolation, a single curve() is not particularly appealing. To draw a continuous curve through several points, you are better off using the curveVertex() function.
-      You can only use this function when you are creating a shape with the beginShape() and endShape() functions.In common usage, people use the first point of the curve
-      as the first control point and the last point of the curve as the last control point.
+      {{#i18n "curves-continuous-spline-curves-p1x1"}}{{/i18n}}
       </p>
 
 
@@ -119,43 +113,35 @@ slug: learn/
       }
       </script>
 
-      <h2>Bézier Curves</h2>
+      <h2>{{#i18n "curves-bezier-curves-title"}}{{/i18n}}</h2>
 
       <p>
-        Though better than arcs, spline curves don’t seem to have those graceful, swooping curves that say “art.” For those, you need to draw Bézier curves with the bezier() function.
-        As with spline curves, the bezier() function has eight parameters, but the order is different. The first two and last two parameters are the start and end points while middle 
-        four points are the control points.
+        {{#i18n "curves-bezier-curves-p1x1"}}{{/i18n}}
       </p>
 
-      <p> bezier(x1, y1, cpx1, cpy1, cpx2, cpy2, x2, y2); </p>
+      <p>{{#i18n "curves-bezier-curves-p2x1"}}{{/i18n}}</p>
 
       <!-- iframe of Bezier example -->
       <iframe src="{{assets}}/learn/curves/bezier/embed.html" width="400" height="400">
       </iframe>
 
       <p>
-      While it is difficult to visualize how the control points affect a curve(), it is slightly easier to see how the control points affect Bézier curves.
-      Imagine two poles and several rubber bands. The poles connect the control points to the endpoints of the curve. A rubber band connects the tops of the poles.
-      Two more rubber bands connect the midpoints of the poles to the midpoint of the first rubber band. One more rubber band connects their midpoints.
-      The center of that last rubber band is tied to the curve. This diagram helps to explain, the points can be moved to change the curve.
+      {{#i18n "curves-bezier-curves-p3x1"}}{{/i18n}}
     </p>
 
       <!-- image of bezier with lines -->
       <img src="{{assets}}/learn/curves/bezier_with_lines/bezier_with_lines.png" style="width:150px;">
 
-      <h2> Continuous Bézier Curves</h2>
+      <h2>{{#i18n "curves-continuous-bezier-curves-title"}}{{/i18n}}</h2>
 
       <p>
-      Just as curveVertex() allows you to make continuous spline curves, bezierVertex() lets you make continuous Bézier curves.
-      Again, you must be within a beginShape() / endShape() sequence. You must use vertex(startX, startY) to specify the starting anchor point of the curve.
-      Subsequent points are specified with a call to:
+      {{#i18n "curves-continuous-bezier-curves-p1x1"}}{{/i18n}}
       </P>
 
-      <p>bezierVertex(cpx1, cpy1, cpx2, cpy2, x, y);</P>
+      <p>{{#i18n "curves-continuous-bezier-curves-p2x1"}}{{/i18n}}</P>
 
       <p>
-      Here is a continuous Bézier curve, but it doesn’t join smoothly. In order to make two curves A and B smoothly continuous, the last control point of A,
-      the last point of A, and the first control point of B have to be on a straight line.
+      {{#i18n "curves-continuous-bezier-curves-p3x1"}}{{/i18n}}
       </P>
 
       <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
@@ -180,12 +166,12 @@ slug: learn/
       }
       </script>
 
-      <h2>Summary</h2>
+      <h2>{{#i18n "curves-summary-title"}}{{/i18n}}</h2>
         <p>
           <ul class="list_view">
-            <li>Use arc() when you need a segment of a circle or an ellipse. You can’t make continuous arcs or use them as part of a shape.</li>
-            <li>Use curve() when you need a small curve between two points. Use curveVertex() to make a continuous series of curves as part of a shape.</li>
-            <li>Use bezier() when you need long, smooth curves. Use bezierVertex() to make a continuous series of Bézier curves as part of a shape.</li>
+            <li>{{#i18n "curves-summary-li1"}}{{/i18n}}</li>
+            <li>{{#i18n "curves-summary-li2"}}{{/i18n}}</li>
+            <li>{{#i18n "curves-summary-li3"}}{{/i18n}}</li>
           </ul>
         </p>
 
