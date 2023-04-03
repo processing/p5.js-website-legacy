@@ -106,8 +106,7 @@
       </p>
 
       <p>
-      The first four parameters (x,y,w,h) define the boundary box for your arc and the next two (start, stop), are the start and stop angles for the arc. These angles are given in radians
-      and are measured clockwise with zero degrees pointing east and PI radians equals 180°.
+      The first four parameters (x,y,w,h) define the boundary box for your arc and the next two (start, stop), are the start and stop angles for the arc. These angles are given in radians and are measured clockwise with zero degrees pointing east and PI radians equals 180°.
       </p>
 
       <!-- this script only needs to get added once even if there are multiple widget instances -->
@@ -128,10 +127,7 @@
       <h2>Spline Curves</h2>
 
       <p>
-      Arcs are fine, but they’re plain. The next function, curve(), lets you draw curves that aren’t necessarily part of an arc. This function draws what is technically called a Rom-Catmull Spline.
-      To draw the curve, you must specify the (x, y) coordinates of the points where the curve starts and ends. You must also specify two control points which determine the direction and amount of curvature.
-      The first two and last two parameters are the control points of the curve.
-      A call to curve() uses these parameters:
+      Arcs are fine, but they’re plain. The next function, curve(), lets you draw curves that aren’t necessarily part of an arc. This function draws what is technically called a Rom-Catmull Spline. To draw the curve, you must specify the (x, y) coordinates of the points where the curve starts and ends. You must also specify two control points which determine the direction and amount of curvature. The first two and last two parameters are the control points of the curve. A call to curve() uses these parameters:
       </p>
 
       <p>
@@ -158,9 +154,7 @@
       <h2>Continuous Spline Curves</h2>
 
       <p>
-      In isolation, a single curve() is not particularly appealing. To draw a continuous curve through several points, you are better off using the curveVertex() function.
-      You can only use this function when you are creating a shape with the beginShape() and endShape() functions.In common usage, people use the first point of the curve
-      as the first control point and the last point of the curve as the last control point.
+      In isolation, a single curve() is not particularly appealing. To draw a continuous curve through several points, you are better off using the curveVertex() function. You can only use this function when you are creating a shape with the beginShape() and endShape() functions.In common usage, people use the first point of the curve as the first control point and the last point of the curve as the last control point.
       </p>
 
 
@@ -194,9 +188,7 @@
       <h2>Bézier Curves</h2>
 
       <p>
-        Though better than arcs, spline curves don’t seem to have those graceful, swooping curves that say “art.” For those, you need to draw Bézier curves with the bezier() function.
-        As with spline curves, the bezier() function has eight parameters, but the order is different. The first two and last two parameters are the start and end points while middle 
-        four points are the control points.
+        Though better than arcs, spline curves don’t seem to have those graceful, swooping curves that say “art.” For those, you need to draw Bézier curves with the bezier() function. As with spline curves, the bezier() function has eight parameters, but the order is different. The first two and last two parameters are the start and end points while middle  four points are the control points.
       </p>
 
       <p> bezier(x1, y1, cpx1, cpy1, cpx2, cpy2, x2, y2); </p>
@@ -206,10 +198,7 @@
       </iframe>
 
       <p>
-      While it is difficult to visualize how the control points affect a curve(), it is slightly easier to see how the control points affect Bézier curves.
-      Imagine two poles and several rubber bands. The poles connect the control points to the endpoints of the curve. A rubber band connects the tops of the poles.
-      Two more rubber bands connect the midpoints of the poles to the midpoint of the first rubber band. One more rubber band connects their midpoints.
-      The center of that last rubber band is tied to the curve. This diagram helps to explain, the points can be moved to change the curve.
+      While it is difficult to visualize how the control points affect a curve(), it is slightly easier to see how the control points affect Bézier curves. Imagine two poles and several rubber bands. The poles connect the control points to the endpoints of the curve. A rubber band connects the tops of the poles. Two more rubber bands connect the midpoints of the poles to the midpoint of the first rubber band. One more rubber band connects their midpoints. The center of that last rubber band is tied to the curve. This diagram helps to explain, the points can be moved to change the curve.
     </p>
 
       <!-- image of bezier with lines -->
@@ -218,16 +207,13 @@
       <h2> Continuous Bézier Curves</h2>
 
       <p>
-      Just as curveVertex() allows you to make continuous spline curves, bezierVertex() lets you make continuous Bézier curves.
-      Again, you must be within a beginShape() / endShape() sequence. You must use vertex(startX, startY) to specify the starting anchor point of the curve.
-      Subsequent points are specified with a call to:
+      Just as curveVertex() allows you to make continuous spline curves, bezierVertex() lets you make continuous Bézier curves. Again, you must be within a beginShape() / endShape() sequence. You must use vertex(startX, startY) to specify the starting anchor point of the curve. Subsequent points are specified with a call to:
       </P>
 
       <p>bezierVertex(cpx1, cpy1, cpx2, cpy2, x, y);</P>
 
       <p>
-      Here is a continuous Bézier curve, but it doesn’t join smoothly. In order to make two curves A and B smoothly continuous, the last control point of A,
-      the last point of A, and the first control point of B have to be on a straight line.
+      Here is a continuous Bézier curve, but it doesn’t join smoothly. In order to make two curves A and B smoothly continuous, the last control point of A, the last point of A, and the first control point of B have to be on a straight line.
       </P>
 
       <script type="text/p5" data-autoplay data-p5-version="1.6.0">
