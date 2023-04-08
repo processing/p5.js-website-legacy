@@ -1341,6 +1341,93 @@ learn:
     अब देखते हैं कि 200 से 200 के विंडो आयाम के साथ अधिक यथार्थवादी सेटिंग में
     आकृतियों के साथ कुछ कोड क्या हैं। विंडो की चौड़ाई और ऊंचाई को निर्दिष्ट करने
     के लिए createCanvas () फ़ंक्शन के उपयोग पर ध्यान दें।
+  curves-description1: >-
+    This tutorial is written by J David Eisenberg and ported by Sally Chen. If
+    you see any errors or have comments, 
+  curves-description2: ' please let us know.'
+  curves-description3: 'This work is licensed under a '
+  curves-description4: ' Creative Commons Attribution-NonCommercial-ShareAlinke 4.0 International License.'
+  curves-p1x1: >-
+    This short tutorial introduces you to the three types of curves in p5.js:
+    arcs, spline curves, and Bézier curves.
+  curves-arcs-title: ' Arcs '
+  curves-arcs-p1x1: >-
+    Arcs are the simplest curves to draw, it is defined an arc as a section of
+    an ellipse. You call the function with these parameters:
+  curves-arcs-p2x1: 'arc (x, y, w, h, start, stop, [mode])'
+  curves-arcs-p3x1: >-
+    The first four parameters (x,y,w,h) define the boundary box for your arc and
+    the next two (start, stop), are the start and stop angles for the arc. These
+    angles are given in radians and are measured clockwise with zero degrees
+    pointing east and PI radians equals 180°.
+  curves-spline-curves-title: Spline Curves
+  curves-spline-curves-p1x1: >-
+    Arcs are fine, but they’re plain. The next function, curve(), lets you draw
+    curves that aren’t necessarily part of an arc. This function draws what is
+    technically called a Rom-Catmull Spline. To draw the curve, you must specify
+    the (x, y) coordinates of the points where the curve starts and ends. You
+    must also specify two control points which determine the direction and
+    amount of curvature. The first two and last two parameters are the control
+    points of the curve. A call to curve() uses these parameters:
+  curves-spline-curves-p2x1: 'curve (cpx1, cpy1, x1, y1, x2, y2, cpx2, cpy2);'
+  curves-spline-curves-p3x1: How do the control points affect the way the curve looks?
+  curves-spline-curves-p4x1: >-
+    The tangent to the curve at the start point is parallel to the line between
+    control point one and the end of the curve. The tangent to the curve at the
+    end point is parallel to the line between the start point and control point
+    2.
+  curves-spline-curves-p5x1: >-
+    The following diagram shows a curve and the points can be dragged to show
+    how the control point affects the curve:
+  curves-continuous-spline-curves-title: Continuous Spline Curves
+  curves-continuous-spline-curves-p1x1: >-
+    In isolation, a single curve() is not particularly appealing. To draw a
+    continuous curve through several points, you are better off using the
+    curveVertex() function. You can only use this function when you are creating
+    a shape with the beginShape() and endShape() functions.In common usage,
+    people use the first point of the curve as the first control point and the
+    last point of the curve as the last control point.
+  curves-bezier-curves-title: Bézier Curves
+  curves-bezier-curves-p1x1: >-
+    Though better than arcs, spline curves don’t seem to have those graceful,
+    swooping curves that say “art.” For those, you need to draw Bézier curves
+    with the bezier() function. As with spline curves, the bezier() function has
+    eight parameters, but the order is different. The first two and last two
+    parameters are the start and end points while middle  four points are the
+    control points.
+  curves-bezier-curves-p2x1: ' bezier(x1, y1, cpx1, cpy1, cpx2, cpy2, x2, y2); '
+  curves-bezier-curves-p3x1: >-
+    While it is difficult to visualize how the control points affect a curve(),
+    it is slightly easier to see how the control points affect Bézier curves.
+    Imagine two poles and several rubber bands. The poles connect the control
+    points to the endpoints of the curve. A rubber band connects the tops of the
+    poles. Two more rubber bands connect the midpoints of the poles to the
+    midpoint of the first rubber band. One more rubber band connects their
+    midpoints. The center of that last rubber band is tied to the curve. This
+    diagram helps to explain, the points can be moved to change the curve.
+  curves-continuous-bezier-curves-title: ' Continuous Bézier Curves'
+  curves-continuous-bezier-curves-p1x1: >-
+    Just as curveVertex() allows you to make continuous spline curves,
+    bezierVertex() lets you make continuous Bézier curves. Again, you must be
+    within a beginShape() / endShape() sequence. You must use vertex(startX,
+    startY) to specify the starting anchor point of the curve. Subsequent points
+    are specified with a call to:
+  curves-continuous-bezier-curves-p2x1: 'bezierVertex(cpx1, cpy1, cpx2, cpy2, x, y);'
+  curves-continuous-bezier-curves-p3x1: >-
+    Here is a continuous Bézier curve, but it doesn’t join smoothly. In order to
+    make two curves A and B smoothly continuous, the last control point of A,
+    the last point of A, and the first control point of B have to be on a
+    straight line.
+  curves-summary-title: Summary
+  curves-summary-li1: >-
+    Use arc() when you need a segment of a circle or an ellipse. You can’t make
+    continuous arcs or use them as part of a shape.
+  curves-summary-li2: >-
+    Use curve() when you need a small curve between two points. Use
+    curveVertex() to make a continuous series of curves as part of a shape.
+  curves-summary-li3: >-
+    Use bezier() when you need long, smooth curves. Use bezierVertex() to make a
+    continuous series of Bézier curves as part of a shape.
   teach-desc: 'Teach a p5 workshop or class, or create teaching materials!'
 libraries:
   Libraries: लाइब्रेरी
@@ -1422,10 +1509,10 @@ libraries:
     'p5.party आसानी से नेटवर्क वाले बहुउपयोगकर्ता गेम, ऐप्स और स्केच बनाने के
     लिए एक पुस्तकालय है।'
   p5.Polar: >-
-    p5.Polar provides mathematical abstractions making it easy to create create
-    beautiful, kaleidoscopic, radial patterns.
+    p5.Polar गणितीय सार प्रदान करता है जिससे सुंदर, बहुरूपदर्शक, रेडियल पैटर्न
+    बनाना आसान हो जाता है।
   react-p5: This library lets you integrate p5 Sketches into your React App.
-  p5.recorder: Record sketch canvas and audio.
+  p5.recorder: रिकॉर्ड स्केच कैनवास और ऑडियो।
   p5.Riso: >-
     p5.Riso, Risograph मुद्रण के लिए उपयुक्त फ़ाइलें बनाने के लिए एक पुस्तकालय
     है। यह आपके रेखाचित्रों को बहु-रंगीन प्रिंटों में बदलने में मदद करता है।
@@ -1492,8 +1579,8 @@ libraries:
     'p5.js कैनवास में सीधे सरल या स्टाइल वाले बटनों को डिज़ाइन और प्रस्तुत करने
     के लिए छोटा एक फ़ंक्शन लाइब्रेरी।'
   p5.math.js: >-
-    The mathematical operations of JavaScript have been converted into simple
-    human language so that they can understand really quickly.
+    जावास्क्रिप्ट के गणितीय कार्यों को सरल मानव भाषा में परिवर्तित कर दिया गया
+    है ताकि वे वास्तव में जल्दी समझ सकें।
   p5LiveMedia: 'रीयल टाइम ऑडियो, वीडियो, कैनवस और डेटा शेयरिंग।'
   P5.Create: >-
     p5.create एक पुस्तकालय है जो कुशल गेम निर्माण के लिए डिज़ाइन किए गए सेव,
@@ -1518,7 +1605,7 @@ libraries:
     सीरियल उपकरणों के साथ बातचीत करने के लिए एक पुस्तकालय"|
   p5.pattern: p5.js के लिए एक पैटर्न ड्राइंग लाइब्रेरी।
   p5.jacdac: p5js के लिए प्लग-एंड-प्ले माइक्रो-कंट्रोलर।
-  p5.PatGrad: p5.PatGrad let's you add patterns and gradients to your sketches.
+  p5.PatGrad: p5.PatGrad आपके रेखाचित्रों में पैटर्न और ग्रेडिएंट जोड़ता है।
   p5.projection: Easy projection mapping of sketches onto real world surfaces
   p5.Framebuffer: >-
     A fast offscreen canvas for WebGL, giving access to depth data for fog and
@@ -1532,7 +1619,7 @@ libraries:
     A p5.js library for using the Web Serial API to access devices like
     Arduino,  no setup required.
   p5.wasm.core: A web assembly core for p5.js.
-  p5.videorecorder: Record your canvas as a video file with audio.
+  p5.videorecorder: अपने कैनवास को ऑडियो के साथ एक वीडियो फ़ाइल के रूप में रिकॉर्ड करें
   p5.mapper: >-
     p5.mapper is a projection mapping library for p5.js. This library makes it
     easy to code and keystone interactive, algorithmic sketches.
@@ -1541,8 +1628,8 @@ libraries:
     mentorship   from Nick McIntyre and Jithin KS.
   p5.fab: p5.fab p5.js से डिजिटल निर्माण मशीनों को नियंत्रित करता है।
   p5.utils: >-
-    A set of utilities and additional features for my creative coding class
-    aiming  to help students.
+    छात्रों की मदद करने के उद्देश्य से मेरी रचनात्मक कोडिंग कक्षा के लिए
+    उपयोगिताओं और अतिरिक्त सुविधाओं का एक सेट।
   using-a-library-title: पुस्तकालय का उपयोग करना
   using-a-library1: >-
     एक p5.js पुस्तकालय कोई भी JavaScript कोड हो सकता है जो p5.js मुख्य
