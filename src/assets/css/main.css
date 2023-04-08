@@ -2501,17 +2501,6 @@ footer {
         /*margin: 4em 0 2em -.75em;*/
     }
 
-    #i18n-btn {
-        position: absolute;
-        top: 4.0em;
-        /* temp promo, 2.5em */
-        right: 1em;
-    }
-
-    #i18n-btn a {
-        font-family: 'Montserrat', sans-serif;
-    }
-
     #menu {
         list-style: none;
         font-family: 'Montserrat', sans-serif;
@@ -2643,14 +2632,6 @@ footer {
     #family {
         display: none;
     }
-
-    #i18n-btn {
-        position: absolute;
-        top: 0.5em;
-        right: 0.7em;
-        z-index: 10;
-    }
-
     #search {
         width: 100%;
         float: left;
@@ -2858,9 +2839,21 @@ iframe {
   //////////////////////////////////////////////////
 */
 
+#i18n-settings {
+  background-color: #b1b6b1;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
 #i18n-buttons {
-    margin: 0;
-    background: white;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 #i18n-buttons li {
@@ -2868,24 +2861,40 @@ iframe {
     display: inline-block;
     margin-left: 0.5em;
 }
-
-#i18n-btn a {
-    border: none;
-    outline: none;
-    font-size: 0.7em;
-    color: #696969;
-    z-index: 5;
+#i18n-buttons a {
+  color: black;
+  padding: 5px 15px;
+  text-decoration: none;
+  display: block;
 }
 
-#i18n-btn a:hover {
-    color: #ed225d;
+#i18n-buttons a:hover {
+  background-color: #f1f1f1;
 }
 
-#i18n-btn a.disabled {
-    color: #ed225d;
-    cursor: default;
+#i18n-btn:hover #i18n-buttons {
+  display: block;
 }
 
+#i18n-btn:hover #i18n-settings {
+  background-color: #3e8e41;
+}
+@media (min-width: 780px) {
+    #i18n-btn {
+        position: absolute;
+        top: 4em;
+        right: 1em;
+      }
+}
+@media (max-width: 780px) {
+    #i18n-btn {
+        position: absolute;
+        top: 0.5em;
+        right: 0.7em;
+        z-index: 10;
+      }
+    
+}
 /*
   //////////////////////////////////////////////////
     ASTERISKS
