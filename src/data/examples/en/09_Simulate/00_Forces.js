@@ -9,7 +9,7 @@
 // Bodies experience gravity continuously
 // Bodies experience fluid resistance when in "water"
 
-// Five moving bodies
+// Nine moving bodies
 let movers = [];
 
 // Liquid
