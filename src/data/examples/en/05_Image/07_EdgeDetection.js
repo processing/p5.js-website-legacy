@@ -14,7 +14,7 @@
 // kernel is the 3x3 matrix of normalized values
 let kernel = [
   [-1, -1, -1],
-  [-1, 9, -1],
+  [-1,  9, -1],
   [-1, -1, -1]
 ];
 

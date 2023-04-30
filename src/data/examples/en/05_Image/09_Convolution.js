@@ -15,7 +15,7 @@ let w = 80;
 // filter; it accentuates the edges.
 const matrix = [
   [-1, -1, -1],
-  [-1, 9, -1],
+  [-1,  9, -1],
   [-1, -1, -1]
 ];
 
