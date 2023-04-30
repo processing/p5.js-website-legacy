@@ -60,7 +60,7 @@ function reset() {
   }
 }
 
-let Liquid = function (x, y, w, h, c) {
+let Liquid = function(x, y, w, h, c) {
   this.x = x;
   this.y = y;
   this.w = w;
@@ -69,7 +69,7 @@ let Liquid = function (x, y, w, h, c) {
 };
 
 // Is the Mover in the Liquid?
-Liquid.prototype.contains = function (m) {
+Liquid.prototype.contains = function(m) {
   let l = m.position;
   return (
     l.x > this.x &&
@@ -80,7 +80,7 @@ Liquid.prototype.contains = function (m) {
 };
 
 // Calculate drag force
-Liquid.prototype.calculateDrag = function (m) {
+Liquid.prototype.calculateDrag = function(m) {
   // Magnitude is coefficient * speed squared
   let speed = m.velocity.mag();
   let dragMagnitude = this.c * speed * speed;
@@ -96,7 +96,7 @@ Liquid.prototype.calculateDrag = function (m) {
   return dragForce;
 };
 
-Liquid.prototype.display = function () {
+Liquid.prototype.display = function() {
   noStroke();
   fill(50);
   rect(this.x, this.y, this.w, this.h);
@@ -111,12 +111,12 @@ function Mover(m, x, y) {
 
 // Newton's 2nd law: F = M * A
 // or A = F / M
-Mover.prototype.applyForce = function (force) {
+Mover.prototype.applyForce = function(force) {
   let f = p5.Vector.div(force, this.mass);
   this.acceleration.add(f);
 };
 
-Mover.prototype.update = function () {
+Mover.prototype.update = function() {
   // Velocity changes according to acceleration
   this.velocity.add(this.acceleration);
   // position changes by velocity
@@ -125,7 +125,7 @@ Mover.prototype.update = function () {
   this.acceleration.mult(0);
 };
 
-Mover.prototype.display = function () {
+Mover.prototype.display = function() {
   stroke(0);
   strokeWeight(2);
   fill(255, 127);
@@ -133,7 +133,7 @@ Mover.prototype.display = function () {
 };
 
 // Bounce off bottom of window
-Mover.prototype.checkEdges = function () {
+Mover.prototype.checkEdges = function() {
   if (this.position.y > height - this.mass * 8) {
     // A little dampening when hitting the bottom
     this.velocity.y *= -0.9;
