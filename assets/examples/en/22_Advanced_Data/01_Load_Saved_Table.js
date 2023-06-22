@@ -3,8 +3,8 @@
  * @arialabel Four white circles with labels 
  * @description Create a Bubble class, instantiate multiple bubbles using data from
  * a csv file, and display results on the screen.
- *  Because the web browsers differ in where they save files, we do not make use of
- * 
+ * Because web browsers differ in where they save files, we do not make use of
+ * saveTable(), unlike the Processing example.<br><br>
  * Based on Daniel Shiffman's <a href="https://processing.org/examples/loadsavetable.html">LoadSaveTable Example</a> for Processing.
  */
 
