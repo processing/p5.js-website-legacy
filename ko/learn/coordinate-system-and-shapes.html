@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
     <title tabindex="1">learn | p5.js</title>
-    <link rel="stylesheet" href="/assets/css/all.css?v=e79f41">
+    <link rel="stylesheet" href="/assets/css/all.css?v=71f825">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
 
-    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
-    <link rel="icon" href="/../../assets/img/favicon.ico">
+    <link rel="shortcut icon" href="/../../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../../assets/img/favicon.ico">
 
 
-    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
-    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
-    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/../../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../../assets/js/vendor/prism.js"></script>
     <script src="/assets/js/init.js?v=97b4f7"></script>
 
 
@@ -42,7 +42,7 @@
       <!-- logo -->
       <header id="lockup">
         <a href="/ko/">
-          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <img src="/../../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
       </header>
@@ -87,7 +87,7 @@
 
       <h1>좌표와 도형</h1>
       <p>p5로 프로그래밍을 시작하기 전에, 먼저 중학교 2학년 시절의 우리를 떠올리며 연습장에 선 하나를 그려볼까요? 두 개의 점을 그린 뒤 그 사이를 연결하면 하나의 선분이 탄생합니다. 연습장 위 이 두개의 점과 둘간을 연결하는 선. 바로 여기가 우리의 시작점입니다.</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-01.png" alt="">
+      <img src="../../../assets/learn/coordinate-system-and-shapes/images/drawing-01.png" alt="">
 
       <p>여기 점A(1,0)과 점B(4,5) 사이의 선 하나가 보입니다. 만약 똑같은 선을 친구가 그릴 수 있게하려면 "1콤마 0에서 시작하는 점에서부터 4콤마 5를 향해 선을 그려죠"라고 말하겠지요. 이제 그 친구가 컴퓨터라고 가정해볼까요? 우리의 컴퓨터 친구도 똑같은 선을 그리게 하려면 위와 동일한 문장을 입력하면 됩니다. 좀 더 구체적인 형식을 갖춰 컴퓨터 친구에게 말을 건네볼까요?</p>
 
@@ -96,16 +96,16 @@
       </code></pre>
 
       <p>코딩 문법에 대해 익숙하지 않더라도 위 문장의 뜻을 어느정도 감잡을 수 있습니다. 우리는 일명 "함수"라 불리는 명령문을 통해 컴퓨터와 대화하는 셈입니다. 여기서 "line"은 선을 그리는 함수입니다. 여기에 더해, 우리는 이 함수 내에서 구체적인 인수(argument)를 지시할 수 있습니다. 예를 들어, 점 A (1,0)부터 점 B (4,5)까지라는 인수를 함수 괄호 안에 포함 시킨 것이지요. 코드 한 줄을 하나의 문장으로 본다면, 함수는 동사(verb)이고 인수는 목적어(object)인 셈입니다. 단, 코드는 문장과 달리 마침표가 아니라 "세미콜론(;)"으로 끝나는 점 주의하세요!</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-02.png" alt="">
+      <img src="../../../assets/learn/coordinate-system-and-shapes/images/drawing-02.png" alt="">
 
       <p>컴퓨터 화면은 그저 좀 더 멋진 모양새를 갖춘 연습장과도 같습니다. 화면상의 각 픽셀은 x값(가로)과 y값(세로)이라는 두개의 숫자가 합쳐진, 하나의 좌표값과도 같습니다. 그리고 이 좌표로 화면이라는 공간 내의 위치를 정하지요. 이제 우리는 이 픽셀 좌표값에 모양과 색상을 더하면 됩니다.</p>
 
       <p>한가지 주의사항! 우리가 중학교 2학년 때 배운 "직교 좌표계"는 (0,0)을 중심에 두고, y축을 그 중심에서 위로, 그리고 x축을 중심으로부터 오른쪽을 향해 뻗어나갑니다(양수일 경우엔 이러하고, 음수일 경우 각각 아래와 왼쪽을 향하지요.) 하지만, 컴퓨터 화면 속 픽셀 좌표계에서의 y축은 그 반대로 적용됩니다. 픽셀 좌표계의 (0,0)은 화면상 좌측 최상단에 위치하고, y값이 증가할 수록 아래를 향해 내려옵니다. x값은 그대로 오른쪽을 향해 증가합니다.</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg" alt="">
+      <img src="../../../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg" alt="">
 
       <h2>간단한 도형</h2>
       <p>여러분이 앞으로 마주할 p5 기반 프로그래밍 예제들은 본질적으로 시각적이고 조형적입니다. 다음 예제들의 핵심은 모양을 그리고 픽셀을 설정하는 데에 있습니다. 4개의 기본 도형을 살펴보며 시작해볼까요!</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png" alt="">
+      <img src="../../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png" alt="">
 
       <p>위의 모양들을 그리기 위해 필요한 위치와 크기(그 다음, 색상까지도) 정보가 무엇일지 고민해볼까요. 아래의 도식들을 보면, 우리는 먼저 너비 100 픽셀 그리고 높이 100 픽셀에 해당하는 창을 만듭니다.</p>
 
@@ -237,7 +237,7 @@ function draw(){
   
   <p class="clearfix"> &nbsp; </p>
   
-  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  <object type="image/svg+xml" data="../../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
   </object>
 
 </div><!-- end id="get-started-page"  -->

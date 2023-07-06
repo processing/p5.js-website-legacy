@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
     <title tabindex="1">learn | p5.js</title>
-    <link rel="stylesheet" href="/assets/css/all.css?v=e79f41">
+    <link rel="stylesheet" href="/assets/css/all.css?v=71f825">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
 
-    <link rel="shortcut icon" href="/../../assets/img/favicon.ico">
-    <link rel="icon" href="/../../assets/img/favicon.ico">
+    <link rel="shortcut icon" href="/../../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../../assets/img/favicon.ico">
 
 
-    <script src="/../../assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="/../../assets/js/vendor/ace-nc/ace.js"></script>
-    <script src="/../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
-    <script src="/../../assets/js/vendor/prism.js"></script>
+    <script src="/../../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../../assets/js/vendor/prism.js"></script>
     <script src="/assets/js/init.js?v=97b4f7"></script>
 
 
@@ -42,7 +42,7 @@
       <!-- logo -->
       <header id="lockup">
         <a href="/hi/">
-          <img src="/../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <img src="/../../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
           <div id="p5_logo"></div>
         </a>
       </header>
@@ -87,7 +87,7 @@
 
       <h1>समन्वय प्रणाली और आकृतियाँ</h1>
       <p>पी 5 के साथ प्रोग्रामिंग शुरू करने से पहले, हमें पहले अपने आठवीं कक्षा के स्वयं को चैनल करना चाहिए, ग्राफ पेपर के एक टुकड़े को बाहर निकालना चाहिए, और एक रेखा खींचना चाहिए। दो बिंदुओं के बीच की सबसे छोटी दूरी एक अच्छी पुरानी जमाने की रेखा है, और यह वह जगह है जहाँ हम शुरू करते हैं, उस ग्राफ़ पेपर पर दो बिंदुओं के साथ।</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-01.png" alt="">
+      <img src="../../../assets/learn/coordinate-system-and-shapes/images/drawing-01.png" alt="">
 
       <p>उपरोक्त आंकड़ा बिंदु A (1,0) और बिंदु B (4,5) के बीच एक रेखा दिखाता है। यदि आप अपने किसी मित्र को उसी रेखा को खींचने के लिए निर्देशित करना चाहते हैं, तो आप उन्हें एक चिल्लाहट देंगे और कहेंगे " बिंदु वन-शून्य से बिंदु चार-पाँच तक एक रेखा खींचिए, कृपया। " , कल्पना कीजिए कि आपका दोस्त एक कंप्यूटर था और आप इस डिजिटल पाल को उसकी स्क्रीन पर उसी लाइन को प्रदर्शित करने का निर्देश देना चाहते थे। एक ही आदेश लागू होता है (केवल इस बार आप सुखदताओं को छोड़ सकते हैं और आपको एक सटीक स्वरूपण को लागू करने की आवश्यकता होगी)। यहाँ, निर्देश इस तरह दिखेगा:</p>
 
@@ -96,16 +96,16 @@
       </code></pre>
 
       <p>यहां तक ​​कि लेखन कोड के वाक्यविन्यास का अध्ययन किए बिना, उपरोक्त कथन को उचित मात्रा में समझ में आना चाहिए। हम एक आदेश प्रदान कर रहे हैं (जिसे हम मशीन के लिए " फ़ंक्शन " के रूप में संदर्भित करेंगे) "लाइन।" (1,0) से बी तक (4,5)। यदि आप एक वाक्य के रूप में कोड की उस पंक्ति के बारे में सोचते हैं, तो फ़ंक्शन एक क्रिया है और तर्क वाक्य की वस्तुएं हैं। कोड की सजा भी एक अवधि के बजाय एक अर्धविराम के साथ समाप्त होती है।</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-02.png" alt="">
+      <img src="../../../assets/learn/coordinate-system-and-shapes/images/drawing-02.png" alt="">
 
       <p>यहां कुंजी यह महसूस करना है कि कंप्यूटर स्क्रीन ग्राफ पेपर के एक कट्टर टुकड़े से ज्यादा कुछ नहीं है। स्क्रीन का प्रत्येक पिक्सेल एक समन्वय होता है - दो नंबर, एक " x " (क्षैतिज) और एक " y " (ऊर्ध्वाधर) - जो अंतरिक्ष में एक बिंदु के स्थान को निर्धारित करता है। और यह निर्दिष्ट करना हमारा काम है कि इन पिक्सेल निर्देशांक में किस आकार और रंग दिखाई देने चाहिए।</p>
 
       <p>फिर भी, यहाँ एक पकड़ है। आठवीं कक्षा से ग्राफ पेपर (" कार्टेशियन कोऑर्डिनेट सिस्टम ") केंद्र में रखा गया (0,0) y- अक्ष की ओर इशारा करता है और x- अक्ष दाईं ओर इंगित करता है (सकारात्मक दिशा में, नकारात्मक नीचे और) छोडा)। कंप्यूटर विंडो में पिक्सेल के लिए समन्वय प्रणाली, हालांकि, y- अक्ष के साथ उलट है। (0,0) सकारात्मक दिशा के साथ बाईं ओर शीर्ष पर क्षैतिज और लंबवत नीचे पाया जा सकता है।</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg" alt="">
+      <img src="../../../assets/learn/coordinate-system-and-shapes/images/drawing-03.svg" alt="">
 
       <h2>सरल आकृतियाँ</h2>
       <p>P5 के साथ आपके द्वारा देखे जाने वाले अधिकांश प्रोग्रामिंग उदाहरण प्रकृति में दृश्य हैं। इन उदाहरणों में, उनके मूल में, आकृतियाँ आरेखित करना और पिक्सेल सेट करना शामिल है। चलो चार आदिम आकृतियों को देखकर शुरू करते हैं।</p>
-      <img src="../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png" alt="">
+      <img src="../../../assets/learn/coordinate-system-and-shapes/images/drawing-04.png" alt="">
 
       <p>प्रत्येक आकृति के लिए, हम स्वयं से पूछेंगे कि उस आकृति के स्थान और आकार (और बाद में रंग) को निर्दिष्ट करने के लिए कौन सी जानकारी आवश्यक है और जानें कि p5 उस जानकारी को प्राप्त करने की अपेक्षा करता है। नीचे दिए गए प्रत्येक चित्र में, हम 10 पिक्सेल की चौड़ाई और 10 पिक्सेल की ऊँचाई के साथ एक विंडो मानेंगे। यह विशेष रूप से वास्तविक नहीं है क्योंकि जब आप वास्तव में कोडिंग शुरू करते हैं, तो आप बहुत अधिक बड़ी खिड़कियों के साथ काम करने की संभावना करेंगे (10x10 पिक्सेल स्क्रीन स्पेस के मुश्किल से कुछ मिलीमीटर हैं।) फिर भी प्रदर्शन प्रयोजनों के लिए, क्रम में छोटी संख्या के साथ काम करना अच्छा है। पिक्सेल को प्रस्तुत करें क्योंकि वे कोड के प्रत्येक पंक्ति के आंतरिक कामकाज को बेहतर ढंग से चित्रित करने के लिए ग्राफ पेपर (अभी के लिए) पर दिखाई दे सकते हैं।</p>
 
@@ -237,7 +237,7 @@ function draw(){
   
   <p class="clearfix"> &nbsp; </p>
   
-  <object type="image/svg+xml" data="../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  <object type="image/svg+xml" data="../../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
   </object>
 
 </div><!-- end id="get-started-page"  -->
