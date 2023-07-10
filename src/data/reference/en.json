@@ -7,9 +7,6 @@
   "reference-error1": "Notice any errors or typos?",
   "reference-error3": "Please feel free to edit",
   "reference-error5": "and issue a pull request!",
-  "reference-deprecated1" : "Deprecated:",
-  "reference-deprecated2" : "is deprecated and will be removed in a future version of p5.",
-  "reference-p5sound-requires": "This function requires you include the p5.sound library.  Add the following into the head of your index.html file:",
   "reference-example": "Example",
   "reference-description": "Description",
   "reference-extends": "Extends",
@@ -119,174 +116,177 @@
     },
     "alpha": {
       "description": [
-        "Extracts the alpha value from a color or pixel array."
+        "Extracts the alpha (transparency) value from a <a href=\"#/p5.Color\">p5.Color</a> object, array of color components, or CSS color string."
       ],
-      "returns": "Number: the alpha value",
+      "returns": "Number: the alpha value.",
       "params": {
-        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, color components,  or CSS color"
+        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, array of  color components, or CSS color string."
       }
     },
     "blue": {
       "description": [
-        "Extracts the blue value from a color or pixel array."
+        "Extracts the blue value from a <a href=\"#/p5.Color\">p5.Color</a> object, array of color components, or CSS color string."
       ],
-      "returns": "Number: the blue value",
+      "returns": "Number: the blue value.",
       "params": {
-        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, color components,  or CSS color"
+        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, array of  color components, or CSS color string."
       }
     },
     "brightness": {
       "description": [
-        "Extracts the HSB brightness value from a color or pixel array."
+        "Extracts the HSB brightness value from a <a href=\"#/p5.Color\">p5.Color</a> object, array of color components, or CSS color string."
       ],
-      "returns": "Number: the brightness value",
+      "returns": "Number: the brightness value.",
       "params": {
-        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, color components,  or CSS color"
+        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, array of  color components, or CSS color string."
       }
     },
     "color": {
       "description": [
-        "Creates colors for storing in variables of the color datatype. The parameters are interpreted as RGB or HSB values depending on the current <a href=\"#/p5/colorMode\">colorMode()</a>. The default mode is RGB values from 0 to 255 and, therefore, the function call color(255, 204, 0) will return a bright yellow color.",
-        "Note that if only one value is provided to <a href=\"#/p5/color\">color()</a>, it will be interpreted as a grayscale value. Add a second value, and it will be used for alpha transparency. When three values are specified, they are interpreted as either RGB or HSB values. Adding a fourth value applies alpha transparency.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used."
+        "Creates a <a href=\"#/p5/p5.Color\">p5.Color</a> object. By default, the parameters are interpreted as RGB values. Calling <code>color(255, 204, 0)</code> will return a bright yellow color. The way these parameters are interpreted may be changed with the <a href=\"#/p5/colorMode\">colorMode()</a> function.",
+        "The version of <code>color()</code> with one parameter interprets the value one of two ways. If the parameter is a number, it's interpreted as a grayscale value. If the parameter is a string, it's interpreted as a CSS color string.",
+        "The version of <code>color()</code> with two parameters interprets the first one as a grayscale value. The second parameter sets the alpha (transparency) value.",
+        "The version of <code>color()</code> with three parameters interprets them as RGB, HSB, or HSL colors, depending on the current <code>colorMode()</code>.",
+        "The version of <code>color()</code> with four parameters interprets them as RGBA, HSBA, or HSLA colors, depending on the current <code>colorMode()</code>. The last parameter sets the alpha (transparency) value."
       ],
-      "returns": "p5.Color: resulting color",
+      "returns": "p5.Color: resulting color.",
       "params": {
         "gray": "Number: number specifying value between white and black.",
-        "alpha": "Number: (Optional) alpha value relative to current color range  (default is 0-255)",
-        "v1": "Number: red or hue value relative to  the current color range",
-        "v2": "Number: green or saturation value  relative to the current color range",
-        "v3": "Number: blue or brightness value  relative to the current color range",
-        "value": "String: a color string",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
+        "alpha": "Number: (Optional) alpha value relative to current color range  (default is 0-255).",
+        "v1": "Number: red or hue value relative to  the current color range.",
+        "v2": "Number: green or saturation value  relative to the current color range.",
+        "v3": "Number: blue or brightness value  relative to the current color range.",
+        "value": "String: a color string.",
+        "values": "Number[]: an array containing the red, green, blue,  and alpha components of the color.",
         "color": "p5.Color"
       }
     },
     "green": {
       "description": [
-        "Extracts the green value from a color or pixel array."
+        "Extracts the green value from a <a href=\"#/p5.Color\">p5.Color</a> object, array of color components, or CSS color string."
       ],
-      "returns": "Number: the green value",
+      "returns": "Number: the green value.",
       "params": {
-        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, color components,  or CSS color"
+        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, array of  color components, or CSS color string."
       }
     },
     "hue": {
       "description": [
-        "Extracts the hue value from a color or pixel array.",
-        "Hue exists in both HSB and HSL. This function will return the HSB-normalized hue when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL-normalized hue otherwise. (The values will only be different if the maximum hue setting for each system is different.)"
+        "Extracts the hue value from a <a href=\"#/p5.Color\">p5.Color</a> object, array of color components, or CSS color string.",
+        "Hue exists in both HSB and HSL. It describes a color's position on the color wheel. By default, this function returns the HSL-normalized hue. If the <a href=\"#/colorMode\">colorMode()</a> is set to HSB, it returns the HSB-normalized hue."
       ],
       "returns": "Number: the hue",
       "params": {
-        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, color components,  or CSS color"
+        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, array of  color components, or CSS color string."
       }
     },
     "lerpColor": {
       "description": [
-        "Blends two colors to find a third color somewhere between them. The amt parameter is the amount to interpolate between the two values where 0.0 is equal to the first color, 0.1 is very near the first color, 0.5 is halfway in between, etc. An amount below 0 will be treated as 0. Likewise, amounts above 1 will be capped at 1. This is different from the behavior of <a href=\"#/p5/lerp\">lerp()</a>, but necessary because otherwise numbers outside the range will produce strange and unexpected colors.",
-        "The way that colors are interpolated depends on the current color mode."
+        "Blends two colors to find a third color between them. The <code>amt</code> parameter specifies the amount to interpolate between the two values. 0 is equal to the first color, 0.1 is very near the first color, 0.5 is halfway between the two colors, and so on. Negative numbers are set to 0. Numbers greater than 1 are set to 1. This differs from the behavior of <a href=\"#/lerp\">lerp</a>. It's necessary because numbers outside of the interval [0, 1] will produce strange and unexpected colors.",
+        "The way that colors are interpolated depends on the current <a href=\"#/colorMode\">colorMode()</a>."
       ],
-      "returns": "p5.Color: interpolated color",
+      "returns": "p5.Color: interpolated color.",
       "params": {
-        "c1": "p5.Color: interpolate from this color",
-        "c2": "p5.Color: interpolate to this color",
-        "amt": "Number: number between 0 and 1"
+        "c1": "p5.Color: interpolate from this color.",
+        "c2": "p5.Color: interpolate to this color.",
+        "amt": "Number: number between 0 and 1."
       }
     },
     "lightness": {
       "description": [
-        "Extracts the HSL lightness value from a color or pixel array."
+        "Extracts the HSL lightness value from a <a href=\"#/p5.Color\">p5.Color</a> object, array of color components, or CSS color string."
       ],
       "returns": "Number: the lightness",
       "params": {
-        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, color components,  or CSS color"
+        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, array of  color components, or CSS color string."
       }
     },
     "red": {
       "description": [
-        "Extracts the red value from a color or pixel array."
+        "Extracts the red value from a <a href=\"#/p5.Color\">p5.Color</a> object, array of color components, or CSS color string."
       ],
-      "returns": "Number: the red value",
+      "returns": "Number: the red value.",
       "params": {
-        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, color components,  or CSS color"
+        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, array of  color components, or CSS color string."
       }
     },
     "saturation": {
       "description": [
-        "Extracts the saturation value from a color or pixel array.",
-        "Saturation is scaled differently in HSB and HSL. This function will return the HSB saturation when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL saturation otherwise."
+        "Extracts the saturation value from a <a href=\"#/p5.Color\">p5.Color</a> object, array of color components, or CSS color string.",
+        "Saturation is scaled differently in HSB and HSL. By default, this function returns the HSL saturation. If the <a href=\"#/colorMode\">colorMode()</a> is set to HSB, it returns the HSB saturation."
       ],
       "returns": "Number: the saturation value",
       "params": {
-        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, color components,  or CSS color"
+        "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, array of  color components, or CSS color string."
       }
     },
     "background": {
       "description": [
-        "The <a href=\"#/p5/background\">background()</a> function sets the color used for the background of the p5.js canvas. The default background is transparent. This function is typically used within <a href=\"#/p5/draw\">draw()</a> to clear the display window at the beginning of each frame, but it can be used inside <a href=\"#/p5/setup\">setup()</a> to set the background on the first frame of animation or if the background need only be set once.",
-        "The color is either specified in terms of the RGB, HSB, or HSL color depending on the current <a href=\"#/p5/colorMode\">colorMode</a>. (The default color space is RGB, with each value in the range from 0 to 255). The alpha range by default is also 0 to 255.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
-        "A <a href=\"#/p5.Color\">p5.Color</a> object can also be provided to set the background color.",
-        "A <a href=\"#/p5.Image\">p5.Image</a> can also be provided to set the background image."
+        "Sets the color used for the background of the canvas. By default, the background is transparent. This function is typically used within <a href=\"#/p5/draw\">draw()</a> to clear the display window at the beginning of each frame. It can also be used inside <a href=\"#/p5/setup\">setup()</a> to set the background on the first frame of animation.",
+        "The version of <code>background()</code> with one parameter interprets the value one of four ways. If the parameter is a number, it's interpreted as a grayscale value. If the parameter is a string, it's interpreted as a CSS color string. RGB, RGBA, HSL, HSLA, hex, and named color strings are supported. If the parameter is a <a href=\"#/p5.Color\">p5.Color</a> object, it will be used as the background color. If the parameter is a <a href=\"#/p5.Image\">p5.Image</a> object, it will be used as the background image.",
+        "The version of <code>background()</code> with two parameters interprets the first one as a grayscale value. The second parameter sets the alpha (transparency) value.",
+        "The version of <code>background()</code> with three parameters interprets them as RGB, HSB, or HSL colors, depending on the current <a href=\"#/p5/colorMode\">colorMode()</a>. By default, colors are specified in RGB values. Calling background(255, 204, 0) sets the background a bright yellow color."
       ],
       "params": {
         "color": "p5.Color: any value created by the <a href=\"#/p5/color\">color()</a> function",
-        "colorstring": "String: color string, possible formats include: integer  rgb() or rgba(), percentage rgb() or rgba(),  3-digit hex, 6-digit hex",
-        "a": "Number: (Optional) opacity of the background relative to current  color range (default is 0-255)",
-        "gray": "Number: specifies a value between white and black",
-        "v1": "Number: red or hue value (depending on the current color  mode)",
-        "v2": "Number: green or saturation value (depending on the current  color mode)",
-        "v3": "Number: blue or brightness value (depending on the current  color mode)",
-        "values": "Number[]: an array containing the red, green, blue  and alpha components of the color",
-        "image": "p5.Image: image created with <a href=\"#/p5/loadImage\">loadImage()</a> or <a href=\"#/p5/createImage\">createImage()</a>,  to set as background  (must be same size as the sketch window)"
+        "colorstring": "String: color string, possible formats include: integer  rgb() or rgba(), percentage rgb() or rgba(),  3-digit hex, 6-digit hex.",
+        "a": "Number: (Optional) opacity of the background relative to current  color range (default is 0-255).",
+        "gray": "Number: specifies a value between white and black.",
+        "v1": "Number: red value if color mode is RGB, or hue value if color mode is HSB.",
+        "v2": "Number: green value if color mode is RGB, or saturation value if color mode is HSB.",
+        "v3": "Number: blue value if color mode is RGB, or brightness value if color mode is HSB.",
+        "values": "Number[]: an array containing the red, green, blue  and alpha components of the color.",
+        "image": "p5.Image: image created with <a href=\"#/p5/loadImage\">loadImage()</a>  or <a href=\"#/p5/createImage\">createImage()</a>,  to set as background.  (must be same size as the sketch window)."
       }
     },
     "clear": {
       "description": [
-        "Clears the pixels within a buffer. This function only clears the canvas. It will not clear objects created by createX() methods such as <a href=\"#/p5/createVideo\">createVideo()</a> or <a href=\"#/p5/createDiv\">createDiv()</a>. Unlike the main graphics context, pixels in additional graphics areas created with <a href=\"#/p5/createGraphics\">createGraphics()</a> can be entirely or partially transparent. This function clears everything to make all of the pixels 100% transparent.",
-        "Note: In WebGL mode, this function can be passed normalized RGBA color values in order to clear the screen to a specific color. In addition to color, it will also clear the depth buffer. If you are not using the webGL renderer these color values will have no effect."
+        "Clears the pixels on the canvas. This function makes every pixel 100% transparent. Calling <code>clear()</code> doesn't clear objects created by <code>createX()</code> functions such as <a href=\"#/p5/createGraphics\">createGraphics()</a>, <a href=\"#/p5/createVideo\">createVideo()</a>, and <a href=\"#/p5/createImg\">createImg()</a>. These objects will remain unchanged after calling clear() and can be redrawn.",
+        "In WebGL mode, this function can clear the screen to a specific color. It interprets four numeric parameters as normalized RGBA color values. It also clears the depth buffer. If you are not using the WebGL renderer, these parameters will have no effect."
       ],
       "params": {
-        "r": "Number: normalized red val.",
-        "g": "Number: normalized green val.",
-        "b": "Number: normalized blue val.",
-        "a": "Number: normalized alpha val."
+        "r": "Number: normalized red value.",
+        "g": "Number: normalized green value.",
+        "b": "Number: normalized blue value.",
+        "a": "Number: normalized alpha value."
       }
     },
     "colorMode": {
       "description": [
-        "<a href=\"#/p5/colorMode\">colorMode()</a> changes the way p5.js interprets color data. By default, the parameters for <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/stroke\">stroke()</a>, <a href=\"#/p5/background\">background()</a>, and <a href=\"#/p5/color\">color()</a> are defined by values between 0 and 255 using the RGB color model. This is equivalent to setting colorMode(RGB, 255). Setting colorMode(HSB) lets you use the HSB system instead. By default, this is colorMode(HSB, 360, 100, 100, 1). You can also use HSL.",
-        "Note: existing color objects remember the mode that they were created in, so you can change modes as you like without affecting their appearance."
+        "Changes the way p5.js interprets color data. By default, the numeric parameters for <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/stroke\">stroke()</a>, <a href=\"#/p5/background\">background()</a>, and <a href=\"#/p5/color\">color()</a> are defined by values between 0 and 255 using the RGB color model. This is equivalent to calling <code>colorMode(RGB, 255)</code>. Pure red is <code>color(255, 0, 0)</code> in this model.",
+        "Calling <code>colorMode(RGB, 100)</code> sets colors to be interpreted as RGB color values between 0 and 100. Pure red is <code>color(100, 0, 0)</code> in this model.",
+        "Calling <code>colorMode(HSB)</code> or <code>colorMode(HSL)</code> changes to HSB or HSL system instead of RGB.",
+        "<a href=\"#/p5.Color\">p5.Color</a> objects remember the mode that they were created in. Changing modes doesn't affect their appearance."
       ],
       "params": {
-        "mode": "Constant: either RGB, HSB or HSL, corresponding to  Red/Green/Blue and Hue/Saturation/Brightness  (or Lightness)",
-        "max": "Number: (Optional) range for all values",
-        "max1": "Number: range for the red or hue depending on the  current color mode",
-        "max2": "Number: range for the green or saturation depending  on the current color mode",
-        "max3": "Number: range for the blue or brightness/lightness  depending on the current color mode",
-        "maxA": "Number: (Optional) range for the alpha"
+        "mode": "Constant: either RGB, HSB or HSL, corresponding to  Red/Green/Blue and Hue/Saturation/Brightness  (or Lightness).",
+        "max": "Number: (Optional) range for all values.",
+        "max1": "Number: range for the red or hue depending on the  current color mode.",
+        "max2": "Number: range for the green or saturation depending  on the current color mode.",
+        "max3": "Number: range for the blue or brightness/lightness  depending on the current color mode.",
+        "maxA": "Number: (Optional) range for the alpha."
       }
     },
     "fill": {
       "description": [
-        "Sets the color used to fill shapes. For example, if you run fill(204, 102, 0), all shapes drawn after the fill command will be filled with the color orange. This color is either specified in terms of the RGB or HSB color depending on the current <a href=\"#/p5/colorMode\">colorMode()</a>. (The default color space is RGB, with each value in the range from 0 to 255). The alpha range by default is also 0 to 255.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
-        "A <a href=\"#/p5.Color\">p5.Color</a> object can also be provided to set the fill color."
+        "Sets the color used to fill shapes. Calling <code>fill(255, 165, 0)</code> or <code>fill('orange')</code> means all shapes drawn after the fill command will be filled with the color orange.",
+        "The version of <code>fill()</code> with one parameter interprets the value one of three ways. If the parameter is a number, it's interpreted as a grayscale value. If the parameter is a string, it's interpreted as a CSS color string. A <a href=\"#/p5.Color\">p5.Color</a> object can also be provided to set the fill color.",
+        "The version of <code>fill()</code> with three parameters interprets them as RGB, HSB, or HSL colors, depending on the current <a href=\"#/p5/colorMode\">colorMode()</a>. The default color space is RGB, with each value in the range from 0 to 255."
       ],
       "params": {
-        "v1": "Number: red or hue value relative to  the current color range",
-        "v2": "Number: green or saturation value  relative to the current color range",
-        "v3": "Number: blue or brightness value  relative to the current color range",
+        "v1": "Number: red value if color mode is RGB or hue value if color mode is HSB.",
+        "v2": "Number: green value if color mode is RGB or saturation value if color mode is HSB.",
+        "v3": "Number: blue value if color mode is RGB or brightness value if color mode is HSB.",
         "alpha": "Number (Optional)",
-        "value": "String: a color string",
-        "gray": "Number: a gray value",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
-        "color": "p5.Color: the fill color"
+        "value": "String: a color string.",
+        "gray": "Number: a grayscale value.",
+        "values": "Number[]: an array containing the red, green, blue &  and alpha components of the color.",
+        "color": "p5.Color: the fill color."
       }
     },
     "noFill": {
       "description": [
-        "Disables filling geometry. If both <a href=\"#/p5/noStroke\">noStroke()</a> and <a href=\"#/p5/noFill\">noFill()</a> are called, nothing will be drawn to the screen."
+        "Disables setting the interior color of shapes. This is the same as making the fill completely transparent. If both <a href=\"#/p5/noStroke\">noStroke()</a> and <a href=\"#/p5/noFill\">noFill()</a> are called, nothing will be drawn to the screen."
       ]
     },
     "noStroke": {
@@ -296,29 +296,34 @@
     },
     "stroke": {
       "description": [
-        "Sets the color used to draw lines and borders around shapes. This color is either specified in terms of the RGB or HSB color depending on the current <a href=\"#/p5/colorMode\">colorMode()</a> (the default color space is RGB, with each value in the range from 0 to 255). The alpha range by default is also 0 to 255.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
-        "A <a href=\"#/p5.Color\">p5.Color</a> object can also be provided to set the stroke color."
+        "Sets the color used to draw lines and borders around shapes. Calling <code>stroke(255, 165, 0)</code> or <code>stroke('orange')</code> means all shapes drawn after the <code>stroke()</code> command will be filled with the color orange. The way these parameters are interpreted may be changed with the <a href=\"#/p5/colorMode\">colorMode()</a> function.",
+        "The version of <code>stroke()</code> with one parameter interprets the value one of three ways. If the parameter is a number, it's interpreted as a grayscale value. If the parameter is a string, it's interpreted as a CSS color string. A <a href=\"#/p5.Color\">p5.Color</a> object can also be provided to set the stroke color.",
+        "The version of <code>stroke()</code> with two parameters interprets the first one as a grayscale value. The second parameter sets the alpha (transparency) value.",
+        "The version of <code>stroke()</code> with three parameters interprets them as RGB, HSB, or HSL colors, depending on the current <code>colorMode()</code>.",
+        "The version of <code>stroke()</code> with four parameters interprets them as RGBA, HSBA, or HSLA colors, depending on the current <code>colorMode()</code>. The last parameter sets the alpha (transparency) value."
       ],
       "params": {
-        "v1": "Number: red or hue value relative to  the current color range",
-        "v2": "Number: green or saturation value  relative to the current color range",
-        "v3": "Number: blue or brightness value  relative to the current color range",
+        "v1": "Number: red value if color mode is RGB or hue value if color mode is HSB.",
+        "v2": "Number: green value if color mode is RGB or saturation value if color mode is HSB.",
+        "v3": "Number: blue value if color mode is RGB or brightness value if color mode is HSB.",
         "alpha": "Number (Optional)",
-        "value": "String: a color string",
-        "gray": "Number: a gray value",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
-        "color": "p5.Color: the stroke color"
+        "value": "String: a color string.",
+        "gray": "Number: a grayscale value.",
+        "values": "Number[]: an array containing the red, green, blue,  and alpha components of the color.",
+        "color": "p5.Color: the stroke color."
       }
     },
     "erase": {
       "description": [
-        "All drawing that follows <a href=\"#/p5/erase\">erase()</a> will subtract from the canvas. Erased areas will reveal the web page underneath the canvas. Erasing can be canceled with <a href=\"#/p5/noErase\">noErase()</a>.",
-        "Drawing done with <a href=\"#/p5/image\">image()</a> and <a href=\"#/p5/background\"> background()</a> in between <a href=\"#/p5/erase\">erase()</a> and <a href=\"#/p5/noErase\">noErase()</a> will not erase the canvas but works as usual."
+        "All drawing that follows <a href=\"#/p5/erase\">erase()</a> will subtract from the canvas, revealing the web page underneath. The erased areas will become transparent, allowing the content behind the canvas to show through. The <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/stroke\">stroke()</a>, and <a href=\"#/p5/blendMode\">blendMode()</a> have no effect once <code>erase()</code> is called.",
+        "The <code>erase()</code> function has two optional parameters. The first parameter sets the strength of erasing by the shape's interior. A value of 0 means that no erasing will occur. A value of 255 means that the shape's interior will fully erase the content underneath. The default value is 255 (full strength).",
+        "The second parameter sets the strength of erasing by the shape's edge. A value of 0 means that no erasing will occur. A value of 255 means that the shape's edge will fully erase the content underneath. The default value is 255 (full strength).",
+        "To cancel the erasing effect, use the <a href=\"#/p5/noErase\">noErase()</a> function.",
+        "<code>erase()</code> has no effect on drawing done with the <a href=\"#/p5/image\">image()</a> and <a href=\"#/p5/background\">background()</a> functions."
       ],
       "params": {
-        "strengthFill": "Number: (Optional) A number (0-255) for the strength of erasing for a shape's fill.  This will default to 255 when no argument is given, which  is full strength.",
-        "strengthStroke": "Number: (Optional) A number (0-255) for the strength of erasing for a shape's stroke.  This will default to 255 when no argument is given, which  is full strength."
+        "strengthFill": "Number: (Optional) a number (0-255) for the strength of erasing under a shape's interior.  Defaults to 255, which is full strength.",
+        "strengthStroke": "Number: (Optional) a number (0-255) for the strength of erasing under a shape's edge.  Defaults to 255, which is full strength."
       }
     },
     "noErase": {
@@ -328,36 +333,36 @@
     },
     "arc": {
       "description": [
-        "Draw an arc to the screen. If called with only x, y, w, h, start and stop, the arc will be drawn and filled as an open pie segment. If a mode parameter is provided, the arc will be filled like an open semi-circle (OPEN), a closed semi-circle (CHORD), or as a closed pie segment (PIE). The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function.",
-        "The arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse. Adding or subtracting TWO_PI to either angle does not change where they fall. If both start and stop fall at the same place, a full ellipse will be drawn. Be aware that the y-axis increases in the downward direction, therefore angles are measured clockwise from the positive x-direction (\"3 o'clock\")."
+        "Draws an arc to the canvas. Arcs are drawn along the outer edge of an ellipse (oval) defined by the <code>x</code>, <code>y</code>, <code>w</code>, and <code>h</code> parameters. Use the <code>start</code> and <code>stop</code> parameters to specify the angles (in radians) at which to draw the arc. Arcs are always drawn clockwise from <code>start</code> to <code>stop</code>. The origin of the arc's ellipse may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function.",
+        "The optional <code>mode</code> parameter determines the arc's fill style. The fill modes are a semi-circle (<code>OPEN</code>), a closed semi-circle (<code>CHORD</code>), or a closed pie segment (<code>PIE</code>)."
       ],
       "params": {
-        "x": "Number: x-coordinate of the arc's ellipse",
-        "y": "Number: y-coordinate of the arc's ellipse",
-        "w": "Number: width of the arc's ellipse by default",
-        "h": "Number: height of the arc's ellipse by default",
-        "start": "Number: angle to start the arc, specified in radians",
-        "stop": "Number: angle to stop the arc, specified in radians",
-        "mode": "Constant: (Optional) optional parameter to determine the way of drawing  the arc. either CHORD, PIE or OPEN",
+        "x": "Number: x-coordinate of the arc's ellipse.",
+        "y": "Number: y-coordinate of the arc's ellipse.",
+        "w": "Number: width of the arc's ellipse by default.",
+        "h": "Number: height of the arc's ellipse by default.",
+        "start": "Number: angle to start the arc, specified in radians.",
+        "stop": "Number: angle to stop the arc, specified in radians.",
+        "mode": "Constant: (Optional) optional parameter to determine the way of drawing  the arc. either CHORD, PIE, or OPEN.",
         "detail": "Integer: (Optional) optional parameter for WebGL mode only. This is to  specify the number of vertices that makes up the  perimeter of the arc. Default value is 25. Won't  draw a stroke for a detail of more than 50."
       }
     },
     "ellipse": {
       "description": [
-        "Draws an ellipse (oval) to the screen. By default, the first two parameters set the location of the center of the ellipse, and the third and fourth parameters set the shape's width and height. If no height is specified, the value of width is used for both the width and height. If a negative height or width is specified, the absolute value is taken.",
-        "An ellipse with equal width and height is a circle. The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function."
+        "Draws an ellipse (oval) to the canvas. An ellipse with equal width and height is a circle. By default, the first two parameters set the location of the center of the ellipse. The third and fourth parameters set the shape's width and height, respectively. The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function.",
+        "If no height is specified, the value of width is used for both the width and height. If a negative height or width is specified, the absolute value is taken."
       ],
       "params": {
         "x": "Number: x-coordinate of the center of the ellipse.",
         "y": "Number: y-coordinate of the center of the ellipse.",
         "w": "Number: width of the ellipse.",
         "h": "Number: (Optional) height of the ellipse.",
-        "detail": "Integer: (Optional) optional parameter for WEBGL mode only. This is to  specify the number of vertices that makes up the  perimeter of the ellipse. Default value is 25. Won't  draw a stroke for a detail of more than 50."
+        "detail": "Integer: (Optional) optional parameter for WebGL mode only. This is to  specify the number of vertices that makes up the  perimeter of the ellipse. Default value is 25. Won't  draw a stroke for a detail of more than 50."
       }
     },
     "circle": {
       "description": [
-        "Draws a circle to the screen. A circle is a simple closed shape. It is the set of all points in a plane that are at a given distance from a given point, the center. This function is a special case of the <a href=\"#/p5/ellipse\">ellipse()</a> function, where the width and height of the ellipse are the same. Height and width of the ellipse correspond to the diameter of the circle. By default, the first two parameters set the location of the center of the circle, the third sets the diameter of the circle."
+        "Draws a circle to the canvas. A circle is a round shape. Every point on the edge of a circle is the same distance from its center. By default, the first two parameters set the location of the center of the circle. The third parameter sets the shape's width and height (diameter). The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function."
       ],
       "params": {
         "x": "Number: x-coordinate of the center of the circle.",
@@ -367,53 +372,58 @@
     },
     "line": {
       "description": [
-        "Draws a line (a direct path between two points) to the screen. If called with only 4 parameters, it will draw a line in 2D with a default width of 1 pixel. This width can be modified by using the <a href=\"#/p5/strokeWeight\"> strokeWeight()</a> function. A line cannot be filled, therefore the <a href=\"#/p5/fill\">fill()</a> function will not affect the color of a line. So to color a line, use the <a href=\"#/p5/stroke\">stroke()</a> function."
+        "Draws a line, a straight path between two points. Its default width is one pixel. The version of <code>line()</code> with four parameters draws the line in 2D. To color a line, use the <a href=\"#/p5/stroke\">stroke()</a> function. To change its width, use the <a href=\"#/p5/strokeWeight\">strokeWeight()</a> function. A line can't be filled, so the <a href=\"#/p5/fill\">fill()</a> function won't affect the color of a line.",
+        "The version of <code>line()</code> with six parameters allows the line to be drawn in 3D space. Doing so requires adding the <code>WEBGL</code> argument to <a href=\"#/p5/createCanvas\">createCanvas()</a>."
       ],
       "params": {
-        "x1": "Number: the x-coordinate of the first point",
-        "y1": "Number: the y-coordinate of the first point",
-        "x2": "Number: the x-coordinate of the second point",
-        "y2": "Number: the y-coordinate of the second point",
-        "z1": "Number: the z-coordinate of the first point",
-        "z2": "Number: the z-coordinate of the second point"
+        "x1": "Number: the x-coordinate of the first point.",
+        "y1": "Number: the y-coordinate of the first point.",
+        "x2": "Number: the x-coordinate of the second point.",
+        "y2": "Number: the y-coordinate of the second point.",
+        "z1": "Number: the z-coordinate of the first point.",
+        "z2": "Number: the z-coordinate of the second point."
       }
     },
     "point": {
       "description": [
-        "Draws a point, a coordinate in space at the dimension of one pixel. The first parameter is the horizontal value for the point, the second param is the vertical value for the point. The color of the point is changed with the <a href=\"#/p5/stroke\">stroke()</a> function. The size of the point can be changed with the <a href=\"#/p5/strokeWeight\">strokeWeight()</a> function."
+        "Draws a point, a single coordinate in space. Its default size is one pixel. The first two parameters are the point's x- and y-coordinates, respectively. To color a point, use the <a href=\"#/p5/stroke\">stroke()</a> function. To change its size, use the <a href=\"#/p5/strokeWeight\">strokeWeight()</a> function.",
+        "The version of <code>point()</code> with three parameters allows the point to be drawn in 3D space. Doing so requires adding the <code>WEBGL</code> argument to <a href=\"#/p5/createCanvas\">createCanvas()</a>.",
+        "The version of point() with one parameter allows the point's location to be set with a <a href=\"#/p5/p5.Vector\">p5.Vector</a> object."
       ],
       "params": {
-        "x": "Number: the x-coordinate",
-        "y": "Number: the y-coordinate",
-        "z": "Number: (Optional) the z-coordinate (for WebGL mode)",
-        "coordinate_vector": "p5.Vector: the coordinate vector"
+        "x": "Number: the x-coordinate.",
+        "y": "Number: the y-coordinate.",
+        "z": "Number: (Optional) the z-coordinate (for WebGL mode).",
+        "coordinateVector": "p5.Vector: the coordinate vector."
       }
     },
     "quad": {
       "description": [
-        "Draws a quad on the canvas. A quad is a quadrilateral, a four-sided polygon. It is similar to a rectangle, but the angles between its edges are not constrained to ninety degrees. The first pair of parameters (x1,y1) sets the first vertex and the subsequent pairs should proceed clockwise or counter-clockwise around the defined shape. z-arguments only work when quad() is used in WEBGL mode."
+        "Draws a quad to the canvas. A quad is a quadrilateral, a four-sided polygon. Some examples of quads include rectangles, squares, rhombuses, and trapezoids. The first pair of parameters (<code>x1</code>,<code>y1</code>) sets the quad's first point. The following pairs of parameters set the coordinates for its next three points. Parameters should proceed clockwise or counter-clockwise around the shape.",
+        "The version of <code>quad()</code> with twelve parameters allows the quad to be drawn in 3D space. Doing so requires adding the <code>WEBGL</code> argument to <a href=\"#/p5/createCanvas\">createCanvas()</a>."
       ],
       "params": {
-        "x1": "Number: the x-coordinate of the first point",
-        "y1": "Number: the y-coordinate of the first point",
-        "x2": "Number: the x-coordinate of the second point",
-        "y2": "Number: the y-coordinate of the second point",
-        "x3": "Number: the x-coordinate of the third point",
-        "y3": "Number: the y-coordinate of the third point",
-        "x4": "Number: the x-coordinate of the fourth point",
-        "y4": "Number: the y-coordinate of the fourth point",
-        "detailX": "Integer: (Optional) number of segments in the x-direction",
-        "detailY": "Integer: (Optional) number of segments in the y-direction",
-        "z1": "Number: the z-coordinate of the first point",
-        "z2": "Number: the z-coordinate of the second point",
-        "z3": "Number: the z-coordinate of the third point",
-        "z4": "Number: the z-coordinate of the fourth point"
+        "x1": "Number: the x-coordinate of the first point.",
+        "y1": "Number: the y-coordinate of the first point.",
+        "x2": "Number: the x-coordinate of the second point.",
+        "y2": "Number: the y-coordinate of the second point.",
+        "x3": "Number: the x-coordinate of the third point.",
+        "y3": "Number: the y-coordinate of the third point.",
+        "x4": "Number: the x-coordinate of the fourth point.",
+        "y4": "Number: the y-coordinate of the fourth point.",
+        "detailX": "Integer: (Optional) number of segments in the x-direction.",
+        "detailY": "Integer: (Optional) number of segments in the y-direction.",
+        "z1": "Number: the z-coordinate of the first point.",
+        "z2": "Number: the z-coordinate of the second point.",
+        "z3": "Number: the z-coordinate of the third point.",
+        "z4": "Number: the z-coordinate of the fourth point."
       }
     },
     "rect": {
       "description": [
-        "Draws a rectangle on the canvas. A rectangle is a four-sided closed shape with every angle at ninety degrees. By default, the first two parameters set the location of the upper-left corner, the third sets the width, and the fourth sets the height. The way these parameters are interpreted may be changed with the <a href=\"#/p5/rectMode\">rectMode()</a> function.",
-        "The fifth, sixth, seventh and eighth parameters, if specified, determine corner radius for the top-left, top-right, lower-right and lower-left corners, respectively. An omitted corner radius parameter is set to the value of the previously specified radius value in the parameter list."
+        "Draws a rectangle to the canvas. A rectangle is a four-sided polygon with every angle at ninety degrees. By default, the first two parameters set the location of the rectangle's upper-left corner. The third and fourth set the shape's the width and height, respectively. The way these parameters are interpreted may be changed with the <a href=\"#/p5/rectMode\">rectMode()</a> function.",
+        "The version of <code>rect()</code> with five parameters creates a rounded rectangle. The fifth parameter is used as the radius value for all four corners.",
+        "The version of <code>rect()</code> with eight parameters also creates a rounded rectangle. When using eight parameters, the latter four set the radius of the arc at each corner separately. The radii start with the top-left corner and move clockwise around the rectangle. If any of these parameters are omitted, they are set to the value of the last specified corner radius."
       ],
       "params": {
         "x": "Number: x-coordinate of the rectangle.",
@@ -424,14 +434,15 @@
         "tr": "Number: (Optional) optional radius of top-right corner.",
         "br": "Number: (Optional) optional radius of bottom-right corner.",
         "bl": "Number: (Optional) optional radius of bottom-left corner.",
-        "detailX": "Integer: (Optional) number of segments in the x-direction (for WebGL mode)",
-        "detailY": "Integer: (Optional) number of segments in the y-direction (for WebGL mode)"
+        "detailX": "Integer: (Optional) number of segments in the x-direction (for WebGL mode).",
+        "detailY": "Integer: (Optional) number of segments in the y-direction (for WebGL mode)."
       }
     },
     "square": {
       "description": [
-        "Draws a square to the screen. A square is a four-sided shape with every angle at ninety degrees, and equal side size. This function is a special case of the rect() function, where the width and height are the same, and the parameter is called \"s\" for side size. By default, the first two parameters set the location of the upper-left corner, the third sets the side size of the square. The way these parameters are interpreted, may be changed with the <a href=\"#/p5/rectMode\">rectMode()</a> function.",
-        "The fourth, fifth, sixth and seventh parameters, if specified, determine corner radius for the top-left, top-right, lower-right and lower-left corners, respectively. An omitted corner radius parameter is set to the value of the previously specified radius value in the parameter list."
+        "Draws a square to the canvas. A square is a four-sided polygon with every angle at ninety degrees and equal side lengths. By default, the first two parameters set the location of the square's upper-left corner. The third parameter sets its side size. The way these parameters are interpreted may be changed with the <a href=\"#/p5/rectMode\">rectMode()</a> function.",
+        "The version of <code>square()</code> with four parameters creates a rounded square. The fourth parameter is used as the radius value for all four corners.",
+        "The version of <code>square()</code> with seven parameters also creates a rounded square. When using seven parameters, the latter four set the radius of the arc at each corner separately. The radii start with the top-left corner and move clockwise around the square. If any of these parameters are omitted, they are set to the value of the last specified corner radius."
       ],
       "params": {
         "x": "Number: x-coordinate of the square.",
@@ -445,25 +456,24 @@
     },
     "triangle": {
       "description": [
-        "Draws a triangle to the canvas. A triangle is a plane created by connecting three points. The first two arguments specify the first point, the middle two arguments specify the second point, and the last two arguments specify the third point."
+        "Draws a triangle to the canvas. A triangle is a three-sided polygon. The first two parameters specify the triangle's first point <code>(x1,y1)</code>. The middle two parameters specify its second point <code>(x2,y2)</code>. And the last two parameters specify its third point <code>(x3, y3)</code>."
       ],
       "params": {
-        "x1": "Number: x-coordinate of the first point",
-        "y1": "Number: y-coordinate of the first point",
-        "x2": "Number: x-coordinate of the second point",
-        "y2": "Number: y-coordinate of the second point",
-        "x3": "Number: x-coordinate of the third point",
-        "y3": "Number: y-coordinate of the third point"
+        "x1": "Number: x-coordinate of the first point.",
+        "y1": "Number: y-coordinate of the first point.",
+        "x2": "Number: x-coordinate of the second point.",
+        "y2": "Number: y-coordinate of the second point.",
+        "x3": "Number: x-coordinate of the third point.",
+        "y3": "Number: y-coordinate of the third point."
       }
     },
     "ellipseMode": {
       "description": [
-        "Modifies the location from which ellipses are drawn by changing the way in which parameters given to <a href=\"#/p5/ellipse\">ellipse()</a>, <a href=\"#/p5/circle\">circle()</a> and <a href=\"#/p5/arc\">arc()</a> are interpreted.",
-        "The default mode is <code>CENTER</code>, in which the first two parameters are interpreted as the shape's center point's x and y coordinates respectively, while the third and fourth parameters are its width and height.",
-        "<code>ellipseMode(RADIUS)</code> also uses the first two parameters as the shape's center point's x and y coordinates, but uses the third and fourth parameters to specify half of the shapes's width and height.",
-        "<code>ellipseMode(CORNER)</code> interprets the first two parameters as the upper-left corner of the shape, while the third and fourth parameters are its width and height.",
-        "<code>ellipseMode(CORNERS)</code> interprets the first two parameters as the location of one corner of the ellipse's bounding box, and the third and fourth parameters as the location of the opposite corner.",
-        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
+        "Modifies the location from which ellipses, circles, and arcs are drawn. By default, the first two parameters are the x- and y-coordinates of the shape's center. The next parameters are its width and height. This is equivalent to calling <code>ellipseMode(CENTER)</code>.",
+        "<code>ellipseMode(RADIUS)</code> also uses the first two parameters to set the x- and y-coordinates of the shape's center. The next parameters are half of the shapes's width and height. Calling <code>ellipse(0, 0, 10, 15)</code> draws a shape with a width of 20 and height of 30.",
+        "<code>ellipseMode(CORNER)</code> uses the first two parameters as the upper-left corner of the shape. The next parameters are its width and height.",
+        "<code>ellipseMode(CORNERS)</code> uses the first two parameters as the location of one corner of the ellipse's bounding box. The third and fourth parameters are the location of the opposite corner.",
+        "The argument passed to <code>ellipseMode()</code> must be written in ALL CAPS because the constants <code>CENTER</code>, <code>RADIUS</code>, <code>CORNER</code>, and <code>CORNERS</code> are defined this way. JavaScript is a case-sensitive language."
       ],
       "params": {
         "mode": "Constant: either CENTER, RADIUS, CORNER, or CORNERS"
@@ -472,18 +482,17 @@
     "noSmooth": {
       "description": [
         "Draws all geometry with jagged (aliased) edges.",
-        "Note that <a href=\"#/p5/smooth\">smooth()</a> is active by default in 2D mode, so it is necessary to call <a href=\"#/p5/noSmooth\">noSmooth()</a> to disable smoothing of geometry, images, and fonts.",
-        "In 3D mode, <a href=\"#/p5/noSmooth\">noSmooth()</a> is enabled by default, so it is necessary to call <a href=\"#/p5/smooth\">smooth()</a> if you would like smooth (antialiased) edges on your geometry."
+        "<a href=\"#/p5/smooth\">smooth()</a> is active by default in 2D mode. It's necessary to call <a href=\"#/p5/noSmooth\">noSmooth()</a> to disable smoothing of geometry, images, and fonts.",
+        "In WebGL mode, <a href=\"#/p5/noSmooth\">noSmooth()</a> is active by default. It's necessary to call <a href=\"#/p5/smooth\">smooth()</a> to draw smooth (antialiased) edges."
       ]
     },
     "rectMode": {
       "description": [
-        "Modifies the location from which rectangles are drawn by changing the way in which parameters given to <a href=\"#/p5/rect\">rect()</a> are interpreted.",
-        "The default mode is <code>CORNER</code>, which interprets the first two parameters as the upper-left corner of the shape, while the third and fourth parameters are its width and height.",
-        "<code>rectMode(CORNERS)</code> interprets the first two parameters as the location of one of the corners, and the third and fourth parameters as the location of the diagonally opposite corner. Note, the rectangle is drawn between the coordinates, so it is not necessary that the first corner be the upper left corner.",
-        "<code>rectMode(CENTER)</code> interprets the first two parameters as the shape's center point, while the third and fourth parameters are its width and height.",
-        "<code>rectMode(RADIUS)</code> also uses the first two parameters as the shape's center point, but uses the third and fourth parameters to specify half of the shape's width and height respectively.",
-        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
+        "Modifies the location from which rectangles and squares are drawn. By default, the first two parameters are the x- and y-coordinates of the shape's upper-left corner. The next parameters are its width and height. This is equivalent to calling <code>rectMode(CORNER)</code>.",
+        "<code>rectMode(CORNERS)</code> also uses the first two parameters as the location of one of the corners. The third and fourth parameters are the location of the opposite corner.",
+        "<code>rectMode(CENTER)</code> uses the first two parameters as the x- and y-coordinates of the shape's center. The next parameters are its width and height.",
+        "<code>rectMode(RADIUS)</code> also uses the first two parameters as the x- and y-coordinates of the shape's center. The next parameters are half of the shape's width and height.",
+        "The argument passed to <code>rectMode()</code> must be written in ALL CAPS because the constants <code>CENTER</code>, <code>RADIUS</code>, <code>CORNER</code>, and <code>CORNERS</code> are defined this way. JavaScript is a case-sensitive language."
       ],
       "params": {
         "mode": "Constant: either CORNER, CORNERS, CENTER, or RADIUS"
@@ -492,14 +501,14 @@
     "smooth": {
       "description": [
         "Draws all geometry with smooth (anti-aliased) edges. <a href=\"#/p5/smooth\">smooth()</a> will also improve image quality of resized images.",
-        "Note that <a href=\"#/p5/smooth\">smooth()</a> is active by default in 2D mode; <a href=\"#/p5/noSmooth\">noSmooth()</a> can be used to disable smoothing of geometry, images, and fonts.",
-        "In 3D mode, <a href=\"#/p5/noSmooth\">noSmooth()</a> is enabled by default, so it is necessary to call <a href=\"#/p5/smooth\">smooth()</a> if you would like smooth (antialiased) edges on your geometry."
+        "<a href=\"#/p5/smooth\">smooth()</a> is active by default in 2D mode. It's necessary to call <a href=\"#/p5/noSmooth\">noSmooth()</a> to disable smoothing of geometry, images, and fonts.",
+        "In WebGL mode, <a href=\"#/p5/noSmooth\">noSmooth()</a> is active by default. It's necessary to call <a href=\"#/p5/smooth\">smooth()</a> to draw smooth (antialiased) edges."
       ]
     },
     "strokeCap": {
       "description": [
-        "Sets the style for rendering line endings. These ends are either rounded, squared, or extended, each of which specified with the corresponding parameters: <code>ROUND</code>, <code>SQUARE</code>, or <code>PROJECT</code>. The default cap is <code>ROUND</code>.",
-        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
+        "Sets the style for rendering line endings. These ends are either rounded (<code>ROUND</code>), squared (<code>SQUARE</code>), or extended (<code>PROJECT</code>). The default cap is <code>ROUND</code>.",
+        "The argument passed to <code>strokeCap()</code> must be written in ALL CAPS because the constants <code>ROUND</code>, <code>SQUARE</code>, and <code>PROJECT</code> are defined this way. JavaScript is a case-sensitive language."
       ],
       "params": {
         "cap": "Constant: either ROUND, SQUARE, or PROJECT"
@@ -507,8 +516,8 @@
     },
     "strokeJoin": {
       "description": [
-        "Sets the style of the joints which connect line segments. These joints are either mitered, beveled, or rounded and specified with the corresponding parameters: <code>MITER</code>, <code>BEVEL</code>, or <code>ROUND</code>. The default joint is <code>MITER</code> in 2D mode and <code>ROUND</code> in WebGL mode.",
-        "The parameter to this method must be written in ALL CAPS because they are predefined as constants in ALL CAPS and Javascript is a case-sensitive language."
+        "Sets the style of the joints which connect line segments. These joints are either mitered (<code>MITER</code>), beveled (<code>BEVEL</code>), or rounded (<code>ROUND</code>). The default joint is <code>MITER</code> in 2D mode and <code>ROUND</code> in WebGL mode.",
+        "The argument passed to <code>strokeJoin()</code> must be written in ALL CAPS because the constants <code>MITER</code>, <code>BEVEL</code>, and <code>ROUND</code> are defined this way. JavaScript is a case-sensitive language."
       ],
       "params": {
         "join": "Constant: either MITER, BEVEL, or ROUND"
@@ -517,10 +526,10 @@
     "strokeWeight": {
       "description": [
         "Sets the width of the stroke used for lines, points, and the border around shapes. All widths are set in units of pixels.",
-        "Note that it is affected by any transformation or scaling that has been applied previously."
+        "Note that <code>strokeWeight()</code> is affected by any transformation or scaling that has been applied previously."
       ],
       "params": {
-        "weight": "Number: the weight of the stroke (in pixels)"
+        "weight": "Number: the weight of the stroke (in pixels)."
       }
     },
     "bezier": {
@@ -756,7 +765,14 @@
     },
     "WEBGL": {
       "description": [
-        "One of the two render modes in p5.js: P2D (default renderer) and WEBGL Enables 3D render by introducing the third dimension: Z"
+        "One of the two render modes in p5.js, used for computationally intensive tasks like 3D rendering and shaders.",
+        "<code>WEBGL</code> differs from the default <a href=\"/#/p5/P2D\"><code>P2D</code></a> renderer in the following ways: <ul> <li><strong>Coordinate System</strong> - When drawing in <code>WEBGL</code> mode, the origin point (0,0,0) is located at the center of the screen, not the top-left corner. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-coords-and-transform.html\">the learn page about coordinates and transformations</a>.</li> <li><strong>3D Shapes</strong> - <code>WEBGL</code> mode can be used to draw 3-dimensional shapes like <a href=\"/#/p5/box\">box()</a>, <a href=\"/#/p5/sphere\">sphere()</a>, <a href=\"/#/p5/cone\">cone()</a>, and <a href=\"/#Shape3D%20Primitives\">more</a>. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-custom-geometry.html\">the learn page about custom geometry</a> to make more complex objects.</li> <li><strong>Shape Detail</strong> - When drawing in <code>WEBGL</code> mode, you can specify how smooth curves should be drawn by using a <code>detail</code> parameter. See <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#3d-primitives-shapes\">the wiki section about shapes</a> for a more information and an example.</li> <li><strong>Textures</strong> - A texture is like a skin that wraps onto a shape. See <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#textures\">the wiki section about textures</a> for examples of mapping images onto surfaces with textures.</li> <li><strong>Materials and Lighting</strong> - <code>WEBGL</code> offers different types of lights like <a href=\"/#/p5/ambientLight\">ambientLight()</a> to place around a scene. Materials like <a href=\"/#/p5/specularMaterial\">specularMaterial()</a> reflect the lighting to convey shape and depth. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-appearance.html\">the learn page for styling and appearance</a> to experiment with different combinations.</li> <li><strong>Camera</strong> - The viewport of a <code>WEBGL</code> sketch can be adjusted by changing camera attributes. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-appearance.html#camera\">the learn page section about cameras</a> for an explanation of camera controls.</li> <li><strong>Text</strong> - <code>WEBGL</code> requires opentype/truetype font files to be preloaded using <a href=\"/#/p5/loadFont\">loadFont()</a>. See <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#text\">the wiki section about text</a> for details, along with a workaround.</li> <li><strong>Shaders</strong> - Shaders are hardware accelerated programs that can be used for a variety of effects and graphics. See the <a href=\"https://p5js.org/learn/getting-started-in-webgl-shaders.html\">introduction to shaders</a> to get started with shaders in p5.js.</li> <li><strong>Graphics Acceleration</strong> - <code>WEBGL</code> mode uses the graphics card instead of the CPU, so it may help boost the performance of your sketch (example: drawing more shapes on the screen at once).</li> </ul>",
+        "To learn more about WEBGL mode, check out <a href=\"https://p5js.org/learn/#:~:text=Getting%20Started%20in%20WebGL\">all the interactive WEBGL tutorials</a> in the \"Learn\" section of this website, or read the wiki article <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5\">\"Getting started with WebGL in p5\"</a>."
+      ]
+    },
+    "WEBGL2": {
+      "description": [
+        "One of the two possible values of a WebGL canvas (either WEBGL or WEBGL2), which can be used to determine what capabilities the rendering environment has."
       ]
     },
     "ARROW": {},
@@ -905,6 +921,10 @@
     "FALLBACK": {},
     "CONTAIN": {},
     "COVER": {},
+    "UNSIGNED_BYTE": {},
+    "UNSIGNED_INT": {},
+    "FLOAT": {},
+    "RGBA": {},
     "print": {
       "description": [
         "The <a href=\"#/p5/print\">print()</a> function writes to the console area of your browser. This function is often helpful for looking at the data a program is producing. This function creates a new line of text for each call to the function. Individual elements can be separated with quotes (\"\") and joined with the addition operator (+).",
@@ -959,6 +979,12 @@
     "noCursor": {
       "description": [
         "Hides the cursor from view."
+      ]
+    },
+    "webglVersion": {
+      "description": [
+        "If the sketch was created in WebGL mode, then <code>weglVersion</code> will indicate which version of WebGL it is using. It will try to create a WebGL2 canvas unless you have requested WebGL1 via <code>setAttributes({ version: 1 })</code>, and will fall back to WebGL1 if WebGL2 is not available.",
+        "<code>webglVersion</code> will always be either <code>WEBGL2</code>, <code>WEBGL</code>, or <code>P2D</code> if not in WebGL mode."
       ]
     },
     "displayWidth": {
@@ -1190,14 +1216,17 @@
       "description": [
         "Creates a canvas element in the document and sets its dimensions in pixels. This method should be called only once at the start of <a href=\"#/p5/setup\">setup()</a>. Calling <a href=\"#/p5/createCanvas\">createCanvas</a> more than once in a sketch will result in very unpredictable behavior. If you want more than one drawing canvas you could use <a href=\"#/p5/createGraphics\">createGraphics()</a> (hidden by default but it can be shown).",
         "Important note: in 2D mode (i.e. when <code>p5.Renderer</code> is not set) the origin (0,0) is positioned at the top left of the screen. In 3D mode (i.e. when <code>p5.Renderer</code> is set to <code>WEBGL</code>), the origin is positioned at the center of the canvas. See <a href=\"https://github.com/processing/p5.js/issues/1545\">this issue</a> for more information.",
+        "A WebGL canvas will use a WebGL2 context if it is supported by the browser. Check the <a href=\"#/p5/webglVersion\">webglVersion</a> property to check what version is being used, or call <a href=\"#/p5/setAttributes\">setAttributes({ version: 1 })</a> to create a WebGL1 context.",
         "The system variables width and height are set by the parameters passed to this function. If <a href=\"#/p5/createCanvas\">createCanvas()</a> is not used, the window will be given a default size of 100×100 pixels.",
+        "Optionally, an existing canvas can be passed using a selector, ie. <code>document.getElementById('')</code>. If specified, avoid using <code>setAttributes()</code> afterwards, as this will remove and recreate the existing canvas.",
         "For more ways to position the canvas, see the <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'> positioning the canvas</a> wiki page."
       ],
       "returns": "p5.Renderer: pointer to p5.Renderer holding canvas",
       "params": {
         "w": "Number: width of the canvas",
         "h": "Number: height of the canvas",
-        "renderer": "Constant: (Optional) either P2D or WEBGL"
+        "renderer": "Constant: (Optional) either P2D or WEBGL",
+        "canvas": "Object: (Optional) existing html canvas element"
       }
     },
     "resizeCanvas": {
@@ -1217,13 +1246,26 @@
     },
     "createGraphics": {
       "description": [
-        "Creates and returns a new p5.Renderer object. Use this class if you need to draw into an off-screen graphics buffer. The two parameters define the width and height in pixels."
+        "Creates and returns a new p5.Graphics object. Use this class if you need to draw into an off-screen graphics buffer. The two parameters define the width and height in pixels.",
+        "A WebGL p5.Graphics will use a WebGL2 context if it is supported by the browser. Check the <a href=\"#/p5/webglVersion\">pg.webglVersion</a> property of the renderer to check what version is being used, or call <a href=\"#/p5/setAttributes\">pg.setAttributes({ version: 1 })</a> to create a WebGL1 context.",
+        "Optionally, an existing canvas can be passed using a selector, ie. document.getElementById(''). By default this canvas will be hidden (offscreen buffer), to make visible, set element's style to display:block;"
       ],
       "returns": "p5.Graphics: offscreen graphics buffer",
       "params": {
         "w": "Number: width of the offscreen graphics buffer",
         "h": "Number: height of the offscreen graphics buffer",
-        "renderer": "Constant: (Optional) either P2D or WEBGL  undefined defaults to p2d"
+        "renderer": "Constant: (Optional) either P2D or WEBGL  undefined defaults to p2d",
+        "canvas": "Object: (Optional) existing html canvas element"
+      }
+    },
+    "createFramebuffer": {
+      "description": [
+        "Creates and returns a new <a href=\"#/p5.Framebuffer\">p5.Framebuffer</a>, a high-performance WebGL object that you can draw to and then use as a texture.",
+        "Options can include: <ul> <li><code>format</code>: The data format of the texture, either <code>UNSIGNED_BYTE</code>, <code>FLOAT</code>, or <code>HALF_FLOAT</code>. The default is <code>UNSIGNED_BYTE</code>.</li> <li><code>channels</code>: What color channels to store, either <code>RGB</code> or <code>RGBA</code>. The default is to match the channels in the main canvas (with alpha unless disabled with <code>setAttributes</code>.)</li> <li><code>depth</code>: A boolean, whether or not to include a depth buffer. Defaults to true.</li> <li><code>depthFormat</code>: The data format for depth information, either <code>UNSIGNED_INT</code> or <code>FLOAT</code>. The default is <code>FLOAT</code> if available, or <code>UNSIGNED_INT</code> otherwise.</li> <li><code>antialias</code>: Boolean or Number, whether or not to render with antialiased edges, and if so, optionally the number of samples to use. Defaults to whether or not the main canvas is antialiased, using a default of 2 samples if so. Antialiasing is only supported when WebGL 2 is available.</li> <li><code>width</code>: The width of the texture. Defaults to matching the main canvas.</li> <li><code>height</code>: The height of the texture. Defaults to matching the main canvas.</li> <li><code>density</code>: The pixel density of the texture. Defaults to the pixel density of the main canvas.</li> <li><code>textureFiltering</code>: Either <code>LINEAR</code> (nearby pixels will be interpolated when reading values from the color texture) or <code>NEAREST</code> (no interpolation.) Generally, use <code>LINEAR</code> when using the texture as an image, and use <code>NEAREST</code> if reading the texture as data. Defaults to <code>LINEAR</code>.</li> </ul>",
+        "If <code>width</code>, <code>height</code>, or <code>density</code> are specified, then the framebuffer will keep that size until manually changed. Otherwise, it will be autosized, and it will update to match the main canvas's size and density when the main canvas changes."
+      ],
+      "params": {
+        "options": "Object: (Optional) An optional object with configuration"
       }
     },
     "blendMode": {
@@ -1306,23 +1348,23 @@
         "<img style=\"max-width: 300px\" src=\"assets/transformation-matrix-4-4.png\" alt=\"The transformation matrix used when applyMatrix is called with 4x4 matrix\"/>"
       ],
       "params": {
-        "arr": "Array: an array of numbers - should be 6 or 16 length (2<em>3 or 4</em>4 matrix values)",
-        "a": "Number: numbers which define the 2×3 or 4x4 matrix to be multiplied",
-        "b": "Number: numbers which define the 2×3 or 4x4 matrix to be multiplied",
-        "c": "Number: numbers which define the 2×3 or 4x4 matrix to be multiplied",
-        "d": "Number: numbers which define the 2×3 or 4x4 matrix to be multiplied",
-        "e": "Number: numbers which define the 2×3 or 4x4 matrix to be multiplied",
-        "f": "Number: numbers which define the 2×3 or 4x4 matrix to be multiplied",
-        "g": "Number: numbers which define the 4x4 matrix to be multiplied",
-        "h": "Number: numbers which define the 4x4 matrix to be multiplied",
-        "i": "Number: numbers which define the 4x4 matrix to be multiplied",
-        "j": "Number: numbers which define the 4x4 matrix to be multiplied",
-        "k": "Number: numbers which define the 4x4 matrix to be multiplied",
-        "l": "Number: numbers which define the 4x4 matrix to be multiplied",
-        "m": "Number: numbers which define the 4x4 matrix to be multiplied",
-        "n": "Number: numbers which define the 4x4 matrix to be multiplied",
-        "o": "Number: numbers which define the 4x4 matrix to be multiplied",
-        "p": "Number: numbers which define the 4x4 matrix to be multiplied"
+        "arr": "Array: an array of numbers - should be 6 or 16 length (2×3 or 4×4 matrix values)",
+        "a": "Number: numbers which define the 2×3 or 4×4 matrix to be multiplied",
+        "b": "Number: numbers which define the 2×3 or 4×4 matrix to be multiplied",
+        "c": "Number: numbers which define the 2×3 or 4×4 matrix to be multiplied",
+        "d": "Number: numbers which define the 2×3 or 4×4 matrix to be multiplied",
+        "e": "Number: numbers which define the 2×3 or 4×4 matrix to be multiplied",
+        "f": "Number: numbers which define the 2×3 or 4×4 matrix to be multiplied",
+        "g": "Number: numbers which define the 4×4 matrix to be multiplied",
+        "h": "Number: numbers which define the 4×4 matrix to be multiplied",
+        "i": "Number: numbers which define the 4×4 matrix to be multiplied",
+        "j": "Number: numbers which define the 4×4 matrix to be multiplied",
+        "k": "Number: numbers which define the 4×4 matrix to be multiplied",
+        "l": "Number: numbers which define the 4×4 matrix to be multiplied",
+        "m": "Number: numbers which define the 4×4 matrix to be multiplied",
+        "n": "Number: numbers which define the 4×4 matrix to be multiplied",
+        "o": "Number: numbers which define the 4×4 matrix to be multiplied",
+        "p": "Number: numbers which define the 4×4 matrix to be multiplied"
       }
     },
     "resetMatrix": {
@@ -1592,7 +1634,7 @@
     },
     "createSelect": {
       "description": [
-        "Creates a dropdown menu <code>&lt;select&gt;&lt;/select&gt;</code> element in the DOM. It also assigns select-related methods to <a href=\"#/p5.Element\">p5.Element</a> when selecting an existing select box. Options in the menu are unique by <code>name</code> (the display text). <ul> <li><code>.option(name, [value])</code> can be used to add an option with <code>name</code> (the display text) and <code>value</code> to the select element. If an option with <code>name</code> already exists within the select element, this method will change its value to <code>value</code>.</li> <li><code>.value()</code> will return the currently selected option.</li> <li><code>.selected()</code> will return the current dropdown element which is an instance of <a href=\"#/p5.Element\">p5.Element</a>.</li> <li><code>.selected(value)</code> can be used to make given option selected by default when the page first loads.</li> <li><code>.disable()</code> marks the whole dropdown element as disabled.</li> <li><code>.disable(value)</code> marks a given option as disabled.</li> </ul>"
+        "Creates a dropdown menu <code>&lt;select&gt;&lt;/select&gt;</code> element in the DOM. It also assigns select-related methods to <a href=\"#/p5.Element\">p5.Element</a> when selecting an existing select box. Options in the menu are unique by <code>name</code> (the display text). <ul> <li><code>.option(name, [value])</code> can be used to add an option with <code>name</code> (the display text) and <code>value</code> to the select element. If an option with <code>name</code> already exists within the select element, this method will change its value to <code>value</code>.</li> <li><code>.value()</code> will return the currently selected option.</li> <li><code>.selected()</code> will return the current dropdown element which is an instance of <a href=\"#/p5.Element\">p5.Element</a>.</li> <li><code>.selected(value)</code> can be used to make given option selected by default when the page first loads.</li> <li><code>.disable()</code> marks the whole dropdown element as disabled.</li> <li><code>.disable(value)</code> marks a given option as disabled.</li> <li><code>.enable()</code> marks the whole dropdown element as enabled if whole dropdown element is disabled intially.</li> <li><code>.enable(value)</code> marks a given option as enable if the initial option is disabled.</li> </ul>"
       ],
       "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
       "params": {
@@ -2061,7 +2103,7 @@
       "params": {
         "filename": "String: File name of your gif",
         "duration": "Number: Duration in seconds that you wish to capture from your sketch",
-        "options": "Object: An optional object that can contain two more arguments: delay, specifying how much time we should wait before recording, and units, a string that can be either 'seconds' or 'frames'. By default it's 'seconds'."
+        "options": "Object: An optional object that can contain five more arguments: delay, specifying how much time we should wait before recording; units, a string that can be either 'seconds' or 'frames'. By default it's 'seconds’; silent, a boolean that defines presence of progress notifications. By default it’s false; notificationDuration, a number that defines how long in seconds the final notification will live. 0, the default value, means that the notification will never be removed; notificationID, a string that specifies the notification DOM element id. By default it’s 'progressBar’."
       }
     },
     "image": {
@@ -2072,7 +2114,7 @@
         "This function can also be used to draw images without distorting the orginal aspect ratio, by adding 9th parameter, fit, which can either be COVER or CONTAIN. CONTAIN, as the name suggests, contains the whole image within the specified destination box without distorting the image ratio. COVER covers the entire destination box."
       ],
       "params": {
-        "img": "p5.Image|p5.Element|p5.Texture: the image to display",
+        "img": "p5.Image|p5.Element|p5.Texture|p5.Framebuffer|p5.FramebufferTexture: the image to display",
         "x": "Number: the x-coordinate of the top-left corner of the image",
         "y": "Number: the y-coordinate of the top-left corner of the image",
         "width": "Number: (Optional) the width to draw the image",
@@ -2194,8 +2236,8 @@
       "params": {
         "x": "Number: x-coordinate of the pixel",
         "y": "Number: y-coordinate of the pixel",
-        "w": "Number: width",
-        "h": "Number: height"
+        "w": "Number: width of the section to be returned",
+        "h": "Number: height of the section to be returned"
       }
     },
     "loadPixels": {
@@ -2244,7 +2286,7 @@
     "loadStrings": {
       "description": [
         "Reads the contents of a file and creates a String array of its individual lines. If the name of the file is used as the parameter, as in the above example, the file must be located in the sketch directory/folder.",
-        "Alternatively, the file maybe be loaded from anywhere on the local computer using an absolute path (something that starts with / on Unix and Linux, or a drive letter on Windows), or the filename parameter can be a URL for a file found on a network.",
+        "Alternatively, the file may be loaded from anywhere on the local computer using an absolute path (something that starts with / on Unix and Linux, or a drive letter on Windows), or the filename parameter can be a URL for a file found on a network.",
         "This method is asynchronous, meaning it may not finish before the next line in your sketch is executed.",
         "This method is suitable for fetching files up to size of 64MB."
       ],
@@ -3269,12 +3311,13 @@
     },
     "orbitControl": {
       "description": [
-        "Allows movement around a 3D sketch using a mouse or trackpad. Left-clicking and dragging will rotate the camera position about the center of the sketch, right-clicking and dragging will pan the camera position without rotation, and using the mouse wheel (scrolling) will move the camera closer or further from the center of the sketch. This function can be called with parameters dictating sensitivity to mouse movement along the X and Y axes. Calling this function without parameters is equivalent to calling orbitControl(1,1). To reverse direction of movement in either axis, enter a negative number for sensitivity."
+        "Allows movement around a 3D sketch using a mouse or trackpad or touch. Left-clicking and dragging or swipe motion will rotate the camera position about the center of the sketch, right-clicking and dragging or multi-swipe will pan the camera position without rotation, and using the mouse wheel (scrolling) or pinch in/out will move the camera further or closer from the center of the sketch. This function can be called with parameters dictating sensitivity to mouse/touch movement along the X and Y axes. Calling this function without parameters is equivalent to calling orbitControl(1,1). To reverse direction of movement in either axis, enter a negative number for sensitivity."
       ],
       "params": {
         "sensitivityX": "Number: (Optional) sensitivity to mouse movement along X axis",
         "sensitivityY": "Number: (Optional) sensitivity to mouse movement along Y axis",
-        "sensitivityZ": "Number: (Optional) sensitivity to scroll movement along Z axis"
+        "sensitivityZ": "Number: (Optional) sensitivity to scroll movement along Z axis",
+        "options": "Object: (Optional) An optional object that can contain additional settings, disableTouchActions - Boolean, default value is true. Setting this to true makes mobile interactions smoother by preventing accidental interactions with the page while orbiting. But if you're already doing it via css or want the default touch actions, consider setting it to false. freeRotation - Boolean, default value is false. By default, horizontal movement of the mouse or touch pointer rotates the camera around the y-axis, and vertical movement rotates the camera around the x-axis. But if setting this option to true, the camera always rotates in the direction the pointer is moving. For zoom and move, the behavior is the same regardless of true/false."
       }
     },
     "debugMode": {
@@ -3501,7 +3544,7 @@
         "You can view more materials in this <a href=\"https://p5js.org/examples/3d-materials.html\">example</a>."
       ],
       "params": {
-        "tex": "p5.Image|p5.MediaElement|p5.Graphics|p5.Texture: image to use as texture"
+        "tex": "p5.Image|p5.MediaElement|p5.Graphics|p5.Texture|p5.Framebuffer|p5.FramebufferTexture: image to use as texture"
       }
     },
     "textureMode": {
@@ -3537,8 +3580,8 @@
     "ambientMaterial": {
       "description": [
         "Sets the ambient color of the material.",
-        "The ambientMaterial() color is the color the object will reflect under <strong>any</strong> lighting.",
-        "Consider an ambientMaterial() with the color yellow (255, 255, 0). If the light emits the color white (255, 255, 255), then the object will appear yellow as it will reflect the red and green components of the light. If the light emits the color red (255, 0, 0), then the object will appear red as it will reflect the red component of the light. If the light emits the color blue (0, 0, 255), then the object will appear black, as there is no component of the light that it can reflect.",
+        "The ambientMaterial() color represents the components of the <strong>ambientLight()</strong> color that the object reflects.",
+        "Consider an ambientMaterial() with the color yellow (255, 255, 0). If the ambientLight() emits the color white (255, 255, 255), then the object will appear yellow as it will reflect the red and green components of the light. If the ambientLight() emits the color red (255, 0, 0), then the object will appear red as it will reflect the red component of the light. If the ambientLight() emits the color blue (0, 0, 255), then the object will appear black, as there is no component of the light that it can reflect.",
         "You can view more materials in this <a href=\"https://p5js.org/examples/3d-materials.html\">example</a>."
       ],
       "params": {
@@ -3642,7 +3685,7 @@
         "Sets the frustum of the current camera as defined by the parameters.",
         "A frustum is a geometric form: a pyramid with its top cut off. With the viewer's eye at the imaginary top of the pyramid, the six planes of the frustum act as clipping planes when rendering a 3D view. Thus, any form inside the clipping planes is visible; anything outside those planes is not visible.",
         "Setting the frustum changes the perspective of the scene being rendered. This can be achieved more simply in many cases by using <a href=\"https://p5js.org/reference/#/p5/perspective\">perspective()</a>.",
-        "If no parameters are given, the following default is used: frustum(-width/2, width/2, -height/2, height/2, 0, max(width, height))."
+        "If no parameters are given, the following default is used: frustum(-width/20, width/20, height/20, -height/20, eyeZ/10, eyeZ*10), where eyeZ is equal to ((height/2) / tan(PI/6))."
       ],
       "params": {
         "left": "Number: (Optional) camera frustum left plane",
@@ -3669,6 +3712,17 @@
         "cam": "p5.Camera: p5.Camera object"
       }
     },
+    "vertexNormal": {
+      "description": [
+        "Sets the normal to use for subsequent vertices."
+      ],
+      "params": {
+        "x": "Number",
+        "y": "Number",
+        "z": "Number",
+        "v": "Vector"
+      }
+    },
     "setAttributes": {
       "description": [
         "Set attributes for the WebGL Drawing context. This is a way of adjusting how the WebGL renderer works to fine-tune the display and performance.",
@@ -3680,7 +3734,8 @@
         "antialias - indicates whether or not to perform anti-aliasing default is false (true in Safari)",
         "premultipliedAlpha - indicates that the page compositor will assume the drawing buffer contains colors with pre-multiplied alpha default is true",
         "preserveDrawingBuffer - if true the buffers will not be cleared and and will preserve their values until cleared or overwritten by author (note that p5 clears automatically on draw loop) default is true",
-        "perPixelLighting - if true, per-pixel lighting will be used in the lighting shader otherwise per-vertex lighting is used. default is true."
+        "perPixelLighting - if true, per-pixel lighting will be used in the lighting shader otherwise per-vertex lighting is used. default is true.",
+        "version - either 1 or 2, to specify which WebGL version to ask for. By default, WebGL 2 will be requested. If WebGL2 is not available, it will fall back to WebGL 1. You can check what version is used with by looking at the global <code>webglVersion</code> property."
       ],
       "params": {
         "key": "String: Name of attribute",
@@ -3807,49 +3862,54 @@
   },
   "p5.Color": {
     "description": [
-      "Each color stores the color mode and level maxes that were applied at the time of its construction. These are used to interpret the input arguments (at construction and later for that instance of color) and to format the output e.g. when <a href=\"#/p5/saturation\">saturation()</a> is requested.",
-      "Internally, we store an array representing the ideal RGBA values in floating point form, normalized from 0 to 1. From this we calculate the closest screen color (RGBA levels from 0 to 255) and expose this to the renderer.",
-      "We also cache normalized, floating-point components of the color in various representations as they are calculated. This is done to prevent repeating a conversion that has already been performed."
+      "A class to describe a color. Each <code>p5.Color</code> object stores the color mode and level maxes that were active during its construction. These values are used to interpret the arguments passed to the object's constructor. They also determine output formatting such as when <a href=\"#/p5/saturation\">saturation()</a> is called.",
+      "Color is stored internally as an array of ideal RGBA values in floating point form, normalized from 0 to 1. These values are used to calculate the closest screen colors, which are RGBA levels from 0 to 255. Screen colors are sent to the renderer.",
+      "When different color representations are calculated, the results are cached for performance. These values are normalized, floating-point numbers.",
+      "<a href=\"#/p5/color\">color()</a> is the recommended way to create an instance of this class."
     ],
+    "params": {
+      "pInst": "P5: (Optional) pointer to p5 instance.",
+      "vals": "Number[]|String: an array containing the color values  for red, green, blue and alpha channel  or CSS color."
+    },
     "toString": {
       "description": [
-        "This method returns the color formatted as a string. This can be useful for debugging, or for using p5.js with other libraries."
+        "Returns the color formatted as a string. Doing so can be useful for debugging, or for using p5.js with other libraries."
       ],
-      "returns": "String: the formatted string",
+      "returns": "String: the formatted string.",
       "params": {
-        "format": "String: (Optional) How the color string will be formatted. Leaving this empty formats the string as rgba(r, g, b, a). '#rgb' '#rgba' '#rrggbb' and '#rrggbbaa' format as hexadecimal color codes. 'rgb' 'hsb' and 'hsl' return the color formatted in the specified color mode. 'rgba' 'hsba' and 'hsla' are the same as above but with alpha channels. 'rgb%' 'hsb%' 'hsl%' 'rgba%' 'hsba%' and 'hsla%' format as percentages."
+        "format": "String: (Optional) how the color string will be formatted. Leaving this empty formats the string as rgba(r, g, b, a). '#rgb' '#rgba' '#rrggbb' and '#rrggbbaa' format as hexadecimal color codes. 'rgb' 'hsb' and 'hsl' return the color formatted in the specified color mode. 'rgba' 'hsba' and 'hsla' are the same as above but with alpha channels. 'rgb%' 'hsb%' 'hsl%' 'rgba%' 'hsba%' and 'hsla%' format as percentages."
       }
     },
     "setRed": {
       "description": [
-        "The setRed method sets the red component of a color. The range depends on your color mode, in the default RGB mode it's between 0 and 255."
+        "Sets the red component of a color. The range depends on the <a href=\"#/colorMode\">colorMode()</a>. In the default RGB mode it's between 0 and 255."
       ],
       "params": {
-        "red": "Number: the new red value"
+        "red": "Number: the new red value."
       }
     },
     "setGreen": {
       "description": [
-        "The setGreen method sets the green component of a color. The range depends on your color mode, in the default RGB mode it's between 0 and 255."
+        "Sets the green component of a color. The range depends on the <a href=\"#/colorMode\">colorMode()</a>. In the default RGB mode it's between 0 and 255."
       ],
       "params": {
-        "green": "Number: the new green value"
+        "green": "Number: the new green value."
       }
     },
     "setBlue": {
       "description": [
-        "The setBlue method sets the blue component of a color. The range depends on your color mode, in the default RGB mode it's between 0 and 255."
+        "Sets the blue component of a color. The range depends on the <a href=\"#/colorMode\">colorMode()</a>. In the default RGB mode it's between 0 and 255."
       ],
       "params": {
-        "blue": "Number: the new blue value"
+        "blue": "Number: the new blue value."
       }
     },
     "setAlpha": {
       "description": [
-        "The setAlpha method sets the transparency (alpha) value of a color. The range depends on your color mode, in the default RGB mode it's between 0 and 255."
+        "Sets the alpha (transparency) value of a color. The range depends on the <a href=\"#/colorMode\">colorMode()</a>. In the default RGB mode it's between 0 and 255."
       ],
       "params": {
-        "alpha": "Number: the new alpha value"
+        "alpha": "Number: the new alpha value."
       }
     }
   },
@@ -3858,7 +3918,7 @@
       "Base class for all elements added to a sketch, including canvas, graphics buffers, and other HTML elements. It is not called directly, but <a href=\"#/p5.Element\">p5.Element</a> objects are created by calling <a href=\"#/p5/createCanvas\">createCanvas()</a>, <a href=\"#/p5/createGraphics\">createGraphics()</a>, <a href=\"#/p5/createDiv\">createDiv()</a>, <a href=\"#/p5/createImg\">createImg()</a>, <a href=\"#/p5/createInput\">createInput()</a>, etc."
     ],
     "params": {
-      "elt": "String: DOM node that is wrapped",
+      "elt": "HTMLElement: DOM node that is wrapped",
       "pInst": "P5: (Optional) pointer to p5 instance"
     },
     "elt": {
@@ -3866,6 +3926,8 @@
         "Underlying HTML element. All normal HTML methods can be called on this."
       ]
     },
+    "width": {},
+    "height": {},
     "parent": {
       "description": [
         "Attaches the element to the parent specified. A way of setting  the container for the element. Accepts either a string ID, DOM  node, or <a href=\"#/p5.Element\">p5.Element</a>. If no arguments are given, parent node is returned.  For more ways to position the canvas, see the  <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'>  positioning the canvas</a> wiki page."
@@ -3902,7 +3964,6 @@
       "description": [
         "The <a href=\"#/p5.Element/doubleClicked\">doubleClicked()</a> method is called once after every time a mouse button is pressed twice over the element. This can be used to attach element and action-specific event listeners."
       ],
-      "returns": "p5.Element:",
       "params": {
         "fxn": "Function|Boolean: function to be fired when mouse is  double clicked over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
       }
@@ -4149,7 +4210,8 @@
       "w": "Number: width",
       "h": "Number: height",
       "renderer": "Constant: the renderer to use, either P2D or WEBGL",
-      "pInst": "P5: (Optional) pointer to p5 instance"
+      "pInst": "P5: (Optional) pointer to p5 instance",
+      "canvas": "Object: (Optional) existing html canvas element"
     },
     "reset": {
       "description": [
@@ -4160,6 +4222,12 @@
       "description": [
         "Removes a Graphics object from the page and frees any resources associated with it."
       ]
+    },
+    "createFramebuffer": {
+      "description": [
+        "Creates and returns a new <a href=\"#/p5.Framebuffer\">p5.Framebuffer</a> inside a p5.Graphics WebGL context.",
+        "This takes the same parameters as the <a href=\"#/p5/createFramebuffer\">global createFramebuffer function.</a>"
+      ]
     }
   },
   "p5.Renderer": {
@@ -4167,7 +4235,7 @@
       "Main graphics and rendering context, as well as the base API implementation for p5.js \"core\". To be used as the superclass for Renderer2D and Renderer3D classes, respectively."
     ],
     "params": {
-      "elt": "String: DOM node that is wrapped",
+      "elt": "HTMLElement: DOM node that is wrapped",
       "pInst": "P5: (Optional) pointer to p5 instance",
       "isMainCanvas": "Boolean: (Optional) whether we're using it as main canvas"
     }
@@ -5437,6 +5505,19 @@
         "target": "p5.Vector: (Optional) The vector to receive the result"
       }
     },
+    "slerp": {
+      "description": [
+        "Performs spherical linear interpolation with the other vector and returns the resulting vector. This works in both 3D and 2D. As for 2D, the result of slerping between 2D vectors is always a 2D vector."
+      ],
+      "returns": "p5.Vector:",
+      "params": {
+        "v": "p5.Vector: the p5.Vector to slerp to",
+        "amt": "Number: The amount of interpolation. some value between 0.0  (old vector) and 1.0 (new vector). 0.9 is very near  the new vector. 0.5 is halfway in between.",
+        "v1": "p5.Vector: old vector",
+        "v2": "p5.Vector: new vectpr",
+        "target": "p5.Vector: (Optional) The vector to receive the result"
+      }
+    },
     "reflect": {
       "description": [
         "Reflect a vector about a normal to a line in 2D, or about a normal to a plane in 3D."
@@ -5663,6 +5744,121 @@
         "y": "Number: y position of a point in world space",
         "z": "Number: z position of a point in world space"
       }
+    },
+    "set": {
+      "description": [
+        "Copies information about the argument camera's view and projection to the target camera. If the target camera is active, it will be reflected on the screen."
+      ],
+      "params": {
+        "cam": "p5.Camera: source camera"
+      }
+    },
+    "slerp": {
+      "description": [
+        "For the cameras cam0 and cam1 with the given arguments, their view are combined with the parameter amt that represents the quantity, and the obtained view is applied. For example, if cam0 is looking straight ahead and cam1 is looking straight to the right and amt is 0.5, the applied camera will look to the halfway between front and right. If the applied camera is active, the applied result will be reflected on the screen. When applying this function, all cameras involved must have exactly the same projection settings. For example, if one is perspective, ortho, frustum, the other two must also be perspective, ortho, frustum respectively. However, if all cameras have ortho settings, interpolation is possible if the ratios of left, right, top and bottom are equal to each other. For example, when it is changed by orbitControl()."
+      ],
+      "params": {
+        "cam0": "p5.Camera: first p5.Camera",
+        "cam1": "p5.Camera: second p5.Camera",
+        "amt": "Number: amount to use for interpolation during slerp"
+      }
+    }
+  },
+  "p5.Framebuffer": {
+    "description": [
+      "An object that one can draw to and then read as a texture. While similar to a p5.Graphics, using a p5.Framebuffer as a texture will generally run much faster, as it lives within the same WebGL context as the canvas it is created on. It only works in WebGL mode."
+    ],
+    "params": {
+      "target": "p5.Graphics|p5: A p5 global instance or p5.Graphics",
+      "settings": "Object: (Optional) A settings object"
+    },
+    "pixels": {
+      "description": [
+        "A <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference /Global_Objects/Uint8ClampedArray' target='_blank'>Uint8ClampedArray</a> containing the values for all the pixels in the Framebuffer.",
+        "Like the <a href=\"#/p5/pixels\">main canvas pixels property</a>, call <a href=\"#/p5.Framebuffer/loadPixels\">loadPixels()</a> before reading it, and call <a href=\"#/p5.Framebuffer.updatePixels\">updatePixels()</a> afterwards to update its data.",
+        "Note that updating pixels via this property will be slower than <a href=\"#/p5.Framebuffer/begin\">drawing to the framebuffer directly.</a> Consider using a shader instead of looping over pixels."
+      ]
+    },
+    "resize": {
+      "description": [
+        "Resizes the framebuffer to the given width and height."
+      ],
+      "params": {
+        "width": "Number",
+        "height": "Number"
+      }
+    },
+    "pixelDensity": {
+      "description": [
+        "Gets or sets the pixel scaling for high pixel density displays. By default, the density will match that of the canvas the framebuffer was created on, which will match the display density.",
+        "Call this method with no arguments to get the current density, or pass in a number to set the density."
+      ],
+      "params": {
+        "density": "Number: (Optional) A scaling factor for the number of pixels per side of the framebuffer"
+      }
+    },
+    "autoSized": {
+      "description": [
+        "Gets or sets whether or not this framebuffer will automatically resize along with the canvas it's attached to in order to match its size.",
+        "Call this method with no arguments to see if it is currently auto-sized, or pass in a boolean to set this property."
+      ],
+      "params": {
+        "autoSized": "Boolean: (Optional) Whether or not the framebuffer should resize along with the canvas it's attached to"
+      }
+    },
+    "createCamera": {
+      "description": [
+        "Creates and returns a new <a href=\"#/p5.FramebufferCamera\">p5.FramebufferCamera</a> to be used while drawing to this framebuffer. The camera will be set as the currently active camera."
+      ],
+      "returns": "p5.Camera: A new camera"
+    },
+    "remove": {
+      "description": [
+        "Removes the framebuffer and frees its resources."
+      ]
+    },
+    "begin": {
+      "description": [
+        "Begin drawing to this framebuffer. Subsequent drawing functions to the canvas the framebuffer is attached to will not be immediately visible, and will instead be drawn to the framebuffer's texture. Call <a href=\"#/p5.Framebuffer/end\">end()</a> when finished to make draw functions go right to the canvas again and to be able to read the contents of the framebuffer's texture."
+      ]
+    },
+    "end": {
+      "description": [
+        "After having previously called <a href=\"#/p5.Framebuffer/begin\">begin()</a>, this method stops drawing functions from going to the framebuffer's texture, allowing them to go right to the canvas again. After this, one can read from the framebuffer's texture."
+      ]
+    },
+    "draw": {
+      "description": [
+        "Run a function while drawing to the framebuffer rather than to its canvas. This is equivalent to calling <code>framebuffer.begin()</code>, running the function, and then calling <code>framebuffer.end()</code>, but ensures that one never accidentally forgets <code>begin</code> or <code>end</code>."
+      ],
+      "params": {
+        "callback": "Function: A function to run that draws to the canvas. The function will immediately be run, but it will draw to the framebuffer instead of the canvas."
+      }
+    },
+    "get": {
+      "description": [
+        "Get a region of pixels from the canvas in the form of a <a href=\"#/p5.Image\">p5.Image</a>, or a single pixel as an array of numbers.",
+        "Returns an array of [R,G,B,A] values for any pixel or grabs a section of an image. If the Framebuffer has been set up to not store alpha values, then only [R,G,B] will be returned. If no parameters are specified, the entire image is returned. Use the x and y parameters to get the value of one pixel. Get a section of the display window by specifying additional w and h parameters. When getting an image, the x and y parameters define the coordinates for the upper-left corner of the image, regardless of the current <a href=\"#/p5/imageMode\">imageMode()</a>."
+      ],
+      "returns": "p5.Image: the rectangle <a href=\"#/p5.Image\">p5.Image</a>",
+      "params": {
+        "x": "Number: x-coordinate of the pixel",
+        "y": "Number: y-coordinate of the pixel",
+        "w": "Number: width of the section to be returned",
+        "h": "Number: height of the section to be returned"
+      }
+    },
+    "color": {
+      "description": [
+        "A texture with the color information of the framebuffer. Pass this (or the framebuffer itself) to <a href=\"#/p5/texture\">texture()</a> to draw it to the canvas, or pass it to a shader with <a href=\"#/p5.Shader/setUniform\">setUniform()</a> to read its data.",
+        "Since Framebuffers are controlled by WebGL, their y coordinates are stored flipped compared to images and videos. When texturing with a framebuffer texture, you may want to flip vertically, e.g. with <code>plane(framebuffer.width, -framebuffer.height)</code>."
+      ]
+    },
+    "depth": {
+      "description": [
+        "A texture with the depth information of the framebuffer. If the framebuffer was created with <code>{ depth: false }</code> in its settings, then this property will be undefined. Pass this to <a href=\"#/p5/texture\">texture()</a> to draw it to the canvas, or pass it to a shader with <a href=\"#/p5.Shader/setUniform\">setUniform()</a> to read its data.",
+        "Since Framebuffers are controlled by WebGL, their y coordinates are stored flipped compared to images and videos. When texturing with a framebuffer texture, you may want to flip vertically, e.g. with <code>plane(framebuffer.width, -framebuffer.height)</code>."
+      ]
     }
   },
   "p5.Geometry": {
