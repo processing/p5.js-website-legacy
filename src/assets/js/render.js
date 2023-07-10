@@ -85,12 +85,9 @@ var renderCode = function(exampleName) {
       edit_space.appendChild(edit_area);
       enableTab(edit_area);
 
-      //add buttons and tab instructions
+      //add buttons and instructions
       let button_space = document.createElement('ul');
       edit_space.appendChild(button_space);
-
-      let sketch_tab_instructions = button_space.appendChild(document.createElement('li'));
-      sketch_tab_instructions.innerHTML = 'Press shift + space to insert tab.';
 
       let copy_button = document.createElement('button');
       copy_button.value = 'copy';
@@ -137,6 +134,9 @@ var renderCode = function(exampleName) {
       let edit_li = button_space.appendChild(document.createElement('li'));
       edit_li.appendChild(edit_button);
 
+      let sketch_tab_instructions = button_space.appendChild(document.createElement('li'));
+      sketch_tab_instructions.innerHTML = 'Press Shift-Space to insert tab.';
+      sketch_tab_instructions.className = 'sketchTabInstructions';
 
       function setMode(sketch, m) {
         if (m === 'edit') {
