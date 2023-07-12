@@ -1,0 +1,352 @@
+---
+title: learn
+slug: learn/
+---
+
+<style>
+  .codeWithSidebar {
+    display:flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+  }
+  .codeWithSidebar img, .codeWithSidebar svg {
+    padding: 30px;
+    position: sticky;
+    top: 0;
+  }
+</style>
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main>
+      <h1>Layered Rendering with Framebuffers</h1>
+
+      <p>Sometimes, in a sketch, you might want to draw something <em>to an image</em> instead of directly to the screen. This lets you use the image as a texture on 3D shapes, repeat the image multiple times efficiently, read the image's data when drawing something else, and more.</p>
+
+      <p>In 2D mode, you can use <a class="code" href="{{root}}/reference/#/p5/createGraphics">createGraphics()</a> to achieve this. While they also work in WebGL mode, for better performance and more features, you can use <a class="code" href="{{root}}/reference/#/p5/createFramebuffer">createFramebuffer()</a>.</p>
+
+      <h2>What makes Framebuffers special?</h2>
+
+      <p>Framebuffers live on your computer's GPU (Graphics Processing Unit), the part of your computer that specializes in drawing pixels of images as fast as possible in parallel. This means you can write to and read from Framebuffers really quickly, without your computer having to move lots of data around!</p>
+
+      <p>Framebuffers also can contain more information than a typical image or canvas. You can use higher-precision floating point numbers to store colors, letting you do more without running into weird visuals from rounding errors. They can also store 3D depth information about the contents drawn on them, which can help you create visual effects like blurs and shadows.</p>
+
+      <div>
+        <img style="width:100%" src="{{assets}}/learn/framebuffer-intro/fbo-channels.png" alt="a line of spheres going off into the distance, showing first the color of the image, then a visualization of its depth, and then a version rendered with focal blur using both prior images" />
+        <div style="display: flex; align-items: center">
+          <div style="flex:1; text-align: center">Framebuffer color</div>
+          <div style="flex:1; text-align: center">Framebuffer depth</div>
+          <div style="flex:1; text-align: center">Final image with focal blur using color+depth</div>
+        </div>
+      </div>
+
+      <h2>Using Framebuffers</h2>
+
+      <p>Framebuffers are like <em>drawing targets.</em> By calling <span class="code">.begin()</span> on one, anything you draw will start going onto it instead of the main canvas. Calling <span class="code">.end()</span> will make the main canvas be the draw target again, and you can then reference the framebuffer like an image.</p>
+
+      <div class="codeWithSidebar">
+      <pre><code class="language-javascript">
+let layer;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  layer = createFramebuffer();
+}
+
+function draw() {
+  // Start drawing to the framebuffer
+  layer.begin();
+
+  clear();
+  lights();
+  noStroke();
+  rotateX(millis() * 0.001);
+  rotateY(millis() * 0.001);
+  box(min(width/2, height/2));
+
+  // Stop drawing to the layer so we can draw to the main canvas again
+  layer.end();
+
+  // Draw the layer to the main canvas
+  clear();
+  translate(-width/2, -height/2);
+  for (let x = 0; x < 4; x++) {
+    for (let y = 0; y < 4; y++) {
+      image(
+        layer,
+        x*width/4, y*height/4,
+        width/4, height/4
+      );
+    }
+  }
+}
+</code></pre>
+<svg style="width:60%;" alt="an illustration showing a p5 sketch drawing to a layer, then drawing that layer multiple times to the main canvas" viewBox="0 0 150 666" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g>
+<rect width="150" height="666" fill="white"/>
+<g filter="url(#filter0)">
+<rect x="17.4043" y="27" width="95.1915" height="95.1915" fill="white"/>
+<rect x="17.9043" y="27.5" width="94.1915" height="94.1915" stroke="#939393"/>
+</g>
+<text fill="blue" xml:space="preserve" style="white-space: pre" font-family="sans-serif" font-size="12" letter-spacing="0em"><tspan x="0" y="140">layer.begin()</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="sans-serif" font-size="12" letter-spacing="0em"><tspan x="21.3262" y="117.104">main</tspan></text>
+<g filter="url(#filter0)">
+<rect x="17.4043" y="156" width="95.1915" height="95.1915" fill="white"/>
+<rect x="17.9043" y="156.5" width="94.1915" height="94.1915" stroke="#939393"/>
+</g>
+<text fill="#CACACA" xml:space="preserve" style="white-space: pre" font-family="sans-serif" font-size="12" letter-spacing="0em"><tspan x="21.3262" y="246.104">main</tspan></text>
+<g filter="url(#filter0)">
+<rect x="27.4043" y="146" width="95.1915" height="95.1915" fill="white"/>
+<rect x="27.9043" y="146.5" width="94.1915" height="94.1915" stroke="#939393"/>
+</g>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="sans-serif" font-size="12" letter-spacing="0em"><tspan x="31.3262" y="236.104">layer</tspan></text>
+<g filter="url(#filter0)">
+<rect x="17.4043" y="285" width="95.1915" height="95.1915" fill="white"/>
+<rect x="17.9043" y="285.5" width="94.1915" height="94.1915" stroke="#939393"/>
+</g>
+<text fill="#CACACA" xml:space="preserve" style="white-space: pre" font-family="sans-serif" font-size="12" letter-spacing="0em"><tspan x="21.3262" y="375.104">main</tspan></text>
+<g filter="url(#filter0)">
+<rect x="27.4043" y="275" width="95.1915" height="95.1915" fill="white"/>
+<rect x="27.9043" y="275.5" width="94.1915" height="94.1915" stroke="#939393"/>
+</g>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="sans-serif" font-size="12" letter-spacing="0em"><tspan x="31.3262" y="365.104">layer</tspan></text>
+<text fill="blue" xml:space="preserve" style="white-space: pre" font-family="sans-serif" font-size="12" letter-spacing="0em"><tspan x="0" y="405">layer.end()</tspan></text>
+<g filter="url(#filter0)">
+<rect x="17.4043" y="414.001" width="95.1915" height="95.1915" fill="white"/>
+<rect x="17.9043" y="414.501" width="94.1915" height="94.1915" stroke="#939393"/>
+</g>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="sans-serif" font-size="12" letter-spacing="0em"><tspan x="21.3262" y="504.105">main</tspan></text>
+<g filter="url(#filter0)">
+<rect x="17.4043" y="543.001" width="95.1915" height="95.1915" fill="white"/>
+<rect x="17.9043" y="543.501" width="94.1915" height="94.1915" stroke="#939393"/>
+</g>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="sans-serif" font-size="12" letter-spacing="0em"><tspan x="21.3262" y="633.105">main</tspan></text>
+<path d="M66.0537 337.728L45.2896 305.477L52.5791 327.566L68.0418 353.19L66.0537 337.728Z" fill="#9E9E9E"/>
+<path d="M67.8209 352.969L66.0537 337.507L104.71 315.638L94.991 335.519L67.8209 352.969Z" fill="#ACACAC"/>
+<path d="M66.0537 338.169L45.0687 305.698L79.3075 292.002L104.931 315.859L66.0537 338.169Z" fill="#CDCDCD"/>
+<path d="M29.7229 559.715L25.2136 552.863L26.7967 557.556L30.1546 563L29.7229 559.715Z" fill="#9E9E9E"/>
+<path d="M30.1066 562.953L29.7229 559.668L38.1177 555.022L36.007 559.245L30.1066 562.953Z" fill="#ACACAC"/>
+<path d="M29.7229 559.809L25.1657 552.91L32.6011 550L38.1657 555.069L29.7229 559.809Z" fill="#CDCDCD"/>
+<path d="M51.9465 559.715L47.4373 552.863L49.0203 557.556L52.3782 563L51.9465 559.715Z" fill="#9E9E9E"/>
+<path d="M52.3303 562.953L51.9465 559.668L60.3413 555.022L58.2306 559.245L52.3303 562.953Z" fill="#ACACAC"/>
+<path d="M51.9465 559.809L47.3893 552.91L54.8247 550L60.3893 555.069L51.9465 559.809Z" fill="#CDCDCD"/>
+<path d="M74.1701 559.715L69.6609 552.863L71.2439 557.556L74.6018 563L74.1701 559.715Z" fill="#9E9E9E"/>
+<path d="M74.5539 562.953L74.1701 559.668L82.5649 555.022L80.4542 559.245L74.5539 562.953Z" fill="#ACACAC"/>
+<path d="M74.1701 559.809L69.6129 552.91L77.0483 550L82.6129 555.069L74.1701 559.809Z" fill="#CDCDCD"/>
+<path d="M96.3937 559.715L91.8845 552.863L93.4675 557.556L96.8255 563L96.3937 559.715Z" fill="#9E9E9E"/>
+<path d="M96.7775 562.953L96.3937 559.668L104.789 555.022L102.678 559.245L96.7775 562.953Z" fill="#ACACAC"/>
+<path d="M96.3937 559.809L91.8365 552.91L99.2719 550L104.837 555.069L96.3937 559.809Z" fill="#CDCDCD"/>
+<path d="M29.7229 578.493L25.2136 571.114L26.7967 576.169L30.1546 582.031L29.7229 578.493Z" fill="#9E9E9E"/>
+<path d="M30.1066 581.981L29.7229 578.443L38.1177 573.439L36.007 577.988L30.1066 581.981Z" fill="#ACACAC"/>
+<path d="M29.7229 578.595L25.1657 571.165L32.6011 568.031L38.1657 573.49L29.7229 578.595Z" fill="#CDCDCD"/>
+<path d="M51.9465 578.493L47.4373 571.114L49.0203 576.169L52.3782 582.031L51.9465 578.493Z" fill="#9E9E9E"/>
+<path d="M52.3303 581.981L51.9465 578.443L60.3413 573.439L58.2306 577.988L52.3303 581.981Z" fill="#ACACAC"/>
+<path d="M51.9465 578.595L47.3893 571.165L54.8247 568.031L60.3893 573.49L51.9465 578.595Z" fill="#CDCDCD"/>
+<path d="M74.1701 578.493L69.6609 571.114L71.2439 576.169L74.6018 582.031L74.1701 578.493Z" fill="#9E9E9E"/>
+<path d="M74.5539 581.981L74.1701 578.443L82.5649 573.439L80.4542 577.988L74.5539 581.981Z" fill="#ACACAC"/>
+<path d="M74.1701 578.595L69.6129 571.165L77.0483 568.031L82.6129 573.49L74.1701 578.595Z" fill="#CDCDCD"/>
+<path d="M96.3937 577.746L91.8845 570.894L93.4675 575.587L96.8255 581.031L96.3937 577.746Z" fill="#9E9E9E"/>
+<path d="M96.7775 580.984L96.3937 577.699L104.789 573.053L102.678 577.277L96.7775 580.984Z" fill="#ACACAC"/>
+<path d="M96.3937 577.84L91.8365 570.941L99.2719 568.031L104.837 573.1L96.3937 577.84Z" fill="#CDCDCD"/>
+<path d="M29.7229 597.778L25.2136 590.926L26.7967 595.619L30.1546 601.063L29.7229 597.778Z" fill="#9E9E9E"/>
+<path d="M30.1066 601.016L29.7229 597.731L38.1177 593.084L36.007 597.308L30.1066 601.016Z" fill="#ACACAC"/>
+<path d="M29.7229 597.871L25.1657 590.973L32.6011 588.063L38.1657 593.131L29.7229 597.871Z" fill="#CDCDCD"/>
+<path d="M51.9465 597.778L47.4373 590.926L49.0203 595.619L52.3782 601.063L51.9465 597.778Z" fill="#9E9E9E"/>
+<path d="M52.3303 601.016L51.9465 597.731L60.3413 593.084L58.2306 597.308L52.3303 601.016Z" fill="#ACACAC"/>
+<path d="M51.9465 597.871L47.3893 590.973L54.8247 588.063L60.3893 593.131L51.9465 597.871Z" fill="#CDCDCD"/>
+<path d="M74.1701 597.778L69.6609 590.926L71.2439 595.619L74.6018 601.063L74.1701 597.778Z" fill="#9E9E9E"/>
+<path d="M74.5539 601.016L74.1701 597.731L82.5649 593.084L80.4542 597.308L74.5539 601.016Z" fill="#ACACAC"/>
+<path d="M74.1701 597.871L69.6129 590.973L77.0483 588.063L82.6129 593.131L74.1701 597.871Z" fill="#CDCDCD"/>
+<path d="M96.3937 597.525L91.8845 590.146L93.4675 595.2L96.8255 601.063L96.3937 597.525Z" fill="#9E9E9E"/>
+<path d="M96.7775 601.012L96.3937 597.474L104.789 592.471L102.678 597.019L96.7775 601.012Z" fill="#ACACAC"/>
+<path d="M96.3937 597.626L91.8365 590.196L99.2719 587.063L104.837 592.521L96.3937 597.626Z" fill="#CDCDCD"/>
+<path d="M29.7229 615.809L25.2136 608.957L26.7967 613.65L30.1546 619.094L29.7229 615.809Z" fill="#9E9E9E"/>
+<path d="M30.1066 619.047L29.7229 615.762L38.1177 611.116L36.007 615.34L30.1066 619.047Z" fill="#ACACAC"/>
+<path d="M29.7229 615.903L25.1657 609.004L32.6011 606.094L38.1657 611.163L29.7229 615.903Z" fill="#CDCDCD"/>
+<path d="M51.9465 615.809L47.4373 608.957L49.0203 613.65L52.3782 619.094L51.9465 615.809Z" fill="#9E9E9E"/>
+<path d="M52.3303 619.047L51.9465 615.762L60.3413 611.116L58.2306 615.34L52.3303 619.047Z" fill="#ACACAC"/>
+<path d="M51.9465 615.903L47.3893 609.004L54.8247 606.094L60.3893 611.163L51.9465 615.903Z" fill="#CDCDCD"/>
+<path d="M74.1701 615.809L69.6609 608.957L71.2439 613.65L74.6018 619.094L74.1701 615.809Z" fill="#9E9E9E"/>
+<path d="M74.5539 619.047L74.1701 615.762L82.5649 611.116L80.4542 615.34L74.5539 619.047Z" fill="#ACACAC"/>
+<path d="M74.1701 615.903L69.6129 609.004L77.0483 606.094L82.6129 611.163L74.1701 615.903Z" fill="#CDCDCD"/>
+<path d="M96.3937 615.809L91.8845 608.957L93.4675 613.65L96.8255 619.094L96.3937 615.809Z" fill="#9E9E9E"/>
+<path d="M96.7775 619.047L96.3937 615.762L104.789 611.116L102.678 615.34L96.7775 619.047Z" fill="#ACACAC"/>
+<path d="M96.3937 615.903L91.8365 609.004L99.2719 606.094L104.837 611.163L96.3937 615.903Z" fill="#CDCDCD"/>
+<path d="M54.69 550L60.1192 548.036L55.7037 544.316L54.69 550ZM122.108 320.134C132.432 365.482 134.082 400.645 124.237 435.131C114.389 469.628 93.0226 503.503 57.1994 546.245L57.9658 546.888C93.8195 504.109 115.293 470.105 125.199 435.405C135.108 400.695 133.426 365.347 123.083 319.912L122.108 320.134Z" fill="black"/>
+<path d="M33.9203 547.95L39.4944 546.446L35.4049 542.371L33.9203 547.95ZM122.102 320.101C129.551 366.793 128.383 402.5 115.296 436.696C102.203 470.906 77.1621 503.659 36.7518 544.401L37.4617 545.105C77.9018 504.333 103.062 471.461 116.23 437.054C129.403 402.633 130.554 366.732 123.089 319.944L122.102 320.101Z" fill="black"/>
+<path d="M76.1129 550L81.2946 547.454L76.4986 544.239L76.1129 550ZM122.111 320.147C133.838 366.004 136.88 401.396 129.998 435.836C123.115 470.283 106.296 503.828 78.2073 545.977L79.0394 546.531C107.155 504.342 124.058 470.668 130.979 436.032C137.901 401.39 134.827 365.835 123.08 319.899L122.111 320.147Z" fill="black"/>
+<path d="M98.7536 549.128L103.477 545.807L98.2394 543.377L98.7536 549.128ZM122.126 320.194C135.204 356.098 141.524 386.626 138.687 420.971C135.85 455.328 123.845 493.547 100.199 544.825L101.107 545.244C124.773 493.922 136.832 455.58 139.684 421.054C142.537 386.516 136.173 355.837 123.066 319.852L122.126 320.194Z" fill="black"/>
+</g>
+<defs>
+<filter id="filter0" x="-25%" y="-25%" width="150%" height="150%" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_2" result="shape"/>
+</filter>
+</defs>
+</svg>
+      </div>
+
+      <h2>Sketching with Feedback</h2>
+
+      <p><a href="https://en.wikipedia.org/wiki/Video_feedback" target="_blank">Video feedback</a> is a technique where the previous frame of a video gets used when drawing the next frame. This can look similar to when you stand between two mirrors.</p>
+
+      <p>To do this in a sketch, you typically draw to a layer so you have an image of the current frame. Then, when drawing to the next frame, you can add the previous frame to your drawing by using the image of the previous frame.</p>
+
+      <p>The fastest way to do this is to keep <strong>two layers</strong> around: one for the previous frame, and one for the next frame. At the start of <span class="code">draw()</span>, swap the two layers so you can keep the image of the preview frame, clear the next frame, and draw a new image to it.</p>
+
+      <div class="codeWithSidebar">
+      <pre><code class="language-javascript">
+let prev, next;
+function setup() {
+  createCanvas(200, 200, WEBGL)
+  prev = createFramebuffer({ format: FLOAT });
+  next = createFramebuffer({ format: FLOAT });
+  imageMode(CENTER);
+}
+
+function draw() {
+  // Swap prev and next
+  [prev, next] = [next, prev];
+  
+  // Clear next and draw a new next frame
+  next.begin();
+  clear();
+  
+  // Slightly rotate and scale the last frame
+  push();
+  rotate(0.01);
+  scale(0.99);
+  image(prev, 0, 0);
+  pop();
+  
+  // Add a sphere on top
+  translate(sin(frameCount*0.1)*50, sin(frameCount*0.11)*50);
+  noStroke();
+  normalMaterial();
+  sphere(25);
+  
+  next.end();
+  
+  background(255);
+  image(next, 0, 0);
+}
+</code></pre>
+        <img style="width:30%" src="{{assets}}/learn/framebuffer-intro/feedback.gif" alt="A sphere moving around with previous copies of itself going off to infinity behind it" />
+      </div>
+
+      <p>Framebuffers are especially good for feedback because <strong>they can store images as higher precision floating-point numbers,</strong> which you can specify with <span class="code">createFramebuffer({ format: FLOAT })</span>. Normally, the red, green, and blue values of colors are stored as integers between 0-255. Each time you draw an image, the colors get rounded into that range, and a source frame can get drawn and redrawn many times in a feedback sketch, accumulating lots of rounding errors. That problem goes away when you use floats!</p>
+
+      <h2>Sketching with Depth</h2>
+
+      <p>When you draw to a Framebuffer, in addition to recording the color of the pixels, you are also recording their depth in space, stored as a number between 0 and 1. You can read this into a shader by looking at the <span class="code">depth</span> property of a Framebuffer.</p>
+
+      <p>This can be useful if you want to change an image based on how far from the camera things are. One common effect that uses this is <strong>fog</strong>, where farther away objects are tinted more and more towards a fog color.</p>
+
+<div class="codeWithSidebar">
+    <div>
+    <pre><code class="language-javascript">
+// sketch.js
+let layer, fogShader, fog;
+function preload() {
+  fogShader = loadShader('fog.vert', 'fog.frag');
+}
+
+function setup() {
+  createCanvas(200, 200, WEBGL);
+  layer = createFramebuffer();
+  fog = color('#b2bdcf');
+  noStroke();
+}
+
+function draw() {
+  // Draw a scene to a framebuffer
+  layer.begin();
+  clear();
+  lights();
+  fill('red');
+  for (let i = 0; i < 12; i++) {
+    push()
+    translate(
+      sin(frameCount*0.050 + i*1)*50,
+      sin(frameCount*0.051 + i*2)*50,
+      sin(frameCount*0.049 + i*3)*175-75
+    );
+    sphere(10);
+    pop();
+  }
+  layer.end();
+  
+  // Apply fog to the scene
+  shader(fogShader);
+  fogShader.setUniform('fog', [red(fog), green(fog), blue(fog)]);
+  fogShader.setUniform('img', layer.color);
+  fogShader.setUniform('depth', layer.depth);
+  rect(0, 0, width, height);
+}
+</code></pre>
+
+<pre><code class="language-glsl">
+// fog.vert
+precision highp float;
+attribute vec3 aPosition;
+attribute vec2 aTexCoord;
+varying vec2 vTexCoord;
+void main() {
+  vec4 positionVec4 = vec4(aPosition, 1.0);
+  positionVec4.xy = positionVec4.xy * 2.0 - 1.0;
+  gl_Position = positionVec4;
+  vTexCoord = aTexCoord;
+}
+</code></pre>
+
+<pre><code class="language-glsl">
+// fog.frag
+precision highp float;
+varying vec2 vTexCoord;
+uniform sampler2D img;
+uniform sampler2D depth;
+uniform vec3 fog;
+void main() {
+  gl_FragColor = mix(
+    // Original color
+    texture2D(img, vTexCoord),
+    // Fog color
+    vec4(fog/255., 1.),
+    // Mix between them based on the depth.
+    // The pow() makes the light falloff a bit steeper.
+    pow(texture2D(depth, vTexCoord).r, 6.)
+  );
+}
+</code></pre>
+        </div>
+        <img style="width:30%" src="{{assets}}/learn/framebuffer-intro/fog.gif" alt="A number of red spheres moving around in a foggy space, fading to grey as they get further away" />
+      </div>
+
+      <p>If you want to customize how close or far to the camera an object needs to be to get depth values of 0 or 1, specify <span class="code">near</span> and <span class="code">far</span> values in <a class="code" href="{{root}}/reference/#/p5/perspective">perspective()</a>.</p>
+
+      <h2>Conclusion</h2>
+
+      <p>If you're sketching in WebGL mode and need to draw to an image, consider using <a class="code" href="{{root}}/reference/#/p5/createFramebuffer">createFramebuffer()</a> as a way to make your sketch run fast and give everyone the best viewing experience possible.</p>
+
+      <p>We hope the new techniques Framebuffers make possible inspire you and that you create art using them!</p>
+
+    </main>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->
