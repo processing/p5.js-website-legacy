@@ -39,7 +39,7 @@ function draw() {
   shader(blur);
   blur.setUniform('img', layer.color);
   blur.setUniform('depth', layer.depth);
-  rect(width, height);
+  rect(0, 0, width, height);
 }
 
 function windowResized() {
@@ -54,7 +54,7 @@ varying vec2 vTexCoord;
 void main() {
   vec4 positionVec4 = vec4(aPosition, 1.0);
   positionVec4.xy = positionVec4.xy * 2.0 - 1.0;
-  positionVec4.y *= -1;
+  positionVec4.y *= -1.0;
   gl_Position = positionVec4;
   vTexCoord = aTexCoord;
 }`;
