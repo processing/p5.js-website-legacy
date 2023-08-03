@@ -344,8 +344,8 @@
     },
     "ellipse": {
       "description": [
-        "Dibuja una elipse (óvalo)  en la pantalla. Una elipse con igual ancho y altura es un círculo. Por defecto, los primeros dos parámetros definen la ubicación, y el tercero y cuarto definen el ancho y altura de la figura. Si no especifica una altura, el valor del ancho es usado como ancho y altura. El origen puede ser cambiado con la función ellipseMode().",
-        "Una elipse con lo ancho y lo alto igual es un círculo. El origen puede ser cambiado con la función <a href=\"#/p5/ellipseMode\">ellipseMode()</a>."
+        "Dibuja una elipse (óvalo) en la pantalla. Una elipse con el mismo valor de ancho y altura es un círculo. Por defecto, los primeros dos parámetros (<code>x</code>, <code>y</code>) definen la ubicación del centro de la elipse. El tercer y cuarto parámetro (<code>w</code>, <code>h</code>) definen el ancho y altura de la figura, respectivamente. El origen puede ser cambiado con la función <a href=\"#/p5/ellipseMode\">ellipseMode()</a>.",
+        "Si no se especifica una altura, el valor del ancho es usado como ancho y altura. Si se utilizan valores negativos para ancho y altura, se usa el valor absoluto."
       ],
       "params": {
         "x": "Número: coordenada x de la elipse.",
@@ -357,7 +357,8 @@
     },
     "circle": {
       "description": [
-        "Dibuja un círculo en la pantalla. Un círculo es una forma sencilla cerrada. Es el conjunto de todos los puntos en un plano que están a una distancia dada de un punto dado, el centro. Esta función es un caso especial de la función ellipse(), donde lo ancho y lo alto de la elipse son lo mismo. Lo alto y lo ancho de la elipse corresponde al diámetro del círculo. De forma predeterminada, los primeros dos parámetros establecen la posición del centro del círculo, el tercer establece el diametro del círculo."
+        "Dibuja un círculo en la pantalla. Un círculo es una forma sencilla cerrada. Cada punto en el borde de un círculo se encuentra a la misma distancia de su centro. Por defecto, los primeros dos parámetros (<code>x</code>, <code>y</code>) establecen la ubicación del centro del círculo. El tercer parámetro (<code>d</code>) establece el ancho y alto de la figura (diámetro del círculo). El origen se puede cambiar utilizando la función <a href=\"#/p5/ellipseMode\">ellipseMode()</a>.",
+        "Esta función es un caso especial de <a href=\"#/p5/ellipse\">ellipse()</a>, donde lo ancho y lo alto de la elipse tienen el mismo valor."
       ],
       "params": {
         "x": "Número: coordenada x del centro del círculo.",
@@ -367,7 +368,8 @@
     },
     "line": {
       "description": [
-        "Dibuja una línea (un camino directo entre dos puntos) en la pantalla. La versión de line() con cuatro parámetros dibuja la línea en 2D. Para darle color a una línea, usa la función stroke(). Una línea no puede ser rellenada, por lo que la función fill() no afectará el color de una línea. Las líneas 2D son dibujadas con una ancho de un pixel por defecto, pero esto puede ser cambiado con la función strokeWeight()."
+        "Dibuja una línea (un camino directo entre dos puntos) en la pantalla. La versión de <code>line()</code> con cuatro parámetros dibuja la línea en 2D. Para darle color a una línea, usa la función <a href=\"#/p5/stroke\">stroke()</a>. Una línea no puede ser rellenada, por lo que la función <a href=\"#/p5/fill\">fill()</a> no afectará el color de una línea. Las líneas 2D son dibujadas con una ancho de un pixel (1px) por defecto, pero esto puede ser cambiado con la función <a href=\"#/p5/strokeWeight\">strokeWeight()</a>.",
+        "La versión de <code>line()</code> con seis parámetros permite dibujar una línea 3D. Para esto, se necesita añadir el argumento <code>WEBGL</code> a la función <a href=\"#/p5/createCanvas\">createCanvas()</a>."
       ],
       "params": {
         "x1": "Número: coordenada x del primer punto.",
@@ -380,7 +382,9 @@
     },
     "point": {
       "description": [
-        "Dibuja un punto, una coordenada en el espacio de un pixel de dimensión. El primer parámetro es la coordenada horizontal del punto, el segundo valor es la coordenada vertical del punto. El color del punto es determinado por el trazado actual con la función stroke()."
+        "Dibuja un punto, una coordenada en el espacio en pantalla. Por defecto, su tamaño es de un pixel (1px). Los primeros dos parámetros son las coordenadas en el eje de <code>x</code> y el eje de <code>y</code>, respectivamente. Para darle color a un punto, utiliza la función <a href=\"#/p5/stroke\">stroke()</a>. Para cambiar el tamaño, utiliza la función <a href=\"#/p5/strokeWeight\">strokeWeight()</a>.",
+        "La versión de <code>point()</code> con tres parámetros permite dibujar un punto en 3D. Para esto, se necesita añadir el argumento <code>WEBGL</code> a la función <a href=\"#/p5/createCanvas\">createCanvas()</a>.",
+        "La versión de <code>point()</code> con un solo parámetro permite establecer la ubicación de un punto utilizando un objeto <a href=\"#/p5.Vector\">p5.Vector</a>."
       ],
       "params": {
         "x": "Número: coordenada x.",
@@ -391,7 +395,8 @@
     },
     "quad": {
       "description": [
-        "Dibuja un cuadrilátero, un polígono de cuatro lados. Es similar a un rectángulo, pero los ángulos entre sus bordes no están limitados a noventa grados. El primer par de parámetros (x1, y1) corresponde a las coordenadas del primer vértice y los pares siguientes deben seguir en el mismo orden, según las manecillas del reloj o en contra, alrededor de la figura a definir."
+        "Dibuja un cuadrilátero (un polígono de cuatro lados) en pantalla. Es similar a un rectángulo, pero los ángulos entre sus bordes no están limitados a noventa grados. Ejemplos de cuadriláteros son: rectángulos, cuadrados, rombos, y trapecios. El primer par de parámetros (<code>x1</code>, <code>y1</code>) corresponde a las coordenadas del primer vértice y los pares siguientes de parámetros establecen sus otros tres vértices. Los parámetros deben seguir en el mismo orden, según las manecillas del reloj o en contra, alrededor de la figura.",
+        "La versión de <code>quad()</code> con doce parámetros permite dibujar un cuadrilátero en 3D. Para esto, se necesita añadir el argumento <code>WEBGL</code> a la función <a href=\"#/p5/createCanvas\">createCanvas()</a>."
       ],
       "params": {
         "x1": "Número: coordenada x del primer punto.",
@@ -412,8 +417,9 @@
     },
     "rect": {
       "description": [
-        "Dibuja un rectángulo en la pantalla. Un rectángulo es una figura de cuatro lados con cada ángulo interior de noventa grados. Por defecto, los dos primeros parámetros definen la ubicación de la esquina superior izquierda, el tercero el ancho y el cuarto la altura. La manera en que estos parámetros son interpretados, sin embargo, puede ser cambiado con la función rectMode(). Los parámetros quinto, sexto, séptimo y octavo, si son especificados, determinan el radio de la esquina superior derecha, superior izquierda, inferior derecha e inferior izquierda, respectivamente. Si se omite un parámetro de radio de esquina, se usa el radio especificado por el valor anterior en la lista.",
-        "The fifth, sixth, seventh and eighth parameters, if specified, determine corner radius for the top-left, top-right, lower-right and lower-left corners, respectively. An omitted corner radius parameter is set to the value of the previously specified radius value in the parameter list."
+        "Dibuja un rectángulo en la pantalla. Un rectángulo es un polígono de cuatro lados con cada ángulo interior de noventa grados. Por defecto, los primeros dos parámetros (<code>x</code>, <code>y</code>) definen la ubicación de la esquina superior izquierda. El tercer parámetro (<code>w</code>) define el ancho y el cuarto (<code>h</code>) la altura. La manera en que se interpretan los parámetros puede ser cambiado con la función <a href=\"#/p5/rectMode\">rectMode()</a>.",
+        "La versión de <code>rect()</code> con cinco parámetros forma un rectángulo redondeado. El quinto parámetro se utiliza como el valor de radio para las cuatro esquinas.",
+        "La versión de <code>rect()</code> con ocho parámetros forma un rectángulo redondeado. Cuando se usan ocho parámetros, los parámetros quinto, sexto, séptimo y octavo determinan el valor del radio de la esquina superior izquierda, superior derecha, inferior derecha e inferior izquierda, respectivamente (a favor de las manecillas del reloj). Si se omite un parámetro de radio de esquina, se usa el último valor especificado en la lista de parámetros."
       ],
       "params": {
         "x": "Número: coordenada x del rectángulo.",
@@ -430,8 +436,10 @@
     },
     "square": {
       "description": [
-        "Dibuja un cuadrado en la pantalla. Un cuadrado es una forma de cuatro lados con cada ángulo a noventa grados y con los lados de un mismo tamaño. Esta función es un caso especial de la función rect(), donde el ancho y el alto son iguales y el parámetro se llama \"s\" para el tamaño del lado. De forma predeterminada, los dos primeros parámetros establecen la ubicación de la esquina superior izquierda, el tercero establece el tamaño de los lados del cuadrado. La forma en que se interpretan estos parámetros se puede cambiar con la función <a href=\"#/p5/rectMode\">rectMode()</a>.",
-        "Los parámetros cuarto, quinto, sexto y séptimo, si se especifican, determinan el radio de esquina para las esquinas superior izquierda, superior derecha, inferior derecha e inferior izquierda, respectivamente. Un parámetro de radio de esquina omitido se establece con el valor de radio previamente especificado en la lista de parámetros."
+        "Dibuja un cuadrado en la pantalla. Un cuadrado es un polígono de cuatro lados con cada ángulo a noventa grados y con los lados de el mismo tamaño. Por defecto, los primeros dos parámetros (<code>x</code>, <code>y</code>) establecen la ubicación de la esquina superior izquierda del cuadrado. El tercer parámetro (<code>s</code>) establece el tamaño de los lados del cuadrado. La forma en que se interpretan estos parámetros se puede cambiar con la función <a href=\"#/p5/rectMode\">rectMode()</a>.",
+        "La versión de <code>square()</code> con cuatro parámetros forma un cuadrado redondeado. El cuarto parámetro se utiliza como el valor de radio para las cuatro esquinas.",
+        "La versión de <code>square()</code> con siete parámetros forma un cuadrado redondeado. Cuando se usan siete parámetros, los parámetros cuarto, quinto, sexto, y séptimo determinan el valor del radio de la esquina superior izquierda, superior derecha, inferior derecha e inferior izquierda, respectivamente (a favor de las manecillas del reloj). Si se omite un parámetro de radio de esquina, se usa el último valor especificado en la lista de parámetros.",
+        "Esta función es un caso especial de la función <a href=\"#/p5/rect\">rect()</a>, donde el ancho y el alto del cuadrilátero son iguales."
       ],
       "params": {
         "x": "Number: x-coordinate of the square.",
@@ -445,7 +453,7 @@
     },
     "triangle": {
       "description": [
-        "Un triángulo es un plano creado por la conexión de tres puntos. Los primeros dos argumentos especifican el primer punto, los parámetros centrales especifican el segundo punto, y los dos últimos parámetros especifican el tercer punto."
+        "Dibuja un triángulo en la pantalla. Un triángulo es un polígono creado por la conexión de tres puntos. Los primeros dos parámetros especifican el primer punto (<code>x1</code>, <code>y1</code>), los dos parámetros centrales especifican el segundo punto (<code>x2</code>, <code>y2</code>), y los últimos dos parámetros especifican el tercer punto (<code>x3</code>, <code>y3</code>)."
       ],
       "params": {
         "x1": "Número: coordenada x del primer punto.",
