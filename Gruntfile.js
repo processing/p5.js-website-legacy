@@ -410,12 +410,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-htmlhint');
 
-  // i18n tracking task
-  grunt.registerTask('i18n', function() {
-    var done = this.async();
-    require('./i18n.js')(done);
-  });
-
   grunt.registerTask('make_tmp_dir', function() {
     const tmp_path = 'tmp/p5.js';
     fse.mkdirpSync(tmp_path);
@@ -500,7 +494,6 @@ module.exports = function(grunt) {
     'assemble',
     'file_append',
     'compress',
-    'i18n',
     'htmlhint'
   ]);
 

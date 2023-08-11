@@ -157,7 +157,7 @@ textarea {
 
 #logo_image {
     position: absolute;
-    top: 0;
+    top: 0;         
 }
 
 #menu.top_menu,
@@ -271,6 +271,7 @@ textarea {
 /* <======== Styling for footer menu bar ========> */
 #footer-menu {
     display: flex;   
+    flex-wrap: wrap;
     list-style: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 1em;
@@ -281,7 +282,26 @@ textarea {
 #footer-menu li {
    margin-right: 1em;
 }
-#footer-menu a {
+
+#footer-menu a{
+    color: #ed225d;
+    
+  }
+
+  #footer-menu-socials {
+    display: flex;   
+    flex-wrap: wrap;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    padding-top: 1em;
+    border-bottom: 0.11em dashed transparent;
+}
+
+#footer-menu-socials li {
+   margin-right: 1em;
+}
+#footer-menu-socials a{
     color: #ed225d;
     
   }
@@ -324,6 +344,7 @@ textarea {
     font-size: 25px;
     padding: 5px;
     opacity: 0;
+    cursor: default;
 }
 
 #skip-to-content:focus {
@@ -653,7 +674,7 @@ div.reference-subgroup {
     position: relative;
     left: 1em;
     padding-top: 0;
-    margin-top: 1rem;
+    margin-top: 3rem;
     border: none;
     width: 30.5em;
     max-width: 100%;
@@ -679,6 +700,7 @@ div.reference-subgroup {
 
 .example-content .edit_space ul {
     display: flex;
+    flex-wrap: wrap-reverse;
     flex-direction: row-reverse;
     position: relative;
     pointer-events: none;
@@ -700,6 +722,12 @@ div.reference-subgroup {
     border-color: rgba(45, 123, 182, 0.25);
 }
 
+.example-content .edit_space ul li button:focus {
+    color: #2d7bb6;
+    border: 2px dotted;
+    border-color: rgba(45, 123, 182, 0.25);
+}
+
 .example-content .edit_space .edit_area {
     position: absolute;
     top: 0.5em;
@@ -711,7 +739,6 @@ div.reference-subgroup {
     padding: 1.5em 0.5em 0.5em 0.5em;
     font-size: 15pt;
 }
-
 .display_button {
     margin-bottom: 2em;
     font-family: 'Montserrat', sans-serif;
@@ -720,6 +747,17 @@ div.reference-subgroup {
     border: 1px solid rgba(45, 123, 182, 0.25);
     background: transparent;
     outline: none;
+}
+
+.sketchTabInstructions {
+    flex-grow: 1;
+    font-family: 'Montserrat', sans-serif;
+    color: #CCC;
+    font-size: 1em;
+    font-style: italic;
+    margin-left: 120px;
+    margin-right: 1em;
+    margin-top: .25em;
 }
 
 .example-content .example_container {
@@ -1427,6 +1465,14 @@ h2.featuring {
 #showcase-page code {
     font-size: 1.1rem;
 }
+
+/* ==========================================================================
+    COMMUNITY PAGE
+   ========================================================================== */
+
+   .email-octopus-form-wrapper label {
+    font-size: 1.2em;
+  }
 
 
 /* ==========================================================================
@@ -2288,7 +2334,8 @@ p + img {
 }
 
 #lockup a:focus {
-    outline: 0;
+    outline: active;
+    outline-style: dotted;
 }
 
 .logo {
@@ -2898,6 +2945,13 @@ iframe {
     color: #696969;
     z-index: 5;
 }
+
+#i18n-btn a:focus {
+    color: #ed225d;
+    outline: active;
+    outline-style: dotted;
+}
+
 
 #i18n-btn a:hover {
     color: #ed225d;
