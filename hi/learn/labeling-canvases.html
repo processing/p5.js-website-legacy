@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="no-js" lang="hi">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="p5.js a JS client-side library for creating graphic and interactive experiences, based on the core principles of Processing.">
+    <title tabindex="1">learn | p5.js</title>
+    <link rel="stylesheet" href="/assets/css/all.css?v=618ad0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../../../assets/img/favicon.ico">
+    <link rel="icon" href="/../../../assets/img/favicon.ico">
+
+
+    <script src="/../../../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/../../../assets/js/vendor/ace-nc/ace.js"></script>
+    <script src="/../../../assets/js/vendor/ace-nc/mode-javascript.js"></script>
+    <script src="/../../../assets/js/vendor/prism.js"></script>
+    <script src="/assets/js/init.js?v=97b4f7"></script>
+
+
+  </head>
+  <body>
+
+    
+    <!-- p5*js language buttons -->
+    <div id="i18n-btn">
+      <h2 id="i18n-settings" class="sr-only">Language Settings</h2>
+      <ul id="i18n-buttons" aria-labelledby="i18n-settings">
+        <li><a href='#' lang='en' data-lang='en'>English</a></li>
+        <li><a href='#' lang='es' data-lang='es'>Español</a></li>
+        <li><a href='#' lang='zh-Hans' data-lang='zh-Hans'>简体中文</a></li>
+        <li><a href='#' lang='ko' data-lang='ko'>한국어</a></li>
+        <li><a href='#' lang='hi' data-lang='hi'>हिन्दी</a></li>
+      </ul>
+    </div>    <!-- .container -->
+    <div class="container">
+
+      <!-- logo -->
+      <header id="lockup">
+        <a href="/hi/">
+          <img src="/../../../assets/img/p5js.svg" alt="p5 homepage" id="logo_image" class="logo" />
+          <div id="p5_logo"></div>
+        </a>
+      </header>
+      <!-- close logo -->
+
+      
+
+<div id="learn-page">
+
+  
+  <!-- site navigation -->
+  <div class="column-span">
+    <nav class="sidebar-menu-nav-element">
+      <h2 id="menu-title" class="sr-only">Site Navigation</h2>
+      <input class="sidebar-menu-btn" type="checkbox" id="sidebar-menu-btn" />
+      <label class="sidebar-menu-icon" for="sidebar-menu-btn"><span class="sidebar-nav-icon"></span></label>
+      <ul id="menu" class="sidebar-menu" aria-labelledby="menu-title">
+        <li><a href="/hi/">सभी</a></li>
+        <li><a href="https://editor.p5js.org">एडीटर</a></li>
+        <li><a href="/hi/download/">डाउनलोड</a></li>
+        <li><a href="/hi/download/support.html">दान दिजिये</a></li>
+        <li><a href="/hi/get-started/">आरंभ करें</a></li>
+        <li><a href="/hi/reference/">संदर्भ</a></li>
+        <li><a href="/hi/libraries/">लाइब्रिरी</a></li>
+        <li><a href="/hi/learn/">सीखिए</a></li>
+        <li><a href="/hi/teach/">सिखाना</a></li>
+        <li><a href="/hi/examples/">उदाहरण</a></li>
+        <li><a href="https://p5js.org/contributor-docs/#/">योगदान कीजिये</a></li>
+        <li><a href="/hi/books/">पुस्तकें</a></li>
+        <li><a href="/hi/community/">समुदाय</a></li>
+        <li><a href="https://showcase.p5js.org">प्रदर्शन</a></li>
+  
+      </ul>
+    </nav>
+  </div>
+
+  <div class="column-span">
+
+    <main >
+
+      <h1>How to label your p5.js code</h1>
+
+      <p>This tutorial will teach you how to use the <a class = "code" href="/hi/reference/#/p5/describe">describe()</a>, 
+      <a class = "code" href="/hi/reference/#/p5/describeElement">describeElement()</a>, <a class = "code" href="/hi/reference/#/p5/gridOutput">gridOutput()</a>, 
+      and <a class = "code" href="/hi/reference/#/p5/textOutput">textOutput()</a> functions in your code so your canvases are readible by screen readers and other assistive technology.</p>
+
+      <h2>What is screen reader labeling?</h2>
+      <p>The canvas HTML element compresses the visuals created by your p5 code into a bitmap (a rastered graphic composed of pixels). This  bitmap on its own doesn't provide any significant meaning or description about its contents to  screen readers. That’s why the p5.js <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a>,  <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>,  and <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> functions exist— these allow you to manually add screen reader-accessible descriptions to your  code so that screen reader technologies can describe the canvas’ content in a meaningful way.</p>
+      <p>Because a screen reader cannot naturally interpret the contents of a canvas bitmap, these functions  add labels into your code that instruct the screen reader on how to describe certain elements within your canvas.</p>
+      <p>For more information about p5.js screen reader accessibility, please read  <a href="/hi/learn/p5-screen-reader.html">Using p5 with a screen reader</a>.</p>
+
+      <h2>Screen reader labels for p5.js</h2>
+      <p>p5.js offers four different functions for labeling your canvas:</p>
+      <ul class="list_view">
+        <li><a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a> provides an overall description of the canvas contents. This function's parameters include: <span class= "code">text</span>,  which affords a string of text for the label; and <span class = "code">display</span>, an optional parameter to set the visibility of the label.</li>
+        <li><a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> describes a specific element or a specific grouping of elements in a canvas.  This function's parameters include: <span class = "code">name</span>, which affords a string naming the element described; <span class = "code">text</span>, which affords a string of text as the label description;  and <span class="code">display</span>, an optional parameter to set the visibility of the label.</li>
+        <li><a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> generates a list providing a canvas description and its visual elements, including the canvas' size,  canvas color, as well as each visual element’s color, position, and the amount of area the element covers within the canvas. This function's only parameter is <span class = "code">display</span>, which is an optional  parameter to set the visibility of the label.</li>
+        <li><a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, like <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a>, generates a list of the canvas and its (visual) elements, only this function  arranges its output in a HTML table that plots the spatial location of each shape within the canvas. It also provides a basic  description of the canvas, including the canvas' size, canvas color, the number of visual elements, and the different visual element types inside the canvas. This function's only parameter is <span class = "code">display</span>, which is an optional  parameter to set the visibility of the label.</li>
+      </ul>
+
+      <h2>Labeling best practices</h2>
+
+      <h3>What requires labeling?</h3>
+      <p>As a good rule of thumb, any visual element that is important to the overall context or purpose  of the canvas should be mentioned by the <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a> and/or <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> functions.</p>
+      <p>Consider the overall purpose of the p5.js canvas and its contents in question, and label them in a way that makes  sense for the message, functionality, and/or purpose of the canvas and its elements. In the code block below, a heart is made within the canvas by placing two circles on top of a triangle.  Instead of individually labeling each shape used to make the heart, you should use one <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> function to describe  the overall shape you made.</p>
+
+
+      <!-- Code example below copied from Reference page: https://p5js.org/reference/#/p5/describe-->
+
+      <script type="text/p5" data-p5-version="1.7.0">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(255,192,203);
+  noStroke();
+  fill(200,0,0);
+  
+  describeElement("Heart","Red heart in the bottom right corner.");
+  ellipse(67, 67, 20, 20);
+  ellipse(83, 67, 20, 20);
+  triangle(91, 73, 75, 95, 59, 73);
+}
+</script>
+
+      <p>If, at any point, an element in your canvas undergoes a change or alteration in its visual appearance (and this change is  important to the overall meaning and context of the canvas), it’s best to also update the <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> label when that  change occurs.</p>
+      <p>The canvas HTML element will also rasterize any text within it. Use the <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> function to translate any significant  text within your canvas.</p>
+
+      <script type="text/p5" data-p5-version="1.7.0">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(255,192,203);
+  noStroke();
+  fill(200,0,0);
+  
+  textSize(12);
+  textStyle(NORMAL);
+  describeElement("Text", "The text 'Hello world!' in the upper left corner of a pink canvas.'");
+  text('Hello world!', 5, 30);
+}
+</script>
+
+      <p>In short, any significant visual, textual, or animated information within the canvas should be labeled with a screen reader label.</p>
+
+      <h3>What DOESN'T need labeling</h3>
+      <p>Individual interactive elements, such as HTML buttons, dropdowns, or inputs, <i>do not</i> need to be labeled.  In the DOM, these elements are built outside of the p5.js canvas, and therefore can be interpreted by screen readers.</p>
+      <p>This means the <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> and <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> functions will not provide any information about these interactive inputs in their  reports of the canvas, should you use them.</p>
+
+      <h3>How to use labels</h3>
+
+      <h4>For all canvases</h4>
+      <p>No matter the canvas’ purpose or contents, you should <i>always</i> use a label to supply an overall summary of the canvas. Most often,  you’ll use the <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a> function for this summary.</p>
+
+      <script type="text/p5" data-p5-version="1.7.0">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(250);
+  noStroke();
+  
+  describe("Flower with red petals and a green stem on a white canvas.");
+
+  fill("#0DCC23");
+  rect(48, 50, 5, 50);
+  
+  fill(200,0,0);
+  ellipse(40, 55, 18);
+  ellipse(40, 45, 18);
+  ellipse(50, 40, 18);
+  ellipse(60, 55, 18);
+  ellipse(60, 45, 18);
+  ellipse(50, 60, 18);
+
+  fill("#FFE200");
+  ellipse(50,50,15);
+}
+</script>
+
+      <p>The summary should provide a general understanding of the visuals inside the canvas.</p>
+
+      <h4>For simple, non-animated canvases</h4>
+      <p>For canvases without any changing, moving, or interactive elements, you may use either the <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,  <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, or <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a>  functions to label the canvas’ visual content. However, keep in mind that <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> and <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> generate their information based on  the rudimentary code of the visual element, such as its size, color, and shape. These functions won’t be able to interpret your  intention in using such a shape within a larger visual built using multiple shapes.</p>
+
+      <script type="text/p5" data-p5-version="1.7.0">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(250);
+  noStroke();
+  
+  textOutput(LABEL);
+
+  fill("#0DCC23");
+  rect(48, 50, 5, 50);
+  
+  fill(200,0,0);
+  ellipse(40, 55, 18);
+  ellipse(40, 45, 18);
+  ellipse(50, 40, 18);
+  ellipse(60, 55, 18);
+  ellipse(60, 45, 18);
+  ellipse(50, 60, 18);
+
+  fill("#FFE200");
+  ellipse(50,50,15);
+}
+</script>
+
+      <p>Keep in mind the context and objective of the canvas’ contents when choosing which function(s) to use. Is it better to describe the flower  as eight circles and a rectangle, or as a flower with red petals and a green stem? What kind of labeling will provide the best  description of your canvas?</p>
+      <p>If you are creating larger, multi-shaped visuals, then it would be best to use <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> to define each visual grouping  present within the canvas.</p>
+
+      <h4>For interactive or animated canvases</h4>
+      <p>If your canvas contains any animated elements or elements that change their visual form via user input (the click of a button, a  dropdown selection, etc.), be sure that any descriptions of such elements update with their changes or animations. If you are using  <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> or <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> to describe the contents of your canvas, so long as these functions are placed within the <a class = "code" href ="https://p5js.org/reference/#/p5/draw">draw()</a> function, they  will automatically update with the shape’s new information. If you are using <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, use concatenation or another form of  variable input to update the element’s description.</p>
+
+      <!-- Code example below copied from Reference page: https://p5js.org/reference/#/p5/describe-->
+      
+      <script type="text/p5" data-p5-version="1.7.0">
+let x = 0;
+
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  if (x > 100) {
+    x = 0;
+  }
+  background(220);
+  fill(0, 255, 0);
+  ellipse(x, 50, 40, 40);
+  x = x + 0.1;
+  describe('green circle at x pos ' + round(x) + ' moving to the right', LABEL);
+}
+</script>
+
+      <p>If this interaction or animation is crucial to the overall purpose and/or message of the canvas, be sure to mention in either the <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a>  label or the individual element’s label that this element is (or can be) animated.</p>
+      <p>Naturally-interactive HTML elements, such as buttons or inputs, <i>do not</i> need to have a label. Instead, follow the proper role and ID  syntax for these elements when possible. For more information about how to properly label and ID HTML  interactive elements, visit <a href= "https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML">Mozilla’s HTML: A good basis for accessibility</a>.</p>
+
+      <h4>For complex canvases</h4>
+      <p>The p5 functions listed above do not afford the more complicated features of ARIA labeling, such as <span class="code">aria-live</span> or <span class="code">aria-atomic</span>.  For advanced canvases, using vanilla ARIA labeling and custom-built fallback content might better convey the canvas’  information to screen readers. Some cases where the canvas’ content cannot be accurately described (or represented) through p5.js’ supplied  screen reader labels include:</p>
+
+      <ul class="list_view">
+        <li>Canvases with content that changes extensively via external interactive elements.</li>
+        <li>Canvases with content that requires the user’s attention if it is changed or altered by another element, especially if that element is not  embedded in the canvas’ code.</li>
+        <li>Canvases with complex element layouts that cannot be accurately represented using the <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a>, <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,  <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a>, or <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions.</li>
+      </ul>
+      <p>For more information about fallback content, visit <a href="https://www.w3.org/html/wg/wiki/DefinitionFallBackContent">W3C’s Wiki</a>. For more information about complex ARIA labeling,  visit <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes">Mozilla’s ARIA states and properties</a>.</p>
+
+      <h3>How NOT to use labels</h3>
+
+      <h4>As a substitution for poorly organized code</h4>
+      <p>Screen reader labels should not be used as a way of commenting your code. These labels  should only be used to summarize the resulting visual elements within a canvas.</p>
+
+      <h4>As information overkill</h4>
+      <p>If you overuse screen reader labels in your code, you may end up overly complicating the screen reader’s interpretation of the canvas rather than helping it.</p>
+      <p>Within reason, less is more with screen reader labeling. Be concise, accurate, and short with your label descriptions.</p>
+      <p>Do not use both the <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> and <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions in the same canvas. You only need to use one or the other to describe the canvas elements.  Using both will cause redundancy in the screen readers’ translation of your code. This also pertains to using <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> or  <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> with additional <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> labels. It’s best to choose one strategy of labeling for your entire canvas, and stick with it.</p>
+
+      <h2>Testing labels during development</h2>
+      <p>All these functions have a display parameter that either keeps its output only available to screen readers <span class="code">(FALLBACK)</span> or presents the output as text  adjacent to the canvas <span class="code">(LABEL)</span>. If you would like to see the output during development, add <span class="code">LABEL</span> as the last parameter for the function. <span class="code">FALLBACK</span> is the default parameter.</p>
+
+      <script type="text/p5" data-p5-version="1.7.0">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  gridOutput(LABEL);
+  
+  background(255,192,203);
+  noStroke();
+  fill(200,0,0);
+  
+  ellipse(67, 67, 20, 20);
+  ellipse(83, 67, 20, 20);
+  triangle(91, 73, 75, 95, 59, 73);
+}
+</script>
+
+      <p>When testing your labels, consider the following questions: Do your canvas labels provide enough information for someone to understand its purpose? If this canvas  exists on a website, or among any other content, would someone have a good understanding of how the canvas’ content interacts and/or pertains to the surrounding context?</p>
+      <p>In order to reduce redundancy, be sure to reset the display parameter to <span class="code">FALLBACK</span> once you’ve tested the output. With <span class="code">LABEL</span> active, screen readers will read the fallback text  and the visible label text when focused on the canvas.</p>
+      <br>
+      <p>Notice any errors or typos? Please let us know. If you would like to contribute to this tutorial, feel free to issue a <a href = "https://github.com/processing/p5.js-website">pull request</a>!</p>
+
+<!-- this script only needs to get added once even if there are multiple widget instances -->
+<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+    </main>
+
+    
+    <footer>
+        <h2 class="sr-only">आभार सूची</h2>
+        <ul id="footer-menu-socials" aria-labelledby="menu-title">   
+          <li><a href="https://discourse.processing.org/c/p5js" target=_blank class="other-link">फोरम</a></li>
+          <li><a href="http://github.com/processing/p5.js" target=_blank class="other-link">GitHub</a></li>
+          <li><a href="http://twitter.com/p5xjs" target=_blank class="other-link">Twitter</a></li>
+          <li><a href="https://www.instagram.com/p5xjs/" target=_blank class="other-link">Instagram</a></li>
+          <li><a href="https://discord.gg/SHQ8dH25r9" target=_blank class="other-link">Discord</a></li>
+        </ul>  
+    
+        <ul id="footer-menu" aria-labelledby="menu-title">   
+          <li><a href="/hi/">सभी</a></li>
+          <li><a href="https://editor.p5js.org">एडीटर</a></li>
+          <li><a href="/hi/download/">डाउनलोड</a></li>
+          <li><a href="/hi/download/support.html">दान दिजिये</a></li>
+          <li><a href="/hi/get-started/">आरंभ करें</a></li>
+          <li><a href="/hi/reference/">संदर्भ</a></li>
+          <li><a href="/hi/libraries/">लाइब्रिरी</a></li>
+          <li><a href="/hi/learn/">सीखिए</a></li>
+          <li><a href="/hi/teach/">सिखाना</a></li>
+          <li><a href="/hi/examples/">उदाहरण</a></li>
+          <li><a href="https://p5js.org/contributor-docs/#/">योगदान कीजिये</a></li>
+          <li><a href="/hi/books/">पुस्तकें</a></li>
+          <li><a href="/hi/community/">समुदाय</a></li>
+          <li><a href="https://showcase.p5js.org">प्रदर्शन</a></li>
+        </ul>  
+        
+        <p>
+             वर्तमान में p5.js का नेतृत्व करने वाले <a href='http://qianqian-ye.com/' target="_blank">Qianqian Ye</a> हैं| इसकी खोज करने वाले थे <a href='https://lauren-mccarthy.com' target="_blank">Lauren Lee McCarthy</a> p5.js सहयोगियों के एक समुदाय द्वारा विकसित किया गया है और समर्थन करने वाले थे <a href="https://processingfoundation.org/" target="_blank">Processing Foundation</a> और <a href="https://itp.nyu.edu/itp/" target="_blank">NYU ITP</a> पहचान और ग्राफिक डिजाइन करने वाले थे <a href="https://jereljohnson.com/" target="_blank">Jerel Johnson</a>. <a href="/hi/copyright.html">&copy; Info</a>.
+        </p>
+    </footer>
+
+  </div> <!-- end column-span -->
+
+  
+  <!-- outside of column for footer to go across both -->
+  
+  <p class="clearfix"> &nbsp; </p>
+  
+  <object type="image/svg+xml" data="../../../assets/img/thick-asterisk-alone.svg" id="asterisk-design-element" aria-hidden="true">
+  </object>
+
+</div><!-- end id="get-started-page"  -->
+
+    </div> <!-- close class='container'-->
+
+    
+    <nav id="family" aria-labelledby="processing-sites-heading">
+      <h2 id="processing-sites-heading" class="sr-only">Processing Sister Sites</h2>
+      <ul id="processing-sites" aria-labelledby="processing-sites-heading">
+        <li><a href="https://processing.org">Processing</a></li>
+        <li><a class="here" href="/hi/">p5.js</a></li>
+        <li><a href="https://py.processing.org/">Processing.py</a></li>
+        <li><a href="https://android.processing.org/">Processing for Android</a></li>
+        <li><a href="https://pi.processing.org/">Processing for Pi</a></li>
+        <li><a href="https://processingfoundation.org/">Processing Foundation</a></li>
+      </ul>
+      <a tabindex="1" href="#content" id="skip-to-content">Skip to main content</a>
+    
+    
+    </nav>
+    <script>
+    var langs = ["en","es","hi","ko","zh-Hans"];
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53383000-1', 'auto');
+    ga('send', 'pageview');
+
+    $(window).ready(function() {
+      if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        $('#top').remove();
+      } else {
+        $('#top').show();
+      }
+    });
+    </script>
+
+
+  </body>
+</html>
