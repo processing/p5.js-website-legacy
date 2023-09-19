@@ -1,0 +1,237 @@
+---
+title: learn
+slug: learn/
+---
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main >
+
+      <h1>{{#i18n "labeling-canvases-title"}}{{/i18n}}</h1>
+
+      <p>{{#i18n "labeling-canvases-intro-1"}}{{/i18n}} <a class = "code" href="{{root}}/reference/#/p5/describe">describe()</a>, 
+      <a class = "code" href="{{root}}/reference/#/p5/describeElement">describeElement()</a>, <a class = "code" href="{{root}}/reference/#/p5/gridOutput">gridOutput()</a>, 
+      {{#i18n "labeling-canvases-intro-2"}}{{/i18n}} <a class = "code" href="{{root}}/reference/#/p5/textOutput">textOutput()</a> {{#i18n "labeling-canvases-intro-3"}}{{/i18n}}</p>
+
+      <h2>{{#i18n "labeling-canvases-what-is-labeling"}}{{/i18n}}</h2>
+      <p>{{#i18n "labeling-canvases-what-is-labeling-1"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-what-is-labeling-2"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-what-is-labeling-3"}}{{/i18n}} <a href="{{root}}/learn/p5-screen-reader.html">Using p5 with a screen reader</a>.</p>
+
+      <h2>{{#i18n "labeling-canvases-available-labels"}}{{/i18n}}</h2>
+      <p>{{#i18n "labeling-canvases-available-labels-1"}}{{/i18n}}:</p>
+      <ul class="list_view">
+        <li>{{#i18n "labeling-canvases-available-labels-li-1"}}{{/i18n}}</li>
+        <li>{{#i18n "labeling-canvases-available-labels-li-2"}}{{/i18n}}</li>
+        <li>{{#i18n "labeling-canvases-available-labels-li-3"}}{{/i18n}}</li>
+        <li>{{#i18n "labeling-canvases-available-labels-li-4"}}{{/i18n}}</li>
+      </ul>
+
+      <h2>{{#i18n "labeling-canvases-best-practices"}}{{/i18n}}</h2>
+
+      <h3>{{#i18n "labeling-canvases-best-practices-what-requires-labeling"}}{{/i18n}}</h3>
+      <p>{{#i18n "labeling-canvases-best-practices-what-requires-labeling-1"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-best-practices-what-requires-labeling-2"}}{{/i18n}}</p>
+
+
+      <!-- Code example below copied from Reference page: https://p5js.org/reference/#/p5/describe-->
+
+      <script type="text/p5" data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(255,192,203);
+  noStroke();
+  fill(200,0,0);
+  
+  describeElement("Heart","Red heart in the bottom right corner.");
+  ellipse(67, 67, 20, 20);
+  ellipse(83, 67, 20, 20);
+  triangle(91, 73, 75, 95, 59, 73);
+}
+</script>
+
+      <p>{{#i18n "labeling-canvases-best-practices-what-requires-labeling-3"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-best-practices-what-requires-labeling-4"}}{{/i18n}}</p>
+
+      <script type="text/p5" data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(255,192,203);
+  noStroke();
+  fill(200,0,0);
+  
+  textSize(12);
+  textStyle(NORMAL);
+  describeElement("Text", "The text 'Hello world!' in the upper left corner of a pink canvas.'");
+  text('Hello world!', 5, 30);
+}
+</script>
+
+      <p>{{#i18n "labeling-canvases-best-practices-what-requires-labeling-5"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "labeling-canvases-best-practices-dont-label"}}{{/i18n}}</h3>
+      <p>{{#i18n "labeling-canvases-best-practices-dont-label-1"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-best-practices-dont-label-2"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "labeling-canvases-best-practices-using-labels"}}{{/i18n}}</h3>
+
+      <h4>{{#i18n "labeling-canvases-best-practices-using-labels-all-canvases"}}{{/i18n}}</h4>
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-all-canvases-1"}}{{/i18n}}</p>
+
+      <script type="text/p5" data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(250);
+  noStroke();
+  
+  describe("Flower with red petals and a green stem on a white canvas.");
+
+  fill("#0DCC23");
+  rect(48, 50, 5, 50);
+  
+  fill(200,0,0);
+  ellipse(40, 55, 18);
+  ellipse(40, 45, 18);
+  ellipse(50, 40, 18);
+  ellipse(60, 55, 18);
+  ellipse(60, 45, 18);
+  ellipse(50, 60, 18);
+
+  fill("#FFE200");
+  ellipse(50,50,15);
+}
+</script>
+
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-all-canvases-2"}}{{/i18n}}</p>
+
+      <h4>{{#i18n "labeling-canvases-best-practices-using-labels-simple"}}{{/i18n}}</h4>
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-simple-1"}}{{/i18n}}</p>
+
+      <script type="text/p5" data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  background(250);
+  noStroke();
+  
+  textOutput(LABEL);
+
+  fill("#0DCC23");
+  rect(48, 50, 5, 50);
+  
+  fill(200,0,0);
+  ellipse(40, 55, 18);
+  ellipse(40, 45, 18);
+  ellipse(50, 40, 18);
+  ellipse(60, 55, 18);
+  ellipse(60, 45, 18);
+  ellipse(50, 60, 18);
+
+  fill("#FFE200");
+  ellipse(50,50,15);
+}
+</script>
+
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-simple-2"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-simple-3"}}{{/i18n}}</p>
+
+      <h4>{{#i18n "labeling-canvases-best-practices-using-labels-interactive"}}{{/i18n}}</h4>
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-interactive-1"}}{{/i18n}}</p>
+
+      <!-- Code example below copied from Reference page: https://p5js.org/reference/#/p5/describe-->
+      
+      <script type="text/p5" data-p5-version="{{ version }}">
+let x = 0;
+
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  if (x > 100) {
+    x = 0;
+  }
+  background(220);
+  fill(0, 255, 0);
+  ellipse(x, 50, 40, 40);
+  x = x + 0.1;
+  describe('green circle at x pos ' + round(x) + ' moving to the right', LABEL);
+}
+</script>
+
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-interactive-2"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-interactive-3"}}{{/i18n}}</p>
+
+      <h4>{{#i18n "labeling-canvases-best-practices-using-labels-complex"}}{{/i18n}}</h4>
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-complex-1"}}{{/i18n}}</p>
+
+      <ul class="list_view">
+        <li>{{#i18n "labeling-canvases-best-practices-using-labels-complex-ul-1"}}{{/i18n}}</li>
+        <li>{{#i18n "labeling-canvases-best-practices-using-labels-complex-ul-2"}}{{/i18n}}</li>
+        <li>{{#i18n "labeling-canvases-best-practices-using-labels-complex-ul-3"}}{{/i18n}}</li>
+      </ul>
+      <p>{{#i18n "labeling-canvases-best-practices-using-labels-complex-2"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "labeling-canvases-how-not-to-use-labels"}}{{/i18n}}</h3>
+
+      <h4>{{#i18n "labeling-canvases-how-not-to-use-labels-sub"}}{{/i18n}}</h4>
+      <p>{{#i18n "labeling-canvases-how-not-to-use-labels-sub-1"}}{{/i18n}}</p>
+
+      <h4>{{#i18n "labeling-canvases-how-not-to-use-labels-info-overkill"}}{{/i18n}}</h4>
+      <p>{{#i18n "labeling-canvases-how-not-to-use-labels-info-overkill-1"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-how-not-to-use-labels-info-overkill-2"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-how-not-to-use-labels-info-overkill-3"}}{{/i18n}}</p>
+
+      <h2>{{#i18n "labeling-canvases-testing-labels"}}{{/i18n}}</h2>
+      <p>{{#i18n "labeling-canvases-testing-labels-1"}}{{/i18n}}</p>
+
+      <script type="text/p5" data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(100, 100);
+}
+
+function draw() {
+  gridOutput(LABEL);
+  
+  background(255,192,203);
+  noStroke();
+  fill(200,0,0);
+  
+  ellipse(67, 67, 20, 20);
+  ellipse(83, 67, 20, 20);
+  triangle(91, 73, 75, 95, 59, 73);
+}
+</script>
+
+      <p>{{#i18n "labeling-canvases-testing-labels-2"}}{{/i18n}}</p>
+      <p>{{#i18n "labeling-canvases-testing-labels-3"}}{{/i18n}}</p>
+      <br>
+      <p>{{#i18n "labeling-canvases-note"}}{{/i18n}}</p>
+
+<!-- this script only needs to get added once even if there are multiple widget instances -->
+<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+    </main>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->
