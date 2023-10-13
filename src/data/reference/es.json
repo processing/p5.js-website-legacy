@@ -3,10 +3,10 @@
   "reference-search": "Busca en la API",
   "reference-description1": "¿No encuentras lo que buscas? Quizás debas revisar en",
   "reference-description3": "Puedes descargar una versión de la referencia.",
-  "reference-contribute2": "por favor dinos",
+  "reference-contribute2": "Por favor dinos.",
   "reference-error1": "¿Encontraste algún error?",
-  "reference-error3": "Por favor siéntete libre de",
-  "reference-error5": "y de indicar un pull request.",
+  "reference-error3": "Por favor, siéntete libre de editar",
+  "reference-error5": "y de publicar un pull request.",
   "reference-example": "Ejemplo",
   "reference-description": "Descripción",
   "reference-extends": "Extiende",
@@ -28,7 +28,7 @@
   "DOM": "DOM",
   "Rendering": "Render",
   "Foundation": "Foundation",
-  "Transform": "Transformar",
+  "Transform": "Transformación",
   "Data": "Datos",
   "LocalStorage": "LocalStorage",
   "Dictionary": "Diccionario",
@@ -57,136 +57,136 @@
   "Time & Date": "Tiempo & Fecha",
   "3D Primitives": "Primitivas 3D",
   "Lights, Camera": "Luces, cámara",
-  "Interaction": "Interaction",
+  "Interaction": "Interacción",
   "Lights": "Luces",
   "3D Models": "Modelos 3D",
   "Material": "Materiales",
   "Camera": "Cámara",
   "p5": {
     "description": [
-      "This is the p5 instance constructor.",
-      "A p5 instance holds all the properties and methods related to a p5 sketch. It expects an incoming sketch closure and it can also take an optional node parameter for attaching the generated p5 canvas to a node. The sketch closure takes the newly created p5 instance as its sole argument and may optionally set <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on it for running a sketch.",
-      "A p5 sketch can run in \"global\" or \"instance\" mode: \"global\" - all properties and methods are attached to the window \"instance\" - all properties and methods are bound to this p5 object"
+      "Este es el constructor para una instancia de p5.",
+      "Una instancia de p5 contiene todas la propiedades y métodos relacionados a un boceto de p5. Recibe una clausura (closure) de un boceto y tambien puede tomar un nodo opcional como parametro para adjuntar el lienzo de p5 generado para un nodo. La clausura del boceto toma la recién creada instancia de p5 como su único argumento y podra poner opcionalmente las propiedades <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, y/o <a href=\"#/p5/draw\">draw()</a> en ella para ejecutar el boceto.",
+      "Un boceto de p5 puede correr en los modos \"global\" o \"instance\": \"global\" - todas las propiedades y métodos están adjuntas a la ventana. \"instance\" - todas las propiedades y métodos estan unidos a este objeto de p5."
     ],
-    "returns": "P5: a p5 instance",
+    "returns": "P5: una instancia de p5",
     "params": {
-      "sketch": "Function: a closure that can set optional <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on the  given p5 instance",
-      "node": "HTMLElement: (Optional) element to attach canvas to"
+      "sketch": "Función: una clausura que puede poner opcionalmente las propiedades <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, y/o <a href=\"#/p5/draw\">draw()</a> en la instancia de p5 dada",
+      "node": "HTMLElement: (Opcional) elemento para adjuntar al lienzo"
     },
     "describe": {
       "description": [
-        "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed.",
-        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS.",
-        "<code class=\"language-javascript\">describe(text, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users."
+        "Crea una descripción del lienzo accesible para lectores de pantalla. El primer parametro debera ser una cadena de texto con una descripción del lienzo. El segundo parametro es opcional. Si se especifica, determina como la descripción es mostrada.",
+        "<code class=\"language-javascript\">describe(text, LABEL)</code> muestra la descripción para todos los usuarios como una <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\">lápida o como una etiqueta o leyenda de exhibición</a> en un <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adyacente al lienzo. Puedes estilizarlo como desees en tu CSS.",
+        "<code class=\"language-javascript\">describe(text, FALLBACK)</code> hace a la descripción accesible solo para los usuarios de lectores de pantalla, en <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> un sub DOM dentro del elemento del lienzo</a>. Si un segundo parametro no es especificado, por defecto, la descripción solo estará disponible para usuarios de lectores de pantalla."
       ],
       "params": {
-        "text": "String: description of the canvas",
-        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+        "text": "String: descripción del lienzo",
+        "display": "Constante: (Opcional) ya sea LABEL o FALLBACK (Opcional)"
       }
     },
     "describeElement": {
       "description": [
-        "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed.",
-        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adjacent to the canvas. You can style it as you wish in your CSS.",
-        "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users."
+        "Esta función crear una descripción accesible para los elementos (formas o grupos de formas que juntas crean un sentido) en el lienzo. El primer parametro debe ser el nombre del elemento. El segundo parametro debe ser una cadena de texto con una descripción del elemento. El tercer parametro es opcional. Si se especifica, determina como la descripción del elemento es mostrada.",
+        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> muestra la descripción del elemento a todos los usuarios como <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> lápida o como una etiqueta o leyenda de exhibición</a> en un <code class=\"language-javascript\"><div class=\"p5Label\"></div></code> adyacente al lienzo. Puedes estilizarlo como desees en tu CSS.",
+        "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> hace a la descripción accesible solo para los usuarios de lectores de pantalla, en <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> un sub DOM dentro del elemento del lienzo</a>. Si un segundo parametro no es especificado, por defecto, la descripción solo estará disponible para usuarios de lectores de pantalla."
       ],
       "params": {
-        "name": "String: name of the element",
-        "text": "String: description of the element",
-        "display": "Constant: (Optional) either LABEL or FALLBACK (Optional)"
+        "name": "String: nombre del elemento",
+        "text": "String: descripción del elemento",
+        "display": "Constante: (Opcional) ya sea LABEL o FALLBACK (Opcional)"
       }
     },
     "textOutput": {
       "description": [
-        "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\").",
-        "<code class=\"language-javascript\">textOutput()</code> and <code class=\"language-javascript\">texOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">textOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+        "<code class=\"language-javascript\">textOutput()</code> crea una salida accesible para lectores de pantalla que describe las figuras presentes en el lienzo. La descripción general del lienzo incluye el tamaño del lienzo, su color, y el numero de elementos en el lienzo (por ejemplo: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). Esta descripción es seguida por una lista de formas donde el color, la posición, y el área de cada figura son describidas (por ejemplo: \"orange ellipse at top left covering 1% of the canvas\"). Cada elemento puede ser seleccionado para obtener más detalles. También se provee de una tabla de elementos. En esta tabla la forma, el color, la posición, las coordenadas y el área son descritas (por ejemplo: \"orange ellipse location=top left area=2\"). ",
+        "<code class=\"language-javascript\">textOutput()</code> y <code class=\"language-javascript\">texOutput(FALLBACK)</code> hacen disponible el resultado en <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> un sub DOM dentro del elementos del lienzo</a> el cual es accesible para los lectores de pantalla. <code class=\"language-javascript\">textOutput(LABEL)</code> crea un div adicional con el resultado cerca del lienzo, esto es util para los usuarios que no utilicen lectores de pantalla que podran querer mostrar el resultado afuera del sub DOM del lienzo a medida que programan. Sin embargo, utilizar LABEL creará redundancia innecesaria para los usuario de lectores de pantalla. Recomendamos utilizar LABEL solo como parte del proceso de desarrollo de un boceto y removerlo antes de publicar o compartir con los usuarios de lectores de pantalla."
       ],
       "params": {
-        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+        "display": "Constante: (Opcional) ya sea FALLBACK o LABEL (Opcional)"
       }
     },
     "gridOutput": {
       "description": [
-        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape. A brief description of the canvas is available before the table output. This description includes: color of the background, size of the canvas, number of objects, and object types (example: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). The grid describes the content spatially, each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: \"orange ellipse\"). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, and area are described (example: \"orange ellipse location=top left area=1%\") is also available.",
-        "<code class=\"language-javascript\">gridOutput()</code> and <code class=\"language-javascript\">gridOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">gridOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+        "<code class=\"language-javascript\">gridOutput()</code> establece el contenido del lienzo en la forma de una cuadrícula (tabla de html) basada en la posición espacial de cada figura. Una breve descripción del lienzo esta disponible antes de la tabla resultante. La descripción incluye: el color del fondo, el tamaño del lienzo, el numero de objetos, y los tipos de objeto (por ejemplo: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). La cuadrícula describe el contenido espacialmente, cada elemento es colocado en una celda de la tabla dependiendo su posición. Dentro de cada celda un elemento, el color y el tipo de forma de ese elemento esta disponible (por ejemplo: \"orange ellipse\"). Estas descripciones pueden ser seleccionadas individualmente para obtener más detalles. Tambien esta disponible una lista de elementos donde la forma, el color, la posición, y el área son descritos (por ejemplo: \"orange ellipse location=top left area=1%\").",
+        "<code class=\"language-javascript\">gridOutput()</code> y <code class=\"language-javascript\">gridOutput(FALLBACK)</code> hace el resultado disponible en <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> un sub DOM dentro del elemento del lienzo</a> el cual es accesible para los lectores de pantalla. <code class=\"language-javascript\">gridOutput(LABEL)</code> crea un div adicional con el resultado cerca del lienzo, esto es util para los usuarios que no utilizan lectores de pantalla que podran querer mostrar el resultado afuera del sub DOM del lienzo a medida que van programando. Sin embargo, utilizar LABEL creará redundancia innecesaria para usuarios de lectores de pantalla. Recomendamos utilizar LABEL solo como parte del proceso de desarrollo de un boceto y removerlo antes de publicarlo o compartirlo con usuarios de lectores de pantalla."
       ],
       "params": {
-        "display": "Constant: (Optional) either FALLBACK or LABEL (Optional)"
+        "display": "Constante: (Opcional) ya sea FALLBACK o LABEL (Opcional)"
       }
     },
     "alpha": {
       "description": [
         "Extrae el valor de alpha de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Numero: el valor alpha",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "blue": {
       "description": [
         "Extrae el valor de azul de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor azul",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "brightness": {
       "description": [
         "Extrae el valor de brillo HSB de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor de brillo",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "color": {
       "description": [
-        "Crea colores para ser almacenados en variables del tipo color. Los parámetros son interpretados como valores RGB o HSB, dependiendo del modo actual de color según colorMode)(). El modo por defecto es RGB con valores entre 0 y 255 y, por lo tanto, la función color(255, 204, 0) retorna un color amarillo brillante. Nota que si solo se provee un valor a la función color(), será interpretado como un valor en escala de grises. Añade un segundo valor, y será usado como transparencia alpha. Cuando se especifican tres valores, son interpretados como valores RGB o HSB. Al añadir un cuarto valor se aplica transparencia alpha. Si se provee solo un parámetro de tipo string, será interpretado como un string de color compatible con CSS.Los colores son almacenados como números o arreglos.",
-        "Note that if only one value is provided to <a href=\"#/p5/color\">color()</a>, it will be interpreted as a grayscale value. Add a second value, and it will be used for alpha transparency. When three values are specified, they are interpreted as either RGB or HSB values. Adding a fourth value applies alpha transparency.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used."
+        "Crea colores para ser almacenados en variables del tipo color. Los parámetros son interpretados como valores RGB o HSB, dependiendo del modo actual de color según <a href=\"https://p5js.org/es/reference/#/p5/colorMode\">colorMode()</a>. El modo por defecto son valores RGB entre 0 y 255 y, por lo tanto, la función color(255, 204, 0) retorna un color amarillo brillante.",
+        "Nota que si solo se provee un valor a la función color(), será interpretado como un valor en escala de grises. Añade un segundo valor, y será usado como transparencia alpha. Cuando se especifican tres valores, son interpretados como valores RGB o HSB. Al añadir un cuarto valor se aplica transparencia alpha.",
+        "Si se provee solo un parámetro de tipo string, colores RGB, RGBA y HEX de CSS todos los coloers nombrados son soportados. En este caso, un valor alpha como un segundo argumento no es soportado, la forma RGBA deberia ser usada."
       ],
-      "returns": "Arreglo: color resultante",
+      "returns": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: color resultante",
       "params": {
         "gray": "Número|String: número especificando el valor entre blanco y negro.",
         "alpha": "Número: valor de alpha relativo al rango de color actual (por defecto es 0-255)",
         "v1": "Número|String: valor de rojo o tinte relativo al rango de color actual, o un string de color",
         "v2": "Número: valor de verde o saturación relativo al rango de color actual",
         "v3": "Número: valor de azul o brillo relativo al rango de color actual",
-        "value": "String: a color string",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
-        "color": "p5.Color"
+        "value": "String: un string de un color",
+        "values": "Númbero[]: un arreglo que contiene los componentes rojo, azul, verde, azul y alpha del color",
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>"
       }
     },
     "green": {
       "description": [
         "Extrae el valor de verde de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor verde",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "hue": {
       "description": [
-        "Extrae el valor de tinte de un color o de un arreglo de pixeles. El tinte (hue) existe en HSB y HSL. Esta función retorna el tinte normalizado HSB que cuando se le provee un objeto de color HSB (o cuando se le provee un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará el tinte normalizado según HSB en otro caso. (Estos valores solo son diferentes si la configuración de valor de tinte máximo de cada sistema es diferente.)",
-        "Hue exists in both HSB and HSL. This function will return the HSB-normalized hue when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL-normalized hue otherwise. (The values will only be different if the maximum hue setting for each system is different.)"
+        "Extrae el valor del matiz de un color o de un arreglo de pixeles.",
+        "El matiz (hue) existe en HSB y HSL. Esta función retorna el matiz normalizado HSB que cuando se le provee un objeto de color HSB (o cuando se le provee un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará el matiz normalizado según HSB en otro caso. (Estos valores solo son diferentes si la configuración de valor de matiz máximo de cada sistema es diferente.)"
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el matiz",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "lerpColor": {
       "description": [
-        "Mezcla dos colores para encontrar un tercer color según la combinación de ambos. El parámetro amt es la cantidad a interpolar entre los dos valores, donde 0.0 es igual al primer color, 0.1 es muy cercano al primer color, 0.5 está a medio camino entre ambos, etc. Un valor menor que 0 será tratado como 0. Del mismo modo, valores sobre 1 serán tratados como 1. Esto es distinto al comportamiento de lerp(), pero necesario porque de otra manera los números fuera de rango producirían colores no esperados y extraños. La manera en que los colores son interpolados depende del modo de color actual.",
-        "The way that colors are interpolated depends on the current color mode."
+        "Mezcla dos colores para encontrar un tercer color según la combinación de ambos. El parámetro amt es la cantidad a interpolar entre los dos valores, donde 0.0 es igual al primer color, 0.1 es muy cercano al primer color, 0.5 está a medio camino entre ambos, etc. Un valor menor que 0 será tratado como 0. Del mismo modo, valores sobre 1 serán tratados como 1. Esto es distinto al comportamiento de <a href=\"https://p5js.org/es/reference/#/p5/lerp\">lerp()</a>, pero necesario porque de otra manera los números fuera de rango producirían colores no esperados y extraños.",
+        "La manera en que los colores son interpolados depende del modo de color actual."
       ],
-      "returns": "Arreglo/Número: color interpolado",
+      "returns": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: color interpolado",
       "params": {
-        "c1": "Arreglo/Número: interpola desde este color",
-        "c2": "Arreglo/Número: interpola hacia este color",
+        "c1": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: interpola desde este color",
+        "c2": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: interpola hacia este color",
         "amt": "Número: número entre 0 y 1"
       }
     },
@@ -194,116 +194,124 @@
       "description": [
         "Extrae el valor de luminosidad HSL de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: la luminosidad",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "red": {
       "description": [
         "Extrae el valor de rojo de un color o de un arreglo de pixeles."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor rojo",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "saturation": {
       "description": [
-        "Extrae el valor de saturación de un color o de un arreglo de pixeles. La saturación es escalada en HSB y HSL de forma distinta. Esta función retornará la saturación HSB cuando le sea provisto un objeto de color HSB (o cuando le sea provisto un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará saturación HSL.",
-        "Saturation is scaled differently in HSB and HSL. This function will return the HSB saturation when supplied with an HSB color object (or when supplied with a pixel array while the color mode is HSB), but will default to the HSL saturation otherwise."
+        "Extrae el valor de saturación de un color o de un arreglo de pixeles.",
+        "La saturación es escalada en HSB y HSL de forma distinta. Esta función retornará la saturación HSB cuando le sea provisto un objeto de color HSB (o cuando le sea provisto un arreglo de pixeles mientras el modo de color es HSB), pero por defecto retornará saturación HSL."
       ],
-      "returns": "el objeto p5",
+      "returns": "Número: el valor de la saturación",
       "params": {
-        "color": "Objeto: objeto p5.Color o arreglo de pixeles"
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>|Number[]|String: objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>, componentes de color o colores CSS"
       }
     },
     "background": {
       "description": [
-        "La función background() define el color usado como fondo del lienzo p5.js. El fondo por defecto es gris claro. Esta función es típicamente usada dentro de draw() para despejar o borrar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de setup() para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
-        "The color is either specified in terms of the RGB, HSB, or HSL color depending on the current <a href=\"#/p5/colorMode\">colorMode</a>. (The default color space is RGB, with each value in the range from 0 to 255). The alpha range by default is also 0 to 255.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
-        "A <a href=\"#/p5.Color\">p5.Color</a> object can also be provided to set the background color.",
-        "A <a href=\"#/p5.Image\">p5.Image</a> can also be provided to set the background image."
+        "La función background() define el color usado como fondo del lienzo de p5.js. El fondo por defecto es transparente. Esta función es típicamente usada dentro de <a href=\"https://p5js.org/es/reference/#/p5/draw\">draw()</a> para limpiar la ventana mostrada al inicio de cada cuadro, pero puede ser usada dentro de <a href=\"https://p5js.org/es/reference/#/p5/setup\">setup()</a> para definir el fondo en el primer cuadro de la animación o si el fondo solo necesita ser definido una vez.",
+        "El color es tambien especificado en termino de colores RGB, HSB, o HSL dependiendo del <a href=\"https://p5js.org/es/reference/#/p5/colorMode\">colorMode</a>. (El espacio de color por defeco es RGB, con cada valor dentro del rango de 0 a 255). El rango alpha por defecto es también de 0 a 255.",
+        "Si un solo argumento de tipo string es dado, cadena de colores RGB, RGBA y HEX y todos los nombres de colores son soportados. En este caso, el valor alpha como un segundo argumento no es soportado, la forma RGBA deberia ser usado.",
+        "Un objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a> también puede ser proveido para asignar el color de fondo",
+        "Un <a href=\"https://p5js.org/es/reference/#/p5.Image\">p5.Image</a> también pueder ser proporcionado para asignar la imagen de fondo."
       ],
       "params": {
-        "color": "Color: cualquier valor creado con la función color()",
-        "colorstring": "colorstring: string de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex 3 dígitos, hex 6 dígitos",
-        "a": "Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-255)",
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>cualquier valor creado con la función <a href=\"https://p5js.org/es/reference/#/p5/color\">color()</a>",
+        "colorstring": "String: string de color, formatos posibles: enteros rgb() o rgba(), porcentajes rgb() o rgba(), hex de 3 dígitos, hex de 6 dígitos",
+        "a": "Número: opacidad del fondo relativo al rango de color actual (por defecto es 0-255) (Opcional)",
         "gray": "Número: especifica un valor entre blanco y negro",
-        "v1": "Número: valor de rojo o hue (dependiendo del modo de color actual)",
+        "v1": "Número: valor de rojo o matiz (dependiendo del modo de color actual)",
         "v2": "Número: valor de verde o saturación (dependiendo del modo de color actual)",
         "v3": "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-        "values": "Number[]: an array containing the red, green, blue  and alpha components of the color",
-        "image": "p5.Image: imagen creada con loadImage() o createImage(), para ser definida como fondo (debe ser del mismo tamaño que la ventana del bosquejo)"
+        "values": "Number[]: un arreglo que contenga los componentes rojo, verde, azul y alpha del color",
+        "image": "<a href=\"https://p5js.org/es/reference/#/p5.Image\">p5.Image</a>: imagen creada con <a href=\"https://p5js.org/es/reference/#/p5/loadImage\">loadImage()</a> o <a href=\"https://p5js.org/es/reference/#/p5/createImage\">createImage()</a>, para ser definida como fondo (debe ser del mismo tamaño que la ventana del boceto)"
       }
     },
     "clear": {
       "description": [
-        "Borra los pixeles del buffer. Esta función solo funciona en objetos p5.Canvas creados con la función createCanvas(); no funcionará con la ventana principal. A diferencia del contexto principal de gráficas, los pixeles en las áreas gráficas adicionales creadas con createGraphics() pueden ser entera o parcialmente transparentes. Esta función borra todo para hacer los pixeles 100% transparentes."
-      ]
+        "Borra los pixeles dentro de un búfer. Esta función solo funciona en lienzos. No funcionara con objetos creados por funciones de createX(), como <a href=\"https://p5js.org/es/reference/#/p5/createVideo\">createVideo()</a> o <a href=\"https://p5js.org/es/reference/#/p5/createDiv\">createDiv()</a>. A diferencia del contexto de los graficos principales, pixeles en áreas graficas adicionales creadas con <a href=\"https://p5js.org/es/reference/#/p5/createGraphics\">createGraphics()</a> pueden ser completa o parcialmente transparentes. Esta función limpia todo para hacer a todos los pixeles 100% transparantes.",
+        "Nota: En el modo WebGL, esta función puede pasar valores normalizados para limpiar la pantalla a un color específico. Adicionalmente al color, tambien limpiará el búfer profundo. Si no esta usando el renderizador de WebGL estos valores de color no tendrán efecto."
+      ],
+      "params": {
+        "r": "Número: valor normalizado de rojo.",
+        "g": "Número: valor normalizado de verde.",
+        "b": "Número: valor normalizado de azul.",
+        "a": "Número: valor normalizado de alpha."
+      }
     },
     "colorMode": {
       "description": [
-        "colorMode() cambia la manera en que p5.js interpreta los datos de color. Por defecto, los parámetros de fill(), stroke(), background() y color() son definidos por valores entre 0 y 255 en modo RGB. Esto es equivalente a definir el modo de color según colorMode(RGB, 255). Definir el modo de color en colorMode(HSB) permite usar el sistema HSB. Por defecto, este modo de color es colorMode(HSB, 360, 100, 100, 1). También se puede usar HSL. Nota: los objetos de color existentes recuerdan el modo en que fueron creados, por lo que puedes cambiar el modo como quieras, sin afectar su apariencia.",
-        "Note: existing color objects remember the mode that they were created in, so you can change modes as you like without affecting their appearance."
+        "colorMode() cambia la manera en que p5.js interpreta los datos de color. Por defecto, los parámetros de <a href=\"https://p5js.org/es/reference/#/p5/fill\">fill()</a>, <a href=\"https://p5js.org/es/reference/#/p5/stroke\">stroke()</a>, <a href=\"https://p5js.org/es/reference/#/p5/background\">background()</a> y <a href=\"https://p5js.org/es/reference/#/p5/color\">color()</a> son definidos por valores entre 0 y 255 usando el modelo de color RGB. Esto es equivalente a definir el modo de color según colorMode(RGB, 255). Definir el modo de color en colorMode(HSB) permite usar el sistema HSB en su lugar. Por defecto, este modo de color es colorMode(HSB, 360, 100, 100, 1). También se puede usar HSL.",
+        "Nota: los objetos de color existentes recuerdan el modo en que fueron creados, por lo que puedes cambiar los modos como quieras, sin afectar su apariencia."
       ],
       "params": {
-        "mode": "Constante: RGB o HSB, correspondiente a Rojo/Verde/Azul o tinte/saturación/brillo (o luminosidad)",
-        "max": "Number: (Optional) range for all values",
-        "max1": "Número: rango de rojo o tinte, dependiendo del modo de color actual, o rango para todos los valores",
+        "mode": "Constante: ya sea RGB, HSB o HSL, correspondiente a Rojo/Verde/Azul o Matiz/Saturación/brillo (o luminosidad)",
+        "max": "Número: rango para todos los colores (Opcional)",
+        "max1": "Número: rango de rojo o matiz, dependiendo del modo de color actual",
         "max2": "Número: rango de verde o saturación, dependiendo del modo de color actual.",
         "max3": "Número: rango de azul o brillo/luminosidad, dependiendo del modo de color actual.",
-        "maxA": "Número: rango de transparencia alpha"
+        "maxA": "Número: rango de transparencia alpha (Opcional)"
       }
     },
     "fill": {
       "description": [
-        "Define el color usado para el relleno de figuras geométricas. Por ejemplo, si ejecutas fill(204, 102, 0), todas las figuras a continuación tendrán relleno naranja. Este color es especificado en términos de color RGB o HSB, dependiendo del modo de color según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del relleno.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
-        "A p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the fill color."
+        "Define el color usado para rellenar las figuras. Por ejemplo, si ejecutas fill(204, 102, 0), todas las figuras a continuación tendrán relleno naranja. Este color también es especificado en términos de color RGB o HSB, dependiendo del modo de color según <a href=\"https://p5js.org/es/reference/#/p5/colorMode\">colorMode()</a>. (El espacio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). El rango de alpha por defecto es también de 0 a 255.",
+        "Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal y todos los nombre de los colores son soportados. En este caso, valor alpha como un segundo argumento no es soportado, la forma RGBA debería ser usada.",
+        "Un objeto p5 <a href=\"#/p5.Color\">Color</a> también puede ser dado para definir el color de relleno."
       ],
       "params": {
-        "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
-        "v2": "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-        "v3": "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-        "alpha": "Número: opacidad del fondo",
-        "value": "String: a color string",
-        "gray": "Number: a gray value",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
-        "color": "p5.Color: the fill color"
+        "v1": "Número: el valor de rojo o matiz relativo al rango de color",
+        "v2": "Número: valor de verde o saturación relativo al rango de color",
+        "v3": "Número: valor de azul o brillo relativo al rango de color",
+        "alpha": "Número: opacidad del fondo (Opcional)",
+        "value": "String: una cadena de color",
+        "gray": "Number: un valor de gris",
+        "values": "Número[]: un arreglo que contenga los componentes rojo, verde, azul y alpha del color",
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: el color de relleno"
       }
     },
     "noFill": {
       "description": [
-        "Deshabilita el relleno de figuras geométricas. Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla."
+        "Deshabilita el relleno de figuras geométricas. Si tanto <a href=\"https://p5js.org/es/reference/#/p5/noStroke\">noStroke()</a> como <a href=\"https://p5js.org/es/reference/#/p5/noFill\">noFill()</a> son ejecutados, nada será dibujado en pantalla."
       ]
     },
     "noStroke": {
       "description": [
-        "Deshabilita el dibujo de los trazos (bordes). Si tanto noStroke() como noFill() son ejecutados, nada será dibujado en pantalla."
+        "Deshabilita el dibujo de los trazos (bordes). Si tanto <a href=\"https://p5js.org/es/reference/#/p5/noStroke\">noStroke()</a> como <a href=\"https://p5js.org/es/reference/#/p5/noFill\">noFill()</a> son ejecutados, nada será dibujado en pantalla."
       ]
     },
     "stroke": {
       "description": [
-        "Define el color usado para dibujar líneas y bordes de figuras. Este color especificado en términos de color RGB o HSB, dependiendo del modo de color actual según colorMode() (el dominio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal están soportados. Un objeto Color p5 puede ser provisto para definir el color del trazado.",
-        "If a single string argument is provided, RGB, RGBA and Hex CSS color strings and all named color strings are supported. In this case, an alpha number value as a second argument is not supported, the RGBA form should be used.",
-        "A p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the stroke color."
+        "Define el color usado para dibujar líneas y bordes de figuras. Este color especificado en términos de color RGB o HSB, dependiendo del modo de color actual según <a href=\"https://p5js.org/es/reference/#/p5/colorMode\">colorMode()</a> (el espacio de color por defecto es RGB, con cada valor en el rango entre 0 y 255). El rango de valor de alpha por defecto es también de 0 a 255.",
+        "Si se provee un argumento tipo string, los tipos RGB, RGBA y CSS hexadecimal y todos los nombres de los colores son soportados. En este acaso, valor de alpha como segundo argumento no es soportado, la forma RGBA debería ser usada.",
+        "Un objeto <a href=\"https://p5js.org/es/reference/#/p5.Color\">Color</a> p5 puede ser provisto para definir el color del trazado."
       ],
       "params": {
-        "v1": "Número|Arreglo|String|p5.Color: valor de gris, rojo, tinte (dependiendo del modo de color actual), o arreglo de color, o string de color CSS.",
-        "v2": "Número: valor de verde o saturación (dependiendo del modo de color actual)",
-        "v3": "Número: valor de azul o brillo (dependiendo del modo de color actual)",
-        "alpha": "Número: opacidad del fondo",
-        "value": "String: a color string",
-        "gray": "Number: a gray value",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
-        "color": "p5.Color: the stroke color"
+        "v1": "Número: el valor de rojo o matiz relativo al rango de color",
+        "v2": "Número: valor de verde o saturación relativo al rango de color",
+        "v3": "Número: valor de azul o brillo relativo al rango de color",
+        "alpha": "Número: opacidad del fondo (Opcional)",
+        "value": "String: una cadena de color",
+        "gray": "Number: un valor de gris",
+        "values": "Número[]: un arreglo que contenga los componentes rojo, verde, azul y alpha del color",
+        "color": "<a href=\"https://p5js.org/es/reference/#/p5.Color\">p5.Color</a>: el color de trazado"
       }
     },
     "erase": {
       "description": [
-        "All drawing that follows <a href=\"#/p5/erase\">erase()</a> will subtract from the canvas.Erased areas will reveal the web page underneath the canvas.Erasing can be canceled with <a href=\"#/p5/noErase\">noErase()</a>.",
+        "Todos los diujos que siguen de <a href=\"https://p5js.org/es/reference/#/p5/erase\">erase()</a> serán eliminados del lienzo. La áreas borradas revelarán la pagina web debajo del lienzo. Borrar puede ser canceldo con <a href=\"https://p5js.org/es/reference/#/p5/noErase\">noErase()</a>.",
+        "Dibujos hechos con <a href=\"https://p5js.org/es/reference/#/p5/image\">image()</a> y <a href=\"ttps://p5js.org/es/reference/#/p5/background\"> background()</a> entre <a href=\"https://p5js.org/es/reference/#/p5/erase\">erase()</a> and <a href=\"https://p5js.org/es/reference/#/p5/noErase\">noErase()</a> no borrarán el lienzo pero funciona como es usual.",
         "Drawing done with <a href=\"#/p5/image\">image()</a> and <a href=\"#/p5/background\"> background()</a> in between <a href=\"#/p5/erase\">erase()</a> and <a href=\"#/p5/noErase\">noErase()</a> will not erase the canvas but works as usual."
       ],
       "params": {
@@ -313,13 +321,15 @@
     },
     "noErase": {
       "description": [
-        "Ends erasing that was started with <a href=\"#/p5/erase\">erase()</a>. The <a href=\"#/p5/fill\">fill()</a>, <a href=\"#/p5/stroke\">stroke()</a>, and <a href=\"#/p5/blendMode\">blendMode()</a> settings will return to what they were prior to calling <a href=\"#/p5/erase\">erase()</a>."
+        "Termina borrando lo que fue empezado con <a href=\"https://p5js.org/es/reference/#/p5/erase\">erase()</a>. Las configuraciones de <a href=\"https://p5js.org/es/reference/#/p5/fill\">fill()</a>, <a href=\"https://p5js.org/es/reference/#/p5/stroke\">stroke()</a>, y <a href=\"https://p5js.org/es/reference/#/p5/blendMode\">blendMode()</a> volverán a lo que eran antes de llamar <a href=\"https://p5js.org/es/reference/#/p5/erase\">erase()</a>."
       ]
     },
     "arc": {
       "description": [
-        "Dibuja un arco en la pantalla. Si se llama con solo a, b, c, d, start y stop, el arco se dibuja como un pastel abierto. Si el modo se provee, el arco será dibujado abierto, o como acorde, o como pastel, según lo especificado. El origen puede ser cambiado con la función ellipseMode(). Nota que si dibujas un círculo completo (ej: 0 a TWO_PI) aparecerá en blanco, porque 0 y TWO_PI son la misma posición en el círculo unitario. La mejor manera de manejar esto es usar la función ellipse() para una elipse cerrada, y la función arc() para generar solo secciones de una elipse.",
-        "The arc is always drawn clockwise from wherever start falls to wherever stop falls on the ellipse. Adding or subtracting TWO_PI to either angle does not change where they fall. If both start and stop fall at the same place, a full ellipse will be drawn. Be aware that the y-axis increases in the downward direction, therefore angles are measured clockwise from the positive x-direction (\"3 o'clock\")."
+        "Dibuja un arco en la pantalla. Los arcos se forman a través del borde exterior de un elíptico (óvalo) definido por los parámetros <code>x</code>, <code>y</code>, <code>w</code>, y <code>h</code>. Usa los parámetros <code>start</code> (comenzar) y <code>stop</code> (detener) para especificar los ángulos (en radianes) a los que se va a formar el arco. Los arcos siempre se forman a favor de las manecillas del reloj, comenzando desde <code>start</code> hasta <code>stop</code>. El origen del elíptico del arco se puede cambiar utilizando la función de <a href=\"#/p5/ellipseMode\">ellipseMode()</a>.",
+        "Sumando y restando <code>TWO_PI</code> (Dos Pi) a los ángulos de el arco no afecta su posición. Si los parámetros de <code>start</code> y <code>stop</code> tienen el mismo valor, se formará una elipse completa. El eje de <code>y</code> aumenta en dirección hacia abajo, por tanto, los ángulos se miden a favor de las manecillas del reloj, comenzando desde la posición positiva del eje de <code>x</code> (La posición de las 3:00 en el reloj).",
+        "El parámetro opcional <code>mode</code> determina el estilo de relleno del arco. Los modos de relleno son: semicírculo (<code>OPEN</code>), un semicírculo cerrado (<code>CHORD</code>), o un segmento cerrado de un pastel (<code>PIE</code>).",
+        "El parámetro opcional <code>detail</code> se utiliza para especificar el número de vértices que forman el perímetro del arco. Su valor por defecto es de 25, y solo se puede utilizar en el modo WebGL."
       ],
       "params": {
         "x": "Número: coordenada x del arco de elipse.",
@@ -335,24 +345,24 @@
     "ellipse": {
       "description": [
         "Dibuja una elipse (óvalo)  en la pantalla. Una elipse con igual ancho y altura es un círculo. Por defecto, los primeros dos parámetros definen la ubicación, y el tercero y cuarto definen el ancho y altura de la figura. Si no especifica una altura, el valor del ancho es usado como ancho y altura. El origen puede ser cambiado con la función ellipseMode().",
-        "An ellipse with equal width and height is a circle. The origin may be changed with the <a href=\"#/p5/ellipseMode\">ellipseMode()</a> function."
+        "Una elipse con lo ancho y lo alto igual es un círculo. El origen puede ser cambiado con la función <a href=\"#/p5/ellipseMode\">ellipseMode()</a>."
       ],
       "params": {
         "x": "Número: coordenada x de la elipse.",
         "y": "Número: coordenada y de la elipse.",
         "w": "Número: ancho de la elipse.",
         "h": "Número: altura de la elipse.",
-        "detail": "Integer: number of radial sectors to draw (for WebGL mode)"
+        "detail": "Integro: número de sectores radiales para dibujar (para modo WebGL)"
       }
     },
     "circle": {
       "description": [
-        "Draws a circle to the screen. A circle is a simple closed shape.It is the set of all points in a plane that are at a given distance from a given point, the centre.This function is a special case of the ellipse() function, where the width and height of the ellipse are the same. Height and width of the ellipse correspond to the diameter of the circle. By default, the first two parameters set the location of the centre of the circle, the third sets the diameter of the circle."
+        "Dibuja un círculo en la pantalla. Un círculo es una forma sencilla cerrada. Es el conjunto de todos los puntos en un plano que están a una distancia dada de un punto dado, el centro. Esta función es un caso especial de la función ellipse(), donde lo ancho y lo alto de la elipse son lo mismo. Lo alto y lo ancho de la elipse corresponde al diámetro del círculo. De forma predeterminada, los primeros dos parámetros establecen la posición del centro del círculo, el tercer establece el diametro del círculo."
       ],
       "params": {
-        "x": "Number: x-coordinate of the centre of the circle.",
-        "y": "Number: y-coordinate of the centre of the circle.",
-        "d": "Number: diameter of the circle."
+        "x": "Número: coordenada x del centro del círculo.",
+        "y": "Número: coordenada y del centro del círculo.",
+        "d": "Número: diámetro del círculo."
       }
     },
     "line": {
@@ -420,8 +430,8 @@
     },
     "square": {
       "description": [
-        "Draws a square to the screen. A square is a four-sided shape with every angle at ninety degrees, and equal side size. This function is a special case of the rect() function, where the width and height are the same, and the parameter is called \"s\" for side size. By default, the first two parameters set the location of the upper-left corner, the third sets the side size of the square. The way these parameters are interpreted, may be changed with the <a href=\"#/p5/rectMode\">rectMode()</a> function.",
-        "The fourth, fifth, sixth and seventh parameters, if specified, determine corner radius for the top-left, top-right, lower-right and lower-left corners, respectively. An omitted corner radius parameter is set to the value of the previously specified radius value in the parameter list."
+        "Dibuja un cuadrado en la pantalla. Un cuadrado es una forma de cuatro lados con cada ángulo a noventa grados y con los lados de un mismo tamaño. Esta función es un caso especial de la función rect(), donde el ancho y el alto son iguales y el parámetro se llama \"s\" para el tamaño del lado. De forma predeterminada, los dos primeros parámetros establecen la ubicación de la esquina superior izquierda, el tercero establece el tamaño de los lados del cuadrado. La forma en que se interpretan estos parámetros se puede cambiar con la función <a href=\"#/p5/rectMode\">rectMode()</a>.",
+        "Los parámetros cuarto, quinto, sexto y séptimo, si se especifican, determinan el radio de esquina para las esquinas superior izquierda, superior derecha, inferior derecha e inferior izquierda, respectivamente. Un parámetro de radio de esquina omitido se establece con el valor de radio previamente especificado en la lista de parámetros."
       ],
       "params": {
         "x": "Number: x-coordinate of the square.",
@@ -530,11 +540,11 @@
     },
     "bezierDetail": {
       "description": [
-        "Sets the resolution at which Bezier's curve is displayed. The default value is 20.",
-        "Note, This function is only useful when using the WEBGL renderer as the default canvas renderer does not use this information."
+        "Ajusta la resolución a la que se muestran las curvas de Bezier. Su valor por defecto es 20.",
+        "Nota: esta función sólo tiene efecto cuando se usa el renderizador WEBGL debido a que el renderizador por defecto no utiliza esta información."
       ],
       "params": {
-        "detail": "Number: resolution of the curves"
+        "detail": "Número: resolución de las curvas"
       }
     },
     "bezierPoint": {
@@ -565,20 +575,20 @@
     },
     "curve": {
       "description": [
-        "Dibuja una línea curva en la pantalla entre dos puntos, dados como los cuatro parámetros centrales. Los dos primeros puntos son un punto de control, como si la curva viniera desde este punto, aunque no sea dibujado. Los dos últimos parámetros de forma similar describen el otro punto de control. SE pueden cerar curvas más largas, por medio del posicionamiento de varias funciones curve() juntas o usando curveVertex(). Una función adicional llamada curveTightness() provee control de la calidad visual de la curva. La función curve() es una implementación de la Catmull-Rom spline."
+        "Dibuja una línea curva en la pantalla entre dos puntos, dados como los cuatro parámetros centrales. Los dos primeros puntos son un punto de control, como si la curva viniera desde este punto, aunque no sea dibujado. Los dos últimos parámetros de forma similar describen el otro punto de control. Se pueden crear curvas más largas, por medio del posicionamiento de varias funciones curve() juntas o usando curveVertex(). Una función adicional llamada curveTightness() provee control de la calidad visual de la curva. La función curve() es una implementación de la Catmull-Rom spline."
       ],
       "params": {
         "x1": "Número: coordenada x del punto de control inicial",
         "y1": "Número: coordenada y del punto de control inicial",
-        "x2": "Número: coordenada y del primer punto",
-        "y2": "Número: coordenada x del segundo punto",
-        "x3": "Número: coordenada x del punto de control final",
-        "y3": "Número: coordenada y del punto de control final",
-        "x4": "Número: coordenada z del primer punto",
-        "y4": "Número: coordenada z del segundo punto",
-        "z1": "Número: coordenada x del primer punto",
-        "z2": "Número: coordenada y del segundo punto",
-        "z3": "Número: coordenada z del punto de control inicial",
+        "x2": "Número: coordenada x del primer punto",
+        "y2": "Número: coordenada y del primer punto",
+        "x3": "Número: coordenada x del segundo punto",
+        "y3": "Número: coordenada y del segundo punto",
+        "x4": "Número: coordenada x del punto de control final",
+        "y4": "Número: coordenada y del punto de control final",
+        "z1": "Número: coordenada z del punto de control inicial",
+        "z2": "Número: coordenada z del primer punto",
+        "z3": "Número: coordenada z del segundo punto",
         "z4": "Número: coordenada z del punto de control final"
       }
     },
@@ -890,27 +900,27 @@
     "FALLBACK": {},
     "print": {
       "description": [
-        "La función print() escribe en la consola del navegador. Esta función es a menudo de ayuda para observar los datos que un programa está produciendo. Esta función crea una nueva línea de texto por cada ejecución de la función. Elementos individuales pueden ser separados por comillas ('') y unidos con el operador de adición (+). Aunque print() es similar a console.log(), no llama a console.log() directamente, para simular una manera más simple de entender el comportamiento del programa. Por esto mismo, es más lento. Para resultados más rápidos, usar directamente console.log().",
-        "Note that calling print() without any arguments invokes the window.print() function which opens the browser's print dialog. To print a blank line to console you can write print('\\n')."
+        "La función print() escribe en la consola del navegador. Esta función es a menudo de ayuda para observar los datos que un programa está produciendo. Esta función crea una nueva línea de texto por cada ejecución de la función. Elementos individuales pueden ser separados por comillas (\"\") y unidos con el operador de adición (+). Aunque print() es similar a console.log(), no llama a console.log() directamente, para simular una manera más simple de entender el comportamiento del programa. Por esto mismo, es más lento. Para resultados más rápidos, usar directamente console.log().",
+        "Nota que llamar a print() sin ningún argumento invoca la función window.print() la cual abre el dialogo de impresión del navegador. Para imprimir una línea vacia en la consola puedes escribir print('\\n')"
       ],
       "params": {
-        "contents": "Cualquiera: cualquier combinación de número, string, objeto, boolean o arreglo a imprimir"
+        "contents": "Cualquiera: cualquier combinación de número, string, objeto, booleano o arreglo a imprimir"
       }
     },
     "frameCount": {
       "description": [
-        "La variable de sistema frameCount contiene el número de cuadros (frames) que se han mostrado desde que el programa empezó a ejecutarse. Dentro de setup() el valor es 0, después de la primera iteración de draw() es 1, etc."
+        "La variable de sistema <a href=\"#/p5/frameCount\">frameCount</a> contiene el número de cuadros (frames) que se han mostrado desde que el programa empezó a ejecutarse. Dentro de <a href=\"#/p5/setup\">setup()</a> el valor es 0, después de la primera iteración de <a href=\"#/p5/draw\">draw()</a> es 1, etc."
       ]
     },
     "deltaTime": {
       "description": [
-        "The system variable <a href=\"#/p5/deltaTime\">deltaTime</a> contains the time difference between the beginning of the previous frame and the beginning of the current frame in milliseconds.",
-        "This variable is useful for creating time sensitive animation or physics calculation that should stay constant regardless of frame rate."
+        "La variable del sistema <a href=\"#/p5/deltaTime\">deltaTime</a> contiene la diferencia de tiempo entre cuando empezo el cuadro (frame) anterior y cuando empezo el cuadro actual en milisegundos.",
+        "Esta variable es util para crear animaciones sensibles al tiempo o cálculos físicos que deberian mantenerse constantes independientemente de los cuadros por segundo."
       ]
     },
     "focused": {
       "description": [
-        "Confirma si la ventana de un programa de p5.js está en foco, lo que significa que el bosquejo aceptará entradas desde el ratón o teclado. Esta variable es verdadera (true) si la ventana está en foco y falsa (false) si no."
+        "Confirma si la ventana de un programa de p5.js está en foco, lo que significa que el boceto aceptará entradas desde el ratón o teclado. Esta variable es verdadera (true) si la ventana está en foco y falsa (false) si no."
       ]
     },
     "cursor": {
@@ -918,16 +928,16 @@
         "Define el cursor como un símbolo predeterminado o una imagen, o hace el cursor visible si es que estaba escondido. Si estás tratando de asignar una imagen al cursor, el tamaño recomendado es 16x16 o 32x32 pixeles. No es posible cargar una imagen al cursor si estás exportando tu programa a la Web, y no todos los modos funcionan con todos los navegadores. Los valores de los parámetros x e y deben ser menores a la dimensión de la imagen."
       ],
       "params": {
-        "type": "Número|Constante: puede ser ARROW, CROSS, HAND, MOVE, TEXT, o WAIT, o la dirección de una imagen",
-        "x": "Número: el punto activo horizontal del cursor",
-        "y": "Número: el punto activo vertical del cursor"
+        "type": "String|Constante: puede ser las propiedades ARROW, CROSS, HAND, MOVE, TEXT, y WAIT. Propiedades nativas de CSS: 'grab', 'progress', 'cell', etc. Externos: rutas para imagenes del cursos (Se permiten las extensiones de archivo: .cur, .gif, .jpg, .jpeg, .png). Para más información acerca de los cursores nativos de CSS y url visita: <a href=\"https://developer.mozilla.org/es/docs/Web/CSS/cursor\">https://developer.mozilla.org/es/docs/Web/CSS/cursor</a>.",
+        "x": "Número: el punto activo horizontal del cursor (Deberá ser menor que 32) (Opcional)",
+        "y": "Número: el punto activo vertical del cursor (Deberá ser menor que 32) (Opcional)"
       }
     },
     "frameRate": {
       "description": [
-        "Especifica el número de cuadros mostrados por segundo. Por ejemplo, la llamada a la función frameRate(30), tratará de refrescar 30 veces por segundo. Si el procesador no es lo suficientemente rápido para mantener la tasa especificada, la tasa de cuadros por segundo no será lograda. Definir la tasa de cuadros por segundo dentro de setup() es lo recomendable. La tasa por defecto es de 60 veces por segundo. Esto es lo mismo que setFrameRate(val). Llamar a la función frameRate() sin argumentos retorna la tasa actual. Esto es lo mismo que getFrameRate(). Llamar a la función frameRate() con arugmentos que no son de tipo número o no son positivos también retornarán la tasa actual.",
-        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with no arguments returns the current framerate. The draw function must run at least once before it will return a value. This is the same as <a href=\"#/p5/getFrameRate\">getFrameRate()</a>.",
-        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with arguments that are not of the type numbers or are non positive also returns current framerate."
+        "Especifica el número de cuadros mostrados por segundo. Por ejemplo, la llamada a la función frameRate(30), tratará de refrescar 30 veces por segundo. Si el procesador no es lo suficientemente rápido para mantener la tasa especificada, la tasa de cuadros por segundo no será lograda. Se recomienda definir la tasa de cuadros por segundo dentro de <a href=\"#/p5/setup\">setup()</a>. La tasa cuadros por segundo por defecto esta basada en la tasa del monitos (tambien llamada \"tasa de actualización\") es de 60 veces por segundo en la mayoría de computadores. Un tasa de 24 cuadros por segundo (usualmente para películas) o por debajo será suficiente para animaciones fluidas. Esto es lo mismo que setFrameRate(val).",
+        "Llamar a <a href=\"#/p5/frameRate\">frameRate()</a> sin argumentos retorna la tasa de cuadros por segundo actual. La funcion draw() deberá ejecutarse por lo menos una vez antes de que retorne un valor. Esto es lo mismo que <a href=\"#/p5/getFrameRate\">getFrameRate()</a>.",
+        "Llamar a <a href=\"#/p5/frameRate\">frameRate()</a> con argumentos que no son de tipo numérico o no son positivos tambien retorna la tasa de cuadros por segundo."
       ],
       "params": {
         "fps": "Número: número de cuadros a ser mostrados cada segundo."
@@ -940,12 +950,12 @@
     },
     "displayWidth": {
       "description": [
-        "Variable de sistema que almacena el ancho de la pantalla mostrada. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla."
+        "Variable de sistema que almacena el ancho de la pantalla del monitor de acuerdo con el <a href=\"https://p5js.org/reference/#/p5/pixelDensity\">pixelDensity</a> por defecto. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla. Para retornar el tamaño real de la pantalla, multiplica este por pixelDensity."
       ]
     },
     "displayHeight": {
       "description": [
-        "Variable de sistema que almacena la altura de la pantalla mostrada. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla."
+        "Variable de sistema que almacena la altura de la pantalla del monitor de acuerdo con el <a href=\"https://p5js.org/reference/#/p5/pixelDensity\">pixelDensity</a> por defecto. Esto es usado para correr un programa a pantalla completa en cualquier dimensión de pantalla. Para retornar el tamaño real de la pantalla, multiplica este por pixelDensity."
       ]
     },
     "windowWidth": {
@@ -960,34 +970,34 @@
     },
     "windowResized": {
       "description": [
-        "La función windowResized() es llamada cada vez que la ventana del navegador cambia de tamaño. Es un buen lugar para cambiar las dimensiones del lienzo o hacer cualquier otro ajuste necesario para acomodar las nuevas dimensiones de la ventana."
+        "La función windowResized() es llamada cada vez que la ventana del navegador cambia de tamaño. Es un buen lugar para cambiar las dimensiones del lienzo o hacer cualquier otros ajustes para acomodar las nuevas dimensiones de la ventana."
       ],
       "params": {
-        "event": "Object: (Optional) optional Event callback argument."
+        "event": "Objecto: (Opcional) Callback opcional de Event"
       }
     },
     "width": {
       "description": [
-        "Variable de sistema que almacena el ancho del lienzo dibujado. Este valor es definido por el primer parámetro de la función createCanvas(). Por ejemplo, la llamada a la función (320, 240) define la variable width al valor 320. El valor por defecto de ancho es de 100 si que createCanvas() no ha sido usado en el programa."
+        "Variable de sistema que almacena el ancho del lienzo dibujado. Este valor es definido por el primer parámetro de la función <a href=\"#/p5/createCanvas\">createCanvas()</a>. Por ejemplo, la llamada a la función createCanvas(320, 240) define la variable width al valor 320. El valor por defecto del ancho es de 100 si <a href=\"#/p5/createCanvas\">createCanvas()</a> no ha sido usado en el programa."
       ]
     },
     "height": {
       "description": [
-        "Variable de sistema que almacena la altura del lienzo dibujado. Este valor es definido por el segundo parámetro de la función createCanvas(). Por ejemplo, la llamada a la función (320, 240) define la variable height al valor 240. El valor por defecto de la altura es de 100 si que createCanvas() no ha sido usado en el programa."
+        "Variable de sistema que almacena la altura del lienzo dibujado. Este valor es definido por el segundo parámetro de la función <a href=\"#/p5/createCanvas\">createCanvas()</a>. Por ejemplo, la llamada a la función createCanvas(320, 240) define la variable height al valor 240. El valor por defecto de la altura es de 100 si <a href=\"#/p5/createCanvas\">createCanvas()</a> no ha sido usado en el programa."
       ]
     },
     "fullscreen": {
       "description": [
-        "Si se da un argumento, define que el bosquejo esté a pantalla completa basado en el valor del argumento. Si no se da un argumento, retorna el estado actual de pantalla completa. Notar que debido a restricciones del navegador esto solo puede ser llamado con una entrada de parte del usuario, por ejemplo, cuando se presiona el ratón como en el ejemplo."
+        "Si se da un argumento, define que el boceto esté a pantalla completa o no basado en el valor del argumento. Si no se da un argumento, retorna el estado actual de pantalla completa. Nota que debido a restricciones del navegador esto solo puede ser llamado con una entrada de parte del usuario, por ejemplo, cuando se presiona el ratón como en el ejemplo."
       ],
-      "returns": "Boolean: estado de pantalla completa actual",
+      "returns": "Booleano: estado de pantalla completa actual",
       "params": {
-        "val": "Boolean: define si el bosquejo debe estar a pantalla completa o no."
+        "val": "Booleano: define si el boceto debe estar a pantalla completa o no."
       }
     },
     "pixelDensity": {
       "description": [
-        "Define el escalamiento de pixeles para monitores de alta densidad de pixeles. Por defecto, la densidad de pixeles es definida para calzar con la densidad del monitor, ejecuta pixelDensity() para que no sea así. Llamar a pixelDensity() sin argumentos retorna la densidad de pixeles actual del bosquejo."
+        "Define el escalamiento de pixeles para monitores de alta densidad de pixeles. Por defecto, la densidad de pixeles es definida para calzar con la densidad del monitor, ejecuta pixelDensity(1) para que no sea así. Llamar a pixelDensity() sin argumentos retorna la densidad de pixeles actual del bosquejo."
       ],
       "params": {
         "val": "Número: si es que el bosquejo debe ser escalado y cuánto."
@@ -995,25 +1005,25 @@
     },
     "displayDensity": {
       "description": [
-        "Retorna la densidad de pixeles del monitor actual en que el bosquejo está corriendo."
+        "Retorna la densidad de pixeles del monitor actual en que el boceto está corriendo."
       ],
       "returns": "Número: la densidad de pixeles actual del monitor"
     },
     "getURL": {
       "description": [
-        "Retorna la URL actual."
+        "Retorna la URL actual. Nota: cuando se usa el p5 Editor, esto retornará un objeto vacio porque el boceto esta embebido en un ifram. Esto funcionará correctamente si tú visualizas el boceto usando las URLs presentes o compartidas del editor."
       ],
       "returns": "String: URL"
     },
     "getURLPath": {
       "description": [
-        "Retorna la dirección URL como un arreglo"
+        "Retorna la dirección URL como un arreglo. Nota: cuando se usa el p5 Editor, esto retornará un objeto vacio porque el boceto esta embebido en un ifram. Esto funcionará correctamente si tú visualizas el boceto usando las URLs presentes o compartidas del editor."
       ],
-      "returns": "Arreglo: los componentes de la dirección"
+      "returns": "String[]: los componentes de la dirección"
     },
     "getURLParams": {
       "description": [
-        "Retorna los parámetros de la URL actual como un objeto."
+        "Retorna los parámetros de la URL actual como un objeto. Nota: cuando se usa el p5 Editor, esto retornará un objeto vacio porque el boceto esta embebido en un ifram. Esto funcionará correctamente si tú visualizas el boceto usando las URLs presentes o compartidas del editor."
       ],
       "returns": "Objeto: parámetros de la URL"
     },
@@ -1534,12 +1544,12 @@
     },
     "createButton": {
       "description": [
-        "Creates a <button></button> element in the DOM. Use .size() to set the display size of the button. Use .mousePressed() to specify behavior on press."
+        "Crea un elemento <button></button> en el DOM. Utiliza .size() para establecer el tamaño de visualización del botón. Usa .mousePressed() para especificar el comportamiento al pulsarlo."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: apunta a <a href=\"#/p5.Element\">p5.Element</a> que contiene el nodo creado",
       "params": {
-        "label": "String: label displayed on the button",
-        "value": "String: (Optional) value of the button"
+        "label": "String: Etiqueta mostrada en el botón",
+        "value": "String: (Opcional) valor del botón"
       }
     },
     "createCheckbox": {
@@ -2518,7 +2528,7 @@
       "description": [
         "Crea un nuevo objeto p5.Vector (el tipo de datos para almacenar vectores). Esto provee un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección."
       ],
-      "returns": "el objeto p5",
+      "returns": "p5.Vector",
       "params": {
         "x": "Número: componente x del vector",
         "y": "Número: componente y del vector",
@@ -5058,9 +5068,9 @@
   },
   "p5.Vector": {
     "description": [
-      "Una clase para describir un vector de dos o tres dimensiones, específicamente un vector euclideano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección. El tipo de datos, sin embargo, graba los componentes del vector (x, y para 2D y x,y,z para 3D). La magnitud y la dirección pueden ser calculados con los métodos mag() y heading(). En muchos de los ejemplos de p5.js, verás que p5.Vector es usado para describir una posición, velocidad o aceleración. Por ejemplo, si consideras un rectángulo moviéndose a lo largo de la pantalla, en cada instante tiene una posición (un vector que apunta desde el origen hasta su ubicación), una velocidad(la tasa a la que la posición del objeto cambia por unidad de tiempo, expresada como vector), y aceleración (la tasa a la que la velocidad del objeto cambia por unidad de tiempo, expresada como vector). Como los vectores representan grupos de valores, no podemos simplemente usar las operaciones tradicionales de adición, multiplicación, etc. En vez de eso, necesitaremos hacer matemática de vectores, lo que es simplificado con los métodos dentro de la clase p5.Vector.",
-      "In many of the p5.js examples, you will see <a href=\"#/p5.Vector\">p5.Vector</a> used to describe a position, velocity, or acceleration. For example, if you consider a rectangle moving across the screen, at any given instant it has a position (a vector that points from the origin to its location), a velocity (the rate at which the object's position changes per time unit, expressed as a vector), and acceleration (the rate at which the object's velocity changes per time unit, expressed as a vector).",
-      "Since vectors represent groupings of values, we cannot simply use traditional addition/multiplication/etc. Instead, we'll need to do some \"vector\" math, which is made easy by the methods inside the <a href=\"#/p5.Vector\">p5.Vector</a> class."
+      "Una clase para describir un vector de dos o tres dimensiones, específicamente un vector euclidiano (también conocido como geométrico). Un vector es una entidad que tiene tanto magnitud como dirección. El tipo de datos, sin embargo, graba los componentes del vector (<code>x</code>, <code>y</code> para 2D y <code>x</code>, <code>y</code>, <code>z</code> para 3D). La magnitud y la dirección pueden ser calculados con los métodos <a href=\"#/p5.Vector/mag\">mag()</a> y <a href=\"#/p5.Vector/heading\">heading()</a>.",
+      "En muchos de los ejemplos de p5.js, verás que <a href=\"#/p5.Vector\">p5.Vector</a> es usado para describir una posición, velocidad o aceleración. Por ejemplo, si consideras un rectángulo moviéndose a lo largo de la pantalla, en cada instante tiene una posición (un vector que apunta desde el origen hasta su ubicación), una velocidad (la tasa a la que la posición del objeto cambia por unidad de tiempo, expresada como vector), y aceleración (la tasa a la que la velocidad del objeto cambia por unidad de tiempo, expresada como vector).",
+      "Como los vectores representan grupos de valores, no podemos simplemente usar las operaciones tradicionales de adición, multiplicación, etc. En vez de eso, necesitaremos hacer matemática de vectores, lo que es simplificado con los métodos dentro de la clase <a href=\"#/p5.Vector\">p5.Vector</a>."
     ],
     "params": {
       "x": "Número: componente x del vector",
@@ -5069,22 +5079,28 @@
     },
     "x": {
       "description": [
-        "The x component of the vector"
+        "Componente x del vector"
       ]
     },
     "y": {
       "description": [
-        "The y component of the vector"
+        "Componente y del vector"
       ]
     },
     "z": {
       "description": [
-        "The z component of the vector"
+        "Componente z del vector"
       ]
+    },
+    "toString": {
+          "description": [
+         "Devuelve la representación como cadena de caracteres de un vector <code>v</code> llamando a <code>String(v)</code> o <code>v.toString()</code>. Este método es util para imprimir vectores en la consola."
+          ],
+       "returns": "String:"
     },
     "set": {
       "description": [
-        "Sets the x, y, and z component of the vector using two or three separate variables, the data from a <a href=\"#/p5.Vector\">p5.Vector</a>, or the values from a float array."
+        "Asigna las componentes <code>x</code>, <code>y</code>, <code>z</code> de un vector usando dos o tres variables, los datos de otro <a href=\"#/p5.Vector\">p5.Vector</a>, o los valores de un arreglo de números de punto flotante."
       ],
       "params": {
         "x": "Number: (Optional) the x component of the vector",
@@ -5095,13 +5111,13 @@
     },
     "copy": {
       "description": [
-        "Gets a copy of the vector, returns a <a href=\"#/p5.Vector\">p5.Vector</a> object."
+        "Crea una copia del vector, devuelve un objeto <a href=\"#/p5.Vector\">p5.Vector</a>."
       ],
       "returns": "p5.Vector: the copy of the <a href=\"#/p5.Vector\">p5.Vector</a> object"
     },
     "add": {
       "description": [
-        "Adds x, y, and z components to a vector, adds one vector to another, or adds two independent vectors together. The version of the method that adds two vectors together is a static method and returns a <a href=\"#/p5.Vector\">p5.Vector</a>, the others acts directly on the vector. Additionally, you may provide arguments to this function as an array. See the examples for more context."
+        "Suma las componentes <code>x</code>, <code>y</code>, <code>z</code> a un vector, suma un vector a otro, o suma dos vectores independientes. La version del método que suma dos vectores independientes es un método estático y regresa un objeto <a href=\"#/p5.Vector\">p5.Vector</a>, las otras versiones actúan directamente sobre el vector. Adicionalmente, se pueden pasar arreglos como argumentos de esta función. Ver el ejemplo para más detalles ."
       ],
       "params": {
         "x": "Number: the x component of the vector to be added",
@@ -5115,7 +5131,7 @@
     },
     "rem": {
       "description": [
-        "Gives remainder of a vector when it is divided by another vector. See examples for more context."
+        "Devuelve el residuo de un vector cuando es dividido(componente a componente) por otro vector. Ver el ejemplo para más detalles."
       ],
       "params": {
         "x": "Number: the x component of divisor vector",
@@ -5128,7 +5144,7 @@
     },
     "sub": {
       "description": [
-        "Subtracts x, y, and z components from a vector, subtracts one vector from another, or subtracts two independent vectors. The version of the method that subtracts two vectors is a static method and returns a <a href=\"#/p5.Vector\">p5.Vector</a>, the other acts directly on the vector. Additionally, you may provide arguments to this function as an array. See the examples for more context."
+        "Resta las componentes <code>x</code>, <code>y</code>, <code>z</code> a un vector, resta un vector de otro o resta dos vectores independientes. La versión del método que resta dos vectores independientes es un método estático y regresa un objeto <a href=\"#/p5.Vector\">p5.Vector</a>, los otras versiones actúan directamente sobre el vector. Adicionalmente , se pueden pasar arreglos como argumentos de esta función. Ver el ejemplo para más detalles"
       ],
       "params": {
         "x": "Number: the x component of the vector to subtract",
@@ -5142,7 +5158,7 @@
     },
     "mult": {
       "description": [
-        "Multiplies the vector by a scalar, multiplies the x, y, and z components from a vector, or multiplies the x, y, and z components of two independent vectors. When multiplying a vector by a scalar, the x, y, and z components of the vector are all multiplied by the scalar. When multiplying a vector by a vector, the x, y, z components of both vectors are multiplied by each other (for example, with two vectors a and b: a.x * b.x, a.y * b.y, a.z * b.z). The static version of this method creates a new <a href=\"#/p5.Vector\">p5.Vector</a> while the non static version acts on the vector directly. Additionally, you may provide arguments to this function as an array. See the examples for more context."
+        "Multiplica un vector por un escalar, multiplica las componentes <code>x</code>, <code>y</code>, <code>z</code> de un vector, o multiplica las componentes  <code>x</code>, <code>y</code>, <code>z</code> de dos vectores independientes. Cuando se multiplica un vector por un escalar, las componentes <code>x</code>, <code>y</code>, <code>z</code> del vector se multiplican todas por el escalar. Cuando se multiplican un vector por otro vector, las componentes <code>x</code>, <code>y</code>, <code>z</code> de ambos vectores se multiplican una a una (por ejemplo, con los vectores <code>a</code> y <code>b</code>: <code>a.x*b.x</code>, <code>a.y*b.y</code>, <code>a.z*b.z</code>). La versión estática de este método crea un objeto <a href=\"#/p5.Vector\">p5.Vector</a> mientras que las no estáticas actúan directamente sobre el vector. Adicionalmente, se pueden pasar arreglos como argumentos a esta función. Ver ejemplo para más detalles."
       ],
       "params": {
         "n": "Number: The number to multiply with the vector",
@@ -5157,8 +5173,8 @@
       }
     },
     "div": {
-      "description": [
-        "Divides the vector by a scalar, divides a vector by the x, y, and z arguments, or divides the x, y, and z components of two vectors against each other. When dividing a vector by a scalar, the x, y, and z components of the vector are all divided by the scalar. When dividing a vector by a vector, the x, y, z components of the source vector are treated as the dividend, and the x, y, z components of the argument is treated as the divisor (for example with two vectors a and b: a.x / b.x, a.y / b.y, a.z / b.z). The static version of this method creates a new <a href=\"#/p5.Vector\">p5.Vector</a> while the non static version acts on the vector directly. Additionally, you may provide arguments to this function as an array. See the examples for more context."
+      "description": [ 
+        "Divide un vector por un escalar, divide las componentes <code>x</code>, <code>y</code>, <code>z</code> de un vector, o divide las componentes <code>x</code>, <code>y</code>, <code>z</code> de dos vectores independientes. Cuando se divide un vector por un escalar, las componentes <code>x</code>, <code>y</code>, <code>z</code> del vector se dividen todas por el escalar. Cuando se divide un vector por otro vector, las componentes <code>x</code>, <code>y</code>, <code>z</code> de ambos vectores se dividen una a una (por ejemplo, con los vectores <code>a</code> y <code>b</code>: <code>a.x/b.x,</code>, <code>a.y/b.y</code>, <code>a.z/b.z</code>). La versión estática de este método crea un objeto <a href=\"#/p5.Vector\">p5.Vector</a> mientras que las no estáticas actúan directamente sobre el vector. Adicionalmente, se pueden pasar arreglos como argumentos a esta función. Ver ejemplo para más detalles."
       ],
       "params": {
         "n": "Number: The number to divide the vector by",
@@ -5174,7 +5190,7 @@
     },
     "mag": {
       "description": [
-        "Calculates the magnitude (length) of the vector and returns the result as a float (this is simply the equation sqrt(x*x + y*y + z*z).)"
+        "Calcula la magnitud (longitud) de un vector y devuelve el resultado como un numero de punto flotante. (Se calcula como <code>sqrt(x*x+y*y+z*z)</code>)"
       ],
       "returns": "Number: magnitude of the vector",
       "params": {
@@ -5183,13 +5199,13 @@
     },
     "magSq": {
       "description": [
-        "Calculates the squared magnitude of the vector and returns the result as a float (this is simply the equation <em>(x*x + y*y + z*z)</em>.) Faster if the real length is not required in the case of comparing vectors, etc."
+        "Calcula el cuadrado de la magnitud de un vector y devuelve el resultado como un numero de punto flotante. (Se calcula como <code>x*x+y*y+z*z</code>). Mas rápido si no se necesita la longitud real, por ejemplo al comparar vectores."
       ],
       "returns": "Number: squared magnitude of the vector"
     },
     "dot": {
       "description": [
-        "Calculates the dot product of two vectors. The version of the method that computes the dot product of two independent vectors is a static method. See the examples for more context."
+        "Calcula el producto punto de dos vectores. La versión del método que calcula el producto punto de dos vectores independientes es un método estático. Ver los ejemplos para más detalles."
       ],
       "returns": "Number: the dot product",
       "params": {
@@ -5203,7 +5219,7 @@
     },
     "cross": {
       "description": [
-        "Calculates and returns a vector composed of the cross product between two vectors. Both the static and non static methods return a new <a href=\"#/p5.Vector\">p5.Vector</a>. See the examples for more context."
+        "Calcula y devuelve el producto cruz de dos vectores. Tanto el método estático como en lo estático devuelven un nuevo objeto <a href=\"#/p5.Vector\">p5.Vector</a>. Ver los ejemplos para más detalles."
       ],
       "returns": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> composed of cross product",
       "params": {
@@ -5214,7 +5230,7 @@
     },
     "dist": {
       "description": [
-        "Calculates the Euclidean distance between two points (considering a point as a vector object)."
+        "Calcula la distancia Euclidiana entre dos puntos (considerando los puntos como vectores). Si quieres calcular la distancia entre dos puntos revisa <a href=\"#/p5/dist\">dist()</a>."
       ],
       "returns": "Number: the distance",
       "params": {
@@ -5225,7 +5241,7 @@
     },
     "normalize": {
       "description": [
-        "Normalize the vector to length 1 (make it a unit vector)."
+        "Normaliza la longitud de un vector a 1 (vector unitario)."
       ],
       "returns": "p5.Vector: normalized <a href=\"#/p5.Vector\">p5.Vector</a>",
       "params": {
@@ -5235,7 +5251,7 @@
     },
     "limit": {
       "description": [
-        "Limit the magnitude of this vector to the value used for the <b>max</b> parameter."
+        "Restringe la magnitud de este vector al valor establecido por el parámetro <code>max</code>."
       ],
       "params": {
         "max": "Number: the maximum magnitude for the vector"
@@ -5243,7 +5259,7 @@
     },
     "setMag": {
       "description": [
-        "Set the magnitude of this vector to the value used for the <b>len</b> parameter."
+        "Asigna el parámetro <code>len</code> a la magnitud del vector."
       ],
       "params": {
         "len": "Number: the new length for this vector"
@@ -5251,13 +5267,13 @@
     },
     "heading": {
       "description": [
-        "Calculate the angle of rotation for this vector(only 2D vectors). p5.Vectors created using <a src=\"#/p5/createVector\">createVector()</a> will take the current <a = src=\"#/p5/angleMode\">angleMode</a> into consideration, and give the angle in radians or degree accordingly."
+        "Calcula el ángulo de rotación para este vector (solo para vectores 2D). Los p5.Vectors que son creados usando <a src=\"#/p5/createVector\">createVector()</a> tomaran en cuenta el <a href=\"#/p5/angleMode\">angleMode</a>, y devolverá el ángulo en radianes o grados respectivamente."
       ],
       "returns": "Number: the angle of rotation"
     },
     "setHeading": {
       "description": [
-        "Rotate the vector to a specific angle (only 2D vectors), magnitude remains the same"
+        "Rota el vector a un ángulo especifico (solamente vectores 2D); la magnitud se conserva."
       ],
       "params": {
         "angle": "Number: the angle of rotation"
@@ -5265,7 +5281,7 @@
     },
     "rotate": {
       "description": [
-        "Rotate the vector by an angle (only 2D vectors), magnitude remains the same"
+        "Rota el vector por un ángulo (solamente vectores 2D); la magnitud se conserva."
       ],
       "params": {
         "angle": "Number: the angle of rotation",
@@ -5275,7 +5291,7 @@
     },
     "angleBetween": {
       "description": [
-        "Calculates and returns the angle (in radians) between two vectors."
+        "Calcula y devuelve el ángulo entre dos vectores. Este método considera el <a href=\"#/p5/angleMode\">angleMode</a> y devuelve el ángulo en radianes o grados respectivamente."
       ],
       "returns": "Number: the angle between (in radians)",
       "params": {
@@ -5284,8 +5300,7 @@
     },
     "lerp": {
       "description": [
-        "Linear interpolate the vector to another vector"
-      ],
+        "Interpola linealmente entre dos vectores."      ],
       "params": {
         "x": "Number: the x component",
         "y": "Number: the y component",
@@ -5299,7 +5314,7 @@
     },
     "reflect": {
       "description": [
-        "Reflect the incoming vector about a normal to a line in 2D, or about a normal to a plane in 3D This method acts on the vector directly"
+        "Refleja un vector respecto a la normal a una linea en 2D, o respecto a la normal a un plano en 3D. Este método actúa directamente sobre el vector."
       ],
       "params": {
         "surfaceNormal": "p5.Vector: the <a href=\"#/p5.Vector\">p5.Vector</a> to reflect about, will be normalized by this method"
@@ -5307,13 +5322,13 @@
     },
     "array": {
       "description": [
-        "Return a representation of this vector as a float array. This is only for temporary use. If used in any other fashion, the contents should be copied by using the <b>p5.Vector.<a href=\"#/p5.Vector/copy\">copy()</a></b> method to copy into your own array."
+        "Devuelve la representación de un vector como un arreglo de números con punto flotante. Esto es solo para uso temporal. Para otros usos, el contenido debe ser copiado usado <b>p5.Vector.<a href=\"#/p5.Vector/copy\">copy()</a></b>."
       ],
       "returns": "Number[]: an Array with the 3 values"
     },
     "equals": {
       "description": [
-        "Equality check against a <a href=\"#/p5.Vector\">p5.Vector</a>"
+        "Verifica cuando dos <a href=\"#/p5.Vector\">p5.Vector</a> son iguales."
       ],
       "returns": "Boolean: whether the vectors are equals",
       "params": {
@@ -5325,7 +5340,7 @@
     },
     "fromAngle": {
       "description": [
-        "Make a new 2D vector from an angle"
+        "Crea un nuevo vector 2D a partir de un ángulo."
       ],
       "returns": "p5.Vector: the new <a href=\"#/p5.Vector\">p5.Vector</a> object",
       "params": {
@@ -5335,7 +5350,7 @@
     },
     "fromAngles": {
       "description": [
-        "Make a new 3D vector from a pair of ISO spherical angles"
+        "Crea un nuevo vector 3D a partir de sus coordenadas esféricas estándar(ISO)."
       ],
       "returns": "p5.Vector: the new <a href=\"#/p5.Vector\">p5.Vector</a> object",
       "params": {
@@ -5346,13 +5361,13 @@
     },
     "random2D": {
       "description": [
-        "Make a new 2D unit vector from a random angle"
+        "Crea un nuevo vector 2D a partir de un ángulo aleatorio."
       ],
       "returns": "p5.Vector: the new <a href=\"#/p5.Vector\">p5.Vector</a> object"
     },
     "random3D": {
       "description": [
-        "Make a new random 3D unit vector."
+        "Crea un nuevo vector 3D (unitario) aleatorio."
       ],
       "returns": "p5.Vector: the new <a href=\"#/p5.Vector\">p5.Vector</a> object"
     }

@@ -1,5 +1,6 @@
 /*
  * @name Gráfico de sectores
+ * @arialabel Gráfico de pastel en un fondo gris con diferentes rebanadas del gráfico de pastel en varias tonalidades de gris
  * @description Usa la función arc() para generar un gráfico de sectores de los datos contenidos en un arreglo
  */
 let angles = [30, 10, 45, 35, 60, 38, 75, 67];

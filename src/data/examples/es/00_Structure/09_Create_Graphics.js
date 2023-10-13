@@ -1,5 +1,6 @@
 /*
- * @name createGraphics
+ * @name Crear gráficos
+ * @arialabel Fondo de color negro con un rectángulo de color gris oscuro en medio. El ratón del usuario dibuja con color blanco pero no por el centro del rectángulo.
  * @description Crea y retorna un nuevo objeto p5.Renderer. Usa esta
  * clase si necesitas dibujar en un buffer gráfico fuera-de-pantalla. Los dos parámetros
  * definen el ancho y la altura en pixeles.

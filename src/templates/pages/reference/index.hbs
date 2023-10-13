@@ -42,13 +42,21 @@ slug: reference/
       var routes = window.location.pathname.split('/');
       var lang = routes[1];
       if (langs.indexOf(lang) != -1) {
+
+        var didReferenceRendered = false
+        window.addEventListener('reference-rendered', function() {
+          console.log("rendered");
+          didReferenceRendered = true
+          if (translations) {
+            updateLanguage();
+          }
+        }, false);
+
         $.getJSON('/assets/reference/'+lang+'.json', function(data) {
           translations = data;
-
-          window.addEventListener('reference-rendered', function() {
-            console.log("rendered");
+          if (didReferenceRendered) {
             updateLanguage();
-          }, false);
+          }
         });
       }
     });
@@ -82,6 +90,9 @@ slug: reference/
         $('#reference-error4').html(translations['reference-error4']);
         $('#reference-error5').html(translations['reference-error5']);
         // reference texts
+        $('#reference-deprecated1').html(translations['reference-deprecated1']);
+        $('#reference-deprecated2').html(translations['reference-deprecated2']);
+        $('#reference-p5sound-requires').html(translations['reference-p5sound-requires']);
         $('#reference-example').html(translations['reference-example']);
         $('#reference-description').html(translations['reference-description'])
         $('#reference-extends').html(translations['reference-extends']);

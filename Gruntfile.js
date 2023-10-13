@@ -16,7 +16,14 @@ const pngquant = require('imagemin-pngquant');
 
 module.exports = function(grunt) {
   require('time-grunt')(grunt);
-  require('load-grunt-tasks')(grunt);
+  require('load-grunt-tasks')(grunt, {
+    pattern: [
+      'grunt-*',
+      '@*/grunt-*',
+      '!grunt-assemble-permalinks',
+      '!grunt-assemble-i18n'
+    ]
+  });
 
   // Project configuration. actual tasks
   grunt.initConfig({
@@ -37,10 +44,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: '<%= config.src %>/assets/css/*.css',
-        tasks: [
-          'concat:dist',
-          'postcss'
-        ]
+        tasks: ['concat:dist', 'postcss']
       },
       imagemin: {
         files: '<%= config.src %>/assets/img/*.{png,jpg,jpeg,gif,svg,ico}',
@@ -73,9 +77,7 @@ module.exports = function(grunt) {
       livereload: {
         options: {
           open: true,
-          base: [
-            '<%= config.dist %>'
-          ]
+          base: ['<%= config.dist %>']
         }
       }
     },
@@ -94,19 +96,16 @@ module.exports = function(grunt) {
             '!<%= config.src %>/data/reference/*.json'
           ],
           partials: '<%= config.src %>/templates/partials/*.hbs',
-          plugins: [
-            'assemble-contrib-permalinks',
-            'assemble-contrib-i18n'
-          ],
+          plugins: ['grunt-assemble-permalinks', 'grunt-assemble-i18n'],
           i18n: {
             languages: pkg.languages,
-            templates: [
-              '<%= config.src %>/templates/pages/**/*.hbs',
-            ]
+            templates: ['<%= config.src %>/templates/pages/**/*.hbs']
           },
           permalinks: {
             structure: ':lang/:slug/:base:ext',
-            patterns: [
+            // Official documentation incorrectly states that this property
+            // should be "patterns" when it should be "replacements"
+            replacements: [
               {
                 pattern: ':lang',
                 replacement: function() {
@@ -311,7 +310,7 @@ module.exports = function(grunt) {
     clean: {
       assets: [
         '<%= config.dist %>/**/*.*',
-        '!<%= config.dist %>/download/release.php',
+        '!<%= config.dist %>/download/version.json',
         '!<%= config.dist %>/git-pull.php',
         '!<%= config.dist %>/books/media.zip',
         '!<%= config.dist %>/learn/books/media.zip',
@@ -342,8 +341,22 @@ module.exports = function(grunt) {
         dest: 'p5-reference/'
       }
     },
-    htmllint: {
-      all: {
+
+    htmlhint: {
+      html1: {
+        options: {
+          'attr-value-double-quotes': false,
+          'alt-require': true,
+          'doctype-first': true,
+          'title-require': true,
+          'attr-no-duplication': true,
+          'input-requires-label': true,
+          'tags-check': true,
+          'tagname-lowercase': true,
+          'tagname-specialchars': true,
+          'empty-tag-not-self-closed': true,
+          'id-unique': true
+        },
         src: [
           '<%= config.dist %>/**/*.html',
           '!<%= config.dist %>/**/CHANGES.html',
@@ -352,20 +365,13 @@ module.exports = function(grunt) {
           '!<%= config.dist %>/**/learn/*.html',
           '!<%= config.dist %>/**/examples/*.html',
           '!<%= config.dist %>/**/reference/assets/index.html'
-        ],
-        options: {
-          ignore: [
-            /^This document appears to be written in English/,
-            /^Bad value “https:/,
-            /^Consider adding a “lang” attribute to the “html”/,
-            /^Attribute “paypalexpress” not allowed on element “script” at this point./
-          ]
-        }
+        ]
       }
     },
+
     shell: {
       generate_dataJSON: {
-        command: 'npm ci && npm run grunt yui',
+        command: `git checkout ${grunt.option('target')} && npm ci && npm run grunt yui build`,
         options: {
           execOptions: {
             cwd: 'tmp/p5.js'
@@ -378,7 +384,7 @@ module.exports = function(grunt) {
   grunt.registerTask('update-version', function() {
     const done = this.async();
 
-    const version = require('./src/templates/pages/reference/data.json').project.version;
+    const version = grunt.option('target').substring(1);
 
     fs.readFile('./src/data/data.yml')
       .then(str => {
@@ -402,13 +408,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-file-append');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-html');
-
-  // i18n tracking task
-  grunt.registerTask('i18n', function() {
-    var done = this.async();
-    require('./i18n.js')(done);
-  });
+  grunt.loadNpmTasks('grunt-htmlhint');
 
   grunt.registerTask('make_tmp_dir', function() {
     const tmp_path = 'tmp/p5.js';
@@ -436,6 +436,14 @@ module.exports = function(grunt) {
     // move the data.json files from the cloned p5.js repository to the p5.js-website repository
     fse.moveSync(dataJSON_p5js, dataJSON_p5jswebsite, { overwrite: true });
     fse.moveSync(dataJSONmin_p5js, dataJSONmin_p5jswebsite, { overwrite: true });
+
+    const p5min_src = 'tmp/p5.js/lib/p5.min.js';
+    const p5min_dest = 'src/assets/js/p5.min.js';
+    const p5Soundmin_src = 'tmp/p5.js/lib/addons/p5.sound.min.js';
+    const p5Soundmin_dest = 'src/assets/js/p5.sound.min.js';
+    fse.moveSync(p5min_src, p5min_dest, { overwrite: true });
+    fse.moveSync(p5Soundmin_src, p5Soundmin_dest, { overwrite: true });
+
     // delete the tmp folder that contained the p5.js repository
     fse.removeSync('tmp/');
   });
@@ -451,8 +459,8 @@ module.exports = function(grunt) {
     'clone_p5js_repo',
     'generate_dataJSON',
     'move_dataJSON',
-    'generate_enJSON',
-    // 'json-to-fluent'
+    'update-version',
+    'generate_enJSON'
   ]);
 
   // multi-tasks: collections of other tasks
@@ -476,19 +484,17 @@ module.exports = function(grunt) {
 
   // runs tasks in order
   grunt.registerTask('build', [
-    'update-version',
+    // 'update-version',
     'exec',
     'clean',
     'requirejs:yuidoc_theme',
     'requirejs',
-    // 'fluent-to-json',
     'copy',
     'optimize',
     'assemble',
     'file_append',
     'compress',
-    'i18n',
-    'htmllint'
+    'htmlhint'
   ]);
 
   // runs with just grunt command

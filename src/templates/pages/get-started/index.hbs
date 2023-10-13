@@ -197,7 +197,7 @@ function draw() {
       <div>{{#i18n "book1"}}{{/i18n}}</div>
 
       <script>
-        $.getJSON('../download/version.json', function(data) {
+        $.getJSON('/download/version.json', function(data) {
           $('.p5-replace').each(function() {
             var html = $(this).html().replace('[p5_version]', data.version);
             $(this).html(html);
