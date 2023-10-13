@@ -61,19 +61,11 @@ slug: reference/
       }
     });
 
-    function removePlaceholder() {
-      $('#search input').attr('placeholder', '');
-    }
-
     function updateLanguage() {
       if (translations) {
         // reference title
         $('h1').html(translations['h1']);
         $('#search input').attr('placeholder', translations['reference-search']);
-        $('#search input').on('focus', removePlaceholder);
-        $('#search input').focusout(function () {
-          $('#search input').attr('placeholder', translations['reference-search']);
-        })
         $('#search input').attr('title', translations['reference-search']);
         // reference description
         $('#reference-description1').html(translations['reference-description1']);
