@@ -1,5 +1,6 @@
 /*
  * @name Linear Gradient
+ * @arialabel The background is white on the left and right sides and gradients to a black at the center. There are two long rectangles on the background gradient. The top rectangle has orange on the top of the rectangle and gradients to blue on the bottom. The bottom rectangle starts with blue on the left side and gradients to orange on the right
  * @description The lerpColor() function is useful for interpolating between
  * two colors.
  */

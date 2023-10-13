@@ -1,5 +1,6 @@
 /*
  * @name Materials
+ * @arialabel Four rings and one cube of various materials rotate on a black background. As the user’s mouse moves across the window, the position of the light changes.
  * @description There are five types of materials supported.
  * They respond to light differently.
  * Move your mouse to change the light position.

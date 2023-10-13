@@ -11,16 +11,33 @@ function setup() {
 function draw() {
   background(0);
 
-  // 右侧：橘色点光源
-  pointLight(150, 100, 0, 500, 0, 200);
+  // 环境光
+   ambientLight(0, 255/4, 0);
+
+  // 设置光的位置，可将坐标想成如下：
+  // -宽度/2,-高度/2 -------- 宽度/2,-高度/2
+  //              |            |
+  //              |     0,0    |
+  //              |            |
+  // -宽度/2,高度/2--------宽度/2,高度/2
 
   // 左侧：蓝色定向光
-  directionalLight(0, 102, 255, -1, 0, 0);
+  directionalLight(0, 0, 255, -1, 0, 0);
 
-  // 上方：黄色聚光
-  pointLight(255, 255, 109, 0, 0, 300);
+  // 计算由中心点至 mouseX 的距离
+  let lightX = mouseX - width / 2;
+  let lightY = mouseY - height / 2;
 
-  rotateY(map(mouseX, 0, width, 0, PI));
-  rotateX(map(mouseY, 0, height, 0, PI));
-  box(200);
+  // 红色聚光
+  // 光的轴位置：lightX, lightY, 500
+  // 光的轴方向：0, 0, -1
+  spotLight(255, 0, 0, lightX, lightY, 500, 0, 0, -1);
+
+  // 绕 X 轴旋转
+  rotateX(-PI/4);
+  // 绕 Y 轴旋转
+  rotateY(PI/4);
+
+  // 将方块放置在 (0, 0, 0)，并设大小为 100
+  box(100);
 }

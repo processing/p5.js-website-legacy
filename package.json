@@ -5,6 +5,8 @@
   "languages": [
     "en",
     "es",
+    "hi",
+    "ko",
     "zh-Hans"
   ],
   "homepage": "https://github.com/processing/p5.js-website",
@@ -23,65 +25,69 @@
     "node": ">=0.10"
   },
   "scripts": {
+    "grunt": "grunt",
     "assemble": "grunt assemble",
     "build": "grunt build",
     "test": "grunt build",
-    "watch": "grunt server",
-    "precommit": "lint-staged"
+    "watch": "grunt server"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/processing/p5.js-website/blob/master/LICENSE-MIT"
+      "url": "https://github.com/processing/p5.js-website/blob/main/LICENSE-MIT"
     }
   ],
   "devDependencies": {
-    "assemble": "^0.24.3",
-    "assemble-contrib-i18n": "^0.1.6",
-    "assemble-contrib-permalinks": "*",
+    "@fluent/syntax": "^0.17.0",
     "autoprefixer": "^6.7.7",
-    "cssnano": "^4.1.10",
-    "ejs": "^2.7.4",
-    "eslint": "^4.19.1",
+    "cssnano": "^4.1.11",
+    "ejs": "^3.1.7",
+    "eslint": "^8.44.0",
     "eslint-config-prettier": "^2.10.0",
     "eslint-plugin-prettier": "^2.7.0",
-    "grunt": "^1.1.0",
+    "flat": "^5.0.2",
+    "fs-extra": "^9.1.0",
+    "glob": "^5.0.15",
+    "grunt": "^1.5.3",
     "grunt-assemble": "^0.6.3",
-    "grunt-cli": "^1.3.2",
-    "grunt-contrib-clean": "^0.6.0",
+    "grunt-assemble-i18n": "^0.1.1",
+    "grunt-assemble-permalinks": "^0.1.1",
+    "grunt-cli": "^1.4.3",
+    "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-compress": "^1.6.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^2.1.0",
-    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-imagemin": "^3.1.0",
     "grunt-contrib-requirejs": "^1.0.0",
     "grunt-contrib-uglify": "^3.4.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-exec": "^1.0.1",
     "grunt-file-append": "0.0.7",
-    "grunt-html": "^11.1.1",
+    "grunt-htmlhint": "^0.9.13",
     "grunt-newer": "^1.3.0",
-    "grunt-postcss": "^0.8.0",
-    "grunt-serve": "^0.1.6",
+    "grunt-postcss": "^0.9.0",
+    "grunt-shell": "^3.0.1",
     "grunt-uncss": "^0.8.6",
-    "handlebars": "^4.7.6",
-    "husky": "^0.14.3",
-    "js-yaml": "^3.13.1",
-    "lint-staged": "^9.5.0",
+    "handlebars": "^4.7.7",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "js-yaml": "^3.14.1",
     "load-grunt-tasks": "^5.1.0",
-    "lodash": "^4.17.15",
-    "marked": "^0.8.2",
-    "moment": "^2.24.0",
-    "ms": "^0.7.3",
+    "lodash": "^4.17.21",
+    "mkdirp": "^0.5.5",
+    "moment": "^2.29.4",
+    "ms": "^2.0.0",
     "prettier": "^1.19.1",
-    "qs": "^6.0.4",
+    "qs": "^6.10.3",
     "send": "^0.16.2",
     "serve-index": "^1.9.1",
-    "simple-git": "^1.132.0",
+    "simple-git": "^3.16.0",
     "time-grunt": "^1.4.0",
-    "uglify-js": "^2.8.29"
+    "uglify-js": "^2.8.29",
+    "yaml": "^2.2.2"
   },
   "dependencies": {
-    "upath": "^1.1.0"
+    "upath": "^1.2.0"
   }
 }

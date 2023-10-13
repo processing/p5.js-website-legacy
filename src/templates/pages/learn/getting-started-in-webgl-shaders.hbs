@@ -1,0 +1,300 @@
+---
+title: learn
+slug: learn/
+---
+
+<style>
+  .methodsList {
+    font-family: monospace;
+  }
+
+  .additionalInformation {
+    width: 100%;
+    background-color: #dedeff;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc {
+    width: 100%;
+    background-color: #eee;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc h3 {
+    margin-top: 15px;
+  }
+
+  .indexList {
+    padding: 15px;
+    background-color: whitesmoke;
+  }
+</style>
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main>
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+      {{!-- large title sketch --}}
+      <iframe src="{{assets}}/learn/shaderIntro/titleExample.html" width="720" height="350">
+      </iframe>
+
+      <h1>{{#i18n "getting-started-in-webgl-shaders-title"}}{{/i18n}}</h1>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p0x1"}}{{/i18n}}</p>
+
+      <div class="toc">
+        <h3>{{#i18n "getting-started-in-webgl-shaders-toc-title"}}{{/i18n}}</h3>
+        <ol>
+          <li><a href="#setup">{{#i18n "getting-started-in-webgl-shaders-heading1"}}{{/i18n}}</a></li>
+          <li><a href="#shadinglanguage">{{#i18n "getting-started-in-webgl-shaders-heading2"}}{{/i18n}}</a></li>
+          <li><a href="#uniforms">{{#i18n "getting-started-in-webgl-shaders-heading3"}}{{/i18n}}</a></li>
+          <li><a href="#conclusion">{{#i18n "getting-started-in-webgl-shaders-heading4"}}{{/i18n}}</a></li>          
+          <li><a href="#glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</a></li>          
+        </ol>
+      </div>
+
+      <h2 id="setup">{{#i18n "getting-started-in-webgl-shaders-heading1"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p1x1"}}{{/i18n}}
+      </p>
+
+      <pre><code class="language-javascript">
+      ...
+      function setup() {
+        createCanvas(windowWidth, windowHeight, WEBGL);
+      }
+      ..
+      </code></pre>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p2x1"}}{{/i18n}}
+      </p>
+
+      <pre><code class="language-javascript">
+let myShader;
+
+function preload() {
+  // load each shader file (don't worry, we will come back to these!)
+  myShader = loadShader('shader.vert', 'shader.frag');
+}
+
+function setup() {
+  // the canvas has to be created with WEBGL mode
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  describe('a simple shader example that outputs the color red')
+}
+
+function draw() {
+  // shader() sets the active shader, which will be applied to what is drawn next
+  shader(myShader);
+  // apply the shader to a rectangle taking up the full canvas
+  rect(0,0,width,height);
+}
+      </code></pre>
+
+      <h2 id="shadinglanguage">{{#i18n "getting-started-in-webgl-shaders-heading2"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p3x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p4x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+{{#i18n "getting-started-in-webgl-shaders-typelist"}}{{/i18n}}
+      </code></pre>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p5x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p6x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+attribute vec3 aPosition;
+
+void main() {
+  vec4 positionVec4 = vec4(aPosition, 1.0);
+  positionVec4.xy = positionVec4.xy * 2.0 - 1.0;
+  gl_Position = positionVec4;
+}
+</code></pre>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p7x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p8x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p9x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+precision mediump float;
+
+void main() {
+  vec4 myColor = vec4(1.0, 0.0, 0.0, 1.0);
+  gl_FragColor = myColor;
+}
+</code></pre>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p10x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">precision mediump float;</code></pre>
+
+<p>{{#i18n "getting-started-in-webgl-shaders-p11x1"}}{{/i18n}}</p>
+
+<pre><code class="language-javascript">
+...
+vec4 myColor = vec4(1.0, 0.0, 0.0, 1.0);
+gl_FragColor = myColor;
+...
+</code></pre>
+
+<p>{{#i18n "getting-started-in-webgl-shaders-p12x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p13x1"}}{{/i18n}}</p>
+
+      <h2 id="uniforms">{{#i18n "getting-started-in-webgl-shaders-heading3"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p14x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+precision mediump float;
+
+uniform vec3 myColor;
+
+void main() {
+  // the color we have passed in as a uniform is assigned to the pixel
+  gl_FragColor = vec4(myColor, 1.0);
+}
+      </code></pre>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p15x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+...
+function draw() {
+  shader(myShader);
+  // setUniform can then be used to pass data to our shader variable, myColor
+  myShader.setUniform('myColor', [1.0,0.0,0.0]); // send red as a uniform
+  // apply the shader to a rectangle taking up the full canvas
+  rect(0,0,width,height);
+}
+...
+      </code></pre>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p16x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+// (thank you to Adam Ferriss for the foundation of these example shaders)
+// position information that is used with gl_Position
+attribute vec3 aPosition;
+
+// texture coordinates 
+attribute vec2 aTexCoord;
+
+// the varying variable will pass the texture coordinate to our fragment shader
+varying vec2 vTexCoord;
+
+void main() {
+  // assign attribute to varying, so it can be used in the fragment
+  vTexCoord = aTexCoord;
+
+  vec4 positionVec4 = vec4(aPosition, 1.0);
+  positionVec4.xy = positionVec4.xy * 2.0 - 1.0;
+  gl_Position = positionVec4;
+}
+</code></pre>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p17x1"}}{{/i18n}}</p>
+
+      <div style="display:flex; align-items: center; justify-content: center;">
+        <pre><code class="language-javascript">
+precision mediump float;
+
+varying vec2 vTexCoord;
+
+void main() {
+  // now because of the varying vTexCoord, we can access the current texture coordinate
+  vec2 uv = vTexCoord;
+  
+  // and now these coordinates are assigned to the color output of the shader
+  gl_FragColor = vec4(uv,1.0,1.0);
+}
+</code></pre>
+        <img style="padding:30px;width:30%;" src='{{assets}}/learn/basic3d/images/uv_example.png'
+          alt="an illustration showing UV coordinates, the x axis in red, and the y axis in blue.">
+      </div>
+
+
+      <div class="additionalInformation">
+        {{#i18n "getting-started-in-webgl-shaders-info1x1"}}{{/i18n}}
+      </div>
+
+      <h2 id="conclusion">{{#i18n "getting-started-in-webgl-shaders-heading4"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p18x1"}}{{/i18n}}
+      </p>
+
+      <p>{{#i18n "getting-started-in-webgl-shaders-p19x1"}}{{/i18n}}</p>
+
+      <ul class="indexList">
+        {{#i18n "getting-started-in-webgl-shaders-resources"}}{{/i18n}}
+      </ul>
+
+      <h3>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-other-tutorials-p"}}{{/i18n}}</p>
+      <ul class="indexList">
+        <li><a href="{{root}}/learn/getting-started-in-webgl-coords-and-transform.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut1"}}{{/i18n}}</a></li>
+        <li><a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut2"}}{{/i18n}}</a></li>
+        <li><a href="{{root}}/learn/getting-started-in-webgl-appearance.html">{{#i18n "getting-started-in-webgl-other-tutorials-tut3"}}{{/i18n}}</a></li>
+        <li>{{#i18n "getting-started-in-webgl-other-tutorials-tut4"}}{{/i18n}} {{#i18n "getting-started-in-webgl-other-tutorials-you-are-here"}}{{/i18n}}</li>
+      </ul>
+
+      <h2 id="glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</h2>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term1-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term1-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term2-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term2-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term3-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term3-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term4-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term4-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term5-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term5-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term6-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term6-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term7-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term7-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term8-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term8-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term9-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term9-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term10-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term10-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term11-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term11-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-shaders-glossary-term12-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-shaders-glossary-term12-definition"}}{{/i18n}}</p>
+
+    </main>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->

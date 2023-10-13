@@ -1,27 +1,16 @@
 <h2><%=item.name%><% if (item.isMethod) { %>()<% } %></h2>
 
-<% if (item.example) { %>
-<div class="example">
-  <h3 id="reference-example">Examples</h3>
-
-  <div class="example-content" data-alt="<%= item.alt %>">
-    <% _.each(item.example, function(example, i){ %>
-      <%= example %>
-    <% }); %>
-  </div>
-</div>
-<% } %>
 
 <div class="description">
-    
+
   <h3 id="reference-description">Description</h3>
 
   <% if (item.deprecated) { %>
     <p>
-      Deprecated: <%=item.name%><% if (item.isMethod) { %>()<% } %> is deprecated and will be removed in a future version of p5. <% if (item.deprecationMessage) { %><%=item.deprecationMessage%><% } %>
+      <span id='reference-deprecated1'>Deprecated:</span> <%=item.name%><% if (item.isMethod) { %>()<% } %> <span id='reference-deprecated2'>is deprecated and will be removed in a future version of p5.</span> <% if (item.deprecationMessage) { %><%=item.deprecationMessage%><% } %>
     </p>
   <% } %>
-      
+
 
   <span class='description-text'><%= item.description %></span>
 
@@ -30,7 +19,7 @@
   <% } %>
 
   <% if (item.module === 'p5.sound') { %>
-    <p>This function requires you include the p5.sound library.  Add the following into the head of your index.html file:
+    <p><span id="reference-p5sound-requires">This function requires you include the p5.sound library.  Add the following into the head of your index.html file:</span>
       <pre><code class="language-javascript">&lt;script src="path/to/p5.sound.js"&gt;&lt;/script&gt;</code></pre>
     </p>
   <% } %>
@@ -59,13 +48,26 @@
   <% } %>
 </div>
 
+<% if (item.example) { %>
+  <div class="example">
+    <h3 id="reference-example">Examples</h3>
+  
+    <div class="example-content" data-alt="<%= item.alt %>">
+      <% _.each(item.example, function(example, i){ %>
+        <%= example %>
+      <% }); %>
+    </div>
+  </div>
+  <% } %>
+  
+
 <% if (isConstructor || !isClass) { %>
 
-<div>
+<div class="syntax">
   <h3 id="reference-syntax">Syntax</h3>
   <p>
     <% syntaxes.forEach(function(syntax) { %>
-    <pre><code class="language-javascript"><%= syntax %></code></pre>
+    <pre class="language-javascript"><%= syntax %></pre>
     <% }) %>
   </p>
 </div>

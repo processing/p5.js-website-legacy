@@ -1,5 +1,6 @@
 /*
  * @name Relativity
+ * @arialabel 4 vertical stripes in grey, blue, green, and orange. They are displayed in a different order on the top half of the screen compared to the bottom half and this causes the colors to be perceived differently
  * @description Each color is perceived in relation to other colors. The top
  * and bottom bars each contain the same component colors, but a different
  * display order causes individual colors to appear differently.

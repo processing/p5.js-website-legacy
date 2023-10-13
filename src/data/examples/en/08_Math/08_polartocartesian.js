@@ -1,7 +1,8 @@
 /*
  * @name PolarToCartesian
- * @description Convert a polar coordinate (r,theta)
- * to cartesian (x,y): x = rcos(theta) y = rsin(theta)
+ * @arialabel Grey circle travels faster and faster in a circle path on a black background
+ * @description Convert a polar coordinate (r,θ)
+ * to cartesian (x,y): x = r cos(θ), y = r sin(θ)
  * Original by Daniel Shiffman.
  */
 let r;

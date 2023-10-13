@@ -1,7 +1,8 @@
 /*
  * @name Chain
+ * @arialabel Two slightly opaque white circles connected by a white line. The user’s mouse moves the top of the string and the circles follow but are also affected by gravity.
  * @description One mass is attached to the mouse position and the other is attached the position of the other mass. The gravity in the environment pulls down on both.
- * Ported from the Processing Examples page.
+ * <br><br><small><em>This example is ported from the <a href="https://processing.org/examples/">Processing website</a></em></small>
  */
 let s1, s2;
 let gravity = 9.0;

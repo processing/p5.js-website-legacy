@@ -1,5 +1,6 @@
 /*
  * @name Alpha Mask
+ * @arialabel An astronaut on a planet as the background with a slightly transparent version of this image on top that moves with the user’s mouse. Both have a light blue gradient on the right side.
  * @description Loads a "mask" for an image to specify the transparency in
  * different parts of the image. The two images are blended together using
  * the mask() method of p5.Image.

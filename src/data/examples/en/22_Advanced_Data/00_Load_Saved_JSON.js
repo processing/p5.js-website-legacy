@@ -1,9 +1,10 @@
 /*
  * @name Load Saved JSON
+ * @arialabel When the user clicks on the screen, a small white circle appears with a label
  * @description Create a Bubble class, instantiate multiple bubbles using data from
  * a JSON file, and display results on the screen.
- *  Because the web browsers differ in where they save files, we do not make use of
- * saveJSON, unlike the Processing example.<br><br>
+ * Because web browsers differ in where they save files, we do not make use of
+ * saveJSON(), unlike the Processing example.<br><br>
  * Based on Daniel Shiffman's <a href="https://processing.org/examples/loadsavejson.html">LoadSaveJSON Example</a> for Processing.
  */
 

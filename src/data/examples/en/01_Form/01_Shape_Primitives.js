@@ -1,5 +1,6 @@
 /*
  * @name Shape Primitives
+ * @arialabel From left to right: a grey triangle, a darker grey square, a light grey trapezoid, a white circle, a light grey triangle, and a white half circle, on a black background
  * @description The basic shape primitive functions are triangle(),
  * rect(), quad(), ellipse(), and arc(). Squares are made with rect()
  * and circles are made with ellipse(). Each of these functions requires

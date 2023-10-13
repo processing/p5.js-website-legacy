@@ -1,5 +1,6 @@
 /*
  * @name Double Random
+ * @arialabel Little white dots clump around the horizontal axis on the middle of the screen and change positions every second between being more condensed and scattered
  * @frame 720,400 (optional)
  * @description Using two random() calls and the point()
  * function to create an irregular sawtooth line.

@@ -1,5 +1,6 @@
 /*
  * @name Arctangent
+ * @arialabel Three white circles have smaller green circles within them resembling eyes where the pupil, represented by the green circle, looks in the direction of where the user’s mouse is
  * @description Move the mouse to change the direction of the eyes.<br>The atan2() function computes the angle from each eye to the cursor.
  */
 let e1, e2, e3;

@@ -1,5 +1,6 @@
 /**
  *  @name Noise Drum Envelope
+ *  @arialabel Lime green rectangle rises from the bottom of a black screen when the screen is clicked on and plays a sound effect  
  *  @description  <p>White Noise is a random audio signal with equal energy
  *  at every part of the frequency spectrum</p>
  *

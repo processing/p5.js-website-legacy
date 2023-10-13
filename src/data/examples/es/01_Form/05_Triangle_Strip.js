@@ -1,5 +1,6 @@
 /*
  * @name Tira de triángulos
+ * @arialabel Un anillo de triángulos blancos formando un heptágono sobre un fondo gris. Cuando un usuario desliza su ratón de izquierda a derecha, el número de triángulo incrementa y crean un anillo circular más suave.
  * @description Ejemplo por Ira Greenberg. Genera un anillo cerrado usando la
  * función vertex() y el modo beginShape(TRIANGLE_STRIP). Las variables outsideRadius
  * e insideRadius controlan los radios externo e interno del anillo, respectivamente.

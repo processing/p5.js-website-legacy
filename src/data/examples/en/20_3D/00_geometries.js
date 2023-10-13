@@ -1,5 +1,6 @@
 /*
  * @name Geometries
+ * @arialabel Six 3D shapes in neon gradient rotating on a white background. Shapes include cube, cylinder, ring, pyramid, sphere, and a plane.
  * @description There are six 3D primitives in p5 now.
  */
 function setup() {

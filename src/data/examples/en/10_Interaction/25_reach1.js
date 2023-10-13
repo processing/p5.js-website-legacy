@@ -1,5 +1,6 @@
 /*
  * @name Reach 1
+ * @arialabel Two long ovals connected at the end. The user’s mouse is attached to the end of one of the ovals and when the mouse moves, the two ovals move as well. However, the end of the other oval is permanently attached to the middle of the background.
  * @frame 710,400
  * @description The arm follows the position of the mouse by calculating the
  * angles with atan2(). Based on code from Keith Peters.

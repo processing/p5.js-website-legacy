@@ -1,5 +1,6 @@
 /*
  * @name Morph
+ * @arialabel On a dark grey background, white outline of a square changes into a circle as the sides of the square curve into a circle shape
  * @frame 720,400
  * @description Changing one shape into another by interpolating vertices from one to another.
  */

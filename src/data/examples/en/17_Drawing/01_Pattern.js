@@ -1,5 +1,6 @@
 /*
  * @name Patterns
+ * @arialabel Continuous circles draw on a dark grey background as you move your mouse. The circles get bigger as you move your mouse faster and smaller as you move your mouse slower
  * @description Move the cursor over the image to draw with a software tool
  * which responds to the speed of the mouse.
  */

@@ -1,5 +1,6 @@
 /*
  * @name Keyboard
+ * @arialabel Each letter on the keyboard draws a different color rectangle on the grey screen when pressed
  * @description Click on the image to give it focus and
  * press the letter keys to create forms in time and space.
  * Each key has a unique identifying number. These numbers

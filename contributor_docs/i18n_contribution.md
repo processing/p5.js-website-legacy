@@ -2,6 +2,8 @@
 
 If you want to contribute with p5.js website translations, you are in the right place. The translation of the p5.js website to languages other than English is part of its internationalization - abbreviated [*i18n*](https://en.wikipedia.org/wiki/Internationalization_and_localization) - process. You can improve content that has been already translated - the reference, examples or other pages within the website - or start a new language translation.
 
+Regarding website translation, we are rolling out new languages slowly to be absolutely sure that we can support the full translation and maintenance of each language. We want to avoid the situation where we have many languages and it's beyond our means to support. So for this reason, we are holding now with the translations we already have on our website (Spanish, Chinese, Korean, and Hindi) and getting those fully completed and updated before we take on others. If we begin with the language you’ve proposed, we will certainly be in touch. However, we very much welcome translations that are hosted elsewhere. Please feel free to translate any of the website content and host it on an external blog or site. All of the website content is licensed under Creative Commons which makes it possible to reuse this content for non-commercial purposes if it is credited. We would be happy to share links and make connections so others can find and use this material.
+
 ## Table of Contents
 
 * [How the website works](#how-the-website-works)
@@ -32,11 +34,11 @@ If you want to contribute with p5.js website translations, you are in the right 
 1. Install node.js by following the instructions [here](https://nodejs.org/en/download/).
 2. [Fork](https://help.github.com/articles/fork-a-repo/) the p5.js-website repository to your Github account. Click the *Fork* button on the upper-right side of the p5.js-website Github repo. This will automatically open your fork repo on Github.
 
-  ![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/fork.png)
+  ![processing/p5.js-website repository menu. At the right bottom of the menu the "fork" button is highlighted](https://github.com/processing/p5.js-website/raw/main/contributor_docs/assets/fork.png)
 
 3. On your fork click the green *Clone or download* button. It will display a bar from where you can copy your `repo_URL`.
 
-  ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/raw/master/contributor_docs/assets/clone.png)
+  ![processing/p5.js-website repository menu. The "Clone or download" button is pressed and a tab is displayed under it from which the repository's link can be copied.](https://github.com/processing/p5.js-website/raw/main/contributor_docs/assets/clone.png)
 
 4. Open your command-line interface (CLI) and [clone](https://help.github.com/articles/cloning-a-repository/) your fork of the p5.js-website repository to `your_directory` on your laptop by typing:
     ```
@@ -85,7 +87,7 @@ If you want to contribute with p5.js website translations, you are in the right 
 
     ```
     $ git fetch upstream
-    $ git merge upstream/master
+    $ git merge upstream/main
     ```
 
 2. Make changes only at files under the `src/` directory.
@@ -99,7 +101,7 @@ If you want to contribute with p5.js website translations, you are in the right 
     ```
 
 5. Commit to your repository at your github account and create a new [Pull Request](https://github.com/processing/p5.js-website/wiki/Pull-requests). Click the *Pull Request* tab on your fork page and then click the green button *New Pull Request*.
-![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://raw.githubusercontent.com/processing/p5.js-website/master/contributor_docs/assets/pull_request.png)
+![processing/p5.js-website repository menu. "Pull requests" tab is opened and a green button with the text "New pull request" is displayed a the right bottom of the menu.](https://raw.githubusercontent.com/processing/p5.js-website/main/contributor_docs/assets/pull_request.png)
 
 ## File Structure
 Under this repo there are two directories in which we have to focus:
@@ -135,9 +137,9 @@ p5.js-website/
     ],
     ```
 4. Duplicate `en.yml` - stored under `src/data/` - and name it `language_abbreviation.yml`. For example, when the Spanish version was created it was named `es.yml`. Check [How the website works](#how-the-website-works) and [File Structure](#file-structure) for further information.
-5. Duplicate `es.json` - stored under `src/data/reference/` - and name it `[language_abbreviation].json`.
+5. Duplicate `en.json` - stored under `src/data/reference/` - and name it `[language_abbreviation].json`.
 6. Duplicate `en` folder - stored under `src/data/examples` - and name it `language_abbreviation`.
-7. Add a new menu entry in [`src/templates/partials/i18n.hbs`](https://github.com/processing/p5.js-website/blob/master/src/templates/partials/i18n.hbs#L8) like so `<li><a href='#' lang='[language_abbreviation]' data-lang='[language_abbreviation]'>[language_name]</a></li>`.
+7. Add a new menu entry in [`src/templates/partials/i18n.hbs`](https://github.com/processing/p5.js-website/blob/main/src/templates/partials/i18n.hbs#L8) like so `<li><a href='#' lang='[language_abbreviation]' data-lang='[language_abbreviation]'>[language_name]</a></li>`.
 
 ## Working on existing translations
 
@@ -198,15 +200,24 @@ In some cases, the text translated from the original .hbs file (written in HTML)
 
 ### Translation of Reference
 
-* The reference works a bit differently. The pages are built in English based on the inline documentation in the p5.js source code. The English text is then swapped out with the appropriate translation using JS on the front-end.
-* The inline API documentation is automatically extracted from the p5.js repository using [YUIdoc](https://yui.github.io/yuidoc/) and saved in a [JSON file](https://github.com/processing/p5.js-website/blob/master/src/templates/pages/reference/data.json). 
-* The translation files are created from the data.json file, but have a different structure (i.e. [es.json](https://github.com/processing/p5.js-website/blob/master/src/data/reference/es.json)).
-* The top level keys in the JSON object correspond to the page headings, menu, footer, etc. You can see all the swaps in [this file](https://github.com/processing/p5.js-website/blob/master/src/templates/pages/reference/index.hbs#L60).
-* The "p5" key in the JSON object contains individual keys for each reference entry, indexed by variable/function/object name.
-* Any entries in the JSON object which are not filled in will be left in English when the page is loaded.
-* The translated versions of the JSON file need to be manually created and updated.
-* This is a somewhat hacky solution and not ideal. However, it comes from balancing the desire to have documentation directly in the source code, with the unwieldiness of having multiple languages of documentation inline. It will be our working solution until a better one is found.
-* The source content for the reference is handled inline in the [p5.js source code](https://github.com/processing/p5.js). See [Inline documentation](https://github.com/processing/p5.js/blob/master/contributor_docs/inline_documentation.md) in the p5.js repo for information on how to contribute.
+The Reference works a bit differently. The pages are built in English based on the inline documentation in the p5.js source code. The English text is then swapped out with the appropriate translation using JS on the front-end.
+
+The inline API documentation is automatically extracted from the p5.js repository using [YUIdoc](https://yui.github.io/yuidoc/) and saved in a JSON file, the [data.json](https://github.com/processing/p5.js-website/blob/main/src/templates/pages/reference/data.json).
+This file is then used to create the English version of the Reference files, *the en.json, which serves as the model for all the other translations*. 
+
+The en.json is made up of three sections: 
+  - static strings: static text from the Reference section of the website (page headings, menu, footer, etc.). These strings are hardcoded in the webpages and can't be extracted from the documentation; therefore, they are stored in a [separate JSON file](https://github.com/processing/p5.js-website/blob/main/src/templates/pages/reference/staticStrings.json).
+  - module names: the names of all the p5.js modules. They are needed for the group and subgroup titles in the [Reference's main page](https://p5js.org/reference/). They're extracted from the modules object in the data.json file.
+  - p5.js documentation, also extracted from the data.json file. This section contains a key for each p5.js Class (i.e., "p5.Color"), which holds information about the Class itself and its Methods and Fields.
+  In this section, you might find HTML Anchor elements. You only need to translate the text between the two tags. For example, in `<a href=\"#/p5.Color\">p5.Color</a>`, you need to translate the second 'p5.Color' and leave the rest as is.
+
+All the translation swaps of the Reference pages happen in [this function](https://github.com/processing/p5.js-website/blob/main/src/templates/pages/reference/index.hbs#L61).
+Any entries in the JSON object which are not filled in will be left in English when the page is loaded.
+
+The translated versions of the JSON file need to be manually created and updated.
+This is a somewhat hacky solution and not ideal. However, it comes from balancing the desire to have documentation directly in the source code, with the unwieldiness of having multiple languages of documentation inline. It will be our working solution until a better one is found.
+
+The source content for the Reference is handled inline in the [p5.js source code](https://github.com/processing/p5.js). See [Inline documentation](https://github.com/processing/p5.js/blob/main/contributor_docs/inline_documentation.md) in the p5.js repo for information on how to contribute.
 
 ### Translation of Examples
 

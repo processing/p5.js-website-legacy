@@ -1,5 +1,6 @@
 /*
  * @name Particles
+ * @arialabel Small light grey circles connected by thin lines floating around a black background
  * @description There is a light-weight JavaScript library named
  * particle.js which creates a very pleasing particle system.
  * This is an attempt to recreate that particle system using p5.js.
@@ -38,7 +39,7 @@ class Particle {
 
 // this function creates the connections(lines)
 // between particles which are less than a certain distance apart
-  joinParticles(paraticles) {
+  joinParticles(particles) {
     particles.forEach(element =>{
       let dis = dist(this.x,this.y,element.x,element.y);
       if(dis<85) {

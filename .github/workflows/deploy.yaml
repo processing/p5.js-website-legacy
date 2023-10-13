@@ -1,0 +1,27 @@
+name: Test and Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "18.x"
+    - name: Install node modules
+      run: npm ci
+    - name: Build
+      run: npm run build
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.0.0
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: dist/ # The folder the action should deploy.
+        single-commit: false # "false" here means "preserve git history on the gh-pages branch"
+    - name: Update Download page
+      run: curl https://p5js.org/download/release.php

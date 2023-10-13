@@ -1,5 +1,6 @@
 /*
  * @name Video Pixels
+ * @arialabel Video is turned into black circles to look like pixels. Pixel size increases as the user’s mouse is dragged to the right and decreases as the user’s mouse is dragged to the left 
  * @frame 320,240
  * @description Load a video, manipulate its pixels and draw to canvas.
  * To run this example locally, you will need a running 

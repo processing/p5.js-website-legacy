@@ -1,5 +1,6 @@
 /*
  * @name Bouncy Bubbles
+ * @arialabel Grey circles of varying sizes bounce off the sides of the canvas and each other, eventually settling on the bottom of the screen
  * @frame 720,400
  * @description  based on code from Keith Peters. Multiple-object collision..
  */

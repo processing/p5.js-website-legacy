@@ -1,7 +1,8 @@
 /*
  * @name Sine Cosine
+ * @arialabel Two blue and two yellow circles move side to side on each side of a white square
  * @description Linear movement with sin() and cos().
- * Numbers between 0 and PI*2 (TWO_PI which angles roughly 6.28)
+ * Numbers between 0 and 2π (2π which angles roughly 6.28)
  * are put into these functions and numbers between -1 and 1 are returned.
  * These values are then scaled to produce larger movements.
  */

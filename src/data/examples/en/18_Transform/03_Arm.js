@@ -1,5 +1,6 @@
 /*
  * @name Arm
+ * @arialabel Two ovals connected at the end to form an arm shape. One end is fixed at the center of the black background. The arm shape moves in a circular motion as the mouse moves around the screen 
  * @description This example uses transform matrices to create
  * an arm. The angle of each segment is controlled with the
  * mouseX and mouseY position. The transformations applied to
