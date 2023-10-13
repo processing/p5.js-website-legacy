@@ -159,10 +159,10 @@
 
       <h2 id="coordinate_space">3D Coordinate Space: Positioning in 3D</h2>
 
-      <div class="additionalInformation">If coordinates systems aren't making sense it might be helpful to revisit the tutorial titled <a
+      <div class="additionalInformation">If coordinates systems aren't making sense it might be helpful to revisit the tutorial titled<a
           href="/learn/coordinate-system-and-shapes.html">Coordinate System and Shapes</a>.</div>
 
-      <p>One of the most fundamental differences between working in 2D and working in 3D is the most obvious: there is one more dimension to work with. In addition to the horizontal and vertical position (x and y axes) of an element in our drawing, 3D adds depth, the z-axis. </p>
+      <p>One of the most fundamental differences between working in 2D and working in 3D is the most obvious: there is one more dimension to work with. In addition to the horizontal and vertical position (x and y axes) of an element in our drawing, 3D adds depth, the z-axis.</p>
 
       <p>When drawing in 2D, the point (0,0) is located at the top left corner of the screen. In WebGL mode, the origin of the sketch (0,0,0) is located in the middle of the screen. By default, the x-axis goes left-to-right, y-axis goes up-to-down, and the z-axis goes from further-to-closer.</p>
 
@@ -171,9 +171,9 @@
 
       <h2 id="transformations">Transformations: Position and Size of 3D Shapes</h2>
 
-      <p>p5.js has a few methods, <a class="code"
+      <p>p5.js has a few methods,<a class="code"
           href="/reference/#/p5/translate">translate()</a>, <a class="code"
-          href="/reference/#/p5/rotate">rotate()</a>, and  <a class="code"
+          href="/reference/#/p5/rotate">rotate()</a>, and <a class="code"
           href="/reference/#/p5/scale">scale()</a>, that we can use to position and orient objects within space. Each of these methods affect what is known as the <em>model matrix</em>. Collectively these are known as the <em>transformation</em> of an object. These methods are available for both 2D and 3D drawing.</p>
 
       <h3>translate(): Moving Objects in Space</h3>
@@ -198,9 +198,9 @@
 
       <p><a class="code" href="/reference/#/p5/rotate">rotate()</a> reorients whatever is drawn after it.</p>
 
-      <p>There are a few methods that can be used to rotate an object in 3D. Most of the time it's easiest to call methods like <a class="code"
+      <p>There are a few methods that can be used to rotate an object in 3D. Most of the time it's easiest to call methods like<a class="code"
           href="/reference/#/p5/rotateX">rotateX()</a>, <a class="code"
-          href="/reference/#/p5/rotateY">rotateY()</a>, and  <a class="code"
+          href="/reference/#/p5/rotateY">rotateY()</a>, and <a class="code"
           href="/reference/#/p5/rotateZ">rotateZ()</a> , which each allow for rotation around a specific axis. Each of these methods accept a single argument specifying the angle of rotation. Try moving the sliders in the example above to see how rotation is performed on each axis. The code below shows each of these methods in use.</p>
 
       <pre><code class="language-javascript">
@@ -228,7 +228,7 @@
       </code></pre>
 
       <div class="additionalInformation">
-        <p>You can also use  <a class="code"
+        <p>You can also use <a class="code"
             href="/reference/#/p5/rotate">rotate()</a> , which allows you to specify which axis you'd like to rotate around using a vector as the second argument.</p>
       </div>
 
@@ -241,7 +241,7 @@
 
       <h2 id="order">The Order of Transformations Matters!</h2>
 
-      <p>Something that can feel unpredictable at first is the order of transformations. Each transformation always affects the next one. For example, if <a class="code">rotate()</a> is called, followed by <a class="code">translate()</a>, the direction of that translation will be affected by the rotation. The entire coordinate system is rotating and moving, not just the shape itself. </p>
+      <p>Something that can feel unpredictable at first is the order of transformations. Each transformation always affects the next one. For example, if <a class="code">rotate()</a> is called, followed by <a class="code">translate()</a>, the direction of that translation will be affected by the rotation. The entire coordinate system is rotating and moving, not just the shape itself.</p>
 
       <p>Transformations can be performed in any order, but using <strong>translate</strong>, <strong>rotate</strong>, and then <strong>scale</strong> will be the most intuitive. Translation, followed by rotation, produces the effect of moving the shape <em>and then</em> rotating around that new location.</p>
 
@@ -266,9 +266,9 @@ function draw(){
 }
       </script>
 
-      <p>p5.js also has some methods that can control when transformations are applied: <a class="code"
+      <p>p5.js also has some methods that can control when transformations are applied:<a class="code"
           href="/reference/#/p5/push">push()</a> and <a class="code"
-          href="/reference/#/p5/pop">pop()</a> . <a class="code">push()</a> and <a class="code">pop()</a> make it easier to move objects individually. The <a class="code">push()</a> method saves the current transformations and  style settings. Then, after performing new transformations, the <a class="code">pop()</a> method is used to restore us to the the original transformations. The result is that  whatever transformations or styling changes that are made between <a class="code">push() </a> and <a class="code">pop()</a> are isolated to that portion of the code. If you don’t  use <a class="code">push()</a> and <a class="code">pop()</a>, you have to keep track of whatever transformations have already taken place, which can get complicated and difficult to follow. Consider this following example, which places two boxes in our sketch. To position the second box without <a class="code">push()</a> and <a class="code">pop()</a>, you have to account for the first transformation. This  can be a lot to keep track of in a more complex 3D scene. </p>
+          href="/reference/#/p5/pop">pop()</a> . <a class="code">push()</a> and <a class="code">pop()</a> make it easier to move objects individually. The <a class="code">push()</a> method saves the current transformations and style settings. Then, after performing new transformations, the <a class="code">pop()</a> method is used to restore us to the the original transformations. The result is that whatever transformations or styling changes that are made between <a class="code">push() </a> and <a class="code">pop()</a> are isolated to that portion of the code. If you don’t use <a class="code">push()</a> and <a class="code">pop()</a>, you have to keep track of whatever transformations have already taken place, which can get complicated and difficult to follow. Consider this following example, which places two boxes in our sketch. To position the second box without <a class="code">push()</a> and <a class="code">pop()</a>, you have to account for the first transformation. This can be a lot to keep track of in a more complex 3D scene.</p>
 
       <pre><code class="language-javascript">
       // draw a box 100 units to the right
@@ -302,7 +302,7 @@ function draw(){
         <p>While this is a more advanced topic, each of these transformations affect what is called the model matrix. The transformation matrix is combined with the view matrix and the projection matrix, both of which help simulate the view of a camera, and this combination results in our 3D scene! </p> <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_model_view_projection"> Learn more about Model View Projection </a>
       </div>
 
-      <p>In the below example, try removing <a class="code">push()</a> and <a class="code">pop()</a> to see how the transformations affect the second object that is drawn. </p>
+      <p>In the below example, try removing <a class="code">push()</a> and <a class="code">pop()</a> to see how the transformations affect the second object that is drawn.</p>
 
       <script type="text/p5" data-autoplay data-p5-version="1.7.0">
 function setup() {
@@ -337,7 +337,7 @@ function draw() {
       <img style="padding:60px;" src='../../assets/learn/basic3d/images/primitives_example.png'
         alt="an illustration showing each of the available primitives in p5.js">
 
-      <p>These primitive shape methods are:     <a class="code"
+      <p>These primitive shape methods are:<a class="code"
           href="/reference/#/p5/box">box()</a>, <a class="code" href="/reference/#/p5/plane">plane()</a>, 
         <a class="code" href="/reference/#/p5/sphere">sphere()</a>, 
         <a class="code" href="/reference/#/p5/ellipsoid">ellipsoid()</a>, 
@@ -346,12 +346,12 @@ function draw() {
           href="/reference/#/p5/torus">torus()</a>.
       </p>
 
-      <p>It is also possible to create custom geometry, either from scratch or from 3D models created in another program. More information about custom geometry can be found in the <a
-          href="/learn/getting-started-in-webgl-custom-geometry.html">Custom Geometry tutorial    </a>.</p>
+      <p>It is also possible to create custom geometry, either from scratch or from 3D models created in another program. More information about custom geometry can be found in the<a
+          href="/learn/getting-started-in-webgl-custom-geometry.html">Custom Geometry tutorial</a>.</p>
 
       <h2 id="conclusion">Conclusion</h2>
 
-      <p>By having basic control over a 3D coordinate space, transformations,  and basic shapes, you should be able to begin creating basic scenes in 3D. The tutorials that follow this in the Getting Started in WebGL series will introduce custom geometries, allow you to tweak the appearance of  the scene, and introduce you to some basic shader programming to push your sketches further.</p>
+      <p>By having basic control over a 3D coordinate space, transformations, and basic shapes, you should be able to begin creating basic scenes in 3D. The tutorials that follow this in the Getting Started in WebGL series will introduce custom geometries, allow you to tweak the appearance of the scene, and introduce you to some basic shader programming to push your sketches further.</p>
 
       <h3>Other Tutorials</h3>
 
