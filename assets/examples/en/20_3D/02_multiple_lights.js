@@ -5,6 +5,10 @@
  */
 function setup() {
   createCanvas(710, 400, WEBGL);
+
+  describe(
+    'a 3d example containing a spinning box and a sphere, each lit with a number of different lights, including ambient (gray), directional (red), spotlight (green), and point (blue).'
+  );
 }
 
 function draw() {
@@ -13,8 +17,13 @@ function draw() {
   let locX = mouseX - height / 2;
   let locY = mouseY - width / 2;
 
+  // ambient light is gray
   ambientLight(50);
+  // directional light is red
   directionalLight(255, 0, 0, 0.25, 0.25, 0);
+  // spotlight is green
+  spotLight(0, 255, 0, 150, 0, 250, 0, 0, -1);
+  // point light is blue
   pointLight(0, 0, 255, locX, locY, 250);
 
   push();
@@ -27,5 +36,5 @@ function draw() {
 
   translate(width / 4, 0, 0);
   ambientMaterial(250);
-  sphere(120, 64);
+  sphere(120, 24);
 }
