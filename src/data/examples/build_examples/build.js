@@ -13,6 +13,22 @@ var outputRoot = process.argv.slice(2)[0];
 
 var spaceReg = new RegExp(' ', 'g');
 
+// update p5.min.js version query in example.html
+(function () {
+  const version = (() => {
+    const data = fs.readFileSync(path.joinSafe(__dirname, '/../../../assets/js/p5.min.js'), 'utf8');
+    const versionMatch = data.match(/\/\*! p5.js v([\d.]+) /);
+    return versionMatch[1];
+  })();
+  // console.log(`p5.min.js version: ${version}`);
+  
+  const data = fs.readFileSync(path.joinSafe(__dirname, '/../example.html'), 'utf8');
+  const updated = data.replace(/p5\.min\.js\?v=[0-9]+\.[0-9]+\.[0-9]+/g, 'p5.min.js?v=' + version);
+  // console.log(updated);
+
+  fs.writeFileSync(path.joinSafe(__dirname, '/../example.html'), updated);
+})();
+
 // build the templates
 var example_template = ejs.compile(
   fs.readFileSync(path.joinSafe(__dirname, '/example_template.ejs'), 'utf8')
