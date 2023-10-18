@@ -1,0 +1,350 @@
+---
+title: learn
+slug: learn/
+---
+
+<style>
+  .methodsList {
+    font-family: monospace;
+    /*white-space: pre;*/
+  }
+
+  .additionalInformation {
+    width: 100%;
+    background-color: #dedeff;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc {
+    width: 100%;
+    background-color: #eee;
+    padding: 10px;
+    margin: 30px 0;
+  }
+
+  .toc h3 {
+    margin-top: 15px;
+  }
+
+  .indexList {
+    padding: 15px;
+    background-color: whitesmoke;
+  }
+</style>
+
+<div id="learn-page">
+
+  {{> sidebar}}
+
+  <div class="column-span">
+
+    <main>
+      <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+      {{!-- large title sketch --}}
+      <iframe src="{{assets}}/learn/basic3d/titleExample.html" width="720" height="350">
+      </iframe>
+
+      <h1>{{#i18n "getting-started-in-webgl-coords-and-transform-title"}}{{/i18n}}</h1>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p1x1"}}{{/i18n}}</p>
+
+      <div class="toc">
+        <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-toc-title"}}{{/i18n}}</h3>
+        <ol>
+          <li><a href="#what_is_webgl">{{#i18n "getting-started-in-webgl-coords-and-transform-heading1"}}{{/i18n}}</a>
+          </li>
+          <li><a href="#coordinate_space">{{#i18n
+              "getting-started-in-webgl-coords-and-transform-heading2"}}{{/i18n}}</a></li>
+          <li><a href="#transformations">{{#i18n "getting-started-in-webgl-coords-and-transform-heading3"}}{{/i18n}}</a>
+          </li>
+          <li><a href="#order">{{#i18n "getting-started-in-webgl-coords-and-transform-heading4"}}{{/i18n}}</a></li>
+          <li><a href="#basic_shapes">{{#i18n "getting-started-in-webgl-coords-and-transform-heading5"}}{{/i18n}}</a>
+          </li>
+          <li><a href="#conclusion">{{#i18n "getting-started-in-webgl-coords-and-transform-heading6"}}{{/i18n}}</a></li>
+          <li><a href="#glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</a></li>
+        </ol>
+      </div>
+
+      <h2 id="what_is_webgl">{{#i18n "getting-started-in-webgl-coords-and-transform-heading1"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p2x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p3x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p4x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+      function setup() {
+        createCanvas(windowWidth, windowHeight, WEBGL);
+        describe('a red box on a white background');
+      }
+
+      function draw(){
+        background(255);
+        fill(255,0,0);
+        box();
+      }
+      </code></pre>
+
+      <h2 id="coordinate_space">{{#i18n "getting-started-in-webgl-coords-and-transform-heading2"}}{{/i18n}}</h2>
+
+      <div class="additionalInformation">{{#i18n "getting-started-in-webgl-coords-and-transform-info1x1"}}{{/i18n}}<a
+          href="{{root}}/learn/coordinate-system-and-shapes.html">{{#i18n
+          "getting-started-in-webgl-coords-and-transform-info1x2"}}{{/i18n}}</a>.</div>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p5x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p6x1"}}{{/i18n}}</p>
+
+      <img style="padding:60px;" src='{{assets}}/learn/basic3d/images/2d3d_coordinates.png'
+        alt="an illustration showing a 2D coordinate system on the left, showing an origin of (0,0) and a 3D coordinate system on the right, showing an origin of (0,0,0)">
+
+      <h2 id="transformations">{{#i18n "getting-started-in-webgl-coords-and-transform-heading3"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p7x1"}}{{/i18n}}<a class="code"
+          href="{{root}}/reference/#/p5/translate">translate()</a>, <a class="code"
+          href="{{root}}/reference/#/p5/rotate">rotate()</a>, {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p7x2"}}{{/i18n}} <a class="code"
+          href="{{root}}/reference/#/p5/scale">scale()</a>, {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p7x3"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-subheading1"}}{{/i18n}}</h3>
+
+      {{!-- sketch illustrating translation of geometry --}}
+      <iframe src="{{assets}}/learn/basic3d/translateExample.html" width="720" height="350">
+      </iframe>
+
+      <p><a class="code" href="{{root}}/reference/#/p5/translate">translate()</a> {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p8x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+      ...
+      // draw a box 100 units to the right
+      translate(100,0,0);
+      box();
+      ..
+      </code></pre>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-subheading2"}}{{/i18n}}</h3>
+
+      {{!-- sketch illustrating rotation of geometry --}}
+      <iframe src="{{assets}}/learn/basic3d/rotateExample.html" width="720" height="350">
+      </iframe>
+
+      <p><a class="code" href="{{root}}/reference/#/p5/rotate">rotate()</a> {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p9x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p10x1"}}{{/i18n}}<a class="code"
+          href="{{root}}/reference/#/p5/rotateX">rotateX()</a>, <a class="code"
+          href="{{root}}/reference/#/p5/rotateY">rotateY()</a>, {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p10x2"}}{{/i18n}} <a class="code"
+          href="{{root}}/reference/#/p5/rotateZ">rotateZ()</a> {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p10x3"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+      ...
+      // rotate X, Y, and Z axes by 45 degrees
+      rotateX(QUARTER_PI);
+      rotateY(QUARTER_PI);
+      rotateZ(QUARTER_PI);
+      box();
+      ..
+      </code></pre>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p11x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+      ...
+      // rotate each axis by 45 degrees
+      rotateX(radians(45));
+      box();
+      //or
+      angleMode(DEGREES);
+      rotateY(45);
+      box();
+      ..
+      </code></pre>
+
+      <div class="additionalInformation">
+        <p>{{#i18n "getting-started-in-webgl-coords-and-transform-info2x1"}}{{/i18n}} <a class="code"
+            href="{{root}}/reference/#/p5/rotate">rotate()</a> {{#i18n
+          "getting-started-in-webgl-coords-and-transform-info2x2"}}{{/i18n}}</p>
+      </div>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-subheading3"}}{{/i18n}}</h3>
+
+      {{!-- sketch illustrating scaling of geometry --}}
+      <iframe src="{{assets}}/learn/basic3d/scaleExample.html" width="720" height="350">
+      </iframe>
+
+      <p><a class="code" href="{{root}}/reference/#/p5/scale">scale()</a> {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p12x1"}}{{/i18n}}</p>
+
+      <h2 id="order">{{#i18n "getting-started-in-webgl-coords-and-transform-heading4"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p13x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p14x1"}}{{/i18n}}</p>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p15x1"}}{{/i18n}}</p>
+
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(150, 216, WEBGL);
+  debugMode();
+  describe('a white box in front of a reference 3D axis and grid, illustrating the applied transforms');
+}
+
+function draw(){
+  background(255);
+  camera(100,-100,100);
+  
+  translate(25,0,25); 
+  rotateY(PI/3);          
+  scale(2);
+
+  box(10);
+}
+      </script>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p16x1"}}{{/i18n}}<a class="code"
+          href="{{root}}/reference/#/p5/push">push()</a> {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p16x2"}}{{/i18n}} <a class="code"
+          href="{{root}}/reference/#/p5/pop">pop()</a> {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p16x3"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+      // draw a box 100 units to the right
+      translate(100,0,0);
+      box();
+
+      // now, to draw another box 100 units to the left
+      // since transformations accumulate, we have to
+      // subtract 200 to do this
+      translate(-200,0,0);
+      box();
+      </code></pre>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p17x1"}}{{/i18n}}</p>
+
+      <pre><code class="language-javascript">
+      push(); // detach our coordinate system
+      // draw a box 100 units to the right
+      translate(100,0,0);
+      box();
+      pop(); // return to our original coordinate system
+
+      push(); // detach our coordinate system
+      // draw a box 100 units to the left
+      translate(-100,0,0);
+      box();
+      pop(); // return to our original coordinate system
+      </code></pre>
+
+      <div class="additionalInformation">
+        {{#i18n "getting-started-in-webgl-coords-and-transform-info3x1"}}{{/i18n}}
+      </div>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p18x1"}}{{/i18n}}</p>
+
+      {{!-- push and pop example --}}
+      <script type="text/p5" data-autoplay data-p5-version="{{ version }}">
+function setup() {
+  createCanvas(150, 216, WEBGL);
+  debugMode();
+  describe('two white boxes with a number of transformations applied');
+}
+
+function draw() {
+  background(255);
+  camera(100, -100, 100);
+
+  push(); // detach our coordinate system
+  
+  // draw a box 100 units along the x-axis
+  translate(50, 0, 0);
+  rotateY(PI/4);
+  box(30);
+  pop(); // return to our original coordinate system
+
+  // draw a second box -50 units along the x-axis
+  translate(-50, 0, 0);
+  rotateY(PI/4);
+  box(30);
+}
+      </script>
+
+      <h2 id="basic_shapes">{{#i18n "getting-started-in-webgl-coords-and-transform-heading5"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p19x1"}}{{/i18n}}</p>
+
+      <img style="padding:60px;" src='{{assets}}/learn/basic3d/images/primitives_example.png'
+        alt="an illustration showing each of the available primitives in p5.js">
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p20x1"}}{{/i18n}}<a class="code"
+          href="{{root}}/reference/#/p5/box">box()</a>, <a class="code" href="{{root}}/reference/#/p5/plane">plane()</a>, 
+        <a class="code" href="{{root}}/reference/#/p5/sphere">sphere()</a>, 
+        <a class="code" href="{{root}}/reference/#/p5/ellipsoid">ellipsoid()</a>, 
+        <a class="code" href="{{root}}/reference/#/p5/cone">cone()</a>, 
+        <a class="code" href="{{root}}/reference/#/p5/cylinder">cylinder()</a>, {{#i18n
+        "getting-started-in-webgl-coords-and-transform-p20x2"}}{{/i18n}} <a class="code"
+          href="{{root}}/reference/#/p5/torus">torus()</a>.
+      </p>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p21x1"}}{{/i18n}}<a
+          href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">{{#i18n
+          "getting-started-in-webgl-coords-and-transform-p21x2"}}{{/i18n}}</a>.</p>
+
+      <h2 id="conclusion">{{#i18n "getting-started-in-webgl-coords-and-transform-heading6"}}{{/i18n}}</h2>
+
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-p22x1"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-other-tutorials-title"}}{{/i18n}}</h3>
+
+      <p>{{#i18n "getting-started-in-webgl-other-tutorials-p"}}{{/i18n}}</p>
+
+      <ul class="indexList">
+        <li>{{#i18n "getting-started-in-webgl-other-tutorials-tut1"}}{{/i18n}} {{#i18n
+          "getting-started-in-webgl-other-tutorials-you-are-here"}}{{/i18n}}</li>
+        <li><a href="{{root}}/learn/getting-started-in-webgl-custom-geometry.html">{{#i18n
+            "getting-started-in-webgl-other-tutorials-tut2"}}{{/i18n}}</a></li>
+        <li><a href="{{root}}/learn/getting-started-in-webgl-appearance.html">{{#i18n
+            "getting-started-in-webgl-other-tutorials-tut3"}}{{/i18n}}</a></li>
+        <li><a href="{{root}}/learn/getting-started-in-webgl-shaders.html">{{#i18n
+            "getting-started-in-webgl-other-tutorials-tut4"}}{{/i18n}}</a></li>
+      </ul>
+
+      <h2 id="glossary">{{#i18n "getting-started-in-webgl-glossary-title"}}{{/i18n}}</h2>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term1-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term1-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term2-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term2-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term3-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term3-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term4-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term4-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term5-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term5-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term6-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term6-definition"}}{{/i18n}}</p>
+
+      <h3>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term7-title"}}{{/i18n}}</h3>
+      <p>{{#i18n "getting-started-in-webgl-coords-and-transform-glossary-term7-definition"}}{{/i18n}}</p>
+
+    </main>
+
+    {{> footer}}
+
+  </div> <!-- end column-span -->
+
+  {{> asterisk}}
+
+</div><!-- end id="get-started-page"  -->

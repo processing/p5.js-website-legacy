@@ -18,8 +18,8 @@ var renderCode = function(exampleName) {
 
   function enableTab(el) {
     el.onkeydown = function(e) {
-      if (e.keyCode === 9) {
-        // tab was pressed
+      if (e.keyCode === 32 && e.shiftKey) {
+        // shift + space pressed
         // get caret position/selection
         var val = this.value,
           start = this.selectionStart,
@@ -85,7 +85,7 @@ var renderCode = function(exampleName) {
       edit_space.appendChild(edit_area);
       enableTab(edit_area);
 
-      //add buttons
+      //add buttons and instructions
       let button_space = document.createElement('ul');
       edit_space.appendChild(button_space);
 
@@ -133,6 +133,10 @@ var renderCode = function(exampleName) {
       };
       let edit_li = button_space.appendChild(document.createElement('li'));
       edit_li.appendChild(edit_button);
+
+      let sketch_tab_instructions = button_space.appendChild(document.createElement('li'));
+      sketch_tab_instructions.innerHTML = 'Press Shift-Space to insert tab.';
+      sketch_tab_instructions.className = 'sketchTabInstructions';
 
       function setMode(sketch, m) {
         if (m === 'edit') {

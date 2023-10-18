@@ -1,5 +1,6 @@
 /*
  * @name Figuras primitivas
+ * @arialabel De izquierda a derecha: un triángulo gris, un cuadrado gris oscuro, un trapezoide gris claro, un círculo blanco, un triángulo gris claro, y un medio círculo, sobre un fondo negro
  * @description Las funciones primitivas de figuras básicas son triangle(),
  * rect(), quad(), ellipse() y arc(). Rectángulos y cuadrados se construyen con rect()
  * y círculos y elipses con ellipse(). Cada una de estas funciones requiere

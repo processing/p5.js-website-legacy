@@ -16,7 +16,14 @@ const pngquant = require('imagemin-pngquant');
 
 module.exports = function(grunt) {
   require('time-grunt')(grunt);
-  require('load-grunt-tasks')(grunt);
+  require('load-grunt-tasks')(grunt, {
+    pattern: [
+      'grunt-*',
+      '@*/grunt-*',
+      '!grunt-assemble-permalinks',
+      '!grunt-assemble-i18n'
+    ]
+  });
 
   // Project configuration. actual tasks
   grunt.initConfig({
@@ -37,10 +44,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: '<%= config.src %>/assets/css/*.css',
-        tasks: [
-          'concat:dist',
-          'postcss'
-        ]
+        tasks: ['concat:dist', 'postcss']
       },
       imagemin: {
         files: '<%= config.src %>/assets/img/*.{png,jpg,jpeg,gif,svg,ico}',
@@ -73,9 +77,7 @@ module.exports = function(grunt) {
       livereload: {
         options: {
           open: true,
-          base: [
-            '<%= config.dist %>'
-          ]
+          base: ['<%= config.dist %>']
         }
       }
     },
@@ -94,19 +96,16 @@ module.exports = function(grunt) {
             '!<%= config.src %>/data/reference/*.json'
           ],
           partials: '<%= config.src %>/templates/partials/*.hbs',
-          plugins: [
-            'assemble-contrib-permalinks',
-            'assemble-contrib-i18n'
-          ],
+          plugins: ['grunt-assemble-permalinks', 'grunt-assemble-i18n'],
           i18n: {
             languages: pkg.languages,
-            templates: [
-              '<%= config.src %>/templates/pages/**/*.hbs',
-            ]
+            templates: ['<%= config.src %>/templates/pages/**/*.hbs']
           },
           permalinks: {
             structure: ':lang/:slug/:base:ext',
-            patterns: [
+            // Official documentation incorrectly states that this property
+            // should be "patterns" when it should be "replacements"
+            replacements: [
               {
                 pattern: ':lang',
                 replacement: function() {
@@ -311,7 +310,7 @@ module.exports = function(grunt) {
     clean: {
       assets: [
         '<%= config.dist %>/**/*.*',
-        '!<%= config.dist %>/download/release.php',
+        '!<%= config.dist %>/download/version.json',
         '!<%= config.dist %>/git-pull.php',
         '!<%= config.dist %>/books/media.zip',
         '!<%= config.dist %>/learn/books/media.zip',
@@ -411,12 +410,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-htmlhint');
 
-  // i18n tracking task
-  grunt.registerTask('i18n', function() {
-    var done = this.async();
-    require('./i18n.js')(done);
-  });
-
   grunt.registerTask('make_tmp_dir', function() {
     const tmp_path = 'tmp/p5.js';
     fse.mkdirpSync(tmp_path);
@@ -501,7 +494,6 @@ module.exports = function(grunt) {
     'assemble',
     'file_append',
     'compress',
-    'i18n',
     'htmlhint'
   ]);
 

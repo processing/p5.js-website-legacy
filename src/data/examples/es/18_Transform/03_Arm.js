@@ -8,9 +8,9 @@
  */
 
 let x, y;
-let angulo1 = 0.0;
-let angulo2 = 0.0;
-let largoSegmento = 100;
+let angle1 = 0.0;
+let angle2 = 0.0;
+let segLength = 100;
 
 function setup() {
   createCanvas(720, 400);
@@ -28,21 +28,21 @@ function draw() {
   background(0);
 
   //Modifica el ángulo de los segmentos según la posición del ratón
-  angulo1 = (mouseX / float(width) - 0.5) * -TWO_PI;
-  angulo2 = (mouseY / float(height) - 0.5) * PI;
+  angle1 = (mouseX / float(width) - 0.5) * -TWO_PI;
+  angle2 = (mouseY / float(height) - 0.5) * PI;
 
   // Usa push y pop para "contener" las transformaciones. Nota que
   // aunque dibujamos los segmentos usando una función de fabricación propia,
   // las transformaciones igualmente se acumulan.
   push();
-  segmento(x, y, angulo1);
-  segmento(largoSegmento, 0, angulo2);
+  segment(x, y, angle1);
+  segment(segLength, 0, angle2);
   pop();
 }
 
-// una función de fabricación propia para dibujar segmentos
-function segmento(x, y, a) {
+// Una función personalizada para dibujar segmentos
+function segment(x, y, a) {
   translate(x, y);
   rotate(a);
-  line(0, 0, largoSegmento, 0);
+  line(0, 0, segLength, 0);
 }
