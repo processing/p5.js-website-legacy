@@ -5,24 +5,24 @@
  * @description Create a 2D noise with different parameters.
  */
 
-let noise_val;
-let noise_scale = 0.02;
+let noiseVal;
+let noiseScale = 0.02;
 
 function setup() {
   createCanvas(640, 360);
 }
 
 function drawNoise(x, y, w, h) {
-  for (let pixel_y = y; pixel_y < y + h; pixel_y++) {
-    for (let pixel_x = x; pixel_x < x + w; pixel_x++) {
-      let noise_val =
-        noise((mouseX + pixel_x) * noise_scale, (mouseY + pixel_y) * noise_scale) * 255;
+  for (let pixelY = y; pixelY < y + h; pixelY++) {
+    for (let pixelX = x; pixelX < x + w; pixelX++) {
+      let noiseVal =
+        noise((mouseX + pixelX) * noiseScale, (mouseY + pixelY) * noiseScale) * 255;
 
-      let index = 4 * (pixel_y * width + pixel_x);
+      let index = 4 * (pixelY * width + pixelX);
 
-      pixels[index]     = noise_val;
-      pixels[index + 1] = noise_val;
-      pixels[index + 2] = noise_val;
+      pixels[index]     = noiseVal;
+      pixels[index + 1] = noiseVal;
+      pixels[index + 2] = noiseVal;
       pixels[index + 3] = 255;
     }
   }
