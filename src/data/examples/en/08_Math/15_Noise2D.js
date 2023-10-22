@@ -5,7 +5,6 @@
  * @description Create a 2D noise with different parameters.
  */
 
-let noiseVal;
 let noiseScale = 0.02;
 
 function setup() {
