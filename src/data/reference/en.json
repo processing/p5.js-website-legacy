@@ -220,6 +220,34 @@
         "color": "p5.Color|Number[]|String: <a href=\"#/p5.Color\">p5.Color</a> object, array of  color components, or CSS color string."
       }
     },
+    "beginClip": {
+      "description": [
+        "Start defining a shape that will mask subsequent things drawn to the canvas. Only opaque regions of the mask shape will allow content to be drawn. Any shapes drawn between this and <a href=\"#/p5/endClip\">endClip()</a> will contribute to the mask shape.",
+        "The mask will apply to anything drawn after this call. To draw without a mask, contain the code to apply the mask and to draw the masked content between <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>.",
+        "Alternatively, rather than drawing the mask between this and <a href=\"#/p5/endClip\">endClip()</a>, draw the mask in a callback function passed to <a href=\"#/p5/clip\">clip()</a>.",
+        "Options can include: <ul> <li><code>invert</code>: A boolean specifying whether or not to mask the areas <em>not</em> filled by the mask shape. Defaults to false.</li> </ul>"
+      ],
+      "params": {
+        "options": "Object: (Optional) An object containing clip settings."
+      }
+    },
+    "endClip": {
+      "description": [
+        "Finishes defining a shape that will mask subsequent things drawn to the canvas. Only opaque regions of the mask shape will allow content to be drawn. Any shapes drawn between <a href=\"#/p5/beginClip\">beginClip()</a> and this will contribute to the mask shape."
+      ]
+    },
+    "clip": {
+      "description": [
+        "Use the shape drawn by a callback function to mask subsequent things drawn to the canvas. Only opaque regions of the mask shape will allow content to be drawn.",
+        "The mask will apply to anything drawn after this call. To draw without a mask, contain the code to apply the mask and to draw the masked content between <a href=\"#/p5/push\">push()</a> and <a href=\"#/p5/pop\">pop()</a>.",
+        "Alternatively, rather than drawing the mask shape in a function, draw the shape between <a href=\"#/p5/beginClip\">beginClip()</a> and <a href=\"#/p5/endClip\">endClip()</a>.",
+        "Options can include: <ul> <li><code>invert</code>: A boolean specifying whether or not to mask the areas <em>not</em> filled by the mask shape. Defaults to false.</li> </ul>"
+      ],
+      "params": {
+        "callback": "Function: A function that draws the mask shape.",
+        "options": "Object: (Optional) An object containing clip settings."
+      }
+    },
     "background": {
       "description": [
         "Sets the color used for the background of the canvas. By default, the background is transparent. This function is typically used within <a href=\"#/p5/draw\">draw()</a> to clear the display window at the beginning of each frame. It can also be used inside <a href=\"#/p5/setup\">setup()</a> to set the background on the first frame of animation.",
@@ -710,10 +738,11 @@
     },
     "endShape": {
       "description": [
-        "The <a href=\"#/p5/endShape\">endShape()</a> function is the companion to <a href=\"#/p5/beginShape\">beginShape()</a> and may only be called after <a href=\"#/p5/beginShape\">beginShape()</a>. When <a href=\"#/p5/endshape\">endShape()</a> is called, all of the image data defined since the previous call to <a href=\"#/p5/beginShape\">beginShape()</a> is written into the image buffer. The constant CLOSE as the value for the <code>mode</code> parameter to close the shape (to connect the beginning and the end)."
+        "The <a href=\"#/p5/endShape\">endShape()</a> function is the companion to <a href=\"#/p5/beginShape\">beginShape()</a> and may only be called after <a href=\"#/p5/beginShape\">beginShape()</a>. When <a href=\"#/p5/endshape\">endShape()</a> is called, all of the image data defined since the previous call to <a href=\"#/p5/beginShape\">beginShape()</a> is written into the image buffer. The constant CLOSE is the value for the <code>mode</code> parameter to close the shape (to connect the beginning and the end). When using instancing with <a href=\"#/p5/endShape\">endShape()</a> the instancing will not apply to the strokes. When the count parameter is used with a value greater than 1, it enables instancing for shapes built when in WEBGL mode. Instancing is a feature that allows the GPU to efficiently draw multiples of the same shape. It's often used for particle effects or other times when you need a lot of repetition. In order to take advantage of instancing, you will also need to write your own custom shader using the gl_InstanceID keyword. You can read more about instancing <a href=\"https://webglfundamentals.org/webgl/lessons/webgl-instanced-drawing.html\">here</a> or by working from the example on this page."
       ],
       "params": {
-        "mode": "Constant: (Optional) use CLOSE to close the shape"
+        "mode": "Constant: (Optional) use CLOSE to close the shape",
+        "count": "Integer: (Optional) number of times you want to draw/instance the shape (for WebGL mode)."
       }
     },
     "quadraticVertex": {
@@ -766,7 +795,7 @@
     "WEBGL": {
       "description": [
         "One of the two render modes in p5.js, used for computationally intensive tasks like 3D rendering and shaders.",
-        "<code>WEBGL</code> differs from the default <a href=\"/#/p5/P2D\"><code>P2D</code></a> renderer in the following ways: <ul> <li><strong>Coordinate System</strong> - When drawing in <code>WEBGL</code> mode, the origin point (0,0,0) is located at the center of the screen, not the top-left corner. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-coords-and-transform.html\">the learn page about coordinates and transformations</a>.</li> <li><strong>3D Shapes</strong> - <code>WEBGL</code> mode can be used to draw 3-dimensional shapes like <a href=\"/#/p5/box\">box()</a>, <a href=\"/#/p5/sphere\">sphere()</a>, <a href=\"/#/p5/cone\">cone()</a>, and <a href=\"/#Shape3D%20Primitives\">more</a>. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-custom-geometry.html\">the learn page about custom geometry</a> to make more complex objects.</li> <li><strong>Shape Detail</strong> - When drawing in <code>WEBGL</code> mode, you can specify how smooth curves should be drawn by using a <code>detail</code> parameter. See <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#3d-primitives-shapes\">the wiki section about shapes</a> for a more information and an example.</li> <li><strong>Textures</strong> - A texture is like a skin that wraps onto a shape. See <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#textures\">the wiki section about textures</a> for examples of mapping images onto surfaces with textures.</li> <li><strong>Materials and Lighting</strong> - <code>WEBGL</code> offers different types of lights like <a href=\"/#/p5/ambientLight\">ambientLight()</a> to place around a scene. Materials like <a href=\"/#/p5/specularMaterial\">specularMaterial()</a> reflect the lighting to convey shape and depth. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-appearance.html\">the learn page for styling and appearance</a> to experiment with different combinations.</li> <li><strong>Camera</strong> - The viewport of a <code>WEBGL</code> sketch can be adjusted by changing camera attributes. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-appearance.html#camera\">the learn page section about cameras</a> for an explanation of camera controls.</li> <li><strong>Text</strong> - <code>WEBGL</code> requires opentype/truetype font files to be preloaded using <a href=\"/#/p5/loadFont\">loadFont()</a>. See <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#text\">the wiki section about text</a> for details, along with a workaround.</li> <li><strong>Shaders</strong> - Shaders are hardware accelerated programs that can be used for a variety of effects and graphics. See the <a href=\"https://p5js.org/learn/getting-started-in-webgl-shaders.html\">introduction to shaders</a> to get started with shaders in p5.js.</li> <li><strong>Graphics Acceleration</strong> - <code>WEBGL</code> mode uses the graphics card instead of the CPU, so it may help boost the performance of your sketch (example: drawing more shapes on the screen at once).</li> </ul>",
+        "<code>WEBGL</code> differs from the default <a href=\"/reference/#/p5/P2D\"><code>P2D</code></a> renderer in the following ways: <ul> <li><strong>Coordinate System</strong> - When drawing in <code>WEBGL</code> mode, the origin point (0,0,0) is located at the center of the screen, not the top-left corner. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-coords-and-transform.html\">the learn page about coordinates and transformations</a>.</li> <li><strong>3D Shapes</strong> - <code>WEBGL</code> mode can be used to draw 3-dimensional shapes like <a href=\"/reference/#/p5/box\">box()</a>, <a href=\"/reference/#/p5/sphere\">sphere()</a>, <a href=\"/reference/#/p5/cone\">cone()</a>, and <a href=\"/#Shape3D%20Primitives\">more</a>. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-custom-geometry.html\">the learn page about custom geometry</a> to make more complex objects.</li> <li><strong>Shape Detail</strong> - When drawing in <code>WEBGL</code> mode, you can specify how smooth curves should be drawn by using a <code>detail</code> parameter. See <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#3d-primitives-shapes\">the wiki section about shapes</a> for a more information and an example.</li> <li><strong>Textures</strong> - A texture is like a skin that wraps onto a shape. See <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#textures\">the wiki section about textures</a> for examples of mapping images onto surfaces with textures.</li> <li><strong>Materials and Lighting</strong> - <code>WEBGL</code> offers different types of lights like <a href=\"/reference/#/p5/ambientLight\">ambientLight()</a> to place around a scene. Materials like <a href=\"/reference/#/p5/specularMaterial\">specularMaterial()</a> reflect the lighting to convey shape and depth. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-appearance.html\">the learn page for styling and appearance</a> to experiment with different combinations.</li> <li><strong>Camera</strong> - The viewport of a <code>WEBGL</code> sketch can be adjusted by changing camera attributes. See <a href=\"https://p5js.org/learn/getting-started-in-webgl-appearance.html#camera\">the learn page section about cameras</a> for an explanation of camera controls.</li> <li><strong>Text</strong> - <code>WEBGL</code> requires opentype/truetype font files to be preloaded using <a href=\"/reference/#/p5/loadFont\">loadFont()</a>. See <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#text\">the wiki section about text</a> for details, along with a workaround.</li> <li><strong>Shaders</strong> - Shaders are hardware accelerated programs that can be used for a variety of effects and graphics. See the <a href=\"https://p5js.org/learn/getting-started-in-webgl-shaders.html\">introduction to shaders</a> to get started with shaders in p5.js.</li> <li><strong>Graphics Acceleration</strong> - <code>WEBGL</code> mode uses the graphics card instead of the CPU, so it may help boost the performance of your sketch (example: drawing more shapes on the screen at once).</li> </ul>",
         "To learn more about WEBGL mode, check out <a href=\"https://p5js.org/learn/#:~:text=Getting%20Started%20in%20WebGL\">all the interactive WEBGL tutorials</a> in the \"Learn\" section of this website, or read the wiki article <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5\">\"Getting started with WebGL in p5\"</a>."
       ]
     },
@@ -853,7 +882,7 @@
     "HSL": {},
     "AUTO": {
       "description": [
-        "AUTO allows us to automatically set the width or height of an element (but not both), based on the current height and width of the element. Only one parameter can be passed to the <a href=\"/#/p5.Element/size\">size</a> function as AUTO, at a time."
+        "AUTO allows us to automatically set the width or height of an element (but not both), based on the current height and width of the element. Only one parameter can be passed to the <a href=\"/reference/#/p5.Element/size\">size</a> function as AUTO, at a time."
       ]
     },
     "ALT": {},
@@ -924,6 +953,7 @@
     "UNSIGNED_BYTE": {},
     "UNSIGNED_INT": {},
     "FLOAT": {},
+    "HALF_FLOAT": {},
     "RGBA": {},
     "print": {
       "description": [
@@ -963,8 +993,8 @@
     "frameRate": {
       "description": [
         "Specifies the number of frames to be displayed every second. For example, the function call frameRate(30) will attempt to refresh 30 times a second. If the processor is not fast enough to maintain the specified rate, the frame rate will not be achieved. Setting the frame rate within <a href=\"#/p5/setup\">setup()</a> is recommended. The default frame rate is based on the frame rate of the display (here also called \"refresh rate\"), which is set to 60 frames per second on most computers. A frame rate of 24 frames per second (usual for movies) or above will be enough for smooth animations. This is the same as setFrameRate(val).",
-        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with no arguments returns the current framerate. The draw function must run at least once before it will return a value. This is the same as <a href=\"#/p5/getFrameRate\">getFrameRate()</a>.",
-        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with arguments that are not of the type Number or are non-positive also returns current framerate."
+        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with no arguments or with arguments that are not of type Number or are non-positive returns an approximation of the current frame rate. The draw function must run at least once before it will return a value.",
+        "Even if the code in your draw() function consistently produces frames in time for them to be displayed at the desired frame rate, the value frameRate() returns will vary frame to frame because it's an inaccurate approximation. To accurately test the performance of your sketches, use your browser's performance profiling tools."
       ],
       "params": {
         "fps": "Number: number of frames to be displayed every second"
@@ -983,7 +1013,7 @@
     },
     "webglVersion": {
       "description": [
-        "If the sketch was created in WebGL mode, then <code>webglVersion</code> will indicate which version of WebGL it is using. It will try to create a WebGL2 canvas unless you have requested WebGL1 via <code>setAttributes({ version: 1 })</code>, and will fall back to WebGL1 if WebGL2 is not available.",
+        "If the sketch was created in WebGL mode, then <code>weglVersion</code> will indicate which version of WebGL it is using. It will try to create a WebGL2 canvas unless you have requested WebGL1 via <code>setAttributes({ version: 1 })</code>, and will fall back to WebGL1 if WebGL2 is not available.",
         "<code>webglVersion</code> will always be either <code>WEBGL2</code>, <code>WEBGL</code>, or <code>P2D</code> if not in WebGL mode."
       ]
     },
@@ -1012,7 +1042,7 @@
         "The <a href=\"#/p5/windowResized\">windowResized()</a> function is called once every time the browser window is resized. This is a good place to resize the canvas or do any other adjustments to accommodate the new window size."
       ],
       "params": {
-        "event": "Object: (Optional) optional Event callback argument."
+        "event": "UIEvent: (Optional) optional Event callback argument."
       }
     },
     "width": {
@@ -1226,7 +1256,7 @@
         "w": "Number: width of the canvas",
         "h": "Number: height of the canvas",
         "renderer": "Constant: (Optional) either P2D or WEBGL",
-        "canvas": "Object: (Optional) existing html canvas element"
+        "canvas": "HTMLCanvasElement: (Optional) existing html canvas element"
       }
     },
     "resizeCanvas": {
@@ -1255,13 +1285,13 @@
         "w": "Number: width of the offscreen graphics buffer",
         "h": "Number: height of the offscreen graphics buffer",
         "renderer": "Constant: (Optional) either P2D or WEBGL  undefined defaults to p2d",
-        "canvas": "Object: (Optional) existing html canvas element"
+        "canvas": "HTMLCanvasElement: (Optional) existing html canvas element"
       }
     },
     "createFramebuffer": {
       "description": [
         "Creates and returns a new <a href=\"#/p5.Framebuffer\">p5.Framebuffer</a>, a high-performance WebGL object that you can draw to and then use as a texture.",
-        "Options can include: <ul> <li><code>format</code>: The data format of the texture, either <code>UNSIGNED_BYTE</code>, <code>FLOAT</code>, or <code>HALF_FLOAT</code>. The default is <code>UNSIGNED_BYTE</code>.</li> <li><code>channels</code>: What color channels to store, either <code>RGB</code> or <code>RGBA</code>. The default is to match the channels in the main canvas (with alpha unless disabled with <code>setAttributes</code>.)</li> <li><code>depth</code>: A boolean, whether or not to include a depth buffer. Defaults to true.</li> <li><code>depthFormat</code>: The data format for depth information, either <code>UNSIGNED_INT</code> or <code>FLOAT</code>. The default is <code>FLOAT</code> if available, or <code>UNSIGNED_INT</code> otherwise.</li> <li><code>antialias</code>: Boolean or Number, whether or not to render with antialiased edges, and if so, optionally the number of samples to use. Defaults to whether or not the main canvas is antialiased, using a default of 2 samples if so. Antialiasing is only supported when WebGL 2 is available.</li> <li><code>width</code>: The width of the texture. Defaults to matching the main canvas.</li> <li><code>height</code>: The height of the texture. Defaults to matching the main canvas.</li> <li><code>density</code>: The pixel density of the texture. Defaults to the pixel density of the main canvas.</li> <li><code>textureFiltering</code>: Either <code>LINEAR</code> (nearby pixels will be interpolated when reading values from the color texture) or <code>NEAREST</code> (no interpolation.) Generally, use <code>LINEAR</code> when using the texture as an image, and use <code>NEAREST</code> if reading the texture as data. Defaults to <code>LINEAR</code>.</li> </ul>",
+        "Options can include: <ul> <li><code>format</code>: The data format of the texture, either <code>UNSIGNED_BYTE</code>, <code>FLOAT</code>, or <code>HALF_FLOAT</code>. The default is <code>UNSIGNED_BYTE</code>.</li> <li><code>channels</code>: What color channels to store, either <code>RGB</code> or <code>RGBA</code>. The default is to match the channels in the main canvas (with alpha unless disabled with <code>setAttributes</code>.)</li> <li><code>depth</code>: A boolean, whether or not to include a depth buffer. Defaults to true.</li> <li><code>depthFormat</code>: The data format for depth information, either <code>UNSIGNED_INT</code> or <code>FLOAT</code>. The default is <code>FLOAT</code> if available, or <code>UNSIGNED_INT</code> otherwise.</li> <li><code>stencil</code>: A boolean, whether or not to include a stencil buffer, which can be used for masking. This may only be used if also using a depth buffer. Defaults to the value of <code>depth</code>, which is true if not provided.</li> <li><code>antialias</code>: Boolean or Number, whether or not to render with antialiased edges, and if so, optionally the number of samples to use. Defaults to whether or not the main canvas is antialiased, using a default of 2 samples if so. Antialiasing is only supported when WebGL 2 is available.</li> <li><code>width</code>: The width of the texture. Defaults to matching the main canvas.</li> <li><code>height</code>: The height of the texture. Defaults to matching the main canvas.</li> <li><code>density</code>: The pixel density of the texture. Defaults to the pixel density of the main canvas.</li> <li><code>textureFiltering</code>: Either <code>LINEAR</code> (nearby pixels will be interpolated when reading values from the color texture) or <code>NEAREST</code> (no interpolation.) Generally, use <code>LINEAR</code> when using the texture as an image, and use <code>NEAREST</code> if reading the texture as data. Defaults to <code>LINEAR</code>.</li> </ul>",
         "If <code>width</code>, <code>height</code>, or <code>density</code> are specified, then the framebuffer will keep that size until manually changed. Otherwise, it will be autosized, and it will update to match the main canvas's size and density when the main canvas changes."
       ],
       "params": {
@@ -1855,7 +1885,7 @@
         "Because of how operating systems handle key repeats, holding down a key may cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The rate of repeat is set by the operating system and how each computer is configured. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
       ],
       "params": {
-        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+        "event": "KeyboardEvent: (Optional) optional KeyboardEvent callback argument."
       }
     },
     "keyReleased": {
@@ -1863,7 +1893,7 @@
         "The <a href=\"#/p5/keyReleased\">keyReleased()</a> function is called once every time a key is released. See <a href=\"#/p5/key\">key</a> and <a href=\"#/p5/keyCode\">keyCode</a> for more information. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the function."
       ],
       "params": {
-        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+        "event": "KeyboardEvent: (Optional) optional KeyboardEvent callback argument."
       }
     },
     "keyTyped": {
@@ -1872,7 +1902,7 @@
         "Because of how operating systems handle key repeats, holding down a key will cause multiple calls to <a href=\"#/p5/keyTyped\">keyTyped()</a> (and <a href=\"#/p5/keyReleased\">keyReleased()</a> as well). The rate of repeat is set by the operating system and how each computer is configured. Browsers may have different default behaviors attached to various key events. To prevent any default behavior for this event, add \"return false\" to the end of the function."
       ],
       "params": {
-        "event": "Object: (Optional) optional KeyboardEvent callback argument."
+        "event": "KeyboardEvent: (Optional) optional KeyboardEvent callback argument."
       }
     },
     "keyIsDown": {
@@ -1949,7 +1979,7 @@
         "The <a href=\"#/p5/mouseMoved\">mouseMoved()</a> function is called every time the mouse moves and a mouse button is not pressed. Browsers may have different default behaviors attached to various mouse events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
       ],
       "params": {
-        "event": "Object: (Optional) optional MouseEvent callback argument."
+        "event": "MouseEvent: (Optional) optional MouseEvent callback argument."
       }
     },
     "mouseDragged": {
@@ -1957,7 +1987,7 @@
         "The <a href=\"#/p5/mouseDragged\">mouseDragged()</a> function is called once every time the mouse moves and a mouse button is pressed. If no <a href=\"#/p5/mouseDragged\">mouseDragged()</a> function is defined, the <a href=\"#/p5/touchMoved\">touchMoved()</a> function will be called instead if it is defined. Browsers may have different default behaviors attached to various mouse events. To prevent any default behavior for this event, add \"return false\" to the end of the function."
       ],
       "params": {
-        "event": "Object: (Optional) optional MouseEvent callback argument."
+        "event": "MouseEvent: (Optional) optional MouseEvent callback argument."
       }
     },
     "mousePressed": {
@@ -1965,7 +1995,7 @@
         "The <a href=\"#/p5/mousePressed\">mousePressed()</a> function is called once after every time a mouse button is pressed. The mouseButton variable (see the related reference entry) can be used to determine which button has been pressed. If no <a href=\"#/p5/mousePressed\">mousePressed()</a> function is defined, the <a href=\"#/p5/touchStarted\">touchStarted()</a> function will be called instead if it is defined. Browsers may have different default behaviors attached to various mouse events. To prevent any default behavior for this event, add \"return false\" to the end of the function."
       ],
       "params": {
-        "event": "Object: (Optional) optional MouseEvent callback argument."
+        "event": "MouseEvent: (Optional) optional MouseEvent callback argument."
       }
     },
     "mouseReleased": {
@@ -1973,7 +2003,7 @@
         "The <a href=\"#/p5/mouseReleased\">mouseReleased()</a> function is called every time a mouse button is released. If no <a href=\"#/p5/mouseReleased\">mouseReleased()</a> function is defined, the <a href=\"#/p5/touchEnded\">touchEnded()</a> function will be called instead if it is defined. Browsers may have different default behaviors attached to various mouse events. To prevent any default behavior for this event, add \"return false\" to the end of the function."
       ],
       "params": {
-        "event": "Object: (Optional) optional MouseEvent callback argument."
+        "event": "MouseEvent: (Optional) optional MouseEvent callback argument."
       }
     },
     "mouseClicked": {
@@ -1981,7 +2011,7 @@
         "The <a href=\"#/p5/mouseClicked\">mouseClicked()</a> function is called once after a mouse button has been pressed and then released. Browsers handle clicks differently, so this function is only guaranteed to be run when the left mouse button is clicked. To handle other mouse buttons being pressed or released, see <a href=\"#/p5/mousePressed\">mousePressed()</a> or <a href=\"#/p5/mouseReleased\">mouseReleased()</a>. Browsers may have different default behaviors attached to various mouse events. To prevent any default behavior for this event, add \"return false\" to the end of the function."
       ],
       "params": {
-        "event": "Object: (Optional) optional MouseEvent callback argument."
+        "event": "MouseEvent: (Optional) optional MouseEvent callback argument."
       }
     },
     "doubleClicked": {
@@ -1989,7 +2019,7 @@
         "The <a href=\"#/p5/doubleClicked\">doubleClicked()</a> function is executed every time a event listener has detected a dblclick event which is a part of the DOM L3 specification. The doubleClicked event is fired when a pointing device button (usually a mouse's primary button) is clicked twice on a single element. For more info on the dblclick event refer to mozilla's documentation here: <a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/dblclick\">https://developer.mozilla.org/en-US/docs/Web/Events/dblclick</a>"
       ],
       "params": {
-        "event": "Object: (Optional) optional MouseEvent callback argument."
+        "event": "MouseEvent: (Optional) optional MouseEvent callback argument."
       }
     },
     "mouseWheel": {
@@ -1997,7 +2027,7 @@
         "The function <a href=\"#/p5/mouseWheel\">mouseWheel()</a> is executed every time a vertical mouse wheel event is detected either triggered by an actual mouse wheel or by a touchpad. The event.delta property returns the amount the mouse wheel have scrolled. The values can be positive or negative depending on the scroll direction (on macOS with \"natural\" scrolling enabled, the signs are inverted). Browsers may have different default behaviors attached to various mouse events. To prevent any default behavior for this event, add \"return false\" to the end of the method. Due to the current support of the \"wheel\" event on Safari, the function may only work as expected if \"return false\" is included while using Safari."
       ],
       "params": {
-        "event": "Object: (Optional) optional WheelEvent callback argument."
+        "event": "WheelEvent: (Optional) optional WheelEvent callback argument."
       }
     },
     "requestPointerLock": {
@@ -2021,7 +2051,7 @@
         "The touchStarted() function is called once after every time a touch is registered. If no <a href=\"#/p5/touchStarted\">touchStarted()</a> function is defined, the <a href=\"#/p5/mousePressed\">mousePressed()</a> function will be called instead if it is defined. Browsers may have different default behaviors attached to various touch events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
       ],
       "params": {
-        "event": "Object: (Optional) optional TouchEvent callback argument."
+        "event": "TouchEvent: (Optional) optional TouchEvent callback argument."
       }
     },
     "touchMoved": {
@@ -2029,7 +2059,7 @@
         "The <a href=\"#/p5/touchMoved\">touchMoved()</a> function is called every time a touch move is registered. If no <a href=\"#/p5/touchMoved\">touchMoved()</a> function is defined, the <a href=\"#/p5/mouseDragged\">mouseDragged()</a> function will be called instead if it is defined. Browsers may have different default behaviors attached to various touch events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
       ],
       "params": {
-        "event": "Object: (Optional) optional TouchEvent callback argument."
+        "event": "TouchEvent: (Optional) optional TouchEvent callback argument."
       }
     },
     "touchEnded": {
@@ -2037,88 +2067,90 @@
         "The <a href=\"#/p5/touchEnded\">touchEnded()</a> function is called every time a touch ends. If no <a href=\"#/p5/touchEnded\">touchEnded()</a> function is defined, the <a href=\"#/p5/mouseReleased\">mouseReleased()</a> function will be called instead if it is defined. Browsers may have different default behaviors attached to various touch events. To prevent any default behavior for this event, add \"return false\" to the end of the method."
       ],
       "params": {
-        "event": "Object: (Optional) optional TouchEvent callback argument."
+        "event": "TouchEvent: (Optional) optional TouchEvent callback argument."
       }
     },
     "createImage": {
       "description": [
-        "Creates a new <a href=\"#/p5.Image\">p5.Image</a> (the datatype for storing images). This provides a fresh buffer of pixels to play with. Set the size of the buffer with the width and height parameters.",
-        ".<a href=\"#/p5.Image/pixels\">pixels</a> gives access to an array containing the values for all the pixels in the display window. These values are numbers. This array is the size (including an appropriate factor for the <a href=\"#/p5/pixelDensity\">pixelDensity</a>) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. See .<a href=\"#/p5.Image/pixels\">pixels</a> for more info. It may also be simpler to use <a href=\"#/p5.Image/set\">set()</a> or <a href=\"#/p5.Image/get\">get()</a>.",
-        "Before accessing the pixels of an image, the data must loaded with the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> function. After the array data has been modified, the <a href=\"#/p5.Image/updatePixels\">updatePixels()</a> function must be run to update the changes."
+        "Creates a new <a href=\"#/p5.Image\">p5.Image</a> object. The new image is transparent by default.",
+        "<code>createImage()</code> uses the <code>width</code> and <code>height</code> paremeters to set the new <a href=\"#/p5.Image\">p5.Image</a> object's dimensions in pixels. The new <a href=\"#/p5.Image\">p5.Image</a> can be modified by updating its <a href=\"#/p5.Image/pixels\">pixels</a> array or by calling its <a href=\"#/p5.Image/get\">get()</a> and <a href=\"#/p5.Image/set\">set()</a> methods. The <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> method must be called before reading or modifying pixel values. The <a href=\"#/p5.Image/updatePixels\">updatePixels()</a> method must be called for updates to take effect."
       ],
-      "returns": "p5.Image: the <a href=\"#/p5.Image\">p5.Image</a> object",
+      "returns": "p5.Image: new <a href=\"#/p5.Image\">p5.Image</a> object.",
       "params": {
-        "width": "Integer: width in pixels",
-        "height": "Integer: height in pixels"
+        "width": "Integer: width in pixels.",
+        "height": "Integer: height in pixels."
       }
     },
     "saveCanvas": {
       "description": [
-        "Save the current canvas as an image. The browser will either save the file immediately, or prompt the user with a dialogue window."
+        "Saves the current canvas as an image. The browser will either save the file immediately or prompt the user with a dialogue window."
       ],
       "params": {
-        "selectedCanvas": "p5.Element|HTMLCanvasElement: a variable  representing a specific html5 canvas (optional)",
-        "filename": "String (Optional)",
-        "extension": "String: (Optional) 'jpg' or 'png'"
+        "selectedCanvas": "p5.Element|HTMLCanvasElement: reference to a  specific HTML5 canvas element.",
+        "filename": "String: (Optional) file name. Defaults to 'untitled'.",
+        "extension": "String: (Optional) file extension, either 'jpg' or 'png'. Defaults to 'png'."
       }
     },
     "saveFrames": {
       "description": [
-        "Capture a sequence of frames that can be used to create a movie. Accepts a callback. For example, you may wish to send the frames to a server where they can be stored or converted into a movie. If no callback is provided, the browser will pop up save dialogues in an attempt to download all of the images that have just been created. With the callback provided the image data isn't saved by default but instead passed as an argument to the callback function as an array of objects, with the size of array equal to the total number of frames.",
-        "The arguments <code>duration</code> and <code>framerate</code> are constrained to be less or equal to 15 and 22, respectively, which means you can only download a maximum of 15 seconds worth of frames at 22 frames per second, adding up to 330 frames. This is done in order to avoid memory problems since a large enough canvas can fill up the memory in your computer very easily and crash your program or even your browser.",
-        "To export longer animations, you might look into a library like <a href=\"https://github.com/spite/ccapture.js/\">ccapture.js</a>."
+        "Captures a sequence of frames from the canvas that can be used to create a movie. Frames are downloaded as individual image files by default.",
+        "The first parameter, <code>filename</code>, sets the prefix for the file names. For example, setting the prefix to <code>'frame'</code> would generate the image files <code>frame0.png</code>, <code>frame1.png</code>, and so on. The second parameter, <code>extension</code>, sets the file type to either <code>'png'</code> or <code>'jpg'</code>.",
+        "The third parameter, <code>duration</code>, sets the duration to record in seconds. The maximum duration is 15 seconds. The fourth parameter, <code>framerate</code>, sets the number of frames to record per second. The maximum frame rate value is 22. Limits are placed on <code>duration</code> and <code>framerate</code> to avoid using too much memory. Recording large canvases can easily crash sketches or even web browsers.",
+        "The fifth parameter, <code>callback</code>, is optional. If a function is passed, image files won't be saved by default. The callback function can be used to process an array containing the data for each captured frame. The array of image data contains a sequence of objects with three properties for each frame: <code>imageData</code>, <code>filename</code>, and <code>extension</code>."
       ],
       "params": {
-        "filename": "String",
-        "extension": "String: 'jpg' or 'png'",
-        "duration": "Number: Duration in seconds to save the frames for. This parameter will be constrained to be less or equal to 15.",
-        "framerate": "Number: Framerate to save the frames in. This parameter will be constrained to be less or equal to 22.",
-        "callback": "Function(Array): (Optional) A callback function that will be executed  to handle the image data. This function  should accept an array as argument. The  array will contain the specified number of  frames of objects. Each object has three  properties: imageData - an  image/octet-stream, filename and extension."
+        "filename": "String: prefix of file name.",
+        "extension": "String: file extension, either 'jpg' or 'png'.",
+        "duration": "Number: duration in seconds to record. This parameter will be constrained to be less or equal to 15.",
+        "framerate": "Number: number of frames to save per second. This parameter will be constrained to be less or equal to 22.",
+        "callback": "Function(Array): (Optional) callback function that will be executed  to handle the image data. This function  should accept an array as argument. The  array will contain the specified number of  frames of objects. Each object has three  properties: <code>imageData</code>, <code>filename</code>, and <code>extension</code>."
       }
     },
     "loadImage": {
       "description": [
-        "Loads an image from a path and creates a <a href=\"#/p5.Image\">p5.Image</a> from it.",
-        "The image may not be immediately available for rendering. If you want to ensure that the image is ready before doing anything with it, place the <a href=\"#/p5/loadImage\">loadImage()</a> call in <a href=\"#/p5/preload\">preload()</a>. You may also supply a callback function to handle the image when it's ready.",
-        "The path to the image should be relative to the HTML file that links in your sketch. Loading an image from a URL or other remote location may be blocked due to your browser's built-in security.",
-        "You can also pass in a string of a base64 encoded image as an alternative to the file path. Remember to add \"data:image/png;base64,\" in front of the string."
+        "Loads an image to create a <a href=\"#/p5.Image\">p5.Image</a> object.",
+        "<code>loadImage()</code> interprets the first parameter one of three ways. If the path to an image file is provided, <code>loadImage()</code> will load it. Paths to local files should be relative, such as <code>'assets/thundercat.jpg'</code>. URLs such as <code>'https://example.com/thundercat.jpg'</code> may be blocked due to browser security. Raw image data can also be passed as a base64 encoded image in the form <code>'data:image/png;base64,arandomsequenceofcharacters'</code>.",
+        "The second parameter is optional. If a function is passed, it will be called once the image has loaded. The callback function can optionally use the new <a href=\"#/p5.Image\">p5.Image</a> object.",
+        "The third parameter is also optional. If a function is passed, it will be called if the image fails to load. The callback function can optionally use the event error.",
+        "Images can take time to load. Calling <code>loadImage()</code> in <a href=\"#/p5/preload\">preload()</a> ensures images load before they're used in <a href=\"#/p5/setup\">setup()</a> or <a href=\"#/p5/draw\">draw()</a>."
       ],
-      "returns": "p5.Image: the <a href=\"#/p5.Image\">p5.Image</a> object",
+      "returns": "p5.Image: the <a href=\"#/p5.Image\">p5.Image</a> object.",
       "params": {
-        "path": "String: Path of the image to be loaded",
-        "successCallback": "function(p5.Image): (Optional) Function to be called once  the image is loaded. Will be passed the  <a href=\"#/p5.Image\">p5.Image</a>.",
-        "failureCallback": "Function(Event): (Optional) called with event error if  the image fails to load."
+        "path": "String: path of the image to be loaded or base64 encoded image.",
+        "successCallback": "function(p5.Image): (Optional) function called with  <a href=\"#/p5.Image\">p5.Image</a> once it  loads.",
+        "failureCallback": "Function(Event): (Optional) function called with event  error if the image fails to load."
       }
     },
     "saveGif": {
       "description": [
-        "Generates a gif of your current animation and downloads it to your computer!",
-        "The duration argument specifies how many seconds you want to record from your animation. This value is then converted to the necessary number of frames to generate it, depending on the value of units. More on that on the next paragraph.",
-        "An optional object that can contain two more arguments: delay (number) and units (string).",
-        "<code>delay</code>, specifying how much time we should wait before recording",
-        "<code>units</code>, a string that can be either 'seconds' or 'frames'. By default it's 'seconds'.",
-        "<code>units</code> specifies how the duration and delay arguments will behave. If 'seconds', these arguments will correspond to seconds, meaning that 3 seconds worth of animation will be created. If 'frames', the arguments now correspond to the number of frames you want your animation to be, if you are very sure of this number.",
-        "This may be called in setup, or, like in the example below, inside an event function, like keyPressed or mousePressed."
+        "Generates a gif from a sketch and saves it to a file. <code>saveGif()</code> may be called in <a href=\"#/p5/setup\">setup()</a> or at any point while a sketch is running.",
+        "The first parameter, <code>fileName</code>, sets the gif's file name. The second parameter, <code>duration</code>, sets the gif's duration in seconds.",
+        "The third parameter, <code>options</code>, is optional. If an object is passed, <code>saveGif()</code> will use its properties to customize the gif. <code>saveGif()</code> recognizes the properties <code>delay</code>, <code>units</code>, <code>silent</code>, <code>notificationDuration</code>, and <code>notificationID</code>."
       ],
       "params": {
-        "filename": "String: File name of your gif",
-        "duration": "Number: Duration in seconds that you wish to capture from your sketch",
-        "options": "Object: An optional object that can contain five more arguments: delay, specifying how much time we should wait before recording; units, a string that can be either 'seconds' or 'frames'. By default it's 'seconds’; silent, a boolean that defines presence of progress notifications. By default it’s false; notificationDuration, a number that defines how long in seconds the final notification will live. 0, the default value, means that the notification will never be removed; notificationID, a string that specifies the notification DOM element id. By default it’s 'progressBar’."
+        "filename": "String: file name of gif.",
+        "duration": "Number: duration in seconds to capture from the sketch.",
+        "options": "Object: (Optional) an object that can contain five more properties:  <code>delay</code>, a Number specifying how much time to wait before recording;  <code>units</code>, a String that can be either 'seconds' or 'frames'. By default it's 'seconds’;  <code>silent</code>, a Boolean that defines presence of progress notifications. By default it’s <code>false</code>;  <code>notificationDuration</code>, a Number that defines how long in seconds the final notification  will live. By default it's <code>0</code>, meaning the notification will never be removed;  <code>notificationID</code>, a String that specifies the id of the notification's DOM element. By default it’s <code>'progressBar’</code>."
       }
     },
     "image": {
       "description": [
-        "Draw an image to the p5.js canvas.",
-        "This function can be used with different numbers of parameters. The simplest use requires only three parameters: img, x, and y—where (x, y) is the position of the image. Two more parameters can optionally be added to specify the width and height of the image.",
-        "This function can also be used with eight Number parameters. To differentiate between all these parameters, p5.js uses the language of \"destination rectangle\" (which corresponds to \"dx\", \"dy\", etc.) and \"source image\" (which corresponds to \"sx\", \"sy\", etc.) below. Specifying the \"source image\" dimensions can be useful when you want to display a subsection of the source image instead of the whole thing. Here's a diagram to explain further: <img src=\"assets/drawImage.png\"></img>",
-        "This function can also be used to draw images without distorting the orginal aspect ratio, by adding 9th parameter, fit, which can either be COVER or CONTAIN. CONTAIN, as the name suggests, contains the whole image within the specified destination box without distorting the image ratio. COVER covers the entire destination box."
+        "Draws a source image to the canvas.",
+        "The first parameter, <code>img</code>, is the source image to be drawn. The second and third parameters, <code>dx</code> and <code>dy</code>, set the coordinates of the destination image's top left corner. See <a href=\"#/p5/imageMode\">imageMode()</a> for other ways to position images.",
+        "Here's a diagram that explains how optional parameters work in <code>image()</code>:",
+        "<img src=\"assets/drawImage.png\"></img>",
+        "The fourth and fifth parameters, <code>dw</code> and <code>dh</code>, are optional. They set the the width and height to draw the destination image. By default, <code>image()</code> draws the full source image at its original size.",
+        "The sixth and seventh parameters, <code>sx</code> and <code>sy</code>, are also optional. These coordinates define the top left corner of a subsection to draw from the source image.",
+        "The eighth and ninth parameters, <code>sw</code> and <code>sh</code>, are also optional. They define the width and height of a subsection to draw from the source image. By default, <code>image()</code> draws the full subsection that begins at (<code>sx</code>, <code>sy</code>) and extends to the edges of the source image.",
+        "The ninth parameter, <code>fit</code>, is also optional. It enables a subsection of the source image to be drawn without affecting its aspect ratio. If <code>CONTAIN</code> is passed, the full subsection will appear within the destination rectangle. If <code>COVER</code> is passed, the subsection will completely cover the destination rectangle. This may have the effect of zooming into the subsection.",
+        "The tenth and eleventh paremeters, <code>xAlign</code> and <code>yAlign</code>, are also optional. They determine how to align the fitted subsection. <code>xAlign</code> can be set to either <code>LEFT</code>, <code>RIGHT</code>, or <code>CENTER</code>. <code>yAlign</code> can be set to either <code>TOP</code>, <code>BOTTOM</code>, or <code>CENTER</code>. By default, both <code>xAlign</code> and <code>yAlign</code> are set to <code>CENTER</code>."
       ],
       "params": {
-        "img": "p5.Image|p5.Element|p5.Texture|p5.Framebuffer|p5.FramebufferTexture: the image to display",
-        "x": "Number: the x-coordinate of the top-left corner of the image",
-        "y": "Number: the y-coordinate of the top-left corner of the image",
-        "width": "Number: (Optional) the width to draw the image",
-        "height": "Number: (Optional) the height to draw the image",
+        "img": "p5.Image|p5.Element|p5.Texture|p5.Framebuffer|p5.FramebufferTexture: image to display.",
+        "x": "Number: x-coordinate of the top-left corner of the image.",
+        "y": "Number: y-coordinate of the top-left corner of the image.",
+        "width": "Number: (Optional) width to draw the image.",
+        "height": "Number: (Optional) height to draw the image.",
         "dx": "Number: the x-coordinate of the destination  rectangle in which to draw the source image",
         "dy": "Number: the y-coordinate of the destination  rectangle in which to draw the source image",
         "dWidth": "Number: the width of the destination rectangle",
@@ -2134,138 +2166,145 @@
     },
     "tint": {
       "description": [
-        "Sets the fill value for displaying images. Images can be tinted to specified colors or made transparent by including an alpha value.",
-        "To apply transparency to an image without affecting its color, use white as the tint color and specify an alpha value. For instance, tint(255, 128) will make an image 50% transparent (assuming the default alpha range of 0-255, which can be changed with <a href=\"#/p5/colorMode\">colorMode()</a>).",
-        "The value for the gray parameter must be less than or equal to the current maximum value as specified by <a href=\"#/p5/colorMode\">colorMode()</a>. The default maximum value is 255."
+        "Tints images using a specified color.",
+        "The version of <code>tint()</code> with one parameter interprets it one of four ways. If the parameter is a number, it's interpreted as a grayscale value. If the parameter is a string, it's interpreted as a CSS color string. An array of <code>[R, G, B, A]</code> values or a <a href=\"#/p5.Color\">p5.Color</a> object can also be used to set the tint color.",
+        "The version of <code>tint()</code> with two parameters uses the first one as a grayscale value and the second as an alpha value. For example, calling <code>tint(255, 128)</code> will make an image 50% transparent.",
+        "The version of <code>tint()</code> with three parameters interprets them as RGB or HSB values, depending on the current <a href=\"#/p5/colorMode\">colorMode()</a>. The optional fourth parameter sets the alpha value. For example, <code>tint(255, 0, 0, 100)</code> will give images a red tint and make them transparent."
       ],
       "params": {
-        "v1": "Number: red or hue value relative to  the current color range",
-        "v2": "Number: green or saturation value  relative to the current color range",
-        "v3": "Number: blue or brightness value  relative to the current color range",
+        "v1": "Number: red or hue value.",
+        "v2": "Number: green or saturation value.",
+        "v3": "Number: blue or brightness.",
         "alpha": "Number (Optional)",
-        "value": "String: a color string",
-        "gray": "Number: a gray value",
-        "values": "Number[]: an array containing the red,green,blue &  and alpha components of the color",
+        "value": "String: CSS color string.",
+        "gray": "Number: grayscale value.",
+        "values": "Number[]: array containing the red, green, blue &  alpha components of the color.",
         "color": "p5.Color: the tint color"
       }
     },
     "noTint": {
       "description": [
-        "Removes the current fill value for displaying images and reverts to displaying images with their original hues."
+        "Removes the current tint set by <a href=\"#/p5/tint\">tint()</a> and restores images to their original colors."
       ]
     },
     "imageMode": {
       "description": [
-        "Set image mode. Modifies the location from which images are drawn by changing the way in which parameters given to <a href=\"#/p5/image\">image()</a> are interpreted. The default mode is imageMode(CORNER), which interprets the second and third parameters of <a href=\"#/p5/image\">image()</a> as the upper-left corner of the image. If two additional parameters are specified, they are used to set the image's width and height.",
-        "imageMode(CORNERS) interprets the second and third parameters of <a href=\"#/p5/image\">image()</a> as the location of one corner, and the fourth and fifth parameters as the opposite corner.",
-        "imageMode(CENTER) interprets the second and third parameters of <a href=\"#/p5/image\">image()</a> as the image's center point. If two additional parameters are specified, they are used to set the image's width and height."
+        "Changes the location from which images are drawn when <a href=\"#/p5/image\">image()</a> is called.",
+        "By default, the first two parameters of <a href=\"#/p5/image\">image()</a> are the x- and y-coordinates of the image's upper-left corner. The next parameters are its width and height. This is the same as calling <code>imageMode(CORNER)</code>.",
+        "<code>imageMode(CORNERS)</code> also uses the first two parameters of <a href=\"#/p5/image\">image()</a> as the x- and y-coordinates of the image's top-left corner. The third and fourth parameters are the coordinates of its bottom-right corner.",
+        "<code>imageMode(CENTER)</code> uses the first two parameters of <a href=\"#/p5/image\">image()</a> as the x- and y-coordinates of the image's center. The next parameters are its width and height."
       ],
       "params": {
-        "mode": "Constant: either CORNER, CORNERS, or CENTER"
+        "mode": "Constant: either CORNER, CORNERS, or CENTER."
       }
     },
     "pixels": {
       "description": [
-        "<a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference /Global_Objects/Uint8ClampedArray' target='_blank'>Uint8ClampedArray</a> containing the values for all the pixels in the display window. These values are numbers. This array is the size (include an appropriate factor for <a href=\"#/p5/pixelDensity\">pixelDensity</a>) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. Retina and other high density displays will have more pixels[] (by a factor of pixelDensity^2). For example, if the image is 100×100 pixels, there will be 40,000. On a retina display, there will be 160,000.",
-        "The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class=\"language-javascript\">let d = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  } } </code></pre>",
-        "While the above method is complex, it is flexible enough to work with any pixelDensity. Note that <a href=\"#/p5/set\">set()</a> will automatically take care of setting all the appropriate values in <a href=\"#/p5/pixels\">pixels[]</a> for a given (x, y) at any pixelDensity, but the performance may not be as fast when lots of modifications are made to the pixel array.",
-        "Before accessing this array, the data must loaded with the <a href=\"#/p5/loadPixels\">loadPixels()</a> function. After the array data has been modified, the <a href=\"#/p5/updatePixels\">updatePixels()</a> function must be run to update the changes.",
-        "Note that this is not a standard javascript array. This means that standard javascript functions such as <a href=\"#/p5/slice\">slice()</a> or <a href=\"#/p5/arrayCopy\">arrayCopy()</a> do not work."
+        "An array containing the color of each pixel on the canvas. Colors are stored as numbers representing red, green, blue, and alpha (RGBA) values. <code>pixels</code> is a one-dimensional array for performance reasons.",
+        "Each pixel occupies four elements in the <code>pixels</code> array, one for each RGBA value. For example, the pixel at coordinates (0, 0) stores its RGBA values at <code>pixels[0]</code>, <code>pixels[1]</code>, <code>pixels[2]</code>, and <code>pixels[3]</code>, respectively. The next pixel at coordinates (1, 0) stores its RGBA values at <code>pixels[4]</code>, <code>pixels[5]</code>, <code>pixels[6]</code>, and <code>pixels[7]</code>. And so on. The <code>pixels</code> array for a 100×100 canvas has 100 × 100 × 4 = 40,000 elements.",
+        "Some displays use several smaller pixels to set the color at a single point. The <a href=\"#/p5/pixelDensity\">pixelDensity()</a> function returns the pixel density of the canvas. High density displays often have a <a href=\"#/p5/pixelDensity\">pixelDensity()</a> of 2. On such a display, the <code>pixels</code> array for a 100×100 canvas has 200 × 200 × 4 = 160,000 elements.",
+        "Accessing the RGBA values for a point on the canvas requires a little math as shown below. The <a href=\"#/p5/loadPixels\">loadPixels()</a> function must be called before accessing the <code>pixels</code> array. The <a href=\"#/p5/updatePixels\">updatePixels()</a> function must be called after any changes are made."
       ]
     },
     "blend": {
       "description": [
-        "Copies a region of pixels from one image to another, using a specified blend mode to do the operation."
+        "Copies a region of pixels from one image to another. The <code>blendMode</code> parameter blends the images' colors to create different effects."
       ],
       "params": {
-        "srcImage": "p5.Image: source image",
-        "sx": "Integer: X coordinate of the source's upper left corner",
-        "sy": "Integer: Y coordinate of the source's upper left corner",
-        "sw": "Integer: source image width",
-        "sh": "Integer: source image height",
-        "dx": "Integer: X coordinate of the destination's upper left corner",
-        "dy": "Integer: Y coordinate of the destination's upper left corner",
-        "dw": "Integer: destination image width",
-        "dh": "Integer: destination image height",
+        "srcImage": "p5.Image: source image.",
+        "sx": "Integer: x-coordinate of the source's upper-left corner.",
+        "sy": "Integer: y-coordinate of the source's upper-left corner.",
+        "sw": "Integer: source image width.",
+        "sh": "Integer: source image height.",
+        "dx": "Integer: x-coordinate of the destination's upper-left corner.",
+        "dy": "Integer: y-coordinate of the destination's upper-left corner.",
+        "dw": "Integer: destination image width.",
+        "dh": "Integer: destination image height.",
         "blendMode": "Constant: the blend mode. either  BLEND, DARKEST, LIGHTEST, DIFFERENCE,  MULTIPLY, EXCLUSION, SCREEN, REPLACE, OVERLAY, HARD_LIGHT,  SOFT_LIGHT, DODGE, BURN, ADD or NORMAL."
       }
     },
     "copy": {
       "description": [
-        "Copies a region of the canvas to another region of the canvas and copies a region of pixels from an image used as the srcImg parameter into the canvas srcImage is specified this is used as the source. If the source and destination regions aren't the same size, it will automatically resize source pixels to fit the specified target region."
+        "Copies pixels from a source image to a region of the canvas. The source image can be the canvas itself or a <a href=\"#/p5.Image\">p5.Image</a> object. <code>copy()</code> will scale pixels from the source region if it isn't the same size as the destination region."
       ],
       "params": {
-        "srcImage": "p5.Image|p5.Element: source image",
-        "sx": "Integer: X coordinate of the source's upper left corner",
-        "sy": "Integer: Y coordinate of the source's upper left corner",
-        "sw": "Integer: source image width",
-        "sh": "Integer: source image height",
-        "dx": "Integer: X coordinate of the destination's upper left corner",
-        "dy": "Integer: Y coordinate of the destination's upper left corner",
-        "dw": "Integer: destination image width",
-        "dh": "Integer: destination image height"
+        "srcImage": "p5.Image|p5.Element: source image.",
+        "sx": "Integer: x-coordinate of the source's upper-left corner.",
+        "sy": "Integer: y-coordinate of the source's upper-left corner.",
+        "sw": "Integer: source image width.",
+        "sh": "Integer: source image height.",
+        "dx": "Integer: x-coordinate of the destination's upper-left corner.",
+        "dy": "Integer: y-coordinate of the destination's upper-left corner.",
+        "dw": "Integer: destination image width.",
+        "dh": "Integer: destination image height."
       }
     },
     "filter": {
       "description": [
-        "Applies a filter to the canvas. The presets options are:",
-        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used.",
-        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used.",
-        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used.",
-        "INVERT Sets each pixel to its inverse value. No parameter is used.",
-        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges.",
-        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur.",
-        "ERODE Reduces the light areas. No parameter is used.",
-        "DILATE Increases the light areas. No parameter is used.",
-        "filter() does not work in WEBGL mode. A similar effect can be achieved in WEBGL mode using custom shaders. Adam Ferriss has written a <a href=\"https://github.com/aferriss/p5jsShaderExamples\" target='_blank'>selection of shader examples</a> that contains many of the effects present in the filter examples."
+        "Applies an image filter to the canvas. The preset options are:",
+        "<code>INVERT</code> Inverts the colors in the image. No parameter is used.",
+        "<code>GRAY</code> Converts the image to grayscale. No parameter is used.",
+        "<code>THRESHOLD</code> Converts the image to black and white. Pixels with a grayscale value above a given threshold are converted to white. The rest are converted to black. The threshold must be between 0.0 (black) and 1.0 (white). If no value is specified, 0.5 is used.",
+        "<code>OPAQUE</code> Sets the alpha channel to entirely opaque. No parameter is used.",
+        "<code>POSTERIZE</code> Limits the number of colors in the image. Each color channel is limited to the number of colors specified. Values between 2 and 255 are valid, but results are most noticeable with lower values. The default value is 4.",
+        "<code>BLUR</code> Blurs the image. The level of blurring is specified by a blur radius. Larger values increase the blur. The default value is 4. A gaussian blur is used in <code>P2D</code> mode. A box blur is used in <code>WEBGL</code> mode.",
+        "<code>ERODE</code> Reduces the light areas. No parameter is used.",
+        "<code>DILATE</code> Increases the light areas. No parameter is used.",
+        "<code>filter()</code> uses WebGL in the background by default because it's faster. This can be disabled in <code>P2D</code> mode by adding a <code>false</code> argument, as in <code>filter(BLUR, false)</code>. This may be useful to keep computation off the GPU or to work around a lack of WebGL support.",
+        "In <code>WEBGL</code> mode, <code>filter()</code> can also use custom shaders. See <a href=\"#/p5/createFilterShader\">createFilterShader()</a> for more information."
       ],
       "params": {
-        "filterType": "Constant: either THRESHOLD, GRAY, OPAQUE, INVERT,  POSTERIZE, BLUR, ERODE, DILATE or BLUR.  See Filters.js for docs on  each available filter",
-        "filterParam": "Number: (Optional) an optional parameter unique  to each filter, see above"
+        "filterType": "Constant: either THRESHOLD, GRAY, OPAQUE, INVERT,  POSTERIZE, BLUR, ERODE, DILATE or BLUR.",
+        "filterParam": "Number: (Optional) parameter unique to each filter.",
+        "useWebGL": "Boolean: (Optional) flag to control whether to use fast  WebGL filters (GPU) or original image  filters (CPU); defaults to <code>true</code>.",
+        "shaderFilter": "p5.Shader: shader that's been loaded, with the  frag shader using a <code>tex0</code> uniform."
       }
     },
     "get": {
       "description": [
-        "Get a region of pixels, or a single pixel, from the canvas.",
-        "Returns an array of [R,G,B,A] values for any pixel or grabs a section of an image. If no parameters are specified, the entire image is returned. Use the x and y parameters to get the value of one pixel. Get a section of the display window by specifying additional w and h parameters. When getting an image, the x and y parameters define the coordinates for the upper-left corner of the image, regardless of the current <a href=\"#/p5/imageMode\">imageMode()</a>.",
-        "Getting the color of a single pixel with get(x, y) is easy, but not as fast as grabbing the data directly from <a href=\"#/p5/pixels\">pixels[]</a>. The equivalent statement to get(x, y) using <a href=\"#/p5/pixels\">pixels[]</a> with pixel density d is <pre><code class=\"language-javascript\">let x, y, d; // set these to the coordinates let off = (y * width + x) * d * 4; let components = [  pixels[off],  pixels[off + 1],  pixels[off + 2],  pixels[off + 3] ]; print(components); </code></pre>",
-        "See the reference for <a href=\"#/p5/pixels\">pixels[]</a> for more information.",
-        "If you want to extract an array of colors or a subimage from an p5.Image object, take a look at <a href=\"#/p5.Image/get\">p5.Image.get()</a>"
+        "Gets a pixel or a region of pixels from the canvas.",
+        "<code>get()</code> is easy to use but it's not as fast as <a href=\"#/p5/pixels\">pixels</a>. Use <a href=\"#/p5/pixels\">pixels</a> to read many pixel values.",
+        "The version of <code>get()</code> with no parameters returns the entire canvas.",
+        "The version of <code>get()</code> with two parameters interprets them as coordinates. It returns an array with the <code>[R, G, B, A]</code> values of the pixel at the given point.",
+        "The version of <code>get()</code> with four parameters interprets them as coordinates and dimensions. It returns a subsection of the canvas as a <a href=\"#/p5.Image\">p5.Image</a> object. The first two parameters are the coordinates for the upper-left corner of the subsection. The last two parameters are the width and height of the subsection.",
+        "Use <a href=\"#/p5.Image/get\">p5.Image.get()</a> to work directly with <a href=\"#/p5.Image\">p5.Image</a> objects."
       ],
-      "returns": "p5.Image: the rectangle <a href=\"#/p5.Image\">p5.Image</a>",
+      "returns": "p5.Image: subsection as a <a href=\"#/p5.Image\">p5.Image</a> object.",
       "params": {
-        "x": "Number: x-coordinate of the pixel",
-        "y": "Number: y-coordinate of the pixel",
-        "w": "Number: width of the section to be returned",
-        "h": "Number: height of the section to be returned"
+        "x": "Number: x-coordinate of the pixel.",
+        "y": "Number: y-coordinate of the pixel.",
+        "w": "Number: width of the subsection to be returned.",
+        "h": "Number: height of the subsection to be returned."
       }
     },
     "loadPixels": {
       "description": [
-        "Loads the pixel data for the display window into the <a href=\"#/p5/pixels\">pixels[]</a> array. This function must always be called before reading from or writing to <a href=\"#/p5/pixels\">pixels[]</a>. Note that only changes made with <a href=\"#/p5/set\">set()</a> or direct manipulation of <a href=\"#/p5/pixels\">pixels[]</a> will occur."
+        "Loads the current value of each pixel on the canvas into the <a href=\"#/p5/pixels\">pixels</a> array. This function must be called before reading from or writing to <a href=\"#/p5/pixels\">pixels</a>."
       ]
     },
     "set": {
       "description": [
-        "Changes the color of any pixel, or writes an image directly to the display window. The x and y parameters specify the pixel to change and the c parameter specifies the color value. This can be a <a href=\"#/p5.Color\">p5.Color</a> object, or [R, G, B, A] pixel array. It can also be a single grayscale value. When setting an image, the x and y parameters define the coordinates for the upper-left corner of the image, regardless of the current <a href=\"#/p5/imageMode\">imageMode()</a>.",
-        "After using <a href=\"#/p5/set\">set()</a>, you must call <a href=\"#/p5/updatePixels\">updatePixels()</a> for your changes to appear. This should be called once all pixels have been set, and must be called before calling .<a href=\"#/p5/get\">get()</a> or drawing the image.",
-        "Setting the color of a single pixel with set(x, y) is easy, but not as fast as putting the data directly into <a href=\"#/p5/pixels\">pixels[]</a>. Setting the <a href=\"#/p5/pixels\">pixels[]</a> values directly may be complicated when working with a retina display, but will perform better when lots of pixels need to be set directly on every loop. See the reference for <a href=\"#/p5/pixels\">pixels[]</a> for more information."
+        "Sets the color of a pixel or draws an image to the canvas.",
+        "<code>set()</code> is easy to use but it's not as fast as <a href=\"#/p5/pixels\">pixels</a>. Use <a href=\"#/p5/pixels\">pixels</a> to set many pixel values.",
+        "<code>set()</code> interprets the first two parameters as x- and y-coordinates. It interprets the last parameter as a grayscale value, a <code>[R, G, B, A]</code> pixel array, a <a href=\"#/p5.Color\">p5.Color</a> object, or a <a href=\"#/p5.Image\">p5.Image</a> object. If an image is passed, the first two parameters set the coordinates for the image's upper-left corner, regardless of the current <a href=\"#/p5/imageMode\">imageMode()</a>.",
+        "<a href=\"#/p5/updatePixels\">updatePixels()</a> must be called after using <code>set()</code> for changes to appear."
       ],
       "params": {
-        "x": "Number: x-coordinate of the pixel",
-        "y": "Number: y-coordinate of the pixel",
-        "c": "Number|Number[]|Object: insert a grayscale value | a pixel array |  a <a href=\"#/p5.Color\">p5.Color</a> object | a <a href=\"#/p5.Image\">p5.Image</a> to copy"
+        "x": "Number: x-coordinate of the pixel.",
+        "y": "Number: y-coordinate of the pixel.",
+        "c": "Number|Number[]|Object: grayscale value | pixel array |  <a href=\"#/p5.Color\">p5.Color</a> object | <a href=\"#/p5.Image\">p5.Image</a> to copy."
       }
     },
     "updatePixels": {
       "description": [
-        "Updates the display window with the data in the <a href=\"#/p5/pixels\">pixels[]</a> array. Use in conjunction with <a href=\"#/p5/loadPixels\">loadPixels()</a>. If you're only reading pixels from the array, there's no need to call <a href=\"#/p5/updatePixels\">updatePixels()</a> — updating is only necessary to apply changes. <a href=\"#/p5/updatePixels\">updatePixels()</a> should be called anytime the pixels array is manipulated or <a href=\"#/p5/set\">set()</a> is called, and only changes made with <a href=\"#/p5/set\">set()</a> or direct changes to <a href=\"#/p5/pixels\">pixels[]</a> will occur."
+        "Updates the canvas with the RGBA values in the <a href=\"#/p5/pixels\">pixels</a> array.",
+        "<code>updatePixels()</code> only needs to be called after changing values in the <a href=\"#/p5/pixels\">pixels</a> array. Such changes can be made directly after calling <a href=\"#/p5/loadPixels\">loadPixels()</a> or by calling <a href=\"#/p5/set\">set()</a>."
       ],
       "params": {
-        "x": "Number: (Optional) x-coordinate of the upper-left corner of region  to update",
-        "y": "Number: (Optional) y-coordinate of the upper-left corner of region  to update",
-        "w": "Number: (Optional) width of region to update",
-        "h": "Number: (Optional) height of region to update"
+        "x": "Number: (Optional) x-coordinate of the upper-left corner of region  to update.",
+        "y": "Number: (Optional) y-coordinate of the upper-left corner of region  to update.",
+        "w": "Number: (Optional) width of region to update.",
+        "h": "Number: (Optional) height of region to update."
       }
     },
     "loadJSON": {
@@ -2429,354 +2468,381 @@
     },
     "abs": {
       "description": [
-        "Calculates the absolute value (magnitude) of a number. Maps to Math.abs(). The absolute value of a number is always positive."
+        "Calculates the absolute value of a number. A number's absolute value is its distance from zero on the number line. -5 and 5 are both five units away from zero, so calling <code>abs(-5)</code> and <code>abs(5)</code> both return 5. The absolute value of a number is always positive."
       ],
-      "returns": "Number: absolute value of given number",
+      "returns": "Number: absolute value of given number.",
       "params": {
-        "n": "Number: number to compute"
+        "n": "Number: number to compute."
       }
     },
     "ceil": {
       "description": [
-        "Calculates the closest int value that is greater than or equal to the value of the parameter. Maps to Math.ceil(). For example, ceil(9.03) returns the value 10."
+        "Calculates the closest integer value that is greater than or equal to the parameter's value. For example, calling <code>ceil(9.03)</code> returns the value 10."
       ],
-      "returns": "Integer: rounded up number",
+      "returns": "Integer: rounded up number.",
       "params": {
-        "n": "Number: number to round up"
+        "n": "Number: number to round up."
       }
     },
     "constrain": {
       "description": [
-        "Constrains a value between a minimum and maximum value."
+        "Constrains a number between a minimum and maximum value."
       ],
-      "returns": "Number: constrained number",
+      "returns": "Number: constrained number.",
       "params": {
-        "n": "Number: number to constrain",
-        "low": "Number: minimum limit",
-        "high": "Number: maximum limit"
+        "n": "Number: number to constrain.",
+        "low": "Number: minimum limit.",
+        "high": "Number: maximum limit."
       }
     },
     "dist": {
       "description": [
-        "Calculates the distance between two points, in either two or three dimensions. If you looking for distance between two vectors see <a herf=\"#/p5.Vector/dist\">p5.Vector.dist()</a>"
+        "Calculates the distance between two points.",
+        "The version of <code>dist()</code> with four parameters calculates distance in two dimensions.",
+        "The version of <code>dist()</code> with six parameters calculates distance in three dimensions.",
+        "Use <a href=\"#/p5.Vector/dist\">p5.Vector.dist()</a> to calculate the distance between two <a href=\"#/p5.Vector\">p5.Vector</a> objects."
       ],
-      "returns": "Number: distance between the two points",
+      "returns": "Number: distance between the two points.",
       "params": {
-        "x1": "Number: x-coordinate of the first point",
-        "y1": "Number: y-coordinate of the first point",
-        "x2": "Number: x-coordinate of the second point",
-        "y2": "Number: y-coordinate of the second point",
-        "z1": "Number: z-coordinate of the first point",
-        "z2": "Number: z-coordinate of the second point"
+        "x1": "Number: x-coordinate of the first point.",
+        "y1": "Number: y-coordinate of the first point.",
+        "x2": "Number: x-coordinate of the second point.",
+        "y2": "Number: y-coordinate of the second point.",
+        "z1": "Number: z-coordinate of the first point.",
+        "z2": "Number: z-coordinate of the second point."
       }
     },
     "exp": {
       "description": [
-        "Returns Euler's number e (2.71828...) raised to the power of the n parameter. Maps to Math.exp()."
+        "Returns Euler's number e (2.71828...) raised to the power of the <code>n</code> parameter."
       ],
       "returns": "Number: e^n",
       "params": {
-        "n": "Number: exponent to raise"
+        "n": "Number: exponent to raise."
       }
     },
     "floor": {
       "description": [
-        "Calculates the closest int value that is less than or equal to the value of the parameter. Maps to Math.floor()."
+        "Calculates the closest integer value that is less than or equal to the value of the <code>n</code> parameter."
       ],
-      "returns": "Integer: rounded down number",
+      "returns": "Integer: rounded down number.",
       "params": {
-        "n": "Number: number to round down"
+        "n": "Number: number to round down."
       }
     },
     "lerp": {
       "description": [
-        "Calculates a number between two numbers at a specific increment. The amt parameter is the amount to interpolate between the two values where 0.0 is equal to the first point, 0.1 is very near the first point, 0.5 is half-way in between, and 1.0 is equal to the second point. If the value of amt is more than 1.0 or less than 0.0, the number will be calculated accordingly in the ratio of the two given numbers. The lerp() function is convenient for creating motion along a straight path and for drawing dotted lines."
+        "Calculates a number between two numbers at a specific increment. The <code>amt</code> parameter is the amount to interpolate between the two numbers. 0.0 is equal to the first number, 0.1 is very near the first number, 0.5 is half-way in between, and 1.0 is equal to the second number. The <code>lerp()</code> function is convenient for creating motion along a straight path and for drawing dotted lines.",
+        "If the value of <code>amt</code> is less than 0 or more than 1, <code>lerp()</code> will return a number outside of the original interval. For example, calling <code>lerp(0, 10, 1.5)</code> will return 15."
       ],
-      "returns": "Number: lerped value",
+      "returns": "Number: lerped value.",
       "params": {
-        "start": "Number: first value",
-        "stop": "Number: second value",
-        "amt": "Number: number"
+        "start": "Number: first value.",
+        "stop": "Number: second value.",
+        "amt": "Number: number."
       }
     },
     "log": {
       "description": [
-        "Calculates the natural logarithm (the base-e logarithm) of a number. This function expects the n parameter to be a value greater than 0.0. Maps to Math.log()."
+        "Calculates the natural logarithm (the base-e logarithm) of a number. This function expects the <code>n</code> parameter to be a value greater than 0.0."
       ],
-      "returns": "Number: natural logarithm of n",
+      "returns": "Number: natural logarithm of n.",
       "params": {
-        "n": "Number: number greater than 0"
+        "n": "Number: number greater than 0."
       }
     },
     "mag": {
       "description": [
-        "Calculates the magnitude (or length) of a vector. A vector is a direction in space commonly used in computer graphics and linear algebra. Because it has no \"start\" position, the magnitude of a vector can be thought of as the distance from the coordinate 0,0 to its x,y value. Therefore, <a href=\"#/p5/mag\">mag()</a> is a shortcut for writing dist(0, 0, x, y)."
+        "Calculates the magnitude, or length, of a vector. A vector is like an arrow pointing in space. Vectors are commonly used for programming motion.",
+        "Vectors don't have a \"start\" position because the same arrow can be drawn anywhere. A vector's magnitude can be thought of as the distance from the origin (0, 0) to its tip at (x, y). <code>mag(x, y)</code> is a shortcut for calling <code>dist(0, 0, x, y)</code>."
       ],
-      "returns": "Number: magnitude of vector from (0,0) to (a,b)",
+      "returns": "Number: magnitude of vector from (0,0) to (x,y).",
       "params": {
-        "a": "Number: first value",
-        "b": "Number: second value"
+        "x": "Number: first component.",
+        "y": "Number: second component."
       }
     },
     "map": {
       "description": [
         "Re-maps a number from one range to another.",
-        "In the first example above, the number 25 is converted from a value in the range of 0 to 100 into a value that ranges from the left edge of the window (0) to the right edge (width)."
+        "For example, calling <code>map(2, 0, 10, 0, 100)</code> returns 20. The first three arguments set the original value to 2 and the original range from 0 to 10. The last two arguments set the target range from 0 to 100. 20's position in the target range [0, 100] is proportional to 2's position in the original range [0, 10]."
       ],
-      "returns": "Number: remapped number",
+      "returns": "Number: remapped number.",
       "params": {
-        "value": "Number: the incoming value to be converted",
-        "start1": "Number: lower bound of the value's current range",
-        "stop1": "Number: upper bound of the value's current range",
-        "start2": "Number: lower bound of the value's target range",
-        "stop2": "Number: upper bound of the value's target range",
-        "withinBounds": "Boolean: (Optional) constrain the value to the newly mapped range"
+        "value": "Number: the incoming value to be converted.",
+        "start1": "Number: lower bound of the value's current range.",
+        "stop1": "Number: upper bound of the value's current range.",
+        "start2": "Number: lower bound of the value's target range.",
+        "stop2": "Number: upper bound of the value's target range.",
+        "withinBounds": "Boolean: (Optional) constrain the value to the newly mapped range."
       }
     },
     "max": {
       "description": [
-        "Determines the largest value in a sequence of numbers, and then returns that value. <a href=\"#/p5/max\">max()</a> accepts any number of Number parameters, or an Array of any length."
+        "Returns the largest value in a sequence of numbers.",
+        "The version of <code>max()</code> with one parameter interprets it as an array of numbers and returns the largest number.",
+        "The version of <code>max()</code> with two or more parameters interprets them as individual numbers and returns the largest number."
       ],
-      "returns": "Number: maximum Number",
+      "returns": "Number: maximum number.",
       "params": {
-        "n0": "Number: Number to compare",
-        "n1": "Number: Number to compare",
-        "nums": "Number[]: Numbers to compare"
+        "n0": "Number: first number to compare.",
+        "n1": "Number: second number to compare.",
+        "nums": "Number[]: numbers to compare."
       }
     },
     "min": {
       "description": [
-        "Determines the smallest value in a sequence of numbers, and then returns that value. <a href=\"#/p5/min\">min()</a> accepts any number of Number parameters, or an Array of any length."
+        "Returns the smallest value in a sequence of numbers.",
+        "The version of <code>min()</code> with one parameter interprets it as an array of numbers and returns the smallest number.",
+        "The version of <code>min()</code> with two or more parameters interprets them as individual numbers and returns the smallest number."
       ],
-      "returns": "Number: minimum Number",
+      "returns": "Number: minimum number.",
       "params": {
-        "n0": "Number: Number to compare",
-        "n1": "Number: Number to compare",
-        "nums": "Number[]: Numbers to compare"
+        "n0": "Number: first number to compare.",
+        "n1": "Number: second number to compare.",
+        "nums": "Number[]: numbers to compare."
       }
     },
     "norm": {
       "description": [
-        "Normalizes a number from another range into a value between 0 and 1. Identical to map(value, low, high, 0, 1). Numbers outside of the range are not clamped to 0 and 1, because out-of-range values are often intentional and useful. (See the example above.)"
+        "Maps a number from one range to a value between 0 and 1.",
+        "For example, <code>norm(2, 0, 10)</code> returns 0.2. 2's position in the original range [0, 10] is proportional to 0.2's position in the range [0, 1]. This is equivalent to calling <code>map(2, 0, 10, 0, 1)</code>.",
+        "Numbers outside of the original range are not constrained between 0 and 1. Out-of-range values are often intentional and useful."
       ],
-      "returns": "Number: normalized number",
+      "returns": "Number: normalized number.",
       "params": {
-        "value": "Number: incoming value to be normalized",
-        "start": "Number: lower bound of the value's current range",
-        "stop": "Number: upper bound of the value's current range"
+        "value": "Number: incoming value to be normalized.",
+        "start": "Number: lower bound of the value's current range.",
+        "stop": "Number: upper bound of the value's current range."
       }
     },
     "pow": {
       "description": [
-        "Facilitates exponential expressions. The <a href=\"#/p5/pow\">pow()</a> function is an efficient way of multiplying numbers by themselves (or their reciprocals) in large quantities. For example, pow(3, 5) is equivalent to the expression 3 × 3 × 3 × 3 × 3 and pow(3, -5) is equivalent to 1 / 3 × 3 × 3 × 3 × 3. Maps to Math.pow()."
+        "Calculates exponential expressions such as 2^3.",
+        "For example, <code>pow(2, 3)</code> is equivalent to the expression 2 × 2 × 2. <code>pow(2, -3)</code> is equivalent to 1 ÷ (2 × 2 × 2)."
       ],
-      "returns": "Number: n^e",
+      "returns": "Number: n^e.",
       "params": {
-        "n": "Number: base of the exponential expression",
-        "e": "Number: power by which to raise the base"
+        "n": "Number: base of the exponential expression.",
+        "e": "Number: power by which to raise the base."
       }
     },
     "round": {
       "description": [
-        "Calculates the integer closest to the n parameter. For example, round(133.8) returns the value 134. Maps to Math.round()."
+        "Calculates the integer closest to the <code>n</code> parameter. For example, <code>round(133.8)</code> returns the value 134."
       ],
-      "returns": "Integer: rounded number",
+      "returns": "Integer: rounded number.",
       "params": {
-        "n": "Number: number to round",
-        "decimals": "Number: (Optional) number of decimal places to round to, default is 0"
+        "n": "Number: number to round.",
+        "decimals": "Number: (Optional) number of decimal places to round to, default is 0."
       }
     },
     "sq": {
       "description": [
-        "Squares a number (multiplies a number by itself). The result is always a positive number, as multiplying two negative numbers always yields a positive result. For example, -1 * -1 = 1."
+        "Squares a number, which means multiplying the number by itself. The value returned is always a positive number.",
+        "For example, <code>sq(3)</code> evaluates 3 × 3 which is 9. <code>sq(-3)</code> evaluates -3 × -3 which is also 9. Multiplying two negative numbers produces a positive number."
       ],
-      "returns": "Number: squared number",
+      "returns": "Number: squared number.",
       "params": {
-        "n": "Number: number to square"
+        "n": "Number: number to square."
       }
     },
     "sqrt": {
       "description": [
-        "Calculates the square root of a number. The square root of a number is always positive, even though there may be a valid negative root. The square root s of number a is such that s*s = a. It is the opposite of squaring. Maps to Math.sqrt()."
+        "Calculates the square root of a number. A number's square root can be multiplied by itself to produce the original number.",
+        "For example, <code>sqrt(9)</code> returns 3 because 3 × 3 = 9. <code>sqrt()</code> always returns a positive value. <code>sqrt()</code> doesn't work with negative arguments such as <code>sqrt(-9)</code>."
       ],
-      "returns": "Number: square root of number",
+      "returns": "Number: square root of number.",
       "params": {
-        "n": "Number: non-negative number to square root"
+        "n": "Number: non-negative number to square root."
       }
     },
     "fract": {
       "description": [
-        "Calculates the fractional part of a number."
+        "Calculates the fractional part of a number. For example, <code>fract(12.34)</code> returns 0.34."
       ],
-      "returns": "Number: fractional part of x, i.e, {x}",
+      "returns": "Number: fractional part of n.",
       "params": {
-        "num": "Number: Number whose fractional part needs to be found out"
+        "n": "Number: number whose fractional part will be found."
       }
     },
     "createVector": {
       "description": [
-        "Creates a new <a href=\"#/p5.Vector\">p5.Vector</a> (the datatype for storing vectors). This provides a two or three-dimensional vector, specifically a Euclidean (also known as geometric) vector. A vector is an entity that has both magnitude and direction."
+        "Creates a new <a href=\"#/p5.Vector\">p5.Vector</a> object. A vector is like an arrow pointing in space. Vectors have both magnitude (length) and direction. Calling <code>createVector()</code> without arguments sets the new vector's components to 0.",
+        "<a href=\"#/p5.Vector\">p5.Vector</a> objects are often used to program motion because they simplify the math. For example, a moving ball has a position and a velocity. Position describes where the ball is in space. The ball's position vector extends from the origin to the ball's center. Velocity describes the ball's speed and the direction it's moving. If the ball is moving straight up, its velocity vector points straight up. Adding the ball's velocity vector to its position vector moves it, as in <code>pos.add(vel)</code>. Vector math relies on methods inside the <a href=\"#/p5.Vector\">p5.Vector</a>` class."
       ],
-      "returns": "p5.Vector:",
+      "returns": "p5.Vector: new <a href=\"#/p5.Vector\">p5.Vector</a> object.",
       "params": {
-        "x": "Number: (Optional) x component of the vector",
-        "y": "Number: (Optional) y component of the vector",
-        "z": "Number: (Optional) z component of the vector"
+        "x": "Number: (Optional) x component of the vector.",
+        "y": "Number: (Optional) y component of the vector.",
+        "z": "Number: (Optional) z component of the vector."
       }
     },
     "noise": {
       "description": [
-        "Returns the Perlin noise value at specified coordinates. Perlin noise is a random sequence generator producing a more naturally ordered, harmonic succession of numbers compared to the standard <a href=\"#/p5/random\">random()</a> function. It was invented by Ken Perlin in the 1980s and been used since in graphical applications to produce procedural textures, natural motion, shapes, terrains etc.<br /><br /> The main difference to the <a href=\"#/p5/random\">random()</a> function is that Perlin noise is defined in an infinite n-dimensional space where each pair of coordinates corresponds to a fixed semi-random value (fixed only for the lifespan of the program; see the <a href=\"#/p5/noiseSeed\">noiseSeed()</a> function). p5.js can compute 1D, 2D and 3D noise, depending on the number of coordinates given. The resulting value will always be between 0.0 and 1.0. The noise value can be animated by moving through the noise space as demonstrated in the example above. The 2nd and 3rd dimensions can also be interpreted as time.<br /><br />The actual noise is structured similar to an audio signal, in respect to the function's use of frequencies. Similar to the concept of harmonics in physics, Perlin noise is computed over several octaves which are added together for the final result. <br /><br />Another way to adjust the character of the resulting sequence is the scale of the input coordinates. As the function works within an infinite space the value of the coordinates doesn't matter as such, only the distance between successive coordinates does (eg. when using <a href=\"#/p5/noise\">noise()</a> within a loop). As a general rule the smaller the difference between coordinates, the smoother the resulting noise sequence will be. Steps of 0.005-0.03 work best for most applications, but this will differ depending on use."
+        "Returns random numbers that can be tuned to feel more organic. The values returned will always be between 0 and 1.",
+        "Values returned by <a href=\"#/p5/random\">random()</a> and <a href=\"#/p5/randomGaussian\">randomGaussian()</a> can change by large amounts between function calls. By contrast, values returned by <code>noise()</code> can be made \"smooth\". Calls to <code>noise()</code> with similar inputs will produce similar outputs. <code>noise()</code> is used to create textures, motion, shapes, terrains, and so on. Ken Perlin invented <code>noise()</code> while animating the original <em>Tron</em> film in the 1980s.",
+        "<code>noise()</code> returns the same value for a given input while a sketch is running. It produces different results each time a sketch runs. The <a href=\"#/p5/noiseSeed\">noiseSeed()</a> function can be used to generate the same sequence of Perlin noise values each time a sketch runs.",
+        "The character of the noise can be adjusted in two ways. The first way is to scale the inputs. <code>noise()</code> interprets inputs as coordinates. The sequence of noise values will be smoother when the input coordinates are closer. The second way is to use the <a href=\"#/p5/noiseDetail\">noiseDetail()</a> function.",
+        "The version of <code>noise()</code> with one parameter computes noise values in one dimension. This dimension can be thought of as space, as in <code>noise(x)</code>, or time, as in <code>noise(t)</code>.",
+        "The version of <code>noise()</code> with two parameters computes noise values in two dimensions. These dimensions can be thought of as space, as in <code>noise(x, y)</code>, or space and time, as in <code>noise(x, t)</code>.",
+        "The version of <code>noise()</code> with three parameters computes noise values in three dimensions. These dimensions can be thought of as space, as in <code>noise(x, y, z)</code>, or space and time, as in <code>noise(x, y, t)</code>."
       ],
-      "returns": "Number: Perlin noise value (between 0 and 1) at specified  coordinates",
+      "returns": "Number: Perlin noise value at specified coordinates.",
       "params": {
-        "x": "Number: x-coordinate in noise space",
-        "y": "Number: (Optional) y-coordinate in noise space",
-        "z": "Number: (Optional) z-coordinate in noise space"
+        "x": "Number: x-coordinate in noise space.",
+        "y": "Number: (Optional) y-coordinate in noise space.",
+        "z": "Number: (Optional) z-coordinate in noise space."
       }
     },
     "noiseDetail": {
       "description": [
-        "Adjusts the character and level of detail produced by the Perlin noise  function. Similar to harmonics in physics, noise is computed over  several octaves. Lower octaves contribute more to the output signal and  as such define the overall intensity of the noise, whereas higher octaves  create finer-grained details in the noise sequence. By default, noise is computed over 4 octaves with each octave contributing  exactly half as much as its predecessor, starting at 50% strength for the 1st  octave. This falloff amount can be changed by adding an additional function  parameter. Eg. a falloff factor of 0.75 means each octave will now have  75% impact (25% less) of the previous lower octave. Any value between  0.0 and 1.0 is valid, however, note that values greater than 0.5 might  result in greater than 1.0 values returned by <a href=\"#/p5/noise\">noise()</a>. By changing these parameters, the signal created by the <a href=\"#/p5/noise\">noise()</a>  function can be adapted to fit very specific needs and characteristics."
+        "Adjusts the character of the noise produced by the <a href=\"#/p5/noise\">noise()</a> function.",
+        "Perlin noise values are created by adding layers of noise together. The noise layers, called octaves, are similar to harmonics in music. Lower octaves contribute more to the output signal. They define the overall intensity of the noise. Higher octaves create finer-grained details.",
+        "By default, noise values are created by combining four octaves. Each higher octave contributes half as much (50% less) compared to its predecessor. <code>noiseDetail()</code> changes the number of octaves and the falloff amount. For example, calling <code>noiseDetail(6, 0.25)</code> ensures that <a href=\"#/p5/noise\">noise()</a> will use six octaves. Each higher octave will contribute 25% as much (75% less) compared to its predecessor. Falloff values between 0 and 1 are valid. However, falloff values greater than 0.5 might result in noise values greater than 1."
       ],
       "params": {
-        "lod": "Number: number of octaves to be used by the noise",
-        "falloff": "Number: falloff factor for each octave"
+        "lod": "Number: number of octaves to be used by the noise.",
+        "falloff": "Number: falloff factor for each octave."
       }
     },
     "noiseSeed": {
       "description": [
-        "Sets the seed value for <a href=\"#/p5/noise\">noise()</a>. By default, <a href=\"#/p5/noise\">noise()</a> produces different results each time the program is run. Set the <code>seed</code> parameter to a constant to return the same pseudo-random numbers each time the software is run."
+        "Sets the seed value for <a href=\"#/p5/noise\">noise()</a>. By default, <a href=\"#/p5/noise\">noise()</a> produces different results each time a sketch is run. Calling <code>noiseSeed()</code> with a constant argument, such as <code>noiseSeed(99)</code>, makes <a href=\"#/p5/noise\">noise()</a> produce the same results each time a sketch is run."
       ],
       "params": {
-        "seed": "Number: the seed value"
+        "seed": "Number: seed value."
       }
     },
     "randomSeed": {
       "description": [
-        "Sets the seed value for <a href=\"#/p5/random\">random()</a>.",
-        "By default, <a href=\"#/p5/random\">random()</a> produces different results each time the program is run. Set the seed parameter to a constant to return the same pseudo-random numbers each time the software is run."
+        "Sets the seed value for <a href=\"#/p5/random\">random()</a> and <a href=\"#/p5/randomGaussian\">randomGaussian()</a>. By default, <a href=\"#/p5/random\">random()</a> and <a href=\"#/p5/randomGaussian\">randomGaussian()</a> produce different results each time a sketch is run. Calling <code>randomSeed()</code> with a constant argument, such as <code>randomSeed(99)</code>, makes these functions produce the same results each time a sketch is run."
       ],
       "params": {
-        "seed": "Number: the seed value"
+        "seed": "Number: seed value."
       }
     },
     "random": {
       "description": [
-        "Return a random floating-point number.",
-        "Takes either 0, 1 or 2 arguments.",
-        "If no argument is given, returns a random number from 0 up to (but not including) 1.",
-        "If one argument is given and it is a number, returns a random number from 0 up to (but not including) the number.",
-        "If one argument is given and it is an array, returns a random element from that array.",
-        "If two arguments are given, returns a random number from the first argument up to (but not including) the second argument."
+        "Returns a random number or a random element from an array.",
+        "<code>random()</code> follows uniform distribution, which means that all outcomes are equally likely. When <code>random()</code> is used to generate numbers, all numbers in the output range are equally likely to be returned. When <code>random()</code> is used to select elements from an array, all elements are equally likely to be chosen.",
+        "By default, <code>random()</code> produces different results each time a sketch runs. The <a href=\"#/p5/randomSeed\">randomSeed()</a> function can be used to generate the same sequence of numbers or choices each time a sketch runs.",
+        "The version of <code>random()</code> with no parameters returns a random number from 0 up to but not including 1.",
+        "The version of <code>random()</code> with one parameter works one of two ways. If the argument passed is a number, <code>random()</code> returns a random number from 0 up to but not including the number. For example, calling <code>random(5)</code> returns values between 0 and 5. If the argument passed is an array, <code>random()</code> returns a random element from that array. For example, calling <code>random(['🦁', '🐯', '🐻'])</code> returns either a lion, tiger, or bear emoji.",
+        "The version of <code>random()</code> with two parameters returns a random number from a given range. The arguments passed set the range's lower and upper bounds. For example, calling <code>random(-5, 10.2)</code> returns values from -5 up to but not including 10.2."
       ],
-      "returns": "Number: the random number",
+      "returns": "Number: random number.",
       "params": {
-        "min": "Number: (Optional) the lower bound (inclusive)",
-        "max": "Number: (Optional) the upper bound (exclusive)",
-        "choices": "Array: the array to choose from"
+        "min": "Number: (Optional) lower bound (inclusive).",
+        "max": "Number: (Optional) upper bound (exclusive).",
+        "choices": "Array: array to choose from."
       }
     },
     "randomGaussian": {
       "description": [
-        "Returns a random number fitting a Gaussian, or  normal, distribution. There is theoretically no minimum or maximum  value that <a href=\"#/p5/randomGaussian\">randomGaussian()</a> might return. Rather, there is  just a very low probability that values far from the mean will be  returned; and a higher probability that numbers near the mean will  be returned. Takes either 0, 1 or 2 arguments.  If no args, the mean is 0 and the standard deviation is 1.  If one arg, that arg is the mean and the standard deviation is 1.  If two args, the first arg is the mean and the second is the standard deviation."
+        "Returns a random number fitting a Gaussian, or normal, distribution. Normal distributions look like bell curves when plotted. Values from a normal distribution cluster around a central value called the mean. The cluster's standard deviation describes its spread.",
+        "By default, <code>randomGaussian()</code> produces different results each time a sketch runs. The <a href=\"#/p5/randomSeed\">randomSeed()</a> function can be used to generate the same sequence of numbers each time a sketch runs.",
+        "There's no minimum or maximum value that <code>randomGaussian()</code> might return. Values far from the mean are very unlikely and values near the mean are very likely.",
+        "The version of <code>randomGaussian()</code> with no parameters returns values with a mean of 0 and standard deviation of 1.",
+        "The version of <code>randomGaussian()</code> with one parameter interprets the argument passed as the mean. The standard deviation is 1.",
+        "The version of <code>randomGaussian()</code> with two parameters interprets the first argument passed as the mean and the second as the standard deviation."
       ],
-      "returns": "Number: the random number",
+      "returns": "Number: random number.",
       "params": {
-        "mean": "Number: (Optional) the mean",
-        "sd": "Number: (Optional) the standard deviation"
+        "mean": "Number: (Optional) mean.",
+        "sd": "Number: (Optional) standard deviation."
       }
     },
     "acos": {
       "description": [
-        "The inverse of <a href=\"#/p5/cos\">cos()</a>, returns the arc cosine of a value. This function expects the values in the range of -1 to 1 and values are returned in the range 0 to PI (3.1415927) if the <a href=\"#/p5/angleMode\">angleMode()</a> is RADIANS or 0 to 180 if the <a href=\"#/p5/angleMode\">angleMode()</a> is DEGREES."
+        "The inverse of <a href=\"#/p5/cos\">cos()</a>, returns the arc cosine of a value. This function expects arguments in the range -1 to 1. By default, <code>acos()</code> returns values in the range 0 to π (about 3.14). If the <a href=\"#/p5/angleMode\">angleMode()</a> is <code>DEGREES</code>, then values are returned in the range 0 to 180."
       ],
-      "returns": "Number: the arc cosine of the given value",
+      "returns": "Number: arc cosine of the given value.",
       "params": {
-        "value": "Number: the value whose arc cosine is to be returned"
+        "value": "Number: value whose arc cosine is to be returned."
       }
     },
     "asin": {
       "description": [
-        "The inverse of <a href=\"#/p5/sin\">sin()</a>, returns the arc sine of a value. This function expects the values in the range of -1 to 1 and values are returned in the range -PI/2 to PI/2 if the angleMode is RADIANS or -90 to 90 if the angle mode is DEGREES."
+        "The inverse of <a href=\"#/p5/sin\">sin()</a>, returns the arc sine of a value. This function expects input values in the range of -1 to 1. By default, <code>asin()</code> returns values in the range -π ÷ 2 (about -1.57) to π ÷ 2 (about 1.57). If the <a href=\"#/p5/angleMode\">angleMode()</a> is <code>DEGREES</code> then values are returned in the range -90 to 90."
       ],
-      "returns": "Number: the arc sine of the given value",
+      "returns": "Number: arc sine of the given value.",
       "params": {
-        "value": "Number: the value whose arc sine is to be returned"
+        "value": "Number: value whose arc sine is to be returned."
       }
     },
     "atan": {
       "description": [
-        "The inverse of <a href=\"#/p5/tan\">tan()</a>, returns the arc tangent of a value. This function expects the values in the range of -Infinity to Infinity (exclusive) and values are returned in the range -PI/2 to PI/2 if the angleMode is RADIANS or -90 to 90 if the angle mode is DEGREES."
+        "The inverse of <a href=\"#/p5/tan\">tan()</a>, returns the arc tangent of a value. This function expects input values in the range of -Infinity to Infinity. By default, <code>atan()</code> returns values in the range -π ÷ 2 (about -1.57) to π ÷ 2 (about 1.57). If the <a href=\"#/p5/angleMode\">angleMode()</a> is <code>DEGREES</code> then values are returned in the range -90 to 90."
       ],
-      "returns": "Number: the arc tangent of the given value",
+      "returns": "Number: arc tangent of the given value.",
       "params": {
-        "value": "Number: the value whose arc tangent is to be returned"
+        "value": "Number: value whose arc tangent is to be returned."
       }
     },
     "atan2": {
       "description": [
-        "Calculates the angle (in radians) from a specified point to the coordinate origin as measured from the positive x-axis. Values are returned as a float in the range from PI to -PI if the <a href=\"#/p5/angleMode\">angleMode()</a> is RADIANS or 180 to -180 if the <a href=\"#/p5/angleMode\">angleMode()</a> is DEGREES. The <a href=\"#/p5/\">atan2()</a> function is most often used for orienting geometry to the position of the cursor.",
-        "Note: The y-coordinate of the point is the first parameter, and the x-coordinate is the second parameter, due to the structure of calculating the tangent."
+        "Calculates the angle formed by a specified point, the origin, and the positive x-axis. By default, <code>atan2()</code> returns values in the range -π (about -3.14) to π (3.14). If the <a href=\"#/p5/angleMode\">angleMode()</a> is <code>DEGREES</code>, then values are returned in the range -180 to 180. The <code>atan2()</code> function is most often used for orienting geometry to the mouse's position.",
+        "Note: The y-coordinate of the point is the first parameter and the x-coordinate is the second parameter."
       ],
-      "returns": "Number: the arc tangent of the given point",
+      "returns": "Number: arc tangent of the given point.",
       "params": {
-        "y": "Number: y-coordinate of the point",
-        "x": "Number: x-coordinate of the point"
+        "y": "Number: y-coordinate of the point.",
+        "x": "Number: x-coordinate of the point."
       }
     },
     "cos": {
       "description": [
-        "Calculates the cosine of an angle. This function takes into account the current <a href=\"#/p5/angleMode\">angleMode</a>. Values are returned in the range -1 to 1."
+        "Calculates the cosine of an angle. <code>cos()</code> is useful for many geometric tasks in creative coding. The values returned oscillate between -1 and 1 as the input angle increases. <code>cos()</code> takes into account the current <a href=\"#/p5/angleMode\">angleMode</a>."
       ],
-      "returns": "Number: the cosine of the angle",
+      "returns": "Number: cosine of the angle.",
       "params": {
-        "angle": "Number: the angle"
+        "angle": "Number: the angle."
       }
     },
     "sin": {
       "description": [
-        "Calculates the sine of an angle. This function takes into account the current <a href=\"#/p5/angleMode\">angleMode</a>. Values are returned in the range -1 to 1."
+        "Calculates the sine of an angle. <code>sin()</code> is useful for many geometric tasks in creative coding. The values returned oscillate between -1 and 1 as the input angle increases. <code>sin()</code> takes into account the current <a href=\"#/p5/angleMode\">angleMode</a>."
       ],
-      "returns": "Number: the sine of the angle",
+      "returns": "Number: sine of the angle.",
       "params": {
-        "angle": "Number: the angle"
+        "angle": "Number: the angle."
       }
     },
     "tan": {
       "description": [
-        "Calculates the tangent of an angle. This function takes into account the current <a href=\"#/p5/angleMode\">angleMode</a>. Values are returned in the range of all real numbers."
+        "Calculates the tangent of an angle. <code>tan()</code> is useful for many geometric tasks in creative coding. The values returned range from -Infinity to Infinity and repeat periodically as the input angle increases. <code>tan()</code> takes into account the current <a href=\"#/p5/angleMode\">angleMode</a>."
       ],
-      "returns": "Number: the tangent of the angle",
+      "returns": "Number: tangent of the angle.",
       "params": {
-        "angle": "Number: the angle"
+        "angle": "Number: the angle."
       }
     },
     "degrees": {
       "description": [
-        "Converts a radian measurement to its corresponding value in degrees. Radians and degrees are two ways of measuring the same thing. There are 360 degrees in a circle and 2*PI radians in a circle. For example, 90° = PI/2 = 1.5707964. This function does not take into account the current <a href=\"#/p5/angleMode\">angleMode()</a>."
+        "Converts an angle measurement in radians to its corresponding value in degrees. Degrees and radians are two ways of measuring the same thing. There are 360 degrees in a circle and 2 × π (about 6.28) radians in a circle. For example, 90° = π ÷ 2 (about 1.57) radians. This function doesn't take into account the current <a href=\"#/p5/angleMode\">angleMode()</a>."
       ],
-      "returns": "Number: the converted angle",
+      "returns": "Number: converted angle.",
       "params": {
-        "radians": "Number: the radians value to convert to degrees"
+        "radians": "Number: radians value to convert to degrees."
       }
     },
     "radians": {
       "description": [
-        "Converts a degree measurement to its corresponding value in radians. Radians and degrees are two ways of measuring the same thing. There are 360 degrees in a circle and 2*PI radians in a circle. For example, 90° = PI/2 = 1.5707964. This function does not take into account the current <a href=\"#/p5/angleMode\">angleMode</a>."
+        "Converts an angle measurement in degrees to its corresponding value in radians. Degrees and radians are two ways of measuring the same thing. There are 360 degrees in a circle and 2 × π (about 6.28) radians in a circle. For example, 90° = π ÷ 2 (about 1.57) radians. This function doesn't take into account the current <a href=\"#/p5/angleMode\">angleMode()</a>."
       ],
-      "returns": "Number: the converted angle",
+      "returns": "Number: converted angle.",
       "params": {
-        "degrees": "Number: the degree value to convert to radians"
+        "degrees": "Number: degree value to convert to radians."
       }
     },
     "angleMode": {
       "description": [
-        "Sets the current mode of p5 to the given mode. Default mode is RADIANS.",
-        "Calling <a href=\"#/p5/angleMode\">angleMode()</a> with no arguments returns current anglemode."
+        "Changes the way trigonometric functions interpret angle values. By default, the mode is <code>RADIANS</code>.",
+        "Calling <code>angleMode()</code> with no arguments returns current angle mode."
       ],
       "params": {
-        "mode": "Constant: either RADIANS or DEGREES"
+        "mode": "Constant: either RADIANS or DEGREES."
       }
     },
     "textAlign": {
@@ -2816,7 +2882,7 @@
     },
     "textWidth": {
       "description": [
-        "Calculates and returns the width of any character or text string."
+        "Calculates and returns the width of any character or the maximum width of any paragrph."
       ],
       "returns": "Number: the calculated width",
       "params": {
@@ -2849,40 +2915,46 @@
     },
     "loadFont": {
       "description": [
-        "Loads an opentype font file (.otf, .ttf) from a file or a URL, and returns a <a href=\"#/p5.Font\">p5.Font</a> object. This function is asynchronous, meaning it may not finish before the next line in your sketch is executed.",
-        "The path to the font should be relative to the HTML file that links in your sketch. Loading fonts from a URL or other remote location may be blocked due to your browser's built-in security."
+        "Loads a font and creates a <a href=\"#/p5.Font\">p5.Font</a> object. <code>loadFont()</code> can load fonts in either .otf or .ttf format. Loaded fonts can be used to style text on the canvas and in HTML elements.",
+        "The first parameter, <code>path</code>, is the path to a font file. Paths to local files should be relative. For example, <code>'assets/inconsolata.otf'</code>. The Inconsolata font used in the following examples can be downloaded for free <a href=\"https://www.fontsquirrel.com/fonts/inconsolata\" target=\"_blank\">here</a>. Paths to remote files should be URLs. For example, <code>'https://example.com/inconsolata.otf'</code>. URLs may be blocked due to browser security.",
+        "The second parameter, <code>successCallback</code>, is optional. If a function is passed, it will be called once the font has loaded. The callback function may use the new <a href=\"#/p5.Font\">p5.Font</a> object if needed.",
+        "The third parameter, <code>failureCallback</code>, is also optional. If a function is passed, it will be called if the font fails to load. The callback function may use the error <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Event\" target=\"_blank\">Event</a> object if needed.",
+        "Fonts can take time to load. Calling <code>loadFont()</code> in <a href=\"#/p5/preload\">preload()</a> ensures fonts load before they're used in <a href=\"#/p5/setup\">setup()</a> or <a href=\"#/p5/draw\">draw()</a>."
       ],
-      "returns": "p5.Font: <a href=\"#/p5.Font\">p5.Font</a> object",
+      "returns": "p5.Font: <a href=\"#/p5.Font\">p5.Font</a> object.",
       "params": {
-        "path": "String: name of the file or url to load",
-        "callback": "Function: (Optional) function to be executed after  <a href=\"#/p5/loadFont\">loadFont()</a> completes",
-        "onError": "Function: (Optional) function to be executed if  an error occurs"
+        "path": "String: path of the font to be loaded.",
+        "successCallback": "Function: (Optional) function called with the  <a href=\"#/p5.Font\">p5.Font</a> object after it  loads.",
+        "failureCallback": "Function: (Optional) function called with the error  <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Event\" target=\"_blank\">Event</a>  object if the font fails to load."
       }
     },
     "text": {
       "description": [
-        "Draws text to the screen. Displays the information specified in the first parameter on the screen in the position specified by the additional parameters. A default font will be used unless a font is set with the <a href=\"#/p5/textFont\">textFont()</a> function and a default size will be used unless a font is set with <a href=\"#/p5/textSize\">textSize()</a>. Change the color of the text with the <a href=\"#/p5/fill\">fill()</a> function. Change the outline of the text with the <a href=\"#/p5/stroke\">stroke()</a> and <a href=\"#/p5/strokeWeight\">strokeWeight()</a> functions.",
-        "The text displays in relation to the <a href=\"#/p5/textAlign\">textAlign()</a> function, which gives the option to draw to the left, right, and center of the coordinates.",
-        "The x2 and y2 parameters define a rectangular area to display within and may only be used with string data. When these parameters are specified, they are interpreted based on the current <a href=\"#/p5/rectMode\">rectMode()</a> setting. Text that does not fit completely within the rectangle specified will not be drawn to the screen. If x2 and y2 are not specified, the baseline alignment is the default, which means that the text will be drawn upwards from x and y.",
-        "<b>WEBGL</b>: Only opentype/truetype fonts are supported. You must load a font using the <a href=\"#/p5/loadFont\">loadFont()</a> method (see the example above). <a href=\"#/p5/stroke\">stroke()</a> currently has no effect in webgl mode. Learn more about working with text in webgl mode on the <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5#text\">wiki</a>."
+        "Draws text to the canvas.",
+        "The first parameter, <code>str</code>, is the text to be drawn. The second and third parameters, <code>x</code> and <code>y</code>, set the coordinates of the text's bottom-left corner. See <a href=\"#/p5/textAlign\">textAlign()</a> for other ways to align text.",
+        "The fourth and fifth parameters, <code>maxWidth</code> and <code>maxHeight</code>, are optional. They set the dimensions of the invisible rectangle containing the text. By default, they set its maximum width and height. See <a href=\"#/p5/rectMode\">rectMode()</a> for other ways to define the rectangular text box. Text will wrap to fit within the text box. Text outside of the box won't be drawn.",
+        "Text can be styled a few ways. Call the <a href=\"#/p5/fill\">fill()</a> function to set the text's fill color. Call <a href=\"#/p5/stroke\">stroke()</a> and <a href=\"#/p5/strokeWeight\">strokeWeight()</a> to set the text's outline. Call <a href=\"#/p5/textSize\">textSize()</a> and <a href=\"#/p5/textFont\">textFont()</a> to set the text's size and font, respectively.",
+        "Note: <code>WEBGL</code> mode only supports fonts loaded with <a href=\"#/p5/loadFont\">loadFont()</a>. Calling <a href=\"#/p5/stroke\">stroke()</a> has no effect in <code>WEBGL</code> mode."
       ],
       "params": {
-        "str": "String|Object|Array|Number|Boolean: the alphanumeric  symbols to be displayed",
-        "x": "Number: x-coordinate of text",
-        "y": "Number: y-coordinate of text",
-        "x2": "Number: (Optional) by default, the width of the text box,  see <a href=\"#/p5/rectMode\">rectMode()</a> for more info",
-        "y2": "Number: (Optional) by default, the height of the text box,  see <a href=\"#/p5/rectMode\">rectMode()</a> for more info"
+        "str": "String|Object|Array|Number|Boolean: text to be displayed.",
+        "x": "Number: x-coordinate of the text box.",
+        "y": "Number: y-coordinate of the text box.",
+        "maxWidth": "Number: (Optional) maximum width of the text box. See  <a href=\"#/p5/rectMode\">rectMode()</a> for  other options.",
+        "maxHeight": "Number: (Optional) maximum height of the text box. See  <a href=\"#/p5/rectMode\">rectMode()</a> for  other options."
       }
     },
     "textFont": {
       "description": [
-        "Sets the current font that will be drawn with the <a href=\"#/p5/text\">text()</a> function. If textFont() is called without any argument, it will return the current font if one has been set already. If not, it will return the name of the default font as a string. If textFont() is called with a font to use, it will return the p5 object.",
-        "<b>WEBGL</b>: Only fonts loaded via <a href=\"#/p5/loadFont\">loadFont()</a> are supported."
+        "Sets the font used by the <a href=\"#/p5/text\">text()</a> function.",
+        "The first parameter, <code>font</code>, sets the font. <code>textFont()</code> recognizes either a <a href=\"#/p5.Font\">p5.Font</a> object or a string with the name of a system font. For example, <code>'Courier New'</code>.",
+        "The second parameter, <code>size</code>, is optional. It sets the font size in pixels. This has the same effect as calling <a href=\"#/p5/textSize\">textSize()</a>.",
+        "Note: <code>WEBGL</code> mode only supports fonts loaded with <a href=\"#/p5/loadFont\">loadFont()</a>."
       ],
-      "returns": "Object: the current font / p5 Object",
+      "returns": "Object: current font or p5 Object.",
       "params": {
-        "font": "Object|String: a font loaded via <a href=\"#/p5/loadFont\">loadFont()</a>, or a String representing a <a href=\"https://mzl.la/2dOw8WD\">web safe font</a> (a font that is generally available across all systems)",
-        "size": "Number: (Optional) the font size to use"
+        "font": "Object|String: font as a <a href=\"#/p5.Font\">p5.Font</a> object or a string.",
+        "size": "Number: (Optional) font size in pixels."
       }
     },
     "append": {
@@ -3223,6 +3295,38 @@
       ],
       "returns": "Integer: the current year"
     },
+    "beginGeometry": {
+      "description": [
+        "Starts creating a new p5.Geometry. Subsequent shapes drawn will be added to the geometry and then returned when <a href=\"#/p5/endGeometry\">endGeometry()</a> is called. One can also use <a href=\"#/p5/buildGeometry\">buildGeometry()</a> to pass a function that draws shapes.",
+        "If you need to draw complex shapes every frame which don't change over time, combining them upfront with <code>beginGeometry()</code> and <code>endGeometry()</code> and then drawing that will run faster than repeatedly drawing the individual pieces."
+      ]
+    },
+    "endGeometry": {
+      "description": [
+        "Finishes creating a new <a href=\"#/p5.Geometry\">p5.Geometry</a> that was started using <a href=\"#/p5/beginGeometry\">beginGeometry()</a>. One can also use <a href=\"#/p5/buildGeometry\">buildGeometry()</a> to pass a function that draws shapes."
+      ],
+      "returns": "p5.Geometry: The model that was built."
+    },
+    "buildGeometry": {
+      "description": [
+        "Creates a new <a href=\"#/p5.Geometry\">p5.Geometry</a> that contains all the shapes drawn in a provided callback function. The returned combined shape can then be drawn all at once using <a href=\"#/p5/model\">model()</a>.",
+        "If you need to draw complex shapes every frame which don't change over time, combining them with <code>buildGeometry()</code> once and then drawing that will run faster than repeatedly drawing the individual pieces.",
+        "One can also draw shapes directly between <a href=\"#/p5/beginGeometry\">beginGeometry()</a> and <a href=\"#/p5/endGeometry\">endGeometry()</a> instead of using a callback function."
+      ],
+      "returns": "p5.Geometry: The model that was built from the callback function.",
+      "params": {
+        "callback": "Function: A function that draws shapes."
+      }
+    },
+    "freeGeometry": {
+      "description": [
+        "Clears the resources of a model to free up browser memory. A model whose resources have been cleared can still be drawn, but the first time it is drawn again, it might take longer.",
+        "This method works on models generated with <a href=\"#/p5/buildGeometry\">buildGeometry()</a> as well as those loaded from <a href=\"#/p5/loadModel\">loadModel()</a>."
+      ],
+      "params": {
+        "The": "p5.Geometry: geometry whose resources should be freed"
+      }
+    },
     "plane": {
       "description": [
         "Draw a plane with given a width and height"
@@ -3516,6 +3620,18 @@
       "returns": "p5.Shader: a shader object created from the provided vertex and fragment shaders.",
       "params": {
         "vertSrc": "String: source code for the vertex shader",
+        "fragSrc": "String: source code for the fragment shader"
+      }
+    },
+    "createFilterShader": {
+      "description": [
+        "Creates a new <a href=\"#/p5.Shader\">p5.Shader</a> using only a fragment shader, as a convenience method for creating image effects. It's like <a href=\"#/createShader\">createShader()</a> but with a default vertex shader included.",
+        "<a href=\"#/createFilterShader\">createFilterShader()</a> is intended to be used along with <a href=\"#/filter\">filter()</a> for filtering the contents of a canvas in WebGL mode. A filter shader will not be applied to any geometries.",
+        "The fragment shader receives some uniforms: <ul> <li><code>sampler2D tex0</code>, which contains the canvas contents as a texture</li> <li><code>vec2 canvasSize</code>, which is the width and height of the canvas</li> <li><code>vec2 texelSize</code>, which is the size of a pixel (<code>1.0/width</code>, <code>1.0/height</code>)</li> </ul>",
+        "For more info about filters and shaders, see Adam Ferriss' <a href=\"https://github.com/aferriss/p5jsShaderExamples\">repo of shader examples</a> or the <a href=\"https://p5js.org/learn/getting-started-in-webgl-shaders.html\">introduction to shaders</a> page."
+      ],
+      "returns": "p5.Shader: a shader object created from the provided  fragment shader.",
+      "params": {
         "fragSrc": "String: source code for the fragment shader"
       }
     },
@@ -4211,7 +4327,7 @@
       "h": "Number: height",
       "renderer": "Constant: the renderer to use, either P2D or WEBGL",
       "pInst": "P5: (Optional) pointer to p5 instance",
-      "canvas": "Object: (Optional) existing html canvas element"
+      "canvas": "HTMLCanvasElement: (Optional) existing html canvas element"
     },
     "reset": {
       "description": [
@@ -4589,10 +4705,8 @@
   },
   "p5.Image": {
     "description": [
-      "Creates a new <a href=\"#/p5.Image\">p5.Image</a>. A <a href=\"#/p5.Image\">p5.Image</a> is a canvas backed representation of an image.",
-      "p5 can display .gif, .jpg and .png images. Images may be displayed in 2D and 3D space. Before an image is used, it must be loaded with the <a href=\"#/p5/loadImage\">loadImage()</a> function. The <a href=\"#/p5.Image\">p5.Image</a> class contains fields for the width and height of the image, as well as an array called <a href=\"#/p5.Image/pixels\">pixels[]</a> that contains the values for every pixel in the image.",
-      "The methods described below allow easy access to the image's pixels and alpha channel and simplify the process of compositing.",
-      "Before using the <a href=\"#/p5.Image/pixels\">pixels[]</a> array, be sure to use the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> method on the image to make sure that the pixel data is properly loaded."
+      "A class to describe an image. Images are rectangular grids of pixels that can be displayed and modified.",
+      "Existing images can be loaded by calling <a href=\"#/p5/loadImage\">loadImage()</a>. Blank images can be created by calling <a href=\"#/p5/createImage\">createImage()</a>. <code>p5.Image</code> objects have methods for common tasks such as applying filters and modifying pixel values."
     ],
     "params": {
       "width": "Number",
@@ -4610,74 +4724,93 @@
     },
     "pixels": {
       "description": [
-        "Array containing the values for all the pixels in the display window. These values are numbers. This array is the size (include an appropriate factor for pixelDensity) of the display window x4, representing the R, G, B, A values in order for each pixel, moving from left to right across each row, then down each column. Retina and other high density displays may have more pixels (by a factor of pixelDensity^2). For example, if the image is 100×100 pixels, there will be 40,000. With pixelDensity = 2, there will be 160,000. The first four values (indices 0-3) in the array will be the R, G, B, A values of the pixel at (0, 0). The second four values (indices 4-7) will contain the R, G, B, A values of the pixel at (1, 0). More generally, to set values for a pixel at (x, y): <pre><code class=\"language-javascript\">let d = pixelDensity(); for (let i = 0; i < d; i++) {  for (let j = 0; j < d; j++) {  // loop over  index = 4 * ((y * d + j) * width * d + (x * d + i));  pixels[index] = r;  pixels[index+1] = g;  pixels[index+2] = b;  pixels[index+3] = a;  } } </code></pre>",
-        "Before accessing this array, the data must loaded with the <a href=\"#/p5.Image/loadPixels\">loadPixels()</a> function. After the array data has been modified, the <a href=\"#/p5.Image/updatePixels\">updatePixels()</a> function must be run to update the changes."
+        "An array containing the color of each pixel in the <a href=\"#/p5.Image\">p5.Image</a> object. Colors are stored as numbers representing red, green, blue, and alpha (RGBA) values. <code>img.pixels</code> is a one-dimensional array for performance reasons.",
+        "Each pixel occupies four elements in the pixels array, one for each RGBA value. For example, the pixel at coordinates (0, 0) stores its RGBA values at <code>img.pixels[0]</code>, <code>img.pixels[1]</code>, <code>img.pixels[2]</code>, and <code>img.pixels[3]</code>, respectively. The next pixel at coordinates (1, 0) stores its RGBA values at <code>img.pixels[4]</code>, <code>img.pixels[5]</code>, <code>img.pixels[6]</code>, and <code>img.pixels[7]</code>. And so on. The <code>img.pixels</code> array for a 100×100 <a href=\"#/p5.Image\">p5.Image</a> object has 100 × 100 × 4 = 40,000 elements.",
+        "Accessing the RGBA values for a pixel in the <a href=\"#/p5.Image\">p5.Image</a> object requires a little math as shown below. The <a href=\"#/p5.Image/loadPixels\">img.loadPixels()</a> method must be called before accessing the <code>img.pixels</code> array. The <a href=\"#/p5.Image/updatePixels\">img.updatePixels()</a> method must be called after any changes are made."
       ]
+    },
+    "pixelDensity": {
+      "description": [
+        "Gets or sets the pixel density for high pixel density displays. By default, the density will be set to 1.",
+        "Call this method with no arguments to get the default density, or pass in a number to set the density. If a non-positive number is provided, it defaults to 1."
+      ],
+      "returns": "Number: The current density if called without arguments, or the instance for chaining if setting density.",
+      "params": {
+        "density": "Number: (Optional) A scaling factor for the number of pixels per side"
+      }
     },
     "loadPixels": {
       "description": [
-        "Loads the pixels data for this image into the [pixels] attribute."
+        "Loads the current value of each pixel in the <a href=\"#/p5.Image\">p5.Image</a> object into the <code>img.pixels</code> array. This method must be called before reading or modifying pixel values."
       ]
     },
     "updatePixels": {
       "description": [
-        "Updates the backing canvas for this image with the contents of the [pixels] array.",
-        "If this image is an animated GIF then the pixels will be updated in the frame that is currently displayed."
+        "Updates the canvas with the RGBA values in the <a href=\"#/p5.Image/pixels\">img.pixels</a> array.",
+        "<code>img.updatePixels()</code> only needs to be called after changing values in the <a href=\"#/p5.Image/pixels\">img.pixels</a> array. Such changes can be made directly after calling <a href=\"#/p5.Image/loadPixels\">img.loadPixels()</a> or by calling <a href=\"#/p5.Image/set\">img.set()</a>.",
+        "The optional parameters <code>x</code>, <code>y</code>, <code>width</code>, and <code>height</code> define a subsection of the <a href=\"#/p5.Image\">p5.Image</a> object to update. Doing so can improve performance in some cases.",
+        "If the <a href=\"#/p5.Image\">p5.Image</a> object was loaded from a GIF, then calling <code>img.updatePixels()</code> will update the pixels in current frame."
       ],
       "params": {
-        "x": "Integer: x-offset of the target update area for the  underlying canvas",
-        "y": "Integer: y-offset of the target update area for the  underlying canvas",
-        "w": "Integer: width of the target update area for the  underlying canvas",
-        "h": "Integer: height of the target update area for the  underlying canvas"
+        "x": "Integer: x-coordinate of the upper-left corner  of the subsection to update.",
+        "y": "Integer: y-coordinate of the upper-left corner  of the subsection to update.",
+        "w": "Integer: width of the subsection to update.",
+        "h": "Integer: height of the subsection to update."
       }
     },
     "get": {
       "description": [
-        "Get a region of pixels from an image.",
-        "If no params are passed, the whole image is returned. If x and y are the only params passed a single pixel is extracted. If all params are passed a rectangle region is extracted and a <a href=\"#/p5.Image\">p5.Image</a> is returned."
+        "Gets a pixel or a region of pixels from a <a href=\"#/p5.Image\">p5.Image</a> object.",
+        "<code>img.get()</code> is easy to use but it's not as fast as <a href=\"#/p5.Image/pixels\">img.pixels</a>. Use <a href=\"#/p5.Image/pixels\">img.pixels</a> to read many pixel values.",
+        "The version of <code>img.get()</code> with no parameters returns the entire image.",
+        "The version of <code>img.get()</code> with two parameters interprets them as coordinates. It returns an array with the <code>[R, G, B, A]</code> values of the pixel at the given point.",
+        "The version of <code>img.get()</code> with four parameters interprets them as coordinates and dimensions. It returns a subsection of the canvas as a <a href=\"#/p5.Image\">p5.Image</a> object. The first two parameters are the coordinates for the upper-left corner of the subsection. The last two parameters are the width and height of the subsection.",
+        "Use <a href=\"#/p5.Image/get\">img.get()</a> to work directly with <a href=\"#/p5.Image\">p5.Image</a> objects."
       ],
-      "returns": "p5.Image: the rectangle <a href=\"#/p5.Image\">p5.Image</a>",
+      "returns": "p5.Image: subsection as a <a href=\"#/p5.Image\">p5.Image</a> object.",
       "params": {
-        "x": "Number: x-coordinate of the pixel",
-        "y": "Number: y-coordinate of the pixel",
-        "w": "Number: width",
-        "h": "Number: height"
+        "x": "Number: x-coordinate of the pixel.",
+        "y": "Number: y-coordinate of the pixel.",
+        "w": "Number: width of the subsection to be returned.",
+        "h": "Number: height of the subsection to be returned."
       }
     },
     "set": {
       "description": [
-        "Set the color of a single pixel or write an image into this <a href=\"#/p5.Image\">p5.Image</a>.",
-        "Note that for a large number of pixels this will be slower than directly manipulating the pixels array and then calling <a href=\"#/p5.Image/updatePixels\">updatePixels()</a>."
+        "Sets the color of one or more pixels within a <a href=\"#/p5.Image\">p5.Image</a> object.",
+        "<code>img.set()</code> is easy to use but it's not as fast as <a href=\"#/p5.Image/pixels\">img.pixels</a>. Use <a href=\"#/p5.Image/pixels\">img.pixels</a> to set many pixel values.",
+        "<code>img.set()</code> interprets the first two parameters as x- and y-coordinates. It interprets the last parameter as a grayscale value, a <code>[R, G, B, A]</code> pixel array, a <a href=\"#/p5.Color\">p5.Color</a> object, or another <a href=\"#/p5.Image\">p5.Image</a> object.",
+        "<a href=\"#/p5.Image/updatePixels\">img.updatePixels()</a> must be called after using <code>img.set()</code> for changes to appear."
       ],
       "params": {
-        "x": "Number: x-coordinate of the pixel",
-        "y": "Number: y-coordinate of the pixel",
-        "a": "Number|Number[]|Object: grayscale value | pixel array |  a <a href=\"#/p5.Color\">p5.Color</a> | image to copy"
+        "x": "Number: x-coordinate of the pixel.",
+        "y": "Number: y-coordinate of the pixel.",
+        "a": "Number|Number[]|Object: grayscale value | pixel array |  <a href=\"#/p5.Color\">p5.Color</a> object |  <a href=\"#/p5.Image\">p5.Image</a> to copy."
       }
     },
     "resize": {
       "description": [
-        "Resize the image to a new width and height. To make the image scale proportionally, use 0 as the value for the wide or high parameter. For instance, to make the width of an image 150 pixels, and change the height using the same proportion, use resize(150, 0)."
+        "Resizes the <a href=\"#/p5.Image\">p5.Image</a> object to a given <code>width</code> and <code>height</code>. The image's original aspect ratio can be kept by passing 0 for either <code>width</code> or <code>height</code>. For example, calling <code>img.resize(50, 0)</code> on an image that was 500 × 300 pixels will resize it to 50 × 30 pixels."
       ],
       "params": {
-        "width": "Number: the resized image width",
-        "height": "Number: the resized image height"
+        "width": "Number: resized image width.",
+        "height": "Number: resized image height."
       }
     },
     "copy": {
       "description": [
-        "Copies a region of pixels from one image to another. If no srcImage is specified this is used as the source. If the source and destination regions aren't the same size, it will automatically resize source pixels to fit the specified target region."
+        "Copies pixels from a source <a href=\"#/p5.Image\">p5.Image</a>  to this one. Calling <code>img.copy()</code> will scale pixels from the source  region if it isn't the same size as the destination region."
       ],
       "params": {
-        "srcImage": "p5.Image|p5.Element: source image",
-        "sx": "Integer: X coordinate of the source's upper left corner",
-        "sy": "Integer: Y coordinate of the source's upper left corner",
-        "sw": "Integer: source image width",
-        "sh": "Integer: source image height",
-        "dx": "Integer: X coordinate of the destination's upper left corner",
-        "dy": "Integer: Y coordinate of the destination's upper left corner",
-        "dw": "Integer: destination image width",
-        "dh": "Integer: destination image height"
+        "srcImage": "p5.Image|p5.Element: source image.",
+        "sx": "Integer: x-coordinate of the source's upper-left corner.",
+        "sy": "Integer: y-coordinate of the source's upper-left corner.",
+        "sw": "Integer: source image width.",
+        "sh": "Integer: source image height.",
+        "dx": "Integer: x-coordinate of the destination's upper-left corner.",
+        "dy": "Integer: y-coordinate of the destination's upper-left corner.",
+        "dw": "Integer: destination image width.",
+        "dh": "Integer: destination image height."
       }
     },
     "mask": {
@@ -4685,95 +4818,99 @@
         "Masks part of an image from displaying by loading another image and using its alpha channel as an alpha channel for this image. Masks are cumulative, once applied to an image object, they cannot be removed."
       ],
       "params": {
-        "srcImage": "p5.Image: source image"
+        "srcImage": "p5.Image: source image."
       }
     },
     "filter": {
       "description": [
-        "Applies an image filter to a <a href=\"#/p5.Image\">p5.Image</a>",
-        "THRESHOLD Converts the image to black and white pixels depending if they are above or below the threshold defined by the level parameter. The parameter must be between 0.0 (black) and 1.0 (white). If no level is specified, 0.5 is used.",
-        "GRAY Converts any colors in the image to grayscale equivalents. No parameter is used.",
-        "OPAQUE Sets the alpha channel to entirely opaque. No parameter is used.",
-        "INVERT Sets each pixel to its inverse value. No parameter is used.",
-        "POSTERIZE Limits each channel of the image to the number of colors specified as the parameter. The parameter can be set to values between 2 and 255, but results are most noticeable in the lower ranges.",
-        "BLUR Executes a Gaussian blur with the level parameter specifying the extent of the blurring. If no parameter is used, the blur is equivalent to Gaussian blur of radius 1. Larger values increase the blur.",
-        "ERODE Reduces the light areas. No parameter is used.",
-        "DILATE Increases the light areas. No parameter is used.",
-        "filter() does not work in WEBGL mode. A similar effect can be achieved in WEBGL mode using custom shaders. Adam Ferriss has written a <a href=\"https://github.com/aferriss/p5jsShaderExamples\" target='_blank'>selection of shader examples</a> that contains many of the effects present in the filter examples."
+        "Applies an image filter to the <a href=\"#/p5.Image\">p5.Image</a> object. The preset options are:",
+        "<code>INVERT</code> Inverts the colors in the image. No parameter is used.",
+        "<code>GRAY</code> Converts the image to grayscale. No parameter is used.",
+        "<code>THRESHOLD</code> Converts the image to black and white. Pixels with a grayscale value above a given threshold are converted to white. The rest are converted to black. The threshold must be between 0.0 (black) and 1.0 (white). If no value is specified, 0.5 is used.",
+        "<code>OPAQUE</code> Sets the alpha channel to be entirely opaque. No parameter is used.",
+        "<code>POSTERIZE</code> Limits the number of colors in the image. Each color channel is limited to the number of colors specified. Values between 2 and 255 are valid, but results are most noticeable with lower values. The default value is 4.",
+        "<code>BLUR</code> Blurs the image. The level of blurring is specified by a blur radius. Larger values increase the blur. The default value is 4. A gaussian blur is used in <code>P2D</code> mode. A box blur is used in <code>WEBGL</code> mode.",
+        "<code>ERODE</code> Reduces the light areas. No parameter is used.",
+        "<code>DILATE</code> Increases the light areas. No parameter is used."
       ],
       "params": {
-        "filterType": "Constant: either THRESHOLD, GRAY, OPAQUE, INVERT,  POSTERIZE, ERODE, DILATE or BLUR.  See Filters.js for docs on  each available filter",
-        "filterParam": "Number: (Optional) an optional parameter unique  to each filter, see above"
+        "filterType": "Constant: either THRESHOLD, GRAY, OPAQUE, INVERT,  POSTERIZE, ERODE, DILATE or BLUR.",
+        "filterParam": "Number: (Optional) parameter unique to each filter."
       }
     },
     "blend": {
       "description": [
-        "Copies a region of pixels from one image to another, using a specified blend mode to do the operation."
+        "Copies a region of pixels from another <a href=\"#/p5.Image\">p5.Image</a> object into this one. The <code>blendMode</code> parameter blends the images' colors to create different effects."
       ],
       "params": {
         "srcImage": "p5.Image: source image",
-        "sx": "Integer: X coordinate of the source's upper left corner",
-        "sy": "Integer: Y coordinate of the source's upper left corner",
-        "sw": "Integer: source image width",
-        "sh": "Integer: source image height",
-        "dx": "Integer: X coordinate of the destination's upper left corner",
-        "dy": "Integer: Y coordinate of the destination's upper left corner",
-        "dw": "Integer: destination image width",
-        "dh": "Integer: destination image height",
+        "sx": "Integer: x-coordinate of the source's upper-left corner.",
+        "sy": "Integer: y-coordinate of the source's upper-left corner.",
+        "sw": "Integer: source image width.",
+        "sh": "Integer: source image height.",
+        "dx": "Integer: x-coordinate of the destination's upper-left corner.",
+        "dy": "Integer: y-coordinate of the destination's upper-left corner.",
+        "dw": "Integer: destination image width.",
+        "dh": "Integer: destination image height.",
         "blendMode": "Constant: the blend mode. either  BLEND, DARKEST, LIGHTEST, DIFFERENCE,  MULTIPLY, EXCLUSION, SCREEN, REPLACE, OVERLAY, HARD_LIGHT,  SOFT_LIGHT, DODGE, BURN, ADD or NORMAL. Available blend modes are: normal | multiply | screen | overlay |  darken | lighten | color-dodge | color-burn | hard-light |  soft-light | difference | exclusion | hue | saturation |  color | luminosity <a href=\"http://blogs.adobe.com/webplatform/2013/01/28/blending-features-in-canvas/\">http://blogs.adobe.com/webplatform/2013/01/28/blending-features-in-canvas/</a>"
       }
     },
     "save": {
       "description": [
-        "Saves the image to a file and force the browser to download it. Accepts two strings for filename and file extension Supports png (default), jpg, and gif  Note that the file will only be downloaded as an animated GIF if the p5.Image was loaded from a GIF file."
+        "Saves the <a href=\"#/p5.Image\">p5.Image</a> object to a file. The browser will either save the file immediately or prompt the user with a dialogue window.",
+        "By default, calling <code>img.save()</code> will save the image as <code>untitled.png</code>.",
+        "Calling <code>img.save()</code> with one argument, as in <code>img.save('photo.png')</code>, will set the image's filename and type together.",
+        "Calling <code>img.save()</code> with two arguments, as in <code>image.save('photo', 'png')</code>, will set the image's filename and type separately.",
+        "The image will only be downloaded as an animated GIF if the <a href=\"#/p5.Image\">p5.Image</a> object was loaded from a GIF file. See <a href=\"#/p5/saveGif\">saveGif()</a> to create new GIFs."
       ],
       "params": {
-        "filename": "String: give your file a name",
-        "extension": "String: 'png' or 'jpg'"
+        "filename": "String: filename. Defaults to 'untitled'.",
+        "extension": "String: (Optional) file extension, either 'png' or 'jpg'.  Defaults to 'png'."
       }
     },
     "reset": {
       "description": [
-        "Starts an animated GIF over at the beginning state."
+        "Restarts an animated GIF at its first frame."
       ]
     },
     "getCurrentFrame": {
       "description": [
-        "Gets the index for the frame that is currently visible in an animated GIF."
+        "Gets the index of the current frame in an animated GIF."
       ],
-      "returns": "Number: The index for the currently displaying frame in animated GIF"
+      "returns": "Number: index of the GIF's current frame."
     },
     "setFrame": {
       "description": [
-        "Sets the index of the frame that is currently visible in an animated GIF"
+        "Sets the current frame in an animated GIF."
       ],
       "params": {
-        "index": "Number: the index for the frame that should be displayed"
+        "index": "Number: index of the frame to display."
       }
     },
     "numFrames": {
       "description": [
-        "Returns the number of frames in an animated GIF"
+        "Returns the number of frames in an animated GIF."
       ],
-      "returns": "Number:"
+      "returns": "Number: number of frames in the GIF."
     },
     "play": {
       "description": [
-        "Plays an animated GIF that was paused with <a href=\"#/p5.Image/pause\">pause()</a>"
+        "Plays an animated GIF that was paused with <a href=\"#/p5.Image/pause\">img.pause()</a>."
       ]
     },
     "pause": {
       "description": [
-        "Pauses an animated GIF."
+        "Pauses an animated GIF. The GIF can be resumed by calling <a href=\"#/p5.Image/play\">img.play()</a>."
       ]
     },
     "delay": {
       "description": [
-        "Changes the delay between frames in an animated GIF. There is an optional second parameter that indicates an index for a specific frame that should have its delay modified. If no index is given, all frames will have the new delay."
+        "Changes the delay between frames in an animated GIF.",
+        "The second parameter, <code>index</code>, is optional. If provided, only the frame at <code>index</code> will have its delay modified. All other frames will keep their default delay."
       ],
       "params": {
-        "d": "Number: the amount in milliseconds to delay between switching frames",
-        "index": "Number: (Optional) the index of the frame that should have the new delay value {optional}"
+        "d": "Number: delay in milliseconds between switching frames.",
+        "index": "Number: (Optional) index of the frame that will have its delay modified."
       }
     }
   },
@@ -5245,14 +5382,13 @@
   },
   "p5.Vector": {
     "description": [
-      "A class to describe a two or three-dimensional vector, specifically a Euclidean (also known as geometric) vector. A vector is an entity that has both magnitude and direction. The datatype, however, stores the components of the vector (<code>x</code>, <code>y</code> for 2D; or <code>x</code>, <code>y</code>, <code>z</code> for 3D). The magnitude and direction can be accessed via the methods <a href=\"#/p5.Vector/mag\">p5.Vector.mag()</a> and <a href=\"#/p5.Vector/heading\">heading()</a>.",
-      "In many of the p5.js examples, you will see <a href=\"#/p5.Vector\">p5.Vector</a> used to describe a position, velocity, or acceleration. For example, if you consider a rectangle moving across the screen, at any given instant it has a position (a vector that points from the origin to its location), a velocity (the rate at which the object's position changes per time unit, expressed as a vector), and acceleration (the rate at which the object's velocity changes per time unit, expressed as a vector).",
-      "Since vectors represent groupings of values, we cannot simply use traditional addition/multiplication/etc. Instead, we'll need to do some \"vector\" math, which is made easy by the methods inside the <a href=\"#/p5.Vector\">p5.Vector</a> class."
+      "A class to describe a two or three-dimensional vector. A vector is like an arrow pointing in space. Vectors have both magnitude (length) and direction.",
+      "<code>p5.Vector</code> objects are often used to program motion because they simplify the math. For example, a moving ball has a position and a velocity. Position describes where the ball is in space. The ball's position vector extends from the origin to the ball's center. Velocity describes the ball's speed and the direction it's moving. If the ball is moving straight up, its velocity vector points straight up. Adding the ball's velocity vector to its position vector moves it, as in <code>pos.add(vel)</code>. Vector math relies on methods inside the <code>p5.Vector</code> class."
     ],
     "params": {
-      "x": "Number: (Optional) x component of the vector",
-      "y": "Number: (Optional) y component of the vector",
-      "z": "Number: (Optional) z component of the vector"
+      "x": "Number: (Optional) x component of the vector.",
+      "y": "Number: (Optional) y component of the vector.",
+      "z": "Number: (Optional) z component of the vector."
     },
     "x": {
       "description": [
@@ -5271,98 +5407,103 @@
     },
     "toString": {
       "description": [
-        "Returns a string representation of a vector <code>v</code> by calling <code>String(v)</code> or <code>v.toString()</code>. This method is useful for logging vectors in the console."
+        "Returns a string representation of a vector. This method is useful for printing vectors to the console while debugging."
       ],
-      "returns": "String:"
+      "returns": "String: string representation of the vector."
     },
     "set": {
       "description": [
-        "Sets the <code>x</code>, <code>y</code>, and <code>z</code> components of the vector using two or three separate variables, the data from a <a href=\"#/p5.Vector\">p5.Vector</a>, or the values from a float array."
+        "Sets the <code>x</code>, <code>y</code>, and <code>z</code> components of the vector using separate numbers, a <a href=\"#/p5.Vector\">p5.Vector</a> object, or an array of numbers. Calling <code>set()</code> with no arguments sets the vector's components to 0."
       ],
       "params": {
-        "x": "Number: (Optional) The x component of the vector",
-        "y": "Number: (Optional) The y component of the vector",
-        "z": "Number: (Optional) The z component of the vector",
-        "value": "p5.Vector|Number[]: The vector to set"
+        "x": "Number: (Optional) x component of the vector.",
+        "y": "Number: (Optional) y component of the vector.",
+        "z": "Number: (Optional) z component of the vector.",
+        "value": "p5.Vector|Number[]: vector to set."
       }
     },
     "copy": {
       "description": [
-        "Gets a copy of the vector, returns a <a href=\"#/p5.Vector\">p5.Vector</a> object."
+        "Returns a copy of the <a href=\"#/p5.Vector\">p5.Vector</a> object."
       ],
-      "returns": "p5.Vector: A copy of the <a href=\"#/p5.Vector\">p5.Vector</a> object",
+      "returns": "p5.Vector: copy of the <a href=\"#/p5.Vector\">p5.Vector</a> object.",
       "params": {
         "v": "p5.Vector: the <a href=\"#/p5.Vector\">p5.Vector</a> to create a copy of"
       }
     },
     "add": {
       "description": [
-        "Adds <code>x</code>, <code>y</code>, and <code>z</code> components to a vector, adds one vector to another, or adds two independent vectors together. The version of the method that adds two vectors together is a static method and returns a <a href=\"#/p5.Vector\">p5.Vector</a>, the others act directly on the vector. Additionally, you may provide arguments to this method as an array. See the examples for more context."
+        "Adds to a vector's <code>x</code>, <code>y</code>, and <code>z</code> components using separate numbers, another <a href=\"#/p5.Vector\">p5.Vector</a> object, or an array of numbers. Calling <code>add()</code> with no arguments has no effect.",
+        "The static version of <code>add()</code>, as in <code>p5.Vector.add(v2, v1)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the originals."
       ],
       "params": {
-        "x": "Number: The x component of the vector to be added",
-        "y": "Number: (Optional) The y component of the vector to be added",
-        "z": "Number: (Optional) The z component of the vector to be added",
+        "x": "Number: x component of the vector to be added.",
+        "y": "Number: (Optional) y component of the vector to be added.",
+        "z": "Number: (Optional) z component of the vector to be added.",
         "value": "p5.Vector|Number[]: The vector to add",
         "v1": "p5.Vector: A <a href=\"#/p5.Vector\">p5.Vector</a> to add",
         "v2": "p5.Vector: A <a href=\"#/p5.Vector\">p5.Vector</a> to add",
-        "target": "p5.Vector: (Optional) The vector to receive the result"
+        "target": "p5.Vector: (Optional) vector to receive the result."
       }
     },
     "rem": {
       "description": [
-        "Gives the remainder of a vector when it is divided by another vector. See examples for more context."
+        "Performs modulo (remainder) division with a vector's <code>x</code>, <code>y</code>, and <code>z</code> components using separate numbers, another <a href=\"#/p5.Vector\">p5.Vector</a> object, or an array of numbers.",
+        "The static version of <code>rem()</code> as in <code>p5.Vector.rem(v2, v1)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the originals."
       ],
       "params": {
-        "x": "Number: The x component of divisor vector",
-        "y": "Number: The y component of divisor vector",
-        "z": "Number: The z component of divisor vector",
-        "value": "p5.Vector | Number[]: The divisor vector",
+        "x": "Number: x component of divisor vector.",
+        "y": "Number: y component of divisor vector.",
+        "z": "Number: z component of divisor vector.",
+        "value": "p5.Vector | Number[]: divisor vector.",
         "v1": "p5.Vector: The dividend <a href=\"#/p5.Vector\">p5.Vector</a>",
         "v2": "p5.Vector: The divisor <a href=\"#/p5.Vector\">p5.Vector</a>"
       }
     },
     "sub": {
       "description": [
-        "Subtracts <code>x</code>, <code>y</code>, and <code>z</code> components from a vector, subtracts one vector from another, or subtracts two independent vectors. The version of the method that subtracts two vectors is a static method and returns a <a href=\"#/p5.Vector\">p5.Vector</a>, the others act directly on the vector. Additionally, you may provide arguments to this method as an array. See the examples for more context."
+        "Subtracts from a vector's <code>x</code>, <code>y</code>, and <code>z</code> components using separate numbers, another <a href=\"#/p5.Vector\">p5.Vector</a> object, or an array of numbers. Calling <code>sub()</code> with no arguments has no effect.",
+        "The static version of <code>sub()</code>, as in <code>p5.Vector.sub(v2, v1)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the originals."
       ],
       "params": {
-        "x": "Number: The x component of the vector to subtract",
-        "y": "Number: (Optional) The y component of the vector to subtract",
-        "z": "Number: (Optional) The z component of the vector to subtract",
+        "x": "Number: x component of the vector to subtract.",
+        "y": "Number: (Optional) y component of the vector to subtract.",
+        "z": "Number: (Optional) z component of the vector to subtract.",
         "value": "p5.Vector|Number[]: the vector to subtract",
         "v1": "p5.Vector: A <a href=\"#/p5.Vector\">p5.Vector</a> to subtract from",
         "v2": "p5.Vector: A <a href=\"#/p5.Vector\">p5.Vector</a> to subtract",
-        "target": "p5.Vector: (Optional) The vector to receive the result"
+        "target": "p5.Vector: (Optional) vector to receive the result."
       }
     },
     "mult": {
       "description": [
-        "Multiplies the vector by a scalar, multiplies the <code>x</code>, <code>y</code>, and <code>z</code> components from a vector, or multiplies the <code>x</code>, <code>y</code>, and <code>z</code> components of two independent vectors. When multiplying a vector by a scalar, the <code>x</code>, <code>y</code>, and <code>z</code> components of the vector are all multiplied by the scalar. When multiplying a vector by a vector, the <code>x</code>, <code>y</code>, <code>z</code> components of both vectors are multiplied by each other (for example, with two vectors <code>a</code> and <code>b</code>: <code>a.x * b.x</code>, <code>a.y * b.y</code>, <code>a.z * b.z</code>). The static version of this method creates a new <a href=\"#/p5.Vector\">p5.Vector</a> while the non-static version acts on the vector directly. Additionally, you may provide arguments to this function as an array. See the examples for more context."
+        "Multiplies a vector's <code>x</code>, <code>y</code>, and <code>z</code> components by the same number, separate numbers, the components of another <a href=\"#/p5.Vector\">p5.Vector</a> object, or an array of numbers. Calling <code>mult()</code> with no arguments has no effect.",
+        "The static version of <code>mult()</code>, as in <code>p5.Vector.mult(v, 2)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the originals."
       ],
       "params": {
         "n": "Number: The number to multiply with the vector",
-        "x": "Number: The number to multiply with the x component of the vector",
-        "y": "Number: The number to multiply with the y component of the vector",
-        "z": "Number: (Optional) The number to multiply with the z component of the vector",
-        "arr": "Number[]: The array to multiply with the components of the vector",
-        "v": "p5.Vector: The vector to multiply with the components of the original vector",
-        "target": "p5.Vector: (Optional) the vector to receive the result",
+        "x": "Number: number to multiply with the x component of the vector.",
+        "y": "Number: number to multiply with the y component of the vector.",
+        "z": "Number: (Optional) number to multiply with the z component of the vector.",
+        "arr": "Number[]: array to multiply with the components of the vector.",
+        "v": "p5.Vector: vector to multiply with the components of the original vector.",
+        "target": "p5.Vector: (Optional) vector to receive the result.",
         "v0": "p5.Vector",
         "v1": "p5.Vector"
       }
     },
     "div": {
       "description": [
-        "Divides the vector by a scalar, divides a vector by the <code>x</code>, <code>y</code>, and <code>z</code> arguments, or divides the <code>x</code>, <code>y</code>, and <code>z</code> components of two vectors against each other. When dividing a vector by a scalar, the <code>x</code>, <code>y</code>, and <code>z</code> components of the vector are all divided by the scalar. When dividing a vector by a vector, the <code>x</code>, <code>y</code>, <code>z</code> components of the source vector are treated as the dividend, and the <code>x</code>, <code>y</code>, <code>z</code> components of the argument is treated as the divisor. (For example, with two vectors <code>a</code> and <code>b</code>: <code>a.x / b.x</code>, <code>a.y / b.y</code>, <code>a.z / b.z</code>.) If any component of the second vector is 0, a division by 0 error will be logged, unless both two vectors have 0 in their <code>z</code> components, in which case only the <code>x</code> and <code>y</code> components will be divided. The static version of this method creates a new <a href=\"#/p5.Vector\">p5.Vector</a> while the non-static version acts on the vector directly. Additionally, you may provide arguments to this method as an array. See the examples for more context."
+        "Divides a vector's <code>x</code>, <code>y</code>, and <code>z</code> components by the same number, separate numbers, the components of another <a href=\"#/p5.Vector\">p5.Vector</a> object, or an array of numbers. Calling <code>div()</code> with no arguments has no effect.",
+        "The static version of <code>div()</code>, as in <code>p5.Vector.div(v, 2)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the originals."
       ],
       "params": {
         "n": "Number: The number to divide the vector by",
-        "x": "Number: The number to divide with the x component of the vector",
-        "y": "Number: The number to divide with the y component of the vector",
-        "z": "Number: (Optional) The number to divide with the z component of the vector",
-        "arr": "Number[]: The array to divide the components of the vector by",
-        "v": "p5.Vector: The vector to divide the components of the original vector by",
+        "x": "Number: number to divide with the x component of the vector.",
+        "y": "Number: number to divide with the y component of the vector.",
+        "z": "Number: (Optional) number to divide with the z component of the vector.",
+        "arr": "Number[]: array to divide the components of the vector by.",
+        "v": "p5.Vector: vector to divide the components of the original vector by.",
         "target": "p5.Vector: (Optional) The vector to receive the result",
         "v0": "p5.Vector",
         "v1": "p5.Vector"
@@ -5370,63 +5511,70 @@
     },
     "mag": {
       "description": [
-        "Calculates the magnitude (length) of the vector and returns the result as a float. (This is simply the equation <code>sqrt(x*x + y*y + z*z)</code>.)"
+        "Returns the magnitude (length) of the vector."
       ],
-      "returns": "Number: The magnitude of the vector",
+      "returns": "Number: magnitude of the vector.",
       "params": {
         "vecT": "p5.Vector: The vector to return the magnitude of"
       }
     },
     "magSq": {
       "description": [
-        "Calculates the squared magnitude of the vector and returns the result as a float. (This is simply the equation <code>x*x + y*y + z*z</code>.) Faster if the real length is not required in the case of comparing vectors, etc."
+        "Returns the magnitude (length) of the vector squared."
       ],
-      "returns": "Number: The squared magnitude of the vector",
+      "returns": "Number: squared magnitude of the vector.",
       "params": {
         "vecT": "p5.Vector: the vector to return the squared magnitude of"
       }
     },
     "dot": {
       "description": [
-        "Calculates the dot product of two vectors. The version of the method that computes the dot product of two independent vectors is a static method. See the examples for more context."
+        "Returns the dot product of two vectors. The dot product is a number that describes the overlap between two vectors. Visually, the dot product can be thought of as the \"shadow\" one vector casts on another. The dot product's magnitude is largest when two vectors point in the same or opposite directions. Its magnitude is 0 when two vectors form a right angle.",
+        "The version of <code>dot()</code> with one parameter interprets it as another <a href=\"#/p5.Vector\">p5.Vector</a> object.",
+        "The version of <code>dot()</code> with multiple parameters interprets them as the <code>x</code>, <code>y</code>, and <code>z</code> components of another vector.",
+        "The static version of <code>dot()</code>, as in <code>p5.Vector.dot(v1, v2)</code>, is the same as calling <code>v1.dot(v2)</code>."
       ],
-      "returns": "Number: The dot product",
+      "returns": "Number: dot product.",
       "params": {
-        "x": "Number: The x component of the vector",
-        "y": "Number: (Optional) The y component of the vector",
-        "z": "Number: (Optional) The z component of the vector",
-        "value": "p5.Vector: value component of the vector or a <a href=\"#/p5.Vector\">p5.Vector</a>",
-        "v1": "p5.Vector: The first <a href=\"#/p5.Vector\">p5.Vector</a>",
-        "v2": "p5.Vector: The second <a href=\"#/p5.Vector\">p5.Vector</a>"
+        "x": "Number: x component of the vector.",
+        "y": "Number: (Optional) y component of the vector.",
+        "z": "Number: (Optional) z component of the vector.",
+        "v": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> to be dotted.",
+        "v1": "p5.Vector: first <a href=\"#/p5.Vector\">p5.Vector</a>.",
+        "v2": "p5.Vector: second <a href=\"#/p5.Vector\">p5.Vector</a>."
       }
     },
     "cross": {
       "description": [
-        "Calculates and returns a vector composed of the cross product between two vectors. Both the static and non-static methods return a new <a href=\"#/p5.Vector\">p5.Vector</a>. See the examples for more context."
+        "Returns the cross product of two vectors. The cross product is a vector that points straight out of the plane created by two vectors. The cross product's magnitude is the area of the parallelogram formed by the original two vectors.",
+        "The static version of <code>cross()</code>, as in <code>p5.Vector.cross(v1, v2)</code>, is the same as calling <code>v1.cross(v2)</code>."
       ],
-      "returns": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> composed of cross product",
+      "returns": "p5.Vector: cross product as a <a href=\"#/p5.Vector\">p5.Vector</a>.",
       "params": {
-        "v": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> to be crossed",
-        "v1": "p5.Vector: The first <a href=\"#/p5.Vector\">p5.Vector</a>",
-        "v2": "p5.Vector: The second <a href=\"#/p5.Vector\">p5.Vector</a>"
+        "v": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> to be crossed.",
+        "v1": "p5.Vector: first <a href=\"#/p5.Vector\">p5.Vector</a>.",
+        "v2": "p5.Vector: second <a href=\"#/p5.Vector\">p5.Vector</a>."
       }
     },
     "dist": {
       "description": [
-        "Calculates the Euclidean distance between two points (considering a point as a vector object). If you are looking to calculate distance between 2 points see <a href=\"#/p5/dist\">dist()</a>"
+        "Returns the distance between two points represented by vectors. A point's coordinates can be thought of as a vector's components.",
+        "The static version of <code>dist()</code>, as in <code>p5.Vector.dist(v1, v2)</code>, is the same as calling <code>v1.dist(v2)</code>.",
+        "Use <a href=\"#/p5/dist\">dist()</a> to calculate the distance between points using coordinates as in <code>dist(x1, y1, x2, y2)</code>."
       ],
-      "returns": "Number: The distance",
+      "returns": "Number: distance.",
       "params": {
-        "v": "p5.Vector: The x, y, and z coordinates of a <a href=\"#/p5.Vector\">p5.Vector</a>",
+        "v": "p5.Vector: x, y, and z coordinates of a <a href=\"#/p5.Vector\">p5.Vector</a>.",
         "v1": "p5.Vector: The first <a href=\"#/p5.Vector\">p5.Vector</a>",
         "v2": "p5.Vector: The second <a href=\"#/p5.Vector\">p5.Vector</a>"
       }
     },
     "normalize": {
       "description": [
-        "Normalize the vector to length 1 (make it a unit vector)."
+        "Scales the components of a <a href=\"#/p5.Vector\">p5.Vector</a> object so that its magnitude is 1.",
+        "The static version of <code>normalize()</code>, as in <code>p5.Vector.normalize(v)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the original."
       ],
-      "returns": "p5.Vector: The normalized <a href=\"#/p5.Vector\">p5.Vector</a>",
+      "returns": "p5.Vector: normalized <a href=\"#/p5.Vector\">p5.Vector</a>.",
       "params": {
         "v": "p5.Vector: The vector to normalize",
         "target": "p5.Vector: (Optional) The vector to receive the result"
@@ -5434,72 +5582,81 @@
     },
     "limit": {
       "description": [
-        "Limit the magnitude of this vector to the value used for the <code>max</code> parameter."
+        "Limits a vector's magnitude to a maximum value.",
+        "The static version of <code>limit()</code>, as in <code>p5.Vector.limit(v, 5)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the original."
       ],
       "params": {
-        "max": "Number: The maximum magnitude for the vector",
+        "max": "Number: maximum magnitude for the vector.",
         "v": "p5.Vector: the vector to limit",
         "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
       }
     },
     "setMag": {
       "description": [
-        "Set the magnitude of this vector to the value used for the <code>len</code> parameter."
+        "Sets a vector's magnitude to a given value.",
+        "The static version of <code>setMag()</code>, as in <code>p5.Vector.setMag(v, 10)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the original."
       ],
       "params": {
-        "len": "Number: The new length for this vector",
+        "len": "Number: new length for this vector.",
         "v": "p5.Vector: the vector to set the magnitude of",
         "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
       }
     },
     "heading": {
       "description": [
-        "Calculate the angle of rotation for this vector (only 2D vectors). p5.Vectors created using <a href=\"#/p5/createVector\">createVector()</a> will take the current <a href=\"#/p5/angleMode\">angleMode()</a> into consideration, and give the angle in radians or degrees accordingly."
+        "Calculates the angle a 2D vector makes with the positive x-axis. Angles increase in the clockwise direction.",
+        "If the vector was created with <a href=\"#/p5/createVector\">createVector()</a>, <code>heading()</code> returns angles in the units of the current <a href=\"#/p5/angleMode\">angleMode()</a>.",
+        "The static version of <code>heading()</code>, as in <code>p5.Vector.heading(v)</code>, works the same way."
       ],
-      "returns": "Number: The angle of rotation",
+      "returns": "Number: angle of rotation.",
       "params": {
         "v": "p5.Vector: the vector to find the angle of"
       }
     },
     "setHeading": {
       "description": [
-        "Rotate the vector to a specific angle (only 2D vectors); magnitude remains the same."
+        "Rotates a 2D vector to a specific angle without changing its magnitude. By convention, the positive x-axis has an angle of 0. Angles increase in the clockwise direction.",
+        "If the vector was created with <a href=\"#/p5/createVector\">createVector()</a>, <code>setHeading()</code> uses the units of the current <a href=\"#/p5/angleMode\">angleMode()</a>."
       ],
       "params": {
-        "angle": "Number: The angle of rotation"
+        "angle": "Number: angle of rotation."
       }
     },
     "rotate": {
       "description": [
-        "Rotate the vector by an angle (only 2D vectors); magnitude remains the same."
+        "Rotates a 2D vector by an angle without changing its magnitude. By convention, the positive x-axis has an angle of 0. Angles increase in the clockwise direction.",
+        "If the vector was created with <a href=\"#/p5/createVector\">createVector()</a>, <code>rotate()</code> uses the units of the current <a href=\"#/p5/angleMode\">angleMode()</a>.",
+        "The static version of <code>rotate()</code>, as in <code>p5.Vector.rotate(v, PI)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the original."
       ],
       "params": {
-        "angle": "Number: The angle of rotation",
+        "angle": "Number: angle of rotation.",
         "v": "p5.Vector",
         "target": "p5.Vector: (Optional) The vector to receive the result"
       }
     },
     "angleBetween": {
       "description": [
-        "Calculates and returns the angle between two vectors. This method will take the current <a href=\"#/p5/angleMode\">angleMode</a> into consideration, and give the angle in radians or degrees accordingly."
+        "Returns the angle between two vectors. The angles returned are signed, which means that <code>v1.angleBetween(v2) === -v2.angleBetween(v1)</code>.",
+        "If the vector was created with <a href=\"#/p5/createVector\">createVector()</a>, <code>angleBetween()</code> returns angles in the units of the current <a href=\"#/p5/angleMode\">angleMode()</a>."
       ],
-      "returns": "Number: The angle between",
+      "returns": "Number: angle between the vectors.",
       "params": {
-        "value": "p5.Vector: The x, y, and z components of a <a href=\"#/p5.Vector\">p5.Vector</a>",
-        "v1": "p5.Vector: the first vector",
-        "v2": "p5.Vector: the second vector"
+        "value": "p5.Vector: x, y, and z components of a <a href=\"#/p5.Vector\">p5.Vector</a>.",
+        "v1": "p5.Vector: the first vector.",
+        "v2": "p5.Vector: the second vector."
       }
     },
     "lerp": {
       "description": [
-        "Linear interpolate the vector to another vector."
+        "Calculates new <code>x</code>, <code>y</code>, and <code>z</code> components that are proportionally the same distance between two vectors. The <code>amt</code> parameter is the amount to interpolate between the old vector and the new vector. 0.0 keeps all components equal to the old vector's, 0.5 is halfway between, and 1.0 sets all components equal to the new vector's.",
+        "The static version of <code>lerp()</code>, as in <code>p5.Vector.lerp(v0, v1, 0.5)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the original."
       ],
       "params": {
-        "x": "Number: The x component",
-        "y": "Number: The y component",
-        "z": "Number: The z component",
-        "amt": "Number: The amount of interpolation; some value between 0.0  (old vector) and 1.0 (new vector). 0.9 is very near  the new vector. 0.5 is halfway in between.",
-        "v": "p5.Vector: The <a href=\"#/p5.Vector\">p5.Vector</a> to lerp to",
+        "x": "Number: x component.",
+        "y": "Number: y component.",
+        "z": "Number: z component.",
+        "amt": "Number: amount of interpolation between 0.0 (old vector)  and 1.0 (new vector). 0.5 is halfway between.",
+        "v": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> to lerp toward.",
         "v1": "p5.Vector",
         "v2": "p5.Vector",
         "target": "p5.Vector: (Optional) The vector to receive the result"
@@ -5507,46 +5664,52 @@
     },
     "slerp": {
       "description": [
-        "Performs spherical linear interpolation with the other vector and returns the resulting vector. This works in both 3D and 2D. As for 2D, the result of slerping between 2D vectors is always a 2D vector."
+        "Calculates a new heading and magnitude that are between two vectors. The <code>amt</code> parameter is the amount to interpolate between the old vector and the new vector. 0.0 keeps the heading and magnitude equal to the old vector's, 0.5 sets them halfway between, and 1.0 sets the heading and magnitude equal to the new vector's.",
+        "<code>slerp()</code> differs from <a href=\"#/p5.Vector/lerp\">lerp()</a> because it interpolates magnitude. Calling <code>v0.slerp(v1, 0.5)</code> sets <code>v0</code>'s magnitude to a value halfway between its original magnitude and <code>v1</code>'s. Calling <code>v0.lerp(v1, 0.5)</code> makes no such guarantee.",
+        "The static version of <code>slerp()</code>, as in <code>p5.Vector.slerp(v0, v1, 0.5)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the original."
       ],
       "returns": "p5.Vector:",
       "params": {
-        "v": "p5.Vector: the p5.Vector to slerp to",
-        "amt": "Number: The amount of interpolation. some value between 0.0  (old vector) and 1.0 (new vector). 0.9 is very near  the new vector. 0.5 is halfway in between.",
-        "v1": "p5.Vector: old vector",
-        "v2": "p5.Vector: new vectpr",
-        "target": "p5.Vector: (Optional) The vector to receive the result"
+        "v": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a> to slerp toward.",
+        "amt": "Number: amount of interpolation between 0.0 (old vector)  and 1.0 (new vector). 0.5 is halfway between.",
+        "v1": "p5.Vector: old vector.",
+        "v2": "p5.Vector: new vector.",
+        "target": "p5.Vector: (Optional) vector to receive the result."
       }
     },
     "reflect": {
       "description": [
-        "Reflect a vector about a normal to a line in 2D, or about a normal to a plane in 3D."
+        "Reflects a vector about a line in 2D or a plane in 3D. The orientation of the line or plane is described by a normal vector that points away from the shape.",
+        "The static version of <code>reflect()</code>, as in <code>p5.Vector.reflect(v, n)</code>, returns a new <a href=\"#/p5.Vector\">p5.Vector</a> object and doesn't change the original."
       ],
       "params": {
-        "surfaceNormal": "p5.Vector: the <a href=\"#/p5.Vector\">p5.Vector</a>  to reflect about.",
-        "incidentVector": "p5.Vector: vector to be reflected",
-        "target": "p5.Vector: (Optional) the vector to receive the result (Optional)"
+        "surfaceNormal": "p5.Vector: <a href=\"#/p5.Vector\">p5.Vector</a>  to reflect about.",
+        "incidentVector": "p5.Vector: vector to be reflected.",
+        "target": "p5.Vector: (Optional) vector to receive the result."
       }
     },
     "array": {
       "description": [
-        "Return a representation of this vector as a float array. This is only for temporary use. If used in any other fashion, the contents should be copied by using the <b>p5.Vector.<a href=\"#/p5.Vector/copy\">copy()</a></b> method to copy into your own vector."
+        "Returns the vector's components as an array of numbers."
       ],
-      "returns": "Number[]: An Array with the 3 values",
+      "returns": "Number[]: array with the vector's components.",
       "params": {
         "v": "p5.Vector: the vector to convert to an array"
       }
     },
     "equals": {
       "description": [
-        "Equality check against a <a href=\"#/p5.Vector\">p5.Vector</a>."
+        "Returns <code>true</code> if the vector's components are all the same as another vector's and <code>false</code> if not.",
+        "The version of <code>equals()</code> with one parameter interprets it as another <a href=\"#/p5.Vector\">p5.Vector</a> object.",
+        "The version of <code>equals()</code> with multiple parameters interprets them as the components of another vector. Any missing parameters are assigned the value 0.",
+        "The static version of <code>equals()</code>, as in <code>p5.Vector.equals(v0, v1)</code>, interprets both parameters as <a href=\"#/p5.Vector\">p5.Vector</a> objects."
       ],
-      "returns": "Boolean: Whether the vectors are equal",
+      "returns": "Boolean: whether the vectors are equal.",
       "params": {
-        "x": "Number: (Optional) The x component of the vector",
-        "y": "Number: (Optional) The y component of the vector",
-        "z": "Number: (Optional) The z component of the vector",
-        "value": "p5.Vector|Array: The vector to compare",
+        "x": "Number: (Optional) x component of the vector.",
+        "y": "Number: (Optional) y component of the vector.",
+        "z": "Number: (Optional) z component of the vector.",
+        "value": "p5.Vector|Array: vector to compare.",
         "v1": "p5.Vector|Array: the first vector to compare",
         "v2": "p5.Vector|Array: the second vector to compare"
       }
@@ -5555,72 +5718,78 @@
       "description": [
         "Make a new 2D vector from an angle."
       ],
-      "returns": "p5.Vector: The new <a href=\"#/p5.Vector\">p5.Vector</a> object",
+      "returns": "p5.Vector: new <a href=\"#/p5.Vector\">p5.Vector</a> object.",
       "params": {
-        "angle": "Number: The desired angle, in radians (unaffected by <a href=\"#/p5/angleMode\">angleMode</a>)",
-        "length": "Number: (Optional) The length of the new vector (defaults to 1)"
+        "angle": "Number: desired angle, in radians. Unaffected by <a href=\"#/p5/angleMode\">angleMode()</a>.",
+        "length": "Number: (Optional) length of the new vector (defaults to 1)."
       }
     },
     "fromAngles": {
       "description": [
         "Make a new 3D vector from a pair of ISO spherical angles."
       ],
-      "returns": "p5.Vector: A new <a href=\"#/p5.Vector\">p5.Vector</a> object",
+      "returns": "p5.Vector: new <a href=\"#/p5.Vector\">p5.Vector</a> object.",
       "params": {
-        "theta": "Number: The polar angle, in radians (zero is up)",
-        "phi": "Number: The azimuthal angle, in radians  (zero is out of the screen)",
-        "length": "Number: (Optional) The length of the new vector (defaults to 1)"
+        "theta": "Number: polar angle in radians (zero is up).",
+        "phi": "Number: azimuthal angle in radians  (zero is out of the screen).",
+        "length": "Number: (Optional) length of the new vector (defaults to 1)."
       }
     },
     "random2D": {
       "description": [
-        "Make a new 2D unit vector from a random angle."
+        "Make a new 2D unit vector with a random heading."
       ],
-      "returns": "p5.Vector: A new <a href=\"#/p5.Vector\">p5.Vector</a> object"
+      "returns": "p5.Vector: new <a href=\"#/p5.Vector\">p5.Vector</a> object."
     },
     "random3D": {
       "description": [
-        "Make a new random 3D unit vector."
+        "Make a new 3D unit vector with a random heading."
       ],
-      "returns": "p5.Vector: A new <a href=\"#/p5.Vector\">p5.Vector</a> object"
+      "returns": "p5.Vector: new <a href=\"#/p5.Vector\">p5.Vector</a> object."
     }
   },
   "p5.Font": {
     "description": [
-      "Base class for font handling"
+      "A class to describe fonts."
     ],
     "params": {
-      "pInst": "P5: (Optional) pointer to p5 instance"
+      "pInst": "P5: (Optional) pointer to p5 instance."
     },
     "font": {
       "description": [
-        "Underlying opentype font implementation"
+        "Underlying <a href=\"https://opentype.js.org/\" target=\"_blank\">opentype.js</a> font object."
       ]
     },
     "textBounds": {
       "description": [
-        "Returns a tight bounding box for the given text string using this font"
+        "Returns the bounding box for a string of text written using this <a href=\"#/p5.Font\">p5.Font</a>.",
+        "The first parameter, <code>str</code>, is a string of text. The second and third parameters, <code>x</code> and <code>y</code>, are the text's position. By default, they set the coordinates of the bounding box's bottom-left corner. See <a href=\"#/p5/textAlign\">textAlign()</a> for more ways to align text.",
+        "The fourth parameter, <code>fontSize</code>, is optional. It sets the font size used to determine the bounding box. By default, <code>font.textBounds()</code> will use the current <a href=\"#/p5/textSize\">textSize()</a>."
       ],
-      "returns": "Object: a rectangle object with properties: x, y, w, h",
+      "returns": "Object: object describing the bounding box with  properties x, y, w, and h.",
       "params": {
-        "line": "String: a line of text",
-        "x": "Number: x-position",
-        "y": "Number: y-position",
-        "fontSize": "Number: (Optional) font size to use (optional) Default is 12.",
-        "options": "Object: (Optional) opentype options (optional)  opentype fonts contains alignment and baseline options.  Default is 'LEFT' and 'alphabetic'"
+        "str": "String: string of text.",
+        "x": "Number: x-coordinate of the text.",
+        "y": "Number: y-coordinate of the text.",
+        "fontSize": "Number: (Optional) font size. Defaults to the current  <a href=\"#/p5/textSize\">textSize()</a>."
       }
     },
     "textToPoints": {
       "description": [
-        "Computes an array of points following the path for specified text"
+        "Returns an array of points outlining a string of text written using this <a href=\"#/p5.Font\">p5.Font</a>.",
+        "The first parameter, <code>str</code>, is a string of text. The second and third parameters, <code>x</code> and <code>y</code>, are the text's position. By default, they set the coordinates of the bounding box's bottom-left corner. See <a href=\"#/p5/textAlign\">textAlign()</a> for more ways to align text.",
+        "The fourth parameter, <code>fontSize</code>, is optional. It sets the text's font size. By default, <code>font.textToPoints()</code> will use the current <a href=\"#/p5/textSize\">textSize()</a>.",
+        "The fifth parameter, <code>options</code>, is also optional. <code>font.textToPoints()</code> expects an object with the following properties:",
+        "<code>sampleFactor</code> is the ratio of the text's path length to the number of samples. It defaults to 0.1. Higher values produce more points along the path and are more precise.",
+        "<code>simplifyThreshold</code> removes collinear points if it's set to a number other than 0. The value represents the threshold angle to use when determining whether two edges are collinear."
       ],
-      "returns": "Array: an array of points, each with x, y, alpha (the path angle)",
+      "returns": "Array: array of point objects, each with x, y, and alpha (path angle) properties.",
       "params": {
-        "txt": "String: a line of text",
-        "x": "Number: x-position",
-        "y": "Number: y-position",
-        "fontSize": "Number: font size to use (optional)",
-        "options": "Object: (Optional) an (optional) object that can contain: sampleFactor - the ratio of path-length to number of samples (default=.1); higher values yield more points and are therefore more precise simplifyThreshold - if set to a non-zero value, collinear points will be be removed from the polygon; the value represents the threshold angle to use when determining whether two edges are collinear"
+        "str": "String: string of text.",
+        "x": "Number: x-coordinate of the text.",
+        "y": "Number: y-coordinate of the text.",
+        "fontSize": "Number: (Optional) font size. Defaults to the current  <a href=\"#/p5/textSize\">textSize()</a>.",
+        "options": "Object: (Optional) object with sampleFactor and simplifyThreshold  properties."
       }
     }
   },
@@ -5905,10 +6074,21 @@
       "vertSrc": "String: source code for the vertex shader (as a string)",
       "fragSrc": "String: source code for the fragment shader (as a string)"
     },
+    "copyToContext": {
+      "description": [
+        "Shaders belong to the main canvas or a p5.Graphics. Once they are compiled, they can only be used in the context they were compiled on.",
+        "Use this method to make a new copy of a shader that gets compiled on a different context."
+      ],
+      "returns": "p5.Shader: A new shader on the target context.",
+      "params": {
+        "context": "p5|p5.Graphics: The graphic or instance to copy this shader to. Pass <code>window</code> if you need to copy to the main canvas."
+      }
+    },
     "setUniform": {
       "description": [
         "Used to set the uniforms of a <a href=\"#/p5.Shader\">p5.Shader</a> object.",
-        "Uniforms are used as a way to provide shader programs (which run on the GPU) with values from a sketch (which runs on the CPU)."
+        "Uniforms are used as a way to provide shader programs (which run on the GPU) with values from a sketch (which runs on the CPU).",
+        "Here are some examples of uniforms you can make: <ul> <li>booleans<ul> <li>Example: <code>setUniform('x', true)</code> becomes <code>uniform float x</code> with the value <code>1.0</code></li> </ul> </li> <li>numbers<ul> <li>Example: <code>setUniform('x', -2)</code> becomes <code>uniform float x</code> with the value <code>-2.0</code></li> </ul> </li> <li>arrays of numbers<ul> <li>Example: <code>setUniform('x', [0, 0.5, 1])</code> becomes <code>uniform vec3 x</code> with the value <code>vec3(0.0, 0.5, 1.0)</code></li> </ul> </li> <li>a p5.Image, p5.Graphics, p5.MediaElement, or p5.Texture<ul> <li>Example: <code>setUniform('x', img)</code> becomes <code>uniform sampler2D x</code></li> </ul> </li> </ul>"
       ],
       "params": {
         "uniformName": "String: the name of the uniform. Must correspond to the name used in the vertex and fragment shaders",
