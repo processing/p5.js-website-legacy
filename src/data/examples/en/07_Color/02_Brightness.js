@@ -1,47 +1,26 @@
 /*
  * @name Brightness
- * @arialabel A black and white photograph of an astronaut on the moon covered by black. The mouse acts as a light and a circular area of the photograph is illuminated where the mouse hovers
- * @description By Dan Shiffman. This program adjusts the brightness of a part
- * of the image by calculating the distance of each pixel to the mouse.
- * <p><em><span class="small"> To run this example locally, you will need
- * at least an image file and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">local server</a>.</span></em></p>
+ * @arialabel Horizontal bars that step through brightness(high to low) of a color, controlled using a loop
+ * @description Lightness is the amount of black or white that’s been mixed with a hue.
+ * Adding white makes the color lighter and adding black makes it darker.
  */
-let img;
-
-function preload() {
-  img = loadImage('assets/moonwalk.jpg');
-}
-
 function setup() {
-  createCanvas(720, 200);
-  pixelDensity(1);
-  img.loadPixels();
-  loadPixels();
+  createCanvas(400, 400) ;
+  colorMode(HSB);
 }
 
 function draw() {
-  for (let x = 0; x < img.width; x++) {
-    for (let y = 0; y < img.height; y++) {
-      // Calculate the 1D location from a 2D grid
-      let loc = (x + y * img.width) * 4;
-      // Get the R,G,B values from image
-      let r, g, b;
-      r = img.pixels[loc];
-      // Calculate an amount to change brightness based on proximity to the mouse
-      let maxdist = 50;
-      let d = dist(x, y, mouseX, mouseY);
-      let adjustbrightness = (255 * (maxdist - d)) / maxdist;
-      r += adjustbrightness;
-      // Constrain RGB to make sure they are within 0-255 color range
-      r = constrain(r, 0, 255);
-      // Make a new color and set pixel in the window
-      //color c = color(r, g, b);
-      let pixloc = (y * width + x) * 4;
-      pixels[pixloc] = r;
-      pixels[pixloc + 1] = r;
-      pixels[pixloc + 2] = r;
-      pixels[pixloc + 3] = 255;
-    }
+  background (220)
+  noStroke();
+
+  for (let i = 0;i<6;i++){
+    
+    //with each iteration of the loop 
+    //the brightness steps down by 20
+    
+    //fill(hue,saturation,brightness)
+    fill (28,100,100-i*20) ;
+
+    rect (0,i*height/6,width,height/6) ;
   }
-  updatePixels();
 }
