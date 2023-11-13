@@ -2,10 +2,71 @@
 title: home
 slug: /
 ---
+<script>
+  function toggleTheme() {
+    var htmlElement = document.documentElement;
+    var bodyElement = document.body;
+    var homePageElement = document.getElementById('home-page');
+    var searchFieldElement = document.getElementById('search_field');
+    var familyNav = document.getElementById('family');
+    var editorLinkElement = document.getElementById('editor-link');
+    var i18nButtons = document.getElementById('i18n-buttons'); 
+    var startCreatingButton = document.querySelector('#content a[href="https://editor.p5js.org"] .button_box'); // Add this line
+    
+    var containerElement = document.querySelector('.container');
+    containerElement.classList.toggle("dark-mode");
+
+
+    htmlElement.classList.toggle("dark-mode");
+    bodyElement.classList.toggle("dark-mode");
+    homePageElement.classList.toggle("dark-mode");
+    searchFieldElement.classList.toggle("dark-mode");
+    familyNav.classList.toggle("dark-mode");
+    i18nButtons.classList.toggle("dark-mode"); 
+
+    var isDarkMode = htmlElement.classList.contains("dark-mode");
+
+
+  // Update the button text based on the theme
+    var themeToggle = document.getElementById('theme-toggle');
+    themeToggle.textContent = isDarkMode ? 'LIGHT MODE' : 'DARK MODE';
+
+    // Apply inline styles based on the theme
+    
+    if (isDarkMode) {
+
+      // Dark mode styles
+      htmlElement.style.backgroundColor = '#1a1a1a';
+      bodyElement.style.backgroundColor = '#1a1a1a';
+      bodyElement.style.color = '#ffffff';
+      homePageElement.style.backgroundColor = '#1a1a1a';
+      searchFieldElement.style.backgroundColor = '#333333';
+      familyNav.style.backgroundColor = '#1a1a1a';
+      i18nButtons.style.backgroundColor = '#1a1a1a'; 
+      i18nButtons.style.color = 'red'; 
+      startCreatingButton.style.color = '#ffffff';
+      containerElement.style.backgroundColor = '#1a1a1a';
+
+ } else {
+      // Light mode styles
+      htmlElement.style.backgroundColor = '#ffffff';
+      bodyElement.style.backgroundColor = '#ffffff';
+      bodyElement.style.color = '#333333';
+      homePageElement.style.backgroundColor = '';
+      searchFieldElement.style.backgroundColor = '';
+      familyNav.style.backgroundColor = '';
+      i18nButtons.style.backgroundColor = ''; 
+      i18nButtons.style.color = ''; 
+      startCreatingButton.style.color = '';
+      containerElement.style.backgroundColor = '';
+    }
+  }
+</script>
 <div id="home-page">
   {{> sidebar}}
 
   <div class="column-span">
+    <button style="position: absolute; top: 0; left: 30px;" onclick="toggleTheme()" id="theme-toggle">DARK MODE</button>
     <main id="content" class="home">
       <form id="search" method="get" action="https://www.google.com/search">
         <input type="hidden" name="as_sitesearch" value="p5js.org">
