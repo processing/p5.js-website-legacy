@@ -2,10 +2,77 @@
 title: home
 slug: /
 ---
+
+<script>
+  function toggleTheme() {
+    var htmlElement = document.documentElement;
+    var bodyElement = document.body;
+    var homePageElement = document.getElementById('home-page');
+    var searchFieldElement = document.getElementById('search_field');
+    var familyNav = document.getElementById('family');
+    var editorLinkElement = document.getElementById('editor-link');
+    var i18nButtons = document.getElementById('i18n-buttons'); 
+    var startCreatingButton = document.querySelector('#content a[href="https://editor.p5js.org"] .button_box'); // Add this line
+    
+    var containerElement = document.querySelector('.container');
+    containerElement.classList.toggle("dark-mode");
+
+
+    htmlElement.classList.toggle("dark-mode");
+    bodyElement.classList.toggle("dark-mode");
+    homePageElement.classList.toggle("dark-mode");
+    searchFieldElement.classList.toggle("dark-mode");
+    familyNav.classList.toggle("dark-mode");
+    i18nButtons.classList.toggle("dark-mode"); 
+
+    var isDarkMode = htmlElement.classList.contains("dark-mode");
+
+    // Update the button text based on the theme
+    var themeToggle = document.getElementById('theme-toggle');
+    themeToggle.textContent = isDarkMode ? 'LIGHT MODE' : 'DARK MODE';
+
+    // Apply inline styles based on the theme
+    
+    if (isDarkMode) {
+
+      // Dark mode styles
+      htmlElement.style.backgroundColor = '#1a1a1a';
+      bodyElement.style.backgroundColor = '#1a1a1a';
+      bodyElement.style.color = '#ffffff';
+      homePageElement.style.backgroundColor = '#1a1a1a';
+      searchFieldElement.style.backgroundColor = '#333333';
+      familyNav.style.backgroundColor = '#1a1a1a';
+      i18nButtons.style.backgroundColor = '#1a1a1a'; 
+      i18nButtons.style.color = 'red'; 
+      startCreatingButton.style.color = '#ffffff';
+      containerElement.style.backgroundColor = '#1a1a1a';
+    } else {
+      // Light mode styles
+      htmlElement.style.backgroundColor = '#ffffff';
+      bodyElement.style.backgroundColor = '#ffffff';
+      bodyElement.style.color = '#333333';
+      homePageElement.style.backgroundColor = '';
+      searchFieldElement.style.backgroundColor = '';
+      familyNav.style.backgroundColor = '';
+      i18nButtons.style.backgroundColor = ''; 
+      i18nButtons.style.color = ''; 
+      startCreatingButton.style.color = '';
+      containerElement.style.backgroundColor = '';
+    }
+  }
+</script>
+
+
+
+
+
+
+
 <div id="home-page">
   {{> sidebar}}
 
-  <div class="column-span">
+  <div class="column-span" >
+     <button style="position: absolute; top: 0; left: 30px;" onclick="toggleTheme()" id="theme-toggle">DARK MODE</button>
     <main id="content" class="home">
       <form id="search" method="get" action="https://www.google.com/search">
         <input type="hidden" name="as_sitesearch" value="p5js.org">
@@ -27,7 +94,7 @@ slug: /
       <p>{{#i18n "p2x5"}}{{/i18n}}<a href="community/">{{#i18n "p2x6"}}{{/i18n}}</a>{{#i18n "p2x7"}}{{/i18n}}</p>
 
       <h2>{{#i18n "p3xh2"}}{{/i18n}}</h2>
-      <p>{{#i18n "p3xp1"}}{{/i18n}}<a href="https://editor.p5js.org" target="_blank">p5.js
+      <p>{{#i18n "p3xp1"}}{{/i18n}}<a  href="https://editor.p5js.org" target="_blank">p5.js
           Editor</a>{{#i18n "p3xp2"}}{{/i18n}}<a
           href="get-started/">{{#i18n "p3xp3"}}{{/i18n}}</a>{{#i18n "p3xp4"}}{{/i18n}}<a
           href="reference/">{{#i18n "p3xp5"}}{{/i18n}}</a>{{#i18n "p3xp6"}}{{/i18n}}</p>
@@ -59,4 +126,9 @@ slug: /
   <object tabindex=-1 type="image/svg+xml" data="{{assets}}/img/thick-asterisk-alone.svg" id="asterisk-design-element"
     aria-hidden="true">*</object>
   {{!-- <iframe tabindex='-1' id='home-sketch-frame' src='{{assets}}/p5_featured/KD_2020_08_08_22_21_27/'></iframe> --}}
+
+ 
 </div> <!-- end home-page -->
+
+
+
