@@ -70,48 +70,59 @@
     ],
     "returns": "P5: a p5 instance",
     "params": {
-      "sketch": "Function: a closure that can set optional <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on the  given p5 instance",
+      "sketch": "Function(p5): a closure that can set optional <a href=\"#/p5/preload\">preload()</a>,  <a href=\"#/p5/setup\">setup()</a>, and/or <a href=\"#/p5/draw\">draw()</a> properties on the  given p5 instance",
       "node": "HTMLElement: (Optional) element to attach canvas to"
     },
     "describe": {
       "description": [
-        "Creates a screen reader accessible description for the canvas. The first parameter should be a string with a description of the canvas. The second parameter is optional. If specified, it determines how the description is displayed.",
-        "<code class=\"language-javascript\">describe(text, LABEL)</code> displays the description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a div adjacent to the canvas. You can style it as you wish in your CSS.",
-        "<code class=\"language-javascript\">describe(text, FALLBACK)</code> makes the description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the description will only be available to screen-reader users."
+        "Creates a screen reader-accessible description for the canvas.",
+        "The first parameter, <code>text</code>, is the description of the canvas.",
+        "The second parameter, <code>display</code>, is optional. It determines how the description is displayed. If <code>LABEL</code> is passed, as in <code>describe('A description.', LABEL)</code>, the description will be visible in a div element next to the canvas. If <code>FALLBACK</code> is passed, as in <code>describe('A description.', FALLBACK)</code>, the description will only be visible to screen readers. This is the default mode.",
+        "Read <a href=\"/learn/labeling-canvases.html\">How to label your p5.js code</a> to learn more about making sketches accessible."
       ],
       "params": {
-        "text": "String: description of the canvas",
-        "display": "Constant: (Optional) either LABEL or FALLBACK"
+        "text": "String: description of the canvas.",
+        "display": "Constant: (Optional) either LABEL or FALLBACK."
       }
     },
     "describeElement": {
       "description": [
-        "This function creates a screen-reader accessible description for elements —shapes or groups of shapes that create meaning together— in the canvas. The first paramater should be the name of the element. The second parameter should be a string with a description of the element. The third parameter is optional. If specified, it determines how the element description is displayed.",
-        "<code class=\"language-javascript\">describeElement(name, text, LABEL)</code> displays the element description to all users as a <a href=\"https://en.wikipedia.org/wiki/Museum_label\" target=\"_blank\"> tombstone or exhibit label/caption</a> in a div adjacent to the canvas. You can style it as you wish in your CSS.",
-        "<code class=\"language-javascript\">describeElement(name, text, FALLBACK)</code> makes the element description accessible to screen-reader users only, in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a>. If a second parameter is not specified, by default, the element description will only be available to screen-reader users."
+        "Creates a screen reader-accessible description for elements in the canvas. Elements are shapes or groups of shapes that create meaning together.",
+        "The first parameter, <code>name</code>, is the name of the element.",
+        "The second parameter, <code>text</code>, is the description of the element.",
+        "The third parameter, <code>display</code>, is optional. It determines how the description is displayed. If <code>LABEL</code> is passed, as in <code>describe('A description.', LABEL)</code>, the description will be visible in a div element next to the canvas. Using <code>LABEL</code> creates unhelpful duplicates for screen readers. Only use <code>LABEL</code> during development. If <code>FALLBACK</code> is passed, as in <code>describe('A description.', FALLBACK)</code>, the description will only be visible to screen readers. This is the default mode.",
+        "Read <a href=\"/learn/labeling-canvases.html\">How to label your p5.js code</a> to learn more about making sketches accessible."
       ],
       "params": {
-        "name": "String: name of the element",
-        "text": "String: description of the element",
-        "display": "Constant: (Optional) either LABEL or FALLBACK"
+        "name": "String: name of the element.",
+        "text": "String: description of the element.",
+        "display": "Constant: (Optional) either LABEL or FALLBACK."
       }
     },
     "textOutput": {
       "description": [
-        "<code class=\"language-javascript\">textOutput()</code> creates a screenreader accessible output that describes the shapes present on the canvas. The general description of the canvas includes canvas size, canvas color, and number of elements in the canvas (example: 'Your output is a, 400 by 400 pixels, lavender blue canvas containing the following 4 shapes:'). This description is followed by a list of shapes where the color, position, and area of each shape are described (example: \"orange ellipse at top left covering 1% of the canvas\"). Each element can be selected to get more details. A table of elements is also provided. In this table, shape, color, location, coordinates and area are described (example: \"orange ellipse location=top left area=2\").",
-        "<code class=\"language-javascript\">textOutput()</code> and <code class=\"language-javascript\">textOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">textOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+        "Creates a screen reader-accessible description for shapes on the canvas. <code>textOutput()</code> adds a general description, list of shapes, and table of shapes to the web page.",
+        "The general description includes the canvas size, canvas color, and number of shapes. For example, <code>Your output is a, 100 by 100 pixels, gray canvas containing the following 2 shapes:</code>.",
+        "A list of shapes follows the general description. The list describes the color, location, and area of each shape. For example, <code>a red circle at middle covering 3% of the canvas</code>. Each shape can be selected to get more details.",
+        "<code>textOutput()</code> uses its table of shapes as a list. The table describes the shape, color, location, coordinates and area. For example, <code>red circle location = middle area = 3%</code>. This is different from <a href=\"#/p5/gridOutput\">gridOutput()</a>, which uses its table as a grid.",
+        "The <code>display</code> parameter is optional. It determines how the description is displayed. If <code>LABEL</code> is passed, as in <code>textOutput(LABEL)</code>, the description will be visible in a div element next to the canvas. Using <code>LABEL</code> creates unhelpful duplicates for screen readers. Only use <code>LABEL</code> during development. If <code>FALLBACK</code> is passed, as in <code>textOutput(FALLBACK)</code>, the description will only be visible to screen readers. This is the default mode.",
+        "Read <a href=\"/learn/labeling-canvases.html\">How to label your p5.js code</a> to learn more about making sketches accessible."
       ],
       "params": {
-        "display": "Constant: (Optional) either FALLBACK or LABEL"
+        "display": "Constant: (Optional) either FALLBACK or LABEL."
       }
     },
     "gridOutput": {
       "description": [
-        "<code class=\"language-javascript\">gridOutput()</code> lays out the content of the canvas in the form of a grid (html table) based on the spatial location of each shape. A brief description of the canvas is available before the table output. This description includes: color of the background, size of the canvas, number of objects, and object types (example: \"lavender blue canvas is 200 by 200 and contains 4 objects - 3 ellipses 1 rectangle\"). The grid describes the content spatially, each element is placed on a cell of the table depending on its position. Within each cell an element the color and type of shape of that element are available (example: \"orange ellipse\"). These descriptions can be selected individually to get more details. A list of elements where shape, color, location, and area are described (example: \"orange ellipse location=top left area=1%\") is also available.",
-        "<code class=\"language-javascript\">gridOutput()</code> and <code class=\"language-javascript\">gridOutput(FALLBACK)</code> make the output available in <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility\" target=\"_blank\"> a sub DOM inside the canvas element</a> which is accessible to screen readers. <code class=\"language-javascript\">gridOutput(LABEL)</code> creates an additional div with the output adjacent to the canvas, this is useful for non-screen reader users that might want to display the output outside of the canvas' sub DOM as they code. However, using LABEL will create unnecessary redundancy for screen reader users. We recommend using LABEL only as part of the development process of a sketch and removing it before publishing or sharing with screen reader users."
+        "Creates a screen reader-accessible description for shapes on the canvas. <code>gridOutput()</code> adds a general description, table of shapes, and list of shapes to the web page.",
+        "The general description includes the canvas size, canvas color, and number of shapes. For example, <code>gray canvas, 100 by 100 pixels, contains 2 shapes: 1 circle 1 square</code>.",
+        "<code>gridOutput()</code> uses its table of shapes as a grid. Each shape in the grid is placed in a cell whose row and column correspond to the shape's location on the canvas. The grid cells describe the color and type of shape at that location. For example, <code>red circle</code>. These descriptions can be selected individually to get more details. This is different from <a href=\"#/p5/textOutput\">textOutput()</a>, which uses its table as a list.",
+        "A list of shapes follows the table. The list describes the color, type, location, and area of each shape. For example, <code>red circle, location = middle, area = 3 %</code>.",
+        "The <code>display</code> parameter is optional. It determines how the description is displayed. If <code>LABEL</code> is passed, as in <code>gridOutput(LABEL)</code>, the description will be visible in a div element next to the canvas. Using <code>LABEL</code> creates unhelpful duplicates for screen readers. Only use <code>LABEL</code> during development. If <code>FALLBACK</code> is passed, as in <code>gridOutput(FALLBACK)</code>, the description will only be visible to screen readers. This is the default mode.",
+        "Read <a href=\"/learn/labeling-canvases.html\">How to label your p5.js code</a> to learn more about making sketches accessible."
       ],
       "params": {
-        "display": "Constant: (Optional) either FALLBACK or LABEL"
+        "display": "Constant: (Optional) either FALLBACK or LABEL."
       }
     },
     "alpha": {
@@ -942,6 +953,8 @@
     "REPEAT": {},
     "CLAMP": {},
     "MIRROR": {},
+    "FLAT": {},
+    "SMOOTH": {},
     "LANDSCAPE": {},
     "PORTRAIT": {},
     "GRID": {},
@@ -957,52 +970,55 @@
     "RGBA": {},
     "print": {
       "description": [
-        "The <a href=\"#/p5/print\">print()</a> function writes to the console area of your browser. This function is often helpful for looking at the data a program is producing. This function creates a new line of text for each call to the function. Individual elements can be separated with quotes (\"\") and joined with the addition operator (+).",
-        "Note that calling print() without any arguments invokes the window.print() function which opens the browser's print dialog. To print a blank line to console you can write print('\\n')."
+        "Displays text in the web browser's console.",
+        "<code>print()</code> is helpful for printing values while debugging. Each call to <code>print()</code> creates a new line of text.",
+        "Note: Call <code>print('\\n')</code> to print a blank line. Calling <code>print()</code> without an argument opens the browser's dialog for printing documents."
       ],
       "params": {
-        "contents": "Any: any combination of Number, String, Object, Boolean,  Array to print"
+        "contents": "Any: content to print to the console."
       }
     },
     "frameCount": {
       "description": [
-        "The system variable <a href=\"#/p5/frameCount\">frameCount</a> contains the number of frames that have been displayed since the program started. Inside <a href=\"#/p5/setup\">setup()</a> the value is 0, after the first iteration of <a href=\"#/p5/draw\">draw()</a> it is 1, etc."
+        "Tracks the number of frames drawn since the sketch started.",
+        "<code>frameCount</code>'s value is 0 inside <a href=\"#/p5/setup\">setup()</a>. It increments by 1 each time the code in <a href=\"#/p5/draw\">draw()</a> finishes executing."
       ]
     },
     "deltaTime": {
       "description": [
-        "The system variable <a href=\"#/p5/deltaTime\">deltaTime</a> contains the time difference between the beginning of the previous frame and the beginning of the current frame in milliseconds.",
-        "This variable is useful for creating time sensitive animation or physics calculation that should stay constant regardless of frame rate."
+        "Tracks the amount of time, in milliseconds, it took for <a href=\"#/p5/draw\">draw</a> to draw the previous frame. <code>deltaTime</code> is useful for simulating physics."
       ]
     },
     "focused": {
       "description": [
-        "Confirms if the window a p5.js program is in is \"focused,\" meaning that the sketch will accept mouse or keyboard input. This variable is \"true\" if the window is focused and \"false\" if not."
+        "Tracks whether the browser window is focused and can receive user input. <code>focused</code> is <code>true</code> if the window if focused and <code>false</code> if not."
       ]
     },
     "cursor": {
       "description": [
-        "Sets the cursor to a predefined symbol or an image, or makes it visible if already hidden. If you are trying to set an image as the cursor, the recommended size is 16×16 or 32×32 pixels. The values for parameters x and y must be less than the dimensions of the image."
+        "Changes the cursor's appearance.",
+        "The first parameter, <code>type</code>, sets the type of cursor to display. The built-in options are <code>ARROW</code>, <code>CROSS</code>, <code>HAND</code>, <code>MOVE</code>, <code>TEXT</code>, and <code>WAIT</code>. <code>cursor()</code> also recognizes standard CSS cursor properties passed as strings: <code>'help'</code>, <code>'wait'</code>, <code>'crosshair'</code>, <code>'not-allowed'</code>, <code>'zoom-in'</code>, and <code>'grab'</code>. If the path to an image is passed, as in <code>cursor('assets/target.png')</code>, then the image will be used as the cursor. Images must be in .cur, .gif, .jpg, .jpeg, or .png format.",
+        "The parameters <code>x</code> and <code>y</code> are optional. If an image is used for the cursor, <code>x</code> and <code>y</code> set the location pointed to within the image. They are both 0 by default, so the cursor points to the image's top-left corner. <code>x</code> and <code>y</code> must be less than the image's width and height, respectively."
       ],
       "params": {
-        "type": "String|Constant: Built-In: either ARROW, CROSS, HAND, MOVE, TEXT and WAIT  Native CSS properties: 'grab', 'progress', 'cell' etc.  External: path for cursor's images  (Allowed File extensions: .cur, .gif, .jpg, .jpeg, .png)  For more information on Native CSS cursors and url visit:  <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/cursor\">https://developer.mozilla.org/en-US/docs/Web/CSS/cursor</a>",
-        "x": "Number: (Optional) the horizontal active spot of the cursor (must be less than 32)",
-        "y": "Number: (Optional) the vertical active spot of the cursor (must be less than 32)"
+        "type": "String|Constant: Built-in: either ARROW, CROSS, HAND, MOVE, TEXT, or WAIT.  Native CSS properties: 'grab', 'progress', and so on.  Path to cursor image.",
+        "x": "Number: (Optional) horizontal active spot of the cursor.",
+        "y": "Number: (Optional) vertical active spot of the cursor."
       }
     },
     "frameRate": {
       "description": [
-        "Specifies the number of frames to be displayed every second. For example, the function call frameRate(30) will attempt to refresh 30 times a second. If the processor is not fast enough to maintain the specified rate, the frame rate will not be achieved. Setting the frame rate within <a href=\"#/p5/setup\">setup()</a> is recommended. The default frame rate is based on the frame rate of the display (here also called \"refresh rate\"), which is set to 60 frames per second on most computers. A frame rate of 24 frames per second (usual for movies) or above will be enough for smooth animations. This is the same as setFrameRate(val).",
-        "Calling <a href=\"#/p5/frameRate\">frameRate()</a> with no arguments or with arguments that are not of type Number or are non-positive returns an approximation of the current frame rate. The draw function must run at least once before it will return a value.",
-        "Even if the code in your draw() function consistently produces frames in time for them to be displayed at the desired frame rate, the value frameRate() returns will vary frame to frame because it's an inaccurate approximation. To accurately test the performance of your sketches, use your browser's performance profiling tools."
+        "Sets the number of frames to draw per second.",
+        "Calling <code>frameRate()</code> with one numeric argument, as in <code>frameRate(30)</code>, attempts to draw 30 frames per second (FPS). The target frame rate may not be achieved depending on the sketch's processing needs. Most computers default to a frame rate of 60 FPS. Frame rates of 24 FPS and above are fast enough for smooth animations.",
+        "Calling <code>frameRate()</code> without an argument returns the current frame rate. The value returned is an approximation."
       ],
       "params": {
-        "fps": "Number: number of frames to be displayed every second"
+        "fps": "Number: number of frames to draw per second."
       }
     },
     "getTargetFrameRate": {
       "description": [
-        "Returns _targetFrameRate variable. The default _targetFrameRate is set to 60. This could be changed by calling frameRate() and setting it to the desired value. When getTargetFrameRate() is called, it should return the value that was set."
+        "Returns the target frame rate. The value is either the system frame rate or the last value passed to <a href=\"#/p5/frameRate\">frameRate()</a>."
       ],
       "returns": "Number: _targetFrameRate"
     },
@@ -1013,86 +1029,98 @@
     },
     "webglVersion": {
       "description": [
-        "If the sketch was created in WebGL mode, then <code>weglVersion</code> will indicate which version of WebGL it is using. It will try to create a WebGL2 canvas unless you have requested WebGL1 via <code>setAttributes({ version: 1 })</code>, and will fall back to WebGL1 if WebGL2 is not available.",
-        "<code>webglVersion</code> will always be either <code>WEBGL2</code>, <code>WEBGL</code>, or <code>P2D</code> if not in WebGL mode."
+        "A string variable with the WebGL version in use. Its value equals one of the followin string constants: <ul> <li><code>WEBGL2</code> whose value is <code>'webgl2'</code>,</li> <li><code>WEBGL</code> whose value is <code>'webgl'</code>, or</li> <li><code>P2D</code> whose value is <code>'p2d'</code>. This is the default for 2D sketches.</li> </ul>",
+        "See <a href=\"#/p5/setAttributes\">setAttributes()</a> for ways to set the WebGL version."
       ]
     },
     "displayWidth": {
       "description": [
-        "System variable that stores the width of the screen display according to The default <a href=\"#/p5/pixelDensity\">pixelDensity</a>. This is used to run a full-screen program on any display size. To return actual screen size, multiply this by pixelDensity."
+        "A numeric variable that stores the width of the screen display. Its value depends on the current <a href=\"#/p5/pixelDensity\">pixelDensity()</a>. <code>displayWidth</code> is useful for running full-screen programs.",
+        "Note: The actual screen width can be computed as <code>displayWidth * pixelDensity()</code>."
       ]
     },
     "displayHeight": {
       "description": [
-        "System variable that stores the height of the screen display according to The default <a href=\"#/p5/pixelDensity\">pixelDensity</a>. This is used to run a full-screen program on any display size. To return actual screen size, multiply this by pixelDensity."
+        "A numeric variable that stores the height of the screen display. Its value depends on the current <a href=\"#/p5/pixelDensity\">pixelDensity()</a>. <code>displayHeight</code> is useful for running full-screen programs.",
+        "Note: The actual screen height can be computed as <code>displayHeight * pixelDensity()</code>."
       ]
     },
     "windowWidth": {
       "description": [
-        "System variable that stores the width of the inner window, it maps to window.innerWidth."
+        "A numeric variable that stores the width of the browser's <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Layout_viewport\" target=\"_blank\">layout viewport</a>. This viewport is the area within the browser that's available for drawing."
       ]
     },
     "windowHeight": {
       "description": [
-        "System variable that stores the height of the inner window, it maps to window.innerHeight."
+        "A numeric variable that stores the height of the browser's <a href=\"https://developer.mozilla.org/en-US/docs/Glossary/Layout_viewport\" target=\"_blank\">layout viewport</a>. This viewport is the area within the browser that's available for drawing."
       ]
     },
     "windowResized": {
       "description": [
-        "The <a href=\"#/p5/windowResized\">windowResized()</a> function is called once every time the browser window is resized. This is a good place to resize the canvas or do any other adjustments to accommodate the new window size."
+        "The code in <code>windowResized()</code> is called once each time the browser window is resized. It's a good place to resize the canvas or make other adjustments to accommodate the new window size.",
+        "The <code>event</code> parameter is optional. If added to the function definition, it can be used for debugging or other purposes."
       ],
       "params": {
-        "event": "UIEvent: (Optional) optional Event callback argument."
+        "event": "UIEvent: (Optional) optional resize Event."
       }
     },
     "width": {
       "description": [
-        "System variable that stores the width of the drawing canvas. This value is set by the first parameter of the <a href=\"#/p5/createCanvas\">createCanvas()</a> function. For example, the function call createCanvas(320, 240) sets the width variable to the value 320. The value of width defaults to 100 if <a href=\"#/p5/createCanvas\">createCanvas()</a> is not used in a program."
+        "A numeric variable that stores the width of the drawing canvas. Its default value is 100.",
+        "Calling <a href=\"#/p5/createCanvas\">createCanvas()</a> or <a href=\"#/p5/resizeCanvas\">resizeCanvas()</a> changes the value of <code>width</code>. Calling <a href=\"#/p5/noCanvas\">noCanvas()</a> sets its value to 0."
       ]
     },
     "height": {
       "description": [
-        "System variable that stores the height of the drawing canvas. This value is set by the second parameter of the <a href=\"#/p5/createCanvas\">createCanvas()</a> function. For example, the function call createCanvas(320, 240) sets the height variable to the value 240. The value of height defaults to 100 if <a href=\"#/p5/createCanvas\">createCanvas()</a> is not used in a program."
+        "A numeric variable that stores the height of the drawing canvas. Its default value is 100.",
+        "Calling <a href=\"#/p5/createCanvas\">createCanvas()</a> or <a href=\"#/p5/resizeCanvas\">resizeCanvas()</a> changes the value of <code>height</code>. Calling <a href=\"#/p5/noCanvas\">noCanvas()</a> sets its value to 0."
       ]
     },
     "fullscreen": {
       "description": [
-        "If argument is given, sets the sketch to fullscreen or not based on the value of the argument. If no argument is given, returns the current fullscreen state. Note that due to browser restrictions this can only be called on user input, for example, on mouse press like the example below."
+        "Toggles full-screen mode or returns the current mode.",
+        "Calling <code>fullscreen(true)</code> makes the sketch full-screen. Calling <code>fullscreen(false)</code> makes the sketch its original size.",
+        "Calling <code>fullscreen()</code> without an argument returns <code>true</code> if the sketch is in full-screen mode and <code>false</code> if not.",
+        "Note: Due to browser restrictions, <code>fullscreen()</code> can only be called with user input such as a mouse press."
       ],
-      "returns": "Boolean: current fullscreen state",
+      "returns": "Boolean: current fullscreen state.",
       "params": {
-        "val": "Boolean: (Optional) whether the sketch should be in fullscreen mode or not"
+        "val": "Boolean: (Optional) whether the sketch should be in fullscreen mode."
       }
     },
     "pixelDensity": {
       "description": [
-        "Sets the pixel scaling for high pixel density displays. By default pixel density is set to match display density, call pixelDensity(1) to turn this off. Calling <a href=\"#/p5/pixelDensity\">pixelDensity()</a> with no arguments returns the current pixel density of the sketch."
+        "Sets the pixel scaling for high pixel density displays.",
+        "By default, the pixel density is set to match display density. Calling <code>pixelDensity(1)</code> turn this off.",
+        "Calling <code>pixelDensity()</code> without an argument returns the current pixel density."
       ],
       "params": {
-        "val": "Number: whether or how much the sketch should scale"
+        "val": "Number: (Optional) desired pixel density."
       }
     },
     "displayDensity": {
       "description": [
-        "Returns the pixel density of the current display the sketch is running on."
+        "Returns the display's current pixel density."
       ],
-      "returns": "Number: current pixel density of the display"
+      "returns": "Number: current pixel density of the display."
     },
     "getURL": {
       "description": [
-        "Gets the current URL. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using the editor's present or share URLs."
+        "Returns the sketch's current <a href=\"https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL\" target=\"_blank\">URL</a> as a string."
       ],
       "returns": "String: url"
     },
     "getURLPath": {
       "description": [
-        "Gets the current URL path as an array. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using the editor's present or share URLs."
+        "Returns the current <a href=\"https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#path_to_resource\" target=\"_blank\">URL</a> path as an array of strings.",
+        "For example, consider a sketch hosted at the URL <code>https://example.com/sketchbook</code>. Calling <code>getURLPath()</code> returns <code>['sketchbook']</code>. For a sketch hosted at the URL <code>https://example.com/sketchbook/monday</code>, <code>getURLPath()</code> returns <code>['sketchbook', 'monday']</code>."
       ],
-      "returns": "String[]: path components"
+      "returns": "String[]: path components."
     },
     "getURLParams": {
       "description": [
-        "Gets the current URL params as an Object. Note: when using the p5 Editor, this will return an empty object because the sketch is embedded in an iframe. It will work correctly if you view the sketch using the editor's present or share URLs."
+        "Returns the current <a href=\"https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#parameters\" target=\"_blank\">URL parameters</a> in an Object.",
+        "For example, calling <code>getURLParams()</code> in a sketch hosted at the URL <code>http://p5js.org?year=2014&month=May&day=15</code> returns <code>{ year: 2014, month: 'May', day: 15 }</code>."
       ],
       "returns": "Object: URL params"
     },
@@ -1541,216 +1569,254 @@
     },
     "select": {
       "description": [
-        "Searches the page for the first element that matches the given CSS selector string (can be an ID, class, tag name or a combination) and returns it as a <a href=\"#/p5.Element\">p5.Element</a>. The DOM node itself can be accessed with .elt. Returns null if none found. You can also specify a container to search within."
+        "Searches the page for the first element that matches the given <a href=\"https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics#different_types_of_selectors\" target=\"_blank\">CSS selector string</a>. The string can be an ID, class, tag name, or a combination. <code>select()</code> returns a <a href=\"#/p5.Element\">p5.Element</a> object if it finds a match and <code>null</code> otherwise.",
+        "The second parameter, <code>container</code>, is optional. It specifies a container to search within. container can be CSS selector string, a <a href=\"#/p5.Element\">p5.Element</a> object, or an <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement\" target=\"_blank\">HTMLElement</a> object."
       ],
-      "returns": "p5.Element|null: <a href=\"#/p5.Element\">p5.Element</a> containing node found",
+      "returns": "p5.Element|null: <a href=\"#/p5.Element\">p5.Element</a> containing the element.",
       "params": {
-        "selectors": "String: CSS selector string of element to search for",
-        "container": "String|p5.Element|HTMLElement: (Optional) CSS selector string, <a href=\"#/p5.Element\">p5.Element</a>, or  HTML element to search within"
+        "selectors": "String: CSS selector string of element to search for.",
+        "container": "String|p5.Element|HTMLElement: (Optional) CSS selector string, <a href=\"#/p5.Element\">p5.Element</a>, or  <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement\" target=\"_blank\">HTMLElement</a> to search within."
       }
     },
     "selectAll": {
       "description": [
-        "Searches the page for elements that match the given CSS selector string (can be an ID a class, tag name or a combination) and returns them as <a href=\"#/p5.Element\">p5.Element</a>s in an array. The DOM node itself can be accessed with .elt. Returns an empty array if none found. You can also specify a container to search within."
+        "Searches the page for all elements that matches the given <a href=\"https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics#different_types_of_selectors\" target=\"_blank\">CSS selector string</a>. The string can be an ID, class, tag name, or a combination. <code>selectAll()</code> returns an array of <a href=\"#/p5.Element\">p5.Element</a> objects if it finds any matches and an empty array otherwise.",
+        "The second parameter, <code>container</code>, is optional. It specifies a container to search within. container can be CSS selector string, a <a href=\"#/p5.Element\">p5.Element</a> object, or an <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement\" target=\"_blank\">HTMLElement</a> object."
       ],
-      "returns": "p5.Element[]: Array of <a href=\"#/p5.Element\">p5.Element</a>s containing nodes found",
+      "returns": "p5.Element[]: array of <a href=\"#/p5.Element\">p5.Element</a>s containing any elements found.",
       "params": {
-        "selectors": "String: CSS selector string of elements to search for",
-        "container": "String|p5.Element|HTMLElement: (Optional) CSS selector string, <a href=\"#/p5.Element\">p5.Element</a>  , or HTML element to search within"
+        "selectors": "String: CSS selector string of element to search for.",
+        "container": "String|p5.Element|HTMLElement: (Optional) CSS selector string, <a href=\"#/p5.Element\">p5.Element</a>, or  <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement\" target=\"_blank\">HTMLElement</a> to search within."
       }
     },
     "removeElements": {
       "description": [
-        "Removes all elements created by p5, except any canvas / graphics elements created by <a href=\"#/p5/createCanvas\">createCanvas</a> or <a href=\"#/p5/createGraphics\">createGraphics</a>. Event handlers are removed, and element is removed from the DOM."
+        "Removes all elements created by p5.js, including any event handlers. There are two exceptions: canvas elements created by <a href=\"#/p5/createCanvas\">createCanvas</a> and <a href=\"#/p5.Renderer\">p5.Render</a> objects created by <a href=\"#/p5/createGraphics\">createGraphics</a>."
       ]
     },
     "changed": {
       "description": [
-        "The .<a href=\"#/p5.Element/changed\">changed()</a> function is called when the value of an element changes. This can be used to attach an element specific event listener."
+        "<code>myElement.changed()</code> sets a function to call when the value of the <a href=\"#/p5.Element\">p5.Element</a> object changes. Calling <code>myElement.changed(false)</code> disables the function."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when the value of  an element changes.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the element changes.  <code>false</code> disables the function."
       }
     },
     "input": {
       "description": [
-        "The .<a href=\"#/p5.Element/input\">input()</a> function is called when any user input is detected with an element. The input event is often used to detect keystrokes in a input element, or changes on a slider element. This can be used to attach an element specific event listener."
+        "<code>myElement.input()</code> sets a function to call when input is detected within the <a href=\"#/p5.Element\">p5.Element</a> object. It's often used to with text inputs and sliders. Calling <code>myElement.input(false)</code> disables the function."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when any user input is  detected within the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when input is detected within  the element.  <code>false</code> disables the function."
       }
     },
     "createDiv": {
       "description": [
-        "Creates a <code>&lt;div&gt;&lt;/div&gt;</code> element in the DOM with given inner HTML."
+        "Creates a <code>&lt;div&gt;&lt;/div&gt;</code> element. It's commonly used as a container for other elements.",
+        "The parameter <code>html</code> is optional. It accepts a string that sets the inner HTML of the new <code>&lt;div&gt;&lt;/div&gt;</code>."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "html": "String: (Optional) inner HTML for element created"
+        "html": "String: (Optional) inner HTML for the new <code>&lt;div&gt;&lt;/div&gt;</code> element."
       }
     },
     "createP": {
       "description": [
-        "Creates a <code>&lt;p&gt;&lt;/p&gt;</code> element in the DOM with given inner HTML. Used for paragraph length text."
+        "Creates a <code>&lt;p&gt;&lt;/p&gt;</code> element. It's commonly used for paragraph-length text.",
+        "The parameter <code>html</code> is optional. It accepts a string that sets the inner HTML of the new <code>&lt;p&gt;&lt;/p&gt;</code>."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "html": "String: (Optional) inner HTML for element created"
+        "html": "String: (Optional) inner HTML for the new <code>&lt;p&gt;&lt;/p&gt;</code> element."
       }
     },
     "createSpan": {
       "description": [
-        "Creates a <code>&lt;span&gt;&lt;/span&gt;</code> element in the DOM with given inner HTML."
+        "Creates a <code>&lt;span&gt;&lt;/span&gt;</code> element. It's commonly used as a container for inline elements. For example, a <code>&lt;span&gt;&lt;/span&gt;</code> can hold part of a sentence that's a <span style=\"color: deeppink;\">different</span> style.",
+        "The parameter <code>html</code> is optional. It accepts a string that sets the inner HTML of the new <code>&lt;span&gt;&lt;/span&gt;</code>."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "html": "String: (Optional) inner HTML for element created"
+        "html": "String: (Optional) inner HTML for the new <code>&lt;span&gt;&lt;/span&gt;</code> element."
       }
     },
     "createImg": {
       "description": [
-        "Creates an <code>&lt;img&gt;</code> element in the DOM with given src and alternate text."
+        "Creates an <code>&lt;img&gt;</code> element that can appear outside of the canvas.",
+        "The first parameter, <code>src</code>, is a string with the path to the image file. <code>src</code> should be a relative path, as in <code>'assets/image.png'</code>, or a URL, as in <code>'https://example.com/image.png'</code>.",
+        "The second parameter, <code>alt</code>, is a string with the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt#usage_notes\" target=\"_blank\">alternate text</a> for the image. An empty string <code>''</code> can be used for images that aren't displayed.",
+        "The third parameter, <code>crossOrigin</code>, is optional. It's a string that sets the <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes\" target=\"_blank\">crossOrigin property</a> of the image. Use <code>'anonymous'</code> or <code>'use-credentials'</code> to fetch the image with cross-origin access.",
+        "The fourth parameter, <code>callback</code>, is also optional. It sets a function to call after the image loads. The new image is passed to the callback function as a <a href=\"#/p5.Element\">p5.Element</a> object."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "src": "String: src path or url for image",
-        "alt": "String: <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#Attributes\">alternate text</a> to be used if image does not load. You can use also an empty string (<code>\"\"</code>) if that an image is not intended to be viewed.",
-        "crossOrigin": "String: <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes\">crossOrigin property</a> of the <code>img</code> element; use either 'anonymous' or 'use-credentials' to retrieve the image with cross-origin access (for later use with <code>canvas</code>. if an empty string(<code>\"\"</code>) is passed, CORS is not used",
-        "successCallback": "Function: (Optional) callback to be called once image data is loaded with the <a href=\"#/p5.Element\">p5.Element</a> as argument"
+        "src": "String: relative path or URL for the image.",
+        "alt": "String: alternate text for the image.",
+        "crossOrigin": "String: (Optional) crossOrigin property to use when fetching the image.",
+        "successCallback": "Function: (Optional) function to call once the image loads. The new image will be passed  to the function as a <a href=\"#/p5.Element\">p5.Element</a> object."
       }
     },
     "createA": {
       "description": [
-        "Creates an <code>&lt;a&gt;&lt;/a&gt;</code> element in the DOM for including a hyperlink."
+        "Creates an <code>&lt;a&gt;&lt;/a&gt;</code> element that links to another web page.",
+        "The first parmeter, <code>href</code>, is a string that sets the URL of the linked page.",
+        "The second parameter, <code>html</code>, is a string that sets the inner HTML of the link. It's common to use text, images, or buttons as links.",
+        "The third parameter, <code>target</code>, is optional. It's a string that tells the web browser where to open the link. By default, links open in the current browser tab. Passing <code>'_blank'</code> will cause the link to open in a new browser tab. MDN describes a few <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target\" target=\"_blank\">other options</a>."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "href": "String: url of page to link to",
-        "html": "String: inner html of link element to display",
-        "target": "String: (Optional) target where new link should open,  could be _blank, _self, _parent, _top."
+        "href": "String: URL of linked page.",
+        "html": "String: inner HTML of link element to display.",
+        "target": "String: (Optional) target where the new link should open,  either <code>'_blank'</code>, <code>'_self'</code>, <code>'_parent'</code>, or <code>'_top'</code>."
       }
     },
     "createSlider": {
       "description": [
-        "Creates a slider <code>&lt;input&gt;&lt;/input&gt;</code> element in the DOM. Use .size() to set the display length of the slider."
+        "Creates a slider <code>&lt;input&gt;&lt;/input&gt;</code> element. Range sliders are useful for quickly selecting numbers from a given range.",
+        "The first two parameters, <code>min</code> and <code>max</code>, are numbers that set the slider's minimum and maximum.",
+        "The third parameter, <code>value</code>, is optional. It's a number that sets the slider's default value.",
+        "The fourth parameter, <code>step</code>, is also optional. It's a number that sets the spacing between each value in the slider's range. Setting <code>step</code> to 0 allows the slider to move smoothly from <code>min</code> to <code>max</code>."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding the created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "min": "Number: minimum value of the slider",
-        "max": "Number: maximum value of the slider",
-        "value": "Number: (Optional) default value of the slider",
-        "step": "Number: (Optional) step size for each tick of the slider (if step is set to 0, the slider will move continuously from the minimum to the maximum value)"
+        "min": "Number: minimum value of the slider.",
+        "max": "Number: maximum value of the slider.",
+        "value": "Number: (Optional) default value of the slider.",
+        "step": "Number: (Optional) size for each step in the slider's range."
       }
     },
     "createButton": {
       "description": [
-        "Creates a <code>&lt;button&gt;&lt;/button&gt;</code> element in the DOM. Use .size() to set the display size of the button. Use .mousePressed() to specify behavior on press."
+        "Creates a <code>&lt;button&gt;&lt;/button&gt;</code> element.",
+        "The first parameter, <code>label</code>, is a string that sets the label displayed on the button.",
+        "The second parameter, <code>value</code>, is optional. It's a string that sets the button's value. See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#value\" target=\"_blank\">MDN</a> for more details."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "label": "String: label displayed on the button",
-        "value": "String: (Optional) value of the button"
+        "label": "String: label displayed on the button.",
+        "value": "String: (Optional) value of the button."
       }
     },
     "createCheckbox": {
       "description": [
-        "Creates a checkbox <code>&lt;input&gt;&lt;/input&gt;</code> element in the DOM. Calling .checked() on a checkbox returns a boolean indicating whether it is checked or not."
+        "Creates a checkbox <code>&lt;input&gt;&lt;/input&gt;</code> element. Checkboxes extend the <a href=\"#/p5.Element\">p5.Element</a> class with a <code>checked()</code> method. Calling <code>myBox.checked()</code> returns <code>true</code> if it the box is checked and <code>false</code> otherwise.",
+        "The first parameter, <code>label</code>, is optional. It's a string that sets the label to display next to the checkbox.",
+        "The second parameter, <code>value</code>, is also optional. It's a boolean that sets the checkbox's value."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "label": "String: (Optional) label displayed after checkbox",
-        "value": "Boolean: (Optional) value of the checkbox; checked is true, unchecked is false"
+        "label": "String: (Optional) label displayed after the checkbox.",
+        "value": "Boolean: (Optional) value of the checkbox. Checked is <code>true</code> and unchecked is <code>false</code>."
       }
     },
     "createSelect": {
       "description": [
-        "Creates a dropdown menu <code>&lt;select&gt;&lt;/select&gt;</code> element in the DOM. It also assigns select-related methods to <a href=\"#/p5.Element\">p5.Element</a> when selecting an existing select box. Options in the menu are unique by <code>name</code> (the display text). <ul> <li><code>.option(name, [value])</code> can be used to add an option with <code>name</code> (the display text) and <code>value</code> to the select element. If an option with <code>name</code> already exists within the select element, this method will change its value to <code>value</code>.</li> <li><code>.value()</code> will return the currently selected option.</li> <li><code>.selected()</code> will return the current dropdown element which is an instance of <a href=\"#/p5.Element\">p5.Element</a>.</li> <li><code>.selected(value)</code> can be used to make given option selected by default when the page first loads.</li> <li><code>.disable()</code> marks the whole dropdown element as disabled.</li> <li><code>.disable(value)</code> marks a given option as disabled.</li> <li><code>.enable()</code> marks the whole dropdown element as enabled if whole dropdown element is disabled intially.</li> <li><code>.enable(value)</code> marks a given option as enable if the initial option is disabled.</li> </ul>"
+        "Creates a dropdown menu <code>&lt;select&gt;&lt;/select&gt;</code> element.",
+        "The parameter is optional. If <code>true</code> is passed, as in <code>let mySelect = createSelect(true)</code>, then the dropdown will support multiple selections. If an existing <code>&lt;select&gt;&lt;/select&gt;</code> element is passed, as in <code>let mySelect = createSelect(otherSelect)</code>, the existing element will be wrapped in a new <a href=\"#/p5.Element\">p5.Element</a> object.",
+        "Dropdowns extend the <a href=\"#/p5.Element\">p5.Element</a> class with a few helpful methods for managing options: <ul> <li><code>mySelect.option(name, [value])</code> adds an option to the menu. The first paremeter, <code>name</code>, is a string that sets the option's name and value. The second parameter, <code>value</code>, is optional. If provided, it sets the value that corresponds to the key <code>name</code>. If an option with <code>name</code> already exists, its value is changed to <code>value</code>.</li> <li><code>mySelect.value()</code> returns the currently-selected option's value.</li> <li><code>mySelect.selected()</code> returns the currently-selected option.</li> <li><code>mySelect.selected(option)</code> selects the given option by default.</li> <li><code>mySelect.disable()</code> marks the whole dropdown element as disabled.</li> <li><code>mySelect.disable(option)</code> marks a given option as disabled.</li> <li><code>mySelect.enable()</code> marks the whole dropdown element as enabled.</li> <li><code>mySelect.enable(option)</code> marks a given option as enabled.</li> </ul>"
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "multiple": "Boolean: (Optional) true if dropdown should support multiple selections",
-        "existing": "Object: DOM select element"
+        "multiple": "Boolean: (Optional) support multiple selections.",
+        "existing": "Object: select element to wrap, either as a <a href=\"#/p5.Element\">p5.Element</a> or  a <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement\" target=\"_blank\">HTMLSelectElement</a>."
       }
     },
     "createRadio": {
       "description": [
-        "Creates a radio button element in the DOM. It also helps existing radio buttons assign methods of <a href=\"#/p5.Element/\">p5.Element</a>. <ul> <li><code>.option(value, [label])</code> can be used to create a new option for the element. If an option with a value already exists, it will be returned. It is recommended to use string values as input for <code>value</code>. Optionally, a label can be provided as second argument for the option.</li> <li><code>.remove(value)</code> can be used to remove an option for the element. String values recommended as input for <code>value</code>.</li> <li><code>.value()</code> method will return the currently selected value.</li> <li><code>.selected()</code> method will return the currently selected input element.</li> <li><code>.selected(value)</code> method will select the option and return it. String values recommended as input for <code>value</code>.</li> <li><code>.disable(Boolean)</code> method will enable/disable the whole radio button element.</li> </ul>"
+        "Creates a radio button element.",
+        "The parameter is optional. If a string is passed, as in <code>let myRadio = createSelect('food')</code>, then each radio option will have <code>\"food\"</code> as its <code>name</code> parameter: <code>&lt;input name=\"food\"&gt;&lt;/input&gt;</code>. If an existing <code>&lt;div&gt;&lt;/div&gt;</code> or <code>&lt;span&gt;&lt;/span&gt;</code> element is passed, as in <code>let myRadio = createSelect(container)</code>, it will become the radio button's parent element.",
+        "Radio buttons extend the <a href=\"#/p5.Element\">p5.Element</a> class with a few helpful methods for managing options: <ul> <li><code>myRadio.option(value, [label])</code> adds an option to the menu. The first paremeter, <code>value</code>, is a string that sets the option's value and label. The second parameter, <code>label</code>, is optional. If provided, it sets the label displayed for the <code>value</code>. If an option with <code>value</code> already exists, its label is changed and its value is returned.</li> <li><code>myRadio.value()</code> returns the currently-selected option's value.</li> <li><code>myRadio.selected()</code> returns the currently-selected option.</li> <li><code>myRadio.selected(value)</code> selects the given option and returns it as an <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement\" target=\"_blank\"><code>HTMLInputElement</code></a>.</li> <li><code>myRadio.disable(shouldDisable)</code> enables the entire radio button if <code>true</code> is passed and disables it if <code>false</code> is passed.</li> </ul>"
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "containerElement": "Object: A container HTML Element, either a div or span, inside which all existing radio inputs will be considered as options.",
-        "name": "String: (Optional) A name parameter for each Input Element."
+        "containerElement": "Object: (Optional) container HTML Element, either a <code>&lt;div&gt;&lt;/div&gt;</code> or <code>&lt;span&gt;&lt;/span&gt;</code>.",
+        "name": "String: (Optional) name parameter assigned to each option's <code>&lt;input&gt;&lt;/input&gt;</code> element."
       }
     },
     "createColorPicker": {
       "description": [
-        "Creates a colorPicker element in the DOM for color input. The .value() method will return a hex string (#rrggbb) of the color. The .color() method will return a <a href=\"#/p5.Color\">p5.Color</a> object with the current chosen color."
+        "Creates a color picker element.",
+        "The parameter, <code>value</code>, is optional. If a color string or <a href=\"#/p5.Color\">p5.Color</a> object is passed, it will set the default color.",
+        "Color pickers extend the <a href=\"#/p5.Element\">p5.Element</a> class with a couple of helpful methods for managing colors: <ul> <li><code>myPicker.value()</code> returns the current color as a hex string in the format <code>'#rrggbb'</code>.</li> <li><code>myPicker.color()</code> returns the current color as a <a href=\"#/p5.Color\">p5.Color</a> object.</li> </ul>"
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "value": "String|p5.Color: (Optional) default color of element"
+        "value": "String|p5.Color: (Optional) default color as a <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/color\" target=\"_blank\">CSS color string</a>."
       }
     },
     "createInput": {
       "description": [
-        "Creates an <code>&lt;input&gt;&lt;/input&gt;</code> element in the DOM for text input. Use .<a href=\"#/p5.Element/size\">size()</a> to set the display length of the box."
+        "Creates a text <code>&lt;input&gt;&lt;/input&gt;</code> element. Call <code>myInput.size()</code> to set the length of the text box.",
+        "The first parameter, <code>value</code>, is optional. It's a string that sets the input's default value. The input is blank by default.",
+        "The second parameter, <code>type</code>, is also optional. It's a string that specifies the type of text being input. See MDN for a full <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input\" target=\"_blank\">list of options</a>. The default is <code>'text'</code>."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "value": "String: default value of the input box",
-        "type": "String: (Optional) type of text, ie text, password etc. Defaults to text.  Needs a value to be specified first."
+        "value": "String: (Optional) default value of the input box. Defaults to an empty string <code>''</code>.",
+        "type": "String: (Optional) type of input. Defaults to <code>'text'</code>."
       }
     },
     "createFileInput": {
       "description": [
-        "Creates an <code>&lt;input&gt;&lt;/input&gt;</code> element in the DOM of type 'file'. This allows users to select local files for use in a sketch."
+        "Creates an <code>&lt;input&gt;&lt;/input&gt;</code> element of type <code>'file'</code>. This allows users to select local files for use in a sketch.",
+        "The first parameter, <code>callback</code>, is a function that's called when the file loads. The callback function should have one parameter, <code>file</code>, that's a <a href=\"#/p5.File\">p5.File</a> object.",
+        "The second parameter, <code>multiple</code>, is optional. It's a boolean value that allows loading multiple files if set to <code>true</code>. If <code>true</code>, <code>callback</code> will be called once per file."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created DOM element",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "callback": "Function: callback function for when a file is loaded",
-        "multiple": "Boolean: (Optional) optional, to allow multiple files to be selected"
+        "callback": "Function: function to call once the file loads.",
+        "multiple": "Boolean: (Optional) allow multiple files to be selected."
       }
     },
     "createVideo": {
       "description": [
-        "Creates an HTML5 <code>&lt;video&gt;</code> element in the DOM for simple playback of audio/video. Shown by default, can be hidden with .<a href=\"#/p5.Element/hide\">hide()</a> and drawn into canvas using <a href=\"#/p5/image\">image()</a>. The first parameter can be either a single string path to a video file, or an array of string paths to different formats of the same video. This is useful for ensuring that your video can play across different browsers, as each supports different formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this page</a> for further information about supported formats."
+        "Creates a <code>&lt;video&gt;</code> element for simple audio/video playback. Returns a new <a href=\"#/p5.MediaElement\">p5.MediaElement</a> object.",
+        "Videos are shown by default. They can be hidden by calling <code>video.hide()</code> and drawn to the canvas using <a href=\"#/p5/image\">image()</a>.",
+        "The first parameter, <code>src</code>, is the path the video. If a single string is passed, as in <code>'assets/topsecret.mp4'</code>, a single video is loaded. An array of strings can be used to load the same video in different formats. For example, <code>['assets/topsecret.mp4', 'assets/topsecret.ogv', 'assets/topsecret.webm']</code>. This is useful for ensuring that the video can play across different browsers with different capabilities. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>MDN</a> for more information about supported formats.",
+        "The second parameter, <code>callback</code>, is optional. It's a function to call once the video is ready to play."
       ],
-      "returns": "p5.MediaElement: pointer to video <a href=\"#/p5.MediaElement\">p5.MediaElement</a>",
+      "returns": "p5.MediaElement: new <a href=\"#/p5.MediaElement\">p5.MediaElement</a> object.",
       "params": {
-        "src": "String|String[]: path to a video file, or array of paths for  supporting different browsers",
-        "callback": "Function: (Optional) callback function to be called upon  'canplaythrough' event fire, that is, when the  browser can play the media, and estimates that  enough data has been loaded to play the media  up to its end without having to stop for  further buffering of content"
+        "src": "String|String[]: path to a video file, or an array of paths for  supporting different browsers.",
+        "callback": "Function: (Optional) function to call once the video is ready to play."
       }
     },
     "createAudio": {
       "description": [
-        "Creates a hidden HTML5 <code>&lt;audio&gt;</code> element in the DOM for simple audio playback. The first parameter can be either a single string path to a audio file, or an array of string paths to different formats of the same audio. This is useful for ensuring that your audio can play across different browsers, as each supports different formats. See <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats'>this page for further information about supported formats</a>."
+        "Creates a hidden <code>&lt;audio&gt;</code> element for simple audio playback. Returns a new <a href=\"#/p5.MediaElement\">p5.MediaElement</a> object.",
+        "The first parameter, <code>src</code>, is the path the video. If a single string is passed, as in <code>'assets/video.mp4'</code>, a single video is loaded. An array of strings can be used to load the same video in different formats. For example, <code>['assets/video.mp4', 'assets/video.ogv', 'assets/video.webm']</code>. This is useful for ensuring that the video can play across different browsers with different capabilities. See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats\" target=\"_blank\">MDN</a> for more information about supported formats.",
+        "The second parameter, <code>callback</code>, is optional. It's a function to call once the audio is ready to play."
       ],
-      "returns": "p5.MediaElement: pointer to audio <a href=\"#/p5.MediaElement\">p5.MediaElement</a>",
+      "returns": "p5.MediaElement: new <a href=\"#/p5.MediaElement\">p5.MediaElement</a> object.",
       "params": {
-        "src": "String|String[]: (Optional) path to an audio file, or array of paths  for supporting different browsers",
-        "callback": "Function: (Optional) callback function to be called upon  'canplaythrough' event fire, that is, when the  browser can play the media, and estimates that  enough data has been loaded to play the media  up to its end without having to stop for  further buffering of content"
+        "src": "String|String[]: (Optional) path to an audio file, or an array of paths  for supporting different browsers.",
+        "callback": "Function: (Optional) function to call once the audio is ready to play."
       }
     },
     "createCapture": {
       "description": [
-        "Creates a new HTML5 <code>&lt;video&gt;</code> element that contains the audio/video feed from a webcam. The element is separate from the canvas and is displayed by default. The element can be hidden using .<a href=\"#/p5.Element/hide\">hide()</a>. The feed can be drawn onto the canvas using <a href=\"#/p5/image\">image()</a>. The loadedmetadata property can be used to detect when the element has fully loaded (see second example).",
-        "More specific properties of the feed can be passing in a Constraints object. See the <a href='http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints'> W3C spec</a> for possible properties. Note that not all of these are supported by all browsers.",
-        "<em>Security note</em>: A new browser security specification requires that getUserMedia, which is behind <a href=\"#/p5/createCapture\">createCapture()</a>, only works when you're running the code locally, or on HTTPS. Learn more <a href='http://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https'>here</a> and <a href='https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia'>here</a>."
+        "Creates a <code>&lt;video&gt;</code> element that \"captures\" the audio/video stream from the webcam and microphone. Returns a new <a href=\"#/p5.Element\">p5.Element</a> object.",
+        "Videos are shown by default. They can be hidden by calling <code>capture.hide()</code> and drawn to the canvas using <a href=\"#/p5/image\">image()</a>.",
+        "The first parameter, <code>type</code>, is optional. It sets the type of capture to use. By default, <code>createCapture()</code> captures both audio and video. If <code>VIDEO</code> is passed, as in <code>createCapture(VIDEO)</code>, only video will be captured. If <code>AUDIO</code> is passed, as in <code>createCapture(AUDIO)</code>, only audio will be captured. A constraints object can also be passed to customize the stream. See the <a href=\"http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints\" target=\"_blank\"> W3C documentation</a> for possible properties. Different browsers support different properties.",
+        "The second parameter, <code>callback</code>, is optional. It's a function to call once the capture is ready for use. The callback function should have one parameter, <code>stream</code>, that's a <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaStream\" target=\"_blank\">MediaStream</a> object.",
+        "Note: <code>createCapture()</code> only works when running a sketch locally or using HTTPS. Learn more <a href=\"http://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https\" target=\"_blank\">here</a> and <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia\" target=\"_blank\">here</a>."
       ],
-      "returns": "p5.Element: capture video <a href=\"#/p5.Element\">p5.Element</a>",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "type": "String|Constant|Object: type of capture, either VIDEO or  AUDIO if none specified, default both,  or a Constraints object",
-        "callback": "Function: (Optional) function to be called once  stream has loaded"
+        "type": "String|Constant|Object: (Optional) type of capture, either AUDIO or VIDEO,  or a constraints object. Both video and audio  audio streams are captured by default.",
+        "callback": "Function: (Optional) function to call once the stream  has loaded."
       }
     },
     "createElement": {
       "description": [
-        "Creates element with given tag in the DOM with given content."
+        "Creates a new <a href=\"#/p5.Element\">p5.Element</a> object.",
+        "The first parameter, <code>tag</code>, is a string an HTML tag such as <code>'h5'</code>.",
+        "The second parameter, <code>content</code>, is optional. It's a string that sets the HTML content to insert into the new element. New elements have no content by default."
       ],
-      "returns": "p5.Element: pointer to <a href=\"#/p5.Element\">p5.Element</a> holding created node",
+      "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
-        "tag": "String: tag for the new element",
-        "content": "String: (Optional) html content to be inserted into the element"
+        "tag": "String: tag for the new element.",
+        "content": "String: (Optional) HTML content to insert into the element."
       }
     },
     "deviceOrientation": {
@@ -2086,7 +2152,7 @@
         "Saves the current canvas as an image. The browser will either save the file immediately or prompt the user with a dialogue window."
       ],
       "params": {
-        "selectedCanvas": "p5.Element|HTMLCanvasElement: reference to a  specific HTML5 canvas element.",
+        "selectedCanvas": "p5.Framebuffer|p5.Element|HTMLCanvasElement: reference to a  specific HTML5 canvas element.",
         "filename": "String: (Optional) file name. Defaults to 'untitled'.",
         "extension": "String: (Optional) file extension, either 'jpg' or 'png'. Defaults to 'png'."
       }
@@ -2669,7 +2735,7 @@
     "createVector": {
       "description": [
         "Creates a new <a href=\"#/p5.Vector\">p5.Vector</a> object. A vector is like an arrow pointing in space. Vectors have both magnitude (length) and direction. Calling <code>createVector()</code> without arguments sets the new vector's components to 0.",
-        "<a href=\"#/p5.Vector\">p5.Vector</a> objects are often used to program motion because they simplify the math. For example, a moving ball has a position and a velocity. Position describes where the ball is in space. The ball's position vector extends from the origin to the ball's center. Velocity describes the ball's speed and the direction it's moving. If the ball is moving straight up, its velocity vector points straight up. Adding the ball's velocity vector to its position vector moves it, as in <code>pos.add(vel)</code>. Vector math relies on methods inside the <a href=\"#/p5.Vector\">p5.Vector</a>` class."
+        "<a href=\"#/p5.Vector\">p5.Vector</a> objects are often used to program motion because they simplify the math. For example, a moving ball has a position and a velocity. Position describes where the ball is in space. The ball's position vector extends from the origin to the ball's center. Velocity describes the ball's speed and the direction it's moving. If the ball is moving straight up, its velocity vector points straight up. Adding the ball's velocity vector to its position vector moves it, as in <code>pos.add(vel)</code>. Vector math relies on methods inside the <a href=\"#/p5.Vector\">p5.Vector</a> class."
       ],
       "returns": "p5.Vector: new <a href=\"#/p5.Vector\">p5.Vector</a> object.",
       "params": {
@@ -2847,70 +2913,75 @@
     },
     "textAlign": {
       "description": [
-        "Sets the current alignment for drawing text. Accepts two arguments: horizAlign (LEFT, CENTER, or RIGHT) and vertAlign (TOP, BOTTOM, CENTER, or BASELINE).",
-        "The horizAlign parameter is in reference to the x value of the <a href=\"#/p5/text\">text()</a> function, while the vertAlign parameter is in reference to the y value.",
-        "So if you write textAlign(LEFT), you are aligning the left edge of your text to the x value you give in <a href=\"#/p5/text\">text()</a>. If you write textAlign(RIGHT, TOP), you are aligning the right edge of your text to the x value and the top edge of the text to the y value."
+        "Sets the way text is aligned when <a href=\"#/p5/text\">text()</a> is called.",
+        "By default, calling <code>text('hi', 10, 20)</code> places the bottom-left corner of the text's bounding box at (10, 20).",
+        "The first parameter, <code>horizAlign</code>, changes the way <a href=\"#/p5/text\">text()</a> interprets x-coordinates. By default, the x-coordinate sets the left edge of the bounding box. <code>textAlign()</code> accepts the following values for <code>horizAlign</code>: <code>LEFT</code>, <code>CENTER</code>, or <code>RIGHT</code>.",
+        "The second parameter, <code>vertAlign</code>, is optional. It changes the way <a href=\"#/p5/text\">text()</a> interprets y-coordinates. By default, the y-coordinate sets the bottom edge of the bounding box. <code>textAlign()</code> accepts the following values for <code>vertAlign</code>: <code>TOP</code>, <code>BOTTOM</code>, <code>CENTER</code>, or <code>BASELINE</code>."
       ],
       "params": {
-        "horizAlign": "Constant: horizontal alignment, either LEFT,  CENTER, or RIGHT",
-        "vertAlign": "Constant: (Optional) vertical alignment, either TOP,  BOTTOM, CENTER, or BASELINE"
+        "horizAlign": "Constant: horizontal alignment, either LEFT,  CENTER, or RIGHT.",
+        "vertAlign": "Constant: (Optional) vertical alignment, either TOP,  BOTTOM, CENTER, or BASELINE."
       }
     },
     "textLeading": {
       "description": [
-        "Sets/gets the spacing, in pixels, between lines of text. This setting will be used in all subsequent calls to the <a href=\"#/p5/text\">text()</a> function."
+        "Sets the spacing between lines of text when <a href=\"#/p5/text\">text()</a> is called. Spacing is measured in pixels.",
+        "Calling <code>textLeading()</code> without an argument returns the current spacing."
       ],
       "params": {
-        "leading": "Number: the size in pixels for spacing between lines"
+        "leading": "Number: spacing between lines of text in units of pixels."
       }
     },
     "textSize": {
       "description": [
-        "Sets/gets the current font size. This size will be used in all subsequent calls to the <a href=\"#/p5/text\">text()</a> function. Font size is measured in pixels."
+        "Sets the font size when <a href=\"#/p5/text\">text()</a> is called. Font size is measured in pixels.",
+        "Calling <code>textSize()</code> without an arugment returns the current size."
       ],
       "params": {
-        "theSize": "Number: the size of the letters in units of pixels"
+        "size": "Number: size of the letters in units of pixels"
       }
     },
     "textStyle": {
       "description": [
-        "Sets/gets the style of the text for system fonts to NORMAL, ITALIC, BOLD or BOLDITALIC. Note: this may be is overridden by CSS styling. For non-system fonts (opentype, truetype, etc.) please load styled fonts instead."
+        "Sets the style for system fonts when <a href=\"#/p5/text\">text()</a> is called. <code>textStyle()</code> accepts the following values: <code>NORMAL</code>, <code>ITALIC</code>, <code>BOLD</code> or <code>BOLDITALIC</code>.",
+        "<code>textStyle()</code> may be overridden by CSS styling. This function doesn't affect fonts loaded with <a href=\"#/p5/loadFont\">loadFont()</a>."
       ],
       "params": {
-        "theStyle": "Constant: styling for text, either NORMAL,  ITALIC, BOLD or BOLDITALIC"
+        "style": "Constant: styling for text, either NORMAL,  ITALIC, BOLD or BOLDITALIC"
       }
     },
     "textWidth": {
       "description": [
-        "Calculates and returns the width of any character or the maximum width of any paragrph."
+        "Returns the maximum width of a string of text drawn when <a href=\"#/p5/text\">text()</a> is called."
       ],
-      "returns": "Number: the calculated width",
+      "returns": "Number: width measured in units of pixels.",
       "params": {
-        "theText": "String: the String of characters to measure"
+        "str": "String: string of text to measure."
       }
     },
     "textAscent": {
       "description": [
         "Returns the ascent of the current font at its current size. The ascent represents the distance, in pixels, of the tallest character above the baseline."
       ],
-      "returns": "Number:"
+      "returns": "Number: ascent measured in units of pixels."
     },
     "textDescent": {
       "description": [
         "Returns the descent of the current font at its current size. The descent represents the distance, in pixels, of the character with the longest descender below the baseline."
       ],
-      "returns": "Number:"
+      "returns": "Number: descent measured in units of pixels."
     },
     "textWrap": {
       "description": [
-        "Specifies how lines of text are wrapped within a text box. This requires a max-width set on the text area, specified in <a href=\"#/p5/text\">text()</a> as parameter <code>x2</code>.",
-        "WORD wrap style only breaks lines at spaces. A single string without spaces that exceeds the boundaries of the canvas or text area is not truncated, and will overflow the desired area, disappearing at the canvas edge.",
-        "CHAR wrap style breaks lines wherever needed to stay within the text box.",
-        "WORD is the default wrap style, and both styles will still break lines at any line breaks (<code>\\n</code>) specified in the original text. The text area max-height parameter (<code>y2</code>) also still applies to wrapped text in both styles, lines of text that do not fit within the text area will not be drawn to the screen."
+        "Sets the style for wrapping text when <a href=\"#/p5/text\">text()</a> is called. <code>textWrap()</code> accepts the following values:",
+        "<code>WORD</code> starts new lines of text at spaces. If a string of text doesn't have spaces, it may overflow the text box and the canvas. This is the default style.",
+        "<code>CHAR</code> starts new lines as needed to stay within the text box.",
+        "<code>textWrap()</code> only works when the maximum width is set for a text box. For example, calling <code>text('Have a wonderful day', 0, 10, 100)</code> sets the maximum width to 100 pixels.",
+        "Calling <code>textWrap()</code> without an argument returns the current style."
       ],
-      "returns": "String: wrapStyle",
+      "returns": "String: style",
       "params": {
-        "wrapStyle": "Constant: text wrapping style, either WORD or CHAR"
+        "style": "Constant: text wrapping style, either WORD or CHAR."
       }
     },
     "loadFont": {
@@ -3324,7 +3395,7 @@
         "This method works on models generated with <a href=\"#/p5/buildGeometry\">buildGeometry()</a> as well as those loaded from <a href=\"#/p5/loadModel\">loadModel()</a>."
       ],
       "params": {
-        "The": "p5.Geometry: geometry whose resources should be freed"
+        "geometry": "p5.Geometry: The geometry whose resources should be freed"
       }
     },
     "plane": {
@@ -3522,6 +3593,16 @@
         "color": "p5.Color|Number[]|String: color as a <a href=\"#/p5.Color\">p5.Color</a>,  as an array, or as a CSS string"
       }
     },
+    "imageLight": {
+      "description": [
+        "Creates an image light with the given image.",
+        "The image light simulates light from all the directions. This is done by using the image as a texture for an infinitely large sphere light. This sphere contains or encapsulates the whole scene/drawing. It will have different effect for varying shininess of the object in the drawing. Under the hood it is mainly doing 2 types of calculations, the first one is creating an irradiance map the environment map of the input image. The second one is managing reflections based on the shininess or roughness of the material used in the scene.",
+        "Note: The image's diffuse light will be affected by fill() and the specular reflections will be affected by specularMaterial() and shininess()."
+      ],
+      "params": {
+        "img": "p5.image: image for the background"
+      }
+    },
     "lights": {
       "description": [
         "Places an ambient and directional light in the scene. The lights are set to ambientLight(128, 128, 128) and directionalLight(128, 128, 128, 0, 0, -1).",
@@ -3602,6 +3683,7 @@
       "description": [
         "Creates a new <a href=\"#/p5.Shader\">p5.Shader</a> object from the provided vertex and fragment shader files.",
         "The shader files are loaded asynchronously in the background, so this method should be used in <a href=\"#/p5/preload\">preload()</a>.",
+        "Shaders can alter the positioning of shapes drawn with them. To ensure consistency in rendering, it's recommended to use the vertex shader in the <a href=\"#/p5/createShader\">createShader example</a>.",
         "Note, shaders can only be used in WEBGL mode."
       ],
       "returns": "p5.Shader: a shader object created from the provided vertex and fragment shader files.",
@@ -3615,7 +3697,8 @@
     "createShader": {
       "description": [
         "Creates a new <a href=\"#/p5.Shader\">p5.Shader</a> object from the provided vertex and fragment shader code.",
-        "Note, shaders can only be used in WEBGL mode."
+        "Note, shaders can only be used in WEBGL mode.",
+        "Shaders can alter the positioning of shapes drawn with them. To ensure consistency in rendering, it's recommended to use the vertex shader shown in the example below."
       ],
       "returns": "p5.Shader: a shader object created from the provided vertex and fragment shaders.",
       "params": {
@@ -3626,8 +3709,8 @@
     "createFilterShader": {
       "description": [
         "Creates a new <a href=\"#/p5.Shader\">p5.Shader</a> using only a fragment shader, as a convenience method for creating image effects. It's like <a href=\"#/createShader\">createShader()</a> but with a default vertex shader included.",
-        "<a href=\"#/createFilterShader\">createFilterShader()</a> is intended to be used along with <a href=\"#/filter\">filter()</a> for filtering the contents of a canvas in WebGL mode. A filter shader will not be applied to any geometries.",
-        "The fragment shader receives some uniforms: <ul> <li><code>sampler2D tex0</code>, which contains the canvas contents as a texture</li> <li><code>vec2 canvasSize</code>, which is the width and height of the canvas</li> <li><code>vec2 texelSize</code>, which is the size of a pixel (<code>1.0/width</code>, <code>1.0/height</code>)</li> </ul>",
+        "<a href=\"#/createFilterShader\">createFilterShader()</a> is intended to be used along with <a href=\"#/filter\">filter()</a> for filtering the contents of a canvas. A filter shader will not be applied to any geometries.",
+        "The fragment shader receives some uniforms: <ul> <li><code>sampler2D tex0</code>, which contains the canvas contents as a texture</li> <li><code>vec2 canvasSize</code>, which is the p5 width and height of the canvas (not including pixel density)</li> <li><code>vec2 texelSize</code>, which is the size of a physical pixel including pixel density (<code>1.0/(width*density)</code>, <code>1.0/(height*density)</code>)</li> </ul>",
         "For more info about filters and shaders, see Adam Ferriss' <a href=\"https://github.com/aferriss/p5jsShaderExamples\">repo of shader examples</a> or the <a href=\"https://p5js.org/learn/getting-started-in-webgl-shaders.html\">introduction to shaders</a> page."
       ],
       "returns": "p5.Shader: a shader object created from the provided  fragment shader.",
@@ -3638,6 +3721,7 @@
     "shader": {
       "description": [
         "Sets the <a href=\"#/p5.Shader\">p5.Shader</a> object to be used to render subsequent shapes.",
+        "Shaders can alter the positioning of shapes drawn with them. To ensure consistency in rendering, it's recommended to use the vertex shader in the <a href=\"#/p5/createShader\">createShader example</a>.",
         "Custom shaders can be created using the <a href=\"#/p5/createShader\">createShader()</a> and <a href=\"#/p5/loadShader\">loadShader()</a> functions.",
         "Use <a href=\"#/p5/resetShader\">resetShader()</a> to restore the default shaders.",
         "Note, shaders can only be used in WEBGL mode."
@@ -3772,7 +3856,8 @@
       "description": [
         "Sets a perspective projection for the current camera in a 3D sketch. This projection represents depth through foreshortening: objects that are close to the camera appear their actual size while those that are further away from the camera appear smaller.",
         "The parameters to this function define the viewing frustum (the truncated pyramid within which objects are seen by the camera) through vertical field of view, aspect ratio (usually width/height), and near and far clipping planes.",
-        "If no parameters are given, the following default is used: perspective(PI/3, width/height, eyeZ/10, eyeZ*10), where eyeZ is equal to ((height/2) / tan(PI/6))."
+        "If no parameters are given, the default values are used as: <ul> <li><code>fov</code> : The default field of view for the camera is such that the full height of renderer is visible when it is positioned at a default distance of 800 units from the camera.</li> <li><code>aspect</code> : The default aspect ratio is the ratio of renderer's width to renderer's height.</li> <li><code>near</code> : The default value for the near clipping plane is 80, which is 0.1 times the default distance from the camera to its subject.</li> <li><code>far</code> : The default value for the far clipping plane is 8000, which is 10 times the default distance from the camera to its subject.</li> </ul>",
+        "If you prefer a fixed field of view, follow these steps: <ol> <li>Choose your desired field of view angle (<code>fovy</code>). This is how wide the camera can see.</li> <li>To ensure that you can see the entire width across horizontally and height across vertically, place the camera a distance of <code>(height / 2) / tan(fovy / 2)</code> back from its subject.</li> <li>Call perspective with the chosen field of view, canvas aspect ratio, and near/far values: <code>perspective(fovy, width / height, cameraDistance / 10, cameraDistance * 10);</code></li> </ol>"
       ],
       "params": {
         "fovy": "Number: (Optional) camera frustum vertical field of view,  from bottom to top of view, in <a href=\"#/p5/angleMode\">angleMode</a> units",
@@ -4031,147 +4116,159 @@
   },
   "p5.Element": {
     "description": [
-      "Base class for all elements added to a sketch, including canvas, graphics buffers, and other HTML elements. It is not called directly, but <a href=\"#/p5.Element\">p5.Element</a> objects are created by calling <a href=\"#/p5/createCanvas\">createCanvas()</a>, <a href=\"#/p5/createGraphics\">createGraphics()</a>, <a href=\"#/p5/createDiv\">createDiv()</a>, <a href=\"#/p5/createImg\">createImg()</a>, <a href=\"#/p5/createInput\">createInput()</a>, etc."
+      "A class to describe an <a href=\"https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\" target=\"_blank\">HTML element</a>. Sketches can use many elements. Common elements include the drawing canvas, buttons, sliders, webcam feeds, and so on.",
+      "All elements share the methods of the <code>p5.Element</code> class. They're created with functions such as <a href=\"#/p5/createCanvas\">createCanvas()</a> and <a href=\"#/p5/createButton\">createButton()</a>."
     ],
     "params": {
-      "elt": "HTMLElement: DOM node that is wrapped",
-      "pInst": "P5: (Optional) pointer to p5 instance"
+      "elt": "HTMLElement: wrapped DOM element.",
+      "pInst": "P5: (Optional) pointer to p5 instance."
     },
     "elt": {
       "description": [
-        "Underlying HTML element. All normal HTML methods can be called on this."
+        "Underlying <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement\" target=\"_blank\">HTMLElement</a> object. Its properties and methods can be used directly."
       ]
     },
     "width": {},
     "height": {},
     "parent": {
       "description": [
-        "Attaches the element to the parent specified. A way of setting  the container for the element. Accepts either a string ID, DOM  node, or <a href=\"#/p5.Element\">p5.Element</a>. If no arguments are given, parent node is returned.  For more ways to position the canvas, see the  <a href='https://github.com/processing/p5.js/wiki/Positioning-your-canvas'>  positioning the canvas</a> wiki page."
+        "Attaches this element to a parent element.",
+        "For example, a <code>&lt;div&gt;&lt;/div&gt;</code> element may be used as a box to hold two pieces of text, a header and a paragraph. The <code>&lt;div&gt;&lt;/div&gt;</code> is the parent element of both the header and paragraph.",
+        "The parameter <code>parent</code> can have one of three types. <code>parent</code> can be a string with the parent element's ID, as in <code>myElement.parent('container')</code>. It can also be another <a href=\"#/p5.Element\">p5.Element</a> object, as in <code>myElement.parent(myDiv)</code>. Finally, <code>parent</code> can be an <code>HTMLElement</code> object, as in <code>myElement.parent(anotherElement)</code>.",
+        "Calling <code>myElement.parent()</code> without an argument returns this element's parent."
       ],
       "params": {
-        "parent": "String|p5.Element|Object: the ID, DOM node, or <a href=\"#/p5.Element\">p5.Element</a>  of desired parent element"
+        "parent": "String|p5.Element|Object: ID, <a href=\"#/p5.Element\">p5.Element</a>,  or HTMLElement of desired parent element."
       }
     },
     "id": {
       "description": [
-        "Sets the ID of the element. If no ID argument is passed in, it instead  returns the current ID of the element.  Note that only one element can have a particular id in a page.  The <a href=\"#/p5.Element/class\">class()</a> method can be used  to identify multiple elements with the same class name."
+        "Sets this element's ID using a given string.",
+        "Calling <code>myElement.id()</code> without an argument returns its ID as a string."
       ],
       "params": {
-        "id": "String: ID of the element"
+        "id": "String: ID of the element."
       }
     },
     "class": {
       "description": [
-        "Adds given class to the element. If no class argument is passed in, it  instead returns a string containing the current class(es) of the element."
+        "Adds a <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class\" target=\"_blank\">class attribute</a> to the element.",
+        "Calling <code>myElement.class()</code> without an argument returns a string with its current classes."
       ],
       "params": {
-        "class": "String: class to add"
+        "class": "String: class to add."
       }
     },
     "mousePressed": {
       "description": [
-        "The <a href=\"#/p5.Element/mousePressed\">mousePressed()</a> method is called once after every time a mouse button is pressed over the element. Some mobile browsers may also trigger this event on a touch screen, if the user performs a quick tap. This can be used to attach element-specific event listeners."
+        "Calls a function when the mouse is pressed over the element. Calling <code>myElement.mousePressed(false)</code> disables the function.",
+        "Note: Some mobile browsers may also trigger this event when the element receives a quick tap."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when mouse is  pressed over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the mouse is  pressed over the element.  <code>false</code> disables the function."
       }
     },
     "doubleClicked": {
       "description": [
-        "The <a href=\"#/p5.Element/doubleClicked\">doubleClicked()</a> method is called once after every time a mouse button is pressed twice over the element. This can be used to attach element and action-specific event listeners."
+        "Calls a function when the mouse is pressed twice over the element. Calling <code>myElement.doubleClicked(false)</code> disables the function."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when mouse is  double clicked over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the mouse is  double clicked over the element.  <code>false</code> disables the function."
       }
     },
     "mouseWheel": {
       "description": [
-        "The <a href=\"#/p5.Element/mouseWheel\">mouseWheel()</a> method is called once after every time a mouse wheel is scrolled over the element. This can be used to attach element-specific event listeners.",
-        "The method accepts a callback function as argument which will be executed when the <code>wheel</code> event is triggered on the element, the callback function is passed one argument <code>event</code>. The <code>event.deltaY</code> property returns negative values if the mouse wheel is rotated up or away from the user and positive in the other direction. The <code>event.deltaX</code> does the same as <code>event.deltaY</code> except it reads the horizontal wheel scroll of the mouse wheel.",
-        "On macOS with \"natural\" scrolling enabled, the <code>event.deltaY</code> values are reversed."
+        "Calls a function when the mouse wheel scrolls over th element.",
+        "The callback function, <code>fxn</code>, is passed an <code>event</code> object. <code>event</code> has two numeric properties, <code>deltaY</code> and <code>deltaX</code>. <code>event.deltaY</code> is negative if the mouse wheel rotates away from the user. It's positive if the mouse wheel rotates toward the user. <code>event.deltaX</code> is positive if the mouse wheel moves to the right. It's negative if the mouse wheel moves to the left.",
+        "Calling <code>myElement.mouseWheel(false)</code> disables the function."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when mouse is  scrolled over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the mouse wheel is  scrolled over the element.  <code>false</code> disables the function."
       }
     },
     "mouseReleased": {
       "description": [
-        "The <a href=\"#/p5.Element/mouseReleased\">mouseReleased()</a> method is called once after every time a mouse button is released over the element. Some mobile browsers may also trigger this event on a touch screen, if the user performs a quick tap. This can be used to attach element-specific event listeners."
+        "Calls a function when the mouse is released over the element. Calling <code>myElement.mouseReleased(false)</code> disables the function.",
+        "Note: Some mobile browsers may also trigger this event when the element receives a quick tap."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when mouse is  released over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the mouse is  pressed over the element.  <code>false</code> disables the function."
       }
     },
     "mouseClicked": {
       "description": [
-        "The <a href=\"#/p5.Element/mouseClicked\">mouseClicked()</a> method is called once after a mouse button is pressed and released over the element. Some mobile browsers may also trigger this event on a touch screen, if the user performs a quick tap. This can be used to attach element-specific event listeners."
+        "Calls a function when the mouse is pressed and released over the element. Calling <code>myElement.mouseReleased(false)</code> disables the function.",
+        "Note: Some mobile browsers may also trigger this event when the element receives a quick tap."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when mouse is  clicked over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the mouse is  pressed and released over the element.  <code>false</code> disables the function."
       }
     },
     "mouseMoved": {
       "description": [
-        "The <a href=\"#/p5.Element/mouseMoved\">mouseMoved()</a> method is called once every time a mouse moves over the element. This can be used to attach an element-specific event listener."
+        "Calls a function when the mouse moves over the element. Calling <code>myElement.mouseMoved(false)</code> disables the function."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when a mouse moves  over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the mouse  moves over the element.  <code>false</code> disables the function."
       }
     },
     "mouseOver": {
       "description": [
-        "The <a href=\"#/p5.Element/mouseOver\">mouseOver()</a> method is called once after every time a mouse moves onto the element. This can be used to attach an element-specific event listener."
+        "Calls a function when the mouse moves onto the element. Calling <code>myElement.mouseOver(false)</code> disables the function."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when a mouse moves  onto the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the mouse  moves onto the element.  <code>false</code> disables the function."
       }
     },
     "mouseOut": {
       "description": [
-        "The <a href=\"#/p5.Element/mouseOut\">mouseOut()</a> method is called once after every time a mouse moves off the element. This can be used to attach an element-specific event listener."
+        "Calls a function when the mouse moves off the element. Calling <code>myElement.mouseOut(false)</code> disables the function."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when a mouse  moves off of an element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the mouse  moves off the element.  <code>false</code> disables the function."
       }
     },
     "touchStarted": {
       "description": [
-        "The <a href=\"#/p5.Element/touchStarted\">touchStarted()</a> method is called once after every time a touch is registered. This can be used to attach element-specific event listeners."
+        "Calls a function when the element is touched. Calling <code>myElement.touchStarted(false)</code> disables the function.",
+        "Note: Touch functions only work on mobile devices."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when a touch  starts over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the touch  starts.  <code>false</code> disables the function."
       }
     },
     "touchMoved": {
       "description": [
-        "The <a href=\"#/p5.Element/touchMoved\">touchMoved()</a> method is called once after every time a touch move is registered. This can be used to attach element-specific event listeners."
+        "Calls a function when the user touches the element and moves their finger. Calling <code>myElement.touchMoved(false)</code> disables the function.",
+        "Note: Touch functions only work on mobile devices."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when a touch moves over  the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the touch  moves over the element.  <code>false</code> disables the function."
       }
     },
     "touchEnded": {
       "description": [
-        "The <a href=\"#/p5.Element/touchEnded\">touchEnded()</a> method is called once after every time a touch is registered. This can be used to attach element-specific event listeners."
+        "Calls a function when the user stops touching the element. Calling <code>myElement.touchMoved(false)</code> disables the function.",
+        "Note: Touch functions only work on mobile devices."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when a touch ends  over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the touch  ends.  <code>false</code> disables the function."
       }
     },
     "dragOver": {
       "description": [
-        "The <a href=\"#/p5.Element/dragOver\">dragOver()</a> method is called once after every time a file is dragged over the element. This can be used to attach an element-specific event listener."
+        "Calls a function when a file is dragged over the element. Calling <code>myElement.dragOver(false)</code> disables the function."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when a file is  dragged over the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the file is  dragged over the element.  <code>false</code> disables the function."
       }
     },
     "dragLeave": {
       "description": [
-        "The <a href=\"#/p5.Element/dragLeave\">dragLeave()</a> method is called once after every time a dragged file leaves the element area. This can be used to attach an element-specific event listener."
+        "Calls a function when a file is dragged off the element. Calling Calling <code>myElement.dragLeave(false)</code> disables the function."
       ],
       "params": {
-        "fxn": "Function|Boolean: function to be fired when a file is  dragged off the element.  if <code>false</code> is passed instead, the previously  firing function will no longer fire."
+        "fxn": "Function|Boolean: function to call when the file is  dragged off the element.  <code>false</code> disables the function."
       }
     },
     "addClass": {
@@ -4247,74 +4344,96 @@
     },
     "style": {
       "description": [
-        "Sets the given style (CSS) property (1st arg) of the element with the given value (2nd arg). If a single argument is given, .style() returns the value of the given property; however, if a single argument is given in CSS syntax ('text-align:center'), .style() sets the CSS appropriately."
+        "Applies a style to an element by adding a <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax\" target=\"_blank\">CSS declaration</a>.",
+        "The first parameter, <code>property</code>, is a string. If the name of a style property is passed, as in <code>myElement.style('color')</code>, the method returns the current value as a string or <code>null</code> if it hasn't been set. If a <code>property:style</code> string is passed, as in <code>myElement.style('color:deeppink')</code>, the method sets <code>property</code> to <code>value</code>.",
+        "The second parameter, <code>value</code>, is optional. It sets the property's value. <code>value</code> can be a string, as in <code>myElement.style('color', 'deeppink')</code>, or a <a href=\"#/p5.Color\">p5.Color</a> object, as in <code>myElement.style('color', myColor)</code>."
       ],
-      "returns": "String: value of property",
+      "returns": "String: value of the property.",
       "params": {
-        "property": "String: property to be set",
-        "value": "String|p5.Color: value to assign to property"
+        "property": "String: style property to set.",
+        "value": "String|p5.Color: value to assign to the property."
       }
     },
     "attribute": {
       "description": [
-        "Adds a new attribute or changes the value of an existing attribute  on the specified element. If no value is specified, returns the  value of the given attribute, or null if the attribute is not set."
+        "Adds an <a href=\"https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#attributes\" target=\"_blank\">attribute</a> to the element. This method is useful for advanced tasks.",
+        "Most commonly-used attributes, such as <code>id</code>, can be set with their dedicated methods. For example, <code>nextButton.id('next')</code> sets an element's <code>id</code> attribute.",
+        "The first parameter, <code>attr</code>, is the attribute's name as a string. Calling <code>myElement.attribute('align')</code> returns the attribute's current value as a string or <code>null</code> if it hasn't been set.",
+        "The second parameter, <code>value</code>, is optional. It's a string used to set the attribute's value. For example, calling <code>myElement.attribute('align', 'center')</code> sets the element's horizontal alignment to <code>center</code>."
       ],
-      "returns": "String: value of attribute",
+      "returns": "String: value of the attribute.",
       "params": {
-        "attr": "String: attribute to set",
-        "value": "String: value to assign to attribute"
+        "attr": "String: attribute to set.",
+        "value": "String: value to assign to the attribute."
       }
     },
     "removeAttribute": {
       "description": [
-        "Removes an attribute on the specified element."
+        "Removes an attribute from the element.",
+        "The parameter <code>attr</code> is the attribute's name as a string. For example, calling <code>myElement.removeAttribute('align')</code> removes its <code>align</code> attribute if it's been set."
       ],
       "params": {
-        "attr": "String: attribute to remove"
+        "attr": "String: attribute to remove."
       }
     },
     "value": {
       "description": [
-        "Either returns the value of the element if no arguments given, or sets the value of the element."
+        "Returns or sets the element's value.",
+        "Calling <code>myElement.value()</code> returns the element's current value.",
+        "The parameter, <code>value</code>, is an optional number or string. If provided, as in <code>myElement.value(123)</code>, it's used to set the element's value."
       ],
-      "returns": "String|Number: value of the element",
+      "returns": "String|Number: value of the element.",
       "params": {
         "value": "String|Number"
       }
     },
     "show": {
       "description": [
-        "Shows the current element. Essentially, setting display:block for the style."
+        "Shows the current element."
       ]
     },
     "hide": {
       "description": [
-        "Hides the current element. Essentially, setting display:none for the style."
+        "Hides the current element."
       ]
     },
     "size": {
       "description": [
-        "Sets the width and height of the element. AUTO can be used to  only adjust one dimension at a time. If no arguments are given, it  returns the width and height of the element in an Object. In the case of  elements that need to be loaded, such as images, it is recommended  to call the function after the element has finished loading."
+        "Sets the element's width and height.",
+        "Calling <code>myElement.size()</code> without an argument returns the element's size as an object with the properties <code>width</code> and <code>height</code>. For example,  <code>{ width: 20, height: 10 }</code>.",
+        "The first parameter, <code>width</code>, is optional. It's a number used to set the element's width. Calling <code>myElement.size(10)</code>",
+        "The second parameter, 'height<code>, is also optional. It's a number used to set the element's height. For example, calling </code>myElement.size(20, 10)` sets the element's width to 20 pixels and height to 10 pixels.",
+        "The constant <code>AUTO</code> can be used to adjust one dimension at a time while maintaining the aspect ratio, which is <code>width / height</code>. For example, consider an element that's 200 pixels wide and 100 pixels tall. Calling <code>myElement.size(20, AUTO)</code> sets the width to 20 pixels and height to 10 pixels.",
+        "Note: In the case of elements that need to load data, such as images, wait to call <code>myElement.size()</code> until after the data loads."
       ],
-      "returns": "Object: the width and height of the element in an object",
+      "returns": "Object: width and height of the element in an object.",
       "params": {
-        "w": "Number|Constant: width of the element, either AUTO, or a number",
-        "h": "Number|Constant: (Optional) height of the element, either AUTO, or a number"
+        "w": "Number|Constant: width of the element, either AUTO, or a number.",
+        "h": "Number|Constant: (Optional) height of the element, either AUTO, or a number."
       }
     },
     "remove": {
       "description": [
-        "Removes the element, stops all media streams, and deregisters all listeners."
+        "Removes the element, stops all audio/video streams, and removes all callback functions."
       ]
     },
     "drop": {
       "description": [
-        "Registers a callback that gets called every time a file that is dropped on the element has been loaded. p5 will load every dropped file into memory and pass it as a p5.File object to the callback. Multiple files dropped at the same time will result in multiple calls to the callback.",
-        "You can optionally pass a second callback which will be registered to the raw <a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/drop\">drop</a> event. The callback will thus be provided the original <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/DragEvent\">DragEvent</a>. Dropping multiple files at the same time will trigger the second callback once per drop, whereas the first callback will trigger for each loaded file."
+        "Sets a function to call when the user drops a file on the element.",
+        "The first parameter, <code>callback</code>, is a function to call once the file loads. The callback function should have one parameter, <code>file</code>, that's a <a href=\"#/p5.File\">p5.File</a> object. If the user drops multiple files on the element, <code>callback</code>, is called once for each file.",
+        "The second parameter, <code>fxn</code>, is a function to call when the browser detects one or more dropped files. The callback function should have one parameter, <code>event</code>, that's a <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/DragEvent\">DragEvent</a>."
       ],
       "params": {
-        "callback": "Function: callback to receive loaded file, called for each file dropped.",
-        "fxn": "Function: (Optional) callback triggered once when files are dropped with the drop event."
+        "callback": "Function: called when a file loads. Called once for each file dropped.",
+        "fxn": "Function: (Optional) called once when any files are dropped."
+      }
+    },
+    "draggable": {
+      "description": [
+        "Turns p5.Element into a draggable item. If an argument is given, it will drag that p5.Element instead, ie. drag a entire GUI panel (parent container) with the panel's title bar."
+      ],
+      "params": {
+        "elmnt": "p5.Element: (Optional) pass another p5.Element"
       }
     }
   },
@@ -4526,89 +4645,97 @@
   },
   "p5.MediaElement": {
     "description": [
-      "Extends <a href=\"#/p5.Element\">p5.Element</a> to handle audio and video. In addition to the methods of <a href=\"#/p5.Element\">p5.Element</a>, it also contains methods for controlling media. It is not called directly, but <a href=\"#/p5.MediaElement\">p5.MediaElement</a>s are created by calling <a href=\"#/p5/createVideo\">createVideo</a>, <a href=\"#/p5/createAudio\">createAudio</a>, and <a href=\"#/p5/createCapture\">createCapture</a>."
+      "A class to handle audio and video.",
+      "<code>p5.MediaElement</code> extends <a href=\"#/p5.Element\">p5.Element</a> with methods to handle audio and video. <code>p5.MediaElement</code> objects are created by calling <a href=\"#/p5/createVideo\">createVideo</a>, <a href=\"#/p5/createAudio\">createAudio</a>, and <a href=\"#/p5/createCapture\">createCapture</a>."
     ],
     "params": {
       "elt": "String: DOM node that is wrapped"
     },
     "src": {
       "description": [
-        "Path to the media element source."
+        "Path to the media element's source as a string."
       ],
       "returns": "String: src"
     },
     "play": {
       "description": [
-        "Play an HTML5 media element."
+        "Play audio or video from a media element."
       ]
     },
     "stop": {
       "description": [
-        "Stops an HTML5 media element (sets current time to zero)."
+        "Stops a media element and sets its current time to zero. Calling <code>media.play()</code> will restart playing audio/video from the beginning."
       ]
     },
     "pause": {
       "description": [
-        "Pauses an HTML5 media element."
+        "Pauses a media element. Calling <code>media.play()</code> will resume playing audio/video from the moment it paused."
       ]
     },
     "loop": {
       "description": [
-        "Set 'loop' to true for an HTML5 media element, and starts playing."
+        "Play the audio/video repeatedly in a loop."
       ]
     },
     "noLoop": {
       "description": [
-        "Set 'loop' to false for an HTML5 media element. Element will stop when it reaches the end."
+        "Stops the audio/video from playing in a loop. It will stop when it reaches the end."
       ]
     },
     "autoplay": {
       "description": [
-        "Set HTML5 media element to autoplay or not. If no argument is specified, by default it will autoplay."
+        "Sets the audio/video to play once it's loaded.",
+        "The parameter, <code>shouldAutoplay</code>, is optional. Calling <code>media.autoplay()</code> without an argument causes the media to play automatically. If <code>true</code> is passed, as in <code>media.autoplay(true)</code>, the media will automatically play. If <code>false</code> is passed, as in <code>media.autoPlay(false)</code>, it won't play automatically."
       ],
       "params": {
-        "shouldAutoplay": "Boolean: whether the element should autoplay"
+        "shouldAutoplay": "Boolean: (Optional) whether the element should autoplay."
       }
     },
     "volume": {
       "description": [
-        "Sets volume for this HTML5 media element. If no argument is given, returns the current volume."
+        "Manages the audio/video volume.",
+        "Calling <code>media.volume()</code> without an argument returns the current volume as a number in the range 0 (off) to 1 (maximum).",
+        "The parameter, <code>val</code>, is optional. It's a number that sets the volume from 0 (off) to 1 (maximum). For example, calling <code>media.volume(0.5)</code> sets the volume to half of its maximum."
       ],
-      "returns": "Number: current volume",
+      "returns": "Number: current volume.",
       "params": {
-        "val": "Number: volume between 0.0 and 1.0"
+        "val": "Number: volume between 0.0 and 1.0."
       }
     },
     "speed": {
       "description": [
-        "If no arguments are given, returns the current playback speed of the element. The speed parameter sets the speed where 2.0 will play the element twice as fast, 0.5 will play at half the speed, and -1 will play the element in normal speed in reverse.(Note that not all browsers support backward playback and even if they do, playback might not be smooth.)"
+        "Manages the audio/video playback speed. Calling <code>media.speed()</code> returns the current speed as a number.",
+        "The parameter, <code>val</code>, is optional. It's a number that sets the playback speed. 1 plays the media at normal speed, 0.5 plays it at half speed, 2 plays it at double speed, and so on. -1 plays the media at normal speed in reverse.",
+        "Note: Not all browsers support backward playback. Even if they do, playback might not be smooth."
       ],
-      "returns": "Number: current playback speed of the element",
+      "returns": "Number: current playback speed.",
       "params": {
-        "speed": "Number: speed multiplier for element playback"
+        "speed": "Number: speed multiplier for playback."
       }
     },
     "time": {
       "description": [
-        "If no arguments are given, returns the current time of the element. If an argument is given the current time of the element is set to it."
+        "Manages the media element's playback time. Calling <code>media.time()</code> returns the number of seconds the audio/video has played. Time resets to 0 when the looping media restarts.",
+        "The parameter, <code>time</code>, is optional. It's a number that specifies the time, in seconds, to jump to when playback begins."
       ],
-      "returns": "Number: current time (in seconds)",
+      "returns": "Number: current time (in seconds).",
       "params": {
-        "time": "Number: time to jump to (in seconds)"
+        "time": "Number: time to jump to (in seconds)."
       }
     },
     "duration": {
       "description": [
-        "Returns the duration of the HTML5 media element."
+        "Returns the audio/video's duration in seconds."
       ],
-      "returns": "Number: duration"
+      "returns": "Number: duration (in seconds)."
     },
     "onended": {
       "description": [
-        "Schedule an event to be called when the audio or video element reaches the end. If the element is looping, this will not be called. The element is passed in as the argument to the onended callback."
+        "Calls a function when the audio/video reaches the end of its playback The function won't be called if the media is looping.",
+        "The <code>p5.MediaElement</code> is passed as an argument to the callback function."
       ],
       "params": {
-        "callback": "Function: function to call when the  soundfile has ended. The  media element will be passed  in as the argument to the  callback."
+        "callback": "Function: function to call when playback ends.  The <code>p5.MediaElement</code> is passed as  the argument."
       }
     },
     "connect": {
@@ -4627,79 +4754,79 @@
     },
     "showControls": {
       "description": [
-        "Show the default MediaElement controls, as determined by the web browser."
+        "Show the default <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement\" target=\"_blank\">HTMLMediaElement</a> controls. These vary between web browser."
       ]
     },
     "hideControls": {
       "description": [
-        "Hide the default mediaElement controls."
+        "Hide the default <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement\" target=\"_blank\">HTMLMediaElement</a> controls."
       ]
     },
     "addCue": {
       "description": [
-        "Schedule events to trigger every time a MediaElement (audio/video) reaches a playback cue point.",
-        "Accepts a callback function, a time (in seconds) at which to trigger the callback, and an optional parameter for the callback.",
-        "Time will be passed as the first parameter to the callback function, and param will be the second parameter."
+        "Schedules a function to call when the audio/video reaches a specific time during its playback.",
+        "The first parameter, <code>time</code>, is the time, in seconds, when the function should run. This value is passed to <code>callback</code> as its first argument.",
+        "The second parameter, <code>callback</code>, is the function to call at the specified cue time.",
+        "The third parameter, <code>value</code>, is optional and can be any type of value. <code>value</code> is passed to <code>callback</code>.",
+        "Calling <code>media.addCue()</code> returns an ID as a string. This is useful for removing the cue later."
       ],
-      "returns": "Number: id ID of this cue,  useful for removeCue(id)",
+      "returns": "Number: id ID of this cue,  useful for `media.removeCue(id)`.",
       "params": {
-        "time": "Number: Time in seconds, relative to this media  element's playback. For example, to trigger  an event every time playback reaches two  seconds, pass in the number 2. This will be  passed as the first parameter to  the callback function.",
-        "callback": "Function: Name of a function that will be  called at the given time. The callback will  receive time and (optionally) param as its  two parameters.",
-        "value": "Object: (Optional) An object to be passed as the  second parameter to the  callback function."
+        "time": "Number: cue time to run the callback function.",
+        "callback": "Function: function to call at the cue time.",
+        "value": "Object: (Optional) object to pass as the argument to  <code>callback</code>."
       }
     },
     "removeCue": {
       "description": [
-        "Remove a callback based on its ID. The ID is returned by the addCue method."
+        "Remove a callback based on its ID."
       ],
       "params": {
-        "id": "Number: ID of the cue, as returned by addCue"
+        "id": "Number: ID of the cue, created by <code>media.addCue()</code>."
       }
     },
     "clearCues": {
       "description": [
-        "Remove all of the callbacks that had originally been scheduled via the addCue method."
-      ],
-      "params": {
-        "id": "Number: ID of the cue, as returned by addCue"
-      }
+        "Removes all functions scheduled with <code>media.addCue()</code>."
+      ]
     }
   },
   "p5.File": {
     "description": [
-      "Base class for a file. Used for Element.drop and createFileInput."
+      "A class to describe a file.",
+      "<code>p5.File</code> objects are used by <a href=\"#/p5.Element/drop\">myElement.drop()</a> and created by <a href=\"#/p5/createFileInput\">createFileInput</a>."
     ],
     "params": {
-      "file": "File: File that is wrapped"
+      "file": "File: wrapped file."
     },
     "file": {
       "description": [
-        "Underlying File object. All normal File methods can be called on this."
+        "Underlying <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/File\" target=\"_blank\">File</a> object. All <code>File</code> properties and methods are accessible."
       ]
     },
     "type": {
       "description": [
-        "File type (image, text, etc.)"
+        "The file <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types\" target=\"_blank\">MIME type</a> as a string. For example, <code>'image'</code>, <code>'text'</code>, and so on."
       ]
     },
     "subtype": {
       "description": [
-        "File subtype (usually the file extension jpg, png, xml, etc.)"
+        "The file subtype as a string. For example, a file with an <code>'image'</code> <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types\" target=\"_blank\">MIME type</a> may have a subtype such as <code>png</code> or <code>jpeg</code>."
       ]
     },
     "name": {
       "description": [
-        "File name"
+        "The file name as a string."
       ]
     },
     "size": {
       "description": [
-        "File size"
+        "The number of bytes in the file."
       ]
     },
     "data": {
       "description": [
-        "URL string containing either image data, the text contents of the file or a parsed object if file is JSON and p5.XML if XML"
+        "A string containing either the file's image data, text contents, or a parsed object in the case of JSON and <a href=\"#/p5.XML\">p5.XML</a> objects."
       ]
     }
   },
@@ -6039,6 +6166,11 @@
       "detailY": "Integer: (Optional) number of vertices along the y-axis.",
       "callback": "Function: (Optional) function to call upon object instantiation."
     },
+    "clearColors": {
+      "description": [
+        "Removes the internal colors of p5.Geometry. Using <code>clearColors()</code>, you can use <code>fill()</code> to supply new colors before drawing each shape. If <code>clearColors()</code> is not used, the shapes will use their internal colors by ignoring <code>fill()</code>."
+      ]
+    },
     "computeFaces": {
       "description": [
         "computes faces for geometry objects based on the vertices."
@@ -6046,8 +6178,14 @@
     },
     "computeNormals": {
       "description": [
-        "computes smooth normals per vertex as an average of each face."
-      ]
+        "This function calculates normals for each face, where each vertex's normal is the average of the normals of all faces it's connected to. i.e computes smooth normals per vertex as an average of each face.",
+        "When using <code>FLAT</code> shading, vertices are disconnected/duplicated i.e each face has its own copy of vertices. When using <code>SMOOTH</code> shading, vertices are connected/deduplicated i.e each face has its vertices shared with other faces.",
+        "Options can include: <ul> <li><code>roundToPrecision</code>: Precision value for rounding computations. Defaults to 3.</li> </ul>"
+      ],
+      "params": {
+        "shadingType": "String: (Optional) shading type (<code>FLAT</code> for flat shading or <code>SMOOTH</code> for smooth shading) for buildGeometry() outputs. Defaults to <code>FLAT</code>.",
+        "options": "Object: (Optional) An optional object with configuration."
+      }
     },
     "averageNormals": {
       "description": [
