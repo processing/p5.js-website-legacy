@@ -3,7 +3,7 @@
  * @description WebJack is a way to read data from an Arduino (and other sources)
  * using audio -- it basically turns your Arduino into an audio modem.
  * 
- * https://github.com/publiclab/webjack
+ * <pre><a href = "https://github.com/publiclab/webjack">https://github.com/publiclab/webjack</a><pre>
  * 
  * Note: WebJack and p5-webjack libraries must be added to your index.html as follows:
  * <pre><code class="language-markup">&lt;script src="https://webjack.io/dist/webjack.js">&lt;/script></code></pre>
