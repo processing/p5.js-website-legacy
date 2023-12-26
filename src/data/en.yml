@@ -33,7 +33,6 @@ tagline5: Processing community times JavaScript community
 tagline6: the power of Processing times the reach of JavaScript
 tagline7: The p5.js community stands in solidarity with Black Lives Matter.
 home:
-  search-bar: Search p5js.org
   start-creating: Start creating with the p5 Editor!
   p1xh1: Hello!
   p1x1: >-
@@ -311,21 +310,21 @@ download:
   support-31: Bicoastal p5.js meetup at UCLA DMA and NYU ITP
   support-32: The Processing Foundation
   support-33: ' was founded in 2012 after more than a decade of work with the original Processing software. The Foundation’s mission is to promote software literacy within the visual arts, and visual literacy within technology-related fields — and to make these fields accessible to diverse communities. Our goal is to empower people of all interests and backgrounds to learn how to program and make creative work with code, especially those who might not otherwise have access to these tools and resources.'
-  support-17-alt: p5.js Contributors Conference at CMU STUDIO for Creative Inquiry in Pittsburgh
-  support-18-alt: Processing Fellow Saskia Freeke organizing Code Liberation x Processing workshops in London
-  support-19-alt: Learning to Teach, Teaching to Learn conference with SFPC
-  support-20-alt: Processing Foundation Fellow Cassie Tarakajian's workshop at Code Art Miami
-  support-21-alt: Taeyoon Choi and ASL interpretor at Signing Coders p5.js workshop
-  support-22-alt: Google Summer of Code kickoff participants
-  support-23-alt: Processing Foundation Fellow Cassie Tarakajian's workshop at Code Art Miami
-  support-24-alt: Luisa Pereira and Yeseul Song facilitate a sign language based p5.js workshop
-  support-25-alt: p5.js Contributors Conference at CMU STUDIO for Creative Inquiry in Pittsburgh
-  support-26-alt: Processing Fellow Digital Citizens Lab panel on STEM teaching at the International Center of Photography
-  support-27-alt: Participants at p5.js workshop in Santiago, Chile
-  support-28-alt: Claire Kearney-Volpe helping facilitate a sign language based p5.js workshop
-  support-29-alt: Processing Foundation Fellow DIY Girls run a creative coding program in Los Angeles
-  support-30-alt: Processing Fellow Digital Citizens Lab
-  support-31-alt: Bicoastal p5.js meetup at UCLA DMA and NYU ITP
+  support-17-alt: ''
+  support-18-alt: ''
+  support-19-alt: ''
+  support-20-alt: ''
+  support-21-alt: ''
+  support-22-alt: ''
+  support-23-alt: ''
+  support-24-alt: ''
+  support-25-alt: ''
+  support-26-alt: ''
+  support-27-alt: ''
+  support-28-alt: ''
+  support-29-alt: ''
+  support-30-alt: ''
+  support-31-alt: ''
 learn:
   learn-title: Learn
   teach-title2: Teach
@@ -352,144 +351,202 @@ learn:
   p5-screen-reader-title: p5 with a screen reader
   p5-screen-reader: Setting up p5 so that it can be used easily with a screen reader.
   using-local-server-title: Using a local server
-  labeling-canvases-title: How to label your p5.js code
-  labeling-canvases: Using labels to make your code accessible to screen readers.
-  labeling-canvases-intro-1: 'This tutorial will teach you how to use the'
-  labeling-canvases-intro-2: and
-  labeling-canvases-intro-3: functions in your code so your canvases are readible by screen readers and other assistive technology.
-  labeling-canvases-what-is-labeling: What is screen reader labeling?
-  labeling-canvases-what-is-labeling-1: >-
-    The canvas HTML element compresses the visuals created by your p5 code into a bitmap (a rastered graphic composed of pixels). This
-    bitmap on its own doesn't provide any significant meaning or description about its contents to
-    screen readers. That’s why the p5.js <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a>,
-    <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>,
-    and <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a>
-    functions exist— these allow you to manually add screen reader-accessible descriptions to your
-    code so that screen reader technologies can describe the canvas’ content in a meaningful way.
-  labeling-canvases-what-is-labeling-2: >-
-    Because a screen reader cannot naturally interpret the contents of a canvas bitmap, these functions
-    add labels into your code that instruct the screen reader on how to describe certain elements
-    within your canvas.
-  labeling-canvases-what-is-labeling-3: >-
-    For more information about p5.js screen reader accessibility, please read
-  labeling-canvases-available-labels: Screen reader labels for p5.js
-  labeling-canvases-available-labels-1: p5.js offers four different functions for labeling your canvas
-  labeling-canvases-available-labels-li-1: >-
-    <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a> provides an overall description of the canvas contents. This function's parameters include: <span class= "code">text</span>,
-    which affords a string of text for the label; and <span class = "code">display</span>, an optional parameter to set the visibility of the label.
-  labeling-canvases-available-labels-li-2: >-
-    <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> describes a specific element or a specific grouping of elements in a canvas.
-    This function's parameters include: <span class = "code">name</span>, which affords a string naming the element described; <span class = "code">text</span>, which affords a string of text as the label description;
-    and <span class="code">display</span>, an optional parameter to set the visibility of the label.
-  labeling-canvases-available-labels-li-3: >-
-    <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> generates a list providing a canvas description and its visual elements, including the canvas' size,
-    canvas color, as well as each visual element’s color, position, and the amount of area the element covers within the canvas. This function's only parameter is <span class = "code">display</span>, which is an optional
-    parameter to set the visibility of the label.
-  labeling-canvases-available-labels-li-4: >-
-    <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, like <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a>, generates a list of the canvas and its (visual) elements, only this function
-    arranges its output in a HTML table that plots the spatial location of each shape within the canvas. It also provides a basic
-    description of the canvas, including the canvas' size, canvas color, the number of visual elements, and the different visual element types inside the canvas. This function's only parameter is <span class = "code">display</span>, which is an optional
-    parameter to set the visibility of the label.
-  labeling-canvases-best-practices: Labeling best practices
-  labeling-canvases-best-practices-what-requires-labeling: What requires labeling?
-  labeling-canvases-best-practices-what-requires-labeling-1: >-
-    As a good rule of thumb, any visual element that is important to the overall context or purpose
-    of the canvas should be mentioned by the <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a> and/or <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> functions.
-  labeling-canvases-best-practices-what-requires-labeling-2: >-
-    Consider the overall purpose of the p5.js canvas and its contents in question, and label them in a way that makes
-    sense for the message, functionality, and/or purpose of the canvas and its elements. In the code block below, a heart is made within the canvas by placing two circles on top of a triangle.
-    Instead of individually labeling each shape used to make the heart, you should use one <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> function to describe
-    the overall shape you made.
-  labeling-canvases-best-practices-what-requires-labeling-3: >-
-    If, at any point, an element in your canvas undergoes a change or alteration in its visual appearance (and this change is
-    important to the overall meaning and context of the canvas), it’s best to also update the <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> label when that
-    change occurs.
-  labeling-canvases-best-practices-what-requires-labeling-4: >-
-    The canvas HTML element will also rasterize any text within it. Use the <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> function to translate any significant
-    text within your canvas.
-  labeling-canvases-best-practices-what-requires-labeling-5: In short, any significant visual, textual, or animated information within the canvas should be labeled with a screen reader label.
-  labeling-canvases-best-practices-dont-label: What DOESN'T need labeling
-  labeling-canvases-best-practices-dont-label-1: >-
-    Individual interactive elements, such as HTML buttons, dropdowns, or inputs, <i>do not</i> need to be labeled.
-    In the DOM, these elements are built outside of the p5.js canvas, and therefore can be interpreted by screen readers.
-  labeling-canvases-best-practices-dont-label-2: >-
-    This means the <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> and <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> functions will not provide any information about these interactive inputs in their
-    reports of the canvas, should you use them.
-  labeling-canvases-best-practices-using-labels: How to use labels
-  labeling-canvases-best-practices-using-labels-all-canvases: For all canvases
-  labeling-canvases-best-practices-using-labels-all-canvases-1: >-
-    No matter the canvas’ purpose or contents, you should <i>always</i> use a label to supply an overall summary of the canvas. Most often,
-    you’ll use the <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a> function for this summary.
-  labeling-canvases-best-practices-using-labels-all-canvases-2: >-
-    The summary should provide a general understanding of the visuals inside the canvas.
-  labeling-canvases-best-practices-using-labels-simple: For simple, non-animated canvases
-  labeling-canvases-best-practices-using-labels-simple-1: >-
-    For canvases without any changing, moving, or interactive elements, you may use either the <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,
-    <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, or <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a>
-    functions to label the canvas’ visual content. However, keep in mind that <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> and <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> generate their information based on
-    the rudimentary code of the visual element, such as its size, color, and shape. These functions won’t be able to interpret your
-    intention in using such a shape within a larger visual built using multiple shapes.
-  labeling-canvases-best-practices-using-labels-simple-2: >-
-    Keep in mind the context and objective of the canvas’ contents when choosing which function(s) to use. Is it better to describe the flower
-    as eight circles and a rectangle, or as a flower with red petals and a green stem? What kind of labeling will provide the best
-    description of your canvas?
-  labeling-canvases-best-practices-using-labels-simple-3: >-
-    If you are creating larger, multi-shaped visuals, then it would be best to use <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a> to define each visual grouping
-    present within the canvas.
-  labeling-canvases-best-practices-using-labels-interactive: For interactive or animated canvases
-  labeling-canvases-best-practices-using-labels-interactive-1: >-
-    If your canvas contains any animated elements or elements that change their visual form via user input (the click of a button, a
-    dropdown selection, etc.), be sure that any descriptions of such elements update with their changes or animations. If you are using
-    <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> or <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> to describe the contents of your canvas, so long as these functions are placed within the <a class = "code" href ="https://p5js.org/reference/#/p5/draw">draw()</a> function, they
-    will automatically update with the shape’s new information. If you are using <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, use concatenation or another form of
-    variable input to update the element’s description.
-  labeling-canvases-best-practices-using-labels-interactive-2: >-
-    If this interaction or animation is crucial to the overall purpose and/or message of the canvas, be sure to mention in either the <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a>
-    label or the individual element’s label that this element is (or can be) animated.
-  labeling-canvases-best-practices-using-labels-interactive-3: >-
-    Naturally-interactive HTML elements, such as buttons or inputs, <i>do not</i> need to have a label. Instead, follow the proper role and ID
-    syntax for these elements when possible. For more information about how to properly label and ID HTML
-    interactive elements, visit <a href= "https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML">Mozilla’s HTML: A good basis for accessibility</a>.
-  labeling-canvases-best-practices-using-labels-complex: For complex canvases
-  labeling-canvases-best-practices-using-labels-complex-1: >-
-    The p5 functions listed above do not afford the more complicated features of ARIA labeling, such as <span class="code">aria-live</span> or <span class="code">aria-atomic</span>.
-    For advanced canvases, using vanilla ARIA labeling and custom-built fallback content might better convey the canvas’
-    information to screen readers. Some cases where the canvas’ content cannot be accurately described (or represented) through p5.js’ supplied
-    screen reader labels include:
-  labeling-canvases-best-practices-using-labels-complex-ul-1: Canvases with content that changes extensively via external interactive elements.
-  labeling-canvases-best-practices-using-labels-complex-ul-2: >-
-    Canvases with content that requires the user’s attention if it is changed or altered by another element, especially if that element is not
-    embedded in the canvas’ code.
-  labeling-canvases-best-practices-using-labels-complex-ul-3: >-
-    Canvases with complex element layouts that cannot be accurately represented using the <a class = "code" href="https://p5js.org/reference/#/p5/describe">describe()</a>, <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,
-    <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a>, or <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions.
-  labeling-canvases-best-practices-using-labels-complex-2: >-
-    For more information about fallback content, visit <a href="https://www.w3.org/html/wg/wiki/DefinitionFallBackContent">W3C’s Wiki</a>. For more information about complex ARIA labeling,
-    visit <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes">Mozilla’s ARIA states and properties</a>.
-  labeling-canvases-how-not-to-use-labels: How NOT to use labels
-  labeling-canvases-how-not-to-use-labels-sub: As a substitution for poorly organized code
-  labeling-canvases-how-not-to-use-labels-sub-1: >-
-    Screen reader labels should not be used as a way of commenting your code. These labels
-    should only be used to summarize the resulting visual elements within a canvas.
-  labeling-canvases-how-not-to-use-labels-info-overkill: As information overkill
-  labeling-canvases-how-not-to-use-labels-info-overkill-1: If you overuse screen reader labels in your code, you may end up overly complicating the screen reader’s interpretation of the canvas rather than helping it.
-  labeling-canvases-how-not-to-use-labels-info-overkill-2: Within reason, less is more with screen reader labeling. Be concise, accurate, and short with your label descriptions.
-  labeling-canvases-how-not-to-use-labels-info-overkill-3: >-
-    Do not use both the <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> and <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions in the same canvas. You only need to use one or the other to describe the canvas elements.
-    Using both will cause redundancy in the screen readers’ translation of your code. This also pertains to using <a class = "code" href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> or
-    <a class = "code" href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> with additional <a class = "code" href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
-    labels. It’s best to choose one strategy of labeling for your entire canvas, and stick with it.
-  labeling-canvases-testing-labels: Testing labels during development
-  labeling-canvases-testing-labels-1: >-
-    All these functions have a display parameter that either keeps its output only available to screen readers <span class="code">(FALLBACK)</span> or presents the output as text
-    adjacent to the canvas <span class="code">(LABEL)</span>. If you would like to see the output during development, add <span class="code">LABEL</span> as the last parameter for the function. <span class="code">FALLBACK</span> is the default parameter.
-  labeling-canvases-testing-labels-2: >-
-    When testing your labels, consider the following questions: Do your canvas labels provide enough information for someone to understand its purpose? If this canvas
-    exists on a website, or among any other content, would someone have a good understanding of how the canvas’ content interacts and/or pertains to the surrounding context?
-  labeling-canvases-testing-labels-3: >-
-    In order to reduce redundancy, be sure to reset the display parameter to <span class="code">FALLBACK</span> once you’ve tested the output. With <span class="code">LABEL</span> active, screen readers will read the fallback text
-    and the visible label text when focused on the canvas.
-  labeling-canvases-note: Notice any errors or typos? Please let us know. If you would like to contribute to this tutorial, feel free to issue a <a href = "https://github.com/processing/p5.js-website">pull request</a>!
+  accessible-labels-title: Writing accessible canvas descriptions
+  accessible-labels: Using labels to make your code accessible to screen readers.
+  accessible-labels-intro: Introduction
+  accessible-labels-intro-1: >-
+    In this tutorial, you'll learn how to use <a class = "code" href = "https://p5js.org/reference/#/p5/describe">describe()</a>
+    , <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, 
+    and <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>. These functions add labels to 
+    your canvas so that it’s readable for screen readers and other assistive technologies.
+  accessible-labels-what-is-labeling: What is labeling?
+  accessible-labels-what-is-labeling-1: >-
+    When you use the <a class = "code" href = "https://p5js.org/reference/#/p5/createCanvas">createCanvas()</a> function, you 
+    create a canvas HTML element. This canvas element displays the image generated by your code as a bitmap (a raster graphic made up of pixels). 
+    Unlike most HTML elements, the canvas doesn’t provide any description about its contents to screen readers. 
+    That’s why we created the <a class = "code" href = "https://p5js.org/reference/#/p5/describe">describe()</a>, 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, and 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> functions. 
+    These functions add labels to your canvas that tell the screen reader how to describe it.
+  accessible-labels-why-labeling-matters: Why labeling matters
+  accessible-labels-why-labeling-matters-1: >-
+    Screen readers (and text-to-speech software) are helpful for lots of people, <a href = "https://www.w3.org/WAI/perspective-videos/speech/" target="_blank" rel="noopener noreferrer">
+    regardless of ability or context</a>. For example, a visually impaired person searching the web might use a screen reader to 
+    understand the contents of a site. If a site’s code isn’t properly labeled for assistive technologies, 
+    the screen reader software won’t be able to communicate what’s on the site to its user. Someone else 
+    might be using a text-to-speech software because they have dyslexia and find listening to the site’s 
+    content more comprehensible than reading it. There are also people who use these assistive software 
+    to multi-task, so they can listen to an article on the web and wash dishes, or complete other chores. 
+  accessible-labels-why-labeling-matters-2: >-
+    No matter the purpose or person, making sure your code is readable by these assistive software allows 
+    more people to engage with your work in meaningful ways.
+  accessible-labels-available-labels: Available labeling functions
+  accessible-labels-available-labels-1: p5.js offers four different functions for labeling your canvas
+  accessible-labels-available-labels-li-1: >-
+    <a class = "code" href = "https://p5js.org/reference/#/p5/describe">describe()</a> provides a description of the canvas contents. 
+    This function's parameters include: <span class = "code">text</span>, the label itself; and <span class = "code">display</span>, 
+    an optional parameter to set the visibility of the label.
+  accessible-labels-available-labels-li-2: >- 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a> describes a specific element or a 
+    specific grouping of elements in a canvas. This function's parameters include: <span class = "code">name</span>, the title for the label; 
+    <span class = "code">text</span>, the label itself; and <span class = "code">display</span>, an optional parameter to set the visibility of the label.
+  accessible-labels-available-labels-li-3: >-
+    <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> generates a list describing the canvas size, color, 
+    as well as each visual element’s color, position, and the area it covers within the canvas. This function’s only parameter is 
+    <span class = "code">display</span>, an optional parameter to set the visibility of the label.
+  accessible-labels-available-labels-li-4: >-
+    <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, like <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>, 
+    generates a list of the canvas' qualities and elements. Along with this list, this function also creates an HTML table that plots the 
+    spatial location of each shape within the canvas. This function's only parameter is <span class = "code">display</span>, an optional parameter 
+    to set the visibility of the label.
+  accessible-labels-prerequisites: Prerequisites
+  accessible-labels-prerequisites-1: >-
+    Your project's code should be near completion before you begin labeling. To write clear and effective 
+    labels, you should have a clear understanding about what visuals your code creates within the canvas 
+    element. 
+  accessible-labels-prerequisites-2: >-
+    For example, if you started writing your labels before you had a clear understanding of the resulting 
+    visual of your canvas, your labels and your visuals may communicate different messages, like the code 
+    example below:
+  accessible-labels-steps-for-labeling: Steps for labeling your p5.js code
+  accessible-labels-steps-for-labeling-step-1: 1. Plan your labeling strategy
+  accessible-labels-steps-for-labeling-step-1-1: >-
+    Your labeling strategy will change based on your project’s complexity and purpose.
+  accessible-labels-steps-for-labeling-step-1-2: >-
+    No matter how complicated your project may be, always provide a brief description of your canvas in 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/setup">setup()</a> using the 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/describe">describe()</a> function. If you do not provide any labels in your code, 
+    screen readers will describe your canvas as a blank HTML element.
+  accessible-labels-steps-for-labeling-step-1-3: >-
+    Place this label in the <a class = "code" href = "https://p5js.org/reference/#/p5/setup">setup()</a> section of your code, 
+    and provide a 1-3 sentence description of your canvas in its <span class = "code">text</span> parameter. This description should only provide details about 
+    the visual elements of your canvas. 
+  accessible-labels-steps-for-labeling-step-1-4: >-
+    As stated previously, you do not need to begin your description with “A p5 canvas element…” or anything similar, since the 
+    screen reader will declare the element type before reading your label.
+  accessible-labels-steps-for-labeling-step-1-5: >-
+    Along with the <a class = "code" href = "https://p5js.org/reference/#/p5/describe">describe()</a> label, use either the 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>, 
+    or <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> 
+    function to add more detailed labels within your code.
+  accessible-labels-steps-for-labeling-step-1-6: >-
+    The <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> and 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions can 
+    describe the shapes on your canvas, but they can’t interpret your intention in using the shapes. Keep context in mind when choosing 
+    which function(s) to use. Is it better to describe the flower as “eight circles and a rectangle”, or as “a flower with red 
+    petals and a green stem”? What kind of labeling will provide the best description of your canvas? If 
+    you are creating larger visuals with many shapes, use <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a> 
+    to label each group of shapes.
+  accessible-labels-steps-for-labeling-step-1-7: >-
+    Do not use both the <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> and 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions to describe the same canvas. Using both will 
+    cause similar descriptions to appear twice, which is confusing to screen readers. The same goes for 
+    using <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> or 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> with 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a> labels. It’s best to choose one function to 
+    supplement your <a class = "code" href = "https://p5js.org/reference/#/p5/describe">describe()</a> label.
+  accessible-labels-steps-for-labeling-step-1-complex: Complex projects
+  accessible-labels-steps-for-labeling-step-1-complex-1: >-
+    Use vanilla ARIA labeling and custom-built fallback labels instead of p5’s labeling functions if your canvas:
+  accessible-labels-steps-for-labeling-step-1-complex-li-1: >-
+    Has content that changes extensively via external interactive elements (elements outside the canvas)
+  accessible-labels-steps-for-labeling-step-1-complex-li-2: >-
+    Interacts with DOM elements written outside of the canvas code
+  accessible-labels-steps-for-labeling-step-1-complex-li-3: >-
+    Requires the user’s attention if the canva's visual content changes
+  accessible-labels-steps-for-labeling-step-1-complex-li-4: >-
+    Has complex element layouts that cannot be accurately labeled with the <a class = "code" href = "https://p5js.org/reference/#/p5/describe">describe()</a>, 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>, or 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions
+  accessible-labels-steps-for-labeling-step-1-complex-2: >-
+    For more information about fallback content, visit <a href = "https://www.w3.org/html/wg/wiki/DefinitionFallBackContent" target="_blank" rel="noopener noreferrer">W3C’s Wiki</a>. 
+    For more information about complex ARIA labeling, visit <a href = "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes" target="_blank" rel="noopener noreferrer">Mozilla’s "ARIA states and properties"</a> 
+    and <a href = "https://www.w3.org/TR/using-aria/" target="_blank" rel="noopener noreferrer">W3C’s "Using ARIA"</a>.
+  accessible-labels-steps-for-labeling-step-2: 2. Write your main and supporting label(s)
+  accessible-labels-steps-for-labeling-step-2-1: >-
+    Begin labeling your canvas using the function(s) that best serve your users.
+  accessible-labels-steps-for-labeling-step-2-2: >-
+    While labeling, only provide descriptions of the visual aspects of your canvas. You don’t need to 
+    describe how or what functions create the visuals present on the canvas, only how the end result 
+    visuals appear within the canvas.
+  accessible-labels-steps-for-labeling-step-2-using-de: Using <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
+  accessible-labels-steps-for-labeling-step-2-using-de-1: >-
+    When using the <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a> function to label your code, provide a unique title and a description 
+    no more than 1-2 sentences long. Only label the parts of your code that depict the most important visual 
+    aspects of your canvas.
+  accessible-labels-steps-for-labeling-step-2-using-de-2: >-
+    Within each <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a> label, discuss the important qualities of that element. Is the element 
+    animated? Is the element interactive? What meaning does the element provide to the project?
+  accessible-labels-steps-for-labeling-step-2-using-de-3: >-
+    If your canvas contains any <a class = "code" href = "https://p5js.org/reference/#/p5/text">text()</a> elements that are important to the general understanding of the 
+    image, make a separate label for them. Label any legible text with quotation marks around it in the 
+    label, as in <span class = "code">describeElement("Text", "The words 'hello, world' displayed in green at the center of a 
+    black canvas.")</span>.
+  accessible-labels-steps-for-labeling-step-2-using-de-4: >-
+    You don’t need to start each label with “A p5 canvas…” or something similar. The screen reader will 
+    call out the element type before reading your labels:
+  accessible-labels-steps-for-labeling-step-2-using-de-5: >-
+    Limit the number of <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a> functions present within your code as much as possible. If you 
+    have to use more than 10 <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a> functions to describe your canvas, consider using a labeling 
+    strategy that affords more complexity (such as vanilla ARIA labeling).
+  accessible-labels-steps-for-labeling-step-2-using-go-to: Using <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> or <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>
+  accessible-labels-steps-for-labeling-step-2-using-go-to-1: >-
+    <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> and <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> 
+    generate their information based on the code of the visual element, such as its size, color, and shape. 
+    Unlike <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, you only need to use one label to describe all 
+    your canvas's visual elements.
+  accessible-labels-steps-for-labeling-step-2-animated: Projects with animated or interactive elements
+  accessible-labels-steps-for-labeling-step-2-animated-1: >-
+    Individual interactive elements, such as HTML buttons, dropdowns, or inputs, don’t need labels. These 
+    elements are built outside of the p5.js canvas and are interpreted by screen readers. However, this 
+    means the <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> and 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> functions won’t provide any information about these interactive 
+    inputs.
+  accessible-labels-steps-for-labeling-step-2-animated-2: >-
+    If a canvas element is animated and/or interactive, represent its current state or qualities in the label. 
+    So long as you place the functions within the <a class = "code" href = "https://p5js.org/reference/#/p5/draw">draw()</a> function, 
+    they will automatically update with the shape’s new information (except for <a class = "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> 
+    and <a class = "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, 
+    which will update even when listed in <a class = "code" href = "https://p5js.org/reference/#/p5/setup">setup()</a>). If you are using 
+    <a class = "code" href = "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, use template strings to update the element’s description:
+  accessible-labels-steps-for-labeling-step-2-do-donts: Labeling do’s and don’ts
+  accessible-labels-steps-for-labeling-step-2-do-donts-1: >-
+    <i>Don’t</i> use screen reader labels as a way of commenting your code. Labels should only summarize the 
+    resulting visual elements within a canvas. If you overuse screen reader labels, you may end up 
+    complicating the screen reader’s interpretation of the canvas rather than helping it.
+  accessible-labels-steps-for-labeling-step-2-do-donts-2: >-
+    <i>Do</i> make your label descriptions short and accurate. Use full sentences for your labels, and write 
+    in the present tense when describing elements.
+  accessible-labels-steps-for-labeling-step-3: 3. Test your labels
+  accessible-labels-steps-for-labeling-step-3-1: >-
+    Be sure to test your labels before publishing your sketch. Labels are only available to screen readers 
+    by default.To see the output during development, pass <span class = "code">LABEL</span> as the last argument to the function.
+  accessible-labels-steps-for-labeling-step-3-2: >-
+    When testing your labels, consider the following questions:
+  accessible-labels-steps-for-labeling-step-3-2-li-1: >-
+    Do your canvas labels provide enough information for someone to understand the sketch’s purpose? 
+  accessible-labels-steps-for-labeling-step-3-2-li-2: >-
+    If this canvas exists on a web page among other content, would someone have a good understanding of how the canvas relates to its 
+    surrounding context?
+  accessible-labels-steps-for-labeling-step-3-3: >-
+    Be sure to remove the <span class = "code">LABEL</span> argument once you’ve tested the output. With <span class = "code">LABEL</span> 
+    active, screen readers are forced to read the fallback text and the visible label text when focused on the canvas. This is 
+    confusing for them.
+  accessible-labels-steps-for-labeling-step-3-4: >-
+    You may also download a screen reader and use it to test your code. For more information about using 
+    screen readers, visit <a href = "https://www.w3schools.com/accessibility/accessibility_screen_readers.php" target="_blank" rel="noopener noreferrer">W3 School’s "Accessibility Screen Readers"</a>.
+  accessible-labels-conclusion: Conclusion
+  accessible-labels-conclusion-1: >-
+    Once you've tested your labels, your canvas should be accessible to screen reader technology!
+  accessible-labels-conclusion-2: >-
+    If you would like more information about ARIA labeling, visit <a href = "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA" target="_blank" rel="noopener noreferrer">MDN’s ARIA</a>.
+  accessible-labels-conclusion-3: >-
+    <i>Notice any errors or typos? Please let us know. If you would like to contribute to this tutorial, 
+    feel free to issue a <a href = "https://github.com/processing/p5.js-website" target="_blank" rel="noopener noreferrer">pull request</a>!</i>
   using-local-server: 'How to set up a local server on Mac OSX, Windows, or Linux.'
   p5js-wiki-title: p5.js wiki
   p5js-wiki: Additonal documentation and tutorials contributed by the community
@@ -513,43 +570,43 @@ learn:
   getting-started-in-webgl-glossary-title: Glossary
   getting-started-in-webgl-coords-and-transform-title: Coordinates and Transformations
   getting-started-in-webgl-coords-and-transform: Basics of 3D setup, coordinates, and transformations
-  getting-started-in-webgl-coords-and-transform-p1x1: >-
+  getting-started-in-webgl-coords-and-transform-p1x1: >- 
     p5.js is a powerful tool for creating 2D graphics but it's also capable of 3D graphics.
     This tutorial will introduce new concepts for creating 3D sketches with p5.js.
-  getting-started-in-webgl-coords-and-transform-toc-title: Table of Contents
+  getting-started-in-webgl-coords-and-transform-toc-title: Table of Contents 
   getting-started-in-webgl-coords-and-transform-heading1: What is WebGL?
-  getting-started-in-webgl-coords-and-transform-p2x1: >-
+  getting-started-in-webgl-coords-and-transform-p2x1: >- 
     WebGL is a library that gives us the tools we need to create 3D graphics within a web browser. To put it simply,
     it allows us to do all kinds of math to help arrange and display objects in 3D. p5.js makes it easier to work with WebGL
     through its special WebGL mode.
-  getting-started-in-webgl-coords-and-transform-p3x1: >-
+  getting-started-in-webgl-coords-and-transform-p3x1: >- 
       Working in 3D introduces a lot of complexity, especially when a sketch involves motion, texture, lighting, and
       more. Luckily for us, computers have special hardware that is particularly
       well suited to performing those calculations, the graphics processing unit (GPU). The GPU is capable of
       processing many things simultaneously, which is especially important when we're dealing with pixels and many shapes in space.
-  getting-started-in-webgl-coords-and-transform-p4x1: >-
+  getting-started-in-webgl-coords-and-transform-p4x1: >- 
     Let's get started by setting up the p5.js to use WebGL, by passing WEBGL as a third parameter into <a class="code">createCanvas()</a>.
   getting-started-in-webgl-coords-and-transform-heading2: >-
     3D Coordinate Space: Positioning in 3D
   getting-started-in-webgl-coords-and-transform-info1x1: >-
-    If coordinates systems aren't making sense it might be helpful to revisit the tutorial titled
+    If coordinates systems aren't making sense it might be helpful to revisit the tutorial titled 
   getting-started-in-webgl-coords-and-transform-info1x2: >-
     Coordinate System and Shapes
-  getting-started-in-webgl-coords-and-transform-p5x1: >-
+  getting-started-in-webgl-coords-and-transform-p5x1: >- 
     One of the most fundamental differences between working in 2D and working in 3D is the most obvious: there is
     one more dimension to work with. In addition to the horizontal and vertical position (x and y axes) of an
-    element in our drawing, 3D adds depth, the z-axis.
-  getting-started-in-webgl-coords-and-transform-p6x1: >-
+    element in our drawing, 3D adds depth, the z-axis. 
+  getting-started-in-webgl-coords-and-transform-p6x1: >- 
     When drawing in 2D, the point (0,0) is located at the top left corner of the screen. In WebGL mode, the
     origin of the sketch (0,0,0) is located in the middle of the screen. By default, the x-axis goes left-to-right,
     y-axis goes up-to-down, and the z-axis goes from further-to-closer.
   getting-started-in-webgl-coords-and-transform-heading3: >-
     Transformations: Position and Size of 3D Shapes
   getting-started-in-webgl-coords-and-transform-p7x1: >-
-    p5.js has a few methods,
-  getting-started-in-webgl-coords-and-transform-p7x2: >-
-    and
-  getting-started-in-webgl-coords-and-transform-p7x3: >-
+    p5.js has a few methods, 
+  getting-started-in-webgl-coords-and-transform-p7x2: >-  
+    and 
+  getting-started-in-webgl-coords-and-transform-p7x3: >-  
     that we can use to position and orient objects
     within space. Each of these methods affect what is known as the <em>model matrix</em>. Collectively these are
     known as the <em>transformation</em> of an object. These methods are available for both 2D and 3D drawing.
@@ -568,10 +625,10 @@ learn:
     drawn after it.
   getting-started-in-webgl-coords-and-transform-p10x1: >-
     There are a few methods that can be used to rotate an object in 3D. Most of the time it's easiest to call
-    methods like
+    methods like 
   getting-started-in-webgl-coords-and-transform-p10x2: >-
-    and
-  getting-started-in-webgl-coords-and-transform-p10x3: >-
+    and 
+  getting-started-in-webgl-coords-and-transform-p10x3: >-   
     , which each allow for rotation around a specific axis.
     Each of these methods accept a single argument specifying the angle of rotation. Try moving the sliders in the
     example above to see how rotation is performed on each axis. The code below shows each of these methods
@@ -581,8 +638,8 @@ learn:
     angle. To use degrees, either convert degrees to radians using <a class="code">radians()</a>, or use
     <a class="code">angleMode(DEGREES)</a>.
   getting-started-in-webgl-coords-and-transform-info2x1: >-
-    You can also use
-  getting-started-in-webgl-coords-and-transform-info2x2: >-
+    You can also use 
+  getting-started-in-webgl-coords-and-transform-info2x2: >- 
     , which allows
     you to specify which axis you'd like to rotate around using a vector as the second argument.
   getting-started-in-webgl-coords-and-transform-subheading3: >-
@@ -595,7 +652,7 @@ learn:
   getting-started-in-webgl-coords-and-transform-p13x1: >-
     Something that can feel unpredictable at first is the order of transformations. Each transformation always affects
     the next one. For example, if <a class="code">rotate()</a> is called, followed by <a class="code">translate()</a>, the direction of that translation will
-    be affected by the rotation. The entire coordinate system is rotating and moving, not just the shape itself.
+    be affected by the rotation. The entire coordinate system is rotating and moving, not just the shape itself. 
   getting-started-in-webgl-coords-and-transform-p14x1: >-
     Transformations can be performed in any order, but using <strong>translate</strong>, <strong>rotate</strong>, and then <strong>scale</strong> will be the most intuitive.
     Translation, followed by rotation, produces the effect of moving the shape <em>and then</em> rotating around that new location.
@@ -604,22 +661,22 @@ learn:
     class="code">rotateY()</a> and see how it affects where the object is
     drawn.
   getting-started-in-webgl-coords-and-transform-p16x1: >-
-    p5.js also has some methods that can control when transformations are applied:
+    p5.js also has some methods that can control when transformations are applied: 
   getting-started-in-webgl-coords-and-transform-p16x2: >-
     and
   getting-started-in-webgl-coords-and-transform-p16x3: >-
     . <a class="code">push()</a> and <a
     class="code">pop()</a> make it easier to move objects
-    individually. The <a class="code">push()</a> method saves the current transformations and
-    style settings. Then, after performing new transformations, the <a class="code">pop()</a> method is used to restore us to the the original transformations. The result is that
+    individually. The <a class="code">push()</a> method saves the current transformations and 
+    style settings. Then, after performing new transformations, the <a class="code">pop()</a> method is used to restore us to the the original transformations. The result is that 
     whatever transformations or styling changes that are made between <a class="code">push()
-    </a> and <a class="code">pop()</a> are isolated to that portion of the code. If you don’t
+    </a> and <a class="code">pop()</a> are isolated to that portion of the code. If you don’t 
     use <a class="code">push()</a> and
     <a class="code">pop()</a>, you have to keep track of whatever transformations have already taken place, which
     can get complicated
     and difficult to follow. Consider this following example, which places two boxes in our sketch. To position the second box
-    without <a class="code">push()</a> and <a class="code">pop()</a>, you have to account for the first transformation. This
-    can be a lot to keep track of in a more complex 3D scene.
+    without <a class="code">push()</a> and <a class="code">pop()</a>, you have to account for the first transformation. This 
+    can be a lot to keep track of in a more complex 3D scene. 
   getting-started-in-webgl-coords-and-transform-p17x1: >-
     Now, let's try the same code with <a class="code">push()</a> and <a class="code">pop()</a>. Now we can just
     translate the object where we want it, without
@@ -635,29 +692,29 @@ learn:
   getting-started-in-webgl-coords-and-transform-p18x1: >-
     In the below example, try removing <a class="code">push()</a> and <a class="code">pop()</a> to see how the
     transformations affect the second object
-    that is drawn.
+    that is drawn. 
   getting-started-in-webgl-coords-and-transform-heading5: >-
     Basic Shapes in 3D
-  getting-started-in-webgl-coords-and-transform-p19x1: >-
+  getting-started-in-webgl-coords-and-transform-p19x1: >- 
     So far we have only been using <a class="code">box()</a> but p5.js has seven different predefined geometries
     that you can use in your sketch. These basic predefined geometries are often referred to as 'primitives'.
-  getting-started-in-webgl-coords-and-transform-p20x1: >-
-    These primitive shape methods are:
+  getting-started-in-webgl-coords-and-transform-p20x1: >- 
+    These primitive shape methods are:     
   getting-started-in-webgl-coords-and-transform-p20x2: >-
     and
-  getting-started-in-webgl-coords-and-transform-p21x1: >-
+  getting-started-in-webgl-coords-and-transform-p21x1: >- 
     It is also possible to create custom geometry, either from scratch or from 3D models created in another
     program.
-    More information about custom geometry can be found in the
-  getting-started-in-webgl-coords-and-transform-p21x2: >-
-    Custom Geometry tutorial
+    More information about custom geometry can be found in the 
+  getting-started-in-webgl-coords-and-transform-p21x2: >-   
+    Custom Geometry tutorial    
   getting-started-in-webgl-coords-and-transform-heading6: >-
     Conclusion
   getting-started-in-webgl-coords-and-transform-p22x1: >-
-    By having basic control over a 3D coordinate space, transformations,
+    By having basic control over a 3D coordinate space, transformations, 
     and basic shapes, you should be able to begin creating basic scenes
     in 3D. The tutorials that follow this in the Getting Started in WebGL series
-    will introduce custom geometries, allow you to tweak the appearance of
+    will introduce custom geometries, allow you to tweak the appearance of 
     the scene, and introduce you to some basic shader programming to push
     your sketches further.
   getting-started-in-webgl-coords-and-transform-glossary-term1-title: GPU
@@ -689,10 +746,10 @@ learn:
   getting-started-in-webgl-custom-geometry-p2x1: >-
     Custom geometry can be imported into p5.js using either OBJ or STL files. These files are usually generated in
     a 3D modeling tool like Blender, which offers much more control when constructing a 3D scene. This is done using
-    the
-  getting-started-in-webgl-custom-geometry-p2x2: >-
-    method, which should be used within <a class="code">preload()</a>. Then you can use the
-  getting-started-in-webgl-custom-geometry-p2x3: >-
+    the 
+  getting-started-in-webgl-custom-geometry-p2x2: >-  
+    method, which should be used within <a class="code">preload()</a>. Then you can use the 
+  getting-started-in-webgl-custom-geometry-p2x3: >-     
     function to draw the model, as demonstrated in the example below.
   getting-started-in-webgl-custom-geometry-p3x1: >-
     A common issue that can come up with custom models is scaling. Depending on how the model is constructed, it
@@ -701,10 +758,10 @@ learn:
     p5.js.
   getting-started-in-webgl-custom-geometry-info2x1: >-
     Note that there is currently no support for STL files with color, although you
-    can add color using materials or textures, which you can learn about in the
-  getting-started-in-webgl-custom-geometry-info2x2: >-
-    Styling and Appearance
-  getting-started-in-webgl-custom-geometry-info2x3: >-
+    can add color using materials or textures, which you can learn about in the 
+  getting-started-in-webgl-custom-geometry-info2x2: >-  
+    Styling and Appearance    
+  getting-started-in-webgl-custom-geometry-info2x3: >-  
     tutorial.
   getting-started-in-webgl-custom-geometry-heading2: Creating Basic Procedural Geometry
   getting-started-in-webgl-custom-geometry-p4x1: >-
@@ -714,15 +771,15 @@ learn:
   getting-started-in-webgl-custom-geometry-p5x1: >-
     There are other methods that offer greater control of the geometry. A shape can be defined point-by-point using
   getting-started-in-webgl-custom-geometry-p5x2: >-
-    and
+    and 
   getting-started-in-webgl-custom-geometry-p5x3: >-
     This following example shows how
     these methods can be used to construct a 3D shape mathematically.
   getting-started-in-webgl-custom-geometry-p6x1: >-
-    There is also a powerful class,
-  getting-started-in-webgl-custom-geometry-p6x1_: >-
+    There is also a powerful class, 
+  getting-started-in-webgl-custom-geometry-p6x1_: >-  
     , which p5.js uses internally for <a class="code">loadModel()</a> but can also be used to
-    define custom geometry, offering tools that can be helpful in calculating faces and normals.
+    define custom geometry, offering tools that can be helpful in calculating faces and normals. 
   getting-started-in-webgl-custom-geometry-p6x2: >-
     In 3D, a face refers to a collection of three or four points that make up a surface, giving our
     geometry the appearance of being solid. A normal is the direction that is perpendicular to the face, which helps p5.js calculate lighting across the surface.
@@ -740,16 +797,16 @@ learn:
   getting-started-in-webgl-custom-geometry-glossary-term2-definition: A representation of geometry.
   getting-started-in-webgl-custom-geometry-glossary-term3-title: STL
   getting-started-in-webgl-custom-geometry-glossary-term3-definition: >-
-    STL (most often standing for "standard tesselation language") is a file format for 3D models.
+    STL (most often standing for "standard tesselation language") is a file format for 3D models. 
     It only stores information about the geometry.
   getting-started-in-webgl-custom-geometry-glossary-term4-title: OBJ
-  getting-started-in-webgl-custom-geometry-glossary-term4-definition: >-
+  getting-started-in-webgl-custom-geometry-glossary-term4-definition: >- 
     OBJ is an open file format that stores geometry data as well as some material and texture data. In p5.js, we
     are limited to its geometry, although an image can still be mapped to the surface using textures.
   getting-started-in-webgl-custom-geometry-glossary-term5-title: Faces
   getting-started-in-webgl-custom-geometry-glossary-term5-definition: The solid surface that is generated between three points.
   getting-started-in-webgl-custom-geometry-glossary-term6-title: Normals
-  getting-started-in-webgl-custom-geometry-glossary-term6-definition: The direction that is perpendicular to a face, which is often needed when calculating lighting or using materials.
+  getting-started-in-webgl-custom-geometry-glossary-term6-definition: The direction that is perpendicular to a face, which is often needed when calculating lighting or using materials. 
   getting-started-in-webgl-custom-geometry-glossary-term7-title: Normalization
   getting-started-in-webgl-custom-geometry-glossary-term7-definition: Changing something so that it fits within a standard range.
   getting-started-in-webgl-appearance-title: Styling and Appearance
@@ -758,20 +815,20 @@ learn:
     Creating in 3D is about more than just geometry. Cameras, lights, and materials are an
     important part of creating a visually interesting 3D scene. p5.js has a number of tools
     that make it possible to transform the appearance of our geometry.
-  getting-started-in-webgl-appearance-toc-title: Table of Contents
+  getting-started-in-webgl-appearance-toc-title: Table of Contents 
   getting-started-in-webgl-appearance-heading1: Camera and View
   getting-started-in-webgl-appearance-p1x1: >-
     The camera is an essential piece of a 3D scene; it gives us the sense of space and dimension that we are
     often looking for in 3D. In p5.js, the WebGL mode provides us with a perspective camera by default, but we can
-    change this using
-  getting-started-in-webgl-appearance-p1x2: >-
-    or
+    change this using 
+  getting-started-in-webgl-appearance-p1x2: >-  
+    or 
   getting-started-in-webgl-appearance-p2x1: >-
     A <em>perspective camera</em> skews objects so they appear to get smaller as they get further away, vanishing
-    at a single point in the distance. This is in contrast to an <em>orthographic camera</em>, where the
-    geometry stays the same size as it gets further away and has no vanishing point.
+    at a single point in the distance. This is in contrast to an <em>orthographic camera</em>, where the 
+    geometry stays the same size as it gets further away and has no vanishing point. 
   getting-started-in-webgl-appearance-p3x1: >-
-    One setting that we can change with a perspective camera is the <em>field-of-view</em>, or FOV. This is the
+    One setting that we can change with a perspective camera is the <em>field-of-view</em>, or FOV. This is the 
     term that is used to describe how much our camera can see, measured as an angle. In simple examples it might appear
     to have a zoom-like effect, but it also affects the way that shapes change size in the distance.
   getting-started-in-webgl-appearance-p4x1: >-
@@ -782,8 +839,8 @@ learn:
     of selectively including geometry is sometimes referred to as 'clipping'.
   getting-started-in-webgl-appearance-p5x1: >-
     Cameras can be moved by passing arguments to <a class="code">camera()</a>, but constantly moving and adjusting the camera in code can be tedious, especially when you are experimenting with
-    ideas. p5.js has a special camera method,
-  getting-started-in-webgl-appearance-p5x2: >-
+    ideas. p5.js has a special camera method, 
+  getting-started-in-webgl-appearance-p5x2: >-  
     , that can be used to zoom, pan,
     and position the camera using the mouse.
   getting-started-in-webgl-appearance-p6x1: >-
@@ -813,7 +870,7 @@ learn:
     when you want flat, unshaded geometry.
   getting-started-in-webgl-appearance-p8x1: >-
     These lights should be used within <a class="code">draw()</a>. Up to 5 lights can be used in a scene
-    simultaneously, allowing you to compose a scene with varied and complex lighting sources.
+    simultaneously, allowing you to compose a scene with varied and complex lighting sources. 
     Try checking and unchecking the boxes in the following interactive example to see how lighting can
     be blended together. For each active light source there are visual indicators of their position or
     direction, just know that these are here for illustrative purposes!
@@ -826,21 +883,21 @@ learn:
     varied, making objects shiny, rough, or even textured with images.
   getting-started-in-webgl-appearance-p11x1: >-
     In this interactive example, try selecting each of the different materials to see how they
-    affect the appearance of the geometry. You can move your mouse and see the effect that a directional light has on the material.
+    affect the appearance of the geometry. You can move your mouse and see the effect that a directional light has on the material. 
   getting-started-in-webgl-appearance-p12x1: >-
     Try commenting and uncommenting the different lights in this example:
   getting-started-in-webgl-appearance-p13x1: >-
     More custom materials can be achieved through using <a class="code">texture()</a>. In short, these are images
     that can be mapped onto the surface of a geometry. These textures can be imported from an image and can even be
-    generated within code using shaders. To map a texture to your geometry, use <a class="code">loadImage()</a>
+    generated within code using shaders. To map a texture to your geometry, use <a class="code">loadImage()</a> 
     within <a class="code">preload()</a>, then call <a class="code">texture()</a> before drawing your shape.
   getting-started-in-webgl-appearance-info1x1: >-
-    While they are useful for changing the appearance of your geometry, shaders are a bit beyond the scope of this
-    tutorial, so make sure to check out the
-  getting-started-in-webgl-appearance-info1x2: >-
+    While they are useful for changing the appearance of your geometry, shaders are a bit beyond the scope of this 
+    tutorial, so make sure to check out the 
+  getting-started-in-webgl-appearance-info1x2: >-  
     Introduction to Shaders
-  getting-started-in-webgl-appearance-info1x3: >-
-    page when you are ready.
+  getting-started-in-webgl-appearance-info1x3: >-    
+    page when you are ready. 
   getting-started-in-webgl-appearance-heading4: Conclusion
   getting-started-in-webgl-appearance-p14x1: >-
     Being able to have control over the camera, lighting, and materials will give you much more flexibility
@@ -872,9 +929,9 @@ learn:
     things. They take advantage of the
     GPU to process many pixels at once, making them fast and particularly well suited for certain tasks, like
     generating noise, applying filters like blur, or shading polygons. Shader programming can feel daunting at
-    first, requiring a different approach than the 2D drawing of p5.js. This document will outline the basics
+    first, requiring a different approach than the 2D drawing of p5.js. This document will outline the basics 
     of shader programming and point you towards other resources.
-  getting-started-in-webgl-shaders-toc-title: Table of Contents
+  getting-started-in-webgl-shaders-toc-title: Table of Contents 
   getting-started-in-webgl-shaders-heading1: Setup
   getting-started-in-webgl-shaders-p1x1: >-
     p5.js is a great tool for working with shaders because it handles a lot of the WebGL setup so you can focus on
@@ -914,7 +971,7 @@ learn:
     with the shader. This
     attribute is a <a class="code">vec3</a>, meaning it contains a value for x, y, and z. Attributes are special
     variable types that are
-    only used in the vertex shader and are typically provided by p5.js. When you use p5.js methods like <a class="code">rect()</a> or
+    only used in the vertex shader and are typically provided by p5.js. When you use p5.js methods like <a class="code">rect()</a> or 
     <a class="code">vertex()</a>, p5.js passes the vertex information to the shader automatically.
   getting-started-in-webgl-shaders-p8x1: >-
     All vertex shaders require a function, <a class="code">main()</a>, within which we position our vertices. In
@@ -1072,13 +1129,16 @@ learn:
     We welcome new written tutorial contributions and this guide outlines the
     steps of how to propose, prepare and contribute.
   writing-a-tutorial-how-start-title: 'How to get started:'
-  writing-a-tutorial-how-start-1: 'Ensure your chosen topic has not been previously covered. ' 
-  writing-a-tutorial-how-start-2: ''
+  writing-a-tutorial-how-start-1: 'Check that your proposed topic has not already been covered. There is '
+  writing-a-tutorial-how-start-2: a working spreadsheet here
   writing-a-tutorial-how-start-3: >-
-    If your topic is already in progress, consider contributing to the existing work and helping prepare it for publication. Feel free to reach out to us for guidance. 
+    that outlines in progress tutorials. If your topic is listed as in progress,
+    perhaps you can add to work being done and contribute to preparing existing
+    work for publication so please reach out to us.
   writing-a-tutorial-how-start-4: >-
-    If your topic hasn't been covered and isn't currently in progress, please provide a brief description of your proposed topic. You can send this description to us at education@p5js.org.
-
+    If your topic is not already covered and is not listed as in progress,
+    please write a few sentences on what you propose to cover and email us this
+    description at education@p5js.org.
   writing-a-tutorial-how-prepare-title: 'How to prepare a p5js tutorial for publication online:'
   writing-a-tutorial-how-prepare-1: >-
     When your tutorial is ready for publication, please follow these steps to
@@ -1375,7 +1435,7 @@ learn:
   curves-bezier-curves-title: 'Bézier Curves'
   curves-bezier-curves-p1x1: >-
     Though better than arcs, spline curves don’t seem to have those graceful, swooping curves that say “art.” For those, you need to draw Bézier curves with the bezier() function.
-    As with spline curves, the bezier() function has eight parameters, but the order is different. The first two and last two parameters are the start and end points while middle
+    As with spline curves, the bezier() function has eight parameters, but the order is different. The first two and last two parameters are the start and end points while middle 
     four points are the control points.
   curves-bezier-curves-p2x1: ' bezier(x1, y1, cpx1, cpy1, cpx2, cpy2, x2, y2); '
   curves-bezier-curves-p3x1: >-
@@ -1422,7 +1482,7 @@ libraries:
     p5.collide2D provides tools for calculating collision detection for 2D
     geometry with p5.js.
   CO2Budget.js: >-
-    This library opens up the idea of the CO2-Countdown to creative communities of
+    This library opens up the idea of the CO2-Countdown to creative communities of 
     coders, designers and artists associated with p5*js and JavaScript.
   p5.createloop: Create animation loops with noise and GIF exports in one line of code.
   p5.dimensions: >-
@@ -1447,7 +1507,7 @@ libraries:
     p5.js sketches.
   p5.gui: p5.gui generates a graphical user interface for your p5.js sketches.
   p5.j5: >-
-    The full Johnny-Five.io Nodebots/robotics library for Arduino and other
+    The full Johnny-Five.io Nodebots/robotics library for Arduino and other 
     microcontrollers made to work directly in browser with WebSerial or WebUSB.
   p5.localmessage: >-
     p5.localmessage provides a simple interface to send messages locally from
@@ -1461,7 +1521,7 @@ libraries:
     learning algorithms and models in the browser.
   numero: A friendly and intuitive math library for p5.js.
   pdl.library: >-
-    A set of functions and classes to create interactive diagrams for teaching
+    A set of functions and classes to create interactive diagrams for teaching 
     and learning physics.
   p5play: >-
     p5play is for creating interactive art and games with the Box2D physics engine.
@@ -1471,7 +1531,7 @@ libraries:
     that are defined through user structures or JSON input and user-draw
     functions.
   p5.party: >-
-    p5.party is a library for easily creating networked multiuser games, apps,
+    p5.party is a library for easily creating networked multiuser games, apps, 
     and sketches.
   p5.Polar: >-
     p5.Polar provides mathematical abstractions making it easy to create
@@ -1501,7 +1561,7 @@ libraries:
   p5.shape.js: A library built to add more simple shapes to the p5.js framework.
   P5.slides: p5.slides is a presentation platform written in p5.js.
   p5snap: >-
-    p5snap is a command-line interface that creates and saves snapshots
+    p5snap is a command-line interface that creates and saves snapshots 
     of a p5 sketch on an interval.
   p5.speech: >-
     p5.speech provides simple, clear access to the Web Speech and Speech
@@ -1512,7 +1572,7 @@ libraries:
     p5.tiledmap provides drawing and helper functions to include maps in your
     sketches.
   TiledPlay: >-
-    A small library to bridge the functionality of p5.js, p5.play.js and
+    A small library to bridge the functionality of p5.js, p5.play.js and 
     p5.tiled.js to easily create 2D platformer games using javascript.
   p5.touchgui: A multi-touch and mouse GUI Library for p5.js.
   tramontana: >-
@@ -1520,10 +1580,10 @@ libraries:
     tramontana Board, ...) to create interactive environments, interactive
     spaces or just prototype experiences at scale and in space.
   TurtleGFX: >-
-    TurtleGFX allows to code with Turtle Graphics in JavaScript.
+    TurtleGFX allows to code with Turtle Graphics in JavaScript. 
     Great for education and creative coding.
   p5.tween: >-
-    With p5.tween you can create easily animations as tween for your objects and
+    With p5.tween you can create easily animations as tween for your objects and 
     shapes.
   vida: >-
     Vida is a simple library that adds camera (or video) based motion detection
@@ -1532,37 +1592,37 @@ libraries:
     p5.voronoi provides a set of tools to draw and utilize voronoi diagrams in
     your p5.js sketches.
   p5.wasm: >-
-    p5.wasm is an addon library written in Rust and compiled to WebAssembly that
+    p5.wasm is an addon library written in Rust and compiled to WebAssembly that 
     implements common functions found in p5.js.
   p5.xr: A library for creating VR and AR sketches with p5.
   p5.3D: 3D Text and Images in WebGL.
   WEBMIDI.js: Easily send and receive MIDI messages from p5.
   p5.buttons: A library that aims to de-complicate scripting buttons.
   p5.button: >-
-    Small one function library to design and render simple or styled buttons
+    Small one function library to design and render simple or styled buttons 
     directly in p5.js canvas.
   p5.math.js: >-
-    The mathematical operations of JavaScript have been converted into simple
+    The mathematical operations of JavaScript have been converted into simple 
     human language so that they can understand really quickly.
   p5LiveMedia: Real time audio, video, canvas, and data sharing.
   P5.Create: >-
-    P5.Create is a library which provides save, animation, collision and tag
+    P5.Create is a library which provides save, animation, collision and tag 
     functions designed for efficient game creation.
   p5.quadrille.js: p5.js quadrille library.
   p5.animS: p5.animS animates p5.js shapes by rendering their drawing processes.
   I_AM_UI: A UserInterface library.
   simple.js: Helper functions and defaults for young and new coders.
   p5.timer: >-
-    This library performs asynchronous timing functions like countdowns,
-    one-shot timers, % time elapsed and encapsulates the millis() function and
-    other related calculations that often clog up your code.
+    This library performs asynchronous timing functions like countdowns, 
+    one-shot timers, % time elapsed and encapsulates the millis() function and 
+    other related calculations that often clog up your code. 
   c2.js: >-
-    c2.js is a JavaScript library for creative coding based on computational
+    c2.js is a JavaScript library for creative coding based on computational 
     geometry, physics simulation, evolutionary algorithm and other modules.
   Concave Hull: Calculate a Concave Hull from a set of points in 2D space.
   p5.joystick: Connect and play with physical joysticks
   p5.webserial: >-
-    A library for interacting with Serial devices from within the browser,
+    A library for interacting with Serial devices from within the browser, 
     based on Web Serial API (available on Chrome and Edge).
   p5.pattern: A pattern drawing library for p5.js.
   p5.jacdac: Plug-and-play micro-controllers for p5js
@@ -1571,23 +1631,23 @@ libraries:
   p5.filterRenderer: >-
     A library for p5.js WebGL mode to draw with depth blur and shadows.
   p5.capture: >-
-    p5.capture provides a simple GUI to easily record p5.js animations and output
+    p5.capture provides a simple GUI to easily record p5.js animations and output 
     video files in various formats (webm, gif, mp4, png, jpg, and webp).
   p5.input: Adds more key support for p5.js.
   p5.web-serial: >-
-    A p5.js library for using the Web Serial API to access devices like Arduino,
+    A p5.js library for using the Web Serial API to access devices like Arduino, 
     no setup required.
   p5.wasm.core: A web assembly core for p5.js.
   p5.videorecorder: Record your canvas as a video file with audio.
   p5.mapper: >-
-    p5.mapper is a projection mapping library for p5.js. This library makes it
+    p5.mapper is a projection mapping library for p5.js. This library makes it 
     easy to code and keystone interactive, algorithmic sketches.
   p5.teach: >-
-    A beginner friendly math animation library for p5.js. Created with mentorship
+    A beginner friendly math animation library for p5.js. Created with mentorship  
     from Nick McIntyre and Jithin KS.
   p5.fab: p5.fab controls digital fabrication machines from p5.js.
   p5.utils: >-
-    A set of utilities and additional features for my creative coding class aiming
+    A set of utilities and additional features for my creative coding class aiming 
     to help students.
   using-a-library-title: Using a library
   using-a-library1: >-
@@ -1857,16 +1917,16 @@ community:
   p5js-community-event-title: p5.js Community Events
   2022-p5js-access-day-title: p5.js Access Day 2022
   2022-p5js-access-day-date: May 21, 2022
-  2022-p5js-access-day-organizer: Organizer and curator
-  2022-p5js-access-day-coordinator: Event Coordinator and Video Producer
+  2022-p5js-access-day-organizer: Organizer and curator 
+  2022-p5js-access-day-coordinator: Event Coordinator and Video Producer 
   2022-p5js-access-day-description: >-
-    The p5.js Access Day is a virtual conference to talk about access in
-    open-source software for the arts (OSSTA) and greater issues beyond the software.
-    The day-long online event features four themed-sessions — Critical Web
-    Accessibility, Disability Arts, Access & Community Building, and Access
-    via Translation. It provides space for contributors of p5.js and experienced
-    practitioners from outside OSSTA projects to share their knowledge, perspectives,
-    and dreams for building greater access to technical and arts spaces.
+    The p5.js Access Day is a virtual conference to talk about access in 
+    open-source software for the arts (OSSTA) and greater issues beyond the software. 
+    The day-long online event features four themed-sessions — Critical Web 
+    Accessibility, Disability Arts, Access & Community Building, and Access 
+    via Translation. It provides space for contributors of p5.js and experienced 
+    practitioners from outside OSSTA projects to share their knowledge, perspectives, 
+    and dreams for building greater access to technical and arts spaces.  
   2022-p5js-access-day-recap-video: p5.js Access Day 2022 Recap Video
   2022-p5js-access-day-recap-video-asl: p5.js Access Day 2022 Recap Video with ASL Interpretation
   2022-p5js-access-day-moderator: Moderator
@@ -1966,7 +2026,6 @@ examples:
   Arrays: Arrays
   Control: Control
   Image: Image
-  Image_Processing: Image Processing
   Color: Color
   Math: Math
   Simulate: Simulate
@@ -2369,7 +2428,7 @@ teach:
   teach-case3-content4: education
   teach-case3-content5: 'Syllabus'
   teach-case4-title: Calculadora de IMC
-  teach-case4-lead-name: Dayana
+  teach-case4-lead-name: Dayana 
   teach-case4-content1: 'Youtube'
   teach-case4-content1-1: '00h: 30min'
   teach-case4-content2: Inscritos no canal do youtube, houveram 18 vizializações.
@@ -2381,13 +2440,13 @@ teach:
   teach-case5-image-alt: Screen shot of the teacher is teaching on p5.js web editor online
   teach-case5-content1: 'https://www.twitch.tv/snowflakeFede'
   teach-case5-content1-1: 'every saturday 19:00-20:30PM (timezone: GMT-3)'
-  teach-case5-content2: Soy yo nada más, pero me gusta invitar personas para programar en vivo cuando puedo.
+  teach-case5-content2: Soy yo nada más, pero me gusta invitar personas para programar en vivo cuando puedo. 
   teach-case5-content3: ' Elementary'
   teach-case5-content4: Hacer que más personas aprendan sobre el arte creativo y, a su vez, poder ir acercandolas al mundo de la matemática, todo en español. El curso está fuertemente inspirado en "The coding train" pero con acercamiento que va a la matemática y el arte creativo en su conjunto.
   teach-case5-content5: 'Sólo una colección de p5js donde subo los ejemplos que se hacen en vivo, acá:'
   teach-case6-title: '50+ CODING CLUB: MY VERY FIRST CODE ART WITH HANDY(🖐) AND FAMILY(👩‍👧‍👦)'
   teach-case6-lead-name: Inhwa Yeom
-  teach-case6-image-alt: In-class photo
+  teach-case6-image-alt: In-class photo 
   teach-case6-content1: 'Asia Culture Center, Gwangju, South Korea'
   teach-case6-content1-1: '27/11/2020~ 12/2020 every Friday and Saturday 2:00-4:00'
   teach-case6-content2: People who identify themselves as older adults (average age = 62.54), and their companions of all ages.
@@ -2403,7 +2462,7 @@ teach:
   teach-case7-content3: ' Elementary'
   teach-case7-content4: get to know p5js and its functionalities (dom, audio, webgl etc.)
   teach-case7-content5: 'github readme : this a text tutorial to read in French.'
-  teach-case8-title: I am starting a new one -
+  teach-case8-title: I am starting a new one - 
   teach-case8-lead-name: Brinder Soin
   teach-case8-content1: 'New Jersey'
   teach-case8-content1-1: '12/28 - 12/30'
@@ -2413,7 +2472,7 @@ teach:
   teach-case8-content5: 'Teacher created notes and worksheets and IDE p5 web editor'
   teach-case9-title: Programación Aplicada al Arte Visual e Interactivo
   teach-case9-lead-name: Sebastián Zavatarelli
-  teach-case9-image-alt: A zoom class sharing p5.js web editor
+  teach-case9-image-alt: A zoom class sharing p5.js web editor 
   teach-case9-content1: 'Buenos Aires, Argentina. Plataforma ZOOM'
   teach-case9-content1-1: '15/09/2020 ~ 14/10/2020 every Wednesday 6:30-9:00PM)'
   teach-case9-content2: Alrededor de 10 personas. La mayoría mujeres.
@@ -2424,7 +2483,7 @@ teach:
   teach-case10-lead-name: Andreas Refsgaard
   teach-case10-content1: 'Copenhagen, Denmark'
   teach-case10-content1-1: '22/02/2020'
-  teach-case10-content2: Participants were people . A wide range of people from
+  teach-case10-content2: Participants were people . A wide range of people from 
   teach-case10-content3: ' Intermediate'
   teach-case10-content4: Get creatives, designers, artists and other people who don't typically use code introduced to p5.js
   teach-case10-content5: 'Website, p5.js editor'
@@ -2436,16 +2495,16 @@ teach:
   teach-case11-content2: Deaf and Hard of Hearing students age 10~50 who live in NYC.
   teach-case11-content3: ' Elementary'
   teach-case11-content4: To help Deaf and Hard of Hearing students learn about computer programming through playful exercises. To make ASL tutorial of basic coding concepts.
-  teach-case11-content5: 'We used p5.js Web editor and code examples on the website.
+  teach-case11-content5: 'We used p5.js Web editor and code examples on the website. 
   We also used dice, playing cards and various paper tools to help students learn about coding concepts. '
   teach-case12-title: Digital Weaving & Physical Computing Workshop Series
   teach-case12-lead-name: Qianqian Ye
   teach-case12-image-alt: In-class photo
   teach-case12-content1: 'Women’s Center for Creative Work, Los Angeles, CA, US'
   teach-case12-content1-1: '19/10/2019 ~ 02/11/2019, every Saturday 3-6pm'
-  teach-case12-content2: 15 women and non-binary artists, designer, makers, programers.
+  teach-case12-content2: 15 women and non-binary artists, designer, makers, programers. 
   teach-case12-content3: ' Elementary'
-  teach-case12-content4: Over the course of three workshops, we’ll draw and create patterns using p5.js, an open-source graphical library; we’ll learn and apply computational concepts to transform patterns and finally, we’ll bring a weaving to life with electronic microcontrollers.
+  teach-case12-content4: Over the course of three workshops, we’ll draw and create patterns using p5.js, an open-source graphical library; we’ll learn and apply computational concepts to transform patterns and finally, we’ll bring a weaving to life with electronic microcontrollers. 
   teach-case12-content5: 'Materials: Slides, p5.js web editor, pen and paper to draw pattern, physical pattern weaving tool
   Methods: small team session'
   teach-case12-content5-1: "Slides we used for the workshop:"
