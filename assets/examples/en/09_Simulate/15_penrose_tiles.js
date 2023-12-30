@@ -2,7 +2,7 @@
  * @name Penrose Tiles
  * @arialabel A penrose tile pattern is created by white rhombi being drawn on a black background
  * @frame 710,400
- * @description This is a port by David Blitz of the "Penrose Tile" example from processing.org/examples
+ * @description This is a port by David Blitz of the "Penrose Tile" example from <a href="https://processing.org/examples/">processing.org/examples</a>
  */
 
 let ds;

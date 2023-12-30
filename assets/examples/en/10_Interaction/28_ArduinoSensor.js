@@ -3,17 +3,17 @@
  * @description WebJack is a way to read data from an Arduino (and other sources)
  * using audio -- it basically turns your Arduino into an audio modem.
  * 
- * https://github.com/publiclab/webjack
+ * <a href = "https://github.com/publiclab/webjack">https://github.com/publiclab/webjack</a>
  * 
  * Note: WebJack and p5-webjack libraries must be added to your index.html as follows:
  * <pre><code class="language-markup">&lt;script src="https://webjack.io/dist/webjack.js">&lt;/script></code></pre>
  * <pre><code class="language-markup">&lt;script src="https://jywarren.github.io/p5-webjack/lib.js">&lt;/script></code></pre>
  * 
- * Working example: https://editor.p5js.org/jywarren/sketches/rkztwSt8M
+ * Working example: <a href = "https://editor.p5js.org/jywarren/sketches/rkztwSt8M">https://editor.p5js.org/jywarren/sketches/rkztwSt8M</a>
  * 
- * Testing audio: https://www.youtube.com/watch?v=GtJW1Dlt3cg
+ * Testing audio: <a href="https://www.youtube.com/watch?v=GtJW1Dlt3cg">https://www.youtube.com/watch?v=GtJW1Dlt3cg</a>
  * Load this sketch onto an Arduino: 
- * https://create.arduino.cc/editor/jywarren/023158d8-be51-4c78-99ff-36c63126b554/preview
+ * <a href="https://create.arduino.cc/editor/jywarren/023158d8-be51-4c78-99ff-36c63126b554/preview">https://create.arduino.cc/editor/jywarren/023158d8-be51-4c78-99ff-36c63126b554/preview</a>
  * Arduino will output audio from pin 3 + ground. Use microphone or an audio cable.
  */
 
