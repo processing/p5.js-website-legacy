@@ -50,15 +50,31 @@ Other Language Steward(s):
 
 
 
+
 ## Setup
 
-1. Install [node.js](https://nodejs.org/en/download/).
-2. Clone this repo by typing ```git clone https://github.com/processing/p5.js-website/``` in terminal.
-3. Navigate to the `p5.js-website` directory in the terminal and type `npm install`.
+1.Install [node.js](https://nodejs.org/en/download/).   
+2.Clone this repo by typing this command in the terminal.   
+ ```
+   git clone https://github.com/processing/p5.js-website/
+ ```
+3.Navigate to the ``p5.js-website`` directory:
+ ```
+   cd p5.js-website
+ ```
+4.Install the dependencies:
+ ```
+   npm install
+ ```
 
 ## Running
 
-Once you've setup the site, type `npm run watch` to run the website. This should open a window in your browser with the site running at http://localhost:9000.
+1.Once the setup is complete, run the website with the following command:
+```
+  npm run watch
+```
+2.This should open a window in your browser with the site running at http://localhost:9000.
+
 
 ## File structure
 
