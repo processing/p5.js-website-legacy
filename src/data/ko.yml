@@ -33,7 +33,6 @@ tagline5: 프로세싱 커뮤니티에 자바스크립트 커뮤니티를 곱하
 tagline6: 프로세싱의 강력함에 자바스크립트의 범용성을 곱하다*
 tagline7: p5.js 커뮤니티는 Black Lives Matter와 연대합니다.
 home:
-  search-bar: p5js.org 검색
   start-creating: p5 에디터로 프로젝트 시작하기
   p1xh1: 안녕하세요!
   p1x1: >-
@@ -264,33 +263,21 @@ download:
     사명은 시각 예술계에서의 소프트웨어 리터러시 및 기술 관련 분야에서의 시각적 리터러시를 증진하고, 나아가 이 두 분야에 대한 보다 많은
     사람들의 접근성을 향상하는 데에 있습니다. 우리는 다양한 이해 관계와 배경을 가진 사람들, 특히 코딩 학습 툴이나 자원에 대한 접근성이
     없는 이들의 크리에이티브 코딩 교육을 돕는 것을 목표로 삼습니다.
-  support-17-alt: >-
-    p5.js Contributors Conference at CMU STUDIO for Creative Inquiry in
-    Pittsburgh
-  support-18-alt: >-
-    Processing Fellow Saskia Freeke organizing Code Liberation x Processing
-    workshops in London
-  support-19-alt: 'Learning to Teach, Teaching to Learn conference with SFPC'
-  support-20-alt: Processing Foundation Fellow Cassie Tarakajian's workshop at Code Art Miami
-  support-21-alt: Taeyoon Choi and ASL interpretor at Signing Coders p5.js workshop
-  support-22-alt: Google Summer of Code kickoff participants
-  support-23-alt: Processing Foundation Fellow Cassie Tarakajian's workshop at Code Art Miami
-  support-24-alt: >-
-    Luisa Pereira and Yeseul Song facilitate a sign language based p5.js
-    workshop
-  support-25-alt: >-
-    p5.js Contributors Conference at CMU STUDIO for Creative Inquiry in
-    Pittsburgh
-  support-26-alt: >-
-    Processing Fellow Digital Citizens Lab panel on STEM teaching at the
-    International Center of Photography
-  support-27-alt: 'Participants at p5.js workshop in Santiago, Chile'
-  support-28-alt: Claire Kearney-Volpe helping facilitate a sign language based p5.js workshop
-  support-29-alt: >-
-    Processing Foundation Fellow DIY Girls run a creative coding program in Los
-    Angeles
-  support-30-alt: Processing Fellow Digital Citizens Lab
-  support-31-alt: Bicoastal p5.js meetup at UCLA DMA and NYU ITP
+  support-17-alt: ''
+  support-18-alt: ''
+  support-19-alt: ''
+  support-20-alt: ''
+  support-21-alt: ''
+  support-22-alt: ''
+  support-23-alt: ''
+  support-24-alt: ''
+  support-25-alt: ''
+  support-26-alt: ''
+  support-27-alt: ''
+  support-28-alt: ''
+  support-29-alt: ''
+  support-30-alt: ''
+  support-31-alt: ''
 learn:
   learn-title: 배우기
   teach-title2: 가르치기
@@ -309,272 +296,310 @@ learn:
   p5-screen-reader-title: p5와 스크린 리더
   p5-screen-reader: 스크린 리더를 위한 p5 설정 방법을 알아보세요.
   using-local-server-title: 로컬 서버 사용하기
-  labeling-canvases-title: How to label your p5.js code
-  labeling-canvases: Using labels to make your code accessible to screen readers.
-  labeling-canvases-intro-1: This tutorial will teach you how to use the
-  labeling-canvases-intro-2: and
-  labeling-canvases-intro-3: >-
-    functions in your code so your canvases are readible by screen readers and
-    other assistive technology.
-  labeling-canvases-what-is-labeling: What is screen reader labeling?
-  labeling-canvases-what-is-labeling-1: >-
-    The canvas HTML element compresses the visuals created by your p5 code into
-    a bitmap (a rastered graphic composed of pixels). This  bitmap on its own
-    doesn't provide any significant meaning or description about its contents
-    to  screen readers. That’s why the p5.js <a class = "code"
-    href="https://p5js.org/reference/#/p5/describe">describe()</a>,  <a class =
-    "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,
-    <a class = "code"
-    href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>,  and <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> functions
-    exist— these allow you to manually add screen reader-accessible descriptions
-    to your  code so that screen reader technologies can describe the canvas’
-    content in a meaningful way.
-  labeling-canvases-what-is-labeling-2: >-
-    Because a screen reader cannot naturally interpret the contents of a canvas
-    bitmap, these functions  add labels into your code that instruct the screen
-    reader on how to describe certain elements within your canvas.
-  labeling-canvases-what-is-labeling-3: 'For more information about p5.js screen reader accessibility, please read '
-  labeling-canvases-available-labels: Screen reader labels for p5.js
-  labeling-canvases-available-labels-1: p5.js offers four different functions for labeling your canvas
-  labeling-canvases-available-labels-li-1: >-
-    <a class = "code"
-    href="https://p5js.org/reference/#/p5/describe">describe()</a> provides an
-    overall description of the canvas contents. This function's parameters
-    include: <span class= "code">text</span>,  which affords a string of text
-    for the label; and <span class = "code">display</span>, an optional
+  accessible-labels-title: Writing accessible canvas descriptions
+  accessible-labels: Using labels to make your code accessible to screen readers.
+  accessible-labels-intro: Introduction
+  accessible-labels-intro-1: >-
+    In this tutorial, you'll learn how to use <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describe">describe()</a> , <a class =
+    "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,  <a
+    class = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>,  and <a class
+    = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>. These
+    functions add labels to  your canvas so that it’s readable for screen
+    readers and other assistive technologies.
+  accessible-labels-what-is-labeling: What is labeling?
+  accessible-labels-what-is-labeling-1: >-
+    When you use the <a class = "code" href =
+    "https://p5js.org/reference/#/p5/createCanvas">createCanvas()</a> function,
+    you  create a canvas HTML element. This canvas element displays the image
+    generated by your code as a bitmap (a raster graphic made up of pixels). 
+    Unlike most HTML elements, the canvas doesn’t provide any description about
+    its contents to screen readers.  That’s why we created the <a class = "code"
+    href = "https://p5js.org/reference/#/p5/describe">describe()</a>,  <a class
+    = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,  <a
+    class = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, and  <a class
+    = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> functions. 
+    These functions add labels to your canvas that tell the screen reader how to
+    describe it.
+  accessible-labels-why-labeling-matters: Why labeling matters
+  accessible-labels-why-labeling-matters-1: >-
+    Screen readers (and text-to-speech software) are helpful for lots of people,
+    <a href = "https://www.w3.org/WAI/perspective-videos/speech/"
+    target="_blank" rel="noopener noreferrer"> regardless of ability or
+    context</a>. For example, a visually impaired person searching the web might
+    use a screen reader to  understand the contents of a site. If a site’s code
+    isn’t properly labeled for assistive technologies,  the screen reader
+    software won’t be able to communicate what’s on the site to its user.
+    Someone else  might be using a text-to-speech software because they have
+    dyslexia and find listening to the site’s  content more comprehensible than
+    reading it. There are also people who use these assistive software  to
+    multi-task, so they can listen to an article on the web and wash dishes, or
+    complete other chores. 
+  accessible-labels-why-labeling-matters-2: >-
+    No matter the purpose or person, making sure your code is readable by these
+    assistive software allows  more people to engage with your work in
+    meaningful ways.
+  accessible-labels-available-labels: Available labeling functions
+  accessible-labels-available-labels-1: p5.js offers four different functions for labeling your canvas
+  accessible-labels-available-labels-li-1: >-
+    <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describe">describe()</a> provides a
+    description of the canvas contents.  This function's parameters include:
+    <span class = "code">text</span>, the label itself; and <span class =
+    "code">display</span>,  an optional parameter to set the visibility of the
+    label.
+  accessible-labels-available-labels-li-2: >-
+    <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
+    describes a specific element or a  specific grouping of elements in a
+    canvas. This function's parameters include: <span class =
+    "code">name</span>, the title for the label;  <span class =
+    "code">text</span>, the label itself; and <span class =
+    "code">display</span>, an optional parameter to set the visibility of the
+    label.
+  accessible-labels-available-labels-li-3: >-
+    <a class = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> generates a
+    list describing the canvas size, color,  as well as each visual element’s
+    color, position, and the area it covers within the canvas. This function’s
+    only parameter is  <span class = "code">display</span>, an optional
     parameter to set the visibility of the label.
-  labeling-canvases-available-labels-li-2: >-
-    <a class = "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
-    describes a specific element or a specific grouping of elements in a
-    canvas.  This function's parameters include: <span class =
-    "code">name</span>, which affords a string naming the element described;
-    <span class = "code">text</span>, which affords a string of text as the
-    label description;  and <span class="code">display</span>, an optional
-    parameter to set the visibility of the label.
-  labeling-canvases-available-labels-li-3: >-
-    <a class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> generates
-    a list providing a canvas description and its visual elements, including the
-    canvas' size,  canvas color, as well as each visual element’s color,
-    position, and the amount of area the element covers within the canvas. This
-    function's only parameter is <span class = "code">display</span>, which is
-    an optional  parameter to set the visibility of the label.
-  labeling-canvases-available-labels-li-4: >-
-    <a class = "code"
-    href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, like <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a>,
-    generates a list of the canvas and its (visual) elements, only this
-    function  arranges its output in a HTML table that plots the spatial
-    location of each shape within the canvas. It also provides a basic 
-    description of the canvas, including the canvas' size, canvas color, the
-    number of visual elements, and the different visual element types inside the
-    canvas. This function's only parameter is <span class =
-    "code">display</span>, which is an optional  parameter to set the visibility
-    of the label.
-  labeling-canvases-best-practices: Labeling best practices
-  labeling-canvases-best-practices-what-requires-labeling: What requires labeling?
-  labeling-canvases-best-practices-what-requires-labeling-1: >-
-    As a good rule of thumb, any visual element that is important to the overall
-    context or purpose  of the canvas should be mentioned by the <a class =
-    "code" href="https://p5js.org/reference/#/p5/describe">describe()</a> and/or
-    <a class = "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
-    functions.
-  labeling-canvases-best-practices-what-requires-labeling-2: >-
-    Consider the overall purpose of the p5.js canvas and its contents in
-    question, and label them in a way that makes  sense for the message,
-    functionality, and/or purpose of the canvas and its elements. In the code
-    block below, a heart is made within the canvas by placing two circles on top
-    of a triangle.  Instead of individually labeling each shape used to make the
-    heart, you should use one <a class = "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
-    function to describe  the overall shape you made.
-  labeling-canvases-best-practices-what-requires-labeling-3: >-
-    If, at any point, an element in your canvas undergoes a change or alteration
-    in its visual appearance (and this change is  important to the overall
-    meaning and context of the canvas), it’s best to also update the <a class =
-    "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
-    label when that  change occurs.
-  labeling-canvases-best-practices-what-requires-labeling-4: >-
-    The canvas HTML element will also rasterize any text within it. Use the <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
-    function to translate any significant  text within your canvas.
-  labeling-canvases-best-practices-what-requires-labeling-5: >-
-    In short, any significant visual, textual, or animated information within
-    the canvas should be labeled with a screen reader label.
-  labeling-canvases-best-practices-dont-label: What DOESN'T need labeling
-  labeling-canvases-best-practices-dont-label-1: >-
-    Individual interactive elements, such as HTML buttons, dropdowns, or inputs,
-    <i>do not</i> need to be labeled.  In the DOM, these elements are built
-    outside of the p5.js canvas, and therefore can be interpreted by screen
-    readers.
-  labeling-canvases-best-practices-dont-label-2: >-
-    This means the <a class = "code"
-    href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> and <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> functions
-    will not provide any information about these interactive inputs in their 
-    reports of the canvas, should you use them.
-  labeling-canvases-best-practices-using-labels: How to use labels
-  labeling-canvases-best-practices-using-labels-all-canvases: For all canvases
-  labeling-canvases-best-practices-using-labels-all-canvases-1: >-
-    No matter the canvas’ purpose or contents, you should <i>always</i> use a
-    label to supply an overall summary of the canvas. Most often,  you’ll use
-    the <a class = "code"
-    href="https://p5js.org/reference/#/p5/describe">describe()</a> function for
-    this summary.
-  labeling-canvases-best-practices-using-labels-all-canvases-2: >-
-    The summary should provide a general understanding of the visuals inside the
+  accessible-labels-available-labels-li-4: >-
+    <a class = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, like <a class
+    = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>,  generates a
+    list of the canvas' qualities and elements. Along with this list, this
+    function also creates an HTML table that plots the  spatial location of each
+    shape within the canvas. This function's only parameter is <span class =
+    "code">display</span>, an optional parameter  to set the visibility of the
+    label.
+  accessible-labels-prerequisites: Prerequisites
+  accessible-labels-prerequisites-1: >-
+    Your project's code should be near completion before you begin labeling. To
+    write clear and effective  labels, you should have a clear understanding
+    about what visuals your code creates within the canvas  element. 
+  accessible-labels-prerequisites-2: >-
+    For example, if you started writing your labels before you had a clear
+    understanding of the resulting  visual of your canvas, your labels and your
+    visuals may communicate different messages, like the code  example below:
+  accessible-labels-steps-for-labeling: Steps for labeling your p5.js code
+  accessible-labels-steps-for-labeling-step-1: 1. Plan your labeling strategy
+  accessible-labels-steps-for-labeling-step-1-1: >-
+    Your labeling strategy will change based on your project’s complexity and
+    purpose.
+  accessible-labels-steps-for-labeling-step-1-2: >-
+    No matter how complicated your project may be, always provide a brief
+    description of your canvas in  <a class = "code" href =
+    "https://p5js.org/reference/#/p5/setup">setup()</a> using the  <a class =
+    "code" href = "https://p5js.org/reference/#/p5/describe">describe()</a>
+    function. If you do not provide any labels in your code,  screen readers
+    will describe your canvas as a blank HTML element.
+  accessible-labels-steps-for-labeling-step-1-3: >-
+    Place this label in the <a class = "code" href =
+    "https://p5js.org/reference/#/p5/setup">setup()</a> section of your code, 
+    and provide a 1-3 sentence description of your canvas in its <span class =
+    "code">text</span> parameter. This description should only provide details
+    about  the visual elements of your canvas. 
+  accessible-labels-steps-for-labeling-step-1-4: >-
+    As stated previously, you do not need to begin your description with “A p5
+    canvas element…” or anything similar, since the  screen reader will declare
+    the element type before reading your label.
+  accessible-labels-steps-for-labeling-step-1-5: >-
+    Along with the <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describe">describe()</a> label, use either
+    the  <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,  <a
+    class = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>,  or <a class
+    = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>  function to
+    add more detailed labels within your code.
+  accessible-labels-steps-for-labeling-step-1-6: >-
+    The <a class = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> and  <a class
+    = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions can 
+    describe the shapes on your canvas, but they can’t interpret your intention
+    in using the shapes. Keep context in mind when choosing  which function(s)
+    to use. Is it better to describe the flower as “eight circles and a
+    rectangle”, or as “a flower with red  petals and a green stem”? What kind of
+    labeling will provide the best description of your canvas? If  you are
+    creating larger visuals with many shapes, use <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>  to
+    label each group of shapes.
+  accessible-labels-steps-for-labeling-step-1-7: >-
+    Do not use both the <a class = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> and  <a class
+    = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions to
+    describe the same canvas. Using both will  cause similar descriptions to
+    appear twice, which is confusing to screen readers. The same goes for  using
+    <a class = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> or  <a class =
+    "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>
+    with  <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
+    labels. It’s best to choose one function to  supplement your <a class =
+    "code" href = "https://p5js.org/reference/#/p5/describe">describe()</a>
+    label.
+  accessible-labels-steps-for-labeling-step-1-complex: Complex projects
+  accessible-labels-steps-for-labeling-step-1-complex-1: >-
+    Use vanilla ARIA labeling and custom-built fallback labels instead of p5’s
+    labeling functions if your canvas:
+  accessible-labels-steps-for-labeling-step-1-complex-li-1: >-
+    Has content that changes extensively via external interactive elements
+    (elements outside the canvas)
+  accessible-labels-steps-for-labeling-step-1-complex-li-2: Interacts with DOM elements written outside of the canvas code
+  accessible-labels-steps-for-labeling-step-1-complex-li-3: Requires the user’s attention if the canva's visual content changes
+  accessible-labels-steps-for-labeling-step-1-complex-li-4: >-
+    Has complex element layouts that cannot be accurately labeled with the <a
+    class = "code" href =
+    "https://p5js.org/reference/#/p5/describe">describe()</a>,  <a class =
+    "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,  <a
+    class = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>, or  <a class
+    = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions
+  accessible-labels-steps-for-labeling-step-1-complex-2: >-
+    For more information about fallback content, visit <a href =
+    "https://www.w3.org/html/wg/wiki/DefinitionFallBackContent" target="_blank"
+    rel="noopener noreferrer">W3C’s Wiki</a>.  For more information about
+    complex ARIA labeling, visit <a href =
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes"
+    target="_blank" rel="noopener noreferrer">Mozilla’s "ARIA states and
+    properties"</a>  and <a href = "https://www.w3.org/TR/using-aria/"
+    target="_blank" rel="noopener noreferrer">W3C’s "Using ARIA"</a>.
+  accessible-labels-steps-for-labeling-step-2: 2. Write your main and supporting label(s)
+  accessible-labels-steps-for-labeling-step-2-1: Begin labeling your canvas using the function(s) that best serve your users.
+  accessible-labels-steps-for-labeling-step-2-2: >-
+    While labeling, only provide descriptions of the visual aspects of your
+    canvas. You don’t need to  describe how or what functions create the visuals
+    present on the canvas, only how the end result  visuals appear within the
     canvas.
-  labeling-canvases-best-practices-using-labels-simple: 'For simple, non-animated canvases'
-  labeling-canvases-best-practices-using-labels-simple-1: >-
-    For canvases without any changing, moving, or interactive elements, you may
-    use either the <a class = "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, 
-    <a class = "code"
-    href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>, or <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> 
-    functions to label the canvas’ visual content. However, keep in mind that <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> and <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> generate
-    their information based on  the rudimentary code of the visual element, such
-    as its size, color, and shape. These functions won’t be able to interpret
-    your  intention in using such a shape within a larger visual built using
-    multiple shapes.
-  labeling-canvases-best-practices-using-labels-simple-2: >-
-    Keep in mind the context and objective of the canvas’ contents when choosing
-    which function(s) to use. Is it better to describe the flower  as eight
-    circles and a rectangle, or as a flower with red petals and a green stem?
-    What kind of labeling will provide the best  description of your canvas?
-  labeling-canvases-best-practices-using-labels-simple-3: >-
-    If you are creating larger, multi-shaped visuals, then it would be best to
-    use <a class = "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
-    to define each visual grouping  present within the canvas.
-  labeling-canvases-best-practices-using-labels-interactive: For interactive or animated canvases
-  labeling-canvases-best-practices-using-labels-interactive-1: >-
-    If your canvas contains any animated elements or elements that change their
-    visual form via user input (the click of a button, a  dropdown selection,
-    etc.), be sure that any descriptions of such elements update with their
-    changes or animations. If you are using  <a class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> or <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> to
-    describe the contents of your canvas, so long as these functions are placed
-    within the <a class = "code" href
-    ="https://p5js.org/reference/#/p5/draw">draw()</a> function, they  will
-    automatically update with the shape’s new information. If you are using <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>,
-    use concatenation or another form of  variable input to update the element’s
-    description.
-  labeling-canvases-best-practices-using-labels-interactive-2: >-
-    If this interaction or animation is crucial to the overall purpose and/or
-    message of the canvas, be sure to mention in either the <a class = "code"
-    href="https://p5js.org/reference/#/p5/describe">describe()</a>  label or the
-    individual element’s label that this element is (or can be) animated.
-  labeling-canvases-best-practices-using-labels-interactive-3: >-
-    Naturally-interactive HTML elements, such as buttons or inputs, <i>do
-    not</i> need to have a label. Instead, follow the proper role and ID  syntax
-    for these elements when possible. For more information about how to properly
-    label and ID HTML  interactive elements, visit <a href=
-    "https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML">Mozilla’s
-    HTML: A good basis for accessibility</a>.
-  labeling-canvases-best-practices-using-labels-complex: For complex canvases
-  labeling-canvases-best-practices-using-labels-complex-1: >-
-    The p5 functions listed above do not afford the more complicated features of
-    ARIA labeling, such as <span class="code">aria-live</span> or <span
-    class="code">aria-atomic</span>.  For advanced canvases, using vanilla ARIA
-    labeling and custom-built fallback content might better convey the canvas’ 
-    information to screen readers. Some cases where the canvas’ content cannot
-    be accurately described (or represented) through p5.js’ supplied  screen
-    reader labels include:
-  labeling-canvases-best-practices-using-labels-complex-ul-1: >-
-    Canvases with content that changes extensively via external interactive
+  accessible-labels-steps-for-labeling-step-2-using-de: >-
+    Using <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
+  accessible-labels-steps-for-labeling-step-2-using-de-1: >-
+    When using the <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
+    function to label your code, provide a unique title and a description  no
+    more than 1-2 sentences long. Only label the parts of your code that depict
+    the most important visual  aspects of your canvas.
+  accessible-labels-steps-for-labeling-step-2-using-de-2: >-
+    Within each <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
+    label, discuss the important qualities of that element. Is the element 
+    animated? Is the element interactive? What meaning does the element provide
+    to the project?
+  accessible-labels-steps-for-labeling-step-2-using-de-3: >-
+    If your canvas contains any <a class = "code" href =
+    "https://p5js.org/reference/#/p5/text">text()</a> elements that are
+    important to the general understanding of the  image, make a separate label
+    for them. Label any legible text with quotation marks around it in the 
+    label, as in <span class = "code">describeElement("Text", "The words 'hello,
+    world' displayed in green at the center of a  black canvas.")</span>.
+  accessible-labels-steps-for-labeling-step-2-using-de-4: >-
+    You don’t need to start each label with “A p5 canvas…” or something similar.
+    The screen reader will  call out the element type before reading your
+    labels:
+  accessible-labels-steps-for-labeling-step-2-using-de-5: >-
+    Limit the number of <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
+    functions present within your code as much as possible. If you  have to use
+    more than 10 <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
+    functions to describe your canvas, consider using a labeling  strategy that
+    affords more complexity (such as vanilla ARIA labeling).
+  accessible-labels-steps-for-labeling-step-2-using-go-to: >-
+    Using <a class = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> or <a class =
+    "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a>
+  accessible-labels-steps-for-labeling-step-2-using-go-to-1: >-
+    <a class = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> and <a class =
+    "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> 
+    generate their information based on the code of the visual element, such as
+    its size, color, and shape.  Unlike <a class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, you
+    only need to use one label to describe all  your canvas's visual elements.
+  accessible-labels-steps-for-labeling-step-2-animated: Projects with animated or interactive elements
+  accessible-labels-steps-for-labeling-step-2-animated-1: >-
+    Individual interactive elements, such as HTML buttons, dropdowns, or inputs,
+    don’t need labels. These  elements are built outside of the p5.js canvas and
+    are interpreted by screen readers. However, this  means the <a class =
+    "code" href = "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>
+    and  <a class = "code" href =
+    "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> functions
+    won’t provide any information about these interactive  inputs.
+  accessible-labels-steps-for-labeling-step-2-animated-2: >-
+    If a canvas element is animated and/or interactive, represent its current
+    state or qualities in the label.  So long as you place the functions within
+    the <a class = "code" href =
+    "https://p5js.org/reference/#/p5/draw">draw()</a> function,  they will
+    automatically update with the shape’s new information (except for <a class =
+    "code" href = "https://p5js.org/reference/#/p5/textOutput">textOutput()</a> 
+    and <a class = "code" href =
+    "https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>,  which will
+    update even when listed in <a class = "code" href =
+    "https://p5js.org/reference/#/p5/setup">setup()</a>). If you are using  <a
+    class = "code" href =
+    "https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, use
+    template strings to update the element’s description:
+  accessible-labels-steps-for-labeling-step-2-do-donts: Labeling do’s and don’ts
+  accessible-labels-steps-for-labeling-step-2-do-donts-1: >-
+    <i>Don’t</i> use screen reader labels as a way of commenting your code.
+    Labels should only summarize the  resulting visual elements within a canvas.
+    If you overuse screen reader labels, you may end up  complicating the screen
+    reader’s interpretation of the canvas rather than helping it.
+  accessible-labels-steps-for-labeling-step-2-do-donts-2: >-
+    <i>Do</i> make your label descriptions short and accurate. Use full
+    sentences for your labels, and write  in the present tense when describing
     elements.
-  labeling-canvases-best-practices-using-labels-complex-ul-2: >-
-    Canvases with content that requires the user’s attention if it is changed or
-    altered by another element, especially if that element is not  embedded in
-    the canvas’ code.
-  labeling-canvases-best-practices-using-labels-complex-ul-3: >-
-    Canvases with complex element layouts that cannot be accurately represented
-    using the <a class = "code"
-    href="https://p5js.org/reference/#/p5/describe">describe()</a>, <a class =
-    "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>, 
-    <a class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a>, or <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a>
-    functions.
-  labeling-canvases-best-practices-using-labels-complex-2: >-
-    For more information about fallback content, visit <a
-    href="https://www.w3.org/html/wg/wiki/DefinitionFallBackContent">W3C’s
-    Wiki</a>. For more information about complex ARIA labeling,  visit <a
-    href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes">Mozilla’s
-    ARIA states and properties</a>.
-  labeling-canvases-how-not-to-use-labels: How NOT to use labels
-  labeling-canvases-how-not-to-use-labels-sub: As a substitution for poorly organized code
-  labeling-canvases-how-not-to-use-labels-sub-1: >-
-    Screen reader labels should not be used as a way of commenting your code.
-    These labels  should only be used to summarize the resulting visual elements
-    within a canvas.
-  labeling-canvases-how-not-to-use-labels-info-overkill: As information overkill
-  labeling-canvases-how-not-to-use-labels-info-overkill-1: >-
-    If you overuse screen reader labels in your code, you may end up overly
-    complicating the screen reader’s interpretation of the canvas rather than
-    helping it.
-  labeling-canvases-how-not-to-use-labels-info-overkill-2: >-
-    Within reason, less is more with screen reader labeling. Be concise,
-    accurate, and short with your label descriptions.
-  labeling-canvases-how-not-to-use-labels-info-overkill-3: >-
-    Do not use both the <a class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> and <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> functions
-    in the same canvas. You only need to use one or the other to describe the
-    canvas elements.  Using both will cause redundancy in the screen readers’
-    translation of your code. This also pertains to using <a class = "code"
-    href="https://p5js.org/reference/#/p5/textOutput">textOutput()</a> or  <a
-    class = "code"
-    href="https://p5js.org/reference/#/p5/gridOutput">gridOutput()</a> with
-    additional <a class = "code"
-    href="https://p5js.org/reference/#/p5/describeElement">describeElement()</a>
-    labels. It’s best to choose one strategy of labeling for your entire canvas,
-    and stick with it.
-  labeling-canvases-testing-labels: Testing labels during development
-  labeling-canvases-testing-labels-1: >-
-    All these functions have a display parameter that either keeps its output
-    only available to screen readers <span class="code">(FALLBACK)</span> or
-    presents the output as text  adjacent to the canvas <span
-    class="code">(LABEL)</span>. If you would like to see the output during
-    development, add <span class="code">LABEL</span> as the last parameter for
-    the function. <span class="code">FALLBACK</span> is the default parameter.
-  labeling-canvases-testing-labels-2: >-
-    When testing your labels, consider the following questions: Do your canvas
-    labels provide enough information for someone to understand its purpose? If
-    this canvas  exists on a website, or among any other content, would someone
-    have a good understanding of how the canvas’ content interacts and/or
-    pertains to the surrounding context?
-  labeling-canvases-testing-labels-3: >-
-    In order to reduce redundancy, be sure to reset the display parameter to
-    <span class="code">FALLBACK</span> once you’ve tested the output. With <span
-    class="code">LABEL</span> active, screen readers will read the fallback
-    text  and the visible label text when focused on the canvas.
-  labeling-canvases-note: >-
-    Notice any errors or typos? Please let us know. If you would like to
-    contribute to this tutorial, feel free to issue a <a href =
-    "https://github.com/processing/p5.js-website">pull request</a>!
+  accessible-labels-steps-for-labeling-step-3: 3. Test your labels
+  accessible-labels-steps-for-labeling-step-3-1: >-
+    Be sure to test your labels before publishing your sketch. Labels are only
+    available to screen readers  by default.To see the output during
+    development, pass <span class = "code">LABEL</span> as the last argument to
+    the function.
+  accessible-labels-steps-for-labeling-step-3-2: 'When testing your labels, consider the following questions:'
+  accessible-labels-steps-for-labeling-step-3-2-li-1: >-
+    Do your canvas labels provide enough information for someone to understand
+    the sketch’s purpose? 
+  accessible-labels-steps-for-labeling-step-3-2-li-2: >-
+    If this canvas exists on a web page among other content, would someone have
+    a good understanding of how the canvas relates to its  surrounding context?
+  accessible-labels-steps-for-labeling-step-3-3: >-
+    Be sure to remove the <span class = "code">LABEL</span> argument once you’ve
+    tested the output. With <span class = "code">LABEL</span>  active, screen
+    readers are forced to read the fallback text and the visible label text when
+    focused on the canvas. This is  confusing for them.
+  accessible-labels-steps-for-labeling-step-3-4: >-
+    You may also download a screen reader and use it to test your code. For more
+    information about using  screen readers, visit <a href =
+    "https://www.w3schools.com/accessibility/accessibility_screen_readers.php"
+    target="_blank" rel="noopener noreferrer">W3 School’s "Accessibility Screen
+    Readers"</a>.
+  accessible-labels-conclusion: Conclusion
+  accessible-labels-conclusion-1: >-
+    Once you've tested your labels, your canvas should be accessible to screen
+    reader technology!
+  accessible-labels-conclusion-2: >-
+    If you would like more information about ARIA labeling, visit <a href =
+    "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"
+    target="_blank" rel="noopener noreferrer">MDN’s ARIA</a>.
+  accessible-labels-conclusion-3: >-
+    <i>Notice any errors or typos? Please let us know. If you would like to
+    contribute to this tutorial,  feel free to issue a <a href =
+    "https://github.com/processing/p5.js-website" target="_blank" rel="noopener
+    noreferrer">pull request</a>!</i>
   using-local-server: '맥 OSX, 윈도우, 리눅스 상에서 로컬 서버 설정하기'
   p5js-wiki-title: p5.js 위키
   p5js-wiki: 커뮤니티의 기여로 제작된 레퍼런스와 튜토리얼
@@ -2035,7 +2060,6 @@ examples:
   Arrays: 배열
   Control: 컨트롤
   Image: 이미지
-  Image_Processing: Image Processing
   Color: 색상
   Math: 수학
   Simulate: 시뮬레이션
