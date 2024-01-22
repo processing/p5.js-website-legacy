@@ -1,7 +1,7 @@
 /*
  * @name Kaleidoscope
  * @arialabel User draws thick black lines on the grey background and it is mirrored 5 times in a circle like a kaleidoscope
- * @description A kaleidoscope is an optical instrument with two or more reflecting surfaces tilted to each other in an angle. This example tries to replicate the behavior of a kaleidoscope. Set the number of reflections at the symmetry variable and start drawing on the screen. Adjust the brush size with the help of the slider. The clear screen as it says clears the screen. The save button will download a .jpg file of the art that you have created.
+ * @description A kaleidoscope is an optical instrument with two or more reflecting surfaces tilted to each other in an angle. This example tries to replicate the behavior of a kaleidoscope. Set the number of reflections at the symmetry variable and start drawing on the screen. Paste the below code in the <a href="https://editor.p5js.org/"> Editor </a> and click on the save button if you wish to download a .jpg file of the art that you have created.
  */
 // Symmetry corresponding to the number of reflections. Change the number for different number of reflections 
 let symmetry = 6;   
