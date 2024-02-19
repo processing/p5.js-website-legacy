@@ -9,7 +9,7 @@ let eyeZ;
 function setup() {
   createCanvas(710, 400, WEBGL);
 
-  eyeZ = height / 2 / tan((30 * PI) / 180); // डिफ़ॉल्ट दूरी कैमरा मूल से दूर है।
+  eyeZ = 800; // डिफ़ॉल्ट दूरी कैमरा मूल से दूर है।
 
   objects.push(new IntersectPlane(1, 0, 0, -100, 0, 0)); // बाईं दीवार
   objects.push(new IntersectPlane(1, 0, 0, 100, 0, 0)); // दाहिनी दीवार

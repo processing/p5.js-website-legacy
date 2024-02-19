@@ -2,8 +2,11 @@
   * @name कक्षा नियंत्रण
   * @description कक्षा नियंत्रण आपको दुनिया भर में खींचने और स्थानांतरित करने की अनुमति देता है।
   */
+let cam;
 function setup() {
   createCanvas(710, 400, WEBGL);
+  cam = createCamera();
+  cam.setPosition(0, 0, 0);
 }
 
 function draw() {
@@ -14,7 +17,6 @@ function draw() {
   orbitControl();
 
   normalMaterial();
-  translate(0, 0, -600);
   for (let i = 0; i <= 12; i++) {
     for (let j = 0; j <= 12; j++) {
       push();
