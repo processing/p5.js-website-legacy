@@ -9,7 +9,7 @@ let eyeZ;
 function setup() {
   createCanvas(710, 400, WEBGL);
 
-  eyeZ = height / 2 / tan((30 * PI) / 180); // 카메라가 원점에서 떨어진 기본 위치
+  eyeZ = 800; // 카메라가 원점에서 떨어진 기본 위치
 
   objects.push(new IntersectPlane(1, 0, 0, -100, 0, 0)); // 왼쪽 벽
   objects.push(new IntersectPlane(1, 0, 0, 100, 0, 0)); // 오른쪽 벽
