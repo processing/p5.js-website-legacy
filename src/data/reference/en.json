@@ -78,7 +78,7 @@
         "Creates a screen reader-accessible description for the canvas.",
         "The first parameter, <code>text</code>, is the description of the canvas.",
         "The second parameter, <code>display</code>, is optional. It determines how the description is displayed. If <code>LABEL</code> is passed, as in <code>describe('A description.', LABEL)</code>, the description will be visible in a div element next to the canvas. If <code>FALLBACK</code> is passed, as in <code>describe('A description.', FALLBACK)</code>, the description will only be visible to screen readers. This is the default mode.",
-        "Read <a href=\"/learn/accessible-labels.html\">Writing accessible canvas descriptions</a> to learn more about making sketches accessible."
+        "Read <a href=\"/learn/labeling-canvases.html\">How to label your p5.js code</a> to learn more about making sketches accessible."
       ],
       "params": {
         "text": "String: description of the canvas.",
@@ -91,7 +91,7 @@
         "The first parameter, <code>name</code>, is the name of the element.",
         "The second parameter, <code>text</code>, is the description of the element.",
         "The third parameter, <code>display</code>, is optional. It determines how the description is displayed. If <code>LABEL</code> is passed, as in <code>describe('A description.', LABEL)</code>, the description will be visible in a div element next to the canvas. Using <code>LABEL</code> creates unhelpful duplicates for screen readers. Only use <code>LABEL</code> during development. If <code>FALLBACK</code> is passed, as in <code>describe('A description.', FALLBACK)</code>, the description will only be visible to screen readers. This is the default mode.",
-        "Read <a href=\"/learn/accessible-labels.html\">Writing accessible canvas descriptions</a> to learn more about making sketches accessible."
+        "Read <a href=\"/learn/labeling-canvases.html\">How to label your p5.js code</a> to learn more about making sketches accessible."
       ],
       "params": {
         "name": "String: name of the element.",
@@ -106,7 +106,7 @@
         "A list of shapes follows the general description. The list describes the color, location, and area of each shape. For example, <code>a red circle at middle covering 3% of the canvas</code>. Each shape can be selected to get more details.",
         "<code>textOutput()</code> uses its table of shapes as a list. The table describes the shape, color, location, coordinates and area. For example, <code>red circle location = middle area = 3%</code>. This is different from <a href=\"#/p5/gridOutput\">gridOutput()</a>, which uses its table as a grid.",
         "The <code>display</code> parameter is optional. It determines how the description is displayed. If <code>LABEL</code> is passed, as in <code>textOutput(LABEL)</code>, the description will be visible in a div element next to the canvas. Using <code>LABEL</code> creates unhelpful duplicates for screen readers. Only use <code>LABEL</code> during development. If <code>FALLBACK</code> is passed, as in <code>textOutput(FALLBACK)</code>, the description will only be visible to screen readers. This is the default mode.",
-        "Read <a href=\"/learn/accessible-labels.html\">Writing accessible canvas descriptions</a> to learn more about making sketches accessible."
+        "Read <a href=\"/learn/labeling-canvases.html\">How to label your p5.js code</a> to learn more about making sketches accessible."
       ],
       "params": {
         "display": "Constant: (Optional) either FALLBACK or LABEL."
@@ -119,7 +119,7 @@
         "<code>gridOutput()</code> uses its table of shapes as a grid. Each shape in the grid is placed in a cell whose row and column correspond to the shape's location on the canvas. The grid cells describe the color and type of shape at that location. For example, <code>red circle</code>. These descriptions can be selected individually to get more details. This is different from <a href=\"#/p5/textOutput\">textOutput()</a>, which uses its table as a list.",
         "A list of shapes follows the table. The list describes the color, type, location, and area of each shape. For example, <code>red circle, location = middle, area = 3 %</code>.",
         "The <code>display</code> parameter is optional. It determines how the description is displayed. If <code>LABEL</code> is passed, as in <code>gridOutput(LABEL)</code>, the description will be visible in a div element next to the canvas. Using <code>LABEL</code> creates unhelpful duplicates for screen readers. Only use <code>LABEL</code> during development. If <code>FALLBACK</code> is passed, as in <code>gridOutput(FALLBACK)</code>, the description will only be visible to screen readers. This is the default mode.",
-        "Read <a href=\"/learn/accessible-labels.html\">Writing accessible canvas descriptions</a> to learn more about making sketches accessible."
+        "Read <a href=\"/learn/labeling-canvases.html\">How to label your p5.js code</a> to learn more about making sketches accessible."
       ],
       "params": {
         "display": "Constant: (Optional) either FALLBACK or LABEL."
@@ -284,10 +284,10 @@
         "In WebGL mode, this function can clear the screen to a specific color. It interprets four numeric parameters as normalized RGBA color values. It also clears the depth buffer. If you are not using the WebGL renderer, these parameters will have no effect."
       ],
       "params": {
-        "r": "Number: normalized red value.",
-        "g": "Number: normalized green value.",
-        "b": "Number: normalized blue value.",
-        "a": "Number: normalized alpha value."
+        "r": "Number: (Optional) normalized red value.",
+        "g": "Number: (Optional) normalized green value.",
+        "b": "Number: (Optional) normalized blue value.",
+        "a": "Number: (Optional) normalized alpha value."
       }
     },
     "colorMode": {
@@ -997,7 +997,7 @@
     "cursor": {
       "description": [
         "Changes the cursor's appearance.",
-        "The first parameter, <code>type</code>, sets the type of cursor to display. The built-in options are <code>ARROW</code>, <code>CROSS</code>, <code>HAND</code>, <code>MOVE</code>, <code>TEXT</code>, and <code>WAIT</code>. <code>cursor()</code> also recognizes standard CSS cursor properties passed as strings: <code>'help'</code>, <code>'wait'</code>, <code>'crosshair'</code>, <code>'not-allowed'</code>, <code>'zoom-in'</code>, and <code>'grab'</code>. If the path to an image is passed, as in <code>cursor('assets/target.png')</code>, then the image will be used as the cursor. Images must be in .cur, .gif, .jpg, .jpeg, or .png format.",
+        "The first parameter, <code>type</code>, sets the type of cursor to display. The built-in options are <code>ARROW</code>, <code>CROSS</code>, <code>HAND</code>, <code>MOVE</code>, <code>TEXT</code>, and <code>WAIT</code>. <code>cursor()</code> also recognizes standard CSS cursor properties passed as strings: <code>'help'</code>, <code>'wait'</code>, <code>'crosshair'</code>, <code>'not-allowed'</code>, <code>'zoom-in'</code>, and <code>'grab'</code>. If the path to an image is passed, as in <code>cursor('assets/target.png')</code>, then the image will be used as the cursor. Images must be in .cur, .gif, .jpg, .jpeg, or .png format and should be <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#icon_size_limits\">at most 32 by 32 pixels large.</a>",
         "The parameters <code>x</code> and <code>y</code> are optional. If an image is used for the cursor, <code>x</code> and <code>y</code> set the location pointed to within the image. They are both 0 by default, so the cursor points to the image's top-left corner. <code>x</code> and <code>y</code> must be less than the image's width and height, respectively."
       ],
       "params": {
@@ -1322,8 +1322,19 @@
         "Options can include: <ul> <li><code>format</code>: The data format of the texture, either <code>UNSIGNED_BYTE</code>, <code>FLOAT</code>, or <code>HALF_FLOAT</code>. The default is <code>UNSIGNED_BYTE</code>.</li> <li><code>channels</code>: What color channels to store, either <code>RGB</code> or <code>RGBA</code>. The default is to match the channels in the main canvas (with alpha unless disabled with <code>setAttributes</code>.)</li> <li><code>depth</code>: A boolean, whether or not to include a depth buffer. Defaults to true.</li> <li><code>depthFormat</code>: The data format for depth information, either <code>UNSIGNED_INT</code> or <code>FLOAT</code>. The default is <code>FLOAT</code> if available, or <code>UNSIGNED_INT</code> otherwise.</li> <li><code>stencil</code>: A boolean, whether or not to include a stencil buffer, which can be used for masking. This may only be used if also using a depth buffer. Defaults to the value of <code>depth</code>, which is true if not provided.</li> <li><code>antialias</code>: Boolean or Number, whether or not to render with antialiased edges, and if so, optionally the number of samples to use. Defaults to whether or not the main canvas is antialiased, using a default of 2 samples if so. Antialiasing is only supported when WebGL 2 is available.</li> <li><code>width</code>: The width of the texture. Defaults to matching the main canvas.</li> <li><code>height</code>: The height of the texture. Defaults to matching the main canvas.</li> <li><code>density</code>: The pixel density of the texture. Defaults to the pixel density of the main canvas.</li> <li><code>textureFiltering</code>: Either <code>LINEAR</code> (nearby pixels will be interpolated when reading values from the color texture) or <code>NEAREST</code> (no interpolation.) Generally, use <code>LINEAR</code> when using the texture as an image, and use <code>NEAREST</code> if reading the texture as data. Defaults to <code>LINEAR</code>.</li> </ul>",
         "If <code>width</code>, <code>height</code>, or <code>density</code> are specified, then the framebuffer will keep that size until manually changed. Otherwise, it will be autosized, and it will update to match the main canvas's size and density when the main canvas changes."
       ],
+      "returns": "p5.Framebuffer:",
       "params": {
         "options": "Object: (Optional) An optional object with configuration"
+      }
+    },
+    "clearDepth": {
+      "description": [
+        "This makes the canvas forget how far from the camera everything that has been drawn was. Use this if you want to make sure the next thing you draw will not draw behind anything that is already on the canvas.",
+        "This is useful for things like feedback effects, where you want the previous frame to act like a background for the next frame, and not like a plane in 3D space in the scene.",
+        "This method is only available in WebGL mode. Since 2D mode does not have 3D depth, anything you draw will always go on top of the previous content on the canvas anyway."
+      ],
+      "params": {
+        "depth": "Number: (Optional) The value, between 0 and 1, to reset the depth to, where 0 corresponds to a value as close as possible to the camera before getting clipped, and 1 corresponds to a value as far away from the camera as possible. The default value is 1."
       }
     },
     "blendMode": {
@@ -1798,12 +1809,14 @@
         "Creates a <code>&lt;video&gt;</code> element that \"captures\" the audio/video stream from the webcam and microphone. Returns a new <a href=\"#/p5.Element\">p5.Element</a> object.",
         "Videos are shown by default. They can be hidden by calling <code>capture.hide()</code> and drawn to the canvas using <a href=\"#/p5/image\">image()</a>.",
         "The first parameter, <code>type</code>, is optional. It sets the type of capture to use. By default, <code>createCapture()</code> captures both audio and video. If <code>VIDEO</code> is passed, as in <code>createCapture(VIDEO)</code>, only video will be captured. If <code>AUDIO</code> is passed, as in <code>createCapture(AUDIO)</code>, only audio will be captured. A constraints object can also be passed to customize the stream. See the <a href=\"http://w3c.github.io/mediacapture-main/getusermedia.html#media-track-constraints\" target=\"_blank\"> W3C documentation</a> for possible properties. Different browsers support different properties.",
-        "The second parameter, <code>callback</code>, is optional. It's a function to call once the capture is ready for use. The callback function should have one parameter, <code>stream</code>, that's a <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaStream\" target=\"_blank\">MediaStream</a> object.",
+        "The 'flipped' property is an optional property which can be set to <code>{flipped:true}</code> to mirror the video output.If it is true then it means that video will be mirrored or flipped and if nothing is mentioned then by default it will be <code>false</code>.",
+        "The second parameter,<code>callback</code>, is optional. It's a function to call once the capture is ready for use. The callback function should have one parameter, <code>stream</code>, that's a <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaStream\" target=\"_blank\">MediaStream</a> object.",
         "Note: <code>createCapture()</code> only works when running a sketch locally or using HTTPS. Learn more <a href=\"http://stackoverflow.com/questions/34197653/getusermedia-in-chrome-47-without-using-https\" target=\"_blank\">here</a> and <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia\" target=\"_blank\">here</a>."
       ],
       "returns": "p5.Element: new <a href=\"#/p5.Element\">p5.Element</a> object.",
       "params": {
         "type": "String|Constant|Object: (Optional) type of capture, either AUDIO or VIDEO,  or a constraints object. Both video and audio  audio streams are captured by default.",
+        "flipped": "Object: (Optional) flip the capturing video and mirror the output with <code>{flipped:true}</code>. By  default it is false.",
         "callback": "Function: (Optional) function to call once the stream  has loaded."
       }
     },
@@ -3603,6 +3616,15 @@
         "img": "p5.image: image for the background"
       }
     },
+    "panorama": {
+      "description": [
+        "The <code>panorama(img)</code> method transforms images containing 360-degree content, such as maps or HDRIs, into immersive 3D backgrounds that surround your scene. This is similar to calling <code>background(color)</code>; call <code>panorama(img)</code> before drawing your scene to create a 360-degree background from your image. It operates on the concept of sphere mapping, where the image is mapped onto an infinitely large sphere based on the angles of the camera.",
+        "To enable 360-degree viewing, either use <code>orbitControl()</code> or try changing the orientation of the camera to see different parts of the background."
+      ],
+      "params": {
+        "img": "p5.Image: A 360-degree image to use as a background panorama"
+      }
+    },
     "lights": {
       "description": [
         "Places an ambient and directional light in the scene. The lights are set to ambientLight(128, 128, 128) and directionalLight(128, 128, 128, 0, 0, -1).",
@@ -3660,7 +3682,8 @@
         "Load a 3d model from an OBJ or STL file.",
         "<a href=\"#/p5/loadModel\">loadModel()</a> should be placed inside of <a href=\"#/p5/preload\">preload()</a>. This allows the model to load fully before the rest of your code is run.",
         "One of the limitations of the OBJ and STL format is that it doesn't have a built-in sense of scale. This means that models exported from different programs might be very different sizes. If your model isn't displaying, try calling <a href=\"#/p5/loadModel\">loadModel()</a> with the normalized parameter set to true. This will resize the model to a scale appropriate for p5. You can also make additional changes to the final size of your model with the <a href=\"#/p5/scale\">scale()</a> function.",
-        "Also, the support for colored STL files is not present. STL files with color will be rendered without color properties."
+        "Also, the support for colored STL files is not present. STL files with color will be rendered without color properties.",
+        "Options can include: <ul> <li><code>path</code>: Specifies the location or path of the 3D model file for loading.</li> <li><code>normalize</code>: Enables standardized size scaling during loading if set to true.</li> <li><code>successCallback</code>: Callback for post-loading actions with the 3D model object.</li> <li><code>failureCallback</code>: Handles errors if model loading fails, receiving an event error.</li> <li><code>fileType</code>: Defines the file extension of the model.</li> <li><code>flipU</code>: Flips the U texture coordinates of the model.</li> <li><code>flipV</code>: Flips the V texture coordinates of the model.</li> </ul>"
       ],
       "returns": "p5.Geometry: the <a href=\"#/p5.Geometry\">p5.Geometry</a> object",
       "params": {
@@ -3668,7 +3691,8 @@
         "normalize": "Boolean: If true, scale the model to a  standardized size when loading",
         "successCallback": "function(p5.Geometry): (Optional) Function to be called  once the model is loaded. Will be passed  the 3D model object.",
         "failureCallback": "Function(Event): (Optional) called with event error if  the model fails to load.",
-        "fileType": "String: (Optional) The file extension of the model  (<code>.stl</code>, <code>.obj</code>)."
+        "fileType": "String: (Optional) The file extension of the model  (<code>.stl</code>, <code>.obj</code>).",
+        "options": "Object (Optional)"
       }
     },
     "model": {
@@ -3724,6 +3748,7 @@
         "Shaders can alter the positioning of shapes drawn with them. To ensure consistency in rendering, it's recommended to use the vertex shader in the <a href=\"#/p5/createShader\">createShader example</a>.",
         "Custom shaders can be created using the <a href=\"#/p5/createShader\">createShader()</a> and <a href=\"#/p5/loadShader\">loadShader()</a> functions.",
         "Use <a href=\"#/p5/resetShader\">resetShader()</a> to restore the default shaders.",
+        "Additional Information: The shader will be used for: <ul> <li>Fills when a texture is enabled if it includes a uniform <code>sampler2D</code>.</li> <li>Fills when lights are enabled if it includes the attribute <code>aNormal</code>, or if it has any of the following uniforms: <code>uUseLighting</code>, <code>uAmbientLightCount</code>, <code>uDirectionalLightCount</code>, <code>uPointLightCount</code>, <code>uAmbientColor</code>, <code>uDirectionalDiffuseColors</code>, <code>uDirectionalSpecularColors</code>, <code>uPointLightLocation</code>, <code>uPointLightDiffuseColors</code>, <code>uPointLightSpecularColors</code>, <code>uLightingDirection</code>, or <code>uSpecular</code>.</li> <li>Fills whenever there are no lights or textures.</li> <li>Strokes if it includes the uniform <code>uStrokeWeight</code>. Note: This behavior is considered experimental, and changes are planned in future releases.</li> </ul>",
         "Note, shaders can only be used in WEBGL mode."
       ],
       "params": {
@@ -3833,12 +3858,23 @@
         "shine": "Number: degree of shininess"
       }
     },
+    "metalness": {
+      "description": [
+        "Sets the metalness property of a material used in 3D rendering.",
+        "The metalness property controls the degree to which the material appears metallic. A higher metalness value makes the material look more metallic, while a lower value makes it appear less metallic.",
+        "The default and minimum value is 0, indicating a non-metallic appearance.",
+        "Unlike other materials, metals exclusively rely on reflections, particularly those produced by specular lights (mirrorLike lights). They don't incorporate diffuse or ambient lighting. Metals use a fill color to influence the overall color of their reflections. Pick a fill color, and you can easily change the appearance of the metal surfaces. When no fill color is provided, it defaults to using white."
+      ],
+      "params": {
+        "metallic": "Number: <ul> <li>The degree of metalness.</li> </ul>"
+      }
+    },
     "camera": {
       "description": [
         "Sets the position of the current camera in a 3D sketch. Parameters for this function define the camera's position, the center of the sketch (where the camera is pointing), and an up direction (the orientation of the camera).",
         "This function simulates the movements of the camera, allowing objects to be viewed from various angles. Remember, it does not move the objects themselves but the camera instead. For example when the centerX value is positive, and the camera is rotating to the right side of the sketch, the object will seem like it's moving to the left.",
         "See this <a href = \"https://www.openprocessing.org/sketch/740258\">example</a> to view the position of your camera.",
-        "If no parameters are given, the following default is used: camera(0, 0, (height/2) / tan(PI/6), 0, 0, 0, 0, 1, 0)"
+        "If no parameters are given, the following default is used: camera(0, 0, 800, 0, 0, 0, 0, 1, 0)"
       ],
       "params": {
         "x": "Number: (Optional) camera position value on x axis",
@@ -3870,7 +3906,7 @@
       "description": [
         "Sets an orthographic projection for the current camera in a 3D sketch and defines a box-shaped viewing frustum within which objects are seen. In this projection, all objects with the same dimension appear the same size, regardless of whether they are near or far from the camera.",
         "The parameters to this function specify the viewing frustum where left and right are the minimum and maximum x values, top and bottom are the minimum and maximum y values, and near and far are the minimum and maximum z values.",
-        "If no parameters are given, the following default is used: ortho(-width/2, width/2, -height/2, height/2)."
+        "If no parameters are given, the following default is used: ortho(-width/2, width/2, -height/2, height/2, 0, max(width, height) + 800)."
       ],
       "params": {
         "left": "Number: (Optional) camera frustum left plane",
@@ -3886,7 +3922,7 @@
         "Sets the frustum of the current camera as defined by the parameters.",
         "A frustum is a geometric form: a pyramid with its top cut off. With the viewer's eye at the imaginary top of the pyramid, the six planes of the frustum act as clipping planes when rendering a 3D view. Thus, any form inside the clipping planes is visible; anything outside those planes is not visible.",
         "Setting the frustum changes the perspective of the scene being rendered. This can be achieved more simply in many cases by using <a href=\"https://p5js.org/reference/#/p5/perspective\">perspective()</a>.",
-        "If no parameters are given, the following default is used: frustum(-width/20, width/20, height/20, -height/20, eyeZ/10, eyeZ*10), where eyeZ is equal to ((height/2) / tan(PI/6))."
+        "If no parameters are given, the following default is used: frustum(-width/20, width/20, height/20, -height/20, eyeZ/10, eyeZ*10), where eyeZ is equal to 800."
       ],
       "params": {
         "left": "Number: (Optional) camera frustum left plane",
@@ -3911,17 +3947,6 @@
       ],
       "params": {
         "cam": "p5.Camera: p5.Camera object"
-      }
-    },
-    "vertexNormal": {
-      "description": [
-        "Sets the normal to use for subsequent vertices."
-      ],
-      "params": {
-        "x": "Number",
-        "y": "Number",
-        "z": "Number",
-        "v": "Vector"
       }
     },
     "setAttributes": {
@@ -4408,7 +4433,7 @@
       ],
       "returns": "Object: width and height of the element in an object.",
       "params": {
-        "w": "Number|Constant: width of the element, either AUTO, or a number.",
+        "w": "Number|Constant: (Optional) width of the element, either AUTO, or a number.",
         "h": "Number|Constant: (Optional) height of the element, either AUTO, or a number."
       }
     },
@@ -4462,7 +4487,8 @@
       "description": [
         "Creates and returns a new <a href=\"#/p5.Framebuffer\">p5.Framebuffer</a> inside a p5.Graphics WebGL context.",
         "This takes the same parameters as the <a href=\"#/p5/createFramebuffer\">global createFramebuffer function.</a>"
-      ]
+      ],
+      "returns": "p5.Framebuffer:"
     }
   },
   "p5.Renderer": {
@@ -5925,24 +5951,24 @@
       "This class describes a camera for use in p5's <a href=\"https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5\"> WebGL mode</a>. It contains camera position, orientation, and projection information necessary for rendering a 3D scene.",
       "New p5.Camera objects can be made through the <a href=\"#/p5/createCamera\">createCamera()</a> function and controlled through the methods described below. A camera created in this way will use a default position in the scene and a default perspective projection until these properties are changed through the various methods available. It is possible to create multiple cameras, in which case the current camera can be set through the <a href=\"#/p5/setCamera\">setCamera()</a> method.",
       "Note: The methods below operate in two coordinate systems: the 'world' coordinate system describe positions in terms of their relationship to the origin along the X, Y and Z axes whereas the camera's 'local' coordinate system describes positions from the camera's point of view: left-right, up-down, and forward-backward. The <a href=\"#/p5.Camera/move\">move()</a> method, for instance, moves the camera along its own axes, whereas the <a href=\"#/p5.Camera/setPosition\">setPosition()</a> method sets the camera's position in world-space.",
-      "The camera object propreties <code>eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ</code> which describes camera position, orientation, and projection are also accessible via the camera object generated using <a href=\"#/p5/createCamera\">createCamera()</a>"
+      "The camera object properties <code>eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ</code> which describes camera position, orientation, and projection are also accessible via the camera object generated using <a href=\"#/p5/createCamera\">createCamera()</a>"
     ],
     "params": {
       "rendererGL": "RendererGL: instance of WebGL renderer"
     },
     "eyeX": {
       "description": [
-        "camera position value on x axis"
+        "camera position value on x axis. default value is 0"
       ]
     },
     "eyeY": {
       "description": [
-        "camera position value on y axis"
+        "camera position value on y axis. default value is 0"
       ]
     },
     "eyeZ": {
       "description": [
-        "camera position value on z axis"
+        "camera position value on z axis. default value is 800"
       ]
     },
     "centerX": {
@@ -6171,6 +6197,18 @@
         "Removes the internal colors of p5.Geometry. Using <code>clearColors()</code>, you can use <code>fill()</code> to supply new colors before drawing each shape. If <code>clearColors()</code> is not used, the shapes will use their internal colors by ignoring <code>fill()</code>."
       ]
     },
+    "flipU": {
+      "description": [
+        "Flips the U texture coordinates of the model."
+      ],
+      "returns": "p5.Geometry:"
+    },
+    "flipV": {
+      "description": [
+        "Flips the V texture coordinates of the model."
+      ],
+      "returns": "p5.Geometry:"
+    },
     "computeFaces": {
       "description": [
         "computes faces for geometry objects based on the vertices."
@@ -6230,7 +6268,7 @@
       ],
       "params": {
         "uniformName": "String: the name of the uniform. Must correspond to the name used in the vertex and fragment shaders",
-        "data": "Boolean|Number|Number[]|p5.Image|p5.Graphics|p5.MediaElement|p5.Texture: the data to associate with the uniform. The type can be a boolean (true/false), a number, an array of numbers, or an image (p5.Image, p5.Graphics, p5.MediaElement, p5.Texture)"
+        "data": "Boolean|Number|Number[]|p5.Image|p5.Graphics|p5.MediaElement|p5.Texture: The value to assign to the uniform. This can be a boolean (true/false), a number, an array of numbers, or an image (p5.Image, p5.Graphics, p5.MediaElement, p5.Texture)"
       }
     }
   },
