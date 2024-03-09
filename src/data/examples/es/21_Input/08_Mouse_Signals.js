@@ -38,7 +38,7 @@ function draw() {
 
   for (let i = 1; i < width; i++) {
     stroke(255);
-    point(i, xvals[i] / 3);
+    point(i, xvals[i] * height/width / 3);
     stroke(0);
     point(i, height / 3 + yvals[i] / 3);
     stroke(255);
