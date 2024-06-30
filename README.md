@@ -1,4 +1,4 @@
-[![Test and Deploy Status](https://github.com/processing/p5.js-website/actions/workflows/deploy.yaml/badge.svg)](https://github.com/processing/p5.js-website/actions/workflows/deploy.yaml)
+# This repository is archived. You can find the current repository for the p5js.org website here: https://github.com/processing/p5.js-website
 
 # p5js website
 
